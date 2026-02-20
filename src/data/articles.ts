@@ -168,28 +168,28 @@ export const articles: Article[] = [
                     <p>You will return to it when distracted.You will push through when it feels slow.You will stay with it when others give up.</p>
                         <p> But if your reason is weak, even the best ‘techniques’ won’t hold you.</p>
 
-                            <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Go Beyond Surface Answers </h2>
-                                <p> A student might say: <em>“I want good grades.”</em></p>
-                                    <p>That sounds fine.But it doesn’t go far enough.So you ask questions like: </p>
-                                        <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
-                                            <li>“Why do you want good grades ?”</li>
-                                                <li>“What will that give you ?”</li>
-                                                    <li>“Why does that matter ?”</li>
-                                                        </ul>
+    <h2 class="text-2xl font-bold text-white mt-12 mb-6">Go Beyond Surface Answers</h2>
+    <p>A student might say: <em>“I want good grades.”</em></p>
+    <p>That sounds fine. But it doesn’t go far enough. So you ask questions like:</p>
+    <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+        <li>“Why do you want good grades?”</li>
+        <li>“What will that give you?”</li>
+        <li>“Why does that matter?”</li>
+    </ul>
 
-                                                        <p> And then again.And again.</p>
-                                                            <p> At first, the answers are often shallow.You may answer by saying something like: <em>“To get into a good university”</em> or <em>“To get a good job.”</em> </p>
-                                                                <p> But if you keep asking, something deeper emerges.Perhaps something like: </p>
+    <p>And then again. And again.</p>
+    <p>Like the medical students, it is important that it matters to you for the right reasons. If your first answers seem too shallow, keep asking, something deeper emerges.</p>
+    <p>Consider the medical students:</p>
 
-                                                                    <blockquote class="my-10 pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl">
-                                                                        <p class="text-xl font-medium text-white italic leading-relaxed space-y-4">
-                    “I don’t want to limit my future options.”<br/><br/>
-                    “I want to understand the world properly.”<br/><br/>
-                    “I want to become someone who thinks clearly.”
-</p>
+    <blockquote class="my-10 pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl">
+        <p class="text-xl font-medium text-white italic leading-relaxed space-y-4">
+            “I want to understand how healing works.”<br/><br/>
+            “I want to help people live healthier and longer.”<br/><br/>
+            “By doing this, my life can make a difference in the world.”
+        </p>
     </blockquote>
 
-    <p class="text-lg text-white font-medium"> That is different.That holds.</p>
+    <p class="text-lg text-white font-medium">That is different. That holds.</p>
 
         <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Most People Stop Too Early </h2>
             <p> The problem is not that people don’t have a reason.It’s that they settle for the first one.And the first one is rarely strong enough.</p>
