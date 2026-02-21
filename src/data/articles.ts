@@ -2226,6 +2226,129 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "learning-agility",
+        title: "Learning Agility: How to Quickly Grasp Any Subject",
+        category: "LEARN",
+        excerpt: "Perfect for education and business. The ability to learn quickly is itself a learnable skill. These are the strategies used by the fastest, most adaptable thinkers in any field.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">In business and in education, the fastest learners win.</p>
+            <p>Not because they are smarter. Because they have learned how to learn.</p>
+            <p class="font-medium text-white mt-4 mb-8">Learning agility — the ability to quickly grasp any new subject — is itself a skill. And like every skill in this curriculum, it can be built deliberately.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🌱</span> Start with the Right Mindset</h2>
+            <p>The single most important variable in learning speed is not IQ. It is what psychologists call a <strong class="text-white">growth mindset</strong> — the belief that your abilities can be developed through effort.</p>
+            <p class="mt-4">People with a fixed mindset — who believe intelligence is static — avoid challenges, hide difficulty, and give up at the first obstacle. People with a growth mindset do the opposite.</p>
+            <p class="mt-4">Before you open any book or start any course, ask yourself: do I believe I can genuinely understand this? If the honest answer is no, that is the first thing to address.</p>
+
+            <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
+                <p class="text-slate-300"><strong class="text-white">The reframe:</strong> You are not someone who "doesn't get" maths, law, or biology. You are someone who has not yet learned an effective strategy for approaching it. Those are entirely different statements.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> The Fast Learner's Toolkit</h2>
+            <p>Once the mindset is right, the following strategies work in combination. Pick the ones most relevant to your context and apply them with intention.</p>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">01</span>
+                    <div>
+                        <p class="font-bold text-white">Listen and observe actively</p>
+                        <p class="text-sm text-slate-400 mt-1">Be a student of the subject, not just a passive recipient of it. When encountering anything new, consciously look for the key concepts, the underlying patterns, and the connections to things you already know. Active observation is a skill you can practise.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">02</span>
+                    <div>
+                        <p class="font-bold text-white">Ask better questions</p>
+                        <p class="text-sm text-slate-400 mt-1">Curiosity is the engine of fast learning. Ask "why?" constantly. Clarify what you don't understand before moving on. The best learners in any room are rarely the ones who speak most; they are the ones who ask the sharpest questions.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">03</span>
+                    <div>
+                        <p class="font-bold text-white">Slice the subject first</p>
+                        <p class="text-sm text-slate-400 mt-1">Before diving into detail, break the subject into its component parts. Understanding the structure of a new field prevents overwhelm and creates a mental map you can navigate. Master one section at a time; each piece makes the next one easier.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">04</span>
+                    <div>
+                        <p class="font-bold text-white">Use multiple sources</p>
+                        <p class="text-sm text-slate-400 mt-1">Any single textbook, course, or mentor has blind spots. Accessing books, videos, articles, and conversations gives you multiple angles on the same concept. When three different sources describe the same thing differently, your understanding deepens dramatically.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">05</span>
+                    <div>
+                        <p class="font-bold text-white">Map the relationships</p>
+                        <p class="text-sm text-slate-400 mt-1">Use mind maps, concept maps, or diagrams to visualise how ideas relate to each other. This transforms a list of facts into a network of understanding — and networks are far easier to remember and apply than lists.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-indigo-950/20 border border-indigo-500/30 rounded-xl">
+                    <span class="text-indigo-400 font-bold text-lg shrink-0">06</span>
+                    <div>
+                        <p class="font-bold text-white">Teach it to understand it</p>
+                        <p class="text-slate-300 text-sm mt-1">The fastest way to reveal gaps in your understanding is to explain the subject to someone else. If you can teach it clearly, you understand it. If you stumble, you've found exactly where to focus next. This is the Feynman Technique in practice.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">07</span>
+                    <div>
+                        <p class="font-bold text-white">Retrieve, don't review</p>
+                        <p class="text-sm text-slate-400 mt-1">After learning anything, close the material and attempt to recall it from memory. This is active recall — and research consistently shows it produces far better retention than any amount of re-reading. The effort of retrieval is the mechanism of learning.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">08</span>
+                    <div>
+                        <p class="font-bold text-white">Use memory anchors</p>
+                        <p class="text-sm text-slate-400 mt-1">Mnemonics, acronyms, vivid imagery, and story-based associations are not childish tricks. They are how memory actually works. Attaching new information to something visual, emotional, or absurd makes it dramatically more retrievable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📐</span> The Infrastructure of Fast Learning</h2>
+            <p>Strategies are only effective inside a supporting structure. These three habits form the foundation.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
+                    <p class="text-2xl mb-2">📅</p>
+                    <h4 class="font-bold text-white mb-2">Daily practice</h4>
+                    <p class="text-sm text-slate-400">Learning agility is a muscle. Consistent daily effort — even 30 minutes — compounded over weeks, beats intermittent marathon sessions every time.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
+                    <p class="text-2xl mb-2">🗂️</p>
+                    <h4 class="font-bold text-white mb-2">Stay organised</h4>
+                    <p class="text-sm text-slate-400">Chaotic materials create chaotic thinking. A simple study schedule and organised notes reduce cognitive load and ensure you cover the whole subject systematically.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
+                    <p class="text-2xl mb-2">⚡</p>
+                    <h4 class="font-bold text-white mb-2">Treat mistakes as data</h4>
+                    <p class="text-sm text-slate-400">Every wrong answer and every gap in understanding is precise information about what to study next. Fast learners don't fear mistakes. They mine them.</p>
+                </div>
+            </div>
+
+            <p class="font-bold text-white text-lg text-center my-12">The ability to learn quickly is not a gift. It is a discipline — and it is available to anyone willing to practise it.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Dive Deeper</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <a href="/blog/feynman-technique" class="block p-5 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Teach to learn</p>
+                    <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">The Feynman Technique<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/active-recall" class="block p-5 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Retrieve, don't review</p>
+                    <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/slicing-the-elephant" class="block p-5 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Break it down</p>
+                    <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">Slicing the Elephant<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
