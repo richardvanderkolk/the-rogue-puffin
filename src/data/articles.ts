@@ -1664,6 +1664,185 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "active-recall",
+        title: "Active Recall vs. The Illusion of Competence",
+        category: "LEARN",
+        excerpt: "Re-reading feels productive. It isn't. Highlighting feels like learning. It isn't. There is a dangerous gap between the feeling of knowing something and actually knowing it.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">You've read the chapter three times. The notes are highlighted. The summary is neat and colour-coded.</p>
+            <p>And on the day of the exam, you go blank.</p>
+            <p class="font-medium text-white mt-4 mb-8">This is not a memory failure. It's a strategy failure.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🪞</span> The Illusion of Competence</h2>
+            <p>Psychologists call it the "fluency illusion." When you re-read familiar material, your brain processes it smoothly. That smoothness feels like knowledge.</p>
+            <p class="mt-4">It isn't. It's recognition.</p>
+
+            <div class="my-8 p-6 bg-slate-900/40 border border-white/5 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="border-l-4 border-rose-500 pl-4">
+                    <h4 class="font-bold text-white mb-2">Recognition</h4>
+                    <p class="text-sm text-slate-400">You see material you've seen before and your brain signals "familiar." This <em>feels</em> like understanding. But recognition is passive. It means nothing without the book in front of you.</p>
+                </div>
+                <div class="border-l-4 border-emerald-500 pl-4">
+                    <h4 class="font-bold text-white mb-2">Recall</h4>
+                    <p class="text-sm text-slate-400">You reconstruct the information from scratch, without cues or prompts. This is cognitively hard. That difficulty is the signal that real learning is happening.</p>
+                </div>
+            </div>
+
+            <p>The research on this is abundant and clear. In a landmark study by Roediger and Karpicke (2006), students who did repeated tests on material they had read scored <strong class="text-white">50% higher</strong> on final tests than students who spent that same time re-reading.</p>
+            <p class="font-medium text-indigo-300 mt-4">Testing didn't just assess learning. Testing <em>was</em> learning.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧠</span> Why Testing Works</h2>
+            <p>Every time you try to retrieve a memory, you strengthen the neural pathway to that memory.</p>
+            <p class="mt-4">Think of it like creating a path through a field of grass.</p>
+            <ul class="space-y-4 my-8 border-l border-slate-800 ml-3 pl-6">
+                <li class="relative">
+                    <span class="absolute -left-8 top-1 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-slate-950"></span>
+                    <p class="text-slate-400">Walk through it once — you leave a faint trail. (Reading)</p>
+                </li>
+                <li class="relative">
+                    <span class="absolute -left-8 top-1 w-3 h-3 rounded-full bg-slate-700 ring-4 ring-slate-950"></span>
+                    <p class="text-slate-400">Walk through it again and again — you reinforce the same trail. (Re-reading)</p>
+                </li>
+                <li class="relative">
+                    <span class="absolute -left-8 top-1 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-slate-950"></span>
+                    <p class="text-white font-medium">Struggle to find your way from a new direction — you create new, stronger pathways. (Active recall)</p>
+                </li>
+            </ul>
+            <p>The struggle to retrieve is the mechanism. It's not a sign that something is wrong — it's proof that you are actually learning.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✍️</span> How to Apply Active Recall</h2>
+            <p>You don't need special software or complex systems. You need one principle: close the book and try to retrieve.</p>
+            
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg">1</span>
+                    <div>
+                        <p class="font-bold text-white">The Blank Page Method</p>
+                        <p class="text-sm text-slate-400 mt-1">After reading a section, close the book. On a blank page, write down everything you can remember. No peeking. Gaps will reveal exactly what you don't yet know.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg">2</span>
+                    <div>
+                        <p class="font-bold text-white">Question-Based Notes</p>
+                        <p class="text-sm text-slate-400 mt-1">Instead of writing summaries, convert your notes into questions. "What causes X?" instead of "X is caused by Y." Then regularly quiz yourself without looking at the answer.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg">3</span>
+                    <div>
+                        <p class="font-bold text-white">Flashcard Testing</p>
+                        <p class="text-sm text-slate-400 mt-1">Physical or digital flashcards work — but only if you genuinely attempt the answer before flipping. The attempt is everything. The flip is just feedback.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="font-bold text-white text-lg text-center my-8">Productive discomfort is the feeling of real learning. Lean into it.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/feynman-technique" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Feynman Technique<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
+        slug: "feynman-technique",
+        title: "The Feynman Technique: If You Can't Explain It Simply, You Don't Understand It",
+        category: "LEARN",
+        excerpt: "Richard Feynman was a Nobel Prize-winning physicist who believed that the ultimate test of understanding was being able to explain something simply — so simply that a child could follow it.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Richard Feynman was one of the most brilliant physicists of the 20th century.</p>
+            <p>He was also one of the most effective explainers. Not just to experts, but to anyone.</p>
+            <p class="font-medium text-white mt-4 mb-8">And he believed these two qualities were inseparable.</p>
+
+            <blockquote class="border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8 text-lg">
+                "If you can't explain it simply, you don't understand it well enough."
+                <span class="text-sm font-bold text-indigo-400 mt-2 block not-italic">— Richard Feynman</span>
+            </blockquote>
+
+            <p>The Feynman Technique isn't a memorization hack. It is a ruthless test of genuine comprehension.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📋</span> The Four Steps</h2>
+
+            <div class="space-y-6 my-8">
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl flex gap-6 items-start">
+                    <span class="text-4xl font-bold text-slate-700 font-heading shrink-0">01</span>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-2">Choose the concept</h4>
+                        <p class="text-slate-400">Pick the idea, principle, or topic you want to understand. Write the name at the top of a blank page.</p>
+                    </div>
+                </div>
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl flex gap-6 items-start">
+                    <span class="text-4xl font-bold text-slate-700 font-heading shrink-0">02</span>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-2">Explain it to a child</h4>
+                        <p class="text-slate-400">Write out the concept as if you are teaching it to a 12-year-old. No jargon. No technical shortcuts. Plain language only. This is the hard part — and deliberately so.</p>
+                    </div>
+                </div>
+                <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl flex gap-6 items-start">
+                    <span class="text-4xl font-bold text-indigo-800 font-heading shrink-0">03</span>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-2">Identify the gaps</h4>
+                        <p class="text-slate-300">Wherever you hesitate, stumble, or reach for technical language — that is where your understanding is weak. Those gaps are the most valuable thing this exercise produces. Go back to the source material and study <em>exactly those gaps</em>.</p>
+                    </div>
+                </div>
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl flex gap-6 items-start">
+                    <span class="text-4xl font-bold text-slate-700 font-heading shrink-0">04</span>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-2">Simplify and use analogies</h4>
+                        <p class="text-slate-400">Once you've filled the gaps, rewrite your explanation. Use analogies. Use stories. Connect the new concept to something the "child" already knows. If you can do this, you own the idea.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔍</span> Why Jargon Is a Warning Sign</h2>
+            <p>Jargon is useful for communication between experts. But when you are learning, over-reliance on technical language often signals a problem.</p>
+            <p class="mt-4">It signals that you have memorized the vocabulary without internalising the idea.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                <div class="p-6 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">Without Feynman</h4>
+                    <p class="text-sm text-slate-300 italic">"Photosynthesis is the process by which photoautotrophs convert light energy into chemical energy stored in glucose via the Calvin cycle."</p>
+                    <p class="text-xs text-rose-400 mt-3">Can you explain <em>why</em> that matters? What it actually looks like? What fails when it doesn't happen?</p>
+                </div>
+                <div class="p-6 bg-slate-900/40 border-l-4 border-emerald-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">With Feynman</h4>
+                    <p class="text-sm text-slate-300 italic">"Plants are like solar panels that make their own food. They use sunlight to turn water and air into the sugars that power every cell in their body. Without this, almost all life on Earth would collapse."</p>
+                    <p class="text-xs text-emerald-400 mt-3">Now you understand it. And you could explain it to anyone.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔗</span> The Connection to Active Recall</h2>
+            <p>The Feynman Technique is active recall at its highest level.</p>
+            <p class="mt-4">Flashcards test whether you remember a fact. The Feynman Technique tests whether you have truly understood a concept — deeply enough to rebuild it from scratch in your own words.</p>
+            <p class="font-medium text-white mt-4 mb-8">Use both. They work at different depths of understanding.</p>
+            <p class="font-bold text-white text-lg text-center my-8">If you can teach it clearly, you know it truly.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/spaced-repetition" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Spaced Repetition<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 

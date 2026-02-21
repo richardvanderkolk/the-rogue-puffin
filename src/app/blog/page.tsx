@@ -180,8 +180,12 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Genius Note Taking</li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Using Your Learning ‘Superpower’</li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Engaging Your Imagination</li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Active Recall vs. The Illusion of Competence</li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• The Feynman Technique</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/active-recall">• Active Recall vs. The Illusion of Competence</Link>
+                                                    </li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/feynman-technique">• The Feynman Technique</Link>
+                                                    </li>
                                                 </ul>
                                             </div>
 
