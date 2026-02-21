@@ -1952,6 +1952,280 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "genius-comprehension",
+        title: "Genius Comprehension: Read It Once and Actually Understand It",
+        category: "LEARN",
+        excerpt: "Re-reading the same paragraph three times and still not getting it is not a focus problem. It's a strategy problem. These are the fundamentals that turn passive reading into genuine understanding.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Whether you are reading for business decisions, academic exams, career development, or pure enjoyment — how you read matters as much as what you read.</p>
+            <p>Most people read the same way they learned to as a child: linearly, passively, and alone with the words. But reading is a skill. And like every skill, it can be dramatically improved.</p>
+            <p class="font-medium text-white mt-4 mb-8">These fundamentals will transform reading from something that happens to you into something you do with intention.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">👁️</span> Preview First, Read Second</h2>
+            <p>Before diving into a text, take two to three minutes to survey the landscape. Skim the headings, subheadings, and any bolded or italicised text. Read the introduction and the conclusion.</p>
+            <p class="mt-4">This is not skipping — it is preparation.</p>
+            <p class="mt-4">Previewing activates your prior knowledge and creates a mental framework before the detailed reading begins. Your brain is not a blank slate: it learns new information by connecting it to what it already knows. Give it the scaffolding first.</p>
+            <div class="p-5 bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl my-6">
+                <p class="text-slate-300 text-sm"><strong class="text-white">Already covered:</strong> Our full guide to previewing is in <a href="/blog/preview-the-material" class="text-indigo-400 hover:underline">Preview the Material</a>.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✍️</span> Read Actively, Not Passively</h2>
+            <p>Active reading means engaging with the text as you go — not merely moving your eyes across words.</p>
+            <div class="space-y-3 my-8">
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-400 text-lg shrink-0">→</span>
+                    <p class="text-slate-300"><strong class="text-white">Annotate.</strong> Underline key ideas. Write brief reactions in the margins. Mark what surprises you.</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-400 text-lg shrink-0">→</span>
+                    <p class="text-slate-300"><strong class="text-white">Question.</strong> As you read, ask "Why?" and "So what?" and "How does this connect to what I already know?"</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-400 text-lg shrink-0">→</span>
+                    <p class="text-slate-300"><strong class="text-white">Connect.</strong> Link what you're reading to your own experiences, professional context, or other books you've read. Personal connections create lasting understanding.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> Hunt for the Main Ideas</h2>
+            <p>Every good piece of writing has a spine: the central ideas that everything else supports. Identifying this spine is your primary job as a reader.</p>
+            <p class="mt-4">Pay attention to topic sentences — typically the first sentence of each paragraph. Pay attention to headings and to summarizing statements. When you find the main idea of a section, everything else becomes supporting detail, and details are far easier to retain once the main structure is clear.</p>
+            <p class="font-medium text-white mt-4">Understand the argument. The details will follow.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📖</span> Build Your Vocabulary Deliberately</h2>
+            <p>One of the most reliable bottlenecks to comprehension is encountering a word you don't know and sliding past it.</p>
+            <p class="mt-4">Unfamiliar words create comprehension gaps. Those gaps compound. By the end of the page you have lost the thread.</p>
+            <p class="mt-4">When you encounter an unfamiliar word, note it. Look it up after the section rather than breaking your reading flow. Then — crucially — use it. Words only enter your long-term vocabulary through active use, not passive exposure.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏸️</span> Pause, Summarise, Continue</h2>
+            <p>At the end of each section, stop. Close the material. Write or say the main points in your own words.</p>
+            <p class="mt-4">This is active recall applied to comprehension. If you can summarise it clearly, you understood it. If you cannot, that is valuable feedback — go back and re-read with more intention.</p>
+            <p class="font-medium text-white mt-4">The summary is the proof of understanding.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">☕</span> Protect Your Mental Energy</h2>
+            <p>Reading for extended periods without breaks leads to cognitive fatigue, and a tired brain does not comprehend. It merely scans.</p>
+            <p class="mt-4">Take short breaks every 25–45 minutes. Step away from the desk. Let your mind process what it has just absorbed. You will return sharper, and the break itself helps consolidate what you've learned.</p>
+            <p class="font-medium text-white mt-4">Rest is not a reward for finishing. It is part of the process.</p>
+
+            <p class="font-bold text-white text-lg text-center my-12">Comprehension is not about reading faster. It's about reading smarter.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/engaging-your-imagination" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Engage Your Imagination<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
+        slug: "engaging-your-imagination",
+        title: "Engage Your Imagination: Make Any Subject Come Alive",
+        category: "LEARN",
+        excerpt: "The difficulty of learning rises in direct proportion to how little you are interested in it. But interest is not fixed. Imagination is a skill — and the most powerful comprehension tool you already own.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">The difficulty of learning increases in direct proportion to how little you are interested in the subject.</p>
+            <p>When material fails to capture your attention, your brain treats it as noise to be filtered out rather than signal to be stored. Motivation evaporates. Comprehension collapses.</p>
+            <p class="font-medium text-white mt-4 mb-8">But here is what most learners don't realise: interest is not a fixed trait. It is something you can deliberately cultivate.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔥</span> Someone Was Passionate Enough to Write This</h2>
+            <p>Every textbook chapter, every academic paper, every technical manual was written by a human being who found the topic fascinating enough to dedicate significant effort to it.</p>
+            <p class="mt-4">That passion is in there somewhere. Your job is to find it.</p>
+            <p class="mt-4">Before dismissing dry material, ask: <em class="text-indigo-300">What problem was this written to solve? Who does this knowledge help, and how? What would the world look like without this idea?</em></p>
+            <p class="font-medium text-white mt-4">Find the stake in the material, and the material comes alive.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎬</span> Create Mental Images</h2>
+            <p>You have almost certainly noticed that your favourite book is one where you felt present in the story — you could see the scene, hear the characters, feel the tension.</p>
+            <p class="mt-4">The same mechanism is available to you in every type of learning.</p>
+            <p class="mt-4">As you read or listen to new material, actively construct a mental image of what is being described. Visualise the process. Picture the system. Imagine the scene. The more vivid and specific the image, the stronger the memory trace.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                <div class="p-6 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">Without Visual Engagement</h4>
+                    <p class="text-sm text-slate-400">Reading the words "the heart pumps blood through the aorta." Moving on. Forgetting within the hour.</p>
+                </div>
+                <div class="p-6 bg-slate-900/40 border-l-4 border-emerald-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">With Visual Engagement</h4>
+                    <p class="text-sm text-slate-400">Pausing to visualise the heart contracting, the blood surging through a thick vessel, the pressure wave travelling outward. That image stays.</p>
+                </div>
+            </div>
+
+            <p>Research in cognitive science consistently shows that dual-coding — pairing words with mental images — dramatically improves retention compared to verbal learning alone.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🖊️</span> Highlight with Intention</h2>
+            <p>Most learners highlight too much. When everything is highlighted, nothing is highlighted.</p>
+            <p class="mt-4">Strategic highlighting is a powerful focus tool — used poorly, it creates the illusion of engagement without the substance of it.</p>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">1</span>
+                    <div>
+                        <p class="font-bold text-white">Skim first, highlight second</p>
+                        <p class="text-sm text-slate-400 mt-1">Read the full section before picking up the highlighter. Once you know what the section is about, you can make an informed decision about what is truly important — not just what sounds important mid-sentence.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">2</span>
+                    <div>
+                        <p class="font-bold text-white">Highlight less than you think you should</p>
+                        <p class="text-sm text-slate-400 mt-1">Aim to highlight a maximum of 10–20% of any section. If you feel the urge to highlight an entire paragraph, that is a sign to write a summary note instead.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">3</span>
+                    <div>
+                        <p class="font-bold text-white">Use a colour system</p>
+                        <p class="text-sm text-slate-400 mt-1">Yellow for core concepts. Green for key examples. Orange for things you don't yet understand and need to revisit. A colour system turns highlighting into a review tool.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-sm text-slate-500 italic">Note: when reviewing, always read slightly beyond your highlights. Context matters — and a highlight stripped of its surrounding sentences can lose its meaning.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🌊</span> Take Breaks — And Hydrate</h2>
+            <p>Sustained focus requires physical maintenance. Two of the most overlooked performance variables are rest and water.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl">
+                    <h4 class="font-bold text-white mb-3 flex items-center gap-2">⏸️ Breaks</h4>
+                    <p class="text-sm text-slate-400">Your working memory has a finite capacity. After 25–45 minutes of focused work, it begins to saturate. Step away. The break is not wasted time — it is when consolidation happens.</p>
+                </div>
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl">
+                    <h4 class="font-bold text-white mb-3 flex items-center gap-2">💧 Hydration</h4>
+                    <p class="text-sm text-slate-400">Your brain requires adequate fluids to maintain mental clarity, alertness, and problem-solving function. Even mild dehydration measurably impairs memory and focus. Maximise water, minimise caffeine and dehydrating drinks.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">💬</span> Make It Social</h2>
+            <p>One of the most powerful ways to engage your imagination is to discuss what you're learning with others.</p>
+            <p class="mt-4">Explaining a concept to someone else forces you to reconstruct it in your own words — which is the Feynman Technique in natural form. Finding a study partner, a discussion group, or even someone willing to listen as you talk through an idea will deepen your connection to the material far beyond anything you can achieve alone.</p>
+            <p class="font-medium text-white mt-4">If you can make it relevant to someone else, it becomes relevant to you.</p>
+
+            <p class="font-bold text-white text-lg text-center my-12">You are not a passive receiver of information. You are an active creator of meaning.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/genius-note-taking" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Genius Note-Taking<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
+        slug: "genius-note-taking",
+        title: "Genius Note-Taking: How to Capture Knowledge That Actually Sticks",
+        category: "LEARN",
+        excerpt: "Most notes are a graveyard of words that are never revisited. Genius note-taking is a creative, personal, multi-sensory system that turns your notes into a powerful thinking tool.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people were never taught how to take notes. They were just handed a pen and told to write things down.</p>
+            <p>The result is pages of linear text, rarely revisited, quickly forgotten.</p>
+            <p class="font-medium text-white mt-4 mb-8">Genius note-taking is different. It is active, creative, and deeply personal — designed not just to record information, but to help you think.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧬</span> Your Style</h2>
+            <p>There is no single correct way to take notes. The best system is the one that fits how your brain works.</p>
+            <p class="mt-4">Some people think in lists. Others think in diagrams. Some prefer dense prose; others work best with sparse bullet points and white space. The key insight is this: your notes are for you, not for an audience.</p>
+            <p class="mt-4">Experiment deliberately. Try different formats with different types of material. Over time you will discover what creates the strongest connections and the deepest recall for you specifically. Protect that style ruthlessly.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎨</span> Using Colour</h2>
+            <p>Colour is not decoration. It is a cognitive tool.</p>
+            <p class="mt-4">When you assign consistent meaning to colours, you create a visual syntax that makes your notes scannable at a glance. Your brain processes colour faster than it processes words — a well-designed colour system turns a page of notes into a structured visual environment.</p>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-8">
+                <div class="p-4 rounded-xl bg-slate-900/40 border-t-4 border-indigo-500 text-center">
+                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Indigo</p>
+                    <p class="text-sm text-slate-300">Core concepts</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/40 border-t-4 border-emerald-500 text-center">
+                    <p class="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-1">Green</p>
+                    <p class="text-sm text-slate-300">Examples & proof</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/40 border-t-4 border-amber-500 text-center">
+                    <p class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Amber</p>
+                    <p class="text-sm text-slate-300">Questions & gaps</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-900/40 border-t-4 border-rose-500 text-center">
+                    <p class="text-xs font-bold text-rose-400 uppercase tracking-widest mb-1">Red</p>
+                    <p class="text-sm text-slate-300">Critical points</p>
+                </div>
+            </div>
+            <p class="text-sm text-slate-500">Choose a system and stick to it. Consistency is what makes the colour meaningful.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🖼️</span> Using Images</h2>
+            <p>The human brain is extraordinarily good at remembering images. The Picture Superiority Effect — a well-established finding in cognitive psychology — shows that people recall pictures far more reliably than words alone.</p>
+            <p class="mt-4">You do not need to be an artist. Rough sketches, simple diagrams, and stick figures all work. The act of translating an idea into a visual form forces you to understand it — you cannot draw something you don't understand.</p>
+            <p class="mt-4">Draw the process. Sketch the system. Illustrate the relationship. Even a circle with arrows can anchor an abstract concept in a way that three paragraphs of text cannot.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> Mind Mapping</h2>
+            <p>A mind map places a central idea at the centre of the page and radiates outward into branches — sub-topics, examples, connections, questions.</p>
+            <p class="mt-4">Unlike linear notes, a mind map mirrors how your brain actually stores information: as a network of interconnected ideas, not a list. This makes it particularly powerful for subjects with complex relationships — history, science, business strategy, literature.</p>
+
+            <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl my-8">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">How to build a mind map</p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                        <p class="text-slate-300 text-sm">Write the central topic in the middle of a blank page — the bigger the page, the better.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                        <p class="text-slate-300 text-sm">Draw thick branches radiating outward for each key sub-topic or category.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                        <p class="text-slate-300 text-sm">Add thinner branches from each sub-topic for examples, details, and questions.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">4</span>
+                        <p class="text-slate-300 text-sm">Use colours, images, and keywords — not full sentences. The brain fills in context naturally.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">5</span>
+                        <p class="text-slate-300 text-sm">Draw connecting lines between branches that relate to each other across the map.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📊</span> Flow Charts & Diagrams</h2>
+            <p>For processes, procedures, and sequences — anything where order matters — a flow chart is far superior to bullet points.</p>
+            <p class="mt-4">Flow charts force you to understand the logic of a process: what causes what, what follows what, where decisions are made. They are particularly powerful for science, medicine, law, and engineering — any field where understanding causation and sequence is critical.</p>
+            <p class="mt-4">If you can draw the process, you understand it. If you cannot draw it, you do not yet understand it well enough.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📝</span> Summarise in Your Own Words</h2>
+            <p>After every session, write a brief summary — not a copy of your notes, but a fresh reconstruction of the key ideas in your own language.</p>
+            <p class="mt-4">This is the most important step that most people skip.</p>
+            <p class="mt-4">Summarising in your own words is active recall applied to your own notes. It reveals what you actually understood versus what you merely transcribed. It consolidates the session. And it creates a compressed reference document that is genuinely useful when you return to review.</p>
+            <p class="font-medium text-white mt-4">Summary notes written in your own voice are worth ten times the original notes.</p>
+
+            <p class="font-bold text-white text-lg text-center my-12">Your notes are your thinking made visible. Make them worthy of the ideas inside them.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/active-recall" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 

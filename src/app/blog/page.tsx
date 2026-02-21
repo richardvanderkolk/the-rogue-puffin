@@ -179,9 +179,18 @@ export default async function BlogPage() {
                                             <div>
                                                 <p className="text-sm font-bold text-slate-400 mb-2">Increased Comprehension</p>
                                                 <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Genius Note Taking</li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Using Your Learning ‘Superpower’</li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Engaging Your Imagination</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/genius-comprehension">• Genius Comprehension</Link>
+                                                    </li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/genius-note-taking">• Genius Note Taking</Link>
+                                                    </li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/using-your-learning-superpower">• Using Your Learning ‘Superpower’</Link>
+                                                    </li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/engaging-your-imagination">• Engaging Your Imagination</Link>
+                                                    </li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/active-recall">• Active Recall vs. The Illusion of Competence</Link>
                                                     </li>
