@@ -1843,6 +1843,115 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "slicing-the-elephant",
+        title: "Slicing the Elephant: Deconstruct the Skill",
+        category: "AIM",
+        excerpt: "How do you eat an elephant? One bite at a time. Before you begin studying anything, you must first break the massive, intimidating whole into small, learnable slices.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">There is an old question: How do you eat an elephant?</p>
+            <p>One bite at a time.</p>
+            <p class="font-medium text-white mt-4 mb-8">The same principle governs every skill, subject, or body of knowledge you will ever attempt to master.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🐘</span> Why Big Goals Paralyse Us</h2>
+            <p>When you look at a large subject in its entirety — a professional qualification, a new language, a complex technical skill — it triggers the same response as the starting problem: your brain perceives an enormous, ill-defined threat and activates avoidance.</p>
+            <p class="mt-4">The antidote is not more motivation.</p>
+            <p class="font-medium text-white mt-4 mb-8">The antidote is deconstruction.</p>
+            <p>When you break a subject into clearly defined, learnable components, the threat disappears. You are no longer staring at an elephant. You are looking at a neat set of slices — each one manageable, each one finite.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔬</span> The Anatomy of a Skill</h2>
+            <p>Every skill has a structure. It is not a monolith. It is a system made up of sub-skills, and those sub-skills are made up of component knowledge blocks.</p>
+            <p class="mt-4">The process of learning is really the process of identifying and mastering those blocks, one at a time, in the right order.</p>
+
+            <div class="my-8 p-8 bg-slate-900/40 border border-white/5 rounded-2xl">
+                <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Example: Learning a Language</p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="w-2 h-2 rounded-full bg-slate-600 shrink-0"></span>
+                        <p class="text-slate-400 text-sm">The full language <span class="text-slate-600">→ enormous and intimidating</span></p>
+                    </div>
+                    <div class="flex items-center gap-3 pl-4">
+                        <span class="w-2 h-2 rounded-full bg-indigo-700 shrink-0"></span>
+                        <p class="text-slate-300 text-sm">Speaking → Listening → Reading → Writing</p>
+                    </div>
+                    <div class="flex items-center gap-3 pl-8">
+                        <span class="w-2 h-2 rounded-full bg-indigo-500 shrink-0"></span>
+                        <p class="text-white text-sm">Greetings → Present tense → Past tense → 100 most common nouns → Numbers → ...</p>
+                    </div>
+                    <div class="flex items-center gap-3 pl-12">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+                        <p class="text-emerald-300 text-sm font-medium">Today's target: Master 20 greetings. That's it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Notice how the process transforms. At the top, the goal is paralyzing. At the bottom, it is entirely achievable in a single session.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> How to Deconstruct Anything</h2>
+            <p>Good deconstruction requires asking the right questions before you begin. This is planning time well spent.</p>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">1</span>
+                    <div>
+                        <p class="font-bold text-white">What is the end goal in precise terms?</p>
+                        <p class="text-sm text-slate-400 mt-1">Not "learn piano." Instead: "Play a specific piece at a specific standard by a specific date." A fuzzy goal cannot be deconstructed. It must be sharp.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">2</span>
+                    <div>
+                        <p class="font-bold text-white">What are the distinct sub-skills or knowledge areas?</p>
+                        <p class="text-sm text-slate-400 mt-1">List every component that must be learned to reach the goal. Do not filter yet — just list. Brainstorm broadly. Then organize.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">3</span>
+                    <div>
+                        <p class="font-bold text-white">What is the correct learning order?</p>
+                        <p class="text-sm text-slate-400 mt-1">Some things must come before others. You cannot learn multiplication before addition. Identify the dependencies and sequence your slices accordingly.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg shrink-0">4</span>
+                    <div>
+                        <p class="font-bold text-white">What is the smallest meaningful unit you can master in one session?</p>
+                        <p class="text-sm text-slate-400 mt-1">This is your "bite." It should be small enough to complete, large enough to feel like real progress. One concept, one technique, one chapter.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> The 80/20 Slice</h2>
+            <p>Not all slices are created equal.</p>
+            <p class="mt-4">In almost every skill, a small number of components generate the vast majority of results. This is the Pareto Principle applied to learning — and it is one of your most powerful tools.</p>
+
+            <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
+                <h3 class="text-xl font-bold text-white mb-4">Ask yourself:</h3>
+                <ul class="space-y-3 text-slate-300">
+                    <li class="flex items-start gap-3"><span class="text-indigo-500 mt-1">→</span> Which 20% of this subject will give me 80% of real-world utility?</li>
+                    <li class="flex items-start gap-3"><span class="text-indigo-500 mt-1">→</span> Which components recur constantly across the whole subject?</li>
+                    <li class="flex items-start gap-3"><span class="text-indigo-500 mt-1">→</span> What is the highest-leverage thing I could learn right now?</li>
+                </ul>
+                <p class="text-sm text-slate-500 mt-6">Master the high-leverage slices first. You will be functionally competent far sooner than any traditional approach would allow.</p>
+            </div>
+
+            <p class="font-bold text-white text-lg text-center my-8">You don't climb a mountain by staring at the summit. You take the next step — and then the next.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/psychology-of-time-and-deadlines" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Psychology of Time & Deadlines<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
