@@ -18,7 +18,7 @@ const CURRICULUM_SLUGS = new Set([
     "your-social-circle",
     "garbage-in-garbage-out",
     "psychology-of-time-and-deadlines",
-    "from-cramming-to-compounding",
+    "cramming-to-compounding",           // "From Cramming to Compounding" — in curriculum sidebar
     "slicing-the-elephant",
     "initiate-a-learning-mindset",
     "preview-the-material",
@@ -28,6 +28,10 @@ const CURRICULUM_SLUGS = new Set([
     "engaging-your-imagination",
     "active-recall",
     "feynman-technique",
+    // Removed from right-hand feed per user request
+    "how-to-read-faster",
+    "52-books-a-year",
+    "biohacking-brain",
 ]);
 
 
