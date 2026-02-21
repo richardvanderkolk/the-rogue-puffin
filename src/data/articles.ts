@@ -1407,6 +1407,106 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "cramming-to-compounding",
+        title: "From Cramming to Compounding: How to Structure Your Study Time",
+        category: "AIM",
+        excerpt: "What is your timeframe? Cramming will get you focused, but it destroys long-term retention. To move from last-minute panic to deep comprehension, you must build consistent habits.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">What’s your timeframe? When do you need to know this?</p>
+
+            <p>Once you have your plan in place, your approach completely changes depending on your horizon. The strategy you use for an exam tomorrow is fundamentally different than the one you use for a career pivot next year.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔭</span> The Three Horizons</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                <div class="p-6 bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 transition-colors rounded-2xl flex flex-col">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">Short Term <span class="text-xs px-2 py-1 bg-rose-500/20 text-rose-400 rounded-full ml-auto">Days</span></h3>
+                    <p class="text-sm text-slate-400 mb-4 flex-grow">Get ready to CRAM! If you only have hours or days, you must maximize every moment. Plan your breaks strictly, use speed reading to digest volume, and lean heavily on memorization strategies for immediate recall.</p>
+                    <p class="text-xs text-rose-400 font-medium">Trade-off: High volume, low long-term retention.</p>
+                </div>
+                
+                <div class="p-6 bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 transition-colors rounded-2xl flex flex-col">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">Medium Term <span class="text-xs px-2 py-1 bg-amber-500/20 text-amber-400 rounded-full ml-auto">Weeks</span></h3>
+                    <p class="text-sm text-slate-400 mb-4 flex-grow">Planning is vital, but so are self-imposed deadlines. You will face distractions over a period of weeks. By working your plan and using reviewing strategies, you can achieve great results and solid retention.</p>
+                    <p class="text-xs text-amber-400 font-medium">Focus: Deadlines and preventing distraction.</p>
+                </div>
+
+                <div class="p-6 bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 transition-colors rounded-2xl flex flex-col">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">Long Term <span class="text-xs px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-full ml-auto">Months+</span></h3>
+                    <p class="text-sm text-slate-400 mb-4 flex-grow">What matters most here is that you are studying the right thing, building the right people around you, and building the right habits. You improve a bit each day, creating a compounding effect with your efforts.</p>
+                    <p class="text-xs text-emerald-400 font-medium">Focus: Rhythms and atomic habits.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚖️</span> The Reality of 'Lastminute.com' Cramming</h2>
+            <p>We've all been there. It works for passing a test, but it is a terrible strategy for building expertise.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
+                <div class="p-6 bg-slate-900/40 border-l-4 border-emerald-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-3">The Upside</h4>
+                    <p class="text-sm text-slate-300">Cramming forces focus. It destroys procrastination instantly. Because it is done at the very last minute, the material is fresh in your short-term memory precisely when you need it.</p>
+                </div>
+                <div class="p-6 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-3">The Downside</h4>
+                    <p class="text-sm text-slate-300">It shatters long-term retention. You have absolutely no time to mull over complex topics to gain in-depth comprehension. Over time, chronic cramming simply leads to exhaustion and burnout.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📈</span> The Shift to Compounding</h2>
+            <p>If you have the time, you must move away from the cramming cycle. Long term study demands completely different habits.</p>
+            
+            <ul class="space-y-6 my-8 border-l border-slate-800 ml-3 pl-6">
+                <li class="relative">
+                    <span class="absolute -left-8 top-1 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-slate-950"></span>
+                    <h4 class="font-bold text-white text-lg">Atomic Habits</h4>
+                    <p class="text-slate-400 mt-2">You don't need heroic 8-hour study binges. You need small, unbreakable, atomic habits that compound day after day. Read for 20 minutes every morning. Review notes for 10 minutes every evening. The small things become the big things.</p>
+                </li>
+                <li class="relative">
+                    <span class="absolute -left-8 top-1 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-slate-950"></span>
+                    <h4 class="font-bold text-white text-lg">Consistency</h4>
+                    <p class="text-slate-400 mt-2">Consistency beats intensity every time. Studying 30 minutes a day for a month will yield immensely better retention than studying for 15 hours straight the day before.</p>
+                </li>
+                <li class="relative">
+                    <span class="absolute -left-8 top-1 w-3 h-3 rounded-full bg-indigo-500 ring-4 ring-slate-950"></span>
+                    <h4 class="font-bold text-white text-lg">Best Time of Day</h4>
+                    <p class="text-slate-400 mt-2">Protect your peak cognitive hours. If you think best at 6 AM, do your hardest learning then. Do not force yourself into societal rhythms if your biology operates on a different clock.</p>
+                </li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏗️</span> Build Your Study Plan</h2>
+            <p>Plan your overall studies and plan your individual sessions. Allocate the appropriate time to making your plan—it will save you massive amounts of time as you go. </p>
+            <p class="font-medium text-rose-400 mb-8">Caution: Do not use "planning" as an excuse to procrastinate the actual work.</p>
+            
+            <div class="bg-indigo-950/20 border border-indigo-500/30 p-8 rounded-2xl my-8">
+                <h3 class="text-xl font-bold text-white mb-6">The Planner's Checklist</h3>
+                <ul class="space-y-4 text-slate-300">
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Ensure your goals are clearly defined</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Know what you need to learn and the materials required</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Determine your actual availability (be honest)</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Break down the material into manageable chunks</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Prioritize your tasks</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Use a calendar or day planner to set your session times</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Include phase blocks: preparation, previewing, learning, and reviewing</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Schedule mandatory breaks to protect your energy</li>
+                </ul>
+            </div>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/initiate-a-learning-mindset" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">A Learning Mindset<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
