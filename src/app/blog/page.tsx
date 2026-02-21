@@ -65,47 +65,23 @@ export default async function BlogPage() {
 
                                 <div className="pl-4 md:pl-16 space-y-8 border-l border-slate-800/50 ml-5 md:ml-6">
 
-                                    {/* YOU: THE GENIUS LEARNER */}
-                                    <div className="space-y-6">
-                                        <h5 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                                            <Sparkles className="w-4 h-4 text-indigo-400" /> You: The Genius Learner
-                                        </h5>
-
-                                        <div className="space-y-6">
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Motivated</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/know-your-why">• Know Your Why</Link> <span className="text-slate-600 text-xs ml-1">(Growth / Wisdom)</span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Empowered</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/know-your-learning-superpower">• Know Your Learning ‘Superpower’</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/feel-sharp">• Feel Sharp</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/create-your-learning-lab">• Create Your Learning Lab</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Encouraged</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/your-social-circle">• Who You Study With Shapes How You Learn</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ul className="space-y-2">
+                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                            <Link href="/blog/know-your-why">• Know Your Why</Link>
+                                        </li>
+                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                            <Link href="/blog/know-your-learning-superpower">• Know Your Learning 'Superpower'</Link>
+                                        </li>
+                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                            <Link href="/blog/feel-sharp">• Feel Sharp</Link>
+                                        </li>
+                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                            <Link href="/blog/create-your-learning-lab">• Create Your Learning Lab</Link>
+                                        </li>
+                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                            <Link href="/blog/your-social-circle">• Who You Study With Shapes How You Learn</Link>
+                                        </li>
+                                    </ul>
 
                                 </div>
                             </div>
