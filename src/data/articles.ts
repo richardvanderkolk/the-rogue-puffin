@@ -293,6 +293,174 @@ export const articles: Article[] = [
                                                                                                                                                                                                                                                                         `
     },
     {
+        slug: "set-your-goals",
+        title: "Set Your Goals",
+        category: "READY",
+        excerpt: "Clarity of purpose is powerful, but not enough. Because a clear reason without a clear target leads to movement—but not progress.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Clarity of purpose is powerful. But on its own, it is not enough. Because a clear reason without a clear target leads to movement—but not progress.</p>
+            
+            <p>Most people approach learning like this:</p>
+            <blockquote class="border-l-2 border-slate-700 pl-6 italic text-slate-400 my-8 space-y-2">
+                <p>“I’ll try to read more”</p>
+                <p>“I want to understand this better”</p>
+            </blockquote>
+            <p>It sounds good. But it lacks direction.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Need Something to Aim At</h2>
+            <p>Learning improves dramatically when it becomes specific. Because once you define what you are aiming for, you can:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Plan</li>
+                <li>Adjust</li>
+                <li>Measure progress</li>
+            </ul>
+            <p>Without that, everything remains vague.</p>
+            <p class="font-medium text-indigo-300 my-6">👉 So the question is simple: What exactly are you trying to achieve?</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Different Goals, Different Approaches</h2>
+            <p>Not all learning goals are the same.</p>
+            <p>A student might ask: <em class="text-indigo-200">Do I want to pass—or excel?</em></p>
+            <p>A professional might ask: <em class="text-indigo-200">Do I need familiarity—or expertise?</em></p>
+            <p>Someone reading for interest might ask: <em class="text-indigo-200">Am I exploring—or mastering?</em></p>
+            <p class="mt-6">Each of these requires a different level of effort, focus, and structure.</p>
+            <p class="font-medium text-white my-6">If you don’t define it, you default to inconsistency.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Write It Down</h2>
+            <p>This matters more than it seems. What is your goal?</p>
+            <p>Write it clearly. Not mentally. <strong class="text-white">Physically.</strong></p>
+            <p>Because once it is written, it becomes:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Concrete</li>
+                <li>Visible</li>
+                <li>Easier to commit to</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">The SMART Framework (Used Properly)</h2>
+            <p>The SMART framework is simple—but often used poorly. Used well, it brings clarity.</p>
+
+            <div class="space-y-8 my-10">
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-indigo-300 mb-3">Specific</h3>
+                    <p class="text-slate-400 mb-2">Vague: <em class="text-slate-300">“I want to get better at reading.”</em></p>
+                    <p class="text-white font-medium mb-3">Specific: <em>“I want to read 15 pages a day with full focus.”</em></p>
+                    <p class="text-sm">Specific goals reduce hesitation.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-indigo-300 mb-3">Measurable</h3>
+                    <p class="mb-3 text-slate-300">You need feedback: Pages read, Time spent, Concepts understood.</p>
+                    <p class="text-sm font-medium text-white">Measurement allows adjustment.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-indigo-300 mb-3">Attainable</h3>
+                    <p class="mb-3 text-slate-300">A good goal stretches you—but remains possible.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-3">
+                        <div>
+                            <p class="text-slate-400 text-sm">Too easy:</p>
+                            <p class="text-white text-sm">You disengage</p>
+                        </div>
+                        <div>
+                            <p class="text-slate-400 text-sm">Too hard:</p>
+                            <p class="text-white text-sm">You avoid it</p>
+                        </div>
+                    </div>
+                    <p class="text-sm font-medium text-white">The right level creates engagement.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-indigo-300 mb-3">Realistic</h3>
+                    <p class="mb-3 text-slate-300">This is about your actual life. Not your ideal one.</p>
+                    <p class="mb-3 text-slate-300">Consider: Your time, Your energy, Your responsibilities.</p>
+                    <p class="text-sm font-medium text-white">A realistic goal is sustainable.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-indigo-300 mb-3">Time Frame</h3>
+                    <p class="mb-3 text-slate-300">Without a time frame, goals drift.</p>
+                    <p class="text-slate-400 mb-2">Instead of: <em class="text-slate-300">“I’ll improve my reading”</em></p>
+                    <p class="text-white font-medium mb-3">Say: <em>“Over the next 14 days, I will…”</em></p>
+                    <p class="text-sm font-medium text-white">Time creates focus.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Common Mistake</h2>
+            <p>Many people set goals that are too broad.</p>
+            <p>For example: <em>“I want to understand this book.”</em></p>
+            <p>That’s not a goal. That’s an intention.</p>
+            <p class="mt-6 mb-2">A better version:</p>
+            <blockquote class="pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic">
+                “I will read 10 pages per day and summarise the key ideas in my own words.”
+            </blockquote>
+            <p class="mt-4 text-white font-bold">Now it’s actionable.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Using AI to Strengthen Your Goals</h2>
+            <p>AI can help you move from vague to structured—quickly.</p>
+            
+            <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
+                <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Try These AI Prompts</p>
+                </div>
+                <div class="p-6 bg-slate-950/50 space-y-6">
+                    <div>
+                        <p class="text-indigo-300 font-bold mb-1">Instead of:</p>
+                        <p class="text-slate-400 italic">“Help me with this subject”</p>
+                    </div>
+                    <div>
+                        <p class="text-indigo-300 font-bold mb-1">Try:</p>
+                        <p class="text-slate-100 font-medium">“Turn this learning goal into a 14-day structured plan with daily steps.”</p>
+                    </div>
+                    <div>
+                        <p class="text-indigo-300 font-bold mb-1">Or:</p>
+                        <p class="text-slate-100 font-medium">“Break this topic into manageable sections I can realistically complete over two weeks.”</p>
+                    </div>
+                    <div>
+                        <p class="text-indigo-300 font-bold mb-1">If you prefer visual structure:</p>
+                        <p class="text-slate-100 font-medium">“Create a simple roadmap showing how I should progress through this material.”</p>
+                    </div>
+                    <div>
+                        <p class="text-indigo-300 font-bold mb-1">If you prefer audio:</p>
+                        <p class="text-slate-100 font-medium">“Explain this plan as if it were a short coaching session.”</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p>Again, the goal is not to outsource thinking—but to support it.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Where This Leads</h2>
+            <p>Once you have:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>A clear reason</li>
+                <li>A defined goal</li>
+            </ul>
+            <p>You are no longer guessing. You are prepared.</p>
+            <p>The next step is learning how to approach the material itself. Because even with clarity and direction, most people still begin poorly.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Next Step</h2>
+            <p>Before you start learning, you need to prepare properly.</p>
+            <p>In the next article, we’ll look at how to approach material so that you don’t waste effort from the beginning.</p>
+
+            <div class="mt-12 p-8 border border-slate-800 bg-slate-900/50 rounded-3xl text-center">
+                <p class="text-slate-300">If you want to move from vague intention to structured learning quickly, <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> guides you through that process.</p>
+                <a href="/rogue-session" class="inline-block mt-6 px-8 py-3 bg-indigo-500 hover:bg-indigo-400 text-white font-bold rounded-full transition-colors">👉 Try it for $5</a>
+            </div>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/how-to-prepare-to-learn-properly" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">How to Prepare to Learn Properly<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/why-most-learning-feels-hard" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Understanding Resistance</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Why Most Learning Feels Hard<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
         slug: "know-your-learning-superpower",
         title: "Know Your Learning Superpower",
         category: "READY",
