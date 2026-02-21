@@ -50,7 +50,9 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/know-your-why">• Know Your Why</Link> <span className="text-slate-600 text-xs ml-1">(Growth / Wisdom)</span>
                                                     </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Set Your Goals</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/set-your-goals">• Set Your Goals</Link>
+                                                    </li>
                                                 </ul>
                                             </div>
 
