@@ -3433,6 +3433,128 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "the-art-of-review",
+        title: "The Art of Review: Why Revisiting Is the Most Underrated Learning Skill",
+        category: "LEARN",
+        excerpt: "Most learning is lost within 24 hours of first encountering it. Not because you didn't understand it — but because you didn't review it. Reviewing is not catching up. It is consolidation. It is how understanding becomes permanent.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">You can read perfectly, take excellent notes, and understand everything in the moment — and still remember almost none of it a week later.</p>
+            <p>This is not a failure of intelligence. It is a feature of how human memory works. Without deliberate review, even well-understood information fades rapidly. The forgetting curve — first mapped by Hermann Ebbinghaus in the 1880s — shows that without reinforcement, most new learning is gone within 24 to 48 hours.</p>
+            <p class="font-medium text-white mt-4 mb-8">Review is not about re-reading. It is about reinforcement — actively strengthening the neural pathways that hold the knowledge, before they fade.</p>
+
+            <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
+                <p class="text-slate-300"><strong class="text-white">The key insight:</strong> the effort of retrieval itself is what strengthens memory. Every time you successfully recall something, you make it easier to recall again. Passive re-reading barely engages this mechanism. Active review exploits it fully.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧰</span> Your Review Toolkit</h2>
+            <p>These seven strategies each attack the forgetting problem from a different angle. Used in combination, they compound. The goal is not to do all of them — it is to know which to reach for, and when.</p>
+
+            <div class="space-y-4 my-8">
+                <a href="/blog/from-cramming-to-compounding" class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0 w-8">01</span>
+                    <div>
+                        <p class="font-bold text-white group-hover:text-indigo-300 transition-colors">Spaced repetition <span class="text-indigo-500 text-sm ml-1">→</span></p>
+                        <p class="text-sm text-slate-400 mt-1">Review material at increasing intervals rather than cramming it all at once. Each successful recall at a longer interval makes the memory more durable. This is the single most evidence-backed technique in the science of learning, and it works for virtually any type of material.</p>
+                    </div>
+                </a>
+                <a href="/blog/active-recall" class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0 w-8">02</span>
+                    <div>
+                        <p class="font-bold text-white group-hover:text-indigo-300 transition-colors">Active recall <span class="text-indigo-500 text-sm ml-1">→</span></p>
+                        <p class="text-sm text-slate-400 mt-1">Close your notes and attempt to retrieve the information from memory — through flashcards, self-quizzing, or blank-page recall. The discomfort of struggling to remember is not a sign of failure; it is the mechanism by which memory is strengthened. Easier reviews build weaker memories.</p>
+                    </div>
+                </a>
+                <a href="/blog/feynman-technique" class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0 w-8">03</span>
+                    <div>
+                        <p class="font-bold text-white group-hover:text-indigo-300 transition-colors">Summarise in your own words <span class="text-indigo-500 text-sm ml-1">→</span></p>
+                        <p class="text-sm text-slate-400 mt-1">After a study session, write a brief summary — not a copy of your notes, but a fresh reconstruction in your own language. Paraphrasing forces you to actually understand the material rather than merely recognise it. The gaps and hesitations in your summary are precise indicators of what needs more work.</p>
+                    </div>
+                </a>
+                <a href="/blog/feynman-technique" class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0 w-8">04</span>
+                    <div>
+                        <p class="font-bold text-white group-hover:text-indigo-300 transition-colors">Teach or explain it to someone else <span class="text-indigo-500 text-sm ml-1">→</span></p>
+                        <p class="text-sm text-slate-400 mt-1">Verbalising and explaining a concept to another person is one of the most powerful consolidation techniques available. It forces clarity, exposes gaps, and requires you to translate jargon into language. You cannot fake your way through an explanation. If you can teach it, you know it.</p>
+                    </div>
+                </a>
+                <a href="/blog/engaging-your-imagination" class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0 w-8">05</span>
+                    <div>
+                        <p class="font-bold text-white group-hover:text-indigo-300 transition-colors">Visualise and map it <span class="text-indigo-500 text-sm ml-1">→</span></p>
+                        <p class="text-sm text-slate-400 mt-1">Recreate mind maps, diagrams, or visual representations from memory. Visual review engages spatial memory alongside semantic memory — encoding information in multiple formats makes it significantly more retrievable. A mind map recreated from scratch in a review session is often more valuable than the original one.</p>
+                    </div>
+                </a>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0 w-8">06</span>
+                    <div>
+                        <p class="font-bold text-white">Test yourself under realistic conditions</p>
+                        <p class="text-sm text-slate-400 mt-1">Practice tests and past exam papers simulate the conditions under which you will eventually need to retrieve the information. Testing yourself regularly — not just at the end — identifies gaps early, when there is still time to address them. It also builds the specific retrieval pathways that exam conditions require.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-indigo-950/20 border border-indigo-500/30 rounded-xl">
+                    <span class="text-indigo-400 font-bold text-xl shrink-0 w-8">07</span>
+                    <div>
+                        <p class="font-bold text-white">Vary your review methods deliberately</p>
+                        <p class="text-slate-300 text-sm mt-1">The same format every session creates familiarity effects — the material starts to feel known without being truly retrievable from different angles. Mix flashcards with written summaries, diagrams with verbal explanations, solo recall with group discussion. Interleaving and variety build a more robust and flexible grasp of the material.</p>
+                        <p class="text-sm text-indigo-300 mt-2 font-medium">If review always feels easy, it probably isn't working hard enough.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📅</span> How to Build a Review Schedule</h2>
+            <p>Ad-hoc review — whenever you happen to remember to do it — is significantly less effective than a deliberate schedule. The spacing matters.</p>
+
+            <div class="p-8 bg-slate-900/40 border border-white/5 rounded-2xl my-8">
+                <h3 class="text-base font-bold text-white mb-5">A simple starting point</h3>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-4">
+                        <span class="text-indigo-400 font-bold text-sm w-24 shrink-0">Same day</span>
+                        <p class="text-sm text-slate-400">Brief review within a few hours of the initial study session. Catch misunderstandings while they are still fresh.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-indigo-400 font-bold text-sm w-24 shrink-0">Day 2</span>
+                        <p class="text-sm text-slate-400">First spaced recall attempt. Try to retrieve from memory before looking at your notes.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-indigo-400 font-bold text-sm w-24 shrink-0">Day 7</span>
+                        <p class="text-sm text-slate-400">Second recall attempt, now from a greater distance. Focus on what you couldn't recall on day 2.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-indigo-400 font-bold text-sm w-24 shrink-0">Day 21</span>
+                        <p class="text-sm text-slate-400">Third review. By now, strong items need little attention. Invest time in what remains weak.</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-indigo-400 font-bold text-sm w-24 shrink-0">Day 60+</span>
+                        <p class="text-sm text-slate-400">Periodic maintenance. Once built, durable memories need only occasional reinforcement to persist indefinitely.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-slate-400 text-sm italic">Adjust intervals based on how well you're retaining the material. If recall is easy, extend the interval. If it's difficult, shorten it. Your performance tells you what to do next.</p>
+
+            <p class="font-bold text-white text-lg text-center my-12">Learning without review is like filling a bath with the plug out. Review is the plug.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Explore the Techniques in Depth</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <a href="/blog/from-cramming-to-compounding" class="block p-5 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Space it out</p>
+                    <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">Spaced Repetition<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/active-recall" class="block p-5 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Retrieve it</p>
+                    <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/feynman-technique" class="block p-5 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Explain it</p>
+                    <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">The Feynman Technique<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
