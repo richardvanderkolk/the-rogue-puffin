@@ -2498,6 +2498,155 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "studying-with-others",
+        title: "Studying With Others: How to Make Group Study Actually Work",
+        category: "READY",
+        excerpt: "Group study can be the most powerful learning environment you will ever have — or it can be the most expensive way to waste three hours. The difference is in the design.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Studying with others can accelerate your understanding dramatically.</p>
+            <p>Or it can feel like a very sociable way of learning almost nothing.</p>
+            <p class="font-medium text-white mt-4 mb-8">The difference between a group study session that works and one that doesn't is rarely talent or effort. It is design. The sessions that produce exceptional results are deliberately structured. The ones that don't are improvised.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> Why Studying With Others Works</h2>
+            <p>Learning in a social context engages different cognitive mechanisms than solo study. When you explain an idea to someone else, you expose every gap in your understanding. When you debate a concept, you are forced to hold your position under pressure — which is exactly what exams and professional contexts demand.</p>
+            <p class="mt-4">Collaboration also brings something solo study cannot: the moment another person explains something in a way that finally makes it click.</p>
+
+            <div class="space-y-3 my-8">
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 text-lg shrink-0">→</span>
+                    <div>
+                        <p class="font-bold text-white">Teach to understand</p>
+                        <p class="text-sm text-slate-400 mt-1">Take turns explaining specific concepts to the group. The moment you try to teach something is the moment you discover what you actually know versus what you thought you knew. Gaps that were invisible become undeniable.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 text-lg shrink-0">→</span>
+                    <div>
+                        <p class="font-bold text-white">Discuss, debate, challenge</p>
+                        <p class="text-sm text-slate-400 mt-1">Open discussion — asking "why?" and "what if?" — produces deeper understanding than re-reading the same page. Challenge each other's answers respectfully. Having to defend your reasoning forces genuine comprehension.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 text-lg shrink-0">→</span>
+                    <div>
+                        <p class="font-bold text-white">Quiz each other</p>
+                        <p class="text-sm text-slate-400 mt-1">Create questions and test each other. Group quizzing turns active recall into a game. It is also one of the best ways to discover which topics the group as a whole has not yet mastered.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 text-lg shrink-0">→</span>
+                    <div>
+                        <p class="font-bold text-white">Pool your strengths</p>
+                        <p class="text-sm text-slate-400 mt-1">Every member brings different strengths. Assign roles accordingly — someone researches, someone summarises, someone designs the quiz. A well-run group multiplies individual ability rather than averaging it.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 text-lg shrink-0">→</span>
+                    <div>
+                        <p class="font-bold text-white">Solve problems together</p>
+                        <p class="text-sm text-slate-400 mt-1">Work through practice problems as a group, comparing approaches. There are often multiple valid routes to the right answer. Seeing how someone else approaches a problem you're stuck on can unlock your thinking permanently.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 text-lg shrink-0">→</span>
+                    <div>
+                        <p class="font-bold text-white">Share notes and stay accountable</p>
+                        <p class="text-sm text-slate-400 mt-1">Comparing notes gives multiple perspectives on the same material and catches gaps. Knowing that others are expecting you to have done the reading is one of the most effective motivational tools available.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚠️</span> The Pitfalls — and How to Avoid Them</h2>
+            <p>Group study fails in predictable ways. Recognise them before they appear, and you can sidestep all of them.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                <div class="p-5 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">The social drift</h4>
+                    <p class="text-sm text-slate-400">The session gradually becomes a conversation. Fix it: agree on a clear agenda and time blocks before the session starts. Treat the first 5 minutes of drifting as the moment to call it back.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">Unequal contribution</h4>
+                    <p class="text-sm text-slate-400">One person drives; others coast. Fix it: rotate who leads each topic. Give everyone a specific responsibility before the session, so no one can arrive empty-handed.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">Groupthink</h4>
+                    <p class="text-sm text-slate-400">The group agrees on an answer and stops questioning it. Fix it: actively assign someone to play devil's advocate. Assume the group consensus is wrong until it has been genuinely tested.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">Coming unprepared</h4>
+                    <p class="text-sm text-slate-400">Group study amplifies preparation — it does not replace it. Fix it: require each member to review the material individually before every session. The group is for refining, not for first exposure.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">Overreliance on others</h4>
+                    <p class="text-sm text-slate-400">You understand it when Sarah explains it, but can you do it alone? Fix it: always follow group sessions with solo practice. Understanding something in context is not the same as owning it independently.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white mb-2">Mismatched pacing</h4>
+                    <p class="text-sm text-slate-400">One person understands in 10 minutes; another needs an hour. Fix it: agree in advance on what the session will cover and maintain that scope. Deeper dives can happen in pairs afterward.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📋</span> The Structure of a Session That Works</h2>
+            <p>The best group study sessions are not improvised. They follow a repeatable pattern.</p>
+
+            <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
+                <div class="space-y-5">
+                    <div class="flex items-start gap-4">
+                        <span class="w-7 h-7 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                        <div>
+                            <p class="font-bold text-white">Define the agenda before you arrive</p>
+                            <p class="text-sm text-slate-400 mt-1">Specify exactly which topics, chapters, or problems the session will cover. Vague sessions produce vague outcomes.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="w-7 h-7 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                        <div>
+                            <p class="font-bold text-white">Individual preparation is mandatory</p>
+                            <p class="text-sm text-slate-400 mt-1">Come having already read the material. The session is for discussion, debate, and testing — not first reading.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="w-7 h-7 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                        <div>
+                            <p class="font-bold text-white">Rotate leadership and roles</p>
+                            <p class="text-sm text-slate-400 mt-1">Whoever leads the explanation of a topic learns it most deeply. Rotate so that everyone teaches something every session.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="w-7 h-7 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
+                        <div>
+                            <p class="font-bold text-white">End with a quiz</p>
+                            <p class="text-sm text-slate-400 mt-1">Close every session by testing each other on what was covered. This consolidates the session and reveals what needs solo attention before the next meeting.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="w-7 h-7 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">5</span>
+                        <div>
+                            <p class="font-bold text-white">Solo consolidation after every session</p>
+                            <p class="text-sm text-slate-400 mt-1">Within 24 hours, review the session individually. Write what you can remember. Identify what you still can't explain without the group.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="font-bold text-white text-lg text-center my-12">The best study group doesn't make learning easier. It makes you better.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Related Reading</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/feynman-technique" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Teach to understand</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Feynman Technique<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/active-recall" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Test yourself</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
