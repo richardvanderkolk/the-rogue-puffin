@@ -2765,6 +2765,115 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "best-time-to-study",
+        title: "Your Peak Hour: Finding the Best Time of Day to Study",
+        category: "READY",
+        excerpt: "Not all hours are equal. Your brain at 7am is a different instrument to your brain at 7pm. Finding your peak window and protecting it is one of the highest-leverage learning decisions you can make.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">When you study matters almost as much as how you study.</p>
+            <p>Your capacity for concentration, memory consolidation, and deep thinking is not constant throughout the day. It rises and falls according to your body's internal rhythms — rhythms that are unique to you.</p>
+            <p class="font-medium text-white mt-4 mb-8">The goal is not to find the "best" time in general. It is to find your best time — and then protect it ruthlessly.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🕐</span> Your Chronotype: The Rhythm You Actually Have</h2>
+            <p>Chronobiology — the science of biological time — has established that humans fall broadly into two categories: morning types (often called "larks") and evening types ("owls"), with most people sitting somewhere in between.</p>
+            <p class="mt-4">Your chronotype is largely determined by genetics, modified by age, and cannot be meaningfully overridden by willpower alone. Fighting your chronotype is one of the least efficient things a serious learner can do.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl text-center">
+                    <p class="text-3xl mb-3">🌅</p>
+                    <h4 class="font-bold text-white mb-2">Morning Lark</h4>
+                    <p class="text-sm text-slate-400">Peak focus in the early morning. Naturally alert before 9am. Energy drops noticeably by mid-afternoon. Best for demanding cognitive work first thing.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-indigo-500/30 rounded-2xl text-center">
+                    <p class="text-3xl mb-3">🌤️</p>
+                    <h4 class="font-bold text-white mb-2">Middle Type</h4>
+                    <p class="text-sm text-slate-400">Most people. A moderate morning energy, slight post-lunch dip, recovery in late afternoon. Flexible but benefits most from protecting one consistent window.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl text-center">
+                    <p class="text-3xl mb-3">🌙</p>
+                    <h4 class="font-bold text-white mb-2">Night Owl</h4>
+                    <p class="text-sm text-slate-400">Peak cognitive performance in the evening or at night. Genuinely struggles at 7am regardless of sleep. Works against social convention but in harmony with biology.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-400 italic text-sm">If you are unsure which you are: pay attention to when you feel genuinely sharp without caffeine. That is your answer.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> The Three Variables That Determine Your Window</h2>
+            <p>Beyond chronotype, three practical variables should shape when you study:</p>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0">01</span>
+                    <div>
+                        <p class="font-bold text-white">Your energy level</p>
+                        <p class="text-sm text-slate-400 mt-1">This is the most direct signal. When do you feel mentally sharp without forcing it? When do ideas come easily and reading doesn't feel like wading through mud? Track this for a week without making any changes — just observe. You will see a pattern within a few days.</p>
+                        <p class="text-sm text-indigo-300 mt-2 font-medium">The post-lunch cortisol dip (roughly 1–3pm for most people) is a universal low point. If possible, avoid scheduling your hardest study sessions here.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0">02</span>
+                    <div>
+                        <p class="font-bold text-white">Your daily schedule and priorities</p>
+                        <p class="text-sm text-slate-400 mt-1">Peak cognitive hours are a finite resource. If you have a demanding job or responsibility that also requires your best thinking, you must decide how to allocate your peak hours. Study is not always the highest priority — and that is a legitimate decision. What matters is that the decision is made deliberately, not by default.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-xl shrink-0">03</span>
+                    <div>
+                        <p class="font-bold text-white">Your distraction landscape</p>
+                        <p class="text-sm text-slate-400 mt-1">Identify the hours when your environment is quietest and your social obligations are fewest. For many people, early mornings and late evenings are the lowest-distraction windows — fewer messages, fewer interruptions, fewer demands on attention. This is why morning routines and late-night study sessions have devoted followings: they are often the only truly uncluttered time in the day.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗓️</span> Designing Your Study Window</h2>
+            <p>Once you know your peak time, protect it with the same seriousness you'd use to protect a meeting with someone important.</p>
+
+            <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
+                <h3 class="text-lg font-bold text-white mb-5">The setup that works</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-3">
+                        <span class="text-indigo-400 mt-0.5 shrink-0">→</span>
+                        <p class="text-slate-300 text-sm"><strong class="text-white">Block the same time every day.</strong> Consistency trains your brain to enter a focused state on schedule. After a few weeks, the habit itself reduces the friction of starting.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-indigo-400 mt-0.5 shrink-0">→</span>
+                        <p class="text-slate-300 text-sm"><strong class="text-white">Use your peak for your hardest material.</strong> Save administrative tasks, review, and light reading for lower-energy windows. Reserve your sharpest hours for the work that genuinely demands them.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-indigo-400 mt-0.5 shrink-0">→</span>
+                        <p class="text-slate-300 text-sm"><strong class="text-white">Defend the window before it exists.</strong> Tell people you're unavailable during your study time. Turn off notifications. Remove your phone from the room. A protected hour of peak-state study is worth three distracted hours.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <span class="text-indigo-400 mt-0.5 shrink-0">→</span>
+                        <p class="text-slate-300 text-sm"><strong class="text-white">Don't fight your low points — use them.</strong> Light review, organising notes, or planning the next session are ideal for your energy troughs. Work with your biology, not against it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧪</span> Find Yours</h2>
+            <p>There is no universal prescription. Research can tell you what tends to be true in aggregate. Your job is to find what is true for you.</p>
+            <p class="mt-4">Spend the next week paying deliberate attention to your energy and focus levels at different times of day. You don't need to change anything yet — just observe. Note when thinking feels easy and when it feels like effort.</p>
+            <p class="font-medium text-white mt-4">By the end of the week, you will know your window. Then it is simply a matter of organising your life around it.</p>
+
+            <p class="font-bold text-white text-lg text-center my-12">The right hour, protected and used well, is worth more than three wrong ones.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Related Reading</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/friction-of-starting" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Getting started</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Friction of Starting<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/feel-sharp" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Physical readiness</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Feel Sharp<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
