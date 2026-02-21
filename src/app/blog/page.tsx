@@ -106,17 +106,16 @@ export default async function BlogPage() {
 
                                         <div className="space-y-6">
                                             <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Be Aware</p>
+                                                <p className="text-sm font-bold text-slate-400 mb-2">Curate Your Inputs</p>
                                                 <ul className="space-y-2">
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/garbage-in-garbage-out">• Choose Your Resources Wisely</Link>
                                                     </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Get an Overview</li>
                                                 </ul>
                                             </div>
 
                                             <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Be Confident</p>
+                                                <p className="text-sm font-bold text-slate-400 mb-2">Build Your Strategy</p>
                                                 <ul className="space-y-2">
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/psychology-of-time-and-deadlines">• The Psychology of Time & Deadlines</Link>
@@ -124,18 +123,7 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/cramming-to-compounding">• From Cramming to Compounding</Link>
                                                     </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Prime Your Mind</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/initiate-a-learning-mindset">• A Learning Mindset</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/preview-the-material">• Preview the Material</Link>
-                                                    </li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Slicing the Elephant: Deconstruct the Skill</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -162,7 +150,26 @@ export default async function BlogPage() {
 
                                         <div className="space-y-6">
                                             <div>
+                                                <p className="text-sm font-bold text-slate-400 mb-2">Prime Your Mind</p>
+                                                <ul className="space-y-2">
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/initiate-a-learning-mindset">• A Learning Mindset</Link>
+                                                    </li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/preview-the-material">• Preview the Material</Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div>
                                                 <p className="text-sm font-bold text-white mb-2 hover:text-indigo-300 cursor-pointer flex items-center gap-2">Faster Reading</p>
+                                            </div>
+
+                                            <div>
+                                                <p className="text-sm font-bold text-slate-400 mb-2">Get Started</p>
+                                                <ul className="space-y-2">
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• The Friction of Starting</li>
+                                                </ul>
                                             </div>
 
                                             <div>
@@ -171,6 +178,8 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Genius Note Taking</li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Using Your Learning ‘Superpower’</li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Engaging Your Imagination</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Active Recall vs. The Illusion of Competence</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• The Feynman Technique</li>
                                                 </ul>
                                             </div>
 
@@ -179,6 +188,7 @@ export default async function BlogPage() {
                                                 <ul className="space-y-2">
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Memory Training</li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Optimal Reviewing</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Spaced Repetition: Defeating the Forgetting Curve</li>
                                                 </ul>
                                             </div>
                                         </div>
