@@ -770,6 +770,187 @@ export const articles: Article[] = [
         `
     },
     {
+        slug: "your-social-circle",
+        title: "Who You Study With Shapes How You Learn",
+        category: "READY",
+        excerpt: "Most people think learning is a solo activity. But the people in your life — the ones you speak with, learn alongside, or even just observe — quietly shape how well you grow.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people think learning is a solo activity. A book. A screen. A quiet room. Just you and the material. And yes — focused, solitary work matters. But it isn’t the whole picture.</p>
+
+            <p>Because the people in your life — the ones you speak with, learn alongside, or even just observe — quietly shape how well you grow.</p>
+            <p class="font-medium text-white mb-8">Sometimes they lift you. Sometimes they limit you. Often, without meaning to.</p>
+
+            <blockquote class="border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8 mb-12">
+                "Show me your friends and I'll show you your future."
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">1. The Influence You Don’t Notice (Bandura)</h2>
+            <p>In the 1970s, psychologist Albert Bandura showed that human beings do not learn in isolation. We absorb posture.</p>
+            <p>In his famous Bobo doll experiment, children who watched adults behave aggressively toward a doll were far more likely to imitate that behaviour themselves.</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>No instruction required.</li>
+                <li>Just exposure.</li>
+            </ul>
+            <p>The principle extends far beyond childhood. As adults, we absorb:</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">The seriousness (or unseriousness) of others</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">Their expectations of growth</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">Their standards of thought</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">Their level of curiosity</p>
+                </div>
+            </div>
+            
+            <p class="font-bold text-white mb-6">Learning is never socially neutral.</p>
+
+            <div class="flex flex-col md:flex-row gap-6 my-8">
+                <div class="flex-1 bg-slate-950 border border-red-500/20 rounded-2xl p-6">
+                    <p class="text-red-400 font-bold mb-4 text-sm uppercase tracking-wider">If the tone is:</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li>“This is boring.”</li>
+                        <li>“This doesn’t matter.”</li>
+                        <li>“This is too much effort.”</li>
+                    </ul>
+                    <p class="mt-4 text-white font-medium">That tone becomes normal.</p>
+                </div>
+                <div class="flex-1 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl p-6">
+                    <p class="text-indigo-400 font-bold mb-4 text-sm uppercase tracking-wider">But if the tone is:</p>
+                    <ul class="space-y-2 text-slate-300">
+                        <li>“This is worth understanding.”</li>
+                        <li>“Let’s wrestle with it.”</li>
+                        <li>“Stay with it — this matters.”</li>
+                    </ul>
+                    <p class="mt-4 text-white font-medium">That also becomes normal.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">2. The Roommate Effect (Sacerdote)</h2>
+            <p>Does simply being in the same room as someone driven change your performance?</p>
+            <p>In 2001, economist Bruce Sacerdote studied students at Dartmouth College who were randomly assigned to dorm rooms. He found that peer effects were startlingly real: your roommate's academic dedication significantly impacted your own Grade Point Average.</p>
+            <p class="mt-6 mb-4 font-medium text-white">This research highlights a profound reality:</p>
+            
+            <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
+                <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Expectations are contagious</li>
+                <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Standards are contagious</li>
+                <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Posture is contagious</li>
+            </ul>
+            
+            <p>Even if you never study the same subject, the raw effort and focus of the person sitting next to you will pull your own performance up—or drag it down.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">3. The Medical Student Insight (The Protégé Effect)</h2>
+            <p>There’s another study that adds an important layer to this.</p>
+            <p>Research with medical students — those facing high cognitive demand and large volumes of material — found something interesting: The students who performed best did not simply study in groups. Nor did they only study alone.</p>
+            
+            <p class="font-bold text-indigo-300 mt-6 mb-4">The strongest results came from those who:</p>
+            <div class="flex flex-col sm:flex-row items-center gap-4 text-white font-medium my-6 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
+                <span class="px-4 py-2 bg-slate-800 rounded-lg text-center w-full sm:w-auto">Studied independently first</span> 
+                <span class="text-slate-500 rotate-90 sm:rotate-0">→</span> 
+                <span class="px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg text-center w-full sm:w-auto">Then explained it to others</span>
+            </div>
+            
+            <p>This reflects what researchers call the <strong class="text-white">“protégé effect”</strong> — the idea that preparing to teach or explain material significantly strengthens understanding and retention.</p>
+            
+            <p class="mt-6 font-medium text-slate-300">When you know you’ll need to articulate something:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>You organise your thinking more clearly</li>
+                <li>You identify gaps in your understanding</li>
+                <li>You engage more deeply</li>
+            </ul>
+            <p>And when you explain it to someone else, your knowledge stabilises. Learning moves from passive intake to active ownership.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Powerful Rhythm</h2>
+            <p>This gives us a helpful rhythm:</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8 text-center">
+                <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
+                    <p class="text-indigo-400 font-bold mb-2">Solitude for depth.</p>
+                    <p class="text-slate-300 text-sm">Alone, you concentrate.<br/>Alone, you wrestle with the material.</p>
+                </div>
+                <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
+                    <p class="text-indigo-400 font-bold mb-2">Community for reinforcement.</p>
+                    <p class="text-slate-300 text-sm">Together, you clarify.<br/>Together, you refine and strengthen what you’ve grasped.</p>
+                </div>
+            </div>
+            
+            <p>Both matter. But many people lean too far in one direction.</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Some isolate completely — and their understanding remains untested.</li>
+                <li>Others rely only on group study — and never build internal clarity.</li>
+            </ul>
+            <p class="font-bold text-white my-8">The most powerful growth happens in the combination.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Try This</h2>
+            <p>Next time you study, experiment with this pattern:</p>
+
+            <div class="space-y-6 my-8">
+                <div class="p-6 bg-slate-900/40 border-l-4 border-slate-600 rounded-r-2xl">
+                    <h3 class="text-lg font-bold text-white mb-2">Step 1: Study Alone</h3>
+                    <ul class="space-y-1 text-slate-300">
+                        <li>• Read slowly.</li>
+                        <li>• Take notes in your own words.</li>
+                        <li>• Identify what feels clear — and what doesn’t.</li>
+                    </ul>
+                    <p class="mt-3 font-medium text-slate-400">Then pause.</p>
+                </div>
+                <div class="p-6 bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl">
+                    <h3 class="text-lg font-bold text-indigo-300 mb-2">Step 2: Share It (Within 24–48 hours)</h3>
+                    <ul class="space-y-1 text-slate-300">
+                        <li>• Explain it to a friend.</li>
+                        <li>• Discuss it over coffee.</li>
+                        <li>• Teach it briefly in a group.</li>
+                        <li>• Or even summarise it out loud as if someone were listening.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Notice what happens. Where do you hesitate? Where do you feel confident? What becomes clearer as you speak?</p>
+            <p class="font-medium text-white my-6">That moment of articulation is where learning deepens.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Choosing the Right People</h2>
+            <p>Not every environment strengthens growth.</p>
+            <p class="mt-6 mb-4 font-medium text-white">Ask yourself:</p>
+            <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
+                <li class="pl-4 border-l-2 border-slate-700">Who in my life values understanding?</li>
+                <li class="pl-4 border-l-2 border-slate-700">Who asks thoughtful questions?</li>
+                <li class="pl-4 border-l-2 border-slate-700">Who raises the level of conversation?</li>
+                <li class="pl-4 border-l-2 border-slate-700">Who encourages persistence rather than cynicism?</li>
+            </ul>
+            <p>You don’t need many. One or two serious learners in your orbit can change everything.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Reflection</h2>
+            <p>Consider your current learning rhythm:</p>
+            <div class="my-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800">
+                <ul class="space-y-3 text-slate-300">
+                    <li class="flex gap-3 items-start"><span class="text-indigo-400">1.</span> Am I isolating too much?</li>
+                    <li class="flex gap-3 items-start"><span class="text-indigo-400">2.</span> Am I relying too much on group discussion without doing the work myself?</li>
+                    <li class="flex gap-3 items-start"><span class="text-indigo-400">3.</span> Who could I intentionally share my learning with this week?</li>
+                </ul>
+            </div>
+            <p class="text-xl font-bold text-white mt-8 mb-12">Small relational adjustments can produce significant intellectual growth.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/know-your-learning-superpower" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Know Your Learning Superpower<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
         slug: "know-your-learning-superpower",
         title: "Know Your Learning Superpower",
         category: "READY",
