@@ -614,6 +614,162 @@ export const articles: Article[] = [
         `
     },
     {
+        slug: "create-your-learning-lab",
+        title: "Create Your Learning Lab",
+        category: "READY",
+        excerpt: "Your environment matters more than most people realise. You don't need the perfect setup, but you do need a deliberate one. Here's how to build a space that supports your learning.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Imagine trying to learn something important in the middle of chaos. Noise. Distraction. Discomfort. You might manage—but it will cost you.</p>
+
+            <p>Now imagine a space that is:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Calm</li>
+                <li>Familiar</li>
+                <li>Set up for focus</li>
+            </ul>
+            <p>The same task feels different.</p>
+            <p class="font-medium text-white mb-8">Your environment matters more than most people realise.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Don’t Need the Perfect Setup</h2>
+            <p>But you do need a deliberate one. Because your environment either:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-indigo-300 font-medium">
+                <li>Supports your learning</li>
+                <li>Or quietly works against it</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Design a Space That Works for You</h2>
+            <p>There is no single “correct” setup.</p>
+            <p>Some people need:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Silence</li>
+                <li>Minimal distraction</li>
+            </ul>
+
+            <p>Others work better with:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Background noise</li>
+                <li>A sense of activity</li>
+            </ul>
+            <p>The key is not copying someone else. It’s understanding what works for you.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">What to Consider</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Lighting</h3>
+                    <p class="text-slate-300 mb-4">Good lighting reduces strain and increases focus. Natural light is ideal.</p>
+                    <p class="text-slate-400 text-sm mb-2">If not, ensure:</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400 mb-4 text-sm">
+                        <li>It’s bright enough</li>
+                        <li>No glare</li>
+                        <li>Comfortable for long periods</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Distractions</h3>
+                    <p class="text-slate-300 mb-4">Modern life is full of interruptions. Especially your phone.</p>
+                    <div class="mt-4 pt-4 border-t border-slate-800">
+                        <p class="text-sm font-bold text-white mb-2">A simple rule:</p>
+                        <p class="text-slate-400 text-sm">If it distracts you, remove it from the room. Not just off—out of reach.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Music</h3>
+                    <p class="text-slate-300 mb-4">Music can help—or hinder.</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400 mb-4 text-sm">
+                        <li>Instrumental music can support focus.</li>
+                        <li>Lyrics often compete with reading.</li>
+                    </ul>
+                    <p class="text-sm font-medium text-white mt-4 border-t border-slate-800 pt-4">Test it. Notice what helps.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Digital or Paper</h3>
+                    <p class="text-slate-300 mb-4">Some people think better on paper. Others prefer digital.</p>
+                    <p class="text-slate-400 text-sm mb-4">Many benefit from both.</p>
+                    <p class="text-sm font-medium text-white border-t border-slate-800 pt-4">Choose what supports clarity—not convenience.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Fresh Air</h3>
+                    <p class="text-slate-300 mb-4">Your brain needs oxygen.</p>
+                    <p class="text-slate-400 text-sm mb-4">A stuffy room reduces alertness.</p>
+                    <p class="text-sm font-medium text-white border-t border-slate-800 pt-4">Even a slightly open window can make a difference.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Alone or With Others</h3>
+                    <p class="text-slate-300 mb-4">Some people focus best alone. Others benefit from shared energy.</p>
+                    <div class="mt-4 pt-4 border-t border-slate-800">
+                        <p class="text-slate-400 text-sm mb-2">You may find:</p>
+                        <p class="text-sm font-medium text-white">Learning alone, reviewing with others is the best combination.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Thought From Learning Research</h2>
+            <p>In the 1970s, Georgi Lozanov developed methods to improve learning environments.</p>
+            <p>His work emphasised:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Relaxation</li>
+                <li>Atmosphere</li>
+                <li>Suggestion</li>
+            </ul>
+            <blockquote class="pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8">
+                The details are less important than the principle: Environment affects learning more than we tend to assume.
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Learning Lab Is Personal</h2>
+            <p>This is not about aesthetics. It’s about function.</p>
+            <p class="font-medium text-white my-6">Ask yourself:</p>
+            <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
+                <li class="pl-4 border-l-2 border-slate-700">Where do I focus best?</li>
+                <li class="pl-4 border-l-2 border-slate-700">What reduces friction?</li>
+                <li class="pl-4 border-l-2 border-slate-700">What helps me stay engaged longer?</li>
+            </ul>
+            <p class="font-bold text-indigo-300 my-6">Then build around that.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Using AI to Design Your Learning Environment</h2>
+            <p>You can even use AI here.</p>
+
+            <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
+                <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Try These AI Prompts</p>
+                </div>
+                <div class="p-6 bg-slate-950/50 space-y-6">
+                    <div>
+                        <p class="text-slate-300 font-medium mb-1">“Help me design a simple study environment based on how I prefer to learn.”</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-300 font-medium mb-1">“Given that I get distracted easily, what setup would improve my focus?”</p>
+                    </div>
+                </div>
+            </div>
+            <p>You can refine your environment quickly—without guesswork.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Final Thought</h2>
+            <p>You don’t need perfect conditions.</p>
+            <p>But small improvements in your environment compound quickly.</p>
+            <p class="text-lg font-bold text-white mt-6 mb-12">Because when your space supports your focus, learning becomes easier to sustain.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/your-social-circle" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Your Social Circle<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
         slug: "know-your-learning-superpower",
         title: "Know Your Learning Superpower",
         category: "READY",
