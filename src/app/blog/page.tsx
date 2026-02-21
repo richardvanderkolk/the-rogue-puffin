@@ -73,13 +73,13 @@ export default async function BlogPage() {
                                             <Link href="/blog/know-your-learning-superpower">• Know Your Learning 'Superpower'</Link>
                                         </li>
                                         <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                            <Link href="/blog/feel-sharp">• Feel Sharp</Link>
+                                            <Link href="/blog/your-social-circle">• Who You Study With Shapes How You Learn</Link>
                                         </li>
                                         <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                             <Link href="/blog/create-your-learning-lab">• Create Your Learning Lab</Link>
                                         </li>
                                         <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                            <Link href="/blog/your-social-circle">• Who You Study With Shapes How You Learn</Link>
+                                            <Link href="/blog/feel-sharp">• Feel Sharp</Link>
                                         </li>
                                     </ul>
 
