@@ -108,6 +108,9 @@ export default async function BlogPage() {
                                             <div>
                                                 <p className="text-sm font-bold text-slate-400 mb-2">Be Aware</p>
                                                 <ul className="space-y-2">
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/garbage-in-garbage-out">• Choose Your Resources Wisely</Link>
+                                                    </li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Get an Overview</li>
                                                 </ul>
                                             </div>

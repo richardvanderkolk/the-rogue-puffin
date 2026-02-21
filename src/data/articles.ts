@@ -1507,6 +1507,69 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "garbage-in-garbage-out",
+        title: "Garbage In, Garbage Out: Choose Your Resources Wisely",
+        category: "AIM",
+        excerpt: "In computer programming there is a term: ‘Garbage in, garbage out.’ This is also true of learning – you can only learn from the resource you choose to learn from.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">In computer programming, there is a fundamental truth: “Garbage in, garbage out.”</p>
+            <p>If you feed a system with flawed data, it will produce flawed results. This principle is perfectly mirrored in human learning.</p>
+            <p class="font-medium text-white mb-8">You can only learn from the resources you intentionally choose to consume.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🌊</span> The Abundance of Choice</h2>
+            <p>Just a few decades ago, information was scarce. You learned from the textbook you were given, the teacher in your classroom, or the encyclopedia on a library shelf.</p>
+            <p>Today, the landscape is entirely different.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl flex items-center justify-center">
+                    <p class="font-bold text-indigo-400 text-lg">A.I. Systems</p>
+                </div>
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl flex items-center justify-center">
+                    <p class="font-bold text-indigo-400 text-lg">Search Engines</p>
+                </div>
+                <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl flex items-center justify-center">
+                    <p class="font-bold text-indigo-400 text-lg">Video Platforms</p>
+                </div>
+            </div>
+            
+            <p>These tools have made accessing information easier than ever before. But access is not discernment. With infinite resources, the burden shifts precisely to how well you curate your input.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> Navigating "What" and "How"</h2>
+            <p>To choose wisely, you must filter your resources across two dimensions: what you are trying to achieve, and how you naturally learn.</p>
+
+            <div class="space-y-6 my-8">
+                <div class="p-6 bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white text-lg mb-2">1. WHAT you learn</h4>
+                    <p class="text-slate-300">Are you aiming for broadness or depth? You can choose to know a little about a lot (skimming summaries, overviews), or a lot about a little (reading primary research, specialized books). Choose the resource that matches your exact goal.</p>
+                </div>
+                <div class="p-6 bg-indigo-950/20 border-l-4 border-emerald-500 rounded-r-2xl">
+                    <h4 class="font-bold text-white text-lg mb-2">2. HOW you learn best</h4>
+                    <p class="text-slate-300">Information comes in different formats. Match the format to your cognitive preference. You can choose visual inputs (watching a video), auditory inputs (listening to a podcast), or literary inputs (reading a text).</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏛️</span> The Institutional Reality</h2>
+            <p>Of course, constraints still exist. If you are studying in a formal academic setting, the person grading your examinations has likely dictated the texts you must use.</p>
+            <p class="font-medium text-amber-400 my-6">Keep the required reading in mind—but do not let it limit you.</p>
+            <p>You always have the power to supplement institutional material with resources that better suit your preferred way of learning. If the textbook is dry, find the lecture on YouTube. If the lecture is disorganized, ask an AI to structure the notes. </p>
+            <p class="font-bold text-white mt-8">Control your inputs, and you will control your outputs.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/initiate-a-learning-mindset" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">A Learning Mindset<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
