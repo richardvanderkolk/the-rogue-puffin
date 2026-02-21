@@ -2204,6 +2204,31 @@ export const articles: Article[] = [
             <p>A mind map places a central idea at the centre of the page and radiates outward into branches — sub-topics, examples, connections, questions.</p>
             <p class="mt-4">Unlike linear notes, a mind map mirrors how your brain actually stores information: as a network of interconnected ideas, not a list. This makes it particularly powerful for subjects with complex relationships — history, science, business strategy, literature.</p>
 
+            <img src="/mind-map-example.png" alt="A mind map diagram showing a central topic with branches radiating outward to key ideas, examples, questions, evidence, connections and details" class="w-full rounded-2xl my-8 border border-white/5" />
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white text-sm mb-2">🗂️ Visual organisation</h4>
+                    <p class="text-xs text-slate-400">The map gives you an instant overview of the whole subject. You can see how everything relates before diving into detail — something a list of notes can never provide.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white text-sm mb-2">🧠 Enhanced comprehension</h4>
+                    <p class="text-xs text-slate-400">Creating the map forces you to process and summarise in your own words. Active construction deepens understanding far more than passive transcription.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white text-sm mb-2">🎨 Flexibility and creativity</h4>
+                    <p class="text-xs text-slate-400">There is no fixed format. Add annotations, draw images, use colour to group ideas, extend in any direction. The non-linear structure encourages creative connections that linear notes suppress.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white text-sm mb-2">💾 Memory and recall</h4>
+                    <p class="text-xs text-slate-400">Visual, spatial, and associative — mind maps engage multiple memory systems simultaneously. Information stored this way is significantly more retrievable than equivalent linear notes.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl sm:col-span-2">
+                    <h4 class="font-bold text-white text-sm mb-2">🔄 Active review</h4>
+                    <p class="text-xs text-slate-400">A completed mind map is one of the best revision tools available. At a glance you can trace every connection, identify gaps, and refresh your understanding of the whole subject — in minutes rather than hours.</p>
+                </div>
+            </div>
+
             <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl my-8">
                 <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">How to build a mind map</p>
                 <div class="space-y-3">
@@ -2229,6 +2254,14 @@ export const articles: Article[] = [
                     </div>
                 </div>
             </div>
+
+            <a href="/blog/how-to-create-a-mind-map" class="flex items-center justify-between p-5 rounded-2xl bg-indigo-950/20 border border-indigo-500/30 hover:bg-indigo-950/40 transition-all group my-8">
+                <div>
+                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Full step-by-step guide</p>
+                    <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">How to Create a Mind Map →</h4>
+                </div>
+                <span class="text-indigo-400 text-2xl group-hover:translate-x-1 transition-transform">→</span>
+            </a>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📊</span> Flow Charts & Diagrams</h2>
             <p>For processes, procedures, and sequences — anything where order matters — a flow chart is far superior to bullet points.</p>
@@ -3262,6 +3295,141 @@ export const articles: Article[] = [
                 <a href="/blog/genius-note-taking" class="block p-5 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Capture it</p>
                     <h4 class="text-base font-bold text-white group-hover:text-indigo-300 transition-colors">Genius Note-Taking<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
+        slug: "how-to-create-a-mind-map",
+        title: "How to Create a Mind Map: A Complete Step-by-Step Guide",
+        category: "LEARN",
+        excerpt: "Mind mapping is one of the most powerful tools available for organising information, deepening comprehension, and building a knowledge you can actually retrieve. Here's exactly how to do it.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">A mind map is not just a prettier version of your notes. It is a fundamentally different way of organising knowledge — one that mirrors how your brain actually works.</p>
+            <p>Linear notes record information in sequences. Your brain stores it as a network. Mind mapping bridges that gap, making it easier to understand, remember, and retrieve complex material.</p>
+
+            <img src="/mind-map-example.png" alt="A mind map diagram showing a central topic with branches radiating outward to key ideas, examples, questions, evidence, connections and details" class="w-full rounded-2xl my-8 border border-white/5" />
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏁</span> Before You Start</h2>
+            <p>A few practical decisions before you put pen to paper (or pixel to screen):</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white mb-2 text-sm">Paper vs. digital?</h4>
+                    <p class="text-xs text-slate-400">Paper (especially large format — A3 or bigger) is often better for the first pass. The physical act of drawing engages memory. Digital tools like Miro, MindMeister, or XMind are better for sharing, editing, or building maps over multiple sessions.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white mb-2 text-sm">Colours</h4>
+                    <p class="text-xs text-slate-400">Use at least 3–4 different colours. Assign one colour per main branch. Colour is not decorative — it is a memory and organisational tool. The brain encodes colour associations, making recall faster and the map easier to navigate at a glance.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white mb-2 text-sm">Keywords only</h4>
+                    <p class="text-xs text-slate-400">Resist the urge to write full sentences. Use single words or short phrases. The purpose of each node is to trigger a memory or idea — not to contain the full explanation. Your brain supplies the rest when you see the keyword.</p>
+                </div>
+                <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <h4 class="font-bold text-white mb-2 text-sm">Landscape orientation</h4>
+                    <p class="text-xs text-slate-400">Turn your page sideways. Landscape gives you maximum space for branches to expand naturally in all directions without cramping.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> Building Your Mind Map: Step by Step</h2>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-8 h-8 rounded-full bg-indigo-500 text-white text-sm font-bold flex items-center justify-center shrink-0">1</span>
+                    <div>
+                        <p class="font-bold text-white">Place your central topic in the middle</p>
+                        <p class="text-sm text-slate-400 mt-1">Write the main subject — or draw a simple image representing it — in the centre of your page. Keep it bold and clear. Everything else radiates from this point. Make it visually prominent: larger text, a circle or box around it, or both.</p>
+                        <p class="text-sm text-indigo-300 mt-2 font-medium">Example: if you're mapping a chapter on the French Revolution, write "FRENCH REVOLUTION" in the centre.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-8 h-8 rounded-full bg-indigo-500 text-white text-sm font-bold flex items-center justify-center shrink-0">2</span>
+                    <div>
+                        <p class="font-bold text-white">Identify your main branches (the big themes)</p>
+                        <p class="text-sm text-slate-400 mt-1">Draw 4–8 thick, curved lines radiating from the centre. These are your primary branches — the main categories or themes of the subject. Write one keyword on each branch, in a different colour. Curved lines are better than straight ones: the brain remembers organic, flowing shapes more readily than rigid geometry.</p>
+                        <p class="text-sm text-slate-400 mt-2">For the French Revolution: Causes / Key Figures / Major Events / Consequences / Political Ideas</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-8 h-8 rounded-full bg-indigo-500 text-white text-sm font-bold flex items-center justify-center shrink-0">3</span>
+                    <div>
+                        <p class="font-bold text-white">Add secondary branches (the detail)</p>
+                        <p class="text-sm text-slate-400 mt-1">From each main branch, draw thinner sub-branches for specific points: examples, supporting evidence, dates, names, definitions, questions you still have. Use the same colour as the parent branch to maintain visual clarity. Add as many or as few as the material requires — don't force symmetry.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-8 h-8 rounded-full bg-indigo-500 text-white text-sm font-bold flex items-center justify-center shrink-0">4</span>
+                    <div>
+                        <p class="font-bold text-white">Add images wherever you can</p>
+                        <p class="text-sm text-slate-400 mt-1">Small, simple sketches alongside keywords dramatically improve recall. You don't need artistic skill — a rough drawing of a crown next to "Monarchy", a flame next to "Revolution", a person's initials next to their name. The act of drawing it encodes it differently and more durably than text alone.</p>
+                        <p class="text-sm text-indigo-300 mt-2 font-medium">Research consistently shows that information with associated images is recalled at significantly higher rates than text-only information.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-8 h-8 rounded-full bg-indigo-500 text-white text-sm font-bold flex items-center justify-center shrink-0">5</span>
+                    <div>
+                        <p class="font-bold text-white">Draw cross-connections</p>
+                        <p class="text-sm text-slate-400 mt-1">This is the step most people skip — and it is often the most valuable. Look across your branches for ideas that connect to each other. When you find one, draw a dotted line between them with a short annotation explaining the connection.</p>
+                        <p class="text-sm text-slate-400 mt-2">Cross-connections reveal relationships that aren't visible in linear notes. They are where synthesis and genuine understanding happen. If you find yourself unable to draw any cross-connections, that is a signal you may not yet understand the relationships within the material.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-indigo-950/20 border border-indigo-500/30 rounded-xl">
+                    <span class="w-8 h-8 rounded-full bg-indigo-500 text-white text-sm font-bold flex items-center justify-center shrink-0">6</span>
+                    <div>
+                        <p class="font-bold text-white">Review and refine</p>
+                        <p class="text-slate-300 text-sm mt-1">A mind map is never truly finished — it is a living document. After your first pass, step back and look at the whole map. What is missing? What is overcrowded in one area? What connections have you not yet made? Add to it when you encounter new information on the same topic.</p>
+                        <p class="text-sm text-indigo-300 mt-2 font-medium">Your best review session is often recreating the map from memory the day after you first built it. The gaps you can't fill are your study targets.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">💡</span> When to Use a Mind Map</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-emerald-400 mt-0.5 shrink-0">✓</span>
+                    <p class="text-sm text-slate-300">Before reading a chapter — as a preview and question-generator</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-emerald-400 mt-0.5 shrink-0">✓</span>
+                    <p class="text-sm text-slate-300">After reading — to consolidate and test comprehension</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-emerald-400 mt-0.5 shrink-0">✓</span>
+                    <p class="text-sm text-slate-300">For complex subjects with many interconnected ideas</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-emerald-400 mt-0.5 shrink-0">✓</span>
+                    <p class="text-sm text-slate-300">As a revision tool — recreate from memory, then compare</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-emerald-400 mt-0.5 shrink-0">✓</span>
+                    <p class="text-sm text-slate-300">For planning essays, projects, or presentations</p>
+                </div>
+                <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-emerald-400 mt-0.5 shrink-0">✓</span>
+                    <p class="text-sm text-slate-300">When you have lots of scattered notes to organise</p>
+                </div>
+            </div>
+
+            <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl my-8">
+                <p class="text-slate-400 text-sm italic">Mind mapping is a personal technique — there is no single correct way to do it. Experiment with styles, structures, and colour schemes until you find what feels natural. The best mind map is the one you will actually use.</p>
+            </div>
+
+            <p class="font-bold text-white text-lg text-center my-12">A map you made is worth ten maps you were given.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Related Reading</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/genius-note-taking" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Note-taking toolkit</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Genius Note-Taking<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/active-recall" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Test yourself</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
