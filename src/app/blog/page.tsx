@@ -6,6 +6,31 @@ export const metadata = {
     description: "Strategies to learn faster, think clearer, and retain more.",
 };
 
+// Slugs that already appear in the left-hand curriculum sidebar.
+// These are excluded from the right-hand "All Articles" feed to avoid duplication.
+const CURRICULUM_SLUGS = new Set([
+    "know-your-why",
+    "set-your-goals",
+    "know-your-learning-superpower",
+    "using-your-learning-superpower",
+    "feel-sharp",
+    "create-your-learning-lab",
+    "your-social-circle",
+    "garbage-in-garbage-out",
+    "psychology-of-time-and-deadlines",
+    "from-cramming-to-compounding",
+    "slicing-the-elephant",
+    "initiate-a-learning-mindset",
+    "preview-the-material",
+    "friction-of-starting",
+    "genius-comprehension",
+    "genius-note-taking",
+    "engaging-your-imagination",
+    "active-recall",
+    "feynman-technique",
+]);
+
+
 export default async function BlogPage() {
     const { articles } = await import('@/data/articles');
 
@@ -224,28 +249,30 @@ export default async function BlogPage() {
                         </div>
 
                         <div className="grid gap-6">
-                            {articles.map((article) => (
-                                <Link
-                                    key={article.slug}
-                                    href={`/blog/${article.slug}`}
-                                    className="group block p-8 rounded-3xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/20 hover:bg-slate-900 transition-all"
-                                >
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <span className="px-3 py-1 bg-white/5 text-indigo-300 text-[10px] font-bold uppercase tracking-wider rounded-full">
-                                            {article.category}
-                                        </span>
-                                    </div>
-                                    <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors leading-tight">
-                                        {article.title}
-                                    </h2>
-                                    <p className="text-slate-400 text-sm leading-relaxed mb-6 font-light">
-                                        {article.excerpt}
-                                    </p>
-                                    <div className="flex items-center text-indigo-400 text-xs font-bold uppercase tracking-wider gap-2">
-                                        Read Article <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                                    </div>
-                                </Link>
-                            ))}
+                            {articles
+                                .filter((article) => !CURRICULUM_SLUGS.has(article.slug))
+                                .map((article) => (
+                                    <Link
+                                        key={article.slug}
+                                        href={`/blog/${article.slug}`}
+                                        className="group block p-8 rounded-3xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/20 hover:bg-slate-900 transition-all"
+                                    >
+                                        <div className="flex items-center gap-4 mb-4">
+                                            <span className="px-3 py-1 bg-white/5 text-indigo-300 text-[10px] font-bold uppercase tracking-wider rounded-full">
+                                                {article.category}
+                                            </span>
+                                        </div>
+                                        <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors leading-tight">
+                                            {article.title}
+                                        </h2>
+                                        <p className="text-slate-400 text-sm leading-relaxed mb-6 font-light">
+                                            {article.excerpt}
+                                        </p>
+                                        <div className="flex items-center text-indigo-400 text-xs font-bold uppercase tracking-wider gap-2">
+                                            Read Article <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                                        </div>
+                                    </Link>
+                                ))}
                         </div>
 
                         {/* Empty State / More content placeholder */}
