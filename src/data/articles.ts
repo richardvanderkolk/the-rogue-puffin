@@ -1570,6 +1570,100 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "friction-of-starting",
+        title: "The Friction of Starting",
+        category: "LEARN",
+        excerpt: "The hardest part of any study session isn't the studying. It's sitting down. Understand the physics of procrastination and learn to eliminate the friction that's keeping you from your work.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">The hardest part of any study session isn't the studying.</p>
+            <p>It's sitting down.</p>
+            <p class="font-medium text-white mb-8">Almost every learner who struggles with procrastination doesn't have a motivation problem. They have a <em>starting</em> problem.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> Newton Was Talking About You</h2>
+            <p>Sir Isaac Newton's First Law of Motion states that an object at rest stays at rest, and an object in motion stays in motion.</p>
+            <p>It applies to physics.</p>
+            <p class="font-medium text-white mt-4">It also applies to you at your desk.</p>
+
+            <div class="my-8 p-6 bg-slate-900/40 border border-white/5 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="border-l-4 border-rose-500 pl-4">
+                    <h4 class="font-bold text-white mb-2">At Rest</h4>
+                    <p class="text-sm text-slate-400">Scrolling. Checking. Reorganizing your desk. Doing anything except the actual work. The longer you stay here, the harder it is to leave.</p>
+                </div>
+                <div class="border-l-4 border-emerald-500 pl-4">
+                    <h4 class="font-bold text-white mb-2">In Motion</h4>
+                    <p class="text-sm text-slate-400">Once you have started — truly started — the resistance drops dramatically. Momentum builds. Minutes turn into an hour. You look up, surprised at how much you've done.</p>
+                </div>
+            </div>
+
+            <p>The problem is the gap between the two states. That gap is called <strong class="text-white">friction</strong>.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔬</span> The Science Behind the Dread</h2>
+            <p>Researchers studying procrastination have consistently found that the brain's threat-detection system (the amygdala) treats a daunting task the same way it treats physical danger: it activates avoidance.</p>
+            <p class="mt-4">The dread you feel before opening the textbook isn't laziness.</p>
+            <p class="font-medium text-white mt-4 mb-8">It's your brain trying to protect you from discomfort.</p>
+            <p>The insight here is powerful: <strong class="text-white">the dread is nearly always worse than the task itself.</strong></p>
+            <p>Studies consistently show that once people start a task they were avoiding, their negative emotional response drops sharply within minutes. The anticipation of the pain is almost always worse than the pain.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏱️</span> The 5-Minute Rule</h2>
+            <p>The most effective and field-tested solution to the starting problem is disarmingly simple.</p>
+
+            <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8 text-center">
+                <p class="text-3xl font-bold text-white mb-4">Commit to just 5 minutes.</p>
+                <p class="text-slate-400">Tell yourself: I am not going to study. I am just going to look at my notes for 5 minutes.</p>
+            </div>
+
+            <p>That's it. A genuine, honest 5-minute commitment.</p>
+            <p class="mt-4">What happens in reality? You almost never stop at 5 minutes.</p>
+            <p class="font-medium text-white mt-4">Because once you have broken the seal of inertia, momentum takes over.</p>
+            <p class="mt-4">The 5-Minute Rule works because it re-frames the task: instead of confronting the enormous, threatening "study session," you are only committing to a tiny, harmless peek.</p>
+            <p class="mt-4">Your brain's threat response has nothing to latch onto. The friction dissolves.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏗️</span> Reducing Activation Energy</h2>
+            <p>In chemistry, activation energy is the minimum amount of energy required to start a reaction.</p>
+            <p class="mt-4">The same principle applies to your work habits. Every barrier between you and starting is a form of activation energy. The more barriers you remove in advance, the easier starting becomes.</p>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg">1</span>
+                    <div>
+                        <p class="font-bold text-white">Prepare your workspace the night before</p>
+                        <p class="text-sm text-slate-400 mt-1">Open the books. Set out the notes. Remove the friction of setup so tomorrow's you can start immediately.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg">2</span>
+                    <div>
+                        <p class="font-bold text-white">Start with the smallest possible task</p>
+                        <p class="text-sm text-slate-400 mt-1">Don't begin with the hardest thing. Begin with one easy question, one paragraph, one definition. Get moving first.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold text-lg">3</span>
+                    <div>
+                        <p class="font-bold text-white">Eliminate your escape routes</p>
+                        <p class="text-sm text-slate-400 mt-1">Put the phone in another room. Close the browser tabs. Make distraction slightly inconvenient and your work slightly more accessible.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="font-bold text-white text-lg text-center my-8">The goal is not willpower. The goal is to remove the need for willpower entirely.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/active-recall" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 

@@ -168,7 +168,9 @@ export default async function BlogPage() {
                                             <div>
                                                 <p className="text-sm font-bold text-slate-400 mb-2">Get Started</p>
                                                 <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• The Friction of Starting</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/friction-of-starting">• The Friction of Starting</Link>
+                                                    </li>
                                                 </ul>
                                             </div>
 
