@@ -2647,6 +2647,124 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "study-music",
+        title: "The Sound of Focus: How to Use Music to Study Better",
+        category: "READY",
+        excerpt: "Music can sharpen your focus, lift your mood, and make a three-hour session feel manageable — or it can quietly demolish your concentration without you noticing. Here's how to tell the difference.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Music has a major impact on your mood, your ability to concentrate, and your productivity.</p>
+            <p>But the relationship between music and learning is not simple. The same playlist that helps one person enter a state of deep flow will scatter another person's attention completely.</p>
+            <p class="font-medium text-white mt-4 mb-8">The goal is to understand the variables — and then run your own experiment.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧠</span> What Music Actually Does to the Brain</h2>
+            <p>Music affects three things that are directly relevant to studying: <strong class="text-white">arousal</strong> (how alert and energised you feel), <strong class="text-white">mood</strong> (how you feel emotionally), and <strong class="text-white">attention</strong> (where your cognitive resources are pointed).</p>
+            <p class="mt-4">The right music can raise arousal to an optimal level, create a positive mood that makes the work feel less aversive, and provide just enough sensory input to mask distracting environmental noise.</p>
+            <p class="mt-4">The wrong music pulls attention toward itself. Your brain starts to process the lyrics, follow the melody, or react to sudden shifts — and the study material loses.</p>
+
+            <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
+                <p class="text-slate-300"><strong class="text-white">The key principle:</strong> music should be a background condition, not a foreground experience. As soon as you are consciously listening to the music, you are not fully studying.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎵</span> What Works — and Why</h2>
+            <p>Not all music is created equal for concentration. These categories consistently produce better results across most learners:</p>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-2xl shrink-0">🎹</span>
+                    <div>
+                        <p class="font-bold text-white">Instrumental music</p>
+                        <p class="text-sm text-slate-400 mt-1">Classical, jazz, ambient electronic, and instrumental versions of songs you know. No lyrics means your verbal processing centres stay focused on reading and thinking, not competing with a vocalist. This is the single most reliable recommendation for most learners.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-2xl shrink-0">🌊</span>
+                    <div>
+                        <p class="font-bold text-white">Ambient and nature sounds</p>
+                        <p class="text-sm text-slate-400 mt-1">Rain, white noise, café background noise, forest sounds. These create a consistent sonic environment that the brain quickly learns to filter out. Research suggests a moderate level of ambient noise (around 70 dB — the level of a coffee shop) can actually enhance creative thinking.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-2xl shrink-0">🎧</span>
+                    <div>
+                        <p class="font-bold text-white">Lo-fi and focus playlists</p>
+                        <p class="text-sm text-slate-400 mt-1">Slow-tempo, low-complexity music designed specifically for concentration. The repetitive nature means there are no surprises to react to. Most major streaming platforms now offer curated "focus" or "deep work" playlists that have been built exactly for this purpose.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-2xl shrink-0">💿</span>
+                    <div>
+                        <p class="font-bold text-white">Familiar music</p>
+                        <p class="text-sm text-slate-400 mt-1">Songs you know well tend to fade into the background more easily than new music. Your brain has already processed the surprises — it no longer needs to pay attention to figure out what comes next. New music demands cognitive attention; familiar music can run on autopilot.</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🚫</span> What Doesn't Work — and Why</h2>
+            <p>Some music actively degrades concentration, even when it feels like it's helping.</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                <div class="p-4 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-xl">
+                    <h4 class="font-bold text-white mb-1 text-sm">Songs with lyrics</h4>
+                    <p class="text-xs text-slate-400">Particularly damaging during reading and writing tasks. Your verbal processing system cannot run two language streams simultaneously — one of them loses, and it is usually the study material.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-xl">
+                    <h4 class="font-bold text-white mb-1 text-sm">High-energy or emotionally intense music</h4>
+                    <p class="text-xs text-slate-400">Fast tempo, dramatic changes, and high emotional content are designed to demand your attention. That's great for a workout; it's counterproductive for working through a complex problem.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-xl">
+                    <h4 class="font-bold text-white mb-1 text-sm">Music you love too much</h4>
+                    <p class="text-xs text-slate-400">Favourite songs hijack attention. You stop studying and start listening. The emotional pull of a song you love is, by design, stronger than the pull of a textbook chapter.</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-xl">
+                    <h4 class="font-bold text-white mb-1 text-sm">Music that's too quiet or too loud</h4>
+                    <p class="text-xs text-slate-400">Too quiet and it won't mask environmental noise. Too loud and it becomes the environment. The sweet spot is consistent, moderate volume — audible but not demanding.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧪</span> Run Your Own Experiment</h2>
+            <p>There is no universal prescription. The research gives us principles, but your brain is the only one that matters here.</p>
+            <p class="mt-4">Try this deliberately over the next two weeks:</p>
+
+            <div class="space-y-3 my-8">
+                <div class="flex items-center gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                    <p class="text-slate-300 text-sm">One session with complete silence. Note your focus and output.</p>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                    <p class="text-slate-300 text-sm">One session with classical or instrumental music. Note your focus and output.</p>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                    <p class="text-slate-300 text-sm">One session with ambient or nature sounds. Note your focus and output.</p>
+                </div>
+                <div class="flex items-center gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="w-6 h-6 rounded-full bg-indigo-500 text-white text-xs font-bold flex items-center justify-center shrink-0">4</span>
+                    <p class="text-slate-300 text-sm">One session with lo-fi or a dedicated focus playlist. Note your focus and output.</p>
+                </div>
+            </div>
+
+            <p class="text-slate-400 mt-4">After each session, spend two minutes noting: How easily did I focus? Did I re-read things? Did I find myself listening to the music rather than studying? How much did I retain?</p>
+            <p class="font-medium text-white mt-4">Your data over two weeks is worth more than any general recommendation.</p>
+
+            <p class="font-bold text-white text-lg text-center my-12">The right soundtrack doesn't just fill silence. It clears the space for thinking.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Related Reading</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/the-relaxed-genius" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Mental state</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Relaxed Genius<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/friction-of-starting" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Getting started</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Friction of Starting<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
