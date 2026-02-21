@@ -771,7 +771,7 @@ export const articles: Article[] = [
     },
     {
         slug: "your-social-circle",
-        title: "Who You Study With Shapes How You Learn",
+        title: "Show Me Your Friends and I'll Show You Your Future",
         category: "READY",
         excerpt: "Most people think learning is a solo activity. But the people in your life — the ones you speak with, learn alongside, or even just observe — quietly shape how well you grow.",
         content: `
