@@ -152,6 +152,15 @@ export default async function BlogPage() {
 
                                         <div className="space-y-6">
                                             <div>
+                                                <p className="text-sm font-bold text-slate-400 mb-2">Get Started</p>
+                                                <ul className="space-y-2">
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/friction-of-starting">• The Friction of Starting</Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            <div>
                                                 <p className="text-sm font-bold text-slate-400 mb-2">Prime Your Mind</p>
                                                 <ul className="space-y-2">
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
@@ -167,14 +176,6 @@ export default async function BlogPage() {
                                                 <p className="text-sm font-bold text-white mb-2 hover:text-indigo-300 cursor-pointer flex items-center gap-2">Faster Reading</p>
                                             </div>
 
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Get Started</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/friction-of-starting">• The Friction of Starting</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
 
                                             <div>
                                                 <p className="text-sm font-bold text-slate-400 mb-2">Increased Comprehension</p>
