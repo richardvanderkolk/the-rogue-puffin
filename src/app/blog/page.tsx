@@ -124,7 +124,9 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/initiate-a-learning-mindset">• A Learning Mindset</Link>
                                                     </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Preview the Material</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/preview-the-material">• Preview the Material</Link>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>

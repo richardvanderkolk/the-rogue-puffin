@@ -984,6 +984,154 @@ export const articles: Article[] = [
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <p> By forcing speed, you demand your brain's full attention. There is no excess capacity for daydreaming. This intense focus creates stronger neural pathways and significantly improves retention of the core concepts.</p>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <p> Speed doesn't kill comprehension; lack of focus does.</p>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         `
+    },
+    {
+        slug: "preview-the-material",
+        title: "Preview the Material",
+        category: "AIM",
+        excerpt: "Most people start reading at page one. That’s the problem. If you want to learn faster and understand more, you don’t begin by reading. You begin by previewing.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people start reading at page one. That’s the problem. If you want to learn faster and understand more, you don’t begin by reading. You begin by previewing.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🚀</span> Give Yourself a Head Start</h2>
+            <p>Previewing is one of the simplest and most overlooked learning techniques.</p>
+            <p class="font-medium text-indigo-300 my-6">And it works.</p>
+            <p>When you preview material, you:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Build a mental framework</li>
+                <li>Reduce confusion</li>
+                <li>Improve comprehension</li>
+                <li>Increase retention</li>
+            </ul>
+            <p>Instead of walking into information blindly, you already know:</p>
+            <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
+                <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> What’s coming</li>
+                <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> What matters</li>
+                <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> How it fits together</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧠</span> Your Brain Needs Structure</h2>
+            <p>Your brain is constantly trying to organise information. When you preview, you help it do that.</p>
+            <p class="mt-6 mb-4 font-medium text-white">You begin connecting:</p>
+            <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
+                <li class="flex items-center"><span class="w-24 inline-block">New ideas</span> <span class="text-indigo-500 mx-3">→</span> existing knowledge</li>
+                <li class="flex items-center"><span class="w-24 inline-block">Concepts</span> <span class="text-indigo-500 mx-3">→</span> context</li>
+                <li class="flex items-center"><span class="w-24 inline-block">Details</span> <span class="text-indigo-500 mx-3">→</span> structure</li>
+            </ul>
+            <p>Without this, reading feels harder than it needs to be. With it, reading becomes smoother, faster, clearer.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏱️</span> Turn It Into a Game</h2>
+            <p>Give yourself a short time limit:</p>
+            <p class="font-bold text-xl text-white italic my-8 text-center bg-slate-800/50 py-8 px-6 rounded-2xl">👉 5–10 minutes</p>
+            <p>Your goal is not to understand everything. Your goal is to answer:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>What is this about?</li>
+                <li>What are the main ideas?</li>
+                <li>What stands out?</li>
+            </ul>
+            <p>This creates focus. And it removes the pressure of <em class="text-slate-400">“I need to understand everything now.”</em></p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">👀</span> Learn to Skim Properly</h2>
+            <p>Skimming is not rushing. It is strategic scanning.</p>
+            <p class="mt-6 mb-4 font-medium text-white">Look for:</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">Headings and subheadings</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">First and last paragraphs</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">Key terms</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <p class="text-slate-300 font-medium">Italics, diagrams, charts</p>
+                </div>
+            </div>
+
+            <p>Well-written material is structured to help you. You just need to learn how to see it.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✍️</span> Start Taking Notes Immediately</h2>
+            <p class="font-bold text-white text-lg mb-4">Don’t wait.</p>
+            <p>Even in your preview, begin:</p>
+            <ul class="space-y-2 my-6 text-slate-400 italic border-l-2 border-slate-700 pl-4">
+                <li>Writing headings</li>
+                <li>Noting key ideas</li>
+                <li>Sketching structure</li>
+            </ul>
+            <p class="mt-8">This gives you:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-indigo-300 font-medium">
+                <li>A head start</li>
+                <li>Better engagement</li>
+                <li>A framework to build on later</li>
+            </ul>
+            <p class="font-bold text-white mt-8">Messy notes are fine. They’re not final—they’re functional.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">❓</span> Ask Questions Early</h2>
+            <p>As you preview, start asking:</p>
+            <ul class="space-y-4 my-8 text-white font-medium">
+                <li class="p-4 bg-slate-900/40 border-l-4 border-indigo-500 rounded-r-xl">What do I want to understand?</li>
+                <li class="p-4 bg-slate-900/40 border-l-4 border-indigo-500 rounded-r-xl">What is unclear?</li>
+                <li class="p-4 bg-slate-900/40 border-l-4 border-indigo-500 rounded-r-xl">What seems important?</li>
+            </ul>
+            <p>Questions activate your brain. They turn passive reading into active searching.</p>
+            <p class="mt-6 font-medium text-slate-300">And something interesting happens:</p>
+            <div class="p-6 bg-indigo-950/20 border border-indigo-500/20 rounded-2xl my-6">
+                <p class="font-bold text-indigo-400 text-lg">👉 The more questions you ask, the more answers you notice.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> Decide What Deserves Depth</h2>
+            <p>You cannot read everything in depth. And you shouldn’t try.</p>
+            <p class="mt-6 mb-4 text-slate-300 font-medium">Previewing helps you decide:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>What needs deep focus</li>
+                <li>What needs general understanding</li>
+            </ul>
+            <p>This is where learning becomes strategic. Not all information is equal. And your time isn’t unlimited.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧩</span> A Smarter Way to Start</h2>
+            <div class="my-8 p-6 bg-slate-900/40 border border-slate-800 rounded-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-5 pointer-events-none">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </div>
+                
+                <p class="text-slate-400 text-sm font-bold uppercase tracking-wider mb-4">Instead of:</p>
+                <div class="flex flex-wrap items-center gap-2 text-slate-500 mb-8">
+                    <span class="px-3 py-1 bg-slate-950 rounded-lg">Open book</span> 
+                    <span>→</span> 
+                    <span class="px-3 py-1 bg-slate-950 rounded-lg">Start reading</span> 
+                    <span>→</span> 
+                    <span class="px-3 py-1 bg-slate-950 rounded-lg">Lose focus</span>
+                </div>
+                
+                <p class="text-indigo-400 text-sm font-bold uppercase tracking-wider mb-4">You now:</p>
+                <div class="flex flex-wrap items-center gap-2 text-white font-medium">
+                    <span class="px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg">Preview</span> 
+                    <span class="text-indigo-500">→</span> 
+                    <span class="px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg">Understand structure</span> 
+                    <span class="text-indigo-500">→</span> 
+                    <span class="px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg">Read with clarity</span>
+                </div>
+            </div>
+
+            <p>It’s a small shift.</p>
+            <p class="text-xl font-bold text-white mt-4 mb-12">But it changes everything.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/initiate-a-learning-mindset" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Previous in AIM</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Initiate a Learning Mindset<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
