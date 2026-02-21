@@ -2059,6 +2059,37 @@ export const articles: Article[] = [
 
             <p>Research in cognitive science consistently shows that dual-coding — pairing words with mental images — dramatically improves retention compared to verbal learning alone.</p>
 
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✨</span> Go Beyond the Text</h2>
+            <p>Here is where most readers stop — and where the best ones begin. The author has given you a starting point. Your imagination can take it further.</p>
+            <p class="mt-4">This is not daydreaming. It is active cognitive processing — and it dramatically deepens comprehension, retention, and enjoyment.</p>
+
+            <div class="space-y-4 my-8">
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-400 text-2xl shrink-0">🧩</span>
+                    <div>
+                        <p class="font-bold text-white">Fill in the gaps</p>
+                        <p class="text-sm text-slate-400 mt-1">No author describes everything. Gaps exist by design. When the text leaves something unspecified — the appearance of a place, the tone of a voice, the precise sequence of a process — let your imagination complete the picture. Your brain will construct a richer, more coherent mental model than the words alone provide.</p>
+                        <p class="text-sm text-slate-400 mt-2">For non-fiction: when a concept is described abstractly, create a concrete example from your own world. Make the abstract tangible.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-400 text-2xl shrink-0">👁️</span>
+                    <div>
+                        <p class="font-bold text-white">Explore multiple perspectives</p>
+                        <p class="text-sm text-slate-400 mt-1">When reading about any situation or concept, step into different viewpoints. For narrative: how does this scene look from a different character's position? For academic material: who would agree with this argument, and who would challenge it — and why?</p>
+                        <p class="text-sm text-slate-400 mt-2">Perspective-switching is one of the most powerful tools for building genuine understanding rather than surface familiarity. It forces you to hold an idea in multiple contexts simultaneously — which is what mastery actually requires.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4 p-5 bg-indigo-950/20 border border-indigo-500/30 rounded-xl">
+                    <span class="text-indigo-400 text-2xl shrink-0">🚀</span>
+                    <div>
+                        <p class="font-bold text-white">Extend beyond what's written</p>
+                        <p class="text-sm text-slate-400 mt-1">If a concept or story hasn't fully clicked, extend it. Ask: what happens next? What are the implications of this principle applied in a different context? What would I do in this situation?</p>
+                        <p class="text-sm text-slate-300 mt-2 font-medium">The moment you begin applying or extending an idea, you cross the threshold from understanding it to owning it.</p>
+                    </div>
+                </div>
+            </div>
+
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🖊️</span> Highlight with Intention</h2>
             <p>Most learners highlight too much. When everything is highlighted, nothing is highlighted.</p>
             <p class="mt-4">Strategic highlighting is a powerful focus tool — used poorly, it creates the illusion of engagement without the substance of it.</p>
