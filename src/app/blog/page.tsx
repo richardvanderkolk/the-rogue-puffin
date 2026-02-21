@@ -18,7 +18,7 @@ export default async function BlogPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
 
                     {/* LEFT COLUMN: Learning Like A Genius Syllabus */}
-                    <div className="space-y-16 lg:sticky lg:top-32">
+                    <div className="space-y-16 lg:sticky lg:top-32 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-2">
                         <div className="mb-8 border-b-2 border-indigo-500 pb-6">
                             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Learning Like A Genius <br /><span className="text-indigo-400">Curriculum</span></h2>
                         </div>
@@ -208,8 +208,8 @@ export default async function BlogPage() {
 
                     {/* RIGHT COLUMN: Articles Feed */}
                     <div className="space-y-8 lg:border-l lg:border-white/5 lg:pl-16 min-h-screen">
-                        <div className="mb-10 lg:sticky lg:top-32 bg-slate-950/90 backdrop-blur-md pt-4 pb-6 z-10 border-b-2 border-slate-800">
-                            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Learning Like A Genius <br /><span className="text-slate-500">Other Articles</span></h2>
+                        <div className="mb-10 border-b-2 border-slate-800 pb-6">
+                            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">All Articles</h2>
                         </div>
 
                         <div className="grid gap-6">
