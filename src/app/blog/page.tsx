@@ -115,7 +115,9 @@ export default async function BlogPage() {
                                             <div>
                                                 <p className="text-sm font-bold text-slate-400 mb-2">Be Confident</p>
                                                 <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Plans, Deadlines and ‘Lastminute.com’</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                                        <Link href="/blog/psychology-of-time-and-deadlines">• The Psychology of Time & Deadlines</Link>
+                                                    </li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Choosing Your Material Wisely</li>
                                                 </ul>
                                             </div>

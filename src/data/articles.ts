@@ -1322,6 +1322,91 @@ export const articles: Article[] = [
                 </a>
             </div>
         `
+    },
+    {
+        slug: "psychology-of-time-and-deadlines",
+        title: "The Psychology of Time & Deadlines",
+        category: "AIM",
+        excerpt: "People talk about saving time, but it is impossible to save time. You can save and stockpile money, but you can’t save and stockpile time. We all have the same amount and spend it at the same rate.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">People talk about saving time, but it is impossible to save time.</p>
+
+            <p>You can save and stockpile money, but you can’t save and stockpile time. We all have the exact same amount, and we all spend it at the exact same rate: 60 seconds every minute, 60 minutes every hour, 24 hours every day, and seven days every week.</p>
+            <p class="font-medium text-white mb-8">We cannot manage time. We can only manage ourselves in the time we have.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏳</span> The Parkinson's Trap</h2>
+            <p>Have you already noticed this yourself?</p>
+            <p>Over and over again, studies have given merit to Parkinson’s Law—the adage first coined by C. Northcote Parkinson in 1955.</p>
+            
+            <blockquote class="border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8 text-lg">
+                "Work expands so as to fill the time which is available for its completion."
+            </blockquote>
+            
+            <p>This is due to procrastination and the undue time and attention given to trivial things.</p>
+            
+            <ul class="space-y-4 my-8 text-slate-300">
+                <li class="flex gap-4 items-start p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold">1</span>
+                    <p>Students will often take as long to finish an assignment as they’re given. Whether they have a week, a month, or a whole semester, they will likely finish it right before the deadline.</p>
+                </li>
+                <li class="flex gap-4 items-start p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
+                    <span class="text-indigo-500 font-bold">2</span>
+                    <p>That project that has to get finished before you go on holiday... it’s amazing how quickly it gets finished the day before you pack your bags.</p>
+                </li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> Without a Plan, It's Called Wandering Aimlessly</h2>
+            <p>Without a plan, everything looks important. You waste time and energy chasing opportunities that don't serve your actual goal.</p>
+            <p class="mt-6 mb-4 text-slate-300">Without a plan, you lack:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl text-center">
+                    <p class="text-white font-medium">Direction</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl text-center">
+                    <p class="text-white font-medium">Focus</p>
+                </div>
+                <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl text-center">
+                    <p class="text-white font-medium">Measurement</p>
+                </div>
+            </div>
+            
+            <p>A plan focuses your energies in the right direction and gives you the confidence that you can actually execute.</p>
+            
+            <blockquote class="border-l-4 border-slate-600 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-slate-300 italic my-8">
+                “A goal without a plan is just a wish.”<br/>
+                <span class="text-sm font-bold text-indigo-400 mt-2 block">— Antoine de Saint-Exupéry</span>
+            </blockquote>
+            
+            <p class="font-medium text-white text-lg text-center my-8">... and a plan without action is just a daydream.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> Once You Plan Your Work, Work Your Plan</h2>
+            <p>The first step is to plan what you will do. But then you’ve got to get to work.</p>
+            <p>How long will it take?</p>
+            
+            <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8 text-center text-xl font-bold text-white">
+                It will take as long as you give yourself to do it.
+            </div>
+            
+            <p>To defeat Parkinson's Law, you must change how you set constraints.</p>
+            <p class="font-medium text-indigo-300 my-4">Give yourself a deadline that is not determined by how much time you <em>have</em>, but by how long it <em>should take</em>.</p>
+
+            <p class="mt-8">This changes the entire psychological game. You move from expanding your effort to fit a bloated timeline, to executing efficiently against a strict, self-imposed constraint.</p>
+            <p class="font-bold text-white my-6">Because you can't save time—but you can definitely steal it back.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/cramming-to-compounding" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">From Cramming to Compounding<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     }
 ];
 
