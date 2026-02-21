@@ -461,6 +461,159 @@ export const articles: Article[] = [
         `
     },
     {
+        slug: "feel-sharp",
+        title: "Feel Sharp",
+        category: "READY",
+        excerpt: "If you are not feeling sharp, learning becomes unnecessarily difficult. It’s like trying to ride a bike with a flat tyre. Your state matters just as much as your strategy.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">If you are not feeling sharp, learning becomes unnecessarily difficult. It’s like trying to ride a bike with a flat tyre. You can still move—but it takes far more effort than it should.</p>
+
+            <p>Most people focus on techniques.</p>
+            <p class="font-medium text-white mb-8">But your state matters just as much as your strategy.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Body Affects Your Mind</h2>
+            <p>Try something simple.</p>
+            <ul class="space-y-2 my-6 text-slate-300">
+                <li>Stand up straight.</li>
+                <li>Shoulders back.</li>
+                <li>Take a deep breath.</li>
+                <li>Smile.</li>
+            </ul>
+            <p>Now try to feel genuinely low or discouraged.</p>
+            <p class="font-medium text-indigo-300 my-6">👉 It’s not easy.</p>
+            
+            <p>Now reverse it:</p>
+            <ul class="space-y-2 my-6 text-slate-400 italic border-l-2 border-slate-700 pl-4">
+                <li>Slouch</li>
+                <li>Shallow breathing</li>
+                <li>Look down</li>
+            </ul>
+            <p>Your state shifts quickly.</p>
+            
+            <p class="mt-8">This isn’t complicated. Your physiology affects:</p>
+            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+                <li>Focus</li>
+                <li>Energy</li>
+                <li>Emotion</li>
+            </ul>
+            <p class="font-bold text-white">And all three affect your ability to learn.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Foundations of Feeling Sharp</h2>
+            <p>You don’t need optimisation.</p>
+            <p class="text-lg text-indigo-300 font-medium mb-8">You need consistency in a few basics.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Sleep</h3>
+                    <p class="text-slate-300 mb-4">Sleep is not optional for effective learning. When you are sleep-deprived:</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400 mb-4 text-sm">
+                        <li>Focus drops</li>
+                        <li>Memory weakens</li>
+                        <li>Problem-solving slows</li>
+                    </ul>
+                    <p class="text-sm font-medium text-white">Sleep is also when your brain consolidates what you’ve learned. Without it, learning doesn’t stick.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Hydration</h3>
+                    <p class="text-slate-300 mb-4">Your brain depends on water. Even mild dehydration can lead to:</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400 mb-4 text-sm">
+                        <li>Fatigue</li>
+                        <li>Brain fog</li>
+                        <li>Reduced concentration</li>
+                    </ul>
+                    <p class="text-sm font-medium text-white">Many people try to push through this—when the solution is simply to drink more water.</p>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Nutrition</h3>
+                    <p class="text-slate-300 mb-4">Food is fuel. Some foods support sustained energy:</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400 mb-4 text-sm">
+                        <li>Whole foods</li>
+                        <li>Fruits and vegetables</li>
+                        <li>Balanced meals</li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-slate-800">
+                        <p class="text-slate-400 text-sm mb-2">Others create spikes and crashes (sugary snacks, processed foods).</p>
+                        <p class="text-sm font-medium text-white">The short-term boost is usually followed by a drop.</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">Movement</h3>
+                    <p class="text-slate-300 mb-4">You don’t need an intense fitness routine. But regular movement:</p>
+                    <ul class="list-disc pl-5 space-y-2 text-slate-400 mb-4 text-sm">
+                        <li>Improves blood flow</li>
+                        <li>Increases focus</li>
+                        <li>Supports memory</li>
+                    </ul>
+                    <p class="text-sm font-medium text-white">Even a short walk can reset your mind.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Simple 7-Day Reset</h2>
+            <p>Try this for one week:</p>
+            <div class="my-8 p-6 bg-indigo-950/20 border border-indigo-500/20 rounded-2xl">
+                <ul class="space-y-4 font-medium text-white">
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> 8 hours of sleep</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> 2 litres of water</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> 15 minutes of movement</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> 20 minutes of reading</li>
+                    <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Write down 5 things you’re grateful for</li>
+                </ul>
+            </div>
+            <p>Not extreme. Just consistent.</p>
+            <p class="font-bold text-indigo-300 my-6">Then observe the difference.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Why This Matters More Than You Think</h2>
+            <p>Most people try to fix learning by changing technique.</p>
+            <p>But if your baseline state is low, everything feels harder.</p>
+            <blockquote class="pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8">
+                Improving your state doesn’t just help a little. It changes how learning feels.
+            </blockquote>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Using AI to Support Your Energy and Focus</h2>
+            <p>This might not be obvious—but AI can help here too.</p>
+
+            <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
+                <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest">Try These AI Prompts</p>
+                </div>
+                <div class="p-6 bg-slate-950/50 space-y-6">
+                    <div>
+                        <p class="text-slate-300 font-medium mb-1">“Create a simple daily routine that supports focus and learning.”</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-300 font-medium mb-1">“Based on my schedule, how can I structure my day to feel more mentally sharp?”</p>
+                    </div>
+                    <div>
+                        <p class="text-slate-300 font-medium mb-1">“Give me a simple pre-study routine to improve focus.”</p>
+                    </div>
+                </div>
+            </div>
+            <p>Again, not outsourcing—but supporting.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Final Thought</h2>
+            <p>You don’t need perfect conditions to learn.</p>
+            <p>But you do need to remove unnecessary friction.</p>
+            <p class="text-lg font-bold text-white mt-6 mb-12">Because when your mind is clear and your energy is steady, learning becomes far more natural.</p>
+
+            <hr class="border-slate-800 my-16" />
+
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/create-your-learning-lab" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Create Your Learning Lab<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
+    },
+    {
         slug: "know-your-learning-superpower",
         title: "Know Your Learning Superpower",
         category: "READY",
