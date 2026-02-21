@@ -10,7 +10,6 @@ export const metadata = {
 // These are excluded from the right-hand "All Articles" feed to avoid duplication.
 const CURRICULUM_SLUGS = new Set([
     "know-your-why",
-    "set-your-goals",
     "know-your-learning-superpower",
     "using-your-learning-superpower",
     "feel-sharp",
@@ -79,9 +78,6 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/know-your-why">• Know Your Why</Link> <span className="text-slate-600 text-xs ml-1">(Growth / Wisdom)</span>
                                                     </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/set-your-goals">• Set Your Goals</Link>
-                                                    </li>
                                                 </ul>
                                             </div>
 
@@ -106,7 +102,6 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/your-social-circle">• Who You Study With Shapes How You Learn</Link>
                                                     </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Celebrate Your Successes</li>
                                                 </ul>
                                             </div>
                                         </div>
