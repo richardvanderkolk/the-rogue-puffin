@@ -53,6 +53,31 @@ export default async function BlogPage() {
 
                         <div className="space-y-16">
 
+                            {/* START HERE */}
+                            <div className="p-5 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 space-y-4">
+                                <div>
+                                    <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Start here</p>
+                                    <h3 className="text-base font-bold text-white leading-snug">See the difference in your first session</h3>
+                                </div>
+                                <ul className="space-y-2">
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                        <Link href="/blog/know-your-learning-superpower">• Know Your Learning 'Superpower'</Link>
+                                    </li>
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                        <span className="text-slate-600">• Fast Reading</span>
+                                    </li>
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                        <Link href="/blog/genius-comprehension">• Genius Comprehension</Link>
+                                    </li>
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                        <span className="text-slate-600">• Memory Training</span>
+                                    </li>
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                        <span className="text-slate-600">• Defeating the Forgetting Curve</span>
+                                    </li>
+                                </ul>
+                            </div>
+
                             {/* 1. READY */}
                             <div className="space-y-6">
                                 <div className="flex items-baseline gap-4">
