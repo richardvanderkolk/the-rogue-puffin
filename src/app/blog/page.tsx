@@ -64,16 +64,16 @@ export default async function BlogPage() {
                                         <Link href="/blog/know-your-learning-superpower">• Know Your Learning 'Superpower'</Link>
                                     </li>
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <span className="text-slate-600">• Fast Reading</span>
+                                        <Link href="/blog/how-to-read-faster">• Fast Reading</Link>
                                     </li>
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                         <Link href="/blog/genius-comprehension">• Genius Comprehension</Link>
                                     </li>
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <span className="text-slate-600">• Memory Training</span>
+                                        <Link href="/blog/active-recall">• Memory Training</Link>
                                     </li>
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <span className="text-slate-600">• Defeating the Forgetting Curve</span>
+                                        <Link href="/blog/the-art-of-review">• Defeating the Forgetting Curve</Link>
                                     </li>
                                 </ul>
                             </div>
