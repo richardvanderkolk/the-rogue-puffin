@@ -48,7 +48,7 @@ export default async function BlogPage() {
                     {/* LEFT COLUMN: Learning Like A Genius Syllabus */}
                     <div className="space-y-16 lg:sticky lg:top-32 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-2">
                         <div className="mb-8 border-b-2 border-indigo-500 pb-6">
-                            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Learning Like A Genius <br /><span className="text-indigo-400">Curriculum</span></h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Learning Like A Genius <br /><span className="text-indigo-400">The Complete Masterclass</span></h2>
                         </div>
 
                         <div className="space-y-16">
@@ -56,12 +56,15 @@ export default async function BlogPage() {
                             {/* START HERE */}
                             <div className="p-5 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 space-y-4">
                                 <div>
-                                    <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">Start here</p>
-                                    <h3 className="text-base font-bold text-white leading-snug">See the difference in your first session</h3>
+                                    <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">The Abridged Curriculum</p>
+                                    <h3 className="text-base font-bold text-white leading-snug">The Accelerated Course: See the difference today</h3>
                                 </div>
                                 <ul className="space-y-2">
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                         <Link href="/blog/know-your-learning-superpower">• Know Your Learning 'Superpower'</Link>
+                                    </li>
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
+                                        <Link href="/blog/preview-the-material">• Preview the Material</Link>
                                     </li>
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                         <Link href="/blog/how-to-read-faster">• Fast Reading</Link>
