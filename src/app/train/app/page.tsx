@@ -17,7 +17,7 @@ function TrainingContent() {
     // Core Pacer State
     const [isPlaying, setIsPlaying] = useState(false);
     const [wpm, setWpm] = useState(300);
-    const [mode, setMode] = useState<"normal" | "inverted" | "peripheral" | "backward" | "flash">("normal");
+    const [mode, setMode] = useState<"normal" | "inverted" | "peripheral" | "backward" | "flash" | "read" | "message" | "recall">("normal");
     const [chunkSize, setChunkSize] = useState(3);
     const [highlightMode, setHighlightMode] = useState(false);
     const [acceleration, setAcceleration] = useState(0);

@@ -229,7 +229,17 @@ const PageDisplay = ({
     return (
         <div className={`relative w-full max-w-4xl mx-auto p-12 md:p-20 bg-slate-100 text-slate-900 rounded-sm text-base md:text-lg leading-relaxed overflow-y-auto transition-transform duration-500 ${inverted ? 'rotate-180' : ''} ${className}`}>
             <div className="relative">
-                {renderText(highlightMode)}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={text}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.15 }}
+                    >
+                        {renderText(highlightMode)}
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </div>
     );
@@ -337,7 +347,7 @@ export function RogueSessionEngine({ onComplete }: { onComplete: () => void }) {
                 case 'drill_cycle_7': // 1 min Highlight
                     if (elapsed > 60000) {
                         setPhase('complete');
-                        onComplete();
+                        setPaused(true);
                     }
                     break;
             }
@@ -372,7 +382,6 @@ export function RogueSessionEngine({ onComplete }: { onComplete: () => void }) {
             case 'demo_rsvp':
                 return (
                     <div className="w-full h-full flex flex-col items-center justify-center relative">
-                        <p className="absolute top-10 text-slate-500 uppercase tracking-widest text-sm">Visual Warmup: Kinetic Text</p>
                         <RSVPDisplay
                             words={WORD_STREAM_DEMO}
                             speedMs={400}

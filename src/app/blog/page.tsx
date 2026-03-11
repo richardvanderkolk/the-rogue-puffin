@@ -24,7 +24,6 @@ const CURRICULUM_SLUGS = new Set([
     "friction-of-starting",
     "genius-comprehension",
     "genius-note-taking",
-    "engaging-your-imagination",
     "active-recall",
     "feynman-technique",
     // Removed from right-hand feed per user request
@@ -66,14 +65,26 @@ export default async function BlogPage() {
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                         <Link href="/blog/preview-the-material">• Preview the Material</Link>
                                     </li>
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <Link href="/blog/how-to-read-faster">• Fast Reading</Link>
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors block py-1">
+                                        <Link href="/rogue-session" className="group relative inline-flex items-center gap-2">
+                                            • Fast Reading
+                                            <span className="text-indigo-500 text-xs">↗</span>
+                                            <span className="absolute left-0 top-full mt-1.5 w-56 p-3 bg-slate-900 border border-indigo-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
+                                                Try <strong className="text-white">The Rogue Reading Session</strong> — a free 30-minute interactive drill to break your reading speed plateau.
+                                            </span>
+                                        </Link>
                                     </li>
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                         <Link href="/blog/genius-comprehension">• Genius Comprehension</Link>
                                     </li>
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <Link href="/blog/active-recall">• Memory Training</Link>
+                                    <li className="text-sm text-slate-400 hover:text-white transition-colors block py-1">
+                                        <Link href="/rogue-memory-session" className="group relative inline-flex items-center gap-2">
+                                            • Memory Training
+                                            <span className="text-violet-500 text-xs">↗</span>
+                                            <span className="absolute left-0 top-full mt-1.5 w-60 p-3 bg-slate-900 border border-violet-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
+                                                Try <strong className="text-white">The Rogue Memory Session</strong> — a free 30-minute session that teaches you three memory techniques and proves they work, immediately.
+                                            </span>
+                                        </Link>
                                     </li>
                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                         <Link href="/blog/the-art-of-review">• Defeating the Forgetting Curve</Link>
@@ -206,7 +217,13 @@ export default async function BlogPage() {
                                             </div>
 
                                             <div>
-                                                <p className="text-sm font-bold text-white mb-2 hover:text-indigo-300 cursor-pointer flex items-center gap-2">Faster Reading</p>
+                                                <Link href="/rogue-session" className="group inline-flex items-center gap-2 text-sm font-bold text-white hover:text-indigo-300 transition-colors cursor-pointer mb-2 relative">
+                                                    Faster Reading
+                                                    <span className="text-indigo-500 text-xs">↗</span>
+                                                    <span className="absolute left-0 top-full mt-1.5 w-56 p-3 bg-slate-900 border border-indigo-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
+                                                        Try <strong className="text-white">The Rogue Reading Session</strong> — a free 30-minute interactive drill to break your reading speed plateau.
+                                                    </span>
+                                                </Link>
                                             </div>
 
 
@@ -219,17 +236,13 @@ export default async function BlogPage() {
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/genius-note-taking">• Genius Note Taking</Link>
                                                     </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/using-your-learning-superpower">• Using Your Learning ‘Superpower’</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/engaging-your-imagination">• Engaging Your Imagination</Link>
-                                                    </li>
+
+
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
                                                         <Link href="/blog/active-recall">• Active Recall vs. The Illusion of Competence</Link>
                                                     </li>
                                                     <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/feynman-technique">• The Feynman Technique</Link>
+                                                        <Link href="/blog/feynman-technique">• Can You Explain it to a Child?</Link>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -237,9 +250,16 @@ export default async function BlogPage() {
                                             <div>
                                                 <p className="text-sm font-bold text-slate-400 mb-2">Incredible Retention</p>
                                                 <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Memory Training</li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Optimal Reviewing</li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Spaced Repetition: Defeating the Forgetting Curve</li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors block py-1">
+                                                        <Link href="/rogue-memory-session" className="group relative inline-flex items-center gap-2">
+                                                            • Memory Training
+                                                            <span className="text-violet-500 text-xs">↗</span>
+                                                            <span className="absolute left-0 top-full mt-1.5 w-60 p-3 bg-slate-900 border border-violet-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
+                                                                Try <strong className="text-white">The Rogue Memory Session</strong> — a free 30-minute session that teaches you three memory techniques and proves they work, immediately.
+                                                            </span>
+                                                        </Link>
+                                                    </li>
+                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Defeating the Forgetting Curve</li>
                                                 </ul>
                                             </div>
                                         </div>

@@ -1,63 +1,60 @@
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Clock, Zap, BookOpen, Shield } from "lucide-react";
+import { ArrowRight, CheckCircle, Clock, Zap, BookOpen, Shield, School, Rocket, Brain } from "lucide-react";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col bg-slate-950 text-slate-100 selection:bg-indigo-500/30">
       {/* Hero Section */}
-      <section className="relative px-6 pt-40 pb-32 md:pt-52 md:pb-40 overflow-hidden">
+      <section className="relative px-6 pt-40 pb-16 md:pt-52 md:pb-24 overflow-hidden">
         {/* Subtle Background - Less blur, more clean space */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-indigo-900/10 rounded-full blur-[150px] -z-10" />
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
 
           {/* Left Column: Headlines (Clean & Intelligent) */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8">
-            <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
-              Learn faster. <br /> Understand more. <br /> Enjoy it.
+          <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-8">
+            <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
+              Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span> <br /> Enjoy it.
             </h1>
-            <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto lg:mx-0 font-light leading-relaxed tracking-wide">
+            <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
               Teaching you what they didn’t teach you at school.
             </p>
           </div>
 
           {/* Right Column: Rogue Session CTA Card (Premium & Practical) */}
-          <div className="relative w-full max-w-md mx-auto lg:mx-0 lg:ml-auto group">
+          <div className="relative w-full max-w-md mx-auto xl:mx-0 xl:ml-auto group">
             <div className="absolute inset-0 bg-indigo-500/5 rounded-3xl blur-2xl -z-10 transition-opacity duration-700 group-hover:opacity-75" />
             <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl space-y-8">
               <div className="space-y-3">
-                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-200 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Session</span>
-                <h2 className="text-2xl font-medium text-white leading-snug">Let us prove that you can do more.</h2>
+                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Reading Masterclass</span>
+                <h2 className="text-2xl font-medium text-white leading-snug">Let us prove you are capable of far more than you think.</h2>
               </div>
 
               <p className="text-slate-400 text-sm leading-relaxed font-light">
-                Increase your reading speed by <strong className="text-white font-medium">50-150%</strong> in just 30 minutes. Practical, measurable results.
+                Once you see how easily you can double your reading speed without losing comprehension, you'll realize just how much more you can achieve. This masterclass takes roughly 30 minutes.
               </p>
 
               <div className="pt-2">
                 <Link
-                  href="/rogue-session"
-                  className="w-full block text-center px-6 py-4 bg-white text-black rounded-full font-medium text-base hover:bg-slate-200 transition-all active:scale-95"
+                  href="/rogue-session/start"
+                  className="w-full block text-center px-6 py-4 bg-white text-black rounded-full font-medium text-base hover:bg-slate-200 transition-all active:scale-95 flex items-center justify-center gap-2"
                 >
-                  Start Session ($5)
+                  Yes, please show me <ArrowRight className="w-5 h-5" />
                 </Link>
-                <p className="text-center text-slate-600 text-[10px] mt-3 flex items-center justify-center gap-1 uppercase tracking-wider">
-                  <Shield className="w-3 h-3" /> Money-back guarantee
-                </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-white/5">
+              <div className="grid grid-cols-3 gap-4 pt-6 mt-6 border-t border-white/5">
                 <div className="text-center">
-                  <p className="text-xl font-medium text-white">30</p>
-                  <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Mins</p>
+                  <BookOpen className="w-5 h-5 mx-auto text-slate-500 mb-2" />
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Abridged</p>
                 </div>
                 <div className="text-center border-l border-white/5">
-                  <p className="text-xl font-medium text-white">2x</p>
-                  <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Speed</p>
+                  <Zap className="w-5 h-5 mx-auto text-slate-500 mb-2" />
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Practical</p>
                 </div>
                 <div className="text-center border-l border-white/5">
-                  <p className="text-xl font-medium text-white">100%</p>
-                  <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Focus</p>
+                  <CheckCircle className="w-5 h-5 mx-auto text-slate-500 mb-2" />
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Proven</p>
                 </div>
               </div>
             </div>
@@ -66,8 +63,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The Hook: You Are Not Stupid */}
+      <section className="py-16 md:py-24 px-6 border-t border-white/5 bg-slate-900/10">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">You are not stupid.</h2>
+            <p className="text-xl md:text-2xl text-indigo-300 font-light leading-relaxed max-w-2xl mx-auto">
+              No computer has ever been made that is more powerful than the human brain, yet students and professionals still struggle to learn.
+            </p>
+            <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
+              Why? Because you weren't taught how to use your brain properly.
+            </p>
+          </div>
+
+          <div className="py-12 border-y border-white/5 my-12">
+            <h3 className="text-slate-500 uppercase tracking-[0.2em] font-bold text-sm mb-6">The Definition of Insanity</h3>
+            <blockquote className="text-2xl md:text-3xl font-medium text-white italic leading-snug">
+              "Doing today the same thing that you did yesterday, hoping that tomorrow will be better."
+            </blockquote>
+          </div>
+
+          <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
+            Life doesn't reward you for what you <em className="text-white">can</em> do. It rewards you for what you <strong className="text-white font-medium">do</strong> do. Learn how to get the best out of yourself.
+          </p>
+
+        </div>
+      </section>
+
       {/* Why It Matters (Spacious & Clean) */}
-      <section className="py-32 px-6 border-t border-white/5">
+      <section className="py-16 md:py-24 px-6 border-t border-white/5">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
             <div className="space-y-8 sticky top-32">
@@ -117,33 +142,150 @@ export default function Home() {
         </div>
       </section>
 
-      {/* New Article Section: Insight / AI */}
-      <section className="py-32 px-6 bg-slate-900/20 border-t border-white/5">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
-          <div className="space-y-4">
-            <span className="text-indigo-400 text-xs font-bold uppercase tracking-[0.2em]">Latest Insight</span>
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">AI & The Superpower Learning Style</h2>
+      <CTAGrid />
+
+      {/* Philosophy Section (Moved from About Page) */}
+      <section className="px-6 py-24 md:py-32 bg-slate-950 border-t border-slate-900">
+        <div className="max-w-5xl mx-auto space-y-24 md:space-y-32">
+
+          {/* Intro Heading */}
+          <div className="text-center space-y-6 mb-16 md:mb-24">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-indigo-300 text-xs font-bold uppercase tracking-widest">
+              <Brain className="w-3 h-3" /> The Philosophy
+            </div>
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white leading-[0.9]">
+              The Missing <br /> Subject<span className="text-indigo-500">.</span>
+            </h2>
           </div>
 
-          <article className="prose prose-invert prose-lg mx-auto text-left py-8 border-y border-white/5">
-            <p className="text-slate-300 font-light leading-loose">
-              <span className="text-white font-medium">Coming Soon.</span> We are exploring how Artificial Intelligence can not only curate what you learn but adapt <em>how</em> you learn it. Imagine a system that translates complex material into your native "mental language"—whether that's visual, structural, or narrative.
-            </p>
-            <p className="text-slate-400 font-light leading-loose">
-              The future of learning isn't just about accessing information; it's about personalized synthesis. Stay tuned for our deep dive into using AI to unlock your unique learning superpower.
-            </p>
-          </article>
-
-          <div>
-            <Link href="/blog" className="text-white border-b border-indigo-500 pb-1 hover:text-indigo-400 transition-colors">Read more articles</Link>
+          {/* Block 1: The Problem */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
+            <div className="md:col-span-4 sticky top-32">
+              <span className="w-12 h-12 rounded-2xl bg-slate-900 border border-white/5 flex items-center justify-center mb-6 text-indigo-400">
+                <School className="w-6 h-6" />
+              </span>
+              <h3 className="text-3xl font-bold text-white tracking-tight leading-none mb-4">The Gap in <br /> the System</h3>
+              <div className="h-1 w-12 bg-indigo-500 rounded-full" />
+            </div>
+            <div className="md:col-span-8 md:pl-8 space-y-8 text-lg font-light leading-relaxed text-slate-300">
+              <p>
+                We spent 12-16 years in school. We were taught history, mathematics, biology, and literature. We were taught <strong className="text-white font-medium">what</strong> to learn.
+              </p>
+              <p>
+                But remarkably, in all those years, many of us were never explicitly taught <strong className="text-white font-medium">how</strong> to learn.
+              </p>
+              <p className="text-slate-400 border-l-2 border-slate-800 pl-6 italic">
+                We were taught to read by reading aloud in class. And once we could recognize words, the instruction stopped. We are adults walking around with 6-year-old reading habits.
+              </p>
+            </div>
           </div>
+
+          {/* Block 2: The Solution */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 items-start">
+            <div className="md:col-span-4 sticky top-32">
+              <span className="w-12 h-12 rounded-2xl bg-slate-900 border border-white/5 flex items-center justify-center mb-6 text-indigo-400">
+                <Zap className="w-6 h-6" />
+              </span>
+              <h3 className="text-3xl font-bold text-white tracking-tight leading-none mb-4">The Biological <br /> Truth</h3>
+              <div className="h-1 w-12 bg-indigo-500 rounded-full" />
+            </div>
+            <div className="md:col-span-8 md:pl-8 space-y-8 text-lg font-light leading-relaxed text-slate-300">
+              <p>
+                For example, speed reading isn't magic. It's biology. It's about optimizing the intake mechanism of your brain—your eyes and your visual cortex.
+              </p>
+              <p>
+                The human brain is a pattern-matching supercomputer. It is capable of processing visual information thousands of times faster than auditory information. Yet, by reading with an "inner voice" (subvocalization), we throttle this supercomputer down to the speed of speech.
+              </p>
+              <p>
+                By removing the inefficiencies of subvocalization and regression, you don't just read faster. You enter a state of flow. Comprehension increases because your brain is finally receiving information at the speed it was designed to process it.
+              </p>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-6 border-t border-slate-900 text-center text-slate-600 text-sm bg-black">
-        <p>&copy; {new Date().getFullYear()} The Rogue Puffin. </p>
-      </footer>
+      <CTAGrid />
+
     </main>
+  );
+}
+
+function CTAGrid() {
+  return (
+    <section className="py-24 px-6 bg-slate-900/40 border-t border-white/5">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        {/* Masterclass */}
+        <div className="relative w-full group flex flex-col h-full">
+          <div className="absolute inset-0 bg-indigo-500/5 rounded-3xl blur-2xl -z-10 transition-opacity duration-700 group-hover:opacity-75" />
+          <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl flex flex-col flex-grow space-y-8">
+            <div className="space-y-3 flex-grow">
+              <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Reading Masterclass</span>
+              <h2 className="text-2xl font-medium text-white leading-snug">Let us prove you are capable of far more than you think.</h2>
+              <p className="text-slate-400 text-sm leading-relaxed font-light mt-4">
+                Once you see how easily you can double your reading speed without losing comprehension, you'll realize just how much more you can achieve. This masterclass takes roughly 30 minutes.
+              </p>
+            </div>
+
+            <div className="pt-2 mt-auto">
+              <Link
+                href="/rogue-session/start"
+                className="w-full text-center px-6 py-4 bg-white text-black rounded-full font-medium text-sm hover:bg-slate-200 transition-all active:scale-95 flex items-center justify-center gap-2"
+              >
+                Start Reading Training <ArrowRight className="w-4 h-4 shrink-0" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Memory Course */}
+        <div className="relative w-full group flex flex-col h-full">
+          <div className="absolute inset-0 bg-emerald-500/5 rounded-3xl blur-2xl -z-10 transition-opacity duration-700 group-hover:opacity-75" />
+          <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl flex flex-col flex-grow space-y-8">
+            <div className="space-y-3 flex-grow">
+              <span className="inline-block px-3 py-1 bg-white/5 text-emerald-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Memory Masterclass</span>
+              <h2 className="text-2xl font-medium text-white leading-snug">You don't have a bad memory, you've not been taught how to use it.</h2>
+              <p className="text-slate-400 text-sm leading-relaxed font-light mt-4">
+                Experience the memory techniques used by world champions. You will be amazed at what you are capably of remembering when you know how! This masterclass takes about 45 minutes.
+              </p>
+            </div>
+
+            <div className="pt-2 mt-auto">
+              <Link
+                href="/rogue-memory-session"
+                className="w-full text-center px-6 py-4 bg-emerald-500 text-slate-950 rounded-full font-bold text-sm hover:bg-emerald-400 transition-all active:scale-95 flex items-center justify-center gap-2"
+              >
+                Start Memory Training <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Learning Like a Genius */}
+        <div className="relative w-full group flex flex-col h-full">
+          <div className="absolute inset-0 bg-violet-500/5 rounded-3xl blur-2xl -z-10 transition-opacity duration-700 group-hover:opacity-75" />
+          <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl flex flex-col flex-grow space-y-8">
+            <div className="space-y-3 flex-grow">
+              <span className="inline-block px-3 py-1 bg-white/5 text-violet-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">Learning Masterclass</span>
+              <h2 className="text-2xl font-medium text-white leading-snug">Learn how to learn like a genius.</h2>
+              <p className="text-slate-400 text-sm leading-relaxed font-light mt-4">
+                Discover the mental models and study systems that the world's most effective learners use to master complex subjects quickly.
+              </p>
+            </div>
+
+            <div className="pt-2 mt-auto">
+              <Link
+                href="/blog"
+                className="w-full text-center px-6 py-4 bg-violet-500 text-white rounded-full font-medium text-sm hover:bg-violet-400 transition-all active:scale-95 flex items-center justify-center gap-2"
+              >
+                Read the Articles <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   );
 }

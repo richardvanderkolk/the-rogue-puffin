@@ -19,7 +19,7 @@ const BASELINE_QUESTIONS = [
     { id: 3, text: "How does speed reading improve efficiency?", options: ["By skipping unimportant words", "By using a finger guide", "By using visual processing instead of auditory", "By reading aloud faster"], correctIndex: 2 }
 ];
 
-const RETEST_TEXT = `The concept of neuroplasticity suggests that the brain is not a static organ, but rather a dynamic web of connections that can be rewired continuously throughout life. For decades, scientists believed that the brain stopped developing after childhood. We now know that this is fundamentally incorrect. In fact, focused attention and deliberate practice can physically alter the structure of your neural pathways. When you push your reading speed beyond comfortable limits, you are essentially forcing your brain to recruit new neurons to handle the increased data load. This adaptation mechanism is what allows speed readers to process information at rates that seem impossible to the untrained eye. It is not magic; it is simply biological adaptation to environmental demand.`;
+const RETEST_TEXT = `The concept of neuroplasticity suggests that the brain is not a static organ, but rather a dynamic web of connections that can be rewired continuously throughout life. For decades, scientists believed that the brain stopped developing after childhood. We now know that this is fundamentally incorrect. In fact, focused attention and deliberate practice can physically alter the structure of your neural pathways. When you push your reading speed beyond comfortable limits, you are essentially forcing your brain to recruit new neurons to handle the increased data load. This adaptation mechanism is what allows speed readers to process information at rates that seem impossible to the untrained eye. It is not magic; it is simply biological adaptation to environmental demand for your busy life.`;
 
 const RETEST_QUESTIONS = [
     { id: 1, text: "What is neuroplasticity?", options: ["The brain's ability to rewire itself", "A type of brain surgery", "The hardening of neural pathways", "Static brain development"], correctIndex: 0 },
@@ -296,7 +296,7 @@ export default function RogueSessionPage() {
                                             <Gauge className="w-5 h-5" /> The Highway Effect
                                         </h3>
                                         <p className="text-slate-300 leading-relaxed text-sm">
-                                            If you drive a lot you will know the experience of how slow it feels when you need to drive at 50km/hr after driving at a fast highway speed for a long time.
+                                            If you drive a lot you will know the experience of how slow it feels when you need to drive at 50km/hr after driving at a fast highway speed for a long time. It feels like you could get out and walk faster! Yet if you drove that same speed through central city traffic it would feel very fast.
                                         </p>
                                     </div>
                                     <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 space-y-4">
@@ -304,7 +304,7 @@ export default function RogueSessionPage() {
                                             <BrainCircuit className="w-5 h-5" /> The Brain's Adaptation
                                         </h3>
                                         <p className="text-slate-300 leading-relaxed text-sm">
-                                            If you didn't have a speedometer and you had to estimate the 50km/hr you would probably drive much faster without even realising it. Your perception of speed changes.
+                                            If you didn't have a speedometer and you had to estimate 50km/hr after driving at a fast highway speed for a long time, you would probably drive much faster without even realising it. Your perception of speed changes.
                                         </p>
                                     </div>
                                 </div>

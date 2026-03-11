@@ -48,6 +48,10 @@ export function StripeCheckoutMock({ price = "$5.00", onSuccess }: { price?: str
                     {isLoading ? "Processing..." : `Pay ${price}`}
                 </button>
 
+                <p className="text-center text-sm font-medium text-slate-600 px-2 pt-2">
+                    For the cost of a coffee at your favorite cafe, you can discover a skill that will help you for the rest of your life.
+                </p>
+
                 <p className="text-center text-xs text-slate-400">
                     Powered by Stripe. 30-day money-back guarantee.
                 </p>

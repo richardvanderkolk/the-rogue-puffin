@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #020617; /* slate-950 */
-  --foreground: #f1f5f9; /* slate-100 */
+  --background: #020617;
+  /* slate-950 */
+  --foreground: #f1f5f9;
+  /* slate-100 */
   --font-inter: 'Inter', sans-serif;
   --font-outfit: 'Outfit', sans-serif;
 }
@@ -20,6 +22,27 @@ body {
   font-family: var(--font-sans);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
+}
+
+
+/* READING MODE 
+   Using a CSS filter to invert the default dark theme preserves the precise layout 
+   and color weights while making it readable on a white background.
+*/
+.light,
+html.light body {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.light img,
+html.light video,
+html.light [data-theme-ignore] {
+  filter: invert(1) hue-rotate(180deg);
 }

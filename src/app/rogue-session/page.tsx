@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle, Clock, Zap, BookOpen } from "lucide-react";
 export default function RogueSessionSalesPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
-      
+
       {/* Hero Section */}
       <section className="relative px-6 py-24 text-center overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-indigo-600/10 rounded-full blur-[120px] -z-10" />
@@ -21,16 +21,15 @@ export default function RogueSessionSalesPage() {
           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
             A guided interactive experience to break your reading speed plateau, improve focus, and unlock your brain's natural processing power.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
             <Link
               href="/rogue-session/start"
               className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
             >
-              Start Session Now ($5) <ArrowRight className="w-5 h-5" />
+              Start Session Now <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
-          <p className="text-sm text-slate-500">100% Money-back guarantee if you don't see results.</p>
         </div>
       </section>
 
@@ -82,24 +81,21 @@ export default function RogueSessionSalesPage() {
           </p>
         </div>
       </section>
-      
+
       {/* Final CTA */}
       <section className="py-24 px-6 border-t border-slate-900 bg-black">
         <div className="max-w-4xl mx-auto text-center">
-            <div className="p-8 rounded-3xl border border-slate-800 bg-slate-900/20 relative overflow-hidden">
-                <div className="relative z-10">
-                    <h2 className="text-4xl font-bold mb-6">Ready to upgrade your brain?</h2>
-                    <p className="text-xl text-slate-400 mb-8">
-                        The session costs less than a coffee and takes less time than a sitcom.
-                    </p>
-                    <Link
-                    href="/rogue-session/start"
-                    className="inline-flex px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-all items-center gap-3"
-                    >
-                    Start The Rogue Session <ArrowRight className="w-6 h-6" />
-                    </Link>
-                </div>
+          <div className="p-8 rounded-3xl border border-slate-800 bg-slate-900/20 relative overflow-hidden">
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold mb-6">Ready to upgrade your reading?</h2>
+              <Link
+                href="/rogue-session/start"
+                className="inline-flex px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-all items-center gap-3"
+              >
+                Start the Rogue Reading Session <ArrowRight className="w-6 h-6" />
+              </Link>
             </div>
+          </div>
         </div>
       </section>
 

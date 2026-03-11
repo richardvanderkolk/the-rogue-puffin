@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, RotateCcw, CheckCircle, Clock } from 'lucide-react';
+import { Play, RotateCcw, CheckCircle, Clock, ArrowDown } from 'lucide-react';
 
 interface Question {
     id: number;
@@ -27,7 +27,24 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
     const [wpm, setWpm] = useState(0);
 
     // Scroll detection
+    const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
+
+    const checkScroll = () => {
+        if (!contentRef.current) return;
+        const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
+        // Check if we are within 50px of the bottom or if the content is entirely visible
+        if (Math.ceil(scrollTop + clientHeight) >= scrollHeight - 50 || clientHeight >= scrollHeight) {
+            setHasScrolledToBottom(true);
+        }
+    };
+
+    useEffect(() => {
+        if (status === 'reading') {
+            // slight delay to ensure content has rendered and layout is calculated
+            setTimeout(checkScroll, 100);
+        }
+    }, [status, text]);
 
     useEffect(() => {
         // Calculate word count roughly
@@ -71,10 +88,12 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
 
     return (
         <div className="max-w-2xl mx-auto p-6 bg-slate-900 rounded-2xl border border-slate-800 shadow-xl">
-            <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
-                <Clock className="w-6 h-6 text-indigo-400" />
-                {title}
-            </h2>
+            {status !== 'reading' && (
+                <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                    <Clock className="w-6 h-6 text-indigo-400" />
+                    {title}
+                </h2>
+            )}
 
             {status === 'idle' && (
                 <div className="text-center space-y-6 py-12">
@@ -95,7 +114,9 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
                 <div className="space-y-8">
                     <div
                         ref={contentRef}
-                        className="prose prose-invert max-w-none text-lg leading-relaxed text-slate-300 h-[60vh] overflow-y-auto p-4 bg-slate-950/50 rounded-xl border border-slate-800/50"
+                        onScroll={checkScroll}
+                        className="prose prose-invert max-w-none text-base md:text-lg leading-relaxed text-slate-300 h-[70vh] md:h-[60vh] overflow-y-auto p-4 bg-slate-950/50 rounded-xl border border-slate-800/50 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-900"
+                        style={{ scrollbarWidth: 'thin', scrollbarColor: '#475569 #0f172a' }}
                     >
                         {text.split('\n').map((para, i) => (
                             <p key={i} className="mb-4">{para}</p>
@@ -103,9 +124,21 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
                     </div>
                     <button
                         onClick={handleFinishReading}
-                        className="w-full py-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold text-lg transition-all"
+                        disabled={!hasScrolledToBottom}
+                        className={`w-full py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 ${hasScrolledToBottom
+                            ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]"
+                            : "bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700"
+                            }`}
                     >
-                        I'm Done Reading
+                        {hasScrolledToBottom ? (
+                            <>
+                                <CheckCircle className="w-5 h-5" /> I'm Done Reading
+                            </>
+                        ) : (
+                            <>
+                                <ArrowDown className="w-5 h-5 animate-bounce" /> Scroll down to finish reading
+                            </>
+                        )}
                     </button>
                 </div>
             )}
@@ -121,8 +154,8 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
                                         key={oIndex}
                                         onClick={() => handleAnswer(qIndex, oIndex)}
                                         className={`p-3 rounded-lg text-left transition-all border ${answers[qIndex] === oIndex
-                                                ? 'bg-indigo-600/20 border-indigo-500 text-white'
-                                                : 'bg-slate-800/50 border-transparent text-slate-400 hover:bg-slate-800'
+                                            ? 'bg-indigo-600/20 border-indigo-500 text-white'
+                                            : 'bg-slate-800/50 border-transparent text-slate-400 hover:bg-slate-800'
                                             }`}
                                     >
                                         {opt}

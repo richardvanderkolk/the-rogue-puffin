@@ -8,6 +8,394 @@ export interface Article {
 
 export const articles: Article[] = [
     {
+        slug: "how-your-phone-destroys-deep-work",
+        title: "How Your Phone is Destroying Your 'Deep Work'",
+        category: "FOCUS",
+        excerpt: "You sit down to study, but keep your phone on the desk. Even if you don't look at it, it is actively draining your intelligence. Here is the science of Deep Work.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Let's set the scene: You have a difficult chapter to read or a complex problem to solve. You sit at your desk, determined to focus. You put your phone on silent and leave it face down on the table next to you.</p>
+                <p>You haven't checked it once. You are being "productive."</p>
+                <p>But according to cognitive scientists, your intelligence has just been significantly reduced, simply because the phone is in the room.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The "Brain Drain" Effect</h2>
+                <p>Researchers at the University of Texas conducted a fascinating <a href="https://news.utexas.edu/2017/06/26/the-mere-presence-of-your-smartphone-reduces-brain-power/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">study on smartphone presence</a>. They brought over 500 students into a lab to take tests measuring their cognitive capacity and fluid intelligence.</p>
+                <p>They divided the students into three groups:</p>
+                <ul class="list-disc pl-6 space-y-2 text-slate-300 my-4">
+                    <li>Group 1 kept their phones face down on the desk.</li>
+                    <li>Group 2 kept their phones in their pockets or bags.</li>
+                    <li>Group 3 left their phones in another room entirely.</li>
+                </ul>
+                <p>The results were staggering. The students who left their phones in another room significantly outperformed the students with phones on their desks, and slightly outperformed those with phones in their pockets.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">Why Does This Happen?</h2>
+                <p>The researchers discovered that even when you are successfully ignoring your phone, the <em>act of ignoring it</em> requires active mental effort. Your brain has to spend a portion of its limited cognitive bandwidth fighting the urge to look at the screen.</p>
+                <p>It's like trying to do a complicated math problem while someone in the corner of the room softly whispers your name. You might not listen to them, but blocking them out exhausts your focus.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">Enter: Deep Work</h2>
+                <p>In his bestselling book, computer science professor Cal Newport coined the term <strong>Deep Work</strong>.</p>
+                <p>He defines it as <em>"Professional activities performed in a state of distraction-free concentration that push your cognitive capabilities to their limit."</em> Deep Work creates new value, improves your skill, and is hard to replicate.</p>
+                <p>Deep Work requires 100% of your cognitive capacity. When your phone is in the room, you are only ever operating at 80%. You cannot achieve true Deep Work while simultaneously allocating subconscious energy to ignoring notifications.</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The Deep Work Protocol</h3>
+                    <p class="mb-4">How to create a distraction-free environment for your brain to thrive:</p>
+                    <ul class="space-y-4">
+                        <li>👉 <strong>The Geography Rule:</strong> "Face down on silent" does not work. When it is time to do difficult thinking, your phone must be physically located in a different room.</li>
+                        <li>👉 <strong>Train Your Focus Span:</strong> If you are used to checking your phone every 5 minutes, 60 minutes of Deep Work will feel impossible. Start small. Do you struggle to read a book for even 10 minutes without getting distracted? A single pass through <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> will violently force your brain to focus on the page, rebuilding your attention span.</li>
+                        <li>👉 <strong>Batch Your Shallow Work:</strong> Emails, Slack messages, and texts are "Shallow Work." Don't check them constantly. Assign two specific 30-minute windows per day to handle all of them at once.</li>
+                    </ul>
+                    <p class="mt-6 font-bold text-emerald-400">Remember: Your attention is a finite resource. Guard it aggressively.</p>
+                </div>
+            </div>
+        `
+    },
+    {
+        slug: "the-80-20-rule-of-expertise",
+        title: "The 80/20 Rule of Expertise (Pareto Principle)",
+        category: "AIM",
+        excerpt: "You don't need to learn 100% of a subject to be dangerous at it. You only need to learn the core 20%. Here is how to deconstruct any skill.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people look at a new language, a massive textbook, or a complex software program and see an impossibly steep mountain.</p>
+                <p>They think they need to learn <em>everything</em> before they can do <em>anything</em>.</p>
+                <p>This is why most people never start. But the world's fastest learners know a secret: You don't need to learn 100% of a subject to become competent. You only need the right 20%.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Pareto Principle</h2>
+                <p>In 1896, an Italian economist named Vilfredo Pareto noticed something strange: 80% of the land in Italy was owned by 20% of the population. When he looked at his garden, he noticed that 80% of his peas came from 20% of the peapods.</p>
+                <p>He had discovered the <strong>Pareto Principle</strong>, often called the 80/20 rule. And it applies to almost every skill you will ever try to learn.</p>
+                <p>In almost every field of human endeavor, 20% of the inputs create 80% of the results.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">Deconstructing the 20%</h2>
+                <p>Let's look at language learning. The Oxford English Dictionary contains over 170,000 active words.</p>
+                <p>If you tried to memorize the whole dictionary, it would take a lifetime. But if you analyze human conversation, you'll find that just <strong>the 1,000 most common words make up over 80% of daily speech</strong>.</p>
+                <p>If you memorize those 1,000 words, you suddenly have 80% fluency. You haven't mastered the language, but you have unlocked the ability to actually use it.</p>
+                <p>The same is true for learning the guitar (4 basic chords make up thousands of pop songs), programming (a handful of core concepts make up most basic scripts), or <a href="/blog/slicing-the-elephant" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">any complex subject</a>.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stop Trying to Be a Master</h2>
+                <p>The problem is that traditional schooling trains us to seek 100% mastery. It forces us to memorize obscure facts for multiple-choice tests.</p>
+                <p>In the real world, 80% is often enough to become highly effective.</p>
+                <p>Before you dive into a massive topic, your first job isn't to read the whole book. Your first job is to play detective. You need to <em>deconstruct</em> the skill to find its core 20%. What are the foundational elements that everything else is built upon?</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The 80/20 Action Plan</h3>
+                    <p class="mb-4">How to find the 20% in your next learning project:</p>
+                    <ul class="space-y-4">
+                        <li>👉 <strong>Ask the Experts:</strong> Don't guess what the core 20% is. Find someone who has already mastered the skill and ask them, <em>"If you had to teach me this in one week, what would you focus on?"</em></li>
+                        <li>👉 <strong>Ignore the Edge Cases:</strong> When reading a textbook, <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">skim past</a> the obscure exceptions and hyper-specific details. Focus entirely on understanding the core frameworks.</li>
+                        <li>👉 <strong>Focus on Frequency:</strong> Look for the words, concepts, or tools that appear most frequently. Those are your 20%. Master them first.</li>
+                    </ul>
+                    <p class="mt-6 font-bold text-emerald-400">Remember: Perfection is the enemy of progress. Find the 20% and master it.</p>
+                </div>
+            </div>
+        `
+    },
+    {
+        slug: "the-ugly-first-draft-rule",
+        title: "The 'Ugly First Draft' Rule for Learning",
+        category: "MINDSET",
+        excerpt: "Perfectionism destroys progress. We often won't start learning a new language or coding skill because we are afraid to be bad at it. Here is why your brain literally requires you to fail first.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people don't quit learning because the material is too hard. They quit because they expect to be good at it immediately.</p>
+                <p>Think about the last time you tried to learn a new language, pick up an instrument, or understand a complex software program. The moment you made a mistake, how did you feel?</p>
+                <p>Probably frustrated. Probably embarrassed. You likely thought, <em>"I'm just not cut out for this."</em></p>
+                <p>This is the perfectionism trap. And it is the single biggest killer of human potential.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Brain Requires Mistakes</h2>
+                <p>We treat mistakes as proof of our inadequacy. But from a neurological perspective, a mistake is the exact trigger your brain needs to physically change its shape.</p>
+                <p>When you attempt something new and fail, your brain releases a cocktail of neurochemicals, including epinephrine (alertness) and acetylcholine (focus). This chemical release flags the neural circuits involved and says, <em>"Pay attention. What we just did didn't work. We need to rewire this."</em></p>
+                <p>This process of rewiring is called <strong>Neuroplasticity</strong>. And neuroplasticity cannot happen without the friction of a mistake.</p>
+                <p>If you only ever do things you are already good at, your brain never gets the signal to grow.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The "Ugly First Draft" Rule</h2>
+                <p>Writers have a concept called the "Ugly First Draft." The goal of a first draft isn't to write a masterpiece. The goal is simply to get words on the page so you have something to edit later.</p>
+                <p>You need to apply this exact same rule to your learning.</p>
+                <p>When you start a new subject, give yourself permission to be absolutely terrible at it for the first 30 days.</p>
+                <p>Accept that your first attempt at speaking Spanish will sound ridiculous. Accept that your first coding project will break immediately. Accept that the first time you try <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> to read faster, your comprehension might temporarily drop.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">Exposure Before Elegance</h2>
+                <p>In the beginning stages of learning, volume is more important than quality.</p>
+                <p>You don't need elegance. You need exposure. You need to bump into the walls of the subject matter enough times that your brain starts to map out the room.</p>
+                <p>By removing the pressure to be perfect on day one, you remove the <a href="/blog/friction-of-starting" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">friction of starting</a>. You can sit down, make your necessary mistakes, trigger your neuroplasticity, and actually get better.</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The 30-Day Failure Pact</h3>
+                    <p class="mb-4">How to implement the Ugly First Draft rule today:</p>
+                    <ul class="space-y-4">
+                        <li>👉 <strong>Lower the Bar:</strong> Set a goal so small you can't fail. Don't aim to "learn Python." Aim to "write one line of terribly inefficient code."</li>
+                        <li>👉 <strong>Celebrate the Error:</strong> When you make a mistake, force yourself to smile. Say out loud, "Good. That's the signal my brain needed to grow." It sounds silly, but it rewires your emotional response to failure.</li>
+                        <li>👉 <strong>Choose Exposure:</strong> For the next 30 days, prioritize showing up over performing well. 10 minutes of fumbling through a new skill is infinitely better than 0 minutes of waiting to feel "ready."</li>
+                    </ul>
+                    <p class="mt-6 font-bold text-emerald-400">Remember: You have to be willing to be a beginner before you can become a genius.</p>
+                </div>
+            </div>
+        `
+    },
+    {
+        slug: "sleep-the-ultimate-nootropic",
+        title: "Sleep: The Ultimate Nootropic (Smart Drug)",
+        category: "READY",
+        excerpt: "You can try all the speed reading and memory hacks in the world, but if you only sleep 5 hours a night, your brain is physically incapable of storing new information.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Let's talk about the world's most effective, completely free cognitive enhancement drug.</p>
+                <p>It improves focus, enhances problem-solving, regulates mood, and physically locks new information into your long-term memory. But instead of taking it, millions of students and professionals actively avoid it.</p>
+                <p>It's called sleep. And if you aren't getting enough of it, every other learning technique on this website is useless.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The All-Nighter Delusion</h2>
+                <p>We've all been there: It's 1:00 AM before a massive exam or presentation. You have a giant mug of coffee, a stack of notes, and a determination to "power through" until sunrise.</p>
+                <p>It feels like dedication. But biologically, you are literally erasing the information you just tried to learn.</p>
+                <p>When you learn something new, the data is temporarily stored in the hippocampus—a part of the brain that acts like a USB thumb drive. It has very limited capacity. If you don't transfer that data to a hard drive, it gets overwritten and lost forever.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Night Shift: Memory Consolidation</h2>
+                <p>The magic happens when you close your eyes.</p>
+                <p>During Deep Sleep (Non-REM), your brain acts like a file clerk. It takes the frantic, messy data from your hippocampus thumb drive and permanently writes it into the neocortex—your brain's massive, long-term hard drive. This process is called <strong>Memory Consolidation</strong>.</p>
+                <p>During REM sleep (the dreaming phase), your brain does something even more incredible: it connects this new information to the things you already know. This is how "Aha!" moments happen. It's why you can struggle with a complex problem all night, go to sleep, and wake up with the solution fully formed in your mind.</p>
+                <p>If you cut your sleep short, you cut this biological transfer process short. The files are never saved.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Cannot "Catch Up" on Sleep</h2>
+                <p>A common myth is that you can sleep 5 hours a night during the week and 10 hours a night on the weekend to "catch up."</p>
+                <p>Unfortunately, memory consolidation is a daily biological event. If you don't consolidate Monday's learning on Monday night, that data is gone. Sleeping 12 hours on Saturday will not bring back the neuroplasticity you missed out on earlier in the week.</p>
+                <p>To learn like a genius, you must respect your biology. You must prioritize the night shift.</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The Nootropic Protocol</h3>
+                    <p class="mb-4">How to set up your brain for maximum overnight retention:</p>
+                    <ul class="space-y-4">
+                        <li>👉 <strong>The 8-Hour Non-Negotiable:</strong> Set a strict bedtime based on waking up 8 hours later. Treat it like a mandatory meeting with your boss. If you aren't sleeping, you aren't learning.</li>
+                        <li>👉 <strong>The Recall Primer:</strong> Spend the final 20 minutes before bed doing light Active Recall on the hardest thing you learned that day. Tee up the data for your brain to process while you sleep.</li>
+                        <li>👉 <strong>Protect the Mechanism:</strong> Avoid alcohol and screens right before bed. Both heavily disrupt the Deep Sleep required for memory consolidation.</li>
+                    </ul>
+                    <p class="mt-6 font-bold text-emerald-400">Remember: Studying without sleeping is like typing an essay and unplugging the computer before you hit "Save".</p>
+                </div>
+            </div>
+        `
+    },
+    {
+        slug: "the-zeigarnik-effect",
+        title: "The Zeigarnik Effect: How to Use Procrastination to Your Advantage",
+        category: "AIM",
+        excerpt: "We always remember the tasks we haven't finished, while forgetting the ones we have. Here is how to use psychological 'cognitive tension' to make your study sessions unforgettable.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Procrastination gets a bad reputation. We are told that stopping in the middle of a task is a sign of laziness.</p>
+                <p>But when you study for an exam, memorize a speech, or read a dense book, stopping right in the middle might be the smartest thing you can do.</p>
+                <p>Welcome to one of the strangest psychological glitches in the human brain.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Coffee Shop Discovery</h2>
+                <p>In the 1920s, a Russian psychologist named Bluma Zeigarnik was sitting in a busy Vienna cafe.</p>
+                <p>She noticed something fascinating about the waiters: they could remember incredibly complex, unpaid orders perfectly. But the second the bill was paid and the order was finalized, the waiters instantly forgot what the customers had eaten.</p>
+                <p>Zeigarnik went back to her lab and ran a series of experiments. The results were undeniable: <strong>Human beings remember interrupted or incomplete tasks up to 90% better than completed ones.</strong></p>
+                <p>When you leave a task unfinished, your brain creates "cognitive tension." It doesn't like loose ends. So, it keeps the unfinished information running in the background of your mind, preserving it in your active memory.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">How to Weaponize Cognitive Tension</h2>
+                <p>Most students study by trying to reach a clean, satisfying stopping point. They read to the very end of the chapter. They finish the entire flashcard deck. They close the book, feel a sense of completion, and move on.</p>
+                <p>This is a mistake.</p>
+                <p>By giving your brain a sense of completion, you are giving it permission to delete the information, just like the waiters deleting the paid orders.</p>
+                <p>Instead, you need to manufacture artificial interruptions. If you are reading a difficult textbook, stop in the middle of the most complex paragraph. Close the book. Walk away.</p>
+                <p>Your brain will hate this. It will desperately want to resolve the tension. And because of that tension, your subconscious mind will continue to process, organize, and remember that paragraph long after you've left your desk.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Hemingway Trick</h2>
+                <p>This isn't just for studying. Ernest Hemingway famously used this trick to avoid writer's block.</p>
+                <p>He would always stop writing right in the middle of a sentence he knew how to finish. By doing this, he guaranteed that his brain would keep thinking about the story overnight, making it effortless to start writing again the next morning.</p>
+                <p>You can apply this to your own learning. Next time you feel the <a href="/blog/friction-of-starting" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">friction of starting</a>, remember that leaving a task unfinished makes it significantly easier to pick back up.</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The Zeigarnik Action Plan</h3>
+                    <p class="mb-4">How to use strategic procrastination this week:</p>
+                    <ul class="space-y-4">
+                        <li>👉 <strong>Never finish the chapter:</strong> If you are studying for a test, stop 5 minutes before you reach the conclusion. Let the cognitive tension do the heavy lifting overnight.</li>
+                        <li>👉 <strong>The Mid-Sentence Stop:</strong> If you are writing an essay or a report, stop mid-sentence before you go to bed. You will wake up with the solution ready to go.</li>
+                        <li>👉 <strong>Combine with Recall:</strong> The next morning, before you open the book to finish the chapter, test yourself on the unfinished concept. If you want to process the rest of the chapter faster, warm up your eyes with <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> first.</li>
+                    </ul>
+                    <p class="mt-6 font-bold text-emerald-400">Remember: A satisfied brain is a forgetful brain. Leave things unfinished.</p>
+                </div>
+            </div>
+        `
+    },
+    {
+        slug: "why-re-reading-is-not-as-helpful",
+        title: "Why Re-Reading Is Not As Helpful As You May Think",
+        category: "LEARN",
+        excerpt: "Highlighting and rereading are the two most popular study techniques in the world. They are also objectively the worst. Here's what to do instead.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Walk into any library, and you’ll see the exact same thing: Students hunched over textbooks, dragging neon yellow highlighters across the page, endlessly rereading the same paragraphs.</p>
+                <p>It feels incredibly productive. Your brain feels busy. Your notes look colorful and important.</p>
+                <p>But decades of cognitive science have delivered a brutal verdict: Rereading and highlighting are the two least effective learning strategies ever invented.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Illusion of Fluency</h2>
+                <p>When you read a passage for the third time, it feels easier. The words flow faster. You recognize the concepts.</p>
+                <p>Your brain interprets this feeling of ease as <em>"I have learned this."</em> Psychologists call this the <strong>Illusion of Fluency</strong>. You are confusing <em>recognizing</em> the text with actually <em>knowing</em> the text.</p>
+                <p>Recognition requires almost no mental effort. Your brain simply says, "Oh yes, I've seen this shape before." But true learning—the kind that survives an exam paper or a high-stakes presentation—requires <strong>retrieval</strong>.</p>
+                <p>You don't need to know how to recognize the answer on a page. You need to know how to pull the answer out of your own memory on demand.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Antidote: Active Recall</h2>
+                <p>If rereading is a passive glide down a smooth hill, Active Recall is an uncomfortable hike up a mountain. And that discomfort is the exact mechanism that builds memory.</p>
+                <p>Active Recall is the process of intentionally retrieving information from your brain <em>without looking at the source material</em>. It’s closing the book and asking yourself, "What did I just read?"</p>
+
+                <h3 class="text-xl font-bold text-white mt-8 mb-4">How to Stop Rereading Today</h3>
+                <ul class="space-y-4">
+                    <li class="pl-4 border-l border-slate-700"><span class="font-bold text-white">1. The "Close the Book" Method:</span> Read one section of your material. Before making a single note, close the book. Write down everything you can remember. <em>Then</em> open the book to see what you missed.</li>
+                    <li class="pl-4 border-l border-slate-700"><span class="font-bold text-white">2. Flashcards (Done Right):</span> Don't put paragraphs on flashcards. Put a single question on the front, and a single, concise answer on the back. Force yourself to say the answer out loud before flipping the card.</li>
+                    <li class="pl-4 border-l border-slate-700"><span class="font-bold text-white">3. Feynman Brain Dumps:</span> Pretend you are teaching the concept to a 12-year-old. Say it out loud. If you stumble, you haven't learned it—you've only recognized it.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">But What If You Need to Read Things Multiple Times?</h2>
+                <p>Sometimes material is dense, and you genuinely didn't understand it the first time. In that case, you don't need to reread it exactly the same way—you need to change <em>how</em> you read it.</p>
+                <p>This is where training your visual pace comes in. By practicing with tools like <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>, you can learn to process the <em>structure</em> of the text on the first pass, and the <em>details</em> on the second pass, without falling into the passive rereading trap.</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The Friction Rule</h3>
+                    <p class="mb-4">If you want to know if a study method is actually working, ask yourself one question: <strong>Does this feel a little bit difficult?</strong></p>
+                    <ul class="space-y-4">
+                        <li>👉 <strong>If it feels smooth and easy:</strong> You are probably just recognizing information, not learning it.</li>
+                        <li>👉 <strong>If it feels frustrating and clumsy:</strong> You are actively forcing your brain to forge new connections. That is what actual learning feels like.</li>
+                    </ul>
+                    <p class="mt-6 font-bold text-emerald-400">Put away the highlighter. Close the book. Test yourself constraintly.</p>
+                </div>
+            </div>
+        `
+    },
+    {
+        slug: "the-myth-of-the-visual-learner",
+        title: "The Myth of the 'Visual Learner'",
+        category: "MINDSET",
+        excerpt: "Most people label themselves as 'visual' or 'hands-on' learners and refuse to learn any other way. But the science says sticking only to your preferred style actually stunts your intellectual growth.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">"I just can't learn from reading. I'm a visual learner."</p>
+                <p>If you've ever said this—or something similar—you are artificially limiting your own intelligence.</p>
+                <p>For decades, schools and seminars pushed the idea of "Learning Styles" (Visual, Auditory, Kinesthetic). They told us we all process information perfectly in one specific format, and if we just matched the format to the student, learning would be effortless.</p>
+                <p>There's just one problem: it's not actually true.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Comfort Trap</h2>
+                <p>Cognitive science has repeatedly proven that teaching a "visual learner" using only pictures doesn't significantly improve their test scores compared to teaching them with text.</p>
+                <p>What we call a "Learning Style" is actually just a <em>preference</em>. It's the way we feel most comfortable receiving information. But learning and comfort are often opposites. When we refuse to engage with material outside our preferred format, we are choosing comfort over neuroplasticity.</p>
+                <p>Yes, you might <a href="/blog/know-your-learning-superpower" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">have a learning superpower</a>. You might naturally gravitate toward spatial reasoning, or linguistic logic, or interpersonal conversations. But true genius isn't about ignoring your weaknesses; it's about building bridges from your strengths to your weaknesses.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Power of Dual Coding</h2>
+                <p>Instead of restricting yourself to one style, the most efficient way to learn is a psychological concept called <strong>Dual Coding</strong>.</p>
+                <p>Dual Coding is the practice of combining verbal materials with visual materials. When you read a difficult paragraph of text, don't just highlight it. Draw a terrible stick-figure diagram representing the concept in the margins.</p>
+                <p>When you look at a complex chart, don't just stare at it. Write a two-sentence summary of what the chart is proving.</p>
+                <p>By forcing your brain to translate information from one format (words) into a completely different format (pictures or movements), you create a massive amount of cognitive friction. That friction is exactly what builds the durable neural pathways responsible for long-term memory.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">How to Break the Habit</h2>
+                <p>If you want to become a sharper thinker, you need to intentionally step outside your comfort zone.</p>
+                <p>If you consider yourself a "hands-on" learner who hates reading, you need to train your reading stamina. (You can actually jumpstart this process in 30 minutes with <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>.)</p>
+                <p>If you consider yourself a "bookworm" who struggles with spatial concepts, you need to start forcing yourself to draw mind maps instead of just writing linear notes.</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The Truth About Your Brain</h3>
+                    <p class="mb-4">You are not just a "visual learner." You are a human being with an incredibly complex, highly adaptable brain capable of processing the world through multiple dimensions.</p>
+                    <ul class="space-y-4">
+                        <li>👉 <strong>Stop categorizing yourself:</strong> Labels become excuses. "I'm bad at math" or "I'm not a reader" are stories you tell yourself to avoid the discomfort of learning.</li>
+                        <li>👉 <strong>Embrace the friction:</strong> If a learning method feels hard, it probably means your brain is actually working and growing.</li>
+                        <li>👉 <strong>Mix it up:</strong> Read the book, watch the video, draw the diagram, and explain it to a friend. Attack the concept from every angle.</li>
+                    </ul>
+                    <p class="mt-6 font-bold text-emerald-400">Remember: The goal isn't to make learning easy. The goal is to make learning stick.</p>
+                </div>
+            </div>
+        `
+    },
+
+    {
+        slug: "how-to-use-ai-to-learn",
+        title: "How to Use AI to Learn Anything Faster (Without Cheating)",
+        category: "LEARN",
+        excerpt: "Artificial Intelligence isn't just for writing emails or passing in essays you didn't write. When used correctly, it becomes the most powerful, personalized tutor in human history. Here are 4 ways to use AI to actually build your brain.",
+        content: `
+            <div class="space-y-6">
+                <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people use AI completely wrong when it comes to learning. They treat it like an answer key.</p>
+                <p>They paste a complicated question into ChatGPT, get a perfectly formatted paragraph back, and copy-paste it into their notes. They feel productive. They feel like they've learned something.</p>
+                <p>But they haven't.</p>
+                <p>Because learning isn't about having the right answer on a piece of paper. It's about building the neural pathways in your brain to arrive at that answer yourself. When you let an AI do the heavy lifting of thinking, you bypass the very friction that creates comprehension and memory.</p>
+                <p>However, if you flip the script, AI becomes the greatest learning tool since the invention of the printing press.</p>
+                
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stop Using AI as an Answer Key. Start Using it as a Tutor.</h2>
+                <p>A good tutor doesn't just give you the answer. They ask you questions. They find the exact gap in your knowledge and build a bridge to help you cross it. You can train an AI to do exactly this.</p>
+                <p>Here are four powerful ways to use AI as your personal learning assistant, rather than a shortcut.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">1. The Socratic Interrogator</h2>
+                <p>Instead of asking AI to explain a topic to you, ask it to test you on a topic. Use this exact prompt:</p>
+                <blockquote class="italic text-indigo-300 border-l-4 border-indigo-500 pl-4 my-6 py-4 bg-slate-900/50 rounded-r-lg text-lg">
+                    "I am trying to learn about [Your Topic]. Act as a strict but encouraging Socratic tutor. Do not give me answers. Ask me one question at a time to test my understanding. Wait for my response, evaluate it, and then ask the next logical question to deepen my knowledge."
+                </blockquote>
+                <p>This forces you into Active Recall. It forces you to retrieve the information from your own brain, which is the only way to actually cement it.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">2. The Analogy Generator</h2>
+                <p>Sometimes a concept is just too abstract. If you're struggling to understand a complex accounting principle or a piece of chemistry, ask an AI to map it onto something you already deeply understand.</p>
+                <blockquote class="italic text-emerald-300 border-l-4 border-emerald-500 pl-4 my-6 py-4 bg-emerald-950/20 rounded-r-lg text-lg">
+                    "I am struggling to understand [Complex Concept]. Please explain it to me using an analogy based on [A Hobby You Love, e.g., baking, football, video games]."
+                </blockquote>
+                <p>By attaching new, difficult information to old, familiar information, your brain builds connections significantly faster.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">3. The Feynman Simulator</h2>
+                <p>In our article on the Feynman Technique, we discussed how the best way to test your knowledge is to try to explain it simply. You can use AI to simulate an audience.</p>
+                <blockquote class="italic text-sky-300 border-l-4 border-sky-500 pl-4 my-6 py-4 bg-sky-950/20 rounded-r-lg text-lg">
+                    "I am going to explain [Topic] to you as if I were teaching a 12-year-old. After I finish, please point out any gaps in my logic, any jargon I used that wasn't properly explained, and rate my explanation out of 10."
+                </blockquote>
+                <p>This is incredible for finding the hidden blind spots in your own understanding.</p>
+
+                <h2 class="text-2xl font-bold text-white mt-12 mb-6">4. The Flashcard & Practice Test Creator</h2>
+                <p>If you have a massive PDF, an article, or a textbook chapter, feed it into the AI.</p>
+                <blockquote class="italic text-violet-300 border-l-4 border-violet-500 pl-4 my-6 py-4 bg-violet-950/20 rounded-r-lg text-lg">
+                    "Read this attached text. Generate 10 difficult multiple-choice questions and 5 short-answer questions based on the core concepts. Do not show me the answers until I ask for them."
+                </blockquote>
+                <p>Instantly, you have a custom practice test. If you want to take it a step further, before tackling dense material, prime your brain by taking <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>. It will help you read and process the AI's output significantly faster.</p>
+
+                <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                    <h3 class="text-xl font-bold text-indigo-300 mb-4">The Golden Rule of AI Learning</h3>
+                    <p class="mb-4">If the AI is doing the thinking, you are not learning.</p>
+                    <p>Always use AI to generate <strong>friction</strong>. Use it to quiz you, to challenge your logic, and to generate alternative perspectives. If you use it as an outsourced brain, your own brain will simply atrophy.</p>
+                    <p class="mt-6 font-bold text-emerald-400">Treat AI like a personal trainer for your mind. It can hand you the weights, but you still have to do the lifting.</p>
+                </div>
+            </div>
+        `
+    },
+
+    {
+        slug: "the-4-stages-of-learning",
+        title: "The 4 Stages of Learning",
+        category: "MINDSET",
+        excerpt: "Learning a new skill is a predictable journey. Understanding the four stages of learning—using the classic driving analogy—will keep you from quitting when things get tough.",
+        content: `
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Have you ever started learning something new, only to feel like you're actually getting <em>worse</em> at it?</p>
+            <p>You’re not alone, and you’re not going backward. You are simply experiencing the universal process of acquiring a new skill. Psychologists call this the "Four Stages of Competence," and understanding it is the secret to not quitting when learning gets difficult.</p>
+            <p>The easiest way to understand these four stages is to think back to when you first learned to drive a car.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 1: Unconscious Incompetence (You don’t know what you don’t know)</h2>
+            <p>Before you ever sat behind the wheel of a car, driving looked easy. You watched your parents do it effortlessly while talking, drinking coffee, and changing the radio. You were completely unaware of the complex coordination required to steer, brake, accelerate, check mirrors, and watch for traffic.</p>
+            <p>You were incompetent, but you were <em>unconscious</em> of your incompetence. You didn't realize how much you didn't know.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 2: Conscious Incompetence (You know what you don’t know)</h2>
+            <p>Then came your first driving lesson. You sat in the driver's seat, grabbed the wheel, and suddenly realized how overwhelming it was. The car jerked forward. You stared at your feet trying to find the brake. You forgot to check your blind spot. You were acutely aware of how terrible you were at driving.</p>
+            <p>This is <strong>Conscious Incompetence</strong>, and it is the most uncomfortable stage of learning. It’s the stage where most people quit. It feels frustrating precisely because your awareness has grown faster than your ability.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 3: Conscious Competence (You can do it, but it takes effort)</h2>
+            <p>After weeks of practice, you passed your driving test. You could drive safely, but it required your full, undivided attention. You had to turn down the radio to merge onto the highway. You had to consciously recite, "Mirror, signal, maneuver."</p>
+            <p>You were finally competent, but it took extreme focus. This is <strong>Conscious Competence</strong>. You can perform the skill, but it drains your mental energy.</p>
+
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 4: Unconscious Competence (You do it without thinking)</h2>
+            <p>Fast forward a few years. You drive home from work and pull into your driveway, suddenly realizing you don't even remember the drive. Your brain handled the steering, the braking, the traffic lights, and the lane changes on autopilot.</p>
+            <p>This is <strong>Unconscious Competence</strong>. The skill has become second nature. It requires almost zero cognitive load, freeing your mind to think about other things.</p>
+
+            <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
+                <h3 class="text-xl font-bold text-indigo-300 mb-4">Applying This to Your Learning Speed</h3>
+                <p class="mb-4">Everything we teach at The Rogue Puffin—speed reading, memory techniques, active recall—follows this exact same pattern.</p>
+                <ul class="space-y-4">
+                    <li>👉 <strong>Right now:</strong> You might be at Stage 1. You don't realize how inefficient your current reading or study habits are.</li>
+                    <li>👉 <strong>When you start our Masterclass:</strong> You will hit Stage 2. You will become hyper-aware of your subvocalization and poor memory recall. <em>It will feel frustrating.</em> You might even feel like you're reading slower at first.</li>
+                    <li>👉 <strong>With practice:</strong> You will reach Stage 3. You will be able to read rapidly and memorize lists, but it will take intense focus and intentional effort.</li>
+                    <li>👉 <strong>The ultimate goal:</strong> Stage 4. Speed reading and genius-level comprehension will become your default state. You won't have to "try" to learn efficiently; your brain will just do it automatically.</li>
+                </ul>
+                <p class="mt-6 font-bold text-emerald-400">Remember: When learning feels hardest, you haven't failed. You've just arrived at Stage 2. Keep going.</p>
+            </div>
+        `
+    },
+
+    {
         slug: "initiate-a-learning-mindset",
         title: "Initiate a Learning Mindset",
         category: "READY",
@@ -142,12 +530,12 @@ export const articles: Article[] = [
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <a href="/blog/preview-the-material" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
                     <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Preview the Material <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
-                <a href="/blog/know-your-why" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Related Core Concept</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Know Your Why<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -449,13 +837,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/how-to-prepare-to-learn-properly" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">How to Prepare to Learn Properly<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/know-your-learning-superpower" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Know Your Learning Superpower <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
-                <a href="/blog/why-most-learning-feels-hard" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Understanding Resistance</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Why Most Learning Feels Hard<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -602,13 +990,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/create-your-learning-lab" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Create Your Learning Lab<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/garbage-in-garbage-out" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Choose Your Resources Wisely <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -758,13 +1146,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/your-social-circle" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Your Social Circle<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/feel-sharp" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Feel Sharp <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -939,13 +1327,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/know-your-learning-superpower" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in READY</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Know Your Learning Superpower<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/create-your-learning-lab" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Create Your Learning Lab <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -955,164 +1343,215 @@ export const articles: Article[] = [
         title: "Know Your Learning Superpower",
         category: "READY",
         excerpt: "You have a learning superpower—do you know what it is? We all have different strengths, yet most of us were taught in exactly the same way.",
-        content: `
-                                                                                                                                                                                                                                                                    <p class="lead text-xl text-slate-300 mb-8 leading-relaxed"> Most people assume they are either “good at learning” or not.</p>
-                                                                                                                                                                                                                                                                        <p> That’s not true.</p>
-                                                                                                                                                                                                                                                                            <p> What is true is that most people have never been shown how they learn best.No two people are the same.We all have different strengths, different tendencies, different ways of processing information.</p>
-                                                                                                                                                                                                                                                                                <p> And yet, most of us were taught in exactly the same way.</p>
+        content: `\n
+            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people think they are either "good at learning" or not. But that's not true!</p>
+            <p>What is true is that most people have never been shown how they learn best. No two people are exactly the same. We all have different strengths and different ways our brains process information.</p>
+            <p>And yet, most of us were taught in exactly the same way.</p>
 
-                                                                                                                                                                                                                                                                                    <blockquote class="my-10 pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl">
-                                                                                                                                                                                                                                                                                        <p class="text-xl font-medium text-white italic leading-relaxed"> "Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid." </p>
-                                                                                                                                                                                                                                                                                            <footer class="mt-4 text-sm font-bold text-indigo-300 uppercase tracking-widest">— Often attributed to Albert Einstein </footer>
-                                                                                                                                                                                                                                                                                                </blockquote>
+            <blockquote class="my-10 pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl">
+                <p class="text-xl font-medium text-white italic leading-relaxed">"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."</p>
+                <footer class="mt-4 text-sm font-bold text-indigo-300 uppercase tracking-widest">— Often attributed to Albert Einstein</footer>
+            </blockquote>
 
-                                                                                                                                                                                                                                                                                                <p> Whether or not he said it, the point stands.</p>
-                                                                                                                                                                                                                                                                                                    <p> Many people don’t struggle with learning because they lack ability—they struggle because they are using the wrong approach for how their mind works.</p>
+            <p>Have you noticed that some students love writing essays, while others would rather build something with their hands?</p>
+            <p>Some people remember information when they hear a song, others when they see a diagram, and others when they try something themselves.</p>
+            <p>For a long time, school tended to assume that intelligence looked mostly like this:</p>
+            <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
+                <li>reading well</li>
+                <li>writing clearly</li>
+                <li>solving math problems</li>
+            </ul>
+            <p>But a psychologist from Harvard University, Howard Gardner, proposed something revolutionary.</p>
+            <p>He suggested that the real question is not:<br /><em>"How smart are you?"</em></p>
+            <p>Instead, the better question is:<br /><em>"How are you smart?"</em></p>
 
-                                                                                                                                                                                                                                                                                                        <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Not Just “Visual, Auditory, Kinaesthetic”</h2>
-                                                                                                                                                                                                                                                                                                            <p> You may have heard of learning styles before.Visual, Auditory, and Kinaesthetic.</p>
-                                                                                                                                                                                                                                                                                                                <p> That’s a useful starting point—but it’s limited.</p>
-                                                                                                                                                                                                                                                                                                                    <p> Howard Gardner expanded this into a broader and more helpful framework.He identified different forms of intelligence—different ways people naturally understand and engage with information.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Gardner's Multiple Intelligences Theory</h2>
+            <p>Gardner called this idea Multiple Intelligences Theory.</p>
+            <p>According to this theory, humans don't have just one kind of intelligence. We have many different ways of being intelligent, and each person tends to have certain strengths.</p>
+            <p>Think of it like a set of learning superpowers.<br />Some people's minds are powerful with words. Others see the world in pictures. Some think best when they move their bodies. Others understand people, music, nature, or patterns in extraordinary ways.<br />None of these intelligences is better than the others. They are simply different ways our minds engage with the world.</p>
 
-                                                                                                                                                                                                                                                                                                                    <h2 class="text-2xl font-bold text-white mt-12 mb-6"> The Seven Learning Intelligences </h2>
-                                                                                                                                                                                                                                                                                                                        <p> Here is a simplified version of Gardner's framework. Which of these feels most like you?</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Eight Learning Superpowers</h2>
+            <p>Gardner identified eight main kinds of intelligence that appear again and again in human learning.</p>
+            <p>You might recognize yourself in one or more of these:</p>
 
-                                                                                                                                                                                                                                                                                                                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
-                                                                                                                                                                                                                                                                                                                                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors">
-                                                                                                                                                                                                                                                                                                                                    <h3 class="text-lg font-bold text-indigo-300 mb-3"> 1. Linguistic </h3>
-                                                                                                                                                                                                                                                                                                                                        <p class="text-white font-medium mb-2"> You think in words.</p>
-                                                                                                                                                                                                                                                                                                                                            <p class="text-sm text-slate-400"> You learn well through reading, writing, and explaining.You benefit from turning ideas into sentences.</p>
-                                                                                                                                                                                                                                                                                                                                                </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">1. Word Smart <span class="text-sm font-normal text-slate-500 block">Linguistic</span></h3>
+                        <p class="text-white font-medium mb-2">You think in words and stories.</p>
+                        <p class="text-sm text-slate-400 mb-4">You learn best by reading, writing, and explaining things out loud. You are great at turning ideas into exciting sentences.</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=linguistic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=linguistic" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors">
-                                                                                                                                                                                                                                                                                                                                                    <h3 class="text-lg font-bold text-indigo-300 mb-3"> 2. Logical-Mathematical </h3>
-                                                                                                                                                                                                                                                                                                                                                        <p class="text-white font-medium mb-2"> You think in structure.</p>
-                                                                                                                                                                                                                                                                                                                                                            <p class="text-sm text-slate-400"> You learn well through systems, patterns, and cause-and - effect.You naturally organise ideas and look for relationships.</p>
-                                                                                                                                                                                                                                                                                                                                                                </div>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">2. Logic Smart <span class="text-sm font-normal text-slate-500 block">Logical-Mathematical</span></h3>
+                        <p class="text-white font-medium mb-2">You think like a puzzle master.</p>
+                        <p class="text-sm text-slate-400 mb-4">You love finding patterns, solving problems, and figuring out how things work. You naturally want to organize ideas step-by-step.</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=logical" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=logical" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                                <div class= "bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors">
-                                                                                                                                                                                                                                                                                                                                                                <h3 class= "text-lg font-bold text-indigo-300 mb-3"> 3. Visual-Spatial </h3>
-                                                                                                                                                                                                                                                                                                                                                                    <p class="text-white font-medium mb-2"> You think in images.</p>
-                                                                                                                                                                                                                                                                                                                                                                        <p class="text-sm text-slate-400"> You learn well through diagrams, visual frameworks, and mental pictures.You remember what you see.</p>
-                                                                                                                                                                                                                                                                                                                                                                            </div>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">3. Picture Smart <span class="text-sm font-normal text-slate-500 block">Visual-Spatial</span></h3>
+                        <p class="text-white font-medium mb-2">You think in images and colors.</p>
+                        <p class="text-sm text-slate-400 mb-4">You learn best when there are diagrams, maps, or pictures. You probably remember what a page looked like better than the words on it!</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=visual" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=visual" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                                            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors">
-                                                                                                                                                                                                                                                                                                                                                                                <h3 class="text-lg font-bold text-indigo-300 mb-3"> 4. Bodily-Kinesthetic </h3>
-                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-white font-medium mb-2"> You think through action.</p>
-                                                                                                                                                                                                                                                                                                                                                                                        <p class="text-sm text-slate-400"> You learn best by doing, practising, and experimenting.Understanding comes through movement.</p>
-                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">4. Body Smart <span class="text-sm font-normal text-slate-500 block">Bodily-Kinesthetic</span></h3>
+                        <p class="text-white font-medium mb-2">You think through movement.</p>
+                        <p class="text-sm text-slate-400 mb-4">You understand things best by doing. Movement, building, acting, and hands-on experiences help you think clearly.</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=kinesthetic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=kinesthetic" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors">
-                                                                                                                                                                                                                                                                                                                                                                                                <h3 class="text-lg font-bold text-indigo-300 mb-3"> 5. Musical </h3>
-                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-white font-medium mb-2"> You think in rhythm and sound.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                        <p class="text-sm text-slate-400"> You learn well through patterns, repetition, and sound.You may naturally remember through rhythm or tone.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">5. Music Smart <span class="text-sm font-normal text-slate-500 block">Musical</span></h3>
+                        <p class="text-white font-medium mb-2">You think in rhythms and beats.</p>
+                        <p class="text-sm text-slate-400 mb-4">You are especially sensitive to rhythm, tone, and sound. Music helps you remember and understand ideas.</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=musical" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=musical" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors">
-                                                                                                                                                                                                                                                                                                                                                                                                                <h3 class="text-lg font-bold text-indigo-300 mb-3"> 6. Interpersonal </h3>
-                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-white font-medium mb-2"> You think through interaction.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="text-sm text-slate-400"> You learn best by discussing, teaching others, and exploring ideas together.Conversation clarifies your thinking.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">6. People Smart <span class="text-sm font-normal text-slate-500 block">Interpersonal</span></h3>
+                        <p class="text-white font-medium mb-2">You think by talking with others.</p>
+                        <p class="text-sm text-slate-400 mb-4">You learn best when you can work in a group, teach a friend, or discuss ideas. Talking helps you understand things perfectly.</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=interpersonal" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=interpersonal" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors md:col-span-2">
-                                                                                                                                                                                                                                                                                                                                                                                                                                <h3 class="text-lg font-bold text-indigo-300 mb-3"> 7. Intrapersonal </h3>
-                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-white font-medium mb-2"> You think through reflection.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="text-sm text-slate-400"> You learn best by journaling, thinking deeply, and processing internally.Understanding develops quietly over time.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">7. Self Smart <span class="text-sm font-normal text-slate-500 block">Intrapersonal</span></h3>
+                        <p class="text-white font-medium mb-2">You think through quiet reflection.</p>
+                        <p class="text-sm text-slate-400 mb-4">You are reflective and self-aware. They understand their own thoughts and feelings and often learn best through quiet reflection.</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=intrapersonal" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=intrapersonal" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="mt-16 p-8 bg-indigo-950/20 border border-indigo-500/20 rounded-3xl relative overflow-hidden">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"> <path d="m12 14 4-4" /> <path d="M3.34 19a10 10 0 1 1 17.32 0" /> </svg>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            So What Is Your Superpower ?
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                </h3>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="mb-8 text-slate-300"> You don’t need to label yourself perfectly.But you do need awareness.</p>
+                <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
+                    <div class="flex-grow">
+                        <h3 class="text-lg font-bold text-indigo-300 mb-3">8. Nature Smart <span class="text-sm font-normal text-slate-500 block">Naturalistic</span></h3>
+                        <p class="text-white font-medium mb-2">You have a strong awareness of the natural world.</p>
+                        <p class="text-sm text-slate-400 mb-4">You notice patterns in nature and enjoy learning through observing plants, animals, and ecosystems.</p>
+                    </div>
+                    <div class="mt-auto flex flex-col items-start gap-2">
+                        <a href="?style=naturalistic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?example=naturalistic" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
+                    </div>
+                </div>
+            </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-sm uppercase tracking-widest font-bold text-indigo-400 mb-4"> Ask yourself these three questions: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="space-y-4 mb-8">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="flex items-start gap-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0"> 1 </span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-white font-medium pt-1"> When do I understand things most easily ? </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="flex items-start gap-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0"> 2 </span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="text-white font-medium pt-1"> What kind of learning feels natural to me ? </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="flex items-start gap-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0"> 3 </span>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="text-white font-medium pt-1"> What do I tend to do without being told ? </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+            <div class="mt-16 p-8 bg-indigo-950/20 border border-indigo-500/20 rounded-3xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                    <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                </div>
+                <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                    So What Is Your Superpower?
+                </h3>
+                <p class="mb-8 text-slate-300">You probably have a mix of 2 or 3! Ask yourself these questions to help find out:</p>
+                
+                <p class="text-sm uppercase tracking-widest font-bold text-indigo-400 mb-4">The Detective Test:</p>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-start gap-4">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">1</span>
+                        <p class="text-white font-medium pt-1">When I'm learning a new game, do I want to read the rules (Word), watch a map of the board (Picture), or just jump in and play it (Body)?</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">2</span>
+                        <p class="text-white font-medium pt-1">When I want to remember something important, do I say it over and over (Music/Word) or do I try to picture it in my head (Picture)?</p>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">3</span>
+                        <p class="text-white font-medium pt-1">If I had to explain a movie plot to a friend, how would I do it? Do I act it out (Body), explain the characters' choices (Self/People), or focus on the timeline of events (Logic)?</p>
+                    </div>
+                </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="font-bold text-indigo-300 text-lg">👉 Your answers will point you in the right direction.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+                <p class="font-bold text-indigo-300 text-lg">👉 Take the answers to those questions. Which of the 7 superpowers above matches them best?</p>
+            </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <h2 class="text-2xl font-bold text-white mt-16 mb-6"> The Mistake Most People Make </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p> Most people try to force themselves into one method.They tell themselves, <em>“I should just read more carefully”</em> or <em>“I need to concentrate harder.”</em> </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p> But if the method doesn’t fit your mind, effort alone won’t fix it.</p>
+            <h2 class="text-2xl font-bold text-white mt-16 mb-6">Why This Matters</h2>
+            <p>Many students struggle in school not because they lack intelligence, but because the teaching style doesn't match their strongest way of learning.</p>
+            <p>For example:</p>
+            <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
+                <li>A student who is Body Smart may struggle with long lectures but thrive when building a model or acting out an idea.</li>
+                <li>A student who is Picture Smart may understand a concept instantly once they see a diagram.</li>
+                <li>A Music Smart learner might remember a concept easily if it is set to rhythm or song.</li>
+            </ul>
+            <p>When you discover your learning superpower, something important happens:<br /><strong>Learning begins to feel more natural.</strong></p>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Using AI to Work With Your Learning Style </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p> This is where things become very practical.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p> Most people use AI to summarise.You can use it to translate information into your learning style.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Probably Have More Than One</h2>
+            <p>Most people don't have just one intelligence.<br />Think of them like different muscles in your mind.</p>
+            <p>You might be strong in:</p>
+            <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
+                <li>Picture Smart and Nature Smart</li>
+                <li>Word Smart and People Smart</li>
+                <li>Body Smart and Music Smart</li>
+            </ul>
+            <p>Your unique combination shapes how you learn best.</p>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest"> Try These AI Prompts </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <div class="p-6 bg-slate-950/50 space-y-6">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="text-indigo-300 font-bold mb-1"> If you are visual: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="text-slate-300 italic">“Turn this into a simple diagram showing how the ideas connect.”</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-indigo-300 font-bold mb-1"> If you are logical: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="text-slate-300 italic">“Break this into a structured framework with clear steps.”</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="text-indigo-300 font-bold mb-1"> If you are verbal: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="text-slate-300 italic">“Explain this clearly in well-structured sentences I can rewrite.”</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-indigo-300 font-bold mb-1"> If you are bodily-kinesthetic: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="text-slate-300 italic">“Give me a physical analogy or a hands-on exercise to demonstrate this concept.”</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="text-indigo-300 font-bold mb-1"> If you are musical: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="text-slate-300 italic">“Write this as a rhythmic poem or map it to the structure of a song.”</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-indigo-300 font-bold mb-1"> If you are interpersonal: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="text-slate-300 italic">“Turn this into a dialogue between two people exploring the idea.”</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="text-indigo-300 font-bold mb-1"> If you are reflective: </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="text-slate-300 italic">“Turn this into journaling prompts to help me process it.”</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Simple Way to Start Discovering Your Strength</h2>
+            <p>Think about these questions:</p>
+            <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
+                <li>When do you feel most engaged while learning?</li>
+                <li>What kinds of activities make time fly?</li>
+                <li>When something is difficult, what helps you understand it?</li>
+            </ul>
+            <p>Your answers may point toward your natural learning strengths.</p>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p> This changes everything.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p> You are no longer forcing yourself to learn in one way.You are shaping learning to fit how you think.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Brain Was Designed to Learn</h2>
+            <p>One of the most encouraging discoveries from Gardner's work is this:</p>
+            <p class="text-xl font-bold text-white my-4">Everyone is intelligent.</p>
+            <p>But our intelligence shows itself in different ways.<br />Some people build bridges. Some write books. Some lead teams. Some compose music. Some explore the natural world.<br />Each of these abilities reflects a different form of intelligence.</p>
+            <p>And each one has the potential to become a learning superpower.</p>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Final Thought </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p> You don’t need to become a different kind of learner.You need to understand the kind of learner you already are.</p>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Final Thought</h2>
+            <p class="text-lg text-white font-medium mt-6">When your study method matches your superpower, learning becomes easier, faster, and a lot more fun.</p>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="text-lg text-white font-medium mt-6"> Because when method matches mind, learning becomes easier, faster, and more enjoyable.</p>
+            <hr class="border-slate-800 my-16" />
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="mt-10 text-slate-400"> If you want to experience what learning feels like when the method works with your mind, <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all"> The Rogue Session </a> is designed to help you read faster and process better in just 30 minutes.</p>
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <hr class="border-slate-800 my-16" />
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h3 class="text-xl font-bold text-white mb-6"> Continue Your Journey </h3>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <a href="/blog/how-to-read-faster" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2"> Next up in AIM </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors"> How to Read Faster <span class="text-indigo-500 ml-1">→</span></h4>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </a>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        `
+            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <a href="/blog/preview-the-material" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Abridged Masterclass</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Preview the Material <span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+                <a href="/blog/your-social-circle" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Complete Masterclass</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Show Me Your Friends... <span class="text-indigo-500 ml-1">→</span></h4>
+                </a>
+            </div>
+        `
     },
     {
         slug: "how-to-read-faster",
@@ -1311,14 +1750,10 @@ export const articles: Article[] = [
             <hr class="border-slate-800 my-16" />
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/initiate-a-learning-mindset" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Previous in AIM</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Initiate a Learning Mindset<span class="text-indigo-500 ml-1">→</span></h4>
-                </a>
+            <div class="grid grid-cols-1 gap-6">
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Masterclass</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Continue to the Rogue Reading Session to Discover How to Read Significantly Faster Without Losing Comprehension<span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1398,12 +1833,12 @@ export const articles: Article[] = [
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <a href="/blog/cramming-to-compounding" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">From Cramming to Compounding<span class="text-indigo-500 ml-1">→</span></h4>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">From Cramming to Compounding <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1497,13 +1932,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/initiate-a-learning-mindset" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">A Learning Mindset<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/slicing-the-elephant" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Slicing the Elephant <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1560,13 +1995,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/initiate-a-learning-mindset" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">A Learning Mindset<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/psychology-of-time-and-deadlines" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Psychology of Time & Deadlines <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1606,18 +2041,18 @@ export const articles: Article[] = [
             <p>The insight here is powerful: <strong class="text-white">the dread is nearly always worse than the task itself.</strong></p>
             <p>Studies consistently show that once people start a task they were avoiding, their negative emotional response drops sharply within minutes. The anticipation of the pain is almost always worse than the pain.</p>
 
-            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏱️</span> The 5-Minute Rule</h2>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏱️</span> The 2-Minute Rule</h2>
             <p>The most effective and field-tested solution to the starting problem is disarmingly simple.</p>
 
             <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8 text-center">
-                <p class="text-3xl font-bold text-white mb-4">Commit to just 5 minutes.</p>
-                <p class="text-slate-400">Tell yourself: I am not going to study. I am just going to look at my notes for 5 minutes.</p>
+                <p class="text-3xl font-bold text-white mb-4">Commit to just 2 minutes.</p>
+                <p class="text-slate-400">Tell yourself: I am not going to study. I am just going to look at my notes for 2 minutes.</p>
             </div>
 
-            <p>That's it. A genuine, honest 5-minute commitment.</p>
-            <p class="mt-4">What happens in reality? You almost never stop at 5 minutes.</p>
+            <p>That's it. A genuine, honest 2-minute commitment.</p>
+            <p class="mt-4">What happens in reality? You almost never stop at 2 minutes.</p>
             <p class="font-medium text-white mt-4">Because once you have broken the seal of inertia, momentum takes over.</p>
-            <p class="mt-4">The 5-Minute Rule works because it re-frames the task: instead of confronting the enormous, threatening "study session," you are only committing to a tiny, harmless peek.</p>
+            <p class="mt-4">The 2-Minute Rule works because it re-frames the task: instead of confronting the enormous, threatening "study session," you are only committing to a tiny, harmless peek.</p>
             <p class="mt-4">Your brain's threat response has nothing to latch onto. The friction dissolves.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏗️</span> Reducing Activation Energy</h2>
@@ -1654,13 +2089,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/active-recall" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/initiate-a-learning-mindset" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">A Learning Mindset <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1746,12 +2181,12 @@ export const articles: Article[] = [
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <a href="/blog/feynman-technique" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Feynman Technique<span class="text-indigo-500 ml-1">→</span></h4>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Feynman Technique <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1833,13 +2268,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/spaced-repetition" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Spaced Repetition<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/the-art-of-review" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Defeating the Forgetting Curve <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1942,13 +2377,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/psychology-of-time-and-deadlines" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in AIM</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Psychology of Time & Deadlines<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/friction-of-starting" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Friction of Starting <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -1993,10 +2428,6 @@ export const articles: Article[] = [
             <p class="mt-4">Pay attention to topic sentences — typically the first sentence of each paragraph. Pay attention to headings and to summarizing statements. When you find the main idea of a section, everything else becomes supporting detail, and details are far easier to retain once the main structure is clear.</p>
             <p class="font-medium text-white mt-4">Understand the argument. The details will follow.</p>
 
-            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📖</span> Build Your Vocabulary Deliberately</h2>
-            <p>One of the most reliable bottlenecks to comprehension is encountering a word you don't know and sliding past it.</p>
-            <p class="mt-4">Unfamiliar words create comprehension gaps. Those gaps compound. By the end of the page you have lost the thread.</p>
-            <p class="mt-4">When you encounter an unfamiliar word, note it. Look it up after the section rather than breaking your reading flow. Then — crucially — use it. Words only enter your long-term vocabulary through active use, not passive exposure.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏸️</span> Pause, Summarise, Continue</h2>
             <p>At the end of each section, stop. Close the material. Write or say the main points in your own words.</p>
@@ -2008,19 +2439,22 @@ export const articles: Article[] = [
             <p class="mt-4">Take short breaks every 25–45 minutes. Step away from the desk. Let your mind process what it has just absorbed. You will return sharper, and the break itself helps consolidate what you've learned.</p>
             <p class="font-medium text-white mt-4">Rest is not a reward for finishing. It is part of the process.</p>
 
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> Map Your Understanding</h2>
+            <p>True comprehension isn't just about remembering facts in isolation. It's about understanding how those facts connect to form a cohesive whole. As you read, actively map out the relationships between ideas.</p>
+            <p class="mt-4">When you visualize the structure of information—grouping related concepts, establishing hierarchies, and drawing connections—you move from passive absorption to deep, architectural understanding. Your notes should reflect this structure, not just a linear timeline of what you read.</p>
+            <div class="p-5 bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl my-6">
+                <p class="text-slate-300 text-sm"><strong class="text-white">Learn to Mind Map:</strong> Discover how to capture and connect ideas in our guide to <a href="/blog/genius-note-taking" class="text-indigo-400 hover:underline">Genius Note-Taking</a>.</p>
+            </div>
+
             <p class="font-bold text-white text-lg text-center my-12">Comprehension is not about reading faster. It's about reading smarter.</p>
 
             <hr class="border-slate-800 my-16" />
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/engaging-your-imagination" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Engage Your Imagination<span class="text-indigo-500 ml-1">→</span></h4>
-                </a>
-                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+            <div class="grid grid-cols-1 gap-6">
+                <a href="/rogue-memory-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Masterclass</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Continue to the Rogue Memory Session<span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -2145,13 +2579,13 @@ export const articles: Article[] = [
 
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/genius-note-taking" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Genius Note-Taking<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/memory-training" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Abridged Masterclass</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Memory Training<span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
-                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                <a href="/blog/genius-note-taking" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Complete Masterclass</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Genius Note-Taking<span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -2281,12 +2715,12 @@ export const articles: Article[] = [
             <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <a href="/blog/active-recall" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next up in LEARN</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall<span class="text-indigo-500 ml-1">→</span></h4>
+                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Active Recall <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session<span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
             </div>
         `
@@ -3442,6 +3876,64 @@ export const articles: Article[] = [
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">You can read perfectly, take excellent notes, and understand everything in the moment — and still remember almost none of it a week later.</p>
             <p>This is not a failure of intelligence. It is a feature of how human memory works. Without deliberate review, even well-understood information fades rapidly. The forgetting curve — first mapped by Hermann Ebbinghaus in the 1880s — shows that without reinforcement, most new learning is gone within 24 to 48 hours.</p>
+
+            <div class="my-10 p-6 sm:p-8 bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden relative shadow-lg">
+                <h4 class="text-sm font-bold text-white mb-8 uppercase tracking-widest text-center">The Forgetting Curve (With & Without Review)</h4>
+                
+                <svg viewBox="0 0 600 300" class="w-full h-auto drop-shadow-md">
+                    <!-- Grid Lines -->
+                    <line x1="50" y1="250" x2="550" y2="250" stroke="#334155" stroke-width="2" />
+                    <line x1="50" y1="200" x2="550" y2="200" stroke="#334155" stroke-dasharray="4,4" />
+                    <line x1="50" y1="150" x2="550" y2="150" stroke="#334155" stroke-dasharray="4,4" />
+                    <line x1="50" y1="100" x2="550" y2="100" stroke="#334155" stroke-dasharray="4,4" />
+                    <line x1="50" y1="50" x2="550" y2="50" stroke="#334155" stroke-dasharray="4,4" />
+                    <line x1="50" y1="50" x2="50" y2="250" stroke="#334155" stroke-width="2" />
+
+                    <!-- Labels Y Axis (Retention) -->
+                    <text x="40" y="55" fill="#94a3b8" font-size="12" text-anchor="end" font-family="sans-serif">100%</text>
+                    <text x="40" y="155" fill="#94a3b8" font-size="12" text-anchor="end" font-family="sans-serif">50%</text>
+                    <text x="40" y="255" fill="#94a3b8" font-size="12" text-anchor="end" font-family="sans-serif">0%</text>
+
+                    <!-- Labels X Axis (Time) -->
+                    <text x="50" y="270" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="sans-serif">Day 0</text>
+                    <text x="175" y="270" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="sans-serif">Day 1</text>
+                    <text x="300" y="270" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="sans-serif">Day 3</text>
+                    <text x="425" y="270" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="sans-serif">Day 6</text>
+
+                    <!-- Baseline Curve (No Review) - Red -->
+                    <path d="M 50 50 Q 80 200 175 220 T 550 240" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" />
+                    
+                    <!-- First Review Curve - Orange -->
+                    <path d="M 175 220 L 175 50 Q 220 140 300 160 T 550 190" fill="none" stroke="#f97316" stroke-width="3" stroke-linecap="round" />
+
+                    <!-- Second Review Curve - Indigo -->
+                    <path d="M 300 160 L 300 50 Q 360 100 425 110 T 550 130" fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round" />
+                    
+                    <!-- Third Review Curve - Emerald -->
+                    <path d="M 425 110 L 425 50 Q 480 60 550 70" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" />
+
+                    <!-- Vertical dotted lines indicating review points -->
+                    <line x1="175" y1="50" x2="175" y2="220" stroke="#f97316" stroke-dasharray="2,2" opacity="0.5" />
+                    <line x1="300" y1="50" x2="300" y2="160" stroke="#6366f1" stroke-dasharray="2,2" opacity="0.5" />
+                    <line x1="425" y1="50" x2="425" y2="110" stroke="#10b981" stroke-dasharray="2,2" opacity="0.5" />
+
+                    <!-- Data Points -->
+                    <circle cx="50" cy="50" r="5" fill="#ef4444" />
+                    <circle cx="175" cy="50" r="5" fill="#f97316" stroke="#1e293b" stroke-width="2" />
+                    <circle cx="300" cy="50" r="5" fill="#6366f1" stroke="#1e293b" stroke-width="2" />
+                    <circle cx="425" cy="50" r="5" fill="#10b981" stroke="#1e293b" stroke-width="2" />
+
+                    <!-- Legend -->
+                    <g transform="translate(450, 15)">
+                        <circle cx="0" cy="0" r="4" fill="#ef4444" />
+                        <text x="10" y="4" fill="#cbd5e1" font-size="10" font-family="sans-serif">No Review (Forgetting)</text>
+                        
+                        <circle cx="0" cy="20" r="4" fill="#10b981" />
+                        <text x="10" y="24" fill="#cbd5e1" font-size="10" font-family="sans-serif">Spaced Review</text>
+                    </g>
+                </svg>
+            </div>
+
             <p class="font-medium text-white mt-4 mb-8">Review is not about re-reading. It is about reinforcement — actively strengthening the neural pathways that hold the knowledge, before they fade.</p>
 
             <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">

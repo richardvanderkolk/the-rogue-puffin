@@ -9,15 +9,15 @@ interface MascotProps {
 
 export function Mascot({ className, variant = "standard", size = 150 }: MascotProps) {
   const src = variant === "headshot" ? "/assets/logo-icon.png" : "/assets/mascot.png";
-  
+
   return (
-    <div className={cn("relative shrink-0", className)}>
-      <Image 
-        src={src} 
-        alt="The Rogue Puffin" 
-        width={size} 
+    <div className={cn("relative shrink-0 bg-slate-50 p-2 rounded-2xl shadow-xl shadow-indigo-500/10 border border-slate-800", className)} data-theme-ignore>
+      <Image
+        src={src}
+        alt="The Rogue Puffin"
+        width={size}
         height={size}
-        className="object-contain drop-shadow-xl"
+        className="w-full h-full object-contain drop-shadow-xl"
         priority
       />
     </div>

@@ -1,14 +1,20 @@
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, X } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getArticleBySlug } from '@/data/articles';
+import { getArticleVariant, getArticleExample } from '@/data/learningStyleVariants';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function BlogPost({ params }: PageProps) {
+export default async function BlogPost({ params, searchParams }: PageProps) {
     const { slug } = await params;
+    const resolvedSearchParams = searchParams ? await searchParams : {};
+    const style = resolvedSearchParams.style as string;
+    const example = resolvedSearchParams.example as string;
+
     const article = getArticleBySlug(slug);
 
     if (!article) {
@@ -45,6 +51,52 @@ export default async function BlogPost({ params }: PageProps) {
                     dangerouslySetInnerHTML={{ __html: article.content }}
                 />
             </div>
+
+            {/* Sub-Article Variant Pop-up Modal */}
+            {style && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 md:p-8 overflow-y-auto">
+                    <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl flex flex-col">
+                        <div className="sticky top-0 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 p-6 flex justify-between items-center z-10">
+                            <div>
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">Your Learning Superpower</h2>
+                                <p className="text-indigo-400 font-medium capitalize">{style} Edition</p>
+                            </div>
+                            <Link href={`/blog/${slug}`} className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors" scroll={false}>
+                                <X className="w-6 h-6" />
+                            </Link>
+                        </div>
+                        <div className="p-8 md:p-12">
+                            <div
+                                className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-a:text-indigo-400 prose-strong:text-white"
+                                dangerouslySetInnerHTML={{ __html: getArticleVariant(slug, style) }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Sub-Article Example Pop-up Modal */}
+            {example && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 md:p-8 overflow-y-auto">
+                    <div className="bg-slate-900 border border-slate-800 rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-y-auto relative shadow-2xl flex flex-col">
+                        <div className="sticky top-0 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 p-6 flex justify-between items-center z-10">
+                            <div>
+                                <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">Learning Superpower Example</h2>
+                                <p className="text-emerald-400 font-medium capitalize">{example} Style</p>
+                            </div>
+                            <Link href={`/blog/${slug}`} className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors" scroll={false}>
+                                <X className="w-6 h-6" />
+                            </Link>
+                        </div>
+                        <div className="p-8 md:p-12">
+                            <div
+                                className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-a:text-emerald-400 prose-strong:text-white"
+                                dangerouslySetInnerHTML={{ __html: getArticleExample(slug, example) }}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
         </article>
     );
 }

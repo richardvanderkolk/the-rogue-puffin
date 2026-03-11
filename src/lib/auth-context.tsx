@@ -38,15 +38,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }, []);
 
     const signIn = async (email: string) => {
-        setLoading(true);
         // Simulate network delay
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 800));
 
         const mockUser: User = {
-            id: "mock-user-123",
-            email,
-            isPro: false,
-            name: email.split("@")[0],
+            id: "mock-user-" + Date.now().toString(),
+            email: email,
+            isPro: true,
+            name: email, // In the new flow, we will just pass their chosen username into the 'email' param for simplicity
             beforeWpm: 0,
             afterWpm: 0,
         };

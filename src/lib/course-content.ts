@@ -2,440 +2,801 @@ export interface DayContent {
     day: number;
     title: string;
     description: string;
-    focus: "Sub-vocalization" | "Peripheral Vision" | "Variable Speed" | "Confidence" | "Comprehension";
+    focus: "Sub-vocalization" | "Peripheral Vision" | "Variable Speed" | "Learning Mindset" | "Confidence" | "Comprehension" | "Eye Movement" | "Free Choice";
     drift: string; // The "Drift" text explaining the day's concept
     duration: string; // e.g. "15 min"
     skills: string[];
     isLocked?: boolean;
     content?: string; // Specific reading text for the day
     sequence?: DrillStep[];
+    choices?: { title: string; subtitle: string; sequence: DrillStep[] }[];
+}
+
+export interface DrillStepInterruption {
+    triggerAtRemaining: number;
+    text: string;
 }
 
 export interface DrillStep {
     title: string;
     subtitle: string;
-    mode: "normal" | "inverted" | "peripheral" | "backward" | "flash";
+    mode: "normal" | "inverted" | "peripheral" | "backward" | "flash" | "read" | "message" | "recall";
     wpm: number;
     text?: string;
     duration: number; // Seconds to run this step
     highlightMode?: boolean;
     chunkSize?: number;
     acceleration?: number;
+    customInterval?: number;
+    autoStart?: boolean;
+    interruptions?: DrillStepInterruption[];
+    reduceFontSizeAfter?: number; // seconds after which to apply a smallFont class
+    reduceFontSizeAgainAfter?: number; // seconds after which to apply an extraSmallFont class
+    increaseChunkSizeAfter?: number; // seconds after which to increase chunk size
+    increaseChunkSizeTo?: number; // target chunk size
+    autoAdvance?: boolean;
 }
 
-const COMMON_DRILL_TEXT = `The Time Traveller (for so it will be convenient to speak of him) was expounding a recondite matter to us. His grey eyes shone and twinkled, and his usually pale face was flushed and animated. The fire burned brightly, and the soft radiance of the incandescent lights in the lilies of silver caught the bubbles that flashed and passed in our glasses. Our chairs, being his patents, embraced and caressed us rather than submitted to be sat upon, and there was that luxurious after-dinner atmosphere when thought runs gracefully free of the trammels of precision. And he put it to us in this way—marking the points with a lean forefinger—as we sat and lazily admired his earnestness over this new paradox (as we thought it) and his fecundity. 'You must follow me carefully. I shall have to controvert one or two ideas that are almost universally accepted. The geometry, for instance, they taught you at school is founded on a misconception.' 'Is not that rather a large thing to expect us to begin upon?' said Filby, an argumentative person with red hair. 'I do not mean to ask you to accept anything without reasonable ground for it. You will soon admit as much as I need from you. You know of course that a mathematical line, a line of thickness nil, has no real existence. They taught you that? Neither has a mathematical plane. These things are mere abstractions.' 'That is all right,' said the Psychologist. 'Nor, having only length, breadth, and thickness, can a cube have a real existence.' 'There I object,' said Filby. 'Of course a solid body may exist. All real things—' 'So most people think. But wait a moment. Can an instantaneous cube exist?' 'Don't follow you,' said Filby. 'Can a cube that does not last for any time at all, have a real existence?' Filby became pensive. 'Clearly,' the Time Traveller proceeded, 'any real body must have extension in four directions: it must have Length, Breadth, Thickness, and—Duration. But through a natural infirmity of the flesh, which I will explain to you in a moment, we incline to overlook this fact. There are really four dimensions, three which we call the three planes of Space, and a fourth, Time. There is, however, a tendency to draw an unreal distinction between the former three dimensions and the latter, because it happens that our consciousness moves intermittently in one direction along the latter from the beginning to the end of our lives.'`;
+const COMMON_DRILL_TEXT = `Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do: once or twice she had peeped into the book her sister was reading, but it had no pictures or conversations in it, "and what is the use of a book," thought Alice "without pictures or conversations?" So she was considering in her own mind (as well as she could, for the hot day made her feel very sleepy and stupid), whether the pleasure of making a daisy-chain would be worth the trouble of getting up and picking the daisies, when suddenly a White Rabbit with pink eyes ran close by her. There was nothing so very remarkable in that; nor did Alice think it so very much out of the way to hear the Rabbit say to itself, "Oh dear! Oh dear! I shall be late!" (when she thought it over afterwards, it occurred to her that she ought to have wondered at this, but at the time it all seemed quite natural); but when the Rabbit actually took a watch out of its waistcoat-pocket, and looked at it, and then hurried on, Alice started to her feet, for it flashed across her mind that she had never before seen a rabbit with either a waistcoat-pocket, or a watch to take out of it, and burning with curiosity, she ran across the field after it, and fortunately was just in time to see it pop down a large rabbit-hole under the hedge. In another moment down went Alice after it, never once considering how in the world she was to get out again. The rabbit-hole went straight on like a tunnel for some way, and then dipped suddenly down, so suddenly that Alice had not a moment to think about stopping herself before she found herself falling down a very deep well. Either the well was very deep, or she fell very slowly, for she had plenty of time as she went down to look about her and to wonder what was going to happen next. First, she tried to look down and make out what she was coming to, but it was too dark to see anything; then she looked at the sides of the well, and noticed that they were filled with cupboards and book-shelves; here and there she saw maps and pictures hung upon pegs. She took down a jar from one of the shelves as she passed; it was labelled "ORANGE MARMALADE", but to her great disappointment it was empty: she did not like to drop the jar for fear of killing somebody, so managed to put it into one of the cupboards as she fell past it. "Well!" thought Alice to herself, "after such a fall as this, I shall think nothing of tumbling down stairs! How brave they'll all think me at home! Why, I wouldn't say anything about it, even if I fell off the top of the house!" (Which was very likely true.) Down, down, down. Would the fall never come to an end! "I wonder how many miles I've fallen by this time?" she said aloud. "I must be getting somewhere near the center of the earth. Let me see: that would be four thousand miles down, I think--" (for, you see, Alice had learnt several things of this sort in her lessons in the schoolroom, and though this was not a very good opportunity for showing off her knowledge, as there was no one to listen to her, still it was good practice to say it over) "--yes, that's about the right distance--but then I wonder what Latitude or Longitude I've got to?" (Alice had no idea what Latitude was, or Longitude either, but thought they were nice grand words to say.) Presently she began again. "I wonder if I shall fall right through the earth! How funny it'll seem to come out among the people that walk with their heads downward! The Antipathies, I think--" (she was rather glad there WAS no one listening, this time, as it didn't sound at all the right word) "--but I shall have to ask them what the name of the country is, you know. Please, Ma'am, is this New Zealand or Australia?" (and she tried to curtsey as she spoke--fancy curtseying as you're falling through the air! Do you think you could manage it?) "And what an ignorant little girl she'll think me for asking! No, it'll never do to ask: perhaps I shall see it written up somewhere." Down, down, down. There was nothing else to do, so Alice soon began talking again. "Dinah'll miss me very much to-night, I should think!" (Dinah was the cat.) "I hope they'll remember her saucer of milk at tea-time. Dinah my dear! I wish you were down here with me! There are no mice in the air, I'm afraid, but you might catch a bat, and that's very like a mouse, you know. But do cats eat bats, I wonder?" And here Alice began to get rather sleepy, and went on saying to herself, in a dreamy sort of way, "Do cats eat bats? Do cats eat bats?" and sometimes, "Do bats eat cats?" for, you see, as she couldn't answer either question, it didn't much matter which way she put it. She felt that she was dozing off, and had just begun to dream that she was walking hand in hand with Dinah, and saying to her very earnestly, "Now, Dinah, tell me the truth: did you ever eat a bat?" when suddenly, thump! thump! down she came upon a heap of sticks and dry leaves, and the fall was over. Alice was not a bit hurt, and she jumped up on to her feet in a moment: she looked up, but it was all dark overhead; before her was another long passage, and the White Rabbit was still in sight, hurrying down it. There was not a moment to be lost: away went Alice like the wind, and was just in time to hear it say, as it turned a corner, "Oh my ears and whiskers, how late it's getting!" She was close behind it when she turned the corner, but the Rabbit was no longer to be seen: she found herself in a long, low hall, which was lit up by a row of lamps hanging from the roof. There were doors all round the hall, but they were all locked; and when Alice had been all the way down one side and up the other, trying every door, she walked sadly down the middle, wondering how she was ever to get out again. Suddenly she came upon a little three-legged table, all made of solid glass; there was nothing on it except a tiny golden key, and Alice's first thought was that it might belong to one of the doors of the hall; but, alas! either the locks were too large, or the key was too small, but at any rate it would not open any of them. However, on the second time round, she came upon a low curtain she had not noticed before, and behind it was a little door about fifteen inches high: she tried the little golden key in the lock, and to her great delight it fitted! Alice opened the door and found that it led into a small passage, not much larger than a rat-hole: she knelt down and looked along the passage into the loveliest garden you ever saw. How she longed to get out of that dark hall, and wander about among those beds of bright flowers and those cool fountains, but she could not even get her head through the doorway; "and even if my head would go through," thought poor Alice, "it would be of very little use without my shoulders. Oh, how I wish I could shut up like a telescope! I think I could, if I only knew how to begin." For, you see, so many out-of-the-way things had happened lately, that Alice had begun to think that very few things indeed were really impossible.`;
 
 // Repeat text to simulate longer reading material
 const SEQUENCE_TEXT = COMMON_DRILL_TEXT.repeat(10);
+const TORTOISE_HARE_TEXT = `A Hare was making fun of the Tortoise one day for being so slow. "Do you ever get anywhere?" he asked with a mocking laugh. "Yes," replied the Tortoise, "and I get there sooner than you think. I'll run you a race and prove it." The Hare was much amused at the idea of running a race with the Tortoise, but for the fun of the thing he agreed. So the Fox, who had consented to act as judge, marked the distance and started the runners off. The Hare was soon far out of sight, and to make the Tortoise feel very deeply how ridiculous it was for him to try a race with a Hare, he lay down beside the course to take a nap until the Tortoise should catch up. The Tortoise meanwhile kept going slowly but steadily, and, after a time, passed the place where the Hare was sleeping. But the Hare slept on very peacefully; and when at last he did wake up, the Tortoise was near the goal. The Hare now ran his swiftest, but he could not overtake the Tortoise in time.`;
+
+
+export const STANDARD_FLASH_SEQUENCE: DrillStep[] = [
+    {
+        title: "Flash Pages: Baseline",
+        subtitle: "1 page per second.",
+        mode: "flash",
+        wpm: 600,
+        customInterval: 1000,
+        duration: 90,
+        chunkSize: 150,
+        highlightMode: false,
+        autoAdvance: true
+    },
+    {
+        title: "",
+        subtitle: "Speeding up",
+        mode: "message",
+        wpm: 0,
+        duration: 0,
+        text: "We will now increase the speed to 2 pages per second.\n\nClick to continue."
+    },
+    {
+        title: "Flash Pages: Push Speed",
+        subtitle: "1 page per half-second (2 pages/sec).",
+        mode: "flash",
+        wpm: 1200,
+        customInterval: 500,
+        duration: 90,
+        chunkSize: 150,
+        highlightMode: false,
+        autoAdvance: true
+    },
+    {
+        title: "",
+        subtitle: "Speeding up",
+        mode: "message",
+        wpm: 0,
+        duration: 0,
+        text: "We will now increase the speed to 3 pages per second. Do not try to read, just look at the words.\n\nClick to continue."
+    },
+    {
+        title: "Flash Pages: Overdrive",
+        subtitle: "3 pages per second. Do not try to read, just look.",
+        mode: "flash",
+        wpm: 1800,
+        customInterval: 333,
+        duration: 90,
+        chunkSize: 150,
+        highlightMode: false,
+        autoAdvance: true
+    },
+    {
+        title: "Recall Check",
+        subtitle: "Take a breath",
+        mode: "recall",
+        wpm: 0,
+        duration: 10,
+        autoStart: true,
+        autoAdvance: true,
+        text: "How many words can you remember?"
+    },
+    {
+        title: "",
+        subtitle: "Speeding up",
+        mode: "message",
+        wpm: 0,
+        duration: 0,
+        text: "We will now increase the speed to 4 pages per second.\n\nClick to continue."
+    },
+    {
+        title: "Flash Pages: Speed Demon",
+        subtitle: "4 pages per second.",
+        mode: "flash",
+        wpm: 2400,
+        customInterval: 250,
+        duration: 90,
+        chunkSize: 150,
+        highlightMode: false,
+        autoAdvance: true
+    },
+    {
+        title: "Recall Check",
+        subtitle: "Mental snapshot",
+        mode: "recall",
+        wpm: 0,
+        duration: 10,
+        autoStart: true,
+        autoAdvance: true,
+        text: "How many words can you remember?"
+    },
+    {
+        title: "",
+        subtitle: "Inverting perspective",
+        mode: "message",
+        wpm: 0,
+        duration: 0,
+        text: "We will now turn the text upside down.\n\nClick to continue."
+    },
+    {
+        title: "Flash Pages: Inverted",
+        subtitle: "Upside down at 3 pages per second.",
+        mode: "inverted",
+        wpm: 1800,
+        customInterval: 333,
+        duration: 90,
+        chunkSize: 150,
+        highlightMode: false,
+        autoAdvance: true
+    },
+    {
+        title: "Recall Check",
+        subtitle: "Mental reset",
+        mode: "recall",
+        wpm: 0,
+        duration: 10,
+        autoStart: true,
+        autoAdvance: true,
+        text: "How many words can you remember?"
+    },
+    {
+        title: "",
+        subtitle: "Cooling down",
+        mode: "message",
+        wpm: 0,
+        duration: 0,
+        text: "Time to cool down and read normally.\n\nClick to continue."
+    },
+    {
+        title: "Reading Practice",
+        subtitle: "Scroll down and read normally.",
+        mode: "read",
+        wpm: 0,
+        duration: 120,
+        chunkSize: 99999,
+        highlightMode: false
+    }
+];
 
 export const COURSE_CONTENT: DayContent[] = [
+    // --- Day 1: Your Peripheral Vision ---
     {
         day: 1,
-        title: "Silence the Inner Voice",
-        description: "Break the habit of reading aloud in your head.",
-        focus: "Sub-vocalization",
-        drift: "Today we tackle the biggest barrier to speed: subvocalization. You will use the high-speed pacer to force your brain to process visual information faster than your inner voice can speak.",
+        title: "Day 1: Your Peripheral Vision",
+        description: "Increase your field of vision to capture more words at once.",
+        focus: "Peripheral Vision",
+        drift: "Welcome to Day 1! The biggest barrier to reading faster is reading word-by-word. Today, we begin expanding your peripheral vision so you can see chunks of words at once. Keep your eyes locked on the center dot and let the words come to you.",
         duration: "15 min",
-        skills: ["Visual Recognition", "Pattern Matching"],
+        skills: ["Soft Gaze", "Visual Recognition"],
         isLocked: false,
         content: SEQUENCE_TEXT,
         sequence: [
             {
-                title: "Warmup: Baseline Reading",
-                subtitle: "Read at a comfortable pace. Focus on smooth eye movement.",
-                mode: "normal",
-                wpm: 250,
-                duration: 120, // 2 mins
-                chunkSize: 3,
-                highlightMode: true
+                title: "",
+                subtitle: "Your Peripheral Vision",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "We are going to start with a Your Peripheral Vision drill.\n\nKeep your eyes locked on the red dot.\n\nDo not move your eyes to read the words. Relax your eyes and experiment with your focus to enlarge your view."
             },
             {
-                title: "The Push: Speed Up",
-                subtitle: "We bump the speed to 350 WPM. Do not try to say the words.",
-                mode: "normal",
-                wpm: 350,
-                duration: 180, // 3 mins
-                chunkSize: 3,
-                highlightMode: false
+                title: "Warmup: Center-Fixation Expansion",
+                subtitle: "Lock your eyes on the red dot. Let your peripheral vision expand outward to catch the words.",
+                mode: "peripheral",
+                wpm: 400,
+                duration: 180,
+                chunkSize: 4,
+                highlightMode: false,
+                autoAdvance: true
             },
             {
-                title: "Visual Reset: High Speed Flash",
-                subtitle: "500 WPM Flash. Just let your eyes catch the words.",
+                title: "",
+                subtitle: "Getting Ready",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Now we will begin the flash pages exercises. Continue to focus on the middle of the screen and allow your peripheral vision to take in as many words as you can."
+            },
+            {
+                title: "Flash Pages: Baseline",
+                subtitle: "1 page per second. Expand your vision.",
+                mode: "flash",
+                wpm: 600,
+                customInterval: 1000,
+                duration: 90,
+                chunkSize: 150,
+                highlightMode: false,
+                autoAdvance: true,
+                interruptions: [
+                    {
+                        triggerAtRemaining: 60,
+                        text: "Pause for a moment. You are doing well.\n\nIf you are struggling to see many words right now, that is completely normal.\n\nThe point of this exercise is not that you can read and understand what is being said. Instead, we are trying to change your perception of speed and break your habit of subvocalising (speaking the words in your head), while actively increasing the number of words recognized in your field of vision.\n\nKeep a relaxed confidence. You are doing exactly what you need to do and your brain is adapting."
+                    }
+                ]
+            },
+            ...STANDARD_FLASH_SEQUENCE.slice(1)
+        ]
+    },
+    // --- Day 2: Kinetic Words ---
+    {
+        day: 2,
+        title: "Day 2: Kinetic Words",
+        description: "Use kinetic text to break the habit of needing to hear every word.",
+        focus: "Sub-vocalization",
+        drift: "Welcome to Day 2! The inner reading voice (sub-vocalization) limits your speed to how fast you talk. Today we use kinetic text to move faster than your inner voice can speak. Try to just see the words instead of saying them.",
+        duration: "15 min",
+        skills: ["Pattern Matching", "Subvocalization Breaking"],
+        isLocked: false,
+        content: SEQUENCE_TEXT,
+        sequence: [
+            {
+                title: "Warmup: Kinetic Stream",
+                subtitle: "Words will appear rapidly in the center. Don't speak them, just see them.",
                 mode: "normal",
                 wpm: 500,
-                duration: 60, // 1 min
+                duration: 180,
                 chunkSize: 1,
                 highlightMode: false
             },
-            {
-                title: "Cooldown: Return to Baseline",
-                subtitle: "Back to 250 WPM. Notice how slow and easy this feels now.",
-                mode: "normal",
-                wpm: 250,
-                duration: 120, // 2 mins
-                chunkSize: 4,
-                highlightMode: true
-            }
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
-    {
-        day: 2,
-        title: "Expand Your Vision",
-        description: "Use your peripheral vision to capture more words at once.",
-        focus: "Peripheral Vision",
-        drift: "Most readers focus on one word at a time. Today, we widen the lens. You will practice softening your gaze to see 3-5 words at a glance.",
-        duration: "15 min",
-        skills: ["Peripheral Awareness", "Soft Gaze"],
-        isLocked: false, // Unlocked for demo flow
-        content: SEQUENCE_TEXT,
-        sequence: [
-            {
-                title: "Peripheral Warmup",
-                subtitle: "Focus on the center. Let your vision expand.",
-                mode: "peripheral",
-                wpm: 300,
-                duration: 180,
-                chunkSize: 5,
-                highlightMode: true
-            },
-            {
-                title: "Wide Flash",
-                subtitle: "Catch 5 words at time. Do not move your eyes left/right.",
-                mode: "normal",
-                wpm: 400,
-                duration: 180,
-                chunkSize: 5,
-                highlightMode: false
-            },
-            {
-                title: "Peripheral Sprint",
-                subtitle: "Pushing the limit of your peripheral processing.",
-                mode: "peripheral",
-                wpm: 500,
-                duration: 120,
-                chunkSize: 5,
-                highlightMode: false
-            }
-        ]
-    },
+    // --- Day 3: Your Eye Movement ---
     {
         day: 3,
-        title: "The Rhythm of Speed",
-        description: "Learn to control your reading pace with variable speeds.",
-        focus: "Variable Speed",
-        drift: "Speed is not constant. Just like a runner adjusts their pace for terrain, a reader adjusts for complexity. Today we practice shifting gears.",
+        title: "Day 3: Your Eye Movement",
+        description: "Train your eyes to move rhythmically across the page.",
+        focus: "Eye Movement",
+        drift: "Welcome to Day 3! Now that we are widening our vision and silencing the voice, it is time to practice smooth eye movement. Your eyes should jump across the page rather than glide smoothly. We use a bouncing pacer to train these rhythmic jumps.",
         duration: "15 min",
-        skills: ["Speed Variation", "Rhythm Control"],
+        skills: ["Visual Pacing", "Eye Movement"],
         isLocked: false,
-        content: SEQUENCE_TEXT,
+        content: TORTOISE_HARE_TEXT.repeat(10),
         sequence: [
             {
-                title: "Slow Gear",
-                subtitle: "Deep comprehension pace.",
+                title: "",
+                subtitle: "How the Pacer Works",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "We are going to start with a Pacer Drill.\n\nWords will be highlighted automatically at a specific speed (300 WPM, then 450 WPM). Your job is simply to keep your eyes on the highlighted word.\n\nDo not try to read aloud in your head. Just let your eyes follow the bouncing ball. If you miss a word, let it go. Keep moving.\n\nWhen you are ready, Click to get started."
+            },
+            {
+                title: "Warmup: Follow the Highlight",
+                subtitle: "Let your eyes glide. Don't speak.",
                 mode: "normal",
-                wpm: 200,
-                duration: 120,
-                chunkSize: 3,
+                wpm: 60,
+                customInterval: 1000,
+                duration: 45,
+                chunkSize: 1,
                 highlightMode: true
             },
             {
-                title: "Fast Gear",
-                subtitle: "Scanning pace. Visual capture only.",
-                mode: "normal",
-                wpm: 600,
-                duration: 120,
-                chunkSize: 4,
-                highlightMode: false
+                title: "",
+                subtitle: "Getting Faster",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                autoStart: true,
+                text: "We are going to speed things up a little.\n\nYou may not be able to understand everything, but that is OK, just relax and let your eyes follow the red dot a third of a line at a time.\n\nClick here when you are ready."
             },
             {
-                title: "Variable Intervals",
-                subtitle: "Alternating speeds every few seconds.",
+                title: "Push: Breaking the Voice",
+                subtitle: "Faster than you can speak.",
                 mode: "normal",
-                wpm: 400,
-                duration: 180,
-                chunkSize: 4,
+                wpm: 120,
+                customInterval: 500,
+                duration: 45,
+                chunkSize: 1,
                 highlightMode: true,
-                acceleration: 10 // Ramp up
-            }
+                autoStart: true
+            },
+            {
+                title: "",
+                subtitle: "Getting Faster",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                autoStart: true,
+                text: "We are going to speed things up a little.\n\nYou may not be able to understand everything, but that is OK, just relax and let your eyes follow the red dot a third of a line at a time.\n\nClick here when you are ready."
+            },
+            {
+                title: "Push: Breaking the Voice",
+                subtitle: "Faster than you can speak.",
+                mode: "normal",
+                wpm: 180,
+                customInterval: 333,
+                duration: 45,
+                chunkSize: 1,
+                highlightMode: true,
+                autoStart: true,
+                interruptions: [
+                    {
+                        triggerAtRemaining: 20,
+                        text: "You should feel like you can't read the words aloud fast enough.\n\nThat is the goal. Stop trying to speak them. Just look at them as they light up."
+                    }
+                ]
+            },
+            {
+                title: "",
+                subtitle: "Proceeding to Flash Pages",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Warmup complete. You have shown your brain that it's possible to process words without speaking them.\n\nWe are now going to begin the core 10-minute Flash Pages sequence to build your neurological speed.\n\nWhen you are ready, click continue to start."
+            },
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
+    // --- Day 4: Your Confidence ---
     {
         day: 4,
-        title: "Laser Focus",
-        description: "Maintain high concentration for longer periods.",
-        focus: "Confidence",
-        drift: "Distraction is the enemy of speed. Today's drills are designed to test your focus and build your mental endurance.",
-        duration: "20 min",
-        skills: ["Sustained Attention", "Mental Stamina"],
+        title: "Day 4: Your Confidence",
+        description: "Cultivate a relaxed confidence before diving into the core flash training.",
+        focus: "Learning Mindset",
+        drift: "Welcome to Day 4. Today is about the Learning Mindset. When you push your reading speed, your comprehension will initially drop. This is not failure; it is the necessary friction of neuroplasticity. To build confidence today, let go of the need to understand every single word perfectly. Trust your incredible visual cortex. Relax your eyes, don't panic if you miss a sentence, and simply let the text wash over you. The comprehension will follow.",
+        duration: "15 min",
+        skills: ["Relaxation", "Visual Flow"],
         isLocked: false,
         content: SEQUENCE_TEXT,
         sequence: [
             {
-                title: "Endurance Block 1",
-                subtitle: "Sustain focus for 5 minutes straight.",
-                mode: "normal",
-                wpm: 350,
-                duration: 300,
-                chunkSize: 4,
-                highlightMode: true
+                title: "The Learning Mindset",
+                subtitle: "The Foundation",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Your learning doesn't begin with a book.\n\nIt begins with your mind.\n\nBefore techniques. Before speed reading. What you believe about yourself—right at the start—shapes everything that follows."
             },
             {
-                title: "Visual Reset",
-                subtitle: "Inverted text to force visual engagement.",
-                mode: "inverted",
-                wpm: 250,
-                duration: 60,
-                chunkSize: 3,
-                highlightMode: true
+                title: "The Learning Mindset",
+                subtitle: "The Study",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "In the 1960s, a study in a primary school told teachers that certain randomly chosen students were “academic bloomers.”\n\nBy the end of the year, those students showed significantly greater progress. Not because of intelligence, but because of expectation."
             },
             {
-                title: "Endurance Block 2",
-                subtitle: "Another 5 minutes. Push through the boredom.",
-                mode: "normal",
-                wpm: 400,
-                duration: 300,
-                chunkSize: 4,
-                highlightMode: true
-            }
+                title: "The Learning Mindset",
+                subtitle: "What This Means for You",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "You don't have that teacher standing over you. But you do have something just as powerful: the way you speak to yourself before you begin.\n\nWhen you push your reading speed with these drills, you will likely feel uncomfortable. Your comprehension will drop.\n\nThis is not failure; it is the necessary friction of neuroplasticity. We are stretching your abilities."
+            },
+            {
+                title: "The Learning Mindset",
+                subtitle: "The Shift to Confidence",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Every time you sit down to train, there is a quiet narrative running: “This is going to be hard,” or “I can do this! I can grow into this.”\n\nThat voice matters more than you think. The difference is not intelligence. It’s posture.\n\nIf you want to read faster, you don’t need hype. You need Confidence. Confidence says: “I can grow into this—even if it’s uncomfortable.”"
+            },
+            {
+                title: "A Simple Exercise",
+                subtitle: "Remember Confidence",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Think back to a time when you were at your most confident. Remember how it felt to feel that way. Carry that into your reading."
+            },
+            {
+                title: "A Simple Exercise",
+                subtitle: "Use Your Confidence",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Bring that sense of confidence into your reading and see the difference that it makes. Relax your eyes and don't worry about not being able to see everything... the goal is to recognise the difference bringing confidence makes, even into an exercise like this."
+            },
+            {
+                title: "The Learning Mindset",
+                subtitle: "",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "You can do this!"
+            },
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
+    // --- Day 5: Your Peripheral Vision ---
     {
         day: 5,
-        title: "The Comprehension Check",
-        description: "Speed without understanding is meaningless.",
-        focus: "Comprehension",
-        drift: "We pause today to ensure you are retaining what you read. We will slow down slightly to lock in comprehension at higher speeds.",
+        title: "Day 5: Your Peripheral Vision",
+        description: "Continue expanding your peripheral capabilities.",
+        focus: "Peripheral Vision",
+        drift: "Welcome to Day 5! Notice if the edges of the text feel slightly clearer today than they did on Day 1. We're repeating the Peripheral drill at a slightly faster pace.",
         duration: "15 min",
-        skills: ["Active Recall", "Key Point Extraction"],
+        skills: ["Soft Gaze", "Visual Recognition"],
         isLocked: false,
         content: SEQUENCE_TEXT,
         sequence: [
             {
-                title: "Comprehension Mode",
-                subtitle: "Read for meaning. Visualize the scenes.",
-                mode: "normal",
-                wpm: 300,
-                duration: 300,
-                chunkSize: 3,
-                highlightMode: true
+                title: "",
+                subtitle: "Your Peripheral Vision",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "We are going to start with a Your Peripheral Vision drill.\n\nKeep your eyes locked on the red dot.\n\nDo not move your eyes to read the words. Relax your eyes and experiment with your focus to enlarge your view."
             },
             {
-                title: "Rapid Review",
-                subtitle: "Scan back over the text quickly.",
-                mode: "normal",
-                wpm: 600,
-                duration: 60,
-                chunkSize: 5,
-                highlightMode: false
+                title: "Warmup: Center-Fixation Expansion",
+                subtitle: "Lock your eyes on the red dot. Let your peripheral vision expand outward to catch the words.",
+                mode: "peripheral",
+                wpm: 500,
+                duration: 180,
+                chunkSize: 4,
+                highlightMode: false,
+                reduceFontSizeAfter: 15,
+                autoAdvance: true
             },
             {
-                title: "Detailed Read",
-                subtitle: "Read again. Catch details you missed.",
-                mode: "normal",
-                wpm: 350,
-                duration: 300,
-                chunkSize: 3,
-                highlightMode: true
-            }
+                title: "",
+                subtitle: "Getting Ready",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Now we will begin the flash pages exercises. Continue to focus on the middle of the screen and allow your peripheral vision to take in as many words as you can."
+            },
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
+    // --- Day 6: Kinetic Words ---
     {
         day: 6,
-        title: "Advanced Scannning",
-        description: "Techniques for rapid information extraction.",
-        focus: "Peripheral Vision",
-        drift: "Sometimes you don't need to read every word. Today you will learn advanced scanning techniques to find information instantly.",
+        title: "Day 6: Kinetic Words",
+        description: "Push the kinetic limit past the sub-vocalization barrier.",
+        focus: "Sub-vocalization",
+        drift: "Welcome back! Today we return to Kinetic Words. Let's push the kinetic text speed even faster to completely shatter that inner reading voice before the main drill.",
         duration: "15 min",
-        skills: ["Scanning", "Skimming"],
+        skills: ["Pattern Matching", "Subvocalization Breaking"],
         isLocked: false,
         content: SEQUENCE_TEXT,
         sequence: [
             {
-                title: "High Speed Scan",
-                subtitle: "Let your eyes glide over the text without stopping.",
+                title: "Warmup: High-Speed Kinetic",
+                subtitle: "1000 WPM streams. Do not try to read, just process.",
                 mode: "normal",
-                wpm: 800,
-                duration: 180,
-                chunkSize: 10,
-                highlightMode: true
+                wpm: 1000,
+                duration: 240,
+                chunkSize: 1,
+                highlightMode: false
+            },
+            ...STANDARD_FLASH_SEQUENCE
+        ]
+    },
+    // --- Day 7: Your Eye Movement ---
+    {
+        day: 7,
+        title: "Day 7: Your Eye Movement",
+        description: "Sharpening your eye movements at higher speeds.",
+        focus: "Eye Movement",
+        drift: "Welcome to Day 7! Your eyes are adapting to grouping words together rather than looking at individual ones. This drill will be faster than last time—flow with it.",
+        duration: "15 min",
+        skills: ["Visual Pacing", "Eye Movement"],
+        isLocked: false,
+        content: TORTOISE_HARE_TEXT.repeat(10),
+        sequence: [
+            {
+                title: "Warmup: Follow the Highlight",
+                subtitle: "Let your eyes glide. Don't speak.",
+                mode: "normal",
+                wpm: 60,
+                customInterval: 800,
+                duration: 45,
+                chunkSize: 1,
+                highlightMode: true,
+                autoStart: true
             },
             {
-                title: "Reverse Scan",
-                subtitle: "Scan backwards to break linear habits.",
-                mode: "backward",
-                wpm: 400,
-                duration: 120,
-                chunkSize: 4,
-                highlightMode: true
+                title: "Push: Breaking the Voice",
+                subtitle: "Faster than you can speak.",
+                mode: "normal",
+                wpm: 120,
+                customInterval: 400,
+                duration: 45,
+                chunkSize: 1,
+                highlightMode: true,
+                autoStart: true
             },
             {
-                title: "Vertical Scan",
-                subtitle: "Peripheral mode: center focus only.",
+                title: "Push: Overdrive",
+                subtitle: "Just follow the light.",
+                mode: "normal",
+                wpm: 180,
+                customInterval: 250,
+                duration: 45,
+                chunkSize: 1,
+                highlightMode: true,
+                autoStart: true
+            },
+            ...STANDARD_FLASH_SEQUENCE
+        ]
+    },
+    // --- Day 8: Learning Mindset ---
+    {
+        day: 8,
+        title: "Day 8: Your Confidence",
+        description: "Maintaining flow state during high speeds.",
+        focus: "Learning Mindset",
+        drift: "Welcome back! The speeds feel normal now. That is your learning mindset adapting. Let's practice maintaining that flow state.",
+        duration: "15 min",
+        skills: ["Relaxation", "Visual Flow"],
+        isLocked: false,
+        content: SEQUENCE_TEXT,
+        sequence: [
+            {
+                title: "Your Confidence",
+                subtitle: "The Journey So Far",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "You are halfway there.\n\nBack on Day 4, we talked about how learning doesn't begin with a book. It begins with your mind."
+            },
+            {
+                title: "Your Confidence",
+                subtitle: "The Friction of Growth",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "You have been pushing your reading speeds into uncomfortable territory.\n\nAs a reminder: When you struggle to comprehend at these new speeds, it is not failure. It is the necessary friction of neuroplasticity."
+            },
+            {
+                title: "Your Confidence",
+                subtitle: "The Shift",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Every time you sit down to train, that quiet narrative matters: “This is going to be hard,” or “I can do this! I can grow into this.”\n\nIf you want to keep breaking through plateaus, you don’t need hype. You need Confidence."
+            },
+            {
+                title: "A Simple Exercise",
+                subtitle: "Remember Confidence",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Just like before: Think back to a time when you were at your most confident. Remember how it felt to feel that way. Carry that into today's session."
+            },
+            {
+                title: "A Simple Exercise",
+                subtitle: "Use Your Confidence",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Bring that sense of confidence into your reading and see the difference that it makes. Relax your eyes and let the text wash over you."
+            },
+            ...STANDARD_FLASH_SEQUENCE
+        ]
+    },
+    // --- Day 9: Your Peripheral Vision ---
+    {
+        day: 9,
+        title: "Day 9: Your Peripheral Vision",
+        description: "Advanced peripheral processing.",
+        focus: "Peripheral Vision",
+        drift: "Welcome to Day 9! Your peripheral vision is getting stronger. Today we use wider blocks to test your new limits before hitting the flash pages.",
+        duration: "15 min",
+        skills: ["Soft Gaze", "Visual Recognition"],
+        isLocked: false,
+        content: SEQUENCE_TEXT,
+        sequence: [
+            {
+                title: "Warmup: Center-Fixation Expansion",
+                subtitle: "Lock your eyes on the red dot. Let your peripheral vision expand outward to catch the words.",
                 mode: "peripheral",
                 wpm: 600,
                 duration: 180,
-                chunkSize: 6,
-                highlightMode: false
-            }
-        ]
-    },
-    {
-        day: 7,
-        title: "The Final Sprint",
-        description: "Put it all together in a high-intensity session.",
-        focus: "Confidence",
-        drift: "Congratulations on reaching Day 7. Today we combine everything: silence, vision, and focus. Let's see how fast you can go.",
-        duration: "25 min",
-        skills: ["Integration", "Flow State"],
-        isLocked: false,
-        content: SEQUENCE_TEXT,
-        sequence: [
-            {
-                title: "Warmup",
-                subtitle: "Easy pace 300 WPM.",
-                mode: "normal",
-                wpm: 300,
-                duration: 120,
-                chunkSize: 3,
-                highlightMode: true
-            },
-            {
-                title: "Acceleration Phase 1",
-                subtitle: "Ramping up to 500 WPM.",
-                mode: "normal",
-                wpm: 400,
-                duration: 180,
                 chunkSize: 4,
-                highlightMode: true,
-                acceleration: 5
+                highlightMode: false,
+                reduceFontSizeAfter: 15,
+                reduceFontSizeAgainAfter: 30,
+                autoAdvance: true
             },
             {
-                title: "Super Speed",
-                subtitle: "Brief burst at 1000 WPM. Don't panic.",
-                mode: "normal",
-                wpm: 1000,
-                duration: 60,
-                chunkSize: 5,
-                highlightMode: false
+                title: "",
+                subtitle: "Getting Ready",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Now we will begin the flash pages exercises. Continue to focus on the middle of the screen and allow your peripheral vision to take in as many words as you can."
             },
-            {
-                title: "Sustained Velocity",
-                subtitle: "Holding 600 WPM for 5 minutes.",
-                mode: "normal",
-                wpm: 600,
-                duration: 300,
-                chunkSize: 4,
-                highlightMode: true
-            }
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
-    // Week 2: Mastery (Days 8-14) - Repeating concepts with higher intensity
-    {
-        day: 8,
-        title: "Silence 2.0",
-        description: "Removing the whisper.",
-        focus: "Sub-vocalization",
-        drift: "Week 2. We revisit subvocalization, but this time at 450 WPM baseline.",
-        duration: "15 min",
-        skills: ["Silence", "Speed"],
-        isLocked: false,
-        content: SEQUENCE_TEXT,
-        sequence: [
-            { title: "Baseline 2.0", subtitle: "Start at 400 WPM.", mode: "normal", wpm: 400, duration: 300, chunkSize: 4, highlightMode: true },
-            { title: "Supersonic", subtitle: "800 WPM Flash.", mode: "normal", wpm: 800, duration: 120, chunkSize: 2, highlightMode: false },
-            { title: "Recovery", subtitle: "Back to 450 WPM.", mode: "normal", wpm: 450, duration: 300, chunkSize: 4, highlightMode: true }
-        ]
-    },
-    {
-        day: 9,
-        title: "Peripheral Extension",
-        description: "Seeing paragraphs, not lines.",
-        focus: "Peripheral Vision",
-        drift: "Push your vision to the absolute edge. Can you see the start of the next line before you finish the current one?",
-        duration: "15 min",
-        skills: ["Wide Eye", "Vertical Vision"],
-        isLocked: false,
-        content: SEQUENCE_TEXT,
-        sequence: [
-            { title: "Wide Angle", subtitle: "Blocks of 8 words.", mode: "normal", wpm: 500, duration: 300, chunkSize: 8, highlightMode: true },
-            { title: "Peripheral Blur", subtitle: "Focus center.", mode: "peripheral", wpm: 600, duration: 300, chunkSize: 6, highlightMode: false }
-        ]
-    },
+    // --- Day 10: Kinetic Words ---
     {
         day: 10,
-        title: "Variable Control",
-        description: "Mastering the throttle.",
-        focus: "Variable Speed",
-        drift: "Complete control. Fast for easy sections, thoughtful for hard ones.",
+        title: "Day 10: Kinetic Words",
+        description: "Extreme kinetic speed to force visual processing.",
+        focus: "Sub-vocalization",
+        drift: "Welcome back! Just 5 days left. We are throwing extreme kinetic speeds at you today to completely bypass auditory processing.",
         duration: "15 min",
-        skills: ["Throttle Control", "Dynamic Pacing"],
+        skills: ["Pattern Matching", "Subvocalization Breaking"],
         isLocked: false,
         content: SEQUENCE_TEXT,
         sequence: [
-            { title: "Intervals", subtitle: "300 -> 600 -> 300.", mode: "normal", wpm: 300, duration: 600, chunkSize: 4, highlightMode: true, acceleration: 20 }
+            {
+                title: "Warmup: Extreme Kinetic",
+                subtitle: "Lightning-fast text bursts.",
+                mode: "normal",
+                wpm: 1200,
+                duration: 240,
+                chunkSize: 1,
+                highlightMode: false
+            },
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
+    // --- Day 11: Your Eye Movement ---
     {
         day: 11,
-        title: "Hyper-Focus",
-        description: "Immunity to distraction.",
-        focus: "Confidence",
-        drift: "Build an iron mind. Read through noise (simulated or real).",
-        duration: "20 min",
-        skills: ["Iron Focus", "Flow"],
+        title: "Day 11: Your Eye Movement",
+        description: "Maximum pacing rhythm.",
+        focus: "Eye Movement",
+        drift: "Welcome to Day 11! This is the most demanding pacing drill in the program. Lock into the rhythm.",
+        duration: "15 min",
+        skills: ["Visual Pacing", "Eye Movement"],
         isLocked: false,
-        content: SEQUENCE_TEXT,
+        content: TORTOISE_HARE_TEXT.repeat(10),
         sequence: [
-            { title: "Deep Work", subtitle: "10 minutes unbroken at 500 WPM.", mode: "normal", wpm: 500, duration: 600, chunkSize: 4, highlightMode: true }
+            {
+                title: "Warmup: Lightning Pacer",
+                subtitle: "Blinking fast.",
+                mode: "normal",
+                wpm: 200,
+                customInterval: 200,
+                duration: 120,
+                chunkSize: 1,
+                highlightMode: true,
+                autoStart: true
+            },
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
+    // --- Day 12: Learning Mindset ---
     {
         day: 12,
-        title: "Visual Processing",
-        description: "Brain speed over eye speed.",
-        focus: "Comprehension",
-        drift: "Your eyes are fast enough. Now your brain must catch up.",
+        title: "Day 12: Your Confidence",
+        description: "Visualizing the end goal of instant comprehension.",
+        focus: "Learning Mindset",
+        drift: "Welcome back! Imagine absorbing the entire screen in a single heartbeat. Hold that relaxed visual confidence as we warm up today.",
         duration: "15 min",
-        skills: ["Processing Speed", "Synaptic Fire"],
+        skills: ["Visualization", "Speed Perception"],
         isLocked: false,
         content: SEQUENCE_TEXT,
         sequence: [
-            { title: "Flash Cards", subtitle: "Single word flash at 1000 WPM.", mode: "normal", wpm: 1000, duration: 180, chunkSize: 1, highlightMode: false },
-            { title: "Integration", subtitle: "Reading at 600 WPM.", mode: "normal", wpm: 600, duration: 420, chunkSize: 5, highlightMode: true }
+            {
+                title: "Your Confidence",
+                subtitle: "The Final Stretch",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "You are nearing the end of the program.\n\nThe speeds you are reading at today would have seemed completely impossible to you on Day 1."
+            },
+            {
+                title: "Your Confidence",
+                subtitle: "The Ongoing Practice",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "As we push your limits one last time, remember what we discussed on Day 4: What you believe about yourself shapes everything that follows."
+            },
+            {
+                title: "Your Confidence",
+                subtitle: "Posturing for Success",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "You are capable of absorbing vast amounts of visual information. The difference between a master and a novice is not raw intelligence. It’s posture.\n\nConfidence says: “I can comprehend this—even at this blazing speed.”"
+            },
+            {
+                title: "A Simple Exercise",
+                subtitle: "Total Confidence",
+                mode: "message",
+                wpm: 0,
+                duration: 0,
+                text: "Once more, visualize yourself at your absolute most confident.\n\nBring that ultimate state of flow into this session today. Trust your visual cortex."
+            },
+            ...STANDARD_FLASH_SEQUENCE
         ]
     },
+    // --- Day 13: Free Choice ---
     {
         day: 13,
-        title: "The Review",
-        description: "Consolidating gains.",
-        focus: "Comprehension",
-        drift: "Reviewing the techniques. Prepare for the final day.",
+        title: "Day 13: Free Choice",
+        description: "Choose your preferred warmup to conquer your greatest weakness.",
+        focus: "Free Choice",
+        drift: "Welcome to Day 13! You've mastered the foundational skills. Today, you get to choose exactly which warmup drill you want to do before the Flash Pages session.",
         duration: "15 min",
-        skills: ["Review", "Consolidation"],
+        skills: ["Mastery", "Self-Assessment"],
         isLocked: false,
         content: SEQUENCE_TEXT,
-        sequence: [
-            { title: "Technique Medley", subtitle: "2 mins each: Peripheral, Inverted, Normal.", mode: "normal", wpm: 400, duration: 120, chunkSize: 4, highlightMode: true },
-            { title: "Inverted", subtitle: "Upside down reading.", mode: "inverted", wpm: 300, duration: 120, chunkSize: 3, highlightMode: true },
-            { title: "Peripheral", subtitle: "Wide focus.", mode: "peripheral", wpm: 400, duration: 120, chunkSize: 5, highlightMode: false },
-            { title: "Normal", subtitle: "Standard reading.", mode: "normal", wpm: 500, duration: 120, chunkSize: 4, highlightMode: true }
+        choices: [
+            {
+                title: "Your Peripheral Vision",
+                subtitle: "Expand your field of view",
+                sequence: [
+                    { title: "Warmup", subtitle: "Peripheral", mode: "peripheral", wpm: 600, duration: 180, chunkSize: 4, highlightMode: false },
+                    ...STANDARD_FLASH_SEQUENCE
+                ]
+            },
+            {
+                title: "Kinetic Words",
+                subtitle: "Break inner voice",
+                sequence: [
+                    { title: "Warmup", subtitle: "Extreme Kinetic", mode: "normal", wpm: 1200, duration: 180, chunkSize: 3, highlightMode: false },
+                    ...STANDARD_FLASH_SEQUENCE
+                ]
+            },
+            {
+                title: "Your Eye Movement",
+                subtitle: "Rhythmic pacing",
+                sequence: [
+                    { title: "Warmup", subtitle: "Lightning Pacer", mode: "normal", wpm: 200, customInterval: 250, duration: 180, chunkSize: 1, highlightMode: true },
+                    ...STANDARD_FLASH_SEQUENCE
+                ]
+            }
         ]
     },
+    // --- Day 14: Free Choice & Graduation ---
     {
         day: 14,
-        title: "Graduation",
-        description: "The new baseline.",
-        focus: "Confidence",
-        drift: "This is it. You are a Rogue Reader. Today we set your new permanent baseline.",
-        duration: "30 min",
-        skills: ["Mastery", "Speed"],
+        title: "Day 14: Graduation",
+        description: "The final session. Choose your warmup and solidify your new speed reading baseline.",
+        focus: "Free Choice",
+        drift: "Welcome to Day 14! This is it. Choose your final sprint, and then your last 10-minute Flash Page session to lock in your new reading habits permanently.",
+        duration: "15 min",
+        skills: ["Mastery"],
         isLocked: false,
         content: SEQUENCE_TEXT,
-        sequence: [
-            { title: "Warmup", subtitle: "Easy 400 WPM.", mode: "normal", wpm: 400, duration: 300, chunkSize: 4, highlightMode: true },
-            { title: "The Standard", subtitle: "Sustained 600 WPM.", mode: "normal", wpm: 600, duration: 600, chunkSize: 5, highlightMode: true },
-            { title: "Limit Break", subtitle: "Push to 1200 WPM.", mode: "normal", wpm: 1200, duration: 120, chunkSize: 10, highlightMode: false },
-            { title: "Cool Down", subtitle: "Settle at 500 WPM.", mode: "normal", wpm: 500, duration: 300, chunkSize: 5, highlightMode: true }
+        choices: [
+            {
+                title: "Your Peripheral Vision",
+                subtitle: "Expand your field of view",
+                sequence: [
+                    { title: "Warmup", subtitle: "Peripheral", mode: "peripheral", wpm: 600, duration: 180, chunkSize: 4, highlightMode: false },
+                    ...STANDARD_FLASH_SEQUENCE
+                ]
+            },
+            {
+                title: "Kinetic Words",
+                subtitle: "Break inner voice",
+                sequence: [
+                    { title: "Warmup", subtitle: "Extreme Kinetic", mode: "normal", wpm: 1200, duration: 180, chunkSize: 3, highlightMode: false },
+                    ...STANDARD_FLASH_SEQUENCE
+                ]
+            },
+            {
+                title: "Your Eye Movement",
+                subtitle: "Rhythmic pacing",
+                sequence: [
+                    { title: "Warmup", subtitle: "Lightning Pacer", mode: "normal", wpm: 200, customInterval: 250, duration: 180, chunkSize: 1, highlightMode: true },
+                    ...STANDARD_FLASH_SEQUENCE
+                ]
+            }
         ]
     }
 ];
