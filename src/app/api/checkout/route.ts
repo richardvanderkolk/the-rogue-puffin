@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripeKey = process.env.STRIPE_SECRET_KEY || '';
+// Provide a dummy test key as fallback so Vercel Next.js build doesn't crash statically analyzing the file
+const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_123';
 
 export async function POST(request: Request) {
     try {

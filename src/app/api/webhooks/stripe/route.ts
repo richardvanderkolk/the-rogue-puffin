@@ -2,7 +2,8 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
+// Provide a dummy test key as fallback to allow Vercel to statically compile the route
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_123', {
     apiVersion: '2026-03-25.dahlia',
 });
 
