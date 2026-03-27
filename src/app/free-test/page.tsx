@@ -28,10 +28,23 @@ export default function FreeTestPage() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Simulate API call to save lead
-        await new Promise(resolve => setTimeout(resolve, 1500));
-
-        // TODO: Call actual API to save to 'leads' table
+        try {
+            const res = await fetch('/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    wpm: results.wpm,
+                    comprehension: results.comprehension
+                })
+            });
+            
+            if (!res.ok) {
+                console.error("Failed to save lead:", await res.text());
+            }
+        } catch (err) {
+            console.error("Network error saving lead:", err);
+        }
 
         setIsSubmitting(false);
         setStep('results');

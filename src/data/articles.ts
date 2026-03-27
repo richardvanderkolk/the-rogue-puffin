@@ -4,11 +4,13 @@ export interface Article {
     category: string;
     excerpt: string;
     content: string; // HTML string
+    published?: boolean;
 }
 
 export const articles: Article[] = [
     {
         slug: "how-your-phone-destroys-deep-work",
+        published: true,
         title: "How Your Phone is Destroying Your 'Deep Work'",
         category: "FOCUS",
         excerpt: "You sit down to study, but keep your phone on the desk. Even if you don't look at it, it is actively draining your intelligence. Here is the science of Deep Work.",
@@ -52,6 +54,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-80-20-rule-of-expertise",
+        published: false,
         title: "The 80/20 Rule of Expertise (Pareto Principle)",
         category: "AIM",
         excerpt: "You don't need to learn 100% of a subject to be dangerous at it. You only need to learn the core 20%. Here is how to deconstruct any skill.",
@@ -92,6 +95,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-ugly-first-draft-rule",
+        published: false,
         title: "The 'Ugly First Draft' Rule for Learning",
         category: "MINDSET",
         excerpt: "Perfectionism destroys progress. We often won't start learning a new language or coding skill because we are afraid to be bad at it. Here is why your brain literally requires you to fail first.",
@@ -134,6 +138,7 @@ export const articles: Article[] = [
     },
     {
         slug: "sleep-the-ultimate-nootropic",
+        published: false,
         title: "Sleep: The Ultimate Nootropic (Smart Drug)",
         category: "READY",
         excerpt: "You can try all the speed reading and memory hacks in the world, but if you only sleep 5 hours a night, your brain is physically incapable of storing new information.",
@@ -174,6 +179,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-zeigarnik-effect",
+        published: false,
         title: "The Zeigarnik Effect: How to Use Procrastination to Your Advantage",
         category: "AIM",
         excerpt: "We always remember the tasks we haven't finished, while forgetting the ones we have. Here is how to use psychological 'cognitive tension' to make your study sessions unforgettable.",
@@ -216,6 +222,7 @@ export const articles: Article[] = [
     },
     {
         slug: "why-re-reading-is-not-as-helpful",
+        published: false,
         title: "Why Re-Reading Is Not As Helpful As You May Think",
         category: "LEARN",
         excerpt: "Highlighting and rereading are the two most popular study techniques in the world. They are also objectively the worst. Here's what to do instead.",
@@ -260,6 +267,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-myth-of-the-visual-learner",
+        published: false,
         title: "The Myth of the 'Visual Learner'",
         category: "MINDSET",
         excerpt: "Most people label themselves as 'visual' or 'hands-on' learners and refuse to learn any other way. But the science says sticking only to your preferred style actually stunts your intellectual growth.",
@@ -302,6 +310,7 @@ export const articles: Article[] = [
 
     {
         slug: "how-to-use-ai-to-learn",
+        published: false,
         title: "How to Use AI to Learn Anything Faster (Without Cheating)",
         category: "LEARN",
         excerpt: "Artificial Intelligence isn't just for writing emails or passing in essays you didn't write. When used correctly, it becomes the most powerful, personalized tutor in human history. Here are 4 ways to use AI to actually build your brain.",
@@ -357,6 +366,7 @@ export const articles: Article[] = [
 
     {
         slug: "the-4-stages-of-learning",
+        published: false,
         title: "The 4 Stages of Learning",
         category: "MINDSET",
         excerpt: "Learning a new skill is a predictable journey. Understanding the four stages of learning—using the classic driving analogy—will keep you from quitting when things get tough.",
@@ -397,6 +407,7 @@ export const articles: Article[] = [
 
     {
         slug: "initiate-a-learning-mindset",
+        published: true,
         title: "Initiate a Learning Mindset",
         category: "READY",
         excerpt: "Your learning doesn’t begin with a book. It begins with your mind. What you believe about yourself shapes everything that follows.",
@@ -542,6 +553,7 @@ export const articles: Article[] = [
     },
     {
         slug: "know-your-why",
+        published: true,
         title: "Know Your Why",
         category: "READY",
         excerpt: "What makes learning feel heavy isn't the effort—it's the absence of a clear reason. Discover why discovering your core motivation changes everything.",
@@ -682,6 +694,7 @@ export const articles: Article[] = [
     },
     {
         slug: "set-your-goals",
+        published: false,
         title: "Set Your Goals",
         category: "READY",
         excerpt: "Clarity of purpose is powerful, but not enough. Because a clear reason without a clear target leads to movement—but not progress.",
@@ -850,6 +863,7 @@ export const articles: Article[] = [
     },
     {
         slug: "feel-sharp",
+        published: true,
         title: "Feel Sharp",
         category: "READY",
         excerpt: "If you are not feeling sharp, learning becomes unnecessarily difficult. It’s like trying to ride a bike with a flat tyre. Your state matters just as much as your strategy.",
@@ -1003,6 +1017,7 @@ export const articles: Article[] = [
     },
     {
         slug: "create-your-learning-lab",
+        published: true,
         title: "Create Your Learning Lab",
         category: "READY",
         excerpt: "Your environment matters more than most people realise. You don't need the perfect setup, but you do need a deliberate one. Here's how to build a space that supports your learning.",
@@ -1159,6 +1174,7 @@ export const articles: Article[] = [
     },
     {
         slug: "your-social-circle",
+        published: true,
         title: "Show Me Your Friends and I'll Show You Your Future",
         category: "READY",
         excerpt: "Most people think learning is a solo activity. But the people in your life — the ones you speak with, learn alongside, or even just observe — quietly shape how well you grow.",
@@ -1340,6 +1356,7 @@ export const articles: Article[] = [
     },
     {
         slug: "know-your-learning-superpower",
+        published: true,
         title: "Know Your Learning Superpower",
         category: "READY",
         excerpt: "You have a learning superpower—do you know what it is? We all have different strengths, yet most of us were taught in exactly the same way.",
@@ -1555,6 +1572,7 @@ export const articles: Article[] = [
     },
     {
         slug: "how-to-read-faster",
+        published: true,
         title: "How to Read Faster: The definitive guide to breaking 300 WPM",
         category: "LEARN",
         excerpt: "Stop subvocalizing and start scanning. The biological mechanics of speed reading explained.",
@@ -1571,6 +1589,7 @@ export const articles: Article[] = [
     },
     {
         slug: "52-books-a-year",
+        published: true,
         title: "How I Read 52 Books a Year (Without Quitting My Job)",
         category: "AIM",
         excerpt: "It’s not about finding time, it’s about making time count. A system for the busy professional.",
@@ -1591,6 +1610,7 @@ export const articles: Article[] = [
     },
     {
         slug: "biohacking-brain",
+        published: true,
         title: "Biohacking Your Brain: The Cognitive Benefits of Fast Processing",
         category: "READY",
         excerpt: "Speed helps focus. Why reading faster actually improves your comprehension and retention.",
@@ -1607,6 +1627,7 @@ export const articles: Article[] = [
     },
     {
         slug: "preview-the-material",
+        published: true,
         title: "Preview the Material",
         category: "AIM",
         excerpt: "Most people start reading at page one. That’s the problem. If you want to learn faster and understand more, you don’t begin by reading. You begin by previewing.",
@@ -1760,6 +1781,7 @@ export const articles: Article[] = [
     },
     {
         slug: "psychology-of-time-and-deadlines",
+        published: true,
         title: "The Psychology of Time & Deadlines",
         category: "AIM",
         excerpt: "People talk about saving time, but it is impossible to save time. You can save and stockpile money, but you can’t save and stockpile time. We all have the same amount and spend it at the same rate.",
@@ -1845,6 +1867,7 @@ export const articles: Article[] = [
     },
     {
         slug: "cramming-to-compounding",
+        published: true,
         title: "From Cramming to Compounding: How to Structure Your Study Time",
         category: "AIM",
         excerpt: "What is your timeframe? Cramming will get you focused, but it destroys long-term retention. To move from last-minute panic to deep comprehension, you must build consistent habits.",
@@ -1945,6 +1968,7 @@ export const articles: Article[] = [
     },
     {
         slug: "garbage-in-garbage-out",
+        published: true,
         title: "Garbage In, Garbage Out: Choose Your Resources Wisely",
         category: "AIM",
         excerpt: "In computer programming there is a term: ‘Garbage in, garbage out.’ This is also true of learning – you can only learn from the resource you choose to learn from.",
@@ -2008,6 +2032,7 @@ export const articles: Article[] = [
     },
     {
         slug: "friction-of-starting",
+        published: true,
         title: "The Friction of Starting",
         category: "LEARN",
         excerpt: "The hardest part of any study session isn't the studying. It's sitting down. Understand the physics of procrastination and learn to eliminate the friction that's keeping you from your work.",
@@ -2102,6 +2127,7 @@ export const articles: Article[] = [
     },
     {
         slug: "active-recall",
+        published: true,
         title: "Active Recall vs. The Illusion of Competence",
         category: "LEARN",
         excerpt: "Re-reading feels productive. It isn't. Highlighting feels like learning. It isn't. There is a dangerous gap between the feeling of knowing something and actually knowing it.",
@@ -2193,6 +2219,7 @@ export const articles: Article[] = [
     },
     {
         slug: "feynman-technique",
+        published: true,
         title: "The Feynman Technique: If You Can't Explain It Simply, You Don't Understand It",
         category: "LEARN",
         excerpt: "Richard Feynman was a Nobel Prize-winning physicist who believed that the ultimate test of understanding was being able to explain something simply — so simply that a child could follow it.",
@@ -2281,6 +2308,7 @@ export const articles: Article[] = [
     },
     {
         slug: "slicing-the-elephant",
+        published: true,
         title: "Slicing the Elephant: Deconstruct the Skill",
         category: "AIM",
         excerpt: "How do you eat an elephant? One bite at a time. Before you begin studying anything, you must first break the massive, intimidating whole into small, learnable slices.",
@@ -2390,6 +2418,7 @@ export const articles: Article[] = [
     },
     {
         slug: "genius-comprehension",
+        published: true,
         title: "Genius Comprehension: Read It Once and Actually Understand It",
         category: "LEARN",
         excerpt: "Re-reading the same paragraph three times and still not getting it is not a focus problem. It's a strategy problem. These are the fundamentals that turn passive reading into genuine understanding.",
@@ -2461,6 +2490,7 @@ export const articles: Article[] = [
     },
     {
         slug: "engaging-your-imagination",
+        published: false,
         title: "Engage Your Imagination: Make Any Subject Come Alive",
         category: "LEARN",
         excerpt: "The difficulty of learning rises in direct proportion to how little you are interested in it. But interest is not fixed. Imagination is a skill — and the most powerful comprehension tool you already own.",
@@ -2592,6 +2622,7 @@ export const articles: Article[] = [
     },
     {
         slug: "genius-note-taking",
+        published: true,
         title: "Genius Note-Taking: How to Capture Knowledge That Actually Sticks",
         category: "LEARN",
         excerpt: "Most notes are a graveyard of words that are never revisited. Genius note-taking is a creative, personal, multi-sensory system that turns your notes into a powerful thinking tool.",
@@ -2727,6 +2758,7 @@ export const articles: Article[] = [
     },
     {
         slug: "learning-agility",
+        published: false,
         title: "Learning Agility: How to Quickly Grasp Any Subject",
         category: "LEARN",
         excerpt: "Perfect for education and business. The ability to learn quickly is itself a learnable skill. These are the strategies used by the fastest, most adaptable thinkers in any field.",
@@ -2850,6 +2882,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-relaxed-genius",
+        published: false,
         title: "The Relaxed Genius: Why Calm Is Your Most Powerful Learning Tool",
         category: "READY",
         excerpt: "Stress narrows your thinking. Relaxation expands it. The world's best performers — in sport, business, and academia — share one underrated habit: they know how to switch off.",
@@ -2999,6 +3032,7 @@ export const articles: Article[] = [
     },
     {
         slug: "studying-with-others",
+        published: false,
         title: "Studying With Others: How to Make Group Study Actually Work",
         category: "READY",
         excerpt: "Group study can be the most powerful learning environment you will ever have — or it can be the most expensive way to waste three hours. The difference is in the design.",
@@ -3148,6 +3182,7 @@ export const articles: Article[] = [
     },
     {
         slug: "study-music",
+        published: false,
         title: "The Sound of Focus: How to Use Music to Study Better",
         category: "READY",
         excerpt: "Music can sharpen your focus, lift your mood, and make a three-hour session feel manageable — or it can quietly demolish your concentration without you noticing. Here's how to tell the difference.",
@@ -3266,6 +3301,7 @@ export const articles: Article[] = [
     },
     {
         slug: "best-time-to-study",
+        published: false,
         title: "Your Peak Hour: Finding the Best Time of Day to Study",
         category: "READY",
         excerpt: "Not all hours are equal. Your brain at 7am is a different instrument to your brain at 7pm. Finding your peak window and protecting it is one of the highest-leverage learning decisions you can make.",
@@ -3375,6 +3411,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-power-of-questions",
+        published: false,
         title: "The Power of Questions: How Asking More Gets You Further",
         category: "LEARN",
         excerpt: "The more questions you ask, the more answers you find. Questioning is not a passive habit — it is one of the most powerful active learning techniques available, and almost no one uses it deliberately.",
@@ -3487,6 +3524,7 @@ export const articles: Article[] = [
     },
     {
         slug: "making-boring-text-interesting",
+        published: false,
         title: "Making Boring Text Interesting: Nine Ways to Engage With Material You Don't Love",
         category: "READY",
         excerpt: "Someone found this interesting enough to write. Someone else found it interesting enough to publish. The problem might not be the material — it might be the approach.",
@@ -3599,6 +3637,7 @@ export const articles: Article[] = [
     },
     {
         slug: "understanding-technical-material",
+        published: false,
         title: "Cracking Technical Material: How to Understand the Hard Stuff",
         category: "LEARN",
         excerpt: "Technical subjects feel impenetrable until they don't. The shift from confusion to clarity is not random — it is the result of specific strategies, applied consistently.",
@@ -3735,6 +3774,7 @@ export const articles: Article[] = [
     },
     {
         slug: "how-to-create-a-mind-map",
+        published: false,
         title: "How to Create a Mind Map: A Complete Step-by-Step Guide",
         category: "LEARN",
         excerpt: "Mind mapping is one of the most powerful tools available for organising information, deepening comprehension, and building a knowledge you can actually retrieve. Here's exactly how to do it.",
@@ -3870,6 +3910,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-art-of-review",
+        published: false,
         title: "The Art of Review: Why Revisiting Is the Most Underrated Learning Skill",
         category: "LEARN",
         excerpt: "Most learning is lost within 24 hours of first encountering it. Not because you didn't understand it — but because you didn't review it. Reviewing is not catching up. It is consolidation. It is how understanding becomes permanent.",
@@ -4050,6 +4091,7 @@ export const articles: Article[] = [
     },
     {
         slug: "learning-by-teaching",
+        published: false,
         title: "The Protégé Effect: Why Teaching Others Is the Most Powerful Way to Learn",
         category: "LEARN",
         excerpt: "When you teach, you don't just share what you know — you deepen it, test it, and often discover gaps you didn't know were there. Teaching is not the reward for learning. It is part of the learning itself.",
@@ -4166,6 +4208,7 @@ export const articles: Article[] = [
     },
     {
         slug: "choosing-your-reading-format",
+        published: false,
         title: "Paper, Screen, or Sound: How to Choose the Right Reading Format",
         category: "READY",
         excerpt: "Print, e-book, and audiobook each have genuine strengths — and genuine limitations. The best readers don't pick one and stick to it. They match the format to the task.",
@@ -4374,6 +4417,7 @@ export const articles: Article[] = [
     },
     {
         slug: "accelerated-learning",
+        published: false,
         title: "Accelerated Learning: How to Learn Faster — Without Sacrificing Depth",
         category: "LEARN",
         excerpt: "Learning faster is not about rushing through material. It is about creating the conditions in which your brain absorbs information most effectively — and a landmark study by Georgi Lozanov showed us quite precisely what those conditions are.",

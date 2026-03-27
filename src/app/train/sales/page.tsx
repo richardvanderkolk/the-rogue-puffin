@@ -8,13 +8,27 @@ import { useState } from "react";
 export default function SalesPage() {
     const [loading, setLoading] = useState(false);
 
-    const handleCheckout = () => {
+    const handleCheckout = async () => {
         setLoading(true);
-        // TODO: Stripe Integration
-        setTimeout(() => {
-            alert("Stripe Checkout Would Open Here");
+        try {
+            const res = await fetch('/api/checkout', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ productMode: 'masterclass' })
+            });
+            const data = await res.json();
+            
+            if (data.url) {
+                window.location.href = data.url;
+            } else {
+                console.error("Checkout failed:", data.error);
+                alert("Unable to open checkout right now. Please try again.");
+                setLoading(false);
+            }
+        } catch (err) {
+            console.error("Stripe error:", err);
             setLoading(false);
-        }, 1000);
+        }
     };
 
     return (

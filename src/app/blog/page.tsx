@@ -32,9 +32,19 @@ const CURRICULUM_SLUGS = new Set([
     "biohacking-brain",
 ]);
 
+import { createClient } from '@supabase/supabase-js';
 
 export default async function BlogPage() {
-    const { articles } = await import('@/data/articles');
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const { data: articles } = await supabase
+        .from('articles')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+    if (!articles) return <div className="text-white text-center pt-32 min-h-screen bg-slate-950">Preparing content...</div>;
 
     return (
         <main className="min-h-screen bg-slate-950 text-slate-100 pt-48 pb-20 px-6">
@@ -279,7 +289,7 @@ export default async function BlogPage() {
 
                         <div className="grid gap-6">
                             {articles
-                                .filter((article) => !CURRICULUM_SLUGS.has(article.slug))
+                                .filter((article) => !CURRICULUM_SLUGS.has(article.slug) && article.published !== false)
                                 .map((article) => (
                                     <Link
                                         key={article.slug}

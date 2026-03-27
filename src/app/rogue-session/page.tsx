@@ -23,12 +23,35 @@ export default function RogueSessionSalesPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-            <Link
-              href="/rogue-session/start"
+            <button
+              onClick={async (e) => {
+                const btn = e.currentTarget;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = "Processing...";
+                btn.disabled = true;
+                try {
+                  const res = await fetch('/api/checkout', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ productMode: 'rogue-session' })
+                  });
+                  const data = await res.json();
+                  if (data.url) window.location.href = data.url;
+                  else {
+                    alert("Checkout failed: " + data.error);
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                  }
+                } catch (err) {
+                  alert("Error initiating checkout");
+                  btn.innerHTML = originalText;
+                  btn.disabled = false;
+                }
+              }}
               className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
             >
-              Start Session Now <ArrowRight className="w-5 h-5" />
-            </Link>
+              Start Session Now ($5) <ArrowRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </section>
@@ -88,12 +111,35 @@ export default function RogueSessionSalesPage() {
           <div className="p-8 rounded-3xl border border-slate-800 bg-slate-900/20 relative overflow-hidden">
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6">Ready to upgrade your reading?</h2>
-              <Link
-                href="/rogue-session/start"
+              <button
+                onClick={async (e) => {
+                  const btn = e.currentTarget;
+                  const originalText = btn.innerHTML;
+                  btn.innerHTML = "Processing...";
+                  btn.disabled = true;
+                  try {
+                    const res = await fetch('/api/checkout', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ productMode: 'rogue-session' })
+                    });
+                    const data = await res.json();
+                    if (data.url) window.location.href = data.url;
+                    else {
+                      alert("Checkout failed: " + data.error);
+                      btn.innerHTML = originalText;
+                      btn.disabled = false;
+                    }
+                  } catch (err) {
+                    alert("Error initiating checkout");
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                  }
+                }}
                 className="inline-flex px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-all items-center gap-3"
               >
-                Start the Rogue Reading Session <ArrowRight className="w-6 h-6" />
-              </Link>
+                Start the Rogue Reading Session ($5) <ArrowRight className="w-6 h-6" />
+              </button>
             </div>
           </div>
         </div>

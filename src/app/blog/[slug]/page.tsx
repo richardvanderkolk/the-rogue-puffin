@@ -1,7 +1,7 @@
 import { ArrowLeft, X } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getArticleBySlug } from '@/data/articles';
+import { createClient } from '@supabase/supabase-js';
 import { getArticleVariant, getArticleExample } from '@/data/learningStyleVariants';
 
 interface PageProps {
@@ -15,9 +15,17 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
     const style = resolvedSearchParams.style as string;
     const example = resolvedSearchParams.example as string;
 
-    const article = getArticleBySlug(slug);
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    const supabase = createClient(supabaseUrl, supabaseKey);
 
-    if (!article) {
+    const { data: article } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('slug', slug)
+        .single();
+
+    if (!article || article.published === false) {
         return (
             <article className="min-h-screen bg-slate-950 text-white pt-32">
                 <div className="max-w-3xl mx-auto p-8 text-center">

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Users, DollarSign, TrendingUp, AlertCircle } from 'lucide-react';
 
 export default function AdminDashboard() {
@@ -8,8 +9,13 @@ export default function AdminDashboard() {
                     <h1 className="text-2xl font-bold text-white">Admin Analytics</h1>
                     <p className="text-slate-500">Growth & Funnel Metrics</p>
                 </div>
-                <div className="px-3 py-1 bg-red-500/10 text-red-400 text-xs font-bold rounded uppercase border border-red-500/20">
-                    Private Access
+                <div className="flex items-center gap-3">
+                    <Link href="/admin/articles" className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 transition-colors text-white text-sm font-bold rounded-lg shadow-lg">
+                        Manage Articles
+                    </Link>
+                    <div className="px-3 py-1 bg-red-500/10 text-red-400 text-xs font-bold rounded uppercase border border-red-500/20">
+                        Private Access
+                    </div>
                 </div>
             </header>
 

@@ -17,7 +17,9 @@ export function Footer() {
                 <div>
                     &copy; {new Date().getFullYear()} Authoring Life (KvK 99977516). All rights reserved.
                 </div>
-                <div className="flex gap-6">
+                <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0">
+                    <Link href="/legal/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+                    <Link href="/legal/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
                     <Link href="/legal/imprint" className="hover:text-slate-300 transition-colors">Imprint</Link>
                 </div>
             </div>
