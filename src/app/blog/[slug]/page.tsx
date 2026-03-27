@@ -3,10 +3,41 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
 import { getArticleVariant, getArticleExample } from '@/data/learningStyleVariants';
+import type { Metadata } from 'next';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
     searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const { data: article } = await supabase
+        .from('articles')
+        .select('title, excerpt')
+        .eq('slug', slug)
+        .single();
+    
+    if (!article) {
+        return {
+            title: 'Article Not Found | The Rogue Puffin'
+        };
+    }
+
+    return {
+        title: `${article.title} | The Rogue Puffin`,
+        description: article.excerpt,
+        openGraph: {
+            title: `${article.title} | The Rogue Puffin`,
+            description: article.excerpt,
+            siteName: 'The Rogue Puffin',
+            type: 'article',
+        }
+    }
 }
 
 export default async function BlogPost({ params, searchParams }: PageProps) {
