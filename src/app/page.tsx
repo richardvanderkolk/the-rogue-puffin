@@ -63,29 +63,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Hook: You Are Not Stupid */}
+      {/* The Hook: Untapped Potential */}
       <section className="py-16 md:py-24 px-6 border-t border-white/5 bg-slate-900/10">
         <div className="max-w-4xl mx-auto text-center space-y-12">
 
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">You are not stupid.</h2>
-            <p className="text-xl md:text-2xl text-indigo-300 font-light leading-relaxed max-w-2xl mx-auto">
-              No computer has ever been made that is more powerful than the human brain, yet students and professionals still struggle to learn.
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">You are hardwired for exponential growth.</h2>
+            <p className="text-xl md:text-2xl text-indigo-300 font-light leading-relaxed max-w-3xl mx-auto">
+              You already possess the raw processing power required to master any complex subject, pass any vital exam, and consume any textbook.
             </p>
             <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
-              Why? Because you weren't taught how to use your brain properly.
+              You simply need the correct mechanical blueprint to unlock it.
             </p>
           </div>
 
           <div className="py-12 border-y border-white/5 my-12">
-            <h3 className="text-slate-500 uppercase tracking-[0.2em] font-bold text-sm mb-6">The Definition of Insanity</h3>
+            <h3 className="text-slate-500 uppercase tracking-[0.2em] font-bold text-sm mb-6">The Unfair Advantage</h3>
             <blockquote className="text-2xl md:text-3xl font-medium text-white italic leading-snug">
-              "Doing today the same thing that you did yesterday, hoping that tomorrow will be better."
+              "When you finally optimize exactly how your brain learns, every single obstacle transforms into an unfair advantage."
             </blockquote>
           </div>
 
           <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
-            Life doesn't reward you for what you <em className="text-white">can</em> do. It rewards you for what you <strong className="text-white font-medium">do</strong> do. Learn how to get the best out of yourself.
+            Stop grinding against an outdated system built for the average. Discover your personalized cognitive profile and effortlessly double your daily output.
           </p>
 
         </div>
