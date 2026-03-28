@@ -26,13 +26,27 @@ export default function Home() {
             <div className="absolute inset-0 bg-indigo-500/5 rounded-3xl blur-2xl -z-10 transition-opacity duration-700 group-hover:opacity-75" />
             <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl space-y-8">
               <div className="space-y-3">
-                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Free Diagnosis</span>
-                <h2 className="text-2xl font-medium text-white leading-snug">Discover your actual Baseline WPM right now.</h2>
+                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Reading Masterclass</span>
+                <h2 className="text-2xl font-medium text-white leading-snug">Let us prove you are capable of far more than you think.</h2>
               </div>
 
-              <p className="text-slate-400 text-sm leading-relaxed font-light">
-                Take our 3-minute diagnostic test to find out exactly how fast you read today. Then, we'll show you the mechanical techniques to physically increase that number by tomorrow.
-              </p>
+              <div className="space-y-4">
+                <p className="text-slate-300 text-sm font-medium">In 30 minutes, you'll fix the 3 things slowing your reading down:</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-400 mt-0.5">→</span>
+                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">The voice in your head</strong> that forces you to read at speaking speed.</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-400 mt-0.5">→</span>
+                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">Your eye movement</strong> that causes constant backtracking and wasted time.</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-400 mt-0.5">→</span>
+                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">Your comfort with speed</strong> so reading faster finally feels natural, not stressful.</p>
+                  </li>
+                </ul>
+              </div>
 
               <div className="pt-2">
                 <Link
