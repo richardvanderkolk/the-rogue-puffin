@@ -57,21 +57,6 @@ export default function Home() {
                   Yes, please show me <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
-
-              <div className="grid grid-cols-3 gap-4 pt-6 mt-6 border-t border-white/5">
-                <div className="text-center">
-                  <BookOpen className="w-5 h-5 mx-auto text-slate-500 mb-2" />
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Abridged</p>
-                </div>
-                <div className="text-center border-l border-white/5">
-                  <Zap className="w-5 h-5 mx-auto text-slate-500 mb-2" />
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Practical</p>
-                </div>
-                <div className="text-center border-l border-white/5">
-                  <CheckCircle className="w-5 h-5 mx-auto text-slate-500 mb-2" />
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Proven</p>
-                </div>
-              </div>
             </div>
           </div>
 
