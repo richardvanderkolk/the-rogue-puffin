@@ -18,7 +18,7 @@ export default function Home() {
               Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
-              Apply verifiable cognitive science to fix how your brain works—instantly increasing your reading speed and permanently enhancing your memory.
+              Apply verifiable cognitive science regarding how your brain works—instantly increasing your understanding, concentration, reading speed and enhancing your memory.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export default function Home() {
               </div>
 
               <div className="space-y-4">
-                <p className="text-slate-300 text-sm font-medium">In 30 minutes, you'll fix the 3 things slowing your reading down:</p>
+                <p className="text-slate-300 text-sm font-medium">In this 30-minute masterclass, you'll fix the 3 things slowing your reading down:</p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-2">
                     <span className="text-indigo-400 mt-0.5">→</span>
