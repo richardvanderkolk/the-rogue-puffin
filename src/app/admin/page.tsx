@@ -108,28 +108,28 @@ export default function AdminDashboard() {
                         <Users className="w-5 h-5" /> Total Leads
                     </div>
                     <div className="text-3xl font-bold">{metrics.totalLeads.toLocaleString()}</div>
-                    <div className="text-xs text-emerald-400 mt-2">Verified test takers</div>
+                    <div className="text-xs text-emerald-400 mt-2">Verified Test Takers</div>
                 </div>
                 <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
                     <div className="flex items-center gap-3 mb-2 text-slate-400">
-                        <DollarSign className="w-5 h-5" /> Revenue
+                        <TrendingUp className="w-5 h-5" /> Sessions Sold
+                    </div>
+                    <div className="text-3xl font-bold">{metrics.rogueSessions.toLocaleString()}</div>
+                    <div className="text-xs text-indigo-400 mt-2">$5 Rogue Sessions</div>
+                </div>
+                <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
+                    <div className="flex items-center gap-3 mb-2 text-slate-400">
+                        <TrendingUp className="w-5 h-5" /> Masterclasses Sold
+                    </div>
+                    <div className="text-3xl font-bold">{metrics.masterclasses.toLocaleString()}</div>
+                    <div className="text-xs text-indigo-400 mt-2">$10 Protocols</div>
+                </div>
+                <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
+                    <div className="flex items-center gap-3 mb-2 text-slate-400">
+                        <DollarSign className="w-5 h-5" /> Total Revenue
                     </div>
                     <div className="text-3xl font-bold text-emerald-400">{formatCurrency(metrics.totalRevenue)}</div>
                     <div className="text-xs text-slate-500 mt-2">All-time specific volume</div>
-                </div>
-                <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
-                    <div className="flex items-center gap-3 mb-2 text-slate-400">
-                        <TrendingUp className="w-5 h-5" /> Avg Improvement
-                    </div>
-                    <div className="text-3xl font-bold">84%</div>
-                    <div className="text-xs text-slate-500 mt-2">Baseline to Day 14 (Simulated)</div>
-                </div>
-                <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
-                    <div className="flex items-center gap-3 mb-2 text-slate-400">
-                        <AlertCircle className="w-5 h-5" /> Refunds
-                    </div>
-                    <div className="text-3xl font-bold">0.0%</div>
-                    <div className="text-xs text-emerald-400 mt-2">Below 5% target</div>
                 </div>
             </div>
 
@@ -139,9 +139,9 @@ export default function AdminDashboard() {
                 <div className="flex items-center justify-between text-center relative">
                     {/* Step 1 */}
                     <div className="flex-1">
-                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Unique Visitors</div>
-                        <div className="text-4xl font-bold text-white mb-2">{metrics.uniqueVisitors.toLocaleString()}</div>
-                        <div className="text-xs text-slate-600 mb-2">Estimated Web Traffic</div>
+                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Free Test Taken</div>
+                        <div className="text-4xl font-bold text-white mb-2">{metrics.totalLeads.toLocaleString()}</div>
+                        <div className="text-xs text-slate-600 mb-2">Verified Unique Emails</div>
                         <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
                             <div className="w-full h-full bg-indigo-600"></div>
                         </div>
@@ -152,22 +152,9 @@ export default function AdminDashboard() {
 
                     {/* Step 2 */}
                     <div className="flex-1">
-                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Free Test Taken</div>
-                        <div className="text-4xl font-bold text-white mb-2">{metrics.totalLeads.toLocaleString()}</div>
-                        <div className="text-xs text-indigo-400 mb-2">{leadConv}% Conv.</div>
-                        <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                            <div className={`h-full bg-indigo-600`} style={{ width: `${Math.max(leadConv, 2)}%` }}></div>
-                        </div>
-                    </div>
-
-                    {/* Arrow */}
-                    <div className="px-4 text-slate-600">→</div>
-
-                    {/* Step 3 */}
-                    <div className="flex-1">
                         <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Rogue Session ($5)</div>
                         <div className="text-4xl font-bold text-white mb-2">{metrics.rogueSessions.toLocaleString()}</div>
-                        <div className="text-xs text-indigo-400 mb-2">{sessionConv}% Conv.</div>
+                        <div className="text-xs text-indigo-400 mb-2">{sessionConv}% Lead Conv.</div>
                         <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
                             <div className={`h-full bg-indigo-600`} style={{ width: `${Math.max(sessionConv, 2)}%` }}></div>
                         </div>
@@ -176,11 +163,11 @@ export default function AdminDashboard() {
                     {/* Arrow */}
                     <div className="px-4 text-slate-600">→</div>
 
-                    {/* Step 4 */}
+                    {/* Step 3 */}
                     <div className="flex-1">
                         <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Masterclass ($10)</div>
                         <div className="text-4xl font-bold text-white mb-2">{metrics.masterclasses.toLocaleString()}</div>
-                        <div className="text-xs text-indigo-400 mb-2">{upgradeConv}% Conv.</div>
+                        <div className="text-xs text-indigo-400 mb-2">{upgradeConv}% Lead Conv.</div>
                         <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
                             <div className={`h-full bg-indigo-600`} style={{ width: `${Math.max(upgradeConv, 2)}%` }}></div>
                         </div>
