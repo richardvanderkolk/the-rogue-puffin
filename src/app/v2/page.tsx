@@ -18,7 +18,7 @@ export default function Home() {
               Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
-              Apply verifiable cognitive science regarding how your brain works—instantly increasing your understanding, concentration, reading speed and enhancing your memory.
+              Apply verifiable cognitive science regarding how your brain works—instantly increasing your understanding, reading speed and recall.
             </p>
           </div>
 
