@@ -12,12 +12,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
 
           {/* Left Column: Headlines (Clean & Intelligent) */}
-          <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-8">
+          <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-6">
+            <div className="text-indigo-400 font-bold tracking-widest uppercase text-sm md:text-base">Master the Mechanics of Learning</div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
               Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
-              Master the mechanics of learning in our Masterclass. By applying the latest findings in cognitive science, you will discover exactly how your brain processes information—and put into practice the most efficient methods for lasting comprehension and recall.
+              Apply verifiable cognitive science to fix how your brain works—instantly increasing your reading speed and permanently enhancing your memory.
             </p>
           </div>
 
