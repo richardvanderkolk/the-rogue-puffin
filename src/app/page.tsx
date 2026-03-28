@@ -14,10 +14,10 @@ export default function Home() {
           {/* Left Column: Headlines (Clean & Intelligent) */}
           <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-8">
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
-              Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span> <br /> Enjoy it.
+              Stop reading <br /> <span className="whitespace-nowrap">word by word.</span> <br /> Learn how.
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
-              Teaching you what they didn’t teach you at school.
+              Eliminate subvocalization and boost your reading speed by ~30% using verifiable visual techniques.
             </p>
           </div>
 
@@ -26,12 +26,12 @@ export default function Home() {
             <div className="absolute inset-0 bg-indigo-500/5 rounded-3xl blur-2xl -z-10 transition-opacity duration-700 group-hover:opacity-75" />
             <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl space-y-8">
               <div className="space-y-3">
-                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Reading Masterclass</span>
-                <h2 className="text-2xl font-medium text-white leading-snug">Let us prove you are capable of far more than you think.</h2>
+                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Free Diagnosis</span>
+                <h2 className="text-2xl font-medium text-white leading-snug">Discover your actual Baseline WPM right now.</h2>
               </div>
 
               <p className="text-slate-400 text-sm leading-relaxed font-light">
-                Once you see how easily you can double your reading speed without losing comprehension, you'll realize just how much more you can achieve. This masterclass takes roughly 30 minutes.
+                Take our 3-minute diagnostic test to find out exactly how fast you read today. Then, we'll show you the mechanical techniques to physically increase that number by tomorrow.
               </p>
 
               <div className="pt-2">
@@ -63,29 +63,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Hook: You Are Not Stupid */}
+      {/* The Hook: The Core Mechanism */}
       <section className="py-16 md:py-24 px-6 border-t border-white/5 bg-slate-900/10">
         <div className="max-w-4xl mx-auto text-center space-y-12">
 
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">You are not stupid.</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">The Subvocalization Bottleneck.</h2>
             <p className="text-xl md:text-2xl text-indigo-300 font-light leading-relaxed max-w-2xl mx-auto">
-              No computer has ever been made that is more powerful than the human brain, yet students and professionals still struggle to learn.
+              Most people read exactly the same way they were taught in second grade: by silently sounding out every single word in their head.
             </p>
             <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
-              Why? Because you weren't taught how to use your brain properly.
+              This physical bottleneck mathematically caps your reading speed at roughly 250 words per minute (the average speed of human speech), even though your eyes and brain can process visual data three times faster.
             </p>
           </div>
 
           <div className="py-12 border-y border-white/5 my-12">
-            <h3 className="text-slate-500 uppercase tracking-[0.2em] font-bold text-sm mb-6">The Definition of Insanity</h3>
+            <h3 className="text-slate-500 uppercase tracking-[0.2em] font-bold text-sm mb-6">The Solution</h3>
             <blockquote className="text-2xl md:text-3xl font-medium text-white italic leading-snug">
-              "Doing today the same thing that you did yesterday, hoping that tomorrow will be better."
+              "By training your eyes to use sweeping visual pointers, you can bypass the inner voice entirely. Faster input. Identical comprehension."
             </blockquote>
           </div>
 
           <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
-            Life doesn't reward you for what you <em className="text-white">can</em> do. It rewards you for what you <strong className="text-white font-medium">do</strong> do. Learn how to get the best out of yourself.
+            This isn't generic productivity motivation. It is physical muscle-memory training for your eyes.
           </p>
 
         </div>
