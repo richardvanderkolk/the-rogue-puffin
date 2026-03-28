@@ -44,7 +44,7 @@ export default function Home() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-indigo-400 mt-0.5">→</span>
-                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">Your comfort with speed</strong> so reading faster finally feels natural, not stressful.</p>
+                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">Your natural reading speed</strong> to reduce reading stress.</p>
                   </li>
                 </ul>
               </div>
