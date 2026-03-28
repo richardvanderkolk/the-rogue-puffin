@@ -14,10 +14,10 @@ export default function Home() {
           {/* Left Column: Headlines (Clean & Intelligent) */}
           <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-8">
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
-              Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span> <br /> Enjoy it.
+              Master the <br /> <span className="whitespace-nowrap">Mechanics of</span> <br /> Learning.
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
-              Teaching you what they didn’t teach you at school.
+              Reverse-engineer your cognitive limits. Eliminate subvocalization, defeat the forgetting curve, and rebuild how your brain processes information.
             </p>
           </div>
 
@@ -26,12 +26,12 @@ export default function Home() {
             <div className="absolute inset-0 bg-indigo-500/5 rounded-3xl blur-2xl -z-10 transition-opacity duration-700 group-hover:opacity-75" />
             <div className="bg-slate-900/90 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl shadow-2xl space-y-8">
               <div className="space-y-3">
-                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Reading Masterclass</span>
-                <h2 className="text-2xl font-medium text-white leading-snug">Let us prove you are capable of far more than you think.</h2>
+                <span className="inline-block px-3 py-1 bg-white/5 text-indigo-400 text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">The Free Diagnosis</span>
+                <h2 className="text-2xl font-medium text-white leading-snug">Discover your actual Baseline WPM right now.</h2>
               </div>
 
               <p className="text-slate-400 text-sm leading-relaxed font-light">
-                Once you see how easily you can double your reading speed without losing comprehension, you'll realize just how much more you can achieve. This masterclass takes roughly 30 minutes.
+                Take our 3-minute diagnostic test to find out exactly how fast you read today. Then, we'll show you the mechanical techniques to physically increase that number by tomorrow.
               </p>
 
               <div className="pt-2">
@@ -63,30 +63,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Hook: You Are Not Stupid */}
+      {/* The Hook: The Core Mechanism */}
       <section className="py-16 md:py-24 px-6 border-t border-white/5 bg-slate-900/10">
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+        <div className="max-w-5xl mx-auto text-center space-y-16">
 
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">You are not stupid.</h2>
-            <p className="text-xl md:text-2xl text-indigo-300 font-light leading-relaxed max-w-2xl mx-auto">
-              No computer has ever been made that is more powerful than the human brain, yet students and professionals still struggle to learn.
-            </p>
-            <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
-              Why? Because you weren't taught how to use your brain properly.
+          <div className="space-y-6 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">The 3 Cognitive Bottlenecks.</h2>
+            <p className="text-xl md:text-2xl text-indigo-300 font-light leading-relaxed">
+              School taught you what to learn, not how. We fix the 3 mechanical errors holding your brain back:
             </p>
           </div>
 
-          <div className="py-12 border-y border-white/5 my-12">
-            <h3 className="text-slate-500 uppercase tracking-[0.2em] font-bold text-sm mb-6">The Definition of Insanity</h3>
-            <blockquote className="text-2xl md:text-3xl font-medium text-white italic leading-snug">
-              "Doing today the same thing that you did yesterday, hoping that tomorrow will be better."
-            </blockquote>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+            <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+              <Zap className="w-8 h-8 text-indigo-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-3">1. Subvocalization</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Most people physically speak words in their head as they read, mathematically capping their intake at 250 WPM. We train your literal eye muscles to bypass the inner voice entirely.
+              </p>
+            </div>
+            
+            <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+              <Brain className="w-8 h-8 text-indigo-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-3">2. The Forgetting Curve</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                By default, your short-term memory purges 80% of what you learn within 7 days. We utilize Active Recall and Spaced Repetition frameworks to systematically encode long-term data.
+              </p>
+            </div>
 
-          <p className="text-lg md:text-xl text-slate-400 font-light max-w-2xl mx-auto">
-            Life doesn't reward you for what you <em className="text-white">can</em> do. It rewards you for what you <strong className="text-white font-medium">do</strong> do. Learn how to get the best out of yourself.
-          </p>
+            <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-xl">
+              <BookOpen className="w-8 h-8 text-indigo-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-3">3. Format Mismatches</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                Textbooks assume one learning style fits everyone. We diagnose your exact learning profile (Kinesthetic, Visual, Practical) so you can process information in the exact format your brain prefers.
+              </p>
+            </div>
+          </div>
 
         </div>
       </section>
@@ -96,15 +108,15 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
             <div className="space-y-8 sticky top-32">
-              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Why it Matters</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">We sell verifiable mechanisms.</h2>
               <div className="space-y-6">
                 <p className="text-2xl text-indigo-300 font-light leading-normal">
-                  Success in the age of information overload.
+                  No empty motivation. No "hacks".
                 </p>
                 <p className="text-slate-400 text-lg leading-relaxed font-light">
-                  We live in a world where information doubles every few years, yet our processing methods haven't changed since elementary school.
+                  When you understand the exact biology and cognitive algorithms of the human brain, learning doesn't have to feel like grinding against a brick wall.
                   <br /><br />
-                  Learning faster isn't a hack—it's the new literacy.
+                  It becomes a purely mechanical process of efficient input and permanent storage.
                 </p>
               </div>
             </div>
@@ -115,26 +127,26 @@ export default function Home() {
                   <Clock className="text-indigo-400 w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-white mb-2">Reclaim Your Time</h3>
-                  <p className="text-slate-400 leading-relaxed font-light">Read books in days, not months. Finish work reports in half the time. Time is the one asset you can't buy more of.</p>
+                  <h3 className="text-xl font-medium text-white mb-2">Faster Input (Speed)</h3>
+                  <p className="text-slate-400 leading-relaxed font-light">Transform how you consume information. Break the physical vocalization barrier and visually absorb textbooks in days rather than months.</p>
                 </div>
               </div>
               <div className="group">
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 mb-6 group-hover:bg-indigo-500/20 transition-colors">
-                  <Zap className="text-indigo-400 w-5 h-5" />
+                  <Shield className="text-indigo-400 w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-white mb-2">Deep Focus</h3>
-                  <p className="text-slate-400 leading-relaxed font-light">Fast reading requires flow. It eliminates the "mind wandering" that plagues slow readers and enhances comprehension.</p>
+                  <h3 className="text-xl font-medium text-white mb-2">Permanent Storage (Retention)</h3>
+                  <p className="text-slate-400 leading-relaxed font-light">Never study the same chapter twice. Systematically move data from short-term RAM storage directly into long-term encyclopedic memory.</p>
                 </div>
               </div>
               <div className="group">
                 <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center shrink-0 mb-6 group-hover:bg-indigo-500/20 transition-colors">
-                  <BookOpen className="text-indigo-400 w-5 h-5" />
+                  <School className="text-indigo-400 w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium text-white mb-2">Better Retention</h3>
-                  <p className="text-slate-400 leading-relaxed font-light">Understanding comes from seeing the whole picture, not just individual words. See the forest, not just the trees.</p>
+                  <h3 className="text-xl font-medium text-white mb-2">Personalized Output (Competence)</h3>
+                  <p className="text-slate-400 leading-relaxed font-light">Stop fighting how your brain naturally learns. Diagnose your precise learning mode and instantly translate raw theory into actionable skill.</p>
                 </div>
               </div>
             </div>

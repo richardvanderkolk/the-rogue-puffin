@@ -35,7 +35,7 @@ export default function SalesPage() {
         <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
 
             {/* Header / Hero */}
-            <header className="relative overflow-hidden pt-16 pb-32">
+            <header className="relative overflow-hidden pt-16 pb-20">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-indigo-600/20 rounded-full blur-3xl -z-10" />
 
                 <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
@@ -55,9 +55,10 @@ export default function SalesPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-bold font-heading tracking-tight text-white"
+                        className="text-5xl md:text-7xl font-bold font-heading tracking-tight text-white leading-tight"
                     >
-                        Unlock Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Full Potential</span>
+                        Eliminate Subvocalization <br/>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">In 30 Minutes</span>
                     </motion.h1>
 
                     <motion.p
@@ -66,52 +67,56 @@ export default function SalesPage() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-slate-400 max-w-2xl mx-auto"
                     >
-                        You've seen the concepts. Now use our specialized "Pacer Engine" to break your old habits and permanently double your reading speed.
+                        Stop reading textbooks the same way you read novels. Use our specialized visual pacer to instantly boost your WPM by ~30% today.
                     </motion.p>
                 </div>
             </header>
 
             {/* Main Content Grid */}
-            <main className="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <main className="max-w-6xl mx-auto px-6 pb-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-                {/* Left: Value Props */}
-                <div className="space-y-12">
-                    <div className="space-y-6">
-                        <h2 className="text-3xl font-bold font-heading text-white">What You Get</h2>
-                        <ul className="space-y-4">
+                {/* Left: Value Props & Objections */}
+                <div className="space-y-12 pt-4">
+                    
+                    {/* What You'll Learn Section */}
+                    <div className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl space-y-6">
+                        <h2 className="text-2xl font-bold font-heading text-white">In the next 30 minutes, you will learn:</h2>
+                        <ul className="space-y-5">
                             {[
-                                "Access to the 30-Minute Speed Trainer",
-                                "The 'Full Page Flash' Pacer Tool",
-                                "Peripheral Vision Expansion Exercises",
-                                "Progress Tracking Dashboard",
-                                "BONUS: 'Improving Comprehension' Guide ($29 Value)"
+                                { text: "The Visual Pacer Hook", detail: "Forces your eyes to glide across sentences without pausing for inner monologues." },
+                                { text: "Peripheral Expansion Drills", detail: "Read 3 words at a time instead of 1 by utilizing your existing eye span." },
+                                { text: "Comprehension Scaling", detail: "How to retain dense textbook material even when scrolling at literally 500wpm." }
                             ].map((item, i) => (
                                 <motion.li
                                     key={i}
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.3 + (i * 0.1) }}
-                                    className="flex items-start gap-3 text-lg text-slate-300"
+                                    className="flex items-start gap-4"
                                 >
-                                    <div className="mt-1 bg-green-500/10 p-1 rounded-full">
-                                        <Check className="w-4 h-4 text-green-400" />
+                                    <div className="mt-1 bg-indigo-500/20 p-1.5 rounded-full shrink-0">
+                                        <Check className="w-5 h-5 text-indigo-400" />
                                     </div>
-                                    {item}
+                                    <div>
+                                        <div className="font-bold text-lg text-slate-200">{item.text}</div>
+                                        <div className="text-slate-400 text-sm mt-1 leading-relaxed">{item.detail}</div>
+                                    </div>
                                 </motion.li>
                             ))}
                         </ul>
                     </div>
 
-                    <div className="bg-slate-900/50 border border-slate-800 p-6 rounded-2xl">
-                        <div className="flex items-center gap-4 mb-4">
-                            <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center text-xl font-bold">JD</div>
-                            <div>
-                                <p className="font-bold text-white">John Doe</p>
-                                <p className="text-sm text-slate-500">Law Student</p>
-                            </div>
-                        </div>
-                        <p className="text-slate-300 italic">"I went from 240wpm to 550wpm in one sitting. I literally saved 3 hours of study time last night alone."</p>
+                    {/* Objection Handling */}
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-bold text-white border-b border-slate-800 pb-3">"Is this just speed-reading nonsense?"</h3>
+                        <p className="text-slate-400 leading-relaxed">
+                            No. Traditional "speed reading" teaches you to skim pages and guess the missing words. It ruins comprehension.
+                        </p>
+                        <p className="text-slate-400 leading-relaxed">
+                            Instead, this Masterclass trains the actual physical muscle memory of your eyes. By using our digital pacer line, we force your brain to process written information visually rather than audibly (the voice in your head). Faster input, identical retention.
+                        </p>
                     </div>
+
                 </div>
 
                 {/* Right: Checkout Card */}
