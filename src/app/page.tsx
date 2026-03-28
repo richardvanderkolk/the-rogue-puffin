@@ -12,12 +12,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
 
           {/* Left Column: Headlines (Clean & Intelligent) */}
-          <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-8">
+          <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-6">
+            <div className="text-indigo-400 font-bold tracking-widest uppercase text-sm md:text-base">Master the Mechanics of Learning</div>
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
-              Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span> <br /> Enjoy it.
+              Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
-              Teaching you what they didn’t teach you at school.
+              Apply verifiable cognitive science regarding how your brain works—instantly increasing your understanding, reading speed and recall.
             </p>
           </div>
 
@@ -30,9 +31,23 @@ export default function Home() {
                 <h2 className="text-2xl font-medium text-white leading-snug">Let us prove you are capable of far more than you think.</h2>
               </div>
 
-              <p className="text-slate-400 text-sm leading-relaxed font-light">
-                Once you see how easily you can double your reading speed without losing comprehension, you'll realize just how much more you can achieve. This masterclass takes roughly 30 minutes.
-              </p>
+              <div className="space-y-4">
+                <p className="text-slate-300 text-sm font-medium">In this 30-minute masterclass, you'll fix the 3 things significantly slowing your reading down:</p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-400 mt-0.5">→</span>
+                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">The voice in your head</strong> that forces you to read at speaking speed.</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-400 mt-0.5">→</span>
+                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">Your eye movement</strong> that causes constant backtracking and wasted time.</p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-indigo-400 mt-0.5">→</span>
+                    <p className="text-slate-400 text-sm font-light leading-relaxed"><strong className="text-slate-300 font-medium">Your natural reading speed</strong> to reduce reading stress.</p>
+                  </li>
+                </ul>
+              </div>
 
               <div className="pt-2">
                 <Link
@@ -41,21 +56,6 @@ export default function Home() {
                 >
                   Yes, please show me <ArrowRight className="w-5 h-5" />
                 </Link>
-              </div>
-
-              <div className="grid grid-cols-3 gap-4 pt-6 mt-6 border-t border-white/5">
-                <div className="text-center">
-                  <BookOpen className="w-5 h-5 mx-auto text-slate-500 mb-2" />
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Abridged</p>
-                </div>
-                <div className="text-center border-l border-white/5">
-                  <Zap className="w-5 h-5 mx-auto text-slate-500 mb-2" />
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Practical</p>
-                </div>
-                <div className="text-center border-l border-white/5">
-                  <CheckCircle className="w-5 h-5 mx-auto text-slate-500 mb-2" />
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest">Proven</p>
-                </div>
               </div>
             </div>
           </div>
