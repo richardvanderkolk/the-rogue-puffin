@@ -14,10 +14,10 @@ export default function Home() {
           {/* Left Column: Headlines (Clean & Intelligent) */}
           <div className="flex flex-col items-center xl:items-start text-center xl:text-left space-y-8">
             <h1 className="text-5xl md:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-[0.95]">
-              Master the <br /> <span className="whitespace-nowrap">Mechanics of</span> <br /> Learning.
+              Learn faster. <br /> <span className="whitespace-nowrap">Understand more.</span> <br /> Enjoy it.
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 max-w-lg mx-auto xl:mx-0 font-light leading-relaxed tracking-wide">
-              Reverse-engineer your cognitive limits. Eliminate subvocalization, defeat the forgetting curve, and rebuild how your brain processes information.
+              Master the mechanics of learning in our Masterclass. By applying the latest findings in cognitive science, you will discover exactly how your brain processes information—and put into practice the most efficient methods for lasting comprehension and recall.
             </p>
           </div>
 
