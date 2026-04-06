@@ -6,6 +6,8 @@ export const metadata = {
     description: "Strategies to learn faster, think clearer, and retain more.",
 };
 
+export const revalidate = 0; // Disable static caching so Supabase articles update instantly
+
 // Slugs that already appear in the left-hand curriculum sidebar.
 // These are excluded from the right-hand "All Articles" feed to avoid duplication.
 const CURRICULUM_SLUGS = new Set([
