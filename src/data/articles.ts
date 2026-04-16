@@ -694,7 +694,7 @@ export const articles: Article[] = [
     },
     {
         slug: "set-your-goals",
-        published: false,
+        published: true,
         title: "Set Your Goals",
         category: "READY",
         excerpt: "Clarity of purpose is powerful, but not enough. Because a clear reason without a clear target leads to movement—but not progress.",
