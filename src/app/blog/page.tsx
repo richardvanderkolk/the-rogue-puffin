@@ -54,10 +54,10 @@ export default async function BlogPage() {
 
 
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
                     {/* LEFT COLUMN: Learning Like A Genius Syllabus */}
-                    <div className="space-y-16 lg:sticky lg:top-32 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-2">
+                    <div className="space-y-16 lg:sticky lg:top-32 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:col-span-7 xl:col-span-8 bg-slate-900/60 backdrop-blur-sm p-8 md:p-12 lg:pr-6 rounded-3xl border border-indigo-500/20 shadow-[0_0_40px_-15px_rgba(99,102,241,0.2)]">
                         <div className="mb-8 border-b-2 border-indigo-500 pb-6">
                             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Learning Like A Genius <br /><span className="text-indigo-400">Masterclass</span></h2>
                         </div>
@@ -284,8 +284,8 @@ export default async function BlogPage() {
 
 
                     {/* RIGHT COLUMN: Articles Feed */}
-                    <div className="space-y-8 lg:border-l lg:border-white/5 lg:pl-16 min-h-screen">
-                        <div className="mb-10 border-b-2 border-slate-800 pb-6">
+                    <div className="space-y-8 lg:col-span-5 xl:col-span-4 min-h-screen pt-4 lg:pt-0">
+                        <div className="mb-10 border-b-2 border-slate-800/50 pb-6">
                             <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">All Articles</h2>
                         </div>
 
@@ -298,15 +298,15 @@ export default async function BlogPage() {
                                         href={`/blog/${article.slug}`}
                                         className="group block p-8 rounded-3xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/20 hover:bg-slate-900 transition-all"
                                     >
-                                        <div className="flex items-center gap-4 mb-4">
-                                            <span className="px-3 py-1 bg-white/5 text-indigo-300 text-[10px] font-bold uppercase tracking-wider rounded-full">
+                                        <div className="flex items-center gap-4 mb-3">
+                                            <span className="px-2.5 py-1 bg-white/5 text-slate-400 text-[9px] font-bold uppercase tracking-widest rounded-full">
                                                 {article.category}
                                             </span>
                                         </div>
-                                        <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-200 transition-colors leading-tight">
+                                        <h2 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors leading-snug">
                                             {article.title}
                                         </h2>
-                                        <p className="text-slate-400 text-sm leading-relaxed mb-6 font-light">
+                                        <p className="text-slate-400 text-sm leading-relaxed mb-5 font-light line-clamp-3">
                                             {article.excerpt}
                                         </p>
                                         <div className="flex items-center text-indigo-400 text-xs font-bold uppercase tracking-wider gap-2">
