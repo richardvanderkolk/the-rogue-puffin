@@ -11,6 +11,32 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 export const metadata: Metadata = {
   title: "The Rogue Puffin",
   description: "Teaching you what school didn't.",
+  // Use metadataBase for absolute URLs in OG tags
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "https://theroguepuffin.vercel.app"
+  ),
+  openGraph: {
+    title: "The Rogue Puffin | Learning Mastery",
+    description: "Apply verifiable cognitive science to instantly increase your understanding, reading speed and recall.",
+    url: "/",
+    siteName: "The Rogue Puffin",
+    images: [
+      {
+        url: "/assets/premium-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "The Rogue Puffin - Learning Mastery",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Rogue Puffin | Learning Mastery",
+    description: "Apply verifiable cognitive science to instantly increase your understanding, reading speed and recall.",
+    images: ["/assets/premium-logo.png"],
+  },
 };
 
 import { Header } from "@/components/layout/Header";

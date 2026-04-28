@@ -21,21 +21,26 @@ export function Header() {
     }
 
     const commonLinks = [
+        { name: "Abridged Course", href: "/abridged" },
+        { name: "Masterclass Bundle", href: "/masterclass" },
         { name: "Articles", href: "/blog" },
     ];
 
     const authenticatedLinks = [
         ...commonLinks,
-        { name: "Dashboard", href: "/dashboard" },
+        { name: "Training Dashboard", href: "/dashboard" },
     ];
 
     const navLinks = user ? authenticatedLinks : commonLinks;
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <header className="print:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
             <Link href="/" className="flex items-center gap-3 md:gap-4 group">
-                <Mascot size={80} variant="standard" className="w-12 h-12 md:w-20 md:h-20 p-1.5 md:p-2 group-hover:scale-105 transition-transform duration-300" />
-                <span className="text-xl md:text-3xl font-bold font-heading text-white tracking-tight">The Rogue Puffin</span>
+                <Mascot size={80} variant="headshot" className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-white/10 group-hover:scale-105 transition-transform duration-300 shadow-md shadow-indigo-500/20" />
+                <div className="flex flex-col justify-center translate-y-px mt-1">
+                  <span className="text-xl md:text-2xl font-bold text-white tracking-[0.15em] uppercase leading-none md:leading-none group-hover:text-indigo-400 transition-colors">THE ROGUE PUFFIN</span>
+                  <span className="text-[9px] md:text-[11px] text-slate-400 font-bold tracking-[0.4em] uppercase mt-1.5 md:mt-2">LEARNING MASTERY</span>
+                </div>
             </Link>
 
             <nav className="hidden md:flex items-center gap-6 lg:gap-8">
@@ -59,7 +64,7 @@ export function Header() {
                         <Link href="/login" className="text-base lg:text-lg font-medium text-slate-300 hover:text-white transition-colors duration-200">
                             Log In
                         </Link>
-                        <Link href="/rogue-session/start" className="px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white text-base lg:text-lg font-medium rounded-full transition-all active:scale-95 shadow-lg shadow-indigo-500/25">
+                        <Link href="/masterclass" className="px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white text-base lg:text-lg font-medium rounded-full transition-all active:scale-95 shadow-lg shadow-indigo-500/25">
                             Start Masterclass
                         </Link>
                     </div>
@@ -70,16 +75,10 @@ export function Header() {
                         </button>
                     </div>
                 )}
-
-                {/* Theme Toggle */}
-                <div className="ml-2 lg:ml-4 pl-4 border-l border-white/10 dark:border-white/10">
-                    <ThemeToggle />
-                </div>
             </nav>
 
-            {/* Mobile Menu Toggle & Theme */}
+            {/* Mobile Menu Toggle */}
             <div className="flex items-center gap-4 md:hidden">
-                <ThemeToggle />
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     className="p-2 text-slate-300 hover:text-white transition-colors"
@@ -120,7 +119,7 @@ export function Header() {
                                 Log In
                             </Link>
                             <Link 
-                                href="/rogue-session/start" 
+                                href="/masterclass" 
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="w-full text-center px-6 py-4 bg-indigo-500 hover:bg-indigo-400 text-white text-xl font-medium rounded-full transition-all active:scale-95 shadow-lg shadow-indigo-500/25"
                             >

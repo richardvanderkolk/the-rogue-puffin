@@ -8,16 +8,31 @@ interface MascotProps {
 }
 
 export function Mascot({ className, variant = "standard", size = 150 }: MascotProps) {
-  const src = variant === "headshot" ? "/assets/logo-icon.png" : "/assets/mascot.png";
+  const src = "/assets/premium-logo.png";
+
+  if (variant === "headshot") {
+    return (
+      <div className={cn("relative shrink-0 overflow-hidden bg-slate-950 rounded-full", className)}>
+        <Image
+          src={src}
+          alt="The Rogue Puffin"
+          width={size * 2}
+          height={size * 2}
+          className="absolute max-w-none w-[180%] h-[180%] top-[-10%] left-[-40%] object-contain"
+          priority
+        />
+      </div>
+    );
+  }
 
   return (
-    <div className={cn("relative shrink-0 bg-slate-50 p-2 rounded-2xl shadow-xl shadow-indigo-500/10 border border-slate-800", className)} data-theme-ignore>
+    <div className={cn("relative shrink-0 overflow-hidden", className)}>
       <Image
         src={src}
         alt="The Rogue Puffin"
         width={size}
         height={size}
-        className="w-full h-full object-contain drop-shadow-xl"
+        className="w-full h-full object-cover"
         priority
       />
     </div>

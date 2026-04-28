@@ -8,6 +8,7 @@ export default function AdminDashboard() {
     const [authData, setAuthData] = useState({ authenticated: false, passkey: "" });
     const [passwordInput, setPasswordInput] = useState("");
     const [metrics, setMetrics] = useState<any>(null);
+    const [topContent, setTopContent] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -24,9 +25,12 @@ export default function AdminDashboard() {
         setLoading(true);
         try {
             const res = await fetch(`/api/admin/analytics?passkey=${encodeURIComponent(passkey)}`);
-            if (res.ok) {
+            const viewRes = await fetch(`/api/views?passkey=${encodeURIComponent(passkey)}`);
+            if (res.ok && viewRes.ok) {
                 const data = await res.json();
+                const viewsData = await viewRes.json();
                 setMetrics(data);
+                setTopContent(viewsData);
             } else {
                 localStorage.removeItem("rogue_admin_key");
                 setAuthData({ authenticated: false, passkey: "" });
@@ -173,6 +177,51 @@ export default function AdminDashboard() {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            {/* Top Content Leaderboard */}
+            <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">
+                <h3 className="text-lg font-bold mb-6 flex items-center gap-2"><TrendingUp className="w-5 h-5 text-emerald-400" /> Top Performing Content</h3>
+                
+                {topContent.length === 0 ? (
+                    <div className="text-center py-10 text-slate-500 italic">No content views tracked yet.</div>
+                ) : (
+                    <div className="overflow-x-auto">
+                        <table className="w-full text-left">
+                            <thead>
+                                <tr className="border-b border-slate-800 text-slate-500 text-xs uppercase tracking-wider">
+                                    <th className="pb-4 font-medium pl-4">Rank</th>
+                                    <th className="pb-4 font-medium">Title</th>
+                                    <th className="pb-4 font-medium">Category</th>
+                                    <th className="pb-4 font-medium text-right pr-4">Total Views</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-800/50">
+                                {topContent.map((item, idx) => (
+                                    <tr key={item.path} className="hover:bg-slate-800/20 transition-colors group">
+                                        <td className="py-4 pl-4">
+                                            <span className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold ${idx < 3 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shadow-[0_0_10px_rgba(52,211,153,0.2)]' : 'text-slate-500'}`}>
+                                                {idx + 1}
+                                            </span>
+                                        </td>
+                                        <td className="py-4 font-medium text-white group-hover:text-indigo-300 transition-colors">
+                                            {item.title}
+                                            <div className="text-xs text-slate-500 font-mono mt-1">{item.path}</div>
+                                        </td>
+                                        <td className="py-4">
+                                            <span className="px-2 py-1 bg-slate-800 text-slate-300 rounded text-[10px] uppercase font-bold tracking-wider">
+                                                {item.category}
+                                            </span>
+                                        </td>
+                                        <td className="py-4 text-right pr-4 font-mono font-bold text-emerald-400">
+                                            {item.views.toLocaleString()}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
             </div>
             
             <div className="text-center text-slate-500 text-xs">

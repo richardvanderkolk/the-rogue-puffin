@@ -1,11 +1,13 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-
+import { Resend } from 'resend';
 // Fallback to anon key if service role is missing, but service role is preferred for server bypass
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
 const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
-
 const supabase = createClient(supabaseUrl, supabaseKey);
+
+// Initialize Resend (null check gracefully handles missing env vars during local dev)
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: Request) {
     try {
@@ -38,6 +40,10 @@ export async function POST(request: Request) {
             console.error("Supabase Insert Error:", error);
             return NextResponse.json({ error: error.message }, { status: 500 });
         }
+
+        // --- EMAIL DISPATCH (DISABLED) ---
+        // Email dispatch has been temporarily disabled to save on Resend costs.
+        // The user is directly offered the PDF download link on the frontend upon successful email capture.
 
         return NextResponse.json({ success: true, data });
 

@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { ViewTracker } from "@/components/ViewTracker";
 import { ArrowRight, Brain, Clock, Zap, CheckCircle } from "lucide-react";
 
 export default function RogueMemoryPage() {
     return (
         <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-violet-500/30">
+            <ViewTracker path="/rogue-memory-session" title="Memory Masterclass" category="Course" />
 
             {/* Hero */}
             <section className="relative px-6 py-24 text-center overflow-hidden">

@@ -54,7 +54,7 @@ export const articles: Article[] = [
     },
     {
         slug: "the-80-20-rule-of-expertise",
-        published: false,
+        published: true,
         title: "The 80/20 Rule of Expertise (Pareto Principle)",
         category: "AIM",
         excerpt: "You don't need to learn 100% of a subject to be dangerous at it. You only need to learn the core 20%. Here is how to deconstruct any skill.",

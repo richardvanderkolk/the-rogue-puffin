@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronRight, Brain, Gauge, Unlock, Volume2, RotateCcw, BrainCircuit, Zap, Clock, TrendingUp, Search, CheckCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { RogueSessionEngine } from "@/components/engines/RogueSessionEngine";
+import { ViewTracker } from "@/components/ViewTracker";
 import { Slide, IntroductionToFs, TrianglesExercise, PeripheralVisionSequence, NotEveryWordSlide, PeripheralVisionPrep, PeripheralVisionPassive, PeripheralVisionComparison } from "@/components/onboarding/ConceptSlides";
 
 import ReadingTestEngine from "@/components/engines/ReadingTestEngine";
@@ -101,6 +102,7 @@ export default function RogueSessionPage() {
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
+            <ViewTracker path="/rogue-session/start" title="Speed Reading Protocol" category="Course" />
 
             <div className="max-w-3xl w-full">
                 <AnimatePresence mode="wait">

@@ -1,40 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clock, Zap, Target, Sparkles, Map, Database, Brain } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { createClient } from '@supabase/supabase-js';
 
 export const metadata = {
-    title: "Articles | The Rogue Puffin",
+    title: "The Archive | The Rogue Puffin",
     description: "Strategies to learn faster, think clearer, and retain more.",
 };
 
-export const revalidate = 0; // Disable static caching so Supabase articles update instantly
-
-// Slugs that already appear in the left-hand curriculum sidebar.
-// These are excluded from the right-hand "All Articles" feed to avoid duplication.
-const CURRICULUM_SLUGS = new Set([
-    "know-your-why",
-    "know-your-learning-superpower",
-    "using-your-learning-superpower",
-    "feel-sharp",
-    "create-your-learning-lab",
-    "your-social-circle",
-    "garbage-in-garbage-out",
-    "psychology-of-time-and-deadlines",
-    "cramming-to-compounding",           // "From Cramming to Compounding" — in curriculum sidebar
-    "slicing-the-elephant",
-    "initiate-a-learning-mindset",
-    "preview-the-material",
-    "friction-of-starting",
-    "genius-comprehension",
-    "genius-note-taking",
-    "active-recall",
-    "feynman-technique",
-    // Removed from right-hand feed per user request
-    "how-to-read-faster",
-    "52-books-a-year",
-    "biohacking-brain",
-]);
-
-import { createClient } from '@supabase/supabase-js';
+export const revalidate = 0;
 
 export default async function BlogPage() {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
@@ -49,280 +22,41 @@ export default async function BlogPage() {
     if (!articles) return <div className="text-white text-center pt-32 min-h-screen bg-slate-950">Preparing content...</div>;
 
     return (
-        <main className="min-h-screen bg-slate-950 text-slate-100 pt-48 pb-20 px-6">
-            <div className="max-w-7xl mx-auto">
+        <main className="min-h-screen bg-slate-950 text-slate-100 pt-32 pb-20 px-6">
+            <div className="max-w-7xl mx-auto min-h-screen">
 
-
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-                    {/* LEFT COLUMN: Learning Like A Genius Syllabus */}
-                    <div className="space-y-16 lg:sticky lg:top-32 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:col-span-7 xl:col-span-8 bg-slate-900/60 backdrop-blur-sm p-8 md:p-12 lg:pr-6 rounded-3xl border border-indigo-500/20 shadow-[0_0_40px_-15px_rgba(99,102,241,0.2)]">
-                        <div className="mb-8 border-b-2 border-indigo-500 pb-6">
-                            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">Learning Like A Genius <br /><span className="text-indigo-400">Masterclass</span></h2>
-                        </div>
-
-                        <div className="space-y-16">
-
-                            {/* START HERE */}
-                            <div className="p-5 rounded-2xl bg-indigo-950/30 border border-indigo-500/20 space-y-4">
-                                <div>
-                                    <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-1">The Abridged Masterclass</p>
-                                    <h3 className="text-base font-bold text-white leading-snug">The Accelerated Course: See the difference today</h3>
-                                </div>
-                                <ul className="space-y-2">
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <Link href="/blog/know-your-learning-superpower">• Know Your Learning 'Superpower'</Link>
-                                    </li>
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <Link href="/blog/preview-the-material">• Preview the Material</Link>
-                                    </li>
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors block py-1">
-                                        <Link href="/rogue-session" className="group relative inline-flex items-center gap-2">
-                                            • Fast Reading
-                                            <span className="text-indigo-500 text-xs">↗</span>
-                                            <span className="absolute left-0 top-full mt-1.5 w-56 p-3 bg-slate-900 border border-indigo-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
-                                                Try <strong className="text-white">The Rogue Reading Session</strong> — a free 30-minute interactive drill to break your reading speed plateau.
-                                            </span>
-                                        </Link>
-                                    </li>
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <Link href="/blog/genius-comprehension">• Genius Comprehension</Link>
-                                    </li>
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors block py-1">
-                                        <Link href="/rogue-memory-session" className="group relative inline-flex items-center gap-2">
-                                            • Memory Training
-                                            <span className="text-violet-500 text-xs">↗</span>
-                                            <span className="absolute left-0 top-full mt-1.5 w-60 p-3 bg-slate-900 border border-violet-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
-                                                Try <strong className="text-white">The Rogue Memory Session</strong> — a free 30-minute session that teaches you three memory techniques and proves they work, immediately.
-                                            </span>
-                                        </Link>
-                                    </li>
-                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                        <Link href="/blog/the-art-of-review">• Defeating the Forgetting Curve</Link>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* THE COMPLETE MASTERCLASS HEADING */}
-                            <div className="pt-4 border-b border-indigo-500/20 pb-4 mb-2">
-                                <h3 className="text-2xl font-bold text-white tracking-tight">The Complete Masterclass</h3>
-                            </div>
-
-                            {/* 1. READY */}
-                            <div className="space-y-6">
-                                <div className="flex items-baseline gap-4">
-                                    <span className="text-5xl font-bold text-slate-800 font-heading">01</span>
-                                    <div>
-                                        <h4 className="text-xl font-bold text-white tracking-wide">READY</h4>
-                                        <p className="text-xs text-indigo-300 uppercase tracking-widest font-medium mt-1">Your Best You: Set up to Succeed</p>
-                                    </div>
-                                </div>
-
-                                <div className="pl-4 md:pl-16 space-y-8 border-l border-slate-800/50 ml-5 md:ml-6">
-
-                                    <ul className="space-y-2">
-                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                            <Link href="/blog/know-your-why">• Know Your Why</Link>
-                                        </li>
-                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                            <Link href="/blog/know-your-learning-superpower">• Know Your Learning 'Superpower'</Link>
-                                        </li>
-                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                            <Link href="/blog/your-social-circle">• Show Me Your Friends and I'll Show You Your Future</Link>
-                                        </li>
-                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                            <Link href="/blog/create-your-learning-lab">• Create Your Learning Lab</Link>
-                                        </li>
-                                        <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                            <Link href="/blog/feel-sharp">• Feel Sharp</Link>
-                                        </li>
-                                    </ul>
-
-                                </div>
-                            </div>
-
-
-                            {/* 2. AIM */}
-                            <div className="space-y-6">
-                                <div className="flex items-baseline gap-4">
-                                    <span className="text-5xl font-bold text-slate-800 font-heading">02</span>
-                                    <div>
-                                        <h4 className="text-xl font-bold text-white tracking-wide">AIM</h4>
-                                        <p className="text-xs text-indigo-300 uppercase tracking-widest font-medium mt-1">Genius Preparation</p>
-                                    </div>
-                                </div>
-
-                                <div className="pl-4 md:pl-16 space-y-8 border-l border-slate-800/50 ml-5 md:ml-6">
-                                    {/* GENIUS PREPARATION */}
-                                    <div className="space-y-6">
-                                        <h5 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                                            <Target className="w-4 h-4 text-indigo-400" /> “I’ve Got This!”
-                                        </h5>
-
-                                        <div className="space-y-6">
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Curate Your Inputs</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/garbage-in-garbage-out">• Choose Your Resources Wisely</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Build Your Strategy</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/psychology-of-time-and-deadlines">• The Psychology of Time & Deadlines</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/cramming-to-compounding">• From Cramming to Compounding</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/slicing-the-elephant">• Slicing the Elephant: Deconstruct the Skill</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            {/* 3. LEARN */}
-                            <div className="space-y-6">
-                                <div className="flex items-baseline gap-4">
-                                    <span className="text-5xl font-bold text-slate-800 font-heading">03</span>
-                                    <div>
-                                        <h4 className="text-xl font-bold text-white tracking-wide">LEARN</h4>
-                                        <p className="text-xs text-indigo-300 uppercase tracking-widest font-medium mt-1">Let's Go!</p>
-                                    </div>
-                                </div>
-
-                                <div className="pl-4 md:pl-16 space-y-8 border-l border-slate-800/50 ml-5 md:ml-6">
-                                    <div className="space-y-6">
-                                        <h5 className="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                                            <Zap className="w-4 h-4 text-indigo-400" /> Genius Execution
-                                        </h5>
-
-                                        <div className="space-y-6">
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Get Started</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/friction-of-starting">• The Friction of Starting</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Prime Your Mind</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/initiate-a-learning-mindset">• A Learning Mindset</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/preview-the-material">• Preview the Material</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <Link href="/rogue-session" className="group inline-flex items-center gap-2 text-sm font-bold text-white hover:text-indigo-300 transition-colors cursor-pointer mb-2 relative">
-                                                    Faster Reading
-                                                    <span className="text-indigo-500 text-xs">↗</span>
-                                                    <span className="absolute left-0 top-full mt-1.5 w-56 p-3 bg-slate-900 border border-indigo-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
-                                                        Try <strong className="text-white">The Rogue Reading Session</strong> — a free 30-minute interactive drill to break your reading speed plateau.
-                                                    </span>
-                                                </Link>
-                                            </div>
-
-
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Increased Comprehension</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/genius-comprehension">• Genius Comprehension</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/genius-note-taking">• Genius Note Taking</Link>
-                                                    </li>
-
-
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/active-recall">• Active Recall vs. The Illusion of Competence</Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">
-                                                        <Link href="/blog/feynman-technique">• Can You Explain it to a Child?</Link>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div>
-                                                <p className="text-sm font-bold text-slate-400 mb-2">Incredible Retention</p>
-                                                <ul className="space-y-2">
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors block py-1">
-                                                        <Link href="/rogue-memory-session" className="group relative inline-flex items-center gap-2">
-                                                            • Memory Training
-                                                            <span className="text-violet-500 text-xs">↗</span>
-                                                            <span className="absolute left-0 top-full mt-1.5 w-60 p-3 bg-slate-900 border border-violet-500/30 rounded-xl text-xs text-slate-300 font-normal leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 shadow-xl">
-                                                                Try <strong className="text-white">The Rogue Memory Session</strong> — a free 30-minute session that teaches you three memory techniques and proves they work, immediately.
-                                                            </span>
-                                                        </Link>
-                                                    </li>
-                                                    <li className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer block py-1">• Defeating the Forgetting Curve</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-
-                    {/* RIGHT COLUMN: Articles Feed */}
-                    <div className="space-y-8 lg:col-span-5 xl:col-span-4 min-h-screen pt-4 lg:pt-0">
-                        <div className="mb-10 border-b-2 border-slate-800/50 pb-6">
-                            <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">All Articles</h2>
-                        </div>
-
-                        <div className="grid gap-6">
-                            {articles
-                                .filter((article) => !CURRICULUM_SLUGS.has(article.slug) && article.published !== false)
-                                .map((article) => (
-                                    <Link
-                                        key={article.slug}
-                                        href={`/blog/${article.slug}`}
-                                        className="group block p-8 rounded-3xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/20 hover:bg-slate-900 transition-all"
-                                    >
-                                        <div className="flex items-center gap-4 mb-3">
-                                            <span className="px-2.5 py-1 bg-white/5 text-slate-400 text-[9px] font-bold uppercase tracking-widest rounded-full">
-                                                {article.category}
-                                            </span>
-                                        </div>
-                                        <h2 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors leading-snug">
-                                            {article.title}
-                                        </h2>
-                                        <p className="text-slate-400 text-sm leading-relaxed mb-5 font-light line-clamp-3">
-                                            {article.excerpt}
-                                        </p>
-                                        <div className="flex items-center text-indigo-400 text-xs font-bold uppercase tracking-wider gap-2">
-                                            Read Article <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                                        </div>
-                                    </Link>
-                                ))}
-                        </div>
-
-                        {/* Empty State / More content placeholder */}
-                        <div className="p-12 text-center border border-dashed border-white/5 rounded-3xl mt-12">
-                            <p className="text-slate-500 text-sm">More genius insights coming soon.</p>
-                        </div>
-                    </div>
-
+                <div className="mb-12 border-b-2 border-slate-800/50 pb-8 pt-8">
+                    <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">The Archive</h1>
+                    <p className="text-slate-400 text-lg">Every strategy, framework, and mental model for extreme cognitive performance.</p>
                 </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
+                    {articles
+                        .filter((article) => article.published !== false)
+                        .map((article) => (
+                            <Link
+                                key={article.slug}
+                                href={`/blog/${article.slug}`}
+                                className="group flex flex-col p-8 rounded-[2rem] bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(99,102,241,0.15)]"
+                            >
+                                <div className="flex items-center gap-4 mb-4">
+                                    <span className="px-3 py-1 bg-white/5 text-slate-400 text-[10px] font-bold uppercase tracking-widest rounded-full">
+                                        {article.category}
+                                    </span>
+                                </div>
+                                <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors leading-snug">
+                                    {article.title}
+                                </h2>
+                                <p className="text-slate-400 text-sm leading-relaxed mb-10 flex-grow font-light line-clamp-4">
+                                    {article.excerpt}
+                                </p>
+                                <div className="flex items-center text-indigo-400 text-xs font-bold uppercase tracking-wider gap-2 mt-auto">
+                                    Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </div>
+                            </Link>
+                        ))}
+                </div>
+
             </div>
         </main>
     );

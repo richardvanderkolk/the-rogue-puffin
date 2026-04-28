@@ -1,8 +1,11 @@
+import { ViewTracker } from '@/components/ViewTracker';
 import { ArrowLeft, X } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@supabase/supabase-js';
 import { getArticleVariant, getArticleExample } from '@/data/learningStyleVariants';
+import { LeadCapture } from '@/components/LeadCapture';
+import { PrintButton } from '@/components/ui/PrintButton';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -55,6 +58,44 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
         .select('*')
         .eq('slug', slug)
         .single();
+        
+    const course = resolvedSearchParams.course as string;
+    const isAbridged = course === 'abridged';
+
+    let finalContent = article?.content || '';
+    let nextAbridgedLink = null;
+    let nextAbridgedTitle = null;
+
+    if (isAbridged && article) {
+        // Strip out the hardcoded 'Continue Your Journey' HTML from the database
+        finalContent = finalContent.replace(/<hr class="border-slate-800 my-16" \/>[\s\S]*$/, '');
+        
+        const abridgedSequence = [
+            "/blog/know-your-why",
+            "/blog/know-your-learning-superpower",
+            "/blog/preview-the-material",
+            "/rogue-session/start",
+            "/blog/feynman-technique",
+            "/blog/active-recall"
+        ];
+        
+        const titles = [
+            "Define the 'Why' Vector",
+            "Know Your \"Superpower\"",
+            "Preview the Landscape",
+            "Rapid Ingestion",
+            "The Feynman Brain Dump",
+            "Spaced Active Recall"
+        ];
+
+        const currentPath = `/blog/${slug}`;
+        const currentIndex = abridgedSequence.indexOf(currentPath);
+        
+        if (currentIndex !== -1 && currentIndex < abridgedSequence.length - 1) {
+            nextAbridgedLink = abridgedSequence[currentIndex + 1] + "?course=abridged";
+            nextAbridgedTitle = titles[currentIndex + 1];
+        }
+    }
 
     if (!article || article.published === false) {
         return (
@@ -71,24 +112,53 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
     }
 
     return (
-        <article className="min-h-screen bg-slate-950 text-white pt-24 pb-20">
-            <div className="max-w-3xl mx-auto p-8">
-                <Link href="/blog" className="inline-flex items-center text-slate-400 hover:text-white mb-12 transition-colors">
-                    <ArrowLeft className="w-4 h-4 mr-2" /> Back to Curriculum
-                </Link>
+        <article className="min-h-screen bg-slate-950 text-white pt-24 pb-20 print:bg-white print:text-black print:pt-0 print:pb-0">
+            <ViewTracker path={`/blog/${slug}`} title={article.title} category="Article" />
+            
+            {/* --- PRINT ONLY HEADER --- */}
+            <div className="hidden print:block text-center border-b border-slate-200 pb-8 mb-8 pt-8">
+                <div className="font-bold text-slate-400 uppercase tracking-widest text-[10px] mb-4">The Rogue Puffin • Learning Mastery</div>
+                <h1 className="text-4xl font-black text-black leading-tight max-w-2xl mx-auto">{article.title}</h1>
+            </div>
 
-                <div className="mb-8 flex items-center gap-4">
+            <div className="max-w-3xl mx-auto p-8 print:p-0">
+                <div className="flex justify-between items-start mb-12 print:hidden">
+                    <Link href={isAbridged ? "/abridged" : "/blog"} className="inline-flex items-center text-slate-400 hover:text-white transition-colors">
+                        <ArrowLeft className="w-4 h-4 mr-2" /> Back to Course
+                    </Link>
+                    <PrintButton />
+                </div>
+
+                <div className="mb-8 flex items-center gap-4 print:hidden">
                     <span className="px-3 py-1 bg-white/5 text-indigo-300 text-[10px] font-bold uppercase tracking-wider rounded-full">
                         {article.category}
                     </span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl font-bold mb-12 leading-tight text-white">{article.title}</h1>
+                <h1 className="text-4xl md:text-5xl font-bold mb-12 leading-tight text-white print:hidden">{article.title}</h1>
 
                 <div
-                    className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300 prose-strong:text-white"
-                    dangerouslySetInnerHTML={{ __html: article.content }}
+                    className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300 prose-strong:text-white print:prose-headings:text-black print:prose-p:text-slate-800 print:text-slate-800 print:prose-strong:text-black print:prose-li:text-slate-800 print:prose-a:text-indigo-600 print:max-w-none print:prose-blockquote:border-slate-300 print:prose-blockquote:text-slate-600"
+                    dangerouslySetInnerHTML={{ __html: finalContent }}
                 />
+
+                {/* DYNAMIC ABRIDGED NAVIGATION */}
+                {isAbridged && nextAbridgedLink && (
+                    <div className="mt-16 pt-16 border-t border-slate-800 print:hidden">
+                        <h3 className="text-xl font-bold text-white mb-6">Continue Your Abridged Course</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <Link href={nextAbridgedLink} className="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
+                                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next Step</p>
+                                <h4 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">{nextAbridgedTitle} <span className="text-indigo-500 ml-1">→</span></h4>
+                            </Link>
+                        </div>
+                    </div>
+                )}
+
+                {/* EMAIL LEAD CAPTURE SECTION */}
+                <div className="print:hidden mt-20">
+                    <LeadCapture />
+                </div>
             </div>
 
             {/* Sub-Article Variant Pop-up Modal */}
