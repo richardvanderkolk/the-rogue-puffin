@@ -31,10 +31,20 @@ function TimerExerciseSlide({ title, instruction, duration, onNext, onBack }: { 
                 <p className="text-xl text-slate-300">
                     {instruction}
                 </p>
-                <div className="text-6xl md:text-8xl font-mono font-black text-indigo-400 drop-shadow-[0_0_15px_rgba(99,102,241,0.5)] my-12">
+                <div className="text-6xl md:text-8xl font-mono font-black text-indigo-400 drop-shadow-[0_0_15px_rgba(99,102,241,0.5)] my-12 relative group">
                     {formatTime(timeLeft)}
+                    
+                    {/* Skip Button */}
+                    {timeLeft > 0 && (
+                        <button 
+                            onClick={() => setTimeLeft(0)}
+                            className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-sm text-slate-600 hover:text-slate-400 font-sans tracking-normal opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                            Skip Timer
+                        </button>
+                    )}
                 </div>
-                <p className="text-slate-500 text-sm">
+                <p className="text-slate-500 text-sm mt-8">
                     {timeLeft > 0 ? "Focus on this feeling until the timer completes." : "You may now proceed."}
                 </p>
             </div>
