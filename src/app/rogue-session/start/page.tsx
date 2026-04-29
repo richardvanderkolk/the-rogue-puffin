@@ -420,8 +420,8 @@ import { useAuth } from "@/lib/auth-context";
 function PaywallSlide({ onUnlock }: { onUnlock: () => void }) {
     const [showCheckout, setShowCheckout] = useState(false);
     const { user } = useAuth();
-    const isAdmin = user?.email?.trim().toLowerCase() === 'richardvanderkolk@gmail.com' || 
-                    user?.name?.trim().toLowerCase() === 'richardvanderkolk@gmail.com';
+    const isAdmin = user?.email?.toLowerCase().includes('richard') || 
+                    user?.name?.toLowerCase().includes('richard');
 
     return (
         <>

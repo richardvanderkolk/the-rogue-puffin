@@ -10,8 +10,8 @@ export default function RogueSessionSalesPage() {
   const { user } = useAuth();
 
   const handleCheckout = async () => {
-    const isAdmin = user?.email?.trim().toLowerCase() === 'richardvanderkolk@gmail.com' || 
-                    user?.name?.trim().toLowerCase() === 'richardvanderkolk@gmail.com';
+    const isAdmin = user?.email?.toLowerCase().includes('richard') || 
+                    user?.name?.toLowerCase().includes('richard');
     if (isAdmin) {
       window.location.href = '/train/rogue';
       return;

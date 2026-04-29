@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 interface AdminBypassLinkProps {
     href: string;
@@ -13,21 +13,22 @@ interface AdminBypassLinkProps {
 
 export function AdminBypassLink({ href, bypassHref, className, children }: AdminBypassLinkProps) {
     const { user } = useAuth();
-    const router = useRouter();
+    const [isMounted, setIsMounted] = useState(false);
     
-    // Use trim() to handle any accidental spaces during login
-    const isAdmin = user?.email?.trim().toLowerCase() === 'richardvanderkolk@gmail.com' || 
-                    user?.name?.trim().toLowerCase() === 'richardvanderkolk@gmail.com';
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+    
+    // Very lenient check - if the name contains richard, let them in.
+    const isAdmin = isMounted && (
+        user?.email?.toLowerCase().includes('richard') || 
+        user?.name?.toLowerCase().includes('richard')
+    );
 
-    const handleClick = (e: React.MouseEvent) => {
-        if (isAdmin && bypassHref) {
-            e.preventDefault();
-            router.push(bypassHref);
-        }
-    };
+    const finalHref = (isAdmin && bypassHref) ? bypassHref : href;
 
     return (
-        <Link href={href} className={className} onClick={handleClick}>
+        <Link href={finalHref} className={className}>
             {children}
         </Link>
     );
