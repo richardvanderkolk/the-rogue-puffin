@@ -17,11 +17,10 @@ export default function RogueMemoryPage() {
                         The Rogue Memory Session
                     </div>
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight">
-                        You don't have a bad memory.<br />You just lack the algorithm.
+                        Discover how amazing your memory is<br />when you know how to use it.
                     </h1>
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                        The average human can recall about 7 items in a single sitting. In just 30 minutes, we will install a mental framework that allows you to perfectly memorize 30 disconnected words on your first try.
-                        The average "after" score is <strong className="text-white font-medium">28/30</strong>. This isn't theory. For the price of a coffee, we will prove your own mind's capability to you.
+                        In just 30 minutes, you will discover a powerful mental framework that allows you to effortlessly memorize 30 disconnected words on your first try.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
                         <Link

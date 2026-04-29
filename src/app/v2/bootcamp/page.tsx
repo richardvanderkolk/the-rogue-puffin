@@ -4,27 +4,29 @@ import { CheckCircle2, Lock, PlayCircle, Zap, Target, Brain, Shield, BookOpen, C
 import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
 
-export default async function BootcampDashboard() {
+export default async function BootcampDashboard(props: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
     const headersList = await headers();
     const country = headersList.get('x-vercel-ip-country');
     const { symbol } = getCurrencyInfo(country);
+    const searchParams = await props.searchParams;
+    const isUnlocked = searchParams.unlocked === 'true';
     
-    // Status can be: 'completed', 'unlocked', 'locked'
+    // Status can be: 'completed', 'unlocked', 'locked', 'available'
     const days = [
         { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/start?v2=true" },
-        { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, status: "unlocked", link: "/api/checkout?productId=bootcamp" },
-        { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: "locked", link: "/rogue-memory-session?course=bootcamp" },
-        { day: 4, title: "The Laboratory", desc: "Setting a distraction-free environment", icon: <Shield className="w-5 h-5" />, status: "locked", link: "/blog/create-your-learning-lab?course=bootcamp" },
-        { day: 5, title: "Slicing the Elephant", desc: "The 80/20 Rule of Deconstruction", icon: <Activity className="w-5 h-5" />, status: "locked", link: "/blog/slicing-the-elephant?course=bootcamp" },
-        { day: 6, title: "Preview the Landscape", desc: "Structural scanning techniques", icon: <BookOpen className="w-5 h-5" />, status: "locked", link: "/blog/preview-the-material?course=bootcamp" },
-        { day: 7, title: "Feynman Brain Dump", desc: "Closing the source material", icon: <Brain className="w-5 h-5" />, status: "locked", link: "/blog/feynman-technique?course=bootcamp" },
-        { day: 8, title: "Active Recall", desc: "Building the spaced repetition system", icon: <Clock className="w-5 h-5" />, status: "locked", link: "/blog/active-recall?course=bootcamp" },
-        { day: 9, title: "The Memory Palace", desc: "Spatial memory mapping drill", icon: <Database className="w-5 h-5" />, status: "locked", link: "/blog/engaging-your-imagination?course=bootcamp" },
-        { day: 10, title: "The Zeigarnik Effect", desc: "Optimizing study blocks", icon: <Activity className="w-5 h-5" />, status: "locked", link: "/blog/the-zeigarnik-effect?course=bootcamp" },
-        { day: 11, title: "Speed Maintenance", desc: "Peripheral vision expansion drill", icon: <Zap className="w-5 h-5" />, status: "locked", link: "/blog/how-to-read-faster?course=bootcamp" },
-        { day: 12, title: "Memory Maintenance", desc: "Advanced peg system drill", icon: <Database className="w-5 h-5" />, status: "locked", link: "/blog/the-art-of-review?course=bootcamp" },
-        { day: 13, title: "AI as a Tutor", desc: "Prompting for deep learning", icon: <Brain className="w-5 h-5" />, status: "locked", link: "/blog/how-to-use-ai-to-learn?course=bootcamp" },
-        { day: 14, title: "The 4 Stages", desc: "Graduation and mastery", icon: <Target className="w-5 h-5" />, status: "locked", link: "/blog/the-4-stages-of-learning?course=bootcamp" },
+        { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, status: isUnlocked ? "completed" : "unlocked", link: isUnlocked ? "/rogue-superpower-session/start?course=bootcamp" : "/api/checkout?productId=bootcamp" },
+        { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/rogue-memory-session?course=bootcamp" },
+        { day: 4, title: "The Laboratory", desc: "Setting a distraction-free environment", icon: <Shield className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/create-your-learning-lab?course=bootcamp" },
+        { day: 5, title: "Slicing the Elephant", desc: "The 80/20 Rule of Deconstruction", icon: <Activity className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/slicing-the-elephant?course=bootcamp" },
+        { day: 6, title: "Preview the Landscape", desc: "Structural scanning techniques", icon: <BookOpen className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/preview-the-material?course=bootcamp" },
+        { day: 7, title: "Feynman Brain Dump", desc: "Closing the source material", icon: <Brain className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/feynman-technique?course=bootcamp" },
+        { day: 8, title: "Active Recall", desc: "Building the spaced repetition system", icon: <Clock className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/active-recall?course=bootcamp" },
+        { day: 9, title: "The Memory Palace", desc: "Spatial memory mapping drill", icon: <Database className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/engaging-your-imagination?course=bootcamp" },
+        { day: 10, title: "The Zeigarnik Effect", desc: "Optimizing study blocks", icon: <Activity className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/the-zeigarnik-effect?course=bootcamp" },
+        { day: 11, title: "Speed Maintenance", desc: "Peripheral vision expansion drill", icon: <Zap className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/how-to-read-faster?course=bootcamp" },
+        { day: 12, title: "Memory Maintenance", desc: "Advanced peg system drill", icon: <Database className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/the-art-of-review?course=bootcamp" },
+        { day: 13, title: "AI as a Tutor", desc: "Prompting for deep learning", icon: <Brain className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/how-to-use-ai-to-learn?course=bootcamp" },
+        { day: 14, title: "The 4 Stages", desc: "Graduation and mastery", icon: <Target className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/the-4-stages-of-learning?course=bootcamp" },
     ];
 
     const completedDays = days.filter(d => d.status === "completed").length;
@@ -64,9 +66,9 @@ export default async function BootcampDashboard() {
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest">
                                 <CheckCircle2 className="w-3 h-3" /> Day 1 Completed
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Day 1 of Your 14 Day Boot Camp is completed.</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Day {isUnlocked ? "2" : "1"} of Your 14 Day Boot Camp is completed.</h2>
                             <p className="text-lg text-slate-400 font-light leading-relaxed">
-                                Congratulations! You have discovered that you are able to read faster. During the rest of this bootcamp you will embed this new speed as your new habit, discover your personal learning superpower, memory skills that will blow your mind and much more for just {symbol}29.
+                                Congratulations! You have discovered {isUnlocked ? "your unique learning superpower. You now have full access to all remaining modules in the bootcamp. Dive into Memory Training next!" : `that you are able to read faster. During the rest of this bootcamp you will embed this new speed as your new habit, discover your personal learning superpower, memory skills that will blow your mind and much more for just ${symbol}29.`}
                             </p>
                         </div>
                         
@@ -105,7 +107,12 @@ export default async function BootcampDashboard() {
                                 containerStyle = "bg-slate-900/60 border border-emerald-500/30 hover:bg-slate-900 transition-colors";
                                 iconBoxStyle = "bg-emerald-500/20 text-emerald-400";
                                 actionIcon = <CheckCircle2 className="w-6 h-6 text-emerald-400" />;
-                                badge = <span className="absolute top-4 right-4 px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded text-[10px] font-bold uppercase tracking-widest border border-emerald-500/30">Free Trial</span>;
+                                badge = <span className="absolute top-4 right-4 px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded text-[10px] font-bold uppercase tracking-widest border border-emerald-500/30">Completed</span>;
+                            } else if (day.status === "available") {
+                                containerStyle = "bg-slate-900/60 border border-indigo-500/30 hover:bg-slate-800 transition-colors cursor-pointer transform hover:-translate-y-1 shadow-lg shadow-indigo-900/10";
+                                iconBoxStyle = "bg-indigo-500/20 text-indigo-400";
+                                actionIcon = <ArrowRight className="w-5 h-5 text-indigo-400" />;
+                                badge = <span className="absolute top-4 right-4 px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded text-[10px] font-bold uppercase tracking-widest border border-indigo-500/30">Available</span>;
                             } else if (day.status === "unlocked") {
                                 containerStyle = "bg-slate-900 border border-purple-500/50 shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)] hover:bg-slate-800 transition-all cursor-pointer transform hover:-translate-y-1";
                                 iconBoxStyle = "bg-purple-500/20 text-purple-400";
@@ -125,7 +132,7 @@ export default async function BootcampDashboard() {
                                     )}
                                     <CardWrapper 
                                         href={day.link} 
-                                        bypassHref={day.day === 2 ? "/blog/know-your-learning-superpower?course=bootcamp" : undefined}
+                                        bypassHref={day.day === 2 ? "/rogue-superpower-session/start?course=bootcamp" : undefined}
                                         className={`relative rounded-3xl p-6 flex flex-col h-full ${containerStyle}`}
                                     >
                                         {badge}
@@ -145,8 +152,8 @@ export default async function BootcampDashboard() {
                                         </p>
 
                                         <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                                            <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-purple-400" : "text-slate-500"}`}>
-                                                {day.status === "completed" ? "Review material" : day.status === "unlocked" ? `Unlock Days 2-14 for ${symbol}29` : "Locked"}
+                                            <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-purple-400" : day.status === "available" ? "text-indigo-400" : "text-slate-500"}`}>
+                                                {day.status === "completed" ? "Review material" : day.status === "available" ? "Start Module" : day.status === "unlocked" ? `Unlock Days 2-14 for ${symbol}29` : "Locked"}
                                             </span>
                                             {actionIcon}
                                         </div>

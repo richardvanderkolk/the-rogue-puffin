@@ -24,11 +24,11 @@ export default async function AbridgedMasterclassPage() {
         },
         {
             title: "Know Your \"Superpower\"",
-            description: "Do not force a visual method if your brain favors spatial logic or debate. Aligning your study inputs with your strongest sensory pathway reduces friction.",
+            description: "Discover exactly how your unique brain is wired to learn best.",
             icon: <Brain className="w-6 h-6 text-indigo-400" />,
             phase: "PHASE I: READY",
             color: "indigo",
-            href: "/blog/know-your-learning-superpower?course=abridged"
+            href: "/rogue-superpower-session/start?course=abridged"
         },
         {
             title: "Preview the Landscape",

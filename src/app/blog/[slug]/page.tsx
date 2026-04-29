@@ -76,7 +76,7 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
         
         const abridgedSequence = [
             "/blog/know-your-why",
-            "/blog/know-your-learning-superpower",
+            "/rogue-superpower-session/start",
             "/blog/preview-the-material",
             "/rogue-session/start",
             "/blog/feynman-technique",
@@ -107,7 +107,7 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
 
         const bootcampSequence = [
             "/rogue-session/start",
-            "/blog/know-your-learning-superpower",
+            "/rogue-superpower-session/start",
             "/rogue-memory-session",
             "/blog/create-your-learning-lab",
             "/blog/slicing-the-elephant",

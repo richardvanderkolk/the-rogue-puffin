@@ -72,7 +72,7 @@ async function createCheckoutSession(request: Request, productMode: string, emai
             },
         ],
         mode: 'payment',
-        success_url: productMode === 'bootcamp' ? `${baseUrl}/blog/know-your-learning-superpower` : `${baseUrl}/train/sales?success=true`,
+        success_url: productMode === 'bootcamp' ? `${baseUrl}/rogue-superpower-session/start?course=bootcamp` : `${baseUrl}/train/sales?success=true`,
         cancel_url: `${baseUrl}/train/sales?canceled=true`,
         metadata: {
             productMode

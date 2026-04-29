@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search, Sparkles, Eye, Clock, TrendingUp, Zap } from "lucide-react";
 
 // --- Shared Slide Component ---
-export function Slide({ title, children, icon, onNext, onBack, customButtonText }: { title: string, children: React.ReactNode, icon?: React.ReactNode, onNext: () => void, onBack?: () => void, customButtonText?: string }) {
+export function Slide({ title, children, icon, onNext, onBack, customButtonText, fullWidth }: { title?: string, children: React.ReactNode, icon?: React.ReactNode, onNext: () => void, onBack?: () => void, customButtonText?: string, fullWidth?: boolean }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -15,13 +15,15 @@ export function Slide({ title, children, icon, onNext, onBack, customButtonText 
         >
             <div className="flex-shrink-0 flex flex-col items-center mb-1">
                 {icon && <div className="p-4 bg-slate-900 rounded-full border border-slate-800 mb-4">{icon}</div>}
-                <div className="h-24 flex items-center justify-center flex-shrink-0 px-4">
-                    <h2 className="text-2xl md:text-5xl font-bold font-heading text-white leading-tight">{title}</h2>
-                </div>
+                {title && (
+                    <div className="h-24 flex items-center justify-center flex-shrink-0 px-4">
+                        <h2 className="text-2xl md:text-5xl font-bold font-heading text-white leading-tight">{title}</h2>
+                    </div>
+                )}
             </div>
 
-            <div className="flex-1 overflow-y-auto w-full flex flex-col items-center min-h-0">
-                <div className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl space-y-6 w-full">
+            <div className="flex-1 overflow-y-auto w-full flex flex-col items-center min-h-0 custom-scrollbar">
+                <div className={`text-lg md:text-xl text-slate-300 leading-relaxed ${fullWidth ? 'w-full px-2' : 'max-w-3xl w-full'} space-y-6`}>
                     {children}
                 </div>
             </div>
