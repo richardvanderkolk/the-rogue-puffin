@@ -16,7 +16,7 @@ export function Header() {
 
     // Hide header on immersive routes if needed, or keep it consistent. 
     // For now, we'll keep it visible everywhere unless specified otherwise.
-    if (pathname?.includes("/rogue-session/start") || pathname?.includes("/rogue-memory-session/start") || pathname?.includes("/train/app")) {
+    if (pathname?.includes("/rogue-") && pathname?.includes("/start") || pathname?.includes("/train/app")) {
         return null;
     }
 

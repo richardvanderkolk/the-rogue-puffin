@@ -25,8 +25,8 @@ function RogueDay4SessionContent() {
     };
 
     return (
-        <div className="h-screen overflow-hidden flex flex-col items-center p-6 bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
-            <div className="max-w-3xl w-full h-[calc(100vh-3rem)] flex flex-col justify-center">
+        <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
+            <div className="max-w-3xl w-full flex flex-col justify-center">
                 <AnimatePresence mode="wait">
 
                     {/* Step 0: Welcome to the new paradigm */}
