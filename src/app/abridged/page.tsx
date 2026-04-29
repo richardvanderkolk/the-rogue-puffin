@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { ArrowRight, Brain, Zap, Target, BookOpen, Clock, Activity } from "lucide-react";
+import { ArrowRight, Brain, Zap, Target, BookOpen, Clock, Activity, Database } from "lucide-react";
 import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
 
 export const metadata = {
     title: "Abridged Masterclass | The Rogue Puffin",
-    description: "The 6-Step Foundation to Learning Like a Genius.",
+    description: "The 7-Step Foundation to Learning Like a Genius.",
 };
 
 export default async function AbridgedMasterclassPage() {
@@ -55,6 +55,14 @@ export default async function AbridgedMasterclassPage() {
             href: "/blog/feynman-technique?course=abridged"
         },
         {
+            title: "Advanced Memory Protocol",
+            description: "Experience the exact visualization routines used by memory champions to permanently store information.",
+            icon: <Database className="w-6 h-6 text-purple-400" />,
+            phase: "PHASE III: LEARN",
+            color: "purple",
+            href: "/rogue-memory-session?course=abridged"
+        },
+        {
             title: "Spaced Active Recall",
             description: "Rereading creates the 'Illusion of Competence.' True memory formation requires the physical struggle of pulling the answer from memory 1, 3, and 7 days later.",
             icon: <Clock className="w-6 h-6 text-purple-400" />,
@@ -77,11 +85,11 @@ export default async function AbridgedMasterclassPage() {
                         The Abridged <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Masterclass</span>
                     </h1>
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-                        The 6 core mechanics of neuroplasticity. Master these steps before attempting the advanced reading and memory drills.
+                        The 7 core mechanics of neuroplasticity. Master these steps before attempting the advanced reading and memory drills.
                     </p>
                 </div>
 
-                {/* The 6 Steps */}
+                {/* The 7 Steps */}
                 <div className="space-y-6 relative">
                     {/* Visual Timeline Line */}
                     <div className="absolute left-6 md:left-[3.25rem] top-8 bottom-8 w-px bg-white/10 hidden md:block" />

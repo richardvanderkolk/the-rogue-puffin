@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, Zap, Database, Brain, Rocket, ShieldCheck, CheckCircle2, BookOpen } from "lucide-react";
+import { ArrowRight, Zap, Database, Brain, Rocket, ShieldCheck, CheckCircle2, BookOpen, Target, Clock, Activity } from "lucide-react";
 import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
+import { articles } from "@/data/articles";
 
 export const metadata = {
     title: "The Complete Masterclass | The Rogue Puffin",
@@ -12,6 +13,89 @@ export default async function MasterclassPage() {
     const headersList = await headers();
     const country = headersList.get('x-vercel-ip-country');
     const { symbol } = getCurrencyInfo(country);
+
+    const articleMap = Object.fromEntries(articles.map(a => [a.slug, a]));
+
+    const curatedGroups = [
+        {
+            title: "Phase I: Ready",
+            description: "Prepare your mind, environment, and biology for extreme focus.",
+            color: "indigo",
+            icon: <Target className="w-6 h-6 text-indigo-400" />,
+            subsections: [
+                {
+                    subtitle: "Foundations",
+                    slugs: ["know-your-why", "set-your-goals", "feel-sharp"]
+                },
+                {
+                    subtitle: "Creating The Best Environment",
+                    slugs: ["create-your-learning-lab", "your-social-circle"]
+                },
+                {
+                    subtitle: "Know Yourself",
+                    slugs: ["know-your-learning-superpower"]
+                }
+            ]
+        },
+        {
+            title: "Phase II: Aim",
+            description: "Deconstruct the subject matter and define your exact target.",
+            color: "emerald",
+            icon: <BookOpen className="w-6 h-6 text-emerald-400" />,
+            subsections: [
+                {
+                    subtitle: "Focus",
+                    slugs: ["the-80-20-rule-of-expertise", "52-books-a-year"]
+                },
+                {
+                    subtitle: "Curate Your Inputs",
+                    slugs: ["garbage-in-garbage-out"]
+                },
+                {
+                    subtitle: "Build Your Strategy",
+                    slugs: ["psychology-of-time-and-deadlines", "cramming-to-compounding", "slicing-the-elephant"]
+                }
+            ]
+        },
+        {
+            title: "Phase III: Learn",
+            description: "Ingest, comprehend, and permanently memorize the information.",
+            color: "purple",
+            icon: <Zap className="w-6 h-6 text-purple-400" />,
+            subsections: [
+                {
+                    subtitle: "Get Started",
+                    slugs: ["friction-of-starting"]
+                },
+                {
+                    subtitle: "Prime Your Mind",
+                    slugs: ["initiate-a-learning-mindset", "preview-the-material"]
+                },
+                {
+                    subtitle: "Faster Reading",
+                    items: [
+                        { title: "The Rogue Reading Session", href: "/rogue-session/start?course=masterclass" }
+                    ]
+                },
+                {
+                    subtitle: "Increased Comprehension",
+                    slugs: ["genius-comprehension", "genius-note-taking", "active-recall", "feynman-technique"]
+                },
+                {
+                    subtitle: "Memory Training",
+                    items: [
+                        { title: "The Rogue Memory Session", href: "/rogue-memory-session?course=masterclass" }
+                    ]
+                }
+            ]
+        }
+    ];
+
+    const curatedSlugs = new Set(
+        curatedGroups.flatMap(g => g.subsections.flatMap(s => s.slugs || []))
+    );
+
+    const bonusArticles = articles.filter(a => !curatedSlugs.has(a.slug) && a.published !== false);
     return (
         <main className="min-h-screen bg-slate-950 text-slate-100 pt-24 pb-32 px-4 md:px-8">
             <div className="max-w-[80rem] mx-auto min-h-[calc(100vh-10rem)] flex flex-col justify-center">
@@ -92,6 +176,111 @@ export default async function MasterclassPage() {
                                 Unlock The Ecosystem <ArrowRight className="w-5 h-5" />
                             </Link>
                         </div>
+                    </div>
+                </div>
+
+                {/* CURRICULUM OVERVIEW */}
+                <div className="mt-32 pt-20 border-t border-white/5">
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-3xl font-bold text-white tracking-tight">The Complete Ready/Aim/Learn Curriculum</h2>
+                        <p className="text-slate-400">The curated, step-by-step masterclass framework.</p>
+                    </div>
+
+                    <div className="space-y-16 relative max-w-5xl mx-auto">
+                        {curatedGroups.map((group, i) => {
+                            const colorMap: Record<string, { bg: string, text: string, border: string }> = {
+                                indigo: { bg: 'bg-indigo-500/10', text: 'text-indigo-400', border: 'border-indigo-500/20' },
+                                emerald: { bg: 'bg-emerald-500/10', text: 'text-emerald-400', border: 'border-emerald-500/20' },
+                                purple: { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/20' },
+                            };
+                            const c = colorMap[group.color];
+
+                            return (
+                                <div key={i} className="bg-slate-900/40 backdrop-blur-xl border border-white/5 rounded-[2rem] p-8 md:p-12 overflow-hidden relative shadow-[0_0_40px_rgba(0,0,0,0.2)]">
+                                    {/* Background glow */}
+                                    <div className={`absolute top-0 right-0 w-64 h-64 ${c.bg} blur-[80px] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none`} />
+                                    
+                                    <div className="flex items-center gap-4 mb-4 relative z-10">
+                                        <div className={`w-12 h-12 rounded-2xl ${c.bg} border ${c.border} flex items-center justify-center shrink-0`}>
+                                            {group.icon}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-3xl font-bold text-white tracking-tight">{group.title}</h3>
+                                        </div>
+                                    </div>
+                                    <p className="text-slate-400 text-lg mb-10 relative z-10 border-b border-white/5 pb-8">{group.description}</p>
+                                    
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 relative z-10">
+                                        {group.subsections.map((sub, j) => (
+                                            <div key={j}>
+                                                <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-4 border-l-2 border-indigo-500/30 pl-3">
+                                                    {sub.subtitle}
+                                                </h4>
+                                                <div className="space-y-2">
+                                                    {(sub.slugs || []).map(slug => {
+                                                        const article = articleMap[slug];
+                                                        if (!article) return null;
+                                                        return (
+                                                            <Link href={`/blog/${article.slug}?course=masterclass`} key={slug} className="flex items-start gap-3 group p-2 -ml-2 rounded-lg hover:bg-white/5 transition-all">
+                                                                <div className="mt-1 w-5 h-5 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/30 transition-colors">
+                                                                    <CheckCircle2 className="w-3 h-3 text-slate-500 group-hover:text-indigo-400 transition-colors" />
+                                                                </div>
+                                                                <span className="text-slate-300 font-medium group-hover:text-white transition-colors leading-snug">
+                                                                    {article.title}
+                                                                </span>
+                                                            </Link>
+                                                        );
+                                                    })}
+                                                    {(sub.items || []).map(item => (
+                                                        <Link href={item.href} key={item.title} className="flex items-start gap-3 group p-2 -ml-2 rounded-lg hover:bg-white/5 transition-all">
+                                                            <div className="mt-1 w-5 h-5 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/30 transition-colors">
+                                                                <CheckCircle2 className="w-3 h-3 text-slate-500 group-hover:text-indigo-400 transition-colors" />
+                                                            </div>
+                                                            <span className="text-slate-300 font-medium group-hover:text-white transition-colors leading-snug">
+                                                                {item.title}
+                                                            </span>
+                                                        </Link>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                {/* BONUS LIBRARY */}
+                <div className="mt-32 pt-20 border-t border-white/5">
+                    <div className="text-center mb-16 space-y-4">
+                        <h2 className="text-3xl font-bold text-white tracking-tight">The Bonus Library</h2>
+                        <p className="text-slate-400">Additional advanced models and continuous learning materials.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
+                        {bonusArticles.map((article) => (
+                            <Link
+                                key={article.slug}
+                                href={`/blog/${article.slug}?course=masterclass`}
+                                className="group flex flex-col p-8 rounded-[2rem] bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all duration-300 hover:shadow-[0_0_40px_-10px_rgba(99,102,241,0.15)]"
+                            >
+                                <div className="flex items-center gap-4 mb-4">
+                                    <span className="px-3 py-1 bg-white/5 text-slate-400 text-[10px] font-bold uppercase tracking-widest rounded-full">
+                                        {article.category}
+                                    </span>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors leading-snug">
+                                    {article.title}
+                                </h3>
+                                <p className="text-slate-400 text-sm leading-relaxed mb-6 flex-grow font-light line-clamp-3">
+                                    {article.excerpt}
+                                </p>
+                                <div className="flex items-center text-indigo-400 text-xs font-bold uppercase tracking-wider gap-2 mt-auto">
+                                    Read Article <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </div>
+                            </Link>
+                        ))}
                     </div>
                 </div>
 

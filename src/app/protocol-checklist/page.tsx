@@ -3,7 +3,7 @@ import { Brain, Search, Map, Anchor, MessageSquare, Repeat, Zap } from "lucide-r
 import { PrintButton } from "@/components/ui/PrintButton";
 
 export const metadata = {
-    title: "The 6-Step Protocol Checklist | The Rogue Puffin",
+    title: "The 7-Step Protocol Checklist | The Rogue Puffin",
     description: "Your printable cheat sheet for mastering complex subjects.",
     robots: {
         index: false,
@@ -22,7 +22,7 @@ export default function ProtocolChecklistPage() {
                         <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center">
                             <Brain className="w-4 h-4 text-indigo-400" />
                         </div>
-                        <h1 className="font-bold text-white tracking-tight">The 6-Step Protocol</h1>
+                        <h1 className="font-bold text-white tracking-tight">The 7-Step Protocol</h1>
                     </div>
                     
                     <div className="flex gap-4">
@@ -55,7 +55,7 @@ export default function ProtocolChecklistPage() {
                                     The Protocol.
                                 </h1>
                                 <p className="text-slate-400 font-medium max-w-lg leading-relaxed text-sm">
-                                    The empirical 6-step framework for mastering high-complexity material in record time. Execute sequentially.
+                                    The empirical 7-step framework for mastering high-complexity material in record time. Execute sequentially.
                                 </p>
                             </div>
                             
@@ -161,10 +161,28 @@ export default function ProtocolChecklistPage() {
                         </div>
 
                         {/* STEP 6 */}
-                        <div className="group break-inside-avoid">
+                        <div className="group break-inside-avoid relative">
+                            <div className="flex items-center gap-4 mb-4">
+                                <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center shadow-[0_0_20px_rgba(79,70,229,0.3)] shrink-0">
+                                    <span className="text-white font-black text-lg">6</span>
+                                </div>
+                                <h3 className="text-xl font-bold tracking-tight text-indigo-600">Advanced Memory Protocol</h3>
+                            </div>
+                            <div className="pl-14 border-l-2 border-indigo-100 ml-[18px]">
+                                <p className="text-slate-600 text-sm leading-relaxed mb-3 pl-3">
+                                    Experience the exact visualization routines used by memory champions to permanently store information by anchoring abstract concepts to familiar spatial environments.
+                                </p>
+                                <div className="ml-3 bg-slate-50 text-xs text-slate-500 p-3 rounded-md border border-slate-100 font-medium">
+                                    <strong>ACTION:</strong> Encode your knowledge into a physical memory palace.
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* STEP 7 */}
+                        <div className="group break-inside-avoid relative md:col-span-2 max-w-2xl mx-auto w-full mt-4">
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center shadow-lg shrink-0">
-                                    <span className="text-white font-black text-lg">6</span>
+                                    <span className="text-white font-black text-lg">7</span>
                                 </div>
                                 <h3 className="text-xl font-bold tracking-tight text-slate-950">Spaced Active Recall</h3>
                             </div>

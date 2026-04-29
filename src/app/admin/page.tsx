@@ -26,17 +26,32 @@ export default function AdminDashboard() {
         try {
             const res = await fetch(`/api/admin/analytics?passkey=${encodeURIComponent(passkey)}`);
             const viewRes = await fetch(`/api/views?passkey=${encodeURIComponent(passkey)}`);
-            if (res.ok && viewRes.ok) {
-                const data = await res.json();
-                const viewsData = await viewRes.json();
-                setMetrics(data);
-                setTopContent(viewsData);
-            } else {
+            if (res.status === 401 || viewRes.status === 401) {
                 localStorage.removeItem("rogue_admin_key");
                 setAuthData({ authenticated: false, passkey: "" });
+                setLoading(false);
+                return;
+            }
+
+            if (res.ok) {
+                const data = await res.json();
+                setMetrics(data);
+            } else {
+                // Mock metrics if table doesn't exist yet
+                setMetrics({ totalLeads: 0, totalRevenue: 0, rogueSessions: 0, masterclasses: 0, uniqueVisitors: 0 });
+            }
+
+            if (viewRes.ok) {
+                const viewsData = await viewRes.json();
+                setTopContent(viewsData);
+            } else {
+                setTopContent([]);
             }
         } catch (e) {
             console.error(e);
+            // Fallback so we don't get stuck in a login loop
+            setMetrics({ totalLeads: 0, totalRevenue: 0, rogueSessions: 0, masterclasses: 0, uniqueVisitors: 0 });
+            setTopContent([]);
         }
         setLoading(false);
     };
