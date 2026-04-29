@@ -61,10 +61,13 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
         
     const course = resolvedSearchParams.course as string;
     const isAbridged = course === 'abridged';
+    const isBootcamp = course === 'bootcamp';
 
     let finalContent = article?.content || '';
     let nextAbridgedLink = null;
     let nextAbridgedTitle = null;
+    let nextBootcampLink = null;
+    let nextBootcampTitle = null;
 
     if (isAbridged && article) {
         // Strip out the hardcoded 'Continue Your Journey' HTML from the database
@@ -94,6 +97,53 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
         if (currentIndex !== -1 && currentIndex < abridgedSequence.length - 1) {
             nextAbridgedLink = abridgedSequence[currentIndex + 1] + "?course=abridged";
             nextAbridgedTitle = titles[currentIndex + 1];
+        }
+    }
+
+    if (isBootcamp && article) {
+        // Strip out the hardcoded 'Continue Your Journey' HTML from the database
+        finalContent = finalContent.replace(/<hr class="border-slate-800 my-16" \/>[\s\S]*$/, '');
+
+        const bootcampSequence = [
+            "/rogue-session/start",
+            "/blog/know-your-learning-superpower",
+            "/rogue-memory-session",
+            "/blog/create-your-learning-lab",
+            "/blog/slicing-the-elephant",
+            "/blog/preview-the-material",
+            "/blog/feynman-technique",
+            "/blog/active-recall",
+            "/blog/engaging-your-imagination",
+            "/blog/the-zeigarnik-effect",
+            "/blog/how-to-read-faster",
+            "/blog/the-art-of-review",
+            "/blog/how-to-use-ai-to-learn",
+            "/blog/the-4-stages-of-learning"
+        ];
+
+        const bootcampTitles = [
+            "Discover Reading Possibilities",
+            "Discover Your Personal Superpower",
+            "Memory Training",
+            "The Laboratory",
+            "Slicing the Elephant",
+            "Preview the Landscape",
+            "Feynman Brain Dump",
+            "Active Recall",
+            "The Memory Palace",
+            "The Zeigarnik Effect",
+            "Speed Maintenance",
+            "Memory Maintenance",
+            "AI as a Tutor",
+            "The 4 Stages"
+        ];
+
+        const currentPath = `/blog/${slug}`;
+        const currentIndex = bootcampSequence.indexOf(currentPath);
+        
+        if (currentIndex !== -1 && currentIndex < bootcampSequence.length - 1) {
+            nextBootcampLink = bootcampSequence[currentIndex + 1] + "?course=bootcamp";
+            nextBootcampTitle = bootcampTitles[currentIndex + 1];
         }
     }
 
@@ -150,6 +200,19 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
                             <Link href={nextAbridgedLink} className="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                                 <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next Step</p>
                                 <h4 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">{nextAbridgedTitle} <span className="text-indigo-500 ml-1">→</span></h4>
+                            </Link>
+                        </div>
+                    </div>
+                )}
+
+                {/* DYNAMIC BOOTCAMP NAVIGATION */}
+                {isBootcamp && nextBootcampLink && (
+                    <div className="mt-16 pt-16 border-t border-slate-800 print:hidden">
+                        <h3 className="text-xl font-bold text-white mb-6">Continue Your 14-Day Boot Camp</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <Link href={nextBootcampLink} className="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-purple-500/30 hover:bg-slate-900 transition-all group">
+                                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next Module</p>
+                                <h4 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">{nextBootcampTitle} <span className="text-purple-500 ml-1">→</span></h4>
                             </Link>
                         </div>
                     </div>

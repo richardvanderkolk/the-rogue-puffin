@@ -10,20 +10,20 @@ export default async function BootcampDashboard() {
     
     // Status can be: 'completed', 'unlocked', 'locked'
     const days = [
-        { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/results" },
+        { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/start" },
         { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, status: "unlocked", link: "/api/checkout?productId=bootcamp" },
-        { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: "locked", link: "/rogue-memory-session" },
-        { day: 4, title: "The Laboratory", desc: "Setting a distraction-free environment", icon: <Shield className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 5, title: "Slicing the Elephant", desc: "The 80/20 Rule of Deconstruction", icon: <Activity className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 6, title: "Preview the Landscape", desc: "Structural scanning techniques", icon: <BookOpen className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 7, title: "Feynman Brain Dump", desc: "Closing the source material", icon: <Brain className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 8, title: "Active Recall", desc: "Building the spaced repetition system", icon: <Clock className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 9, title: "The Memory Palace", desc: "Spatial memory mapping drill", icon: <Database className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 10, title: "The Zeigarnik Effect", desc: "Optimizing study blocks", icon: <Activity className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 11, title: "Speed Maintenance", desc: "Peripheral vision expansion drill", icon: <Zap className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 12, title: "Memory Maintenance", desc: "Advanced peg system drill", icon: <Database className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 13, title: "AI as a Tutor", desc: "Prompting for deep learning", icon: <Brain className="w-5 h-5" />, status: "locked", link: "#" },
-        { day: 14, title: "The 4 Stages", desc: "Graduation and mastery", icon: <Target className="w-5 h-5" />, status: "locked", link: "#" },
+        { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: "locked", link: "/rogue-memory-session?course=bootcamp" },
+        { day: 4, title: "The Laboratory", desc: "Setting a distraction-free environment", icon: <Shield className="w-5 h-5" />, status: "locked", link: "/blog/create-your-learning-lab?course=bootcamp" },
+        { day: 5, title: "Slicing the Elephant", desc: "The 80/20 Rule of Deconstruction", icon: <Activity className="w-5 h-5" />, status: "locked", link: "/blog/slicing-the-elephant?course=bootcamp" },
+        { day: 6, title: "Preview the Landscape", desc: "Structural scanning techniques", icon: <BookOpen className="w-5 h-5" />, status: "locked", link: "/blog/preview-the-material?course=bootcamp" },
+        { day: 7, title: "Feynman Brain Dump", desc: "Closing the source material", icon: <Brain className="w-5 h-5" />, status: "locked", link: "/blog/feynman-technique?course=bootcamp" },
+        { day: 8, title: "Active Recall", desc: "Building the spaced repetition system", icon: <Clock className="w-5 h-5" />, status: "locked", link: "/blog/active-recall?course=bootcamp" },
+        { day: 9, title: "The Memory Palace", desc: "Spatial memory mapping drill", icon: <Database className="w-5 h-5" />, status: "locked", link: "/blog/engaging-your-imagination?course=bootcamp" },
+        { day: 10, title: "The Zeigarnik Effect", desc: "Optimizing study blocks", icon: <Activity className="w-5 h-5" />, status: "locked", link: "/blog/the-zeigarnik-effect?course=bootcamp" },
+        { day: 11, title: "Speed Maintenance", desc: "Peripheral vision expansion drill", icon: <Zap className="w-5 h-5" />, status: "locked", link: "/blog/how-to-read-faster?course=bootcamp" },
+        { day: 12, title: "Memory Maintenance", desc: "Advanced peg system drill", icon: <Database className="w-5 h-5" />, status: "locked", link: "/blog/the-art-of-review?course=bootcamp" },
+        { day: 13, title: "AI as a Tutor", desc: "Prompting for deep learning", icon: <Brain className="w-5 h-5" />, status: "locked", link: "/blog/how-to-use-ai-to-learn?course=bootcamp" },
+        { day: 14, title: "The 4 Stages", desc: "Graduation and mastery", icon: <Target className="w-5 h-5" />, status: "locked", link: "/blog/the-4-stages-of-learning?course=bootcamp" },
     ];
 
     const completedDays = days.filter(d => d.status === "completed").length;
@@ -112,7 +112,7 @@ export default async function BootcampDashboard() {
                                 badge = <span className="absolute top-4 right-4 px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold uppercase tracking-widest border border-purple-500/30">Unlock Required</span>;
                             }
 
-                            const CardWrapper = day.status === "unlocked" || day.status === "completed" ? Link : "div";
+                            const CardWrapper = Link;
 
                             return (
                                 <div key={day.day} className={`relative flex flex-col h-full ${day.day === 2 ? 'mt-8 md:mt-0' : ''}`}>
