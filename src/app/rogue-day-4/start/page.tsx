@@ -117,22 +117,32 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 4: The 5 Whys */}
+                    {/* Step 4: A Simple Exercise */}
                     {step === 4 && (
-                        <Slide key="why-3" title="The 5 Whys" onNext={nextStep} onBack={prevStep}>
+                        <Slide key="why-exercise" title="A Simple Exercise" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
-                                <p className="text-lg text-slate-300">
-                                    To find your intrinsic motivation, ask yourself "Why?" five times to drill down to the root.
+                                <p className="text-lg text-slate-300 mb-6">
+                                    Take a blank page and follow these steps. Don't rush it.
                                 </p>
-                                <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 space-y-4">
-                                    <p className="text-slate-400"><span className="text-indigo-400 font-bold mr-2">Goal:</span> I need to learn Python.</p>
-                                    <p className="text-slate-400 pl-4"><span className="text-rose-400 font-bold mr-2">Why?</span> Because I want a new job.</p>
-                                    <p className="text-slate-400 pl-8"><span className="text-rose-400 font-bold mr-2">Why?</span> Because I want to build things myself.</p>
-                                    <p className="text-slate-400 pl-12"><span className="text-emerald-400 font-bold mr-2">Why?</span> Because I have an idea for an app that helps my community.</p>
+                                <div className="space-y-6">
+                                    <div className="flex items-start gap-4">
+                                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">1</span>
+                                        <p className="text-white font-medium pt-1">Write: <em className="text-indigo-300">Why am I learning this?</em> and answer it.</p>
+                                    </div>
+                                    <div className="flex items-start gap-4">
+                                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">2</span>
+                                        <p className="text-white font-medium pt-1">Then ask: <em className="text-indigo-300">Why does that matter?</em></p>
+                                    </div>
+                                    <div className="flex items-start gap-4">
+                                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">3</span>
+                                        <p className="text-white font-medium pt-1">Repeat this process 4–5 times.</p>
+                                    </div>
                                 </div>
-                                <p className="text-lg text-slate-300 font-bold text-center mt-6">
-                                    You aren't learning Python. You are building something for your community.
-                                </p>
+                                <div className="mt-8 p-5 bg-slate-900/50 rounded-xl border border-indigo-500/30">
+                                    <p className="font-bold text-indigo-300 text-center">
+                                        At some point you will reach something real or you will realize you don't yet have a strong reason. Both are useful.
+                                    </p>
+                                </div>
                             </div>
                         </Slide>
                     )}
@@ -183,8 +193,38 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 7: Transition to Drill */}
+                    {/* Step 7: Using AI to Clarify Your Why */}
                     {step === 7 && (
+                        <Slide key="why-ai" title="Using AI to Clarify Your Why" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto text-left">
+                                <p className="text-lg text-slate-300">
+                                    Most people use AI to summarize information. But it can also help you think more clearly.
+                                </p>
+                                <div className="rounded-xl overflow-hidden border border-slate-800">
+                                    <div className="bg-slate-900 border-b border-slate-800 px-6 py-4">
+                                        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Try These AI Prompts</p>
+                                    </div>
+                                    <div className="p-6 bg-slate-950/50 space-y-6">
+                                        <div>
+                                            <p className="text-indigo-300 font-bold mb-1">For deep probing:</p>
+                                            <p className="text-slate-300 italic">"Help me identify a deeper reason for learning this by asking me a series of 'why' questions."</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-indigo-300 font-bold mb-1">For discovering long-term value:</p>
+                                            <p className="text-slate-300 italic">"Based on this subject, what are meaningful long-term reasons someone might care about understanding it?"</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-indigo-300 font-bold mb-1">If you think better through conversation:</p>
+                                            <p className="text-slate-300 italic">"Walk me through a dialogue that helps me discover my real motivation for learning this."</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 8: Transition to Drill */}
+                    {step === 8 && (
                         <Slide key="transition" title="Physical Training" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
@@ -197,18 +237,18 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 8: Peripheral Vision Prep */}
-                    {step === 8 && (
+                    {/* Step 9: Peripheral Vision Prep */}
+                    {step === 9 && (
                         <PeripheralVisionPrep onNext={nextStep} onBack={prevStep} />
                     )}
 
-                    {/* Step 9: Peripheral Vision Drill */}
-                    {step === 9 && (
+                    {/* Step 10: Peripheral Vision Drill */}
+                    {step === 10 && (
                         <PeripheralVisionSequence onNext={nextStep} onBack={prevStep} />
                     )}
 
-                    {/* Step 10: Completion */}
-                    {step === 10 && (
+                    {/* Step 11: Completion */}
+                    {step === 11 && (
                         <Slide key="completion" title="Day 4 Complete" onNext={markCompleteAndReturn} customButtonText={dashboardText} onBack={prevStep} fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <h3 className="text-3xl font-bold text-white mb-4">Excellent Work</h3>
