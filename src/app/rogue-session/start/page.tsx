@@ -37,6 +37,11 @@ export default function RogueSessionPage() {
     const [baselineStats, setBaselineStats] = useState<{ wpm: number; comprehension: number } | null>(null);
     const [finalStats, setFinalStats] = useState<{ wpm: number; comprehension: number } | null>(null);
     const [isUnlocked, setIsUnlocked] = useState(false); // Track if $5 paid
+    const [isV2, setIsV2] = useState(false);
+
+    useEffect(() => {
+        setIsV2(new URLSearchParams(window.location.search).get('v2') === 'true');
+    }, []);
 
     const nextStep = () => setStep(s => s + 1);
     const prevStep = () => setStep(s => Math.max(0, s - 1));
@@ -391,7 +396,7 @@ export default function RogueSessionPage() {
 
                     {/* --- RESULTS / UPSELL --- */}
                     {step === 24 && baselineStats && finalStats && (
-                        <ResultsOverview baseline={baselineStats} final={finalStats} />
+                        <ResultsOverview baseline={baselineStats} final={finalStats} isV2={isV2} />
                     )}
 
                 </AnimatePresence>
@@ -494,7 +499,7 @@ function ReadingTest({ onComplete, isRetest = false }: { onComplete: (results: {
 
 
 
-function ResultsOverview({ baseline, final }: { baseline: { wpm: number }, final: { wpm: number } }) {
+function ResultsOverview({ baseline, final, isV2 }: { baseline: { wpm: number }, final: { wpm: number }, isV2?: boolean }) {
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
 
     return (
@@ -520,9 +525,9 @@ function ResultsOverview({ baseline, final }: { baseline: { wpm: number }, final
 
                 <div className="pt-8 space-y-4">
                     <p className="text-lg text-slate-300">This was just a glimpse of what your brain can do.</p>
-                    <Link href="/train/sales" className="inline-block">
+                    <Link href={isV2 ? "/v2/bootcamp" : "/train/sales"} className="inline-block">
                         <button className="bg-white text-indigo-900 px-10 py-5 rounded-full font-bold text-2xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)] flex items-center gap-3">
-                            Unlock The Full Protocol
+                            {isV2 ? "Continue to Day 2" : "Unlock The Full Protocol"}
                             <ArrowRight className="w-6 h-6" />
                         </button>
                     </Link>

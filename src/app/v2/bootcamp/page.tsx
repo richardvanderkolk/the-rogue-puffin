@@ -10,7 +10,7 @@ export default async function BootcampDashboard() {
     
     // Status can be: 'completed', 'unlocked', 'locked'
     const days = [
-        { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/start" },
+        { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/start?v2=true" },
         { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, status: "unlocked", link: "/api/checkout?productId=bootcamp" },
         { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: "locked", link: "/rogue-memory-session?course=bootcamp" },
         { day: 4, title: "The Laboratory", desc: "Setting a distraction-free environment", icon: <Shield className="w-5 h-5" />, status: "locked", link: "/blog/create-your-learning-lab?course=bootcamp" },

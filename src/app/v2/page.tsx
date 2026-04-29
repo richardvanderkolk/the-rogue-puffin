@@ -37,7 +37,7 @@ export default function V2LandingPage() {
 
                     <div className="flex flex-col items-center gap-6">
                         <Link 
-                            href="/rogue-session/start" 
+                            href="/rogue-session/start?v2=true" 
                             className="group relative px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
                         >
                             Start the Free Session <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -154,7 +154,7 @@ export default function V2LandingPage() {
                         </div>
 
                         <Link 
-                            href="/abridged" 
+                            href="/v2/bootcamp" 
                             className="inline-flex px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-500 transition-all shadow-[0_0_30px_-5px_rgba(147,51,234,0.4)] active:scale-95 items-center gap-3"
                         >
                             View The Bootcamp <ArrowRight className="w-5 h-5" />
