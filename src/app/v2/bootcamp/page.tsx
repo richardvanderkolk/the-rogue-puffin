@@ -1,13 +1,18 @@
 import Link from "next/link";
-import { CheckCircle2, Lock, PlayCircle, Zap, Target, Brain, Shield, BookOpen, Clock, Activity, Database, ArrowRight } from "lucide-react";
+import { CheckCircle2, Lock, PlayCircle, Zap, Target, Brain, Shield, BookOpen, Clock, Activity, Database, ArrowRight, ArrowDown } from "lucide-react";
+import { headers } from "next/headers";
+import { getCurrencyInfo } from "@/lib/currency";
 
-export default function BootcampDashboard() {
+export default async function BootcampDashboard() {
+    const headersList = await headers();
+    const country = headersList.get('x-vercel-ip-country');
+    const { symbol } = getCurrencyInfo(country);
     
     // Status can be: 'completed', 'unlocked', 'locked'
     const days = [
-        { day: 1, title: "Break the Voice", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/results" },
-        { day: 2, title: "The 'Why' Vector", desc: "Setting the cognitive target", icon: <Target className="w-5 h-5" />, status: "unlocked", link: "#" },
-        { day: 3, title: "Your Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, status: "locked", link: "#" },
+        { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/results" },
+        { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, status: "unlocked", link: "/api/checkout?productId=bootcamp" },
+        { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: "locked", link: "/rogue-memory-session" },
         { day: 4, title: "The Laboratory", desc: "Setting a distraction-free environment", icon: <Shield className="w-5 h-5" />, status: "locked", link: "#" },
         { day: 5, title: "Slicing the Elephant", desc: "The 80/20 Rule of Deconstruction", icon: <Activity className="w-5 h-5" />, status: "locked", link: "#" },
         { day: 6, title: "Preview the Landscape", desc: "Structural scanning techniques", icon: <BookOpen className="w-5 h-5" />, status: "locked", link: "#" },
@@ -58,15 +63,15 @@ export default function BootcampDashboard() {
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-widest">
                                 <CheckCircle2 className="w-3 h-3" /> Day 1 Completed
                             </div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">You're already on your way.</h2>
+                            <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">Day 1 of Your 14 Day Boot Camp is completed.</h2>
                             <p className="text-lg text-slate-400 font-light leading-relaxed">
-                                Congratulations. Your reading speed has officially doubled. You have 13 days left to completely rewire your memory, focus, and retention.
+                                Congratulations! You have discovered that you are able to read faster. During the rest of this bootcamp you will embed this new speed as your new habit, discover your personal learning superpower, memory skills that will blow your mind and much more for just {symbol}29.
                             </p>
                         </div>
                         
                         <div className="w-full md:w-64 bg-slate-950 border border-white/10 rounded-2xl p-6 shrink-0">
                             <div className="flex justify-between items-end mb-4">
-                                <span className="text-3xl font-black text-white">{completedDays}<span className="text-slate-500 text-xl font-medium">/{totalDays}</span></span>
+                                <span className="text-3xl font-black text-white">{completedDays}/{totalDays}</span>
                                 <span className="text-sm font-bold text-purple-400 tracking-widest uppercase">Days</span>
                             </div>
                             <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
@@ -99,45 +104,52 @@ export default function BootcampDashboard() {
                                 containerStyle = "bg-slate-900/60 border border-emerald-500/30 hover:bg-slate-900 transition-colors";
                                 iconBoxStyle = "bg-emerald-500/20 text-emerald-400";
                                 actionIcon = <CheckCircle2 className="w-6 h-6 text-emerald-400" />;
-                                badge = <span className="absolute top-4 right-4 text-[10px] font-bold uppercase tracking-widest text-emerald-400">Done</span>;
+                                badge = <span className="absolute top-4 right-4 px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded text-[10px] font-bold uppercase tracking-widest border border-emerald-500/30">Free Trial</span>;
                             } else if (day.status === "unlocked") {
                                 containerStyle = "bg-slate-900 border border-purple-500/50 shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)] hover:bg-slate-800 transition-all cursor-pointer transform hover:-translate-y-1";
                                 iconBoxStyle = "bg-purple-500/20 text-purple-400";
-                                actionIcon = <PlayCircle className="w-6 h-6 text-purple-400" />;
-                                badge = <span className="absolute top-4 right-4 px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold uppercase tracking-widest">Up Next</span>;
+                                actionIcon = <Lock className="w-5 h-5 text-purple-400" />;
+                                badge = <span className="absolute top-4 right-4 px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold uppercase tracking-widest border border-purple-500/30">Unlock Required</span>;
                             }
 
                             const CardWrapper = day.status === "unlocked" || day.status === "completed" ? Link : "div";
 
                             return (
-                                <CardWrapper 
-                                    href={day.link} 
-                                    key={day.day} 
-                                    className={`relative rounded-3xl p-6 flex flex-col h-full ${containerStyle}`}
-                                >
-                                    {badge}
-                                    
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${iconBoxStyle}`}>
-                                            {day.icon}
+                                <div key={day.day} className={`relative flex flex-col h-full ${day.day === 2 ? 'mt-8 md:mt-0' : ''}`}>
+                                    {day.day === 2 && (
+                                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-10 w-full pointer-events-none">
+                                            <span className="text-purple-400 font-bold text-[10px] md:text-xs uppercase tracking-widest text-center mb-1 drop-shadow-md">Click here to continue your 14 day boot camp</span>
+                                            <ArrowDown className="w-4 h-4 text-purple-400 drop-shadow-md" />
                                         </div>
-                                        <div>
-                                            <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Day {day.day}</div>
-                                            <h4 className={`text-lg font-bold leading-tight ${day.status === "locked" ? "text-slate-400" : "text-white"}`}>{day.title}</h4>
+                                    )}
+                                    <CardWrapper 
+                                        href={day.link} 
+                                        className={`relative rounded-3xl p-6 flex flex-col h-full ${containerStyle}`}
+                                    >
+                                        {badge}
+                                        
+                                        <div className="flex items-center gap-4 mb-6">
+                                            <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${iconBoxStyle}`}>
+                                                {day.icon}
+                                            </div>
+                                            <div>
+                                                <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Day {day.day}</div>
+                                                <h4 className={`text-lg font-bold leading-tight ${day.status === "locked" ? "text-slate-400" : "text-white"}`}>{day.title}</h4>
+                                            </div>
                                         </div>
-                                    </div>
-                                    
-                                    <p className={`text-sm font-light leading-relaxed flex-grow mb-6 ${day.status === "locked" ? "text-slate-500" : "text-slate-400"}`}>
-                                        {day.desc}
-                                    </p>
+                                        
+                                        <p className={`text-sm font-light leading-relaxed flex-grow mb-6 ${day.status === "locked" ? "text-slate-500" : "text-slate-400"}`}>
+                                            {day.desc}
+                                        </p>
 
-                                    <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                                        <span className={`text-xs font-medium ${day.status === "unlocked" ? "text-purple-400" : "text-slate-500"}`}>
-                                            {day.status === "completed" ? "Review material" : day.status === "unlocked" ? "Start module" : "Locked"}
-                                        </span>
-                                        {actionIcon}
-                                    </div>
-                                </CardWrapper>
+                                        <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+                                            <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-purple-400" : "text-slate-500"}`}>
+                                                {day.status === "completed" ? "Review material" : day.status === "unlocked" ? `Unlock Days 2-14 for ${symbol}29` : "Locked"}
+                                            </span>
+                                            {actionIcon}
+                                        </div>
+                                    </CardWrapper>
+                                </div>
                             );
                         })}
                     </div>

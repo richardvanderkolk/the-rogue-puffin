@@ -46,6 +46,15 @@ async function createCheckoutSession(request: Request, productMode: string, emai
             },
             unit_amount: 500, // $5.00
         };
+    } else if (productMode === 'bootcamp') {
+        priceData = {
+            currency,
+            product_data: {
+                name: '14-Day Cognitive Bootcamp',
+                description: 'Unlock Days 2-14: Discover your superpower, memory protocols, and full mastery.',
+            },
+            unit_amount: 2900, // $29.00
+        };
     } else {
         throw new Error('Invalid product mode');
     }
@@ -63,7 +72,7 @@ async function createCheckoutSession(request: Request, productMode: string, emai
             },
         ],
         mode: 'payment',
-        success_url: `${baseUrl}/train/sales?success=true`,
+        success_url: productMode === 'bootcamp' ? `${baseUrl}/blog/know-your-learning-superpower` : `${baseUrl}/train/sales?success=true`,
         cancel_url: `${baseUrl}/train/sales?canceled=true`,
         metadata: {
             productMode
