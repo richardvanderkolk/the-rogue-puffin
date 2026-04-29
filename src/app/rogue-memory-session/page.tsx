@@ -27,7 +27,7 @@ export default function RogueMemoryPage() {
                             href="/rogue-memory-session/start"
                             className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
                         >
-                            Unlock Your Memory (€5) <ArrowRight className="w-5 h-5" />
+                            Start The Masterclass <ArrowRight className="w-5 h-5" />
                         </Link>
                     </div>
                     <p className="text-sm text-slate-500">Instant access. 100% money-back guarantee if your score doesn't double.</p>
@@ -140,7 +140,7 @@ export default function RogueMemoryPage() {
                         <div className="relative z-10">
                             <h2 className="text-4xl font-bold mb-6">Ready to prove your memory?</h2>
                             <p className="text-xl text-slate-400 mb-8">
-                                For €5, you secure a framework that you will use for the rest of your life. <br className="hidden md:block" />It takes 30 minutes, and the results are permanent.
+                                You secure a framework that you will use for the rest of your life. <br className="hidden md:block" />It takes 30 minutes, and the results are permanent.
                             </p>
                             <Link
                                 href="/rogue-memory-session/start"

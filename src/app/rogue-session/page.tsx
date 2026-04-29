@@ -82,7 +82,7 @@ export default function RogueSessionSalesPage() {
               }}
               className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
             >
-              Start Session Now ($5) <ArrowRight className="w-5 h-5" />
+              Start The Session <ArrowRight className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default function RogueSessionSalesPage() {
                 }}
                 className="inline-flex px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-all items-center gap-3"
               >
-                Start the Rogue Reading Session ($5) <ArrowRight className="w-6 h-6" />
+                Start The Session <ArrowRight className="w-6 h-6" />
               </button>
             </div>
           </div>
