@@ -3,7 +3,9 @@
 import { useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import { BookOpen, Target, Search, ArrowRight, Zap, CheckCircle, Eye } from "lucide-react";
-import { Slide, PeripheralVisionPrep, PeripheralVisionSequence } from "@/components/onboarding/ConceptSlides";
+import { Slide } from "@/components/onboarding/ConceptSlides";
+import SessionPlayer from '@/components/train/SessionPlayer';
+import { COURSE_CONTENT } from '@/lib/course-content';
 import { useSearchParams } from "next/navigation";
 
 function RogueDay4SessionContent() {
@@ -268,26 +270,16 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 10: Peripheral Vision Prep */}
+                    {/* Step 10: 14-Day Reading Protocol (Day 1) */}
                     {step === 10 && (
-                        <PeripheralVisionPrep onNext={nextStep} onBack={prevStep} />
-                    )}
-
-                    {/* Step 11: Peripheral Vision Drill */}
-                    {step === 11 && (
-                        <PeripheralVisionSequence onNext={nextStep} onBack={prevStep} />
-                    )}
-
-                    {/* Step 12: Completion */}
-                    {step === 12 && (
-                        <Slide key="completion" title="Day 4 Complete" onNext={markCompleteAndReturn} customButtonText={dashboardText} onBack={prevStep} fullWidth>
-                            <div className="space-y-6 max-w-3xl mx-auto text-center">
-                                <h3 className="text-3xl font-bold text-white mb-4">Excellent Work</h3>
-                                <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                                    You have established the foundation of your learning motivation and pushed the boundaries of your peripheral vision. Tomorrow, we focus on environment and focus.
-                                </p>
-                            </div>
-                        </Slide>
+                        <div className="w-full flex-1 flex flex-col justify-center animate-in fade-in duration-500">
+                            <SessionPlayer
+                                dayNumber={4}
+                                sequence={COURSE_CONTENT.find(d => d.day === 1)!.sequence!}
+                                dayContent={COURSE_CONTENT.find(d => d.day === 1)!.content}
+                                onComplete={markCompleteAndReturn}
+                            />
+                        </div>
                     )}
 
                 </AnimatePresence>
