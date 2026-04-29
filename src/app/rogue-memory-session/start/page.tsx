@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, Suspense } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Clock, CheckCircle, ArrowRight, Sparkles, Eye, Layers, Home, BookOpen, Star } from "lucide-react";
 import Link from "next/link";
@@ -460,6 +460,14 @@ function InterferenceStep({ onComplete }: { onComplete: () => void }) {
 const TOTAL_STEPS = 33;
 
 export default function RogueMemorySessionPage() {
+    return (
+        <Suspense fallback={<div className="h-screen bg-slate-950 flex items-center justify-center text-slate-400">Loading session...</div>}>
+            <RogueMemorySessionContent />
+        </Suspense>
+    );
+}
+
+function RogueMemorySessionContent() {
     const searchParams = useSearchParams();
     const course = searchParams.get('course') || 'bootcamp';
     
