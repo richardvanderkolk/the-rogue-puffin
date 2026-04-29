@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search, Sparkles, Eye, Clock, TrendingUp, Zap } from "lucide-react";
 
 // --- Shared Slide Component ---
-export function Slide({ title, children, icon, onNext, onBack, customButtonText, fullWidth }: { title?: string, children: React.ReactNode, icon?: React.ReactNode, onNext: () => void, onBack?: () => void, customButtonText?: string, fullWidth?: boolean }) {
+export function Slide({ title, children, icon, onNext, onBack, customButtonText, fullWidth, nextDisabled }: { title?: string, children: React.ReactNode, icon?: React.ReactNode, onNext: () => void, onBack?: () => void, customButtonText?: string, fullWidth?: boolean, nextDisabled?: boolean }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -38,9 +38,13 @@ export function Slide({ title, children, icon, onNext, onBack, customButtonText,
                         <ArrowLeft className="w-8 h-8" />
                     </button>
                 )}
-                <button onClick={onNext} className="bg-indigo-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-indigo-500 transition-all flex items-center gap-2 group shadow-lg shadow-indigo-900/50">
+                <button 
+                    onClick={onNext} 
+                    disabled={nextDisabled}
+                    className={`px-10 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2 group shadow-lg ${nextDisabled ? 'bg-slate-800 text-slate-500 cursor-not-allowed opacity-50 shadow-none' : 'bg-indigo-600 text-white hover:bg-indigo-500 shadow-indigo-900/50'}`}
+                >
                     {customButtonText || "Next"}
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    {!nextDisabled && <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
                 </button>
             </div>
         </motion.div>
