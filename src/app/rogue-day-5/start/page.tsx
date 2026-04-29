@@ -191,6 +191,7 @@ function RogueDay5SessionContent() {
                     {/* Step 4: Remember Confidence (Timer) */}
                     {step === 4 && (
                         <TimerExerciseSlide
+                            key="confidence-timer"
                             title="Remember Confidence"
                             instruction="Think back to a time when you felt deeply confident and certain. Let your body remember how it felt. Close your eyes if it helps."
                             duration={120}
@@ -202,6 +203,7 @@ function RogueDay5SessionContent() {
                     {/* Step 5: Remember Curiosity (Timer) */}
                     {step === 5 && (
                         <TimerExerciseSlide
+                            key="curiosity-timer"
                             title="Remember Curiosity"
                             instruction="Think of a time when you were genuinely curious and wanted to explore without being forced. Bring that same feeling back now."
                             duration={120}
