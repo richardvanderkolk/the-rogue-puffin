@@ -11,7 +11,8 @@ export default function SalesPage() {
     const { user } = useAuth();
 
     const handleCheckout = async () => {
-        const isAdmin = user?.email?.toLowerCase() === 'richardvanderkolk@gmail.com' || user?.name?.toLowerCase() === 'richardvanderkolk@gmail.com';
+        const isAdmin = user?.email?.trim().toLowerCase() === 'richardvanderkolk@gmail.com' || 
+                        user?.name?.trim().toLowerCase() === 'richardvanderkolk@gmail.com';
         if (isAdmin) {
             window.location.href = '/train/sales?success=true';
             return;

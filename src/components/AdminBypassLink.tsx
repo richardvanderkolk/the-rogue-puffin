@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
+import { useRouter } from "next/navigation";
 
 interface AdminBypassLinkProps {
     href: string;
@@ -12,12 +13,21 @@ interface AdminBypassLinkProps {
 
 export function AdminBypassLink({ href, bypassHref, className, children }: AdminBypassLinkProps) {
     const { user } = useAuth();
-    const isAdmin = user?.email?.toLowerCase() === 'richardvanderkolk@gmail.com' || user?.name?.toLowerCase() === 'richardvanderkolk@gmail.com';
+    const router = useRouter();
+    
+    // Use trim() to handle any accidental spaces during login
+    const isAdmin = user?.email?.trim().toLowerCase() === 'richardvanderkolk@gmail.com' || 
+                    user?.name?.trim().toLowerCase() === 'richardvanderkolk@gmail.com';
 
-    const finalHref = (isAdmin && bypassHref) ? bypassHref : href;
+    const handleClick = (e: React.MouseEvent) => {
+        if (isAdmin && bypassHref) {
+            e.preventDefault();
+            router.push(bypassHref);
+        }
+    };
 
     return (
-        <Link href={finalHref} className={className}>
+        <Link href={href} className={className} onClick={handleClick}>
             {children}
         </Link>
     );
