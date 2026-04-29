@@ -15,6 +15,7 @@ function RogueDay4SessionContent() {
     const dashboardText = 'Return to Bootcamp';
 
     const [step, setStep] = useState(0);
+    const [userWhy, setUserWhy] = useState("");
 
     const nextStep = () => setStep(s => s + 1);
     const prevStep = () => setStep(s => Math.max(0, s - 1));
@@ -127,7 +128,7 @@ function RogueDay4SessionContent() {
                                 <div className="space-y-6">
                                     <div className="flex items-start gap-4">
                                         <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">1</span>
-                                        <p className="text-white font-medium pt-1">Write: <em className="text-indigo-300">Why am I learning this?</em> and answer it.</p>
+                                        <p className="text-white font-medium pt-1">Ask: <em className="text-indigo-300">Why am I learning this?</em> and write it down.</p>
                                     </div>
                                     <div className="flex items-start gap-4">
                                         <span className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0">2</span>
@@ -138,7 +139,16 @@ function RogueDay4SessionContent() {
                                         <p className="text-white font-medium pt-1">Repeat this process 4–5 times.</p>
                                     </div>
                                 </div>
-                                <div className="mt-8 p-5 bg-slate-900/50 rounded-xl border border-indigo-500/30">
+                                <div className="mt-6">
+                                    <textarea
+                                        value={userWhy}
+                                        onChange={(e) => setUserWhy(e.target.value)}
+                                        placeholder="Type your why here..."
+                                        className="w-full bg-slate-900/50 border border-slate-700 rounded-xl p-4 text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 transition-colors resize-none shadow-inner shadow-slate-950/50"
+                                        rows={4}
+                                    />
+                                </div>
+                                <div className="mt-4 p-5 bg-slate-900/50 rounded-xl border border-indigo-500/30">
                                     <p className="font-bold text-indigo-300 text-center">
                                         At some point you will reach something real or you will realize you don't yet have a strong reason. Both are useful.
                                     </p>
@@ -223,8 +233,29 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 8: Transition to Drill */}
+                    {/* Step 8: Refine Your Why */}
                     {step === 8 && (
+                        <Slide key="why-refine" title="Refine Your Why" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto text-left">
+                                <p className="text-lg text-slate-300">
+                                    Before we move to physical training, take a moment to review and refine your reason based on everything we just covered. 
+                                </p>
+                                <textarea
+                                    value={userWhy}
+                                    onChange={(e) => setUserWhy(e.target.value)}
+                                    placeholder="I am learning this because..."
+                                    className="w-full bg-slate-900/50 border border-slate-700 rounded-xl p-6 text-xl text-slate-200 placeholder:text-slate-600 focus:outline-none focus:border-indigo-500 transition-colors resize-none shadow-inner shadow-slate-950/50"
+                                    rows={5}
+                                />
+                                <p className="text-sm text-slate-500 text-center">
+                                    When this feels true to you, click Next.
+                                </p>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 9: Transition to Drill */}
+                    {step === 9 && (
                         <Slide key="transition" title="Physical Training" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
@@ -237,18 +268,18 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 9: Peripheral Vision Prep */}
-                    {step === 9 && (
+                    {/* Step 10: Peripheral Vision Prep */}
+                    {step === 10 && (
                         <PeripheralVisionPrep onNext={nextStep} onBack={prevStep} />
                     )}
 
-                    {/* Step 10: Peripheral Vision Drill */}
-                    {step === 10 && (
+                    {/* Step 11: Peripheral Vision Drill */}
+                    {step === 11 && (
                         <PeripheralVisionSequence onNext={nextStep} onBack={prevStep} />
                     )}
 
-                    {/* Step 11: Completion */}
-                    {step === 11 && (
+                    {/* Step 12: Completion */}
+                    {step === 12 && (
                         <Slide key="completion" title="Day 4 Complete" onNext={markCompleteAndReturn} customButtonText={dashboardText} onBack={prevStep} fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <h3 className="text-3xl font-bold text-white mb-4">Excellent Work</h3>
