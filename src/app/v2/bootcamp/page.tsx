@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdminBypassLink } from "@/components/AdminBypassLink";
 import { CheckCircle2, Lock, PlayCircle, Zap, Target, Brain, Shield, BookOpen, Clock, Activity, Database, ArrowRight, ArrowDown } from "lucide-react";
 import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
@@ -112,7 +113,7 @@ export default async function BootcampDashboard() {
                                 badge = <span className="absolute top-4 right-4 px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold uppercase tracking-widest border border-purple-500/30">Unlock Required</span>;
                             }
 
-                            const CardWrapper = Link;
+                            const CardWrapper = day.day === 2 ? AdminBypassLink : Link;
 
                             return (
                                 <div key={day.day} className={`relative flex flex-col h-full ${day.day === 2 ? 'mt-8 md:mt-0' : ''}`}>
@@ -124,6 +125,7 @@ export default async function BootcampDashboard() {
                                     )}
                                     <CardWrapper 
                                         href={day.link} 
+                                        bypassHref={day.day === 2 ? "/blog/know-your-learning-superpower?course=bootcamp" : undefined}
                                         className={`relative rounded-3xl p-6 flex flex-col h-full ${containerStyle}`}
                                     >
                                         {badge}

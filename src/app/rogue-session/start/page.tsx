@@ -415,13 +415,22 @@ export default function RogueSessionPage() {
 // --- Sub-Components ---
 
 import { StripeCheckoutMock } from "@/components/ui/StripeCheckoutMock";
+import { useAuth } from "@/lib/auth-context";
 
 function PaywallSlide({ onUnlock }: { onUnlock: () => void }) {
     const [showCheckout, setShowCheckout] = useState(false);
+    const { user } = useAuth();
+    const isAdmin = user?.email?.toLowerCase() === 'richardvanderkolk@gmail.com' || user?.name?.toLowerCase() === 'richardvanderkolk@gmail.com';
 
     return (
         <>
-            <Slide title="See The Results For Yourself" icon={<Unlock className="w-12 h-12 text-yellow-500" />} customButtonText={showCheckout ? "" : "Experience Change - $5"} onNext={() => setShowCheckout(true)}>
+            <Slide title="See The Results For Yourself" icon={<Unlock className="w-12 h-12 text-yellow-500" />} customButtonText={showCheckout ? "" : "Experience Change - $5"} onNext={() => {
+                if (isAdmin) {
+                    onUnlock();
+                } else {
+                    setShowCheckout(true);
+                }
+            }}>
                 <div className="space-y-6 max-w-3xl mx-auto">
                     <div className="bg-slate-950/80 p-8 rounded-2xl border border-slate-800 shadow-2xl relative overflow-hidden">
                         {/* Background Glow */}

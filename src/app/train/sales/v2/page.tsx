@@ -4,11 +4,19 @@ import { Check, ArrowRight, Lock } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import { useAuth } from "@/lib/auth-context";
 
 export default function SalesPage() {
     const [loading, setLoading] = useState(false);
+    const { user } = useAuth();
 
     const handleCheckout = async () => {
+        const isAdmin = user?.email?.toLowerCase() === 'richardvanderkolk@gmail.com' || user?.name?.toLowerCase() === 'richardvanderkolk@gmail.com';
+        if (isAdmin) {
+            window.location.href = '/train/sales?success=true';
+            return;
+        }
+
         setLoading(true);
         try {
             const res = await fetch('/api/checkout', {

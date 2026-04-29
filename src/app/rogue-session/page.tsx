@@ -1,9 +1,40 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { useAuth } from "@/lib/auth-context";
 import { ArrowRight, CheckCircle, Clock, Zap, BookOpen } from "lucide-react";
 
 export default function RogueSessionSalesPage() {
+  const [loading, setLoading] = useState(false);
+  const { user } = useAuth();
+
+  const handleCheckout = async () => {
+    const isAdmin = user?.email?.toLowerCase() === 'richardvanderkolk@gmail.com' || user?.email?.toLowerCase() === 'richard@readhigher.com';
+    if (isAdmin) {
+      window.location.href = '/train/rogue';
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ productMode: 'rogue-session' })
+      });
+      const data = await res.json();
+      if (data.url) window.location.href = data.url;
+      else {
+        alert("Checkout failed: " + data.error);
+        setLoading(false);
+      }
+    } catch (err) {
+      alert("Error initiating checkout");
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdminBypassLink } from "@/components/AdminBypassLink";
 import { ArrowRight, Zap, Database, Brain, Rocket, ShieldCheck, CheckCircle2, BookOpen, Target, Clock, Activity } from "lucide-react";
 import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
@@ -169,12 +170,13 @@ export default async function MasterclassPage() {
                                 <span className="text-slate-500 font-medium line-through text-sm">{symbol}147.00 value</span>
                                 <span className="text-4xl font-black text-white">{symbol}75.00</span>
                             </div>
-                            <Link 
+                            <AdminBypassLink 
                                 href="/api/checkout?productId=complete_masterclass_bundle" 
+                                bypassHref="/train/sales?success=true"
                                 className="w-full sm:w-auto px-8 py-4 bg-indigo-500 text-white rounded-full font-bold hover:bg-indigo-400 transition-all active:scale-95 flex items-center justify-center gap-2 shadow-xl shadow-indigo-500/20"
                             >
                                 Unlock The Ecosystem <ArrowRight className="w-5 h-5" />
-                            </Link>
+                            </AdminBypassLink>
                         </div>
                     </div>
                 </div>
