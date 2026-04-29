@@ -73,8 +73,30 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 2: The Two Motivators */}
+                    {/* Step 2: The Medical School Study */}
                     {step === 2 && (
+                        <Slide key="why-study" title="The Difference Between Success & Burnout" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto text-left">
+                                <p className="text-lg text-slate-300 leading-relaxed">
+                                    A 2020 study of undergraduate medical students investigated why some thrive in grueling environments while others burn out.
+                                </p>
+                                <div className="bg-slate-900/50 p-6 rounded-xl border border-indigo-500/30">
+                                    <p className="text-slate-300 italic">
+                                        "Students who were trying to pass exams or meet family expectations were significantly more likely to experience exhaustion."
+                                    </p>
+                                    <p className="text-slate-300 mt-4 italic">
+                                        "Those with a deep, internal fascination with healing achieved higher sustained performance."
+                                    </p>
+                                </div>
+                                <p className="text-lg text-indigo-300 font-bold text-center mt-4">
+                                    When your reason is strong enough, effort feels purposeful.
+                                </p>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 3: The Two Motivators */}
+                    {step === 3 && (
                         <Slide key="why-2" title="The Two Motivators" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-4 max-w-2xl mx-auto text-left">
                                 <p className="text-lg text-slate-300">There are two types of motivation that drive learning:</p>
@@ -95,8 +117,8 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 3: The 5 Whys */}
-                    {step === 3 && (
+                    {/* Step 4: The 5 Whys */}
+                    {step === 4 && (
                         <Slide key="why-3" title="The 5 Whys" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
                                 <p className="text-lg text-slate-300">
@@ -115,8 +137,54 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 4: Transition to Drill */}
-                    {step === 4 && (
+                    {/* Step 5: Your Why Brings Order */}
+                    {step === 5 && (
+                        <Slide key="why-order" title="Your Why Brings Order" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto text-left">
+                                <p className="text-lg text-slate-300">
+                                    A clear "why" does something quietly powerful: it simplifies decisions.
+                                </p>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                                    <div className="p-5 border border-slate-800 rounded-xl bg-slate-900/30">
+                                        <h4 className="text-rose-400 font-bold mb-2">Without a Why</h4>
+                                        <p className="text-slate-400 text-sm">Everything feels equally important. You drift between tasks and react instead of choose.</p>
+                                    </div>
+                                    <div className="p-5 border border-indigo-500/30 rounded-xl bg-indigo-900/10">
+                                        <h4 className="text-indigo-400 font-bold mb-2">With a Why</h4>
+                                        <p className="text-slate-400 text-sm">You know what matters. You filter distractions and stay consistent.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 6: When The Why Isn't There */}
+                    {step === 6 && (
+                        <Slide key="why-not-there" title="When The Why Isn't There" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto text-left">
+                                <p className="text-lg text-slate-300">
+                                    Sometimes the honest answer is: <em>"I don't know why this matters to me."</em>
+                                </p>
+                                <p className="text-slate-400">
+                                    That's not a failure. It's clarity. It gives you two options:
+                                </p>
+                                <ul className="list-disc pl-6 space-y-2 text-indigo-300">
+                                    <li>Find a better reason.</li>
+                                    <li>Reconsider whether this is worth pursuing.</li>
+                                </ul>
+                                <div className="mt-8 p-5 border border-slate-800 rounded-xl bg-slate-900/50 flex items-center gap-4">
+                                    <BookOpen className="w-8 h-8 text-slate-500 shrink-0" />
+                                    <div>
+                                        <h4 className="text-white font-bold">Recommended Reading</h4>
+                                        <p className="text-sm text-slate-400">Viktor Frankl's <em>Man's Search for Meaning</em> doesn't give a quick answer, but it sharpens the question.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 7: Transition to Drill */}
+                    {step === 7 && (
                         <Slide key="transition" title="Physical Training" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
@@ -129,18 +197,18 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 5: Peripheral Vision Prep */}
-                    {step === 5 && (
+                    {/* Step 8: Peripheral Vision Prep */}
+                    {step === 8 && (
                         <PeripheralVisionPrep onNext={nextStep} onBack={prevStep} />
                     )}
 
-                    {/* Step 6: Peripheral Vision Drill */}
-                    {step === 6 && (
+                    {/* Step 9: Peripheral Vision Drill */}
+                    {step === 9 && (
                         <PeripheralVisionSequence onNext={nextStep} onBack={prevStep} />
                     )}
 
-                    {/* Step 7: Completion */}
-                    {step === 7 && (
+                    {/* Step 10: Completion */}
+                    {step === 10 && (
                         <Slide key="completion" title="Day 4 Complete" onNext={markCompleteAndReturn} customButtonText={dashboardText} onBack={prevStep} fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <h3 className="text-3xl font-bold text-white mb-4">Excellent Work</h3>
