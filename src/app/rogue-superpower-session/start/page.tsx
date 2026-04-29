@@ -256,19 +256,7 @@ Do not just give me a standard textbook definition. Completely format your expla
     };
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white flex flex-col font-sans relative overflow-hidden">
-            {/* Header */}
-            <header className="p-6 md:p-8 flex justify-between items-center relative z-20 flex-shrink-0">
-                <div className="font-bold text-slate-400 uppercase tracking-widest text-[10px] md:text-xs">
-                    The Rogue Puffin <span className="mx-2 text-indigo-500">•</span> Learning Superpowers
-                </div>
-                <div className="flex gap-4">
-                    <Link href={dashboardUrl} className="p-2 rounded-full hover:bg-slate-800 text-slate-400 hover:text-white transition-colors" title={`Exit to ${dashboardText}`}>
-                        <Home className="w-5 h-5" />
-                    </Link>
-                </div>
-            </header>
-
+        <div className="min-h-screen pt-32 pb-12 bg-slate-950 text-white flex flex-col font-sans relative overflow-hidden">
             {/* Main Content Area */}
             <main className="flex-1 relative z-10 flex flex-col justify-center overflow-hidden">
                 <AnimatePresence mode="wait">

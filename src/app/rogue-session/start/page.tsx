@@ -106,10 +106,10 @@ export default function RogueSessionPage() {
     const totalSteps = 26;
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
+        <div className="min-h-screen flex flex-col items-center pt-32 pb-12 px-6 bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
             <ViewTracker path="/rogue-session/start" title="Speed Reading Protocol" category="Course" />
 
-            <div className="max-w-3xl w-full">
+            <div className="max-w-3xl w-full flex-1 flex flex-col justify-center">
                 <AnimatePresence mode="wait">
 
                     {/* --- BASELINE SECTION --- */}
@@ -494,8 +494,8 @@ function PaywallSlide({ onUnlock }: { onUnlock: () => void }) {
 
 function ReadingTest({ onComplete, isRetest = false }: { onComplete: (results: { wpm: number; comprehension: number }) => void, isRetest?: boolean }) {
     return (
-        <div className="min-h-screen flex items-center justify-center p-6 bg-slate-950">
-            <div className="w-full max-w-3xl">
+        <div className="min-h-screen flex flex-col items-center pt-32 pb-12 px-6 bg-slate-950">
+            <div className="w-full max-w-3xl flex-1 flex flex-col justify-center">
                 <ReadingTestEngine
                     title={isRetest ? "Retest: The After Test" : "Baseline Assessment"}
                     text={isRetest ? RETEST_TEXT : BASELINE_TEXT}
@@ -513,8 +513,8 @@ function ResultsOverview({ baseline, final, isV2 }: { baseline: { wpm: number },
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-center flex items-center justify-center p-6 bg-gradient-to-br from-slate-950 to-indigo-950/20">
-            <div className="max-w-4xl w-full space-y-12 text-center">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-screen flex flex-col items-center pt-32 pb-12 px-6 bg-gradient-to-br from-slate-950 to-indigo-950/20">
+            <div className="max-w-4xl w-full flex-1 flex flex-col justify-center space-y-12 text-center">
                 <div className="space-y-4">
                     <h2 className="text-5xl md:text-7xl font-bold font-heading text-white">
                         <span className="text-emerald-400">+{increase}%</span> Speed Increase

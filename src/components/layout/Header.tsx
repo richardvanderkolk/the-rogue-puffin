@@ -14,11 +14,7 @@ export function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const { user, signOut } = useAuth();
 
-    // Hide header on immersive routes if needed, or keep it consistent. 
-    // For now, we'll keep it visible everywhere unless specified otherwise.
-    if (pathname?.includes("/rogue-") && pathname?.includes("/start") || pathname?.includes("/train/app")) {
-        return null;
-    }
+    // Header is now visible on all routes globally to provide consistent navigation.
 
     const commonLinks = [
         { name: "Abridged Course", href: "/abridged" },

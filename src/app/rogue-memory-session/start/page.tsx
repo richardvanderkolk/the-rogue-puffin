@@ -497,8 +497,8 @@ function RogueMemorySessionContent() {
     };
 
     return (
-        <div className="h-screen overflow-hidden flex flex-col items-center p-6 bg-slate-950 text-slate-100 font-sans selection:bg-violet-500/30">
-            <div className="max-w-3xl w-full h-[calc(100vh-3rem)] flex flex-col justify-center">
+        <div className="min-h-screen flex flex-col items-center pt-32 pb-12 px-6 bg-slate-950 text-slate-100 font-sans selection:bg-violet-500/30">
+            <div className="max-w-3xl w-full flex-1 flex flex-col justify-center">
                 <AnimatePresence mode="wait">
 
                     {/* ── STEP 0: Session Intro ── */}
