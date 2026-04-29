@@ -31,14 +31,16 @@ function TimerExerciseSlide({ title, instruction, duration, onNext, onBack }: { 
                 <p className="text-xl text-slate-300">
                     {instruction}
                 </p>
-                <div className="text-6xl md:text-8xl font-mono font-black text-indigo-400 drop-shadow-[0_0_15px_rgba(99,102,241,0.5)] my-12 relative group">
-                    {formatTime(timeLeft)}
+                <div className="flex flex-col items-center">
+                    <div className="text-6xl md:text-8xl font-mono font-black text-indigo-400 drop-shadow-[0_0_15px_rgba(99,102,241,0.5)] my-12">
+                        {formatTime(timeLeft)}
+                    </div>
                     
                     {/* Skip Button */}
                     {timeLeft > 0 && (
                         <button 
                             onClick={() => setTimeLeft(0)}
-                            className="absolute -bottom-10 left-1/2 -translate-x-1/2 text-sm text-slate-600 hover:text-slate-400 font-sans tracking-normal opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="text-sm text-slate-500 hover:text-slate-300 font-sans tracking-normal underline transition-colors"
                         >
                             Skip Timer
                         </button>
