@@ -15,7 +15,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
     const days = [
         { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, status: "completed", link: "/rogue-session/start?v2=true" },
         { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, status: isUnlocked ? "completed" : "unlocked", link: isUnlocked ? "/rogue-superpower-session/start?course=bootcamp" : "/api/checkout?productId=bootcamp" },
-        { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/rogue-memory-session?course=bootcamp" },
+        { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/rogue-memory-session/start?course=bootcamp" },
         { day: 4, title: "The Laboratory", desc: "Setting a distraction-free environment", icon: <Shield className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/create-your-learning-lab?course=bootcamp" },
         { day: 5, title: "Slicing the Elephant", desc: "The 80/20 Rule of Deconstruction", icon: <Activity className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/slicing-the-elephant?course=bootcamp" },
         { day: 6, title: "Preview the Landscape", desc: "Structural scanning techniques", icon: <BookOpen className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/preview-the-material?course=bootcamp" },
