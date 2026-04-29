@@ -6,6 +6,7 @@ import { createClient } from '@supabase/supabase-js';
 import { getArticleVariant, getArticleExample } from '@/data/learningStyleVariants';
 import { LeadCapture } from '@/components/LeadCapture';
 import { PrintButton } from '@/components/ui/PrintButton';
+import { SuperpowerQuiz } from '@/components/blog/SuperpowerQuiz';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -191,6 +192,12 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
                     className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300 prose-strong:text-white print:prose-headings:text-black print:prose-p:text-slate-800 print:text-slate-800 print:prose-strong:text-black print:prose-li:text-slate-800 print:prose-a:text-indigo-600 print:max-w-none print:prose-blockquote:border-slate-300 print:prose-blockquote:text-slate-600"
                     dangerouslySetInnerHTML={{ __html: finalContent }}
                 />
+
+                {slug === 'know-your-learning-superpower' && (
+                    <div className="mt-16 print:hidden">
+                        <SuperpowerQuiz />
+                    </div>
+                )}
 
                 {/* DYNAMIC ABRIDGED NAVIGATION */}
                 {isAbridged && nextAbridgedLink && (
