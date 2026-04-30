@@ -248,7 +248,7 @@ export default function ConceptWizard() {
                                 Join thousands of others who have doubled their reading speed and comprehension.
                             </p>
 
-                            <Link href="/train/sales" className="w-full block">
+                            <Link href="/rogue-session" className="w-full block">
                                 <button className="w-full bg-white text-indigo-900 px-8 py-6 rounded-full font-bold text-2xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)] flex items-center justify-center gap-3">
                                     Click Here To Start
                                     <ArrowRight className="w-6 h-6" />
