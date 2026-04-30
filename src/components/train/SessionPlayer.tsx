@@ -47,6 +47,23 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
         }
     };
 
+    const handleBack = () => {
+        if (currentStepIndex > 0) {
+            const prevStep = sequence[currentStepIndex - 1];
+            setCurrentStepIndex(prev => prev - 1);
+            setIsPlaying(true);
+            setActiveInterruption(null);
+
+            if (prevStep.mode === 'read' || prevStep.mode === 'message') {
+                setTimeLeft(0);
+                setElapsedTime(0);
+            } else {
+                setTimeLeft(prevStep.duration || 0);
+                setElapsedTime(0);
+            }
+        }
+    };
+
     // Timer Logic
     useEffect(() => {
         if (!isPlaying || phase !== 'playing') return;
@@ -271,12 +288,22 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
                                     </div>
                                 </div>
 
-                                <button
-                                    onClick={handleNext}
-                                    className="px-10 py-4 mb-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full transition-all flex items-center justify-center hover:scale-105 shadow-[0_0_40px_rgba(79,70,229,0.4)] hover:shadow-[0_0_60px_rgba(79,70,229,0.6)] mt-8"
-                                >
-                                    Next <FastForward className="w-5 h-5 ml-2" />
-                                </button>
+                                <div className="flex items-center gap-4 mt-8">
+                                    {currentStepIndex > 0 && (
+                                        <button
+                                            onClick={handleBack}
+                                            className="px-6 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-full transition-all flex items-center justify-center hover:-translate-x-1 border border-slate-700"
+                                        >
+                                            <RotateCcw className="w-5 h-5 mr-2" /> Back
+                                        </button>
+                                    )}
+                                    <button
+                                        onClick={handleNext}
+                                        className="px-10 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full transition-all flex items-center justify-center hover:scale-105 shadow-[0_0_40px_rgba(79,70,229,0.4)] hover:shadow-[0_0_60px_rgba(79,70,229,0.6)]"
+                                    >
+                                        Next <FastForward className="w-5 h-5 ml-2" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ) : currentStep?.mode === 'recall' ? (

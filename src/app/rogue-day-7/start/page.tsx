@@ -98,10 +98,15 @@ function RogueDay7SessionContent() {
                                 <p className="text-2xl text-slate-200 font-light">
                                     Today, we are focusing on <strong className="text-indigo-400">Your Confidence</strong>.
                                 </p>
-                                <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl text-left max-w-2xl mx-auto">
+                                <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl text-left max-w-2xl mx-auto space-y-6">
                                     <p className="text-lg text-slate-400 leading-relaxed">
                                         Many readers second-guess their comprehension, constantly re-reading sentences out of fear they missed something. Today's drill forces you forward to build trust in your brain's ability to capture information on the first pass.
                                     </p>
+                                    <div className="p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl">
+                                        <p className="text-indigo-300 font-medium">
+                                            <strong>Your mission:</strong> Right after you complete this reading exercise, commit to just 5 minutes of studying your own material to test the '5-Minute Rule'. See how you feel once you cross that threshold!
+                                        </p>
+                                    </div>
                                 </div>
                                 <div className="flex justify-center mt-6">
                                     <div className="flex items-center gap-2 text-indigo-400 font-bold bg-indigo-500/10 px-6 py-3 rounded-full border border-indigo-500/20 shadow-[0_0_15px_rgba(79,70,229,0.2)]">
