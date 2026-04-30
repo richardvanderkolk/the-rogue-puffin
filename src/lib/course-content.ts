@@ -369,7 +369,7 @@ export const COURSE_CONTENT: DayContent[] = [
                 mode: "message",
                 wpm: 0,
                 duration: 0,
-                text: "Your learning doesn't begin with a book.\n\nIt begins with your mind.\n\nBefore techniques. Before speed reading. What you believe about yourself—right at the start—shapes everything that follows."
+                text: "Back on Day 5, we talked about how learning doesn't begin with a book. It begins with your mind.\n\nBefore techniques. Before speed reading. What you believe about yourself—right at the start—shapes everything that follows."
             },
             {
                 title: "The Learning Mindset",
