@@ -2,11 +2,83 @@
 
 import { useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
-import { ArrowRight, Zap, Target, BookOpen, Search, Network, PenTool } from "lucide-react";
+import { Zap, BookOpen, PenTool, Share2 } from "lucide-react";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
 import { useSearchParams, useRouter } from "next/navigation";
+
+const LessonMindMap = () => (
+    <div className="w-full bg-slate-900/40 border border-indigo-500/30 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(79,70,229,0.1)]">
+        <svg viewBox="0 0 800 500" className="w-full h-auto max-h-[60vh]">
+            <defs>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+
+            {/* Connecting Lines */}
+            <path d="M 400 250 Q 250 250 200 150" fill="none" stroke="#818cf8" strokeWidth="4" className="opacity-60" />
+            <path d="M 200 150 L 100 100" fill="none" stroke="#818cf8" strokeWidth="2" className="opacity-40" />
+            <path d="M 200 150 L 100 200" fill="none" stroke="#818cf8" strokeWidth="2" className="opacity-40" />
+            
+            <path d="M 400 250 Q 550 250 600 150" fill="none" stroke="#f43f5e" strokeWidth="4" className="opacity-60" />
+            <path d="M 600 150 L 700 100" fill="none" stroke="#f43f5e" strokeWidth="2" className="opacity-40" />
+            <path d="M 600 150 L 700 200" fill="none" stroke="#f43f5e" strokeWidth="2" className="opacity-40" />
+
+            <path d="M 400 250 Q 250 250 200 350" fill="none" stroke="#10b981" strokeWidth="4" className="opacity-60" />
+            <path d="M 200 350 L 100 300" fill="none" stroke="#10b981" strokeWidth="2" className="opacity-40" />
+            <path d="M 200 350 L 100 400" fill="none" stroke="#10b981" strokeWidth="2" className="opacity-40" />
+
+            <path d="M 400 250 Q 550 250 600 350" fill="none" stroke="#f59e0b" strokeWidth="4" className="opacity-60" />
+            <path d="M 600 350 L 700 300" fill="none" stroke="#f59e0b" strokeWidth="2" className="opacity-40" />
+            <path d="M 600 350 L 700 400" fill="none" stroke="#f59e0b" strokeWidth="2" className="opacity-40" />
+
+            {/* Central Node */}
+            <g transform="translate(400, 250)">
+                <rect x="-80" y="-30" width="160" height="60" rx="30" fill="#4f46e5" stroke="#818cf8" strokeWidth="2" filter="url(#glow)"/>
+                <text x="0" y="5" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="bold" fill="white" textAnchor="middle" dominantBaseline="middle">Mind Mapping</text>
+            </g>
+
+            {/* Top Left Nodes */}
+            <g transform="translate(200, 150)">
+                <rect x="-70" y="-20" width="140" height="40" rx="10" fill="#312e81" stroke="#818cf8" strokeWidth="1.5"/>
+                <text x="0" y="2" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="bold" fill="#c7d2fe" textAnchor="middle" dominantBaseline="middle">The Brain</text>
+            </g>
+            <text x="90" y="100" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#a5b4fc" textAnchor="end" dominantBaseline="middle">Conversations</text>
+            <text x="90" y="200" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#a5b4fc" textAnchor="end" dominantBaseline="middle">Associations</text>
+
+            {/* Top Right Nodes */}
+            <g transform="translate(600, 150)">
+                <rect x="-70" y="-20" width="140" height="40" rx="10" fill="#881337" stroke="#fb7185" strokeWidth="1.5"/>
+                <text x="0" y="2" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="bold" fill="#fecdd3" textAnchor="middle" dominantBaseline="middle">The Problem</text>
+            </g>
+            <text x="710" y="100" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#fda4af" textAnchor="start" dominantBaseline="middle">Linear Lists</text>
+            <text x="710" y="200" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#fda4af" textAnchor="start" dominantBaseline="middle">Lost in Fluff</text>
+
+            {/* Bottom Left Nodes */}
+            <g transform="translate(200, 350)">
+                <rect x="-70" y="-20" width="140" height="40" rx="10" fill="#064e3b" stroke="#34d399" strokeWidth="1.5"/>
+                <text x="0" y="2" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="bold" fill="#a7f3d0" textAnchor="middle" dominantBaseline="middle">The Solution</text>
+            </g>
+            <text x="90" y="300" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#6ee7b7" textAnchor="end" dominantBaseline="middle">Keywords Only</text>
+            <text x="90" y="400" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#6ee7b7" textAnchor="end" dominantBaseline="middle">Active Recall</text>
+
+            {/* Bottom Right Nodes */}
+            <g transform="translate(600, 350)">
+                <rect x="-70" y="-20" width="140" height="40" rx="10" fill="#78350f" stroke="#fbbf24" strokeWidth="1.5"/>
+                <text x="0" y="2" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="bold" fill="#fde68a" textAnchor="middle" dominantBaseline="middle">The Process</text>
+            </g>
+            <text x="710" y="300" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#fcd34d" textAnchor="start" dominantBaseline="middle">Central Topic</text>
+            <text x="710" y="400" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="600" fill="#fcd34d" textAnchor="start" dominantBaseline="middle">Radiating Branches</text>
+
+        </svg>
+    </div>
+);
 
 function RogueDay10SessionContent() {
     const searchParams = useSearchParams();
@@ -37,7 +109,7 @@ function RogueDay10SessionContent() {
                     
                     {/* Step 0: Intro */}
                     {step === 0 && (
-                        <Slide key="intro" title="Day 10: Genius Note-Taking" onNext={nextStep}>
+                        <Slide key="intro" title="Day 10: The Masterclass on Mind Mapping" onNext={nextStep}>
                             <div className="space-y-8 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-300 leading-relaxed font-light">
                                     Transcription is not learning.
@@ -49,8 +121,30 @@ function RogueDay10SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 1: Transcription vs Mapping */}
+                    {/* Step 1: The Conversation Analogy */}
                     {step === 1 && (
+                        <Slide key="brain-works" title="How Your Brain Actually Works" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto text-center">
+                                <div className="p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10 text-left">
+                                    <h4 className="text-xl font-bold text-slate-200 mb-6 flex items-center gap-3">
+                                        <Share2 className="w-6 h-6 text-indigo-400" /> The Tangent
+                                    </h4>
+                                    <p className="text-lg text-slate-400 leading-relaxed mb-4">
+                                        Have you ever been in a conversation with someone and wondered how you got to that topic?
+                                    </p>
+                                    <p className="text-lg text-slate-400 leading-relaxed mb-4">
+                                        Then you work your way back through the conversation... realising that one topic led to another topic, to another, until you arrived there. 
+                                    </p>
+                                    <p className="text-lg text-slate-300 font-medium leading-relaxed">
+                                        That is exactly how our minds work. Our brains don't store information in straight, linear lists. They store information through associations and connections.
+                                    </p>
+                                </div>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 2: Transcription vs Mapping */}
+                    {step === 2 && (
                         <Slide key="mapping" title="Linear Lists vs. Mind Maps" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
@@ -58,18 +152,18 @@ function RogueDay10SessionContent() {
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
-                                        Your brain does not store information in straight lines.
+                                        Mind mapping is a visual way of putting information on a page that works exactly like your brain works.
                                     </p>
                                     <p className="text-lg text-slate-400 leading-relaxed">
-                                        It stores data in highly interconnected webs of associations. When you write bullet points or paragraphs, you are forcing a multi-dimensional idea into a one-dimensional format. Mind mapping allows you to draw the architecture of the concept exactly as your brain wants to see it.
+                                        When you write bullet points or paragraphs, you are forcing a multi-dimensional idea into a one-dimensional format. Mind mapping allows you to draw the architecture of the concept exactly as your brain wants to see it.
                                     </p>
                                 </div>
                             </div>
                         </Slide>
                     )}
 
-                    {/* Step 2: Keywords Only */}
-                    {step === 2 && (
+                    {/* Step 3: Keywords Only */}
+                    {step === 3 && (
                         <Slide key="keywords" title="Keywords Only" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
@@ -87,9 +181,9 @@ function RogueDay10SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 3: What is a Mind Map */}
-                    {step === 3 && (
-                        <Slide key="what-is" title="What is a Mind Map?" onNext={nextStep} onBack={prevStep}>
+                    {/* Step 4: What is a Mind Map */}
+                    {step === 4 && (
+                        <Slide key="what-is" title="The Architecture of a Concept" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
                                     <img src="/mind-map-example.png" alt="An example of a Mind Map" className="w-full rounded-2xl shadow-2xl border border-indigo-500/20 bg-white" />
@@ -109,8 +203,8 @@ function RogueDay10SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 4: How to Build It */}
-                    {step === 4 && (
+                    {/* Step 5: How to Build It */}
+                    {step === 5 && (
                         <Slide key="how-to-build" title="How to Build a Mind Map" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
                                 <div className="p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
@@ -140,8 +234,20 @@ function RogueDay10SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 5: Your Mission */}
-                    {step === 5 && (
+                    {/* Step 6: A Mind Map of This Lesson */}
+                    {step === 6 && (
+                        <Slide key="map-of-lesson" title="A Mind Map of This Lesson" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-4xl mx-auto text-center">
+                                <p className="text-lg text-slate-300 leading-relaxed mb-4">
+                                    Instead of a summary paragraph, here is a mind map summarising everything we just learned today:
+                                </p>
+                                <LessonMindMap />
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 7: Your Mission */}
+                    {step === 7 && (
                         <Slide key="mission" title="Your Mission" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-2xl mx-auto text-center">
                                 <div className="p-8 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl shadow-[0_0_30px_rgba(79,70,229,0.15)] text-left">
@@ -157,8 +263,8 @@ function RogueDay10SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 6: Transition to Drill */}
-                    {step === 6 && (
+                    {/* Step 8: Transition to Drill */}
+                    {step === 8 && (
                         <Slide key="transition" title="Prepare to Train" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-8 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
@@ -181,8 +287,8 @@ function RogueDay10SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 7: 14-Day Reading Protocol (Day 7: Your Eye Movement) */}
-                    {step === 7 && (
+                    {/* Step 9: 14-Day Reading Protocol (Day 7: Your Eye Movement) */}
+                    {step === 9 && (
                         <div className="w-full flex-1 flex flex-col justify-center animate-in fade-in duration-500">
                             <SessionPlayer
                                 dayNumber={10}
