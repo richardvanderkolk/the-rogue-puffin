@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AdminBypassLink } from "@/components/AdminBypassLink";
-import { CheckCircle2, Lock, PlayCircle, Zap, Target, Brain, Shield, BookOpen, Clock, Activity, Database, ArrowRight, ArrowDown, Search } from "lucide-react";
+import { CheckCircle2, Lock, PlayCircle, Zap, Target, Brain, Shield, BookOpen, Clock, Activity, Database, ArrowRight, ArrowDown, Search, Network } from "lucide-react";
 import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
 
@@ -22,7 +22,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
         { day: 7, title: "The Friction of Starting", desc: "Overcoming activation energy", icon: <Activity className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/rogue-day-7/start?course=bootcamp" },
         { day: 8, title: "Get an Overview", desc: "Building the mental scaffold", icon: <BookOpen className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/rogue-day-8/start?course=bootcamp" },
         { day: 9, title: "Active Reading", desc: "Interrogating the text", icon: <Search className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/rogue-day-9/start?course=bootcamp" },
-        { day: 10, title: "The Zeigarnik Effect", desc: "Optimizing study blocks", icon: <Activity className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/the-zeigarnik-effect?course=bootcamp" },
+        { day: 10, title: "Genius Note-Taking", desc: "Non-linear mind mapping", icon: <Network className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/rogue-day-10/start?course=bootcamp" },
         { day: 11, title: "Speed Maintenance", desc: "Peripheral vision expansion drill", icon: <Zap className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/how-to-read-faster?course=bootcamp" },
         { day: 12, title: "Memory Maintenance", desc: "Advanced peg system drill", icon: <Database className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/the-art-of-review?course=bootcamp" },
         { day: 13, title: "AI as a Tutor", desc: "Prompting for deep learning", icon: <Brain className="w-5 h-5" />, status: isUnlocked ? "available" : "locked", link: "/blog/how-to-use-ai-to-learn?course=bootcamp" },
