@@ -50,7 +50,7 @@ function RogueDay6SessionContent() {
                                     <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">Today's Protocol</h4>
                                     <ul className="text-slate-400 space-y-2 text-left w-max mx-auto">
                                         <li className="flex items-center gap-2"><ArrowRight className="w-4 h-4 text-indigo-400" /> 1. Learning Mastery: Physical State</li>
-                                        <li className="flex items-center gap-2"><ArrowRight className="w-4 h-4 text-rose-400" /> 2. Physical Drill: Day 3 Protocol</li>
+                                        <li className="flex items-center gap-2"><ArrowRight className="w-4 h-4 text-rose-400" /> 2. Eye Movement Exercises</li>
                                     </ul>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@ function RogueDay6SessionContent() {
                                             <li>• Stand up straight</li>
                                             <li>• Shoulders back</li>
                                             <li>• Take a deep breath</li>
-                                            <li>• Smile</li>
+                                            <li>• Smile big, even with your eyes</li>
                                         </ul>
                                         <p className="mt-4 text-sm text-slate-400">Now try to feel genuinely low or discouraged. It's not easy.</p>
                                     </div>
@@ -83,12 +83,17 @@ function RogueDay6SessionContent() {
                                             <li>• Look down at the floor</li>
                                             <li>• Frown</li>
                                         </ul>
-                                        <p className="mt-4 text-sm text-slate-500">Your state shifts quickly. This dictates your focus, energy, and emotion.</p>
+                                        <p className="mt-4 text-sm text-slate-500">Now try to feel genuinely happy and notice how difficult that feels. Your state shifts quickly. This dictates your focus, energy, and emotion.</p>
                                     </div>
                                 </div>
-                                <p className="text-white text-center font-bold text-lg">
-                                    And all three affect your ability to learn.
-                                </p>
+                                <div className="text-center space-y-2">
+                                    <p className="text-white font-bold text-lg">
+                                        And all three affect your ability to learn.
+                                    </p>
+                                    <p className="text-slate-400 text-sm max-w-lg mx-auto">
+                                        Focus determines what data enters your brain, energy sustains the reading session, and positive emotion chemically signals to your brain that the information is important to remember.
+                                    </p>
+                                </div>
                             </div>
                         </Slide>
                     )}
@@ -104,8 +109,8 @@ function RogueDay6SessionContent() {
                                     <div className="p-5 border border-slate-800 rounded-xl bg-slate-900/50 flex items-start gap-4">
                                         <div className="p-3 bg-slate-800 rounded-lg text-indigo-400"><Moon className="w-6 h-6" /></div>
                                         <div>
-                                            <h4 className="text-white font-bold mb-1">Sleep</h4>
-                                            <p className="text-slate-400 text-sm leading-relaxed">Focus drops and memory weakens without it. Sleep is when your brain physically consolidates what you've learned.</p>
+                                            <h4 className="text-white font-bold mb-1">Enough High-Quality Sleep</h4>
+                                            <p className="text-slate-400 text-sm leading-relaxed">Focus drops and memory weakens without sufficient rest. Sleep is when your brain physically consolidates what you've learned into long-term memory.</p>
                                         </div>
                                     </div>
                                     <div className="p-5 border border-slate-800 rounded-xl bg-slate-900/50 flex items-start gap-4">
@@ -192,7 +197,9 @@ function RogueDay6SessionContent() {
                                     Time to train.
                                 </p>
                                 <p className="text-xl text-slate-400">
-                                    Today is <strong className="text-indigo-400">Day 3</strong> of the 14-Day Protocol. We are pushing your baseline speed even higher. Make sure you are sitting upright and breathing properly.
+                                    Today we are doing <strong className="text-indigo-400">Eye Movement Exercises</strong>.
+                                    <br/><br/>
+                                    By training your eye muscles to move smoothly and accurately across the page, we eliminate the micro-pauses and regressions that slow down your reading speed and break your focus. Make sure you are sitting upright and breathing properly.
                                 </p>
                                 <div className="flex justify-center mt-6">
                                     <div className="flex items-center gap-2 text-rose-400 font-bold bg-rose-500/10 px-4 py-2 rounded-full border border-rose-500/20">
