@@ -31,12 +31,10 @@ export function Header() {
 
     return (
         <header className="print:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-            <Link href="/" className="flex items-center gap-4 md:gap-6 group">
-                <div className="relative h-16 md:h-20 w-auto">
-                    <img src="/assets/puffin-perfect.png" alt="Puffin" className="object-contain h-full w-auto opacity-90 group-hover:opacity-100 transition-all duration-300 drop-shadow-md" />
-                </div>
-                <div className="relative h-10 md:h-12 w-auto pt-1">
-                    <img src="/assets/text-only.png" alt="The Rogue Puffin Learning Mastery" className="object-contain object-left h-full w-auto opacity-90 group-hover:opacity-100 transition-all duration-300" />
+            <Link href="/" className="flex items-center gap-3 md:gap-5 group">
+                <Mascot size={80} variant="headshot" className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/10 group-hover:scale-105 transition-transform duration-300 shadow-md shadow-indigo-500/20" />
+                <div className="relative h-9 md:h-11 w-auto pt-1">
+                    <img src="/assets/text-only.png" alt="The Rogue Puffin Learning Mastery" className="object-contain object-left h-full w-auto opacity-95 group-hover:opacity-100 transition-all duration-300 drop-shadow-lg" />
                 </div>
             </Link>
 
