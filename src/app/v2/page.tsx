@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Zap, Brain, BookOpen, Clock, Activity, ArrowDown } from "lucide-react";
+import { OutliersSection } from "@/components/landing/OutliersSection";
 
 export default function V2LandingPage() {
     return (
@@ -9,8 +10,9 @@ export default function V2LandingPage() {
             {/* Minimal Navbar */}
             <header className="absolute top-0 w-full px-6 py-6 z-50 flex justify-between items-center max-w-7xl mx-auto left-0 right-0">
                 <div className="flex items-center gap-3">
-                    <Brain className="w-6 h-6 text-indigo-400" />
-                    <span className="font-bold tracking-widest text-sm uppercase text-white">The Rogue Puffin</span>
+                    <div className="relative w-48 h-12">
+                        <Image src="/assets/premium-logo.png" alt="The Rogue Puffin Learning Mastery" fill className="object-contain object-left" priority />
+                    </div>
                 </div>
                 <Link href="/login" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
                     Log In
@@ -50,44 +52,8 @@ export default function V2LandingPage() {
                 </div>
             </section>
 
-            {/* 2. The Mechanics (Why It Works) */}
-            <section className="py-24 md:py-32 px-6 bg-slate-900/40 border-t border-white/5 relative">
-                <div className="max-w-7xl mx-auto space-y-16">
-                    <div className="text-center max-w-2xl mx-auto space-y-4">
-                        <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">The biological truth.</h2>
-                        <p className="text-lg text-slate-400 font-light leading-relaxed">Learning isn't magic. It's a mechanical process. School taught you what to learn, not how. We fix the 3 mechanical errors holding your brain back.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div className="bg-slate-950 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-indigo-500/20 transition-colors" />
-                            <Zap className="w-10 h-10 text-indigo-400 mb-6" />
-                            <h3 className="text-xl font-bold text-white mb-3">Subvocalization</h3>
-                            <p className="text-slate-400 leading-relaxed font-light text-sm">
-                                You speak words in your head as you read, capping your intake at 250 WPM. We train your eye muscles to bypass the inner voice entirely, instantly doubling your speed.
-                            </p>
-                        </div>
-
-                        <div className="bg-slate-950 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-emerald-500/20 transition-colors" />
-                            <Brain className="w-10 h-10 text-emerald-400 mb-6" />
-                            <h3 className="text-xl font-bold text-white mb-3">The Forgetting Curve</h3>
-                            <p className="text-slate-400 leading-relaxed font-light text-sm">
-                                Your short-term memory purges 80% of what you learn within 7 days. We utilize Spaced Active Recall to systematically encode data directly into your long-term encyclopedic memory.
-                            </p>
-                        </div>
-
-                        <div className="bg-slate-950 border border-slate-800 p-8 rounded-3xl relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-purple-500/20 transition-colors" />
-                            <Activity className="w-10 h-10 text-purple-400 mb-6" />
-                            <h3 className="text-xl font-bold text-white mb-3">Format Mismatches</h3>
-                            <p className="text-slate-400 leading-relaxed font-light text-sm">
-                                Textbooks assume one learning style fits everyone. We diagnose your exact cognitive profile so you can process information in the exact format your brain natively prefers.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/* 2. The Mechanics (Why It Works) - Replaced with Outliers Section */}
+            <OutliersSection />
 
             {/* 3. The Playbook (The Free Theory Hub) */}
             <section className="py-24 md:py-32 px-6 border-t border-white/5 relative overflow-hidden">
