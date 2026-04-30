@@ -33,8 +33,9 @@ export function Header() {
         <header className="print:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
             <Link href="/" className="flex items-center gap-3 md:gap-4 group">
                 <Mascot size={80} variant="headshot" className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-white/10 group-hover:scale-105 transition-transform duration-300 shadow-md shadow-indigo-500/20" />
-                <div className="relative w-40 h-10 md:w-48 md:h-12 translate-y-px mt-1 group-hover:opacity-80 transition-opacity">
-                    <img src="/assets/premium-logo.png" alt="The Rogue Puffin Learning Mastery" className="object-contain object-left w-full h-full" />
+                <div className="flex flex-col justify-center translate-y-px mt-1">
+                  <span className="text-xl md:text-2xl font-bold tracking-[0.15em] uppercase leading-none md:leading-none transition-colors text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 group-hover:from-indigo-300 group-hover:to-purple-300 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">THE ROGUE PUFFIN</span>
+                  <span className="text-[9px] md:text-[11px] text-indigo-400/80 font-bold tracking-[0.4em] uppercase mt-1.5 md:mt-2">LEARNING MASTERY</span>
                 </div>
             </Link>
 
