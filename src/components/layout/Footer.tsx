@@ -12,15 +12,21 @@ export function Footer() {
         return null;
     }
     return (
-        <footer className="bg-slate-950 border-t border-slate-900 py-12 px-6">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm gap-4">
-                <div>
-                    &copy; {new Date().getFullYear()} Authoring Life (KvK 99977516). All rights reserved.
+        <footer className="bg-slate-950 border-t border-slate-900 py-20 px-6">
+            <div className="max-w-6xl mx-auto flex flex-col items-center gap-12">
+                <div className="w-full max-w-sm hover:scale-105 transition-transform duration-700">
+                    <img src="/assets/premium-logo.png" alt="The Rogue Puffin Logo" className="w-full h-auto drop-shadow-2xl" />
                 </div>
-                <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0">
-                    <Link href="/legal/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
-                    <Link href="/legal/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
-                    <Link href="/legal/imprint" className="hover:text-slate-300 transition-colors">Imprint</Link>
+                
+                <div className="w-full flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm gap-4 border-t border-slate-800/50 pt-8">
+                    <div>
+                        &copy; {new Date().getFullYear()} Authoring Life (KvK 99977516). All rights reserved.
+                    </div>
+                    <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0">
+                        <Link href="/legal/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+                        <Link href="/legal/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
+                        <Link href="/legal/imprint" className="hover:text-slate-300 transition-colors">Imprint</Link>
+                    </div>
                 </div>
             </div>
         </footer>

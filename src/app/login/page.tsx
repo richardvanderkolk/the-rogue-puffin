@@ -20,12 +20,17 @@ export default function LoginPage() {
     return (
         <div className="min-h-screen bg-slate-950 flex flex-col justify-center items-center p-6 text-slate-100 relative">
 
-            <Link href="/" className="absolute top-8 left-8 flex items-center gap-4 group">
-                <div className="w-10 h-10 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(79,70,229,0.5)] group-hover:scale-105 transition-transform duration-300">RP</div>
-                <span className="text-xl md:text-2xl font-bold font-heading tracking-tight text-white">The Rogue Puffin</span>
-            </Link>
+            <div className="absolute top-8 left-8">
+                <Link href="/" className="text-slate-500 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold uppercase tracking-widest">
+                    <ArrowRight className="w-4 h-4 rotate-180" /> Back to Home
+                </Link>
+            </div>
 
             <div className="w-full max-w-md space-y-8 z-10">
+                <div className="flex justify-center mb-4">
+                    <img src="/assets/premium-logo.png" alt="The Rogue Puffin" className="w-56 h-56 object-contain drop-shadow-2xl" />
+                </div>
+                
                 <div className="text-center space-y-3">
                     <h1 className="text-4xl md:text-5xl font-bold font-heading text-white tracking-tight">Welcome Back</h1>
                     <p className="text-lg text-slate-400">Enter your name to access your training dashboard.</p>
