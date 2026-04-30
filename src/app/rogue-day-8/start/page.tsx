@@ -87,8 +87,35 @@ function RogueDay8SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 3: How to do it */}
+                    {/* Step 3: Turn It Into a Game */}
                     {step === 3 && (
+                        <Slide key="game" title="Turn It Into a Game" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto text-center">
+                                <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
+                                    Give yourself a strict time limit.
+                                </p>
+                                <div className="p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10 text-left">
+                                    <h4 className="text-2xl font-bold text-indigo-400 mb-6 text-center italic">
+                                        5–10 minutes maximum
+                                    </h4>
+                                    <p className="text-lg text-slate-400 leading-relaxed mb-6">
+                                        Your goal in previewing is not to understand everything. Your goal is simply to answer three questions:
+                                    </p>
+                                    <ul className="space-y-4 my-6 text-white font-medium pl-4">
+                                        <li className="flex items-center gap-3"><span className="text-indigo-500 text-2xl">•</span> What is this about?</li>
+                                        <li className="flex items-center gap-3"><span className="text-indigo-500 text-2xl">•</span> What are the main ideas?</li>
+                                        <li className="flex items-center gap-3"><span className="text-indigo-500 text-2xl">•</span> What stands out?</li>
+                                    </ul>
+                                    <p className="text-lg text-slate-400 leading-relaxed mt-6">
+                                        This creates intense focus and removes the pressure of thinking <em className="text-slate-300">"I need to understand everything right now."</em>
+                                    </p>
+                                </div>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 4: Strategic Scanning */}
+                    {step === 4 && (
                         <Slide key="how-to" title="Strategic Scanning" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-8 max-w-3xl mx-auto text-center">
                                 <p className="text-xl text-slate-300">
@@ -114,8 +141,8 @@ function RogueDay8SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 4: Decide What Deserves Depth */}
-                    {step === 4 && (
+                    {/* Step 5: Decide What Deserves Depth */}
+                    {step === 5 && (
                         <Slide key="depth" title="Decide What Deserves Depth" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-2xl mx-auto text-center">
                                 <div className="p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10 text-left">
@@ -133,8 +160,8 @@ function RogueDay8SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 5: The 1-Minute Summary */}
-                    {step === 5 && (
+                    {/* Step 6: The 1-Minute Summary */}
+                    {step === 6 && (
                         <Slide key="summary" title="The 1-Minute Summary" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
@@ -155,8 +182,8 @@ function RogueDay8SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 6: Your Mission */}
-                    {step === 6 && (
+                    {/* Step 7: Your Mission */}
+                    {step === 7 && (
                         <Slide key="mission" title="Your Mission" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-8 max-w-2xl mx-auto text-center">
                                 <div className="p-8 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl shadow-[0_0_30px_rgba(79,70,229,0.15)] text-left">
@@ -175,8 +202,8 @@ function RogueDay8SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 7: Transition to Drill */}
-                    {step === 7 && (
+                    {/* Step 8: Transition to Drill */}
+                    {step === 8 && (
                         <Slide key="transition" title="Prepare to Train" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-8 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
@@ -199,8 +226,8 @@ function RogueDay8SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 8: 14-Day Reading Protocol (Day 5: Your Peripheral Vision) */}
-                    {step === 8 && (
+                    {/* Step 9: 14-Day Reading Protocol (Day 5: Your Peripheral Vision) */}
+                    {step === 9 && (
                         <div className="w-full flex-1 flex flex-col justify-center animate-in fade-in duration-500">
                             <SessionPlayer
                                 dayNumber={8}
