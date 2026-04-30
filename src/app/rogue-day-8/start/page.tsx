@@ -73,14 +73,14 @@ function RogueDay8SessionContent() {
                         <Slide key="puzzle" title="Let's Put It Another Way" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/puzzle.png" alt="Hands putting together glowing edge pieces of a jigsaw puzzle" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <img src="/images/puzzle_box.png" alt="A child holding up a glowing jigsaw puzzle box and looking at the picture on the cover" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
-                                        Think of learning like a jigsaw puzzle.
+                                        It is much easier to do a jigsaw puzzle if you have the picture on the box.
                                     </p>
                                     <p className="text-lg text-slate-400 leading-relaxed">
-                                        You never start a jigsaw puzzle by picking a random piece in the middle. You start by finding the edges and building the border. Once you have the border, placing the middle pieces becomes infinitely easier.
+                                        Consider every bit of new information that you learn like a piece of the jigsaw puzzle. Every time you pick up a piece, you have a better idea of how it fits if you can locate it on the overall picture—but you remain quite clueless if you don't see the big picture first.
                                     </p>
                                 </div>
                             </div>
