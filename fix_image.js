@@ -1,0 +1,41 @@
+const sharp = require('sharp');
+
+async function processImage() {
+  try {
+    const { data, info } = await sharp('public/assets/premium-logo.png')
+      .extract({ left: 50, top: 590, width: 924, height: 410 })
+      .ensureAlpha()
+      .raw()
+      .toBuffer({ resolveWithObject: true });
+
+    for (let i = 0; i < data.length; i += 4) {
+      const r = data[i];
+      const g = data[i+1];
+      const b = data[i+2];
+      
+      const luma = 0.299 * r + 0.587 * g + 0.114 * b;
+      
+      if (luma < 25) {
+        data[i+3] = 0;
+      } else if (luma < 80) {
+        data[i+3] = Math.floor(((luma - 25) / 55) * 255);
+      }
+    }
+
+    await sharp(data, {
+      raw: {
+        width: info.width,
+        height: info.height,
+        channels: 4
+      }
+    })
+    .png()
+    .toFile('public/assets/premium-text-transparent.png');
+    
+    console.log('Fixed crop and background!');
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+processImage();
