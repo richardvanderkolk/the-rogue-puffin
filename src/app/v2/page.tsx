@@ -7,17 +7,7 @@ export default function V2LandingPage() {
     return (
         <main className="flex min-h-screen flex-col bg-slate-950 text-slate-100 selection:bg-indigo-500/30 font-sans">
             
-            {/* Minimal Navbar */}
-            <header className="absolute top-0 w-full px-6 py-6 z-50 flex justify-between items-center max-w-7xl mx-auto left-0 right-0">
-                <div className="flex items-center gap-3">
-                    <div className="relative w-48 h-12">
-                        <Image src="/assets/premium-logo.png" alt="The Rogue Puffin Learning Mastery" fill className="object-contain object-left" priority />
-                    </div>
-                </div>
-                <Link href="/login" className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
-                    Log In
-                </Link>
-            </header>
+
 
             {/* 1. The "Aha!" Hero Section */}
             <section className="relative px-6 min-h-screen flex flex-col justify-center overflow-hidden">
