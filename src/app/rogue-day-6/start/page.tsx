@@ -102,7 +102,11 @@ function RogueDay6SessionContent() {
                     {step === 2 && (
                         <Slide key="foundations" title="The 4 Foundations" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-4xl mx-auto text-left">
-                                <p className="text-lg text-slate-300 mb-6 text-center">
+                                <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] mb-8">
+                                    <img src="/images/elemental_orbs.png" alt="Physical Foundations" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                                </div>
+                                <p className="text-lg text-slate-300 mb-6 text-center mt-8">
                                     You don’t need bio-hacking or complex optimisations. You just need consistency in four areas.
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

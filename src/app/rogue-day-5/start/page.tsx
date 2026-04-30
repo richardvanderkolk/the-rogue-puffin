@@ -164,7 +164,11 @@ function RogueDay5SessionContent() {
                     {step === 3 && (
                         <Slide key="mindset-3" title="The Shift: Confidence & Curiosity" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
-                                <p className="text-lg text-slate-300">
+                                <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] mb-8">
+                                    <img src="/images/magical_lightbulb.png" alt="Intrinsic Motivation" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                                </div>
+                                <p className="text-lg text-slate-300 mt-8">
                                     If you want to learn well, you don't need hype or pressure. You need two things:
                                 </p>
                                 
