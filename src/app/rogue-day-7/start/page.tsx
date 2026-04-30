@@ -91,22 +91,37 @@ function RogueDay7SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 3: Transition to Drill */}
+                    {/* Step 3: Your Mission */}
                     {step === 3 && (
+                        <Slide key="mission" title="Your Mission" onNext={nextStep} onBack={prevStep}>
+                            <div className="space-y-8 max-w-2xl mx-auto text-center">
+                                <div className="p-8 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl shadow-[0_0_30px_rgba(79,70,229,0.15)] text-left">
+                                    <h4 className="text-xl font-bold text-indigo-300 mb-4 tracking-tight">Put this into practice today:</h4>
+                                    <p className="text-lg text-slate-300 leading-relaxed">
+                                        Right after you complete the reading exercise, commit to just <strong>5 minutes</strong> of studying your own material to test the '5-Minute Rule'.
+                                    </p>
+                                    <p className="text-lg text-slate-300 leading-relaxed mt-4">
+                                        See how you feel once you cross that 5-minute threshold. Do not commit to more. Just start.
+                                    </p>
+                                </div>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 4: Transition to Drill */}
+                    {step === 4 && (
                         <Slide key="transition" title="Prepare to Train" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-8 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
                                     Today, we are focusing on <strong className="text-indigo-400">Your Confidence</strong>.
                                 </p>
-                                <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl text-left max-w-2xl mx-auto space-y-6">
+                                <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl text-left max-w-2xl mx-auto space-y-4">
                                     <p className="text-lg text-slate-400 leading-relaxed">
-                                        Many readers second-guess their comprehension, constantly re-reading sentences out of fear they missed something. Today's drill forces you forward to build trust in your brain's ability to capture information on the first pass.
+                                        We are returning to the psychological foundation of your reading.
                                     </p>
-                                    <div className="p-4 bg-indigo-500/10 border border-indigo-500/20 rounded-xl">
-                                        <p className="text-indigo-300 font-medium">
-                                            <strong>Your mission:</strong> Right after you complete this reading exercise, commit to just 5 minutes of studying your own material to test the '5-Minute Rule'. See how you feel once you cross that threshold!
-                                        </p>
-                                    </div>
+                                    <p className="text-lg text-slate-400 leading-relaxed">
+                                        You are going to read faster today than you ever have before. The only way to maintain your flow state at these speeds is through a relaxed, absolute confidence. Do not second-guess yourself. Trust your visual cortex to capture the text as you move forward.
+                                    </p>
                                 </div>
                                 <div className="flex justify-center mt-6">
                                     <div className="flex items-center gap-2 text-indigo-400 font-bold bg-indigo-500/10 px-6 py-3 rounded-full border border-indigo-500/20 shadow-[0_0_15px_rgba(79,70,229,0.2)]">
@@ -117,8 +132,8 @@ function RogueDay7SessionContent() {
                         </Slide>
                     )}
 
-                    {/* Step 4: 14-Day Reading Protocol (Day 4: Your Confidence) */}
-                    {step === 4 && (
+                    {/* Step 5: 14-Day Reading Protocol (Day 4: Your Confidence) */}
+                    {step === 5 && (
                         <div className="w-full flex-1 flex flex-col justify-center animate-in fade-in duration-500">
                             <SessionPlayer
                                 dayNumber={7}
