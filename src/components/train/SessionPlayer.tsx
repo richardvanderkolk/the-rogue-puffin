@@ -5,16 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DrillStep } from '@/lib/course-content';
 import PacerEngine from '@/components/PacerEngine';
 import Link from 'next/link';
-import { Play, Pause, FastForward, CheckCircle, RotateCcw } from 'lucide-react';
+import { Play, Pause, FastForward, CheckCircle, RotateCcw, ArrowLeft } from 'lucide-react';
 
 interface SessionPlayerProps {
     dayNumber: number;
     sequence: DrillStep[];
     onComplete: () => void;
     dayContent?: string;
+    outroMessage?: string;
 }
 
-export default function SessionPlayer({ dayNumber, sequence, onComplete, dayContent }: SessionPlayerProps) {
+export default function SessionPlayer({ dayNumber, sequence, onComplete, dayContent, outroMessage }: SessionPlayerProps) {
     const [phase, setPhase] = useState<'playing' | 'outro'>('playing');
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
@@ -166,6 +167,14 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
                         <p className="text-sm text-slate-400">Day {dayNumber} of 14</p>
                     </div>
 
+                    {outroMessage && (
+                        <div className="w-full max-w-md bg-indigo-500/10 border border-indigo-500/20 p-6 rounded-2xl mt-4">
+                            <p className="text-lg text-indigo-300 font-medium">
+                                {outroMessage}
+                            </p>
+                        </div>
+                    )}
+
                     <div className="flex flex-col sm:flex-row items-center gap-4 mt-8 w-full max-w-lg mx-auto">
                         <Link
                             href="/test/after"
@@ -288,20 +297,21 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-4 mt-8">
+                                <div className="flex items-center justify-center gap-4 mt-8 w-full relative">
                                     {currentStepIndex > 0 && (
                                         <button
                                             onClick={handleBack}
-                                            className="px-6 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-full transition-all flex items-center justify-center hover:-translate-x-1 border border-slate-700"
+                                            className="absolute left-0 p-4 text-slate-400 hover:text-white transition-colors rounded-full hover:bg-white/5 z-50"
+                                            aria-label="Go back"
                                         >
-                                            <RotateCcw className="w-5 h-5 mr-2" /> Back
+                                            <ArrowLeft className="w-8 h-8" />
                                         </button>
                                     )}
                                     <button
                                         onClick={handleNext}
-                                        className="px-10 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full transition-all flex items-center justify-center hover:scale-105 shadow-[0_0_40px_rgba(79,70,229,0.4)] hover:shadow-[0_0_60px_rgba(79,70,229,0.6)]"
+                                        className="px-10 py-4 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-full transition-all flex items-center gap-2 hover:scale-105 shadow-[0_0_40px_rgba(79,70,229,0.4)] hover:shadow-[0_0_60px_rgba(79,70,229,0.6)]"
                                     >
-                                        Next <FastForward className="w-5 h-5 ml-2" />
+                                        Next <FastForward className="w-5 h-5" />
                                     </button>
                                 </div>
                             </div>

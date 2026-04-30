@@ -140,6 +140,7 @@ function RogueDay7SessionContent() {
                                 sequence={COURSE_CONTENT.find(d => d.day === 4)!.sequence!}
                                 dayContent={COURSE_CONTENT.find(d => d.day === 4)!.content}
                                 onComplete={markCompleteAndReturn}
+                                outroMessage="Your Mission: Right now, go spend 5 minutes studying your own material to test the '5-Minute Rule'. You've got this!"
                             />
                         </div>
                     )}
