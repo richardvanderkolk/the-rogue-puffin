@@ -83,7 +83,7 @@ function RogueDay6SessionContent() {
                                             <li>• Look down at the floor</li>
                                             <li>• Frown</li>
                                         </ul>
-                                        <p className="mt-4 text-sm text-slate-500">Now try to feel genuinely happy and notice how difficult that feels. Your state shifts quickly. This dictates your focus, energy, and emotion.</p>
+                                        <p className="mt-4 text-sm text-slate-500">Now try to feel genuinely happy and notice how difficult that feels.</p>
                                     </div>
                                 </div>
                                 <div className="text-center space-y-2">
