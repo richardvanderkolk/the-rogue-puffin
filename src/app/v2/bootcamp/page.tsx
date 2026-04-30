@@ -3,6 +3,7 @@ import { AdminBypassLink } from "@/components/AdminBypassLink";
 import { CheckCircle2, Lock, PlayCircle, Zap, Target, Brain, Shield, BookOpen, Clock, Activity, Database, ArrowRight, ArrowDown, Search, Network, MessageCircle } from "lucide-react";
 import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
+import { GraduationBanner } from "@/components/bootcamp/GraduationBanner";
 
 export default async function BootcampDashboard(props: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
     const headersList = await headers();
@@ -57,6 +58,8 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
 
             <div className="max-w-5xl mx-auto px-6 mt-12 space-y-16">
                 
+                <GraduationBanner />
+
                 {/* Progress Section */}
                 <section className="bg-slate-900/40 border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
