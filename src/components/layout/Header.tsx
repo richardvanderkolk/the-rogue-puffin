@@ -32,7 +32,7 @@ export function Header() {
     return (
         <header className="print:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
             <Link href="/" className="flex items-center group">
-                <div className="relative w-64 h-16 md:w-96 md:h-24">
+                <div className="relative w-72 h-16 md:w-[420px] md:h-24">
                     <img src="/assets/rectangular-logo.png" alt="The Rogue Puffin Learning Mastery" className="object-contain object-left w-full h-full mix-blend-screen opacity-90 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03] origin-left" />
                 </div>
             </Link>
