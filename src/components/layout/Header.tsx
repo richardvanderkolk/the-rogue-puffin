@@ -34,7 +34,7 @@ export function Header() {
             <Link href="/" className="flex items-center gap-3 md:gap-4 group">
                 <Mascot size={80} variant="headshot" className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-white/10 group-hover:scale-105 transition-transform duration-300 shadow-md shadow-indigo-500/20" />
                 <div className="relative w-56 h-24 md:w-72 md:h-28 translate-y-px mt-1">
-                    <img src="/assets/premium-text-transparent.png" alt="The Rogue Puffin Learning Mastery" className="object-contain object-left w-full h-full opacity-95 group-hover:opacity-100 transition-all duration-300 drop-shadow-lg scale-[1.15] md:scale-[1.25] origin-left" />
+                    <img src="/assets/premium-text-transparent.png" alt="The Rogue Puffin Learning Mastery" className="object-contain object-left w-full h-full opacity-95 group-hover:opacity-100 transition-all duration-300 drop-shadow-lg scale-[1.3] md:scale-[1.45] origin-left" />
                 </div>
             </Link>
 
