@@ -418,7 +418,7 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
                         transition={{ duration: 0.1 }}
                         className={`font-bold text-slate-900 text-center leading-tight ${isFullPage
                             ? 'text-lg md:text-xl max-w-4xl text-left whitespace-pre-wrap' // Full Page style
-                            : 'text-5xl md:text-7xl px-12 whitespace-nowrap' // Standard RSVP style
+                            : 'text-3xl md:text-7xl px-4 md:px-12 md:whitespace-nowrap whitespace-normal break-words' // Standard RSVP style
                             } ${getModeStyles()}`}
                     >
                         {currentText}

@@ -714,11 +714,11 @@ export function PeripheralVisionComparison({ onNext, onBack }: { onNext: () => v
 
     return (
         <Slide title="Eye Movement" icon={<TrendingUp className="w-12 h-12 text-emerald-400" />} onNext={onNext} onBack={onBack}>
-            <div className="flex flex-col w-full max-w-4xl mx-auto items-stretch h-full justify-center gap-12">
+            <div className="flex flex-col w-full max-w-4xl mx-auto items-stretch h-full justify-center gap-6 md:gap-12">
 
                 {/* --- LANE 1: Word-by-Word Hopping --- */}
                 <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 relative overflow-hidden">
-                    <p className="font-serif text-xl md:text-2xl text-slate-400 text-left leading-relaxed relative z-10 px-1 whitespace-nowrap">
+                    <p className="font-serif text-xl md:text-2xl text-slate-400 text-left leading-relaxed relative z-10 px-1 md:whitespace-nowrap whitespace-normal">
                         {words.map((word, i) => (
                             <span key={i} className="inline-block mr-2 relative">
                                 {word}
@@ -738,7 +738,7 @@ export function PeripheralVisionComparison({ onNext, onBack }: { onNext: () => v
 
                 {/* --- LANE 2: Smooth Gliding in 3 Steps --- */}
                 <div className="bg-slate-900/50 p-6 md:p-8 rounded-2xl border border-slate-800 border-emerald-500/30 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.05)]">
-                    <p className="font-serif text-xl md:text-2xl text-slate-200 text-left leading-relaxed relative z-10 px-1 whitespace-nowrap">
+                    <p className="font-serif text-xl md:text-2xl text-slate-200 text-left leading-relaxed relative z-10 px-1 md:whitespace-nowrap whitespace-normal">
                         {raceText}
                     </p>
 
