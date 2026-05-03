@@ -5,14 +5,19 @@ import Link from "next/link";
 import { AdminBypassLink } from "@/components/AdminBypassLink";
 import { CheckCircle2, Lock, Zap, Target, Brain, BookOpen, Activity, Database, ArrowRight, ArrowDown, Search, Network, MessageCircle } from "lucide-react";
 
-export function BootcampRoadmap({ isUnlocked, symbol }: { isUnlocked: boolean, symbol: string }) {
-    const [currentProgress, setCurrentProgress] = useState(1);
+export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { isUnlocked: boolean, symbol: string, initialProgress?: number }) {
+    const [currentProgress, setCurrentProgress] = useState(initialProgress);
 
     useEffect(() => {
-        // Read progress from local storage on the client side
-        const progress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
-        setCurrentProgress(progress);
-    }, []);
+        // If the server tells us they are further along than we thought, update.
+        // Also fallback to localStorage if they are playing without logging in.
+        const localProgress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
+        if (localProgress > initialProgress) {
+            setCurrentProgress(localProgress);
+        } else {
+            setCurrentProgress(initialProgress);
+        }
+    }, [initialProgress]);
 
     // Base definition of all days
     const baseDays = [
@@ -33,19 +38,21 @@ export function BootcampRoadmap({ isUnlocked, symbol }: { isUnlocked: boolean, s
     ];
 
     // Evaluate dynamic status
+    const effectiveProgress = isUnlocked ? currentProgress : Math.min(currentProgress, 2);
+
     const days = baseDays.map(day => {
         let status = "locked";
         
         // Day 1 is always completed if progress > 1, otherwise available
         if (day.day === 1) {
-            status = currentProgress > 1 ? "completed" : "available";
+            status = effectiveProgress > 1 ? "completed" : "available";
         } 
         // Day 2 depends on unlock status
         else if (day.day === 2) {
             if (!isUnlocked) {
                 status = "unlocked"; // "Unlock required"
             } else {
-                status = currentProgress > 2 ? "completed" : (currentProgress === 2 ? "available" : "locked");
+                status = effectiveProgress > 2 ? "completed" : (effectiveProgress === 2 ? "available" : "locked");
             }
         } 
         // Days 3-14 are locked if not unlocked, else depend on progress
@@ -53,8 +60,8 @@ export function BootcampRoadmap({ isUnlocked, symbol }: { isUnlocked: boolean, s
             if (!isUnlocked) {
                 status = "locked";
             } else {
-                if (currentProgress > day.day) status = "completed";
-                else if (currentProgress === day.day) status = "available";
+                if (effectiveProgress > day.day) status = "completed";
+                else if (effectiveProgress === day.day) status = "available";
                 else status = "locked";
             }
         }
@@ -62,7 +69,7 @@ export function BootcampRoadmap({ isUnlocked, symbol }: { isUnlocked: boolean, s
         return { ...day, status };
     });
 
-    const completedDays = Math.min(Math.max(currentProgress - 1, 0), 14); // currentProgress - 1 represents how many days are fully completed.
+    const completedDays = Math.min(Math.max(effectiveProgress - 1, 0), 14); // effectiveProgress - 1 represents how many days are fully completed.
     const totalDays = 14;
     const progressPercentage = (completedDays / totalDays) * 100;
 
@@ -78,7 +85,7 @@ export function BootcampRoadmap({ isUnlocked, symbol }: { isUnlocked: boolean, s
                             <CheckCircle2 className="w-3 h-3" /> {completedDays > 0 ? `Day ${completedDays} Completed` : "Welcome to the Bootcamp"}
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-                            {completedDays === 0 ? "Begin Your 14 Day Journey." : `Day ${Math.min(currentProgress, 14)} of Your 14 Day Boot Camp is next.`}
+                            {completedDays === 0 ? "Begin Your 14 Day Journey." : `Day ${Math.min(effectiveProgress, 14)} of Your 14 Day Boot Camp is next.`}
                         </h2>
                         <p className="text-lg text-slate-400 font-light leading-relaxed">
                             {isUnlocked 

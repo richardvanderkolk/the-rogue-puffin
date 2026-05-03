@@ -38,7 +38,7 @@ export default function AdminDashboard() {
                 setMetrics(data);
             } else {
                 // Mock metrics if table doesn't exist yet
-                setMetrics({ totalLeads: 0, totalRevenue: 0, rogueSessions: 0, masterclasses: 0, uniqueVisitors: 0 });
+                setMetrics({ totalLeads: 0, totalRevenue: 0, rogueSessions: 0, masterclasses: 0, uniqueVisitors: 0, outcomes30Min: null, outcomes14Day: null });
             }
 
             if (viewRes.ok) {
@@ -49,8 +49,7 @@ export default function AdminDashboard() {
             }
         } catch (e) {
             console.error(e);
-            // Fallback so we don't get stuck in a login loop
-            setMetrics({ totalLeads: 0, totalRevenue: 0, rogueSessions: 0, masterclasses: 0, uniqueVisitors: 0 });
+            setMetrics({ totalLeads: 0, totalRevenue: 0, rogueSessions: 0, masterclasses: 0, uniqueVisitors: 0, outcomes30Min: null, outcomes14Day: null });
             setTopContent([]);
         }
         setLoading(false);
@@ -151,6 +150,112 @@ export default function AdminDashboard() {
                     <div className="text-xs text-slate-500 mt-2">All-time specific volume</div>
                 </div>
             </div>
+
+            {/* Student Outcomes - 30 Min Session */}
+            {metrics.outcomes30Min && metrics.outcomes30Min.count > 0 && (
+                <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-6">
+                    <h3 className="text-lg font-bold mb-6 flex items-center gap-2"><TrendingUp className="w-5 h-5 text-indigo-400" /> Student Outcomes (After 30 Min Session)</h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-center">
+                            <div className="text-sm text-slate-500 uppercase tracking-widest mb-1">Participants</div>
+                            <div className="text-4xl font-bold text-white mb-2">{metrics.outcomes30Min.count}</div>
+                            <div className="text-xs text-slate-400">Completed baseline & session test</div>
+                        </div>
+
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800">
+                            <div className="text-sm text-slate-500 uppercase tracking-widest mb-4">Reading Speed (WPM)</div>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Adjusted Average</span>
+                                        <span className="text-xl font-bold text-emerald-400">+{Math.round(metrics.outcomes30Min.wpmAdj)}</span>
+                                    </div>
+                                    <div className="text-[10px] text-slate-500">Excludes top & bottom 10% outliers</div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Raw Average</span>
+                                        <span className="text-lg font-bold text-white">+{Math.round(metrics.outcomes30Min.wpmRaw)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800">
+                            <div className="text-sm text-slate-500 uppercase tracking-widest mb-4">Comprehension Score</div>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Adjusted Average</span>
+                                        <span className="text-xl font-bold text-indigo-400">{Math.round(metrics.outcomes30Min.compAdj) > 0 ? '+' : ''}{Math.round(metrics.outcomes30Min.compAdj)}%</span>
+                                    </div>
+                                    <div className="text-[10px] text-slate-500">Excludes top & bottom 10% outliers</div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Raw Average</span>
+                                        <span className="text-lg font-bold text-white">{Math.round(metrics.outcomes30Min.compRaw) > 0 ? '+' : ''}{Math.round(metrics.outcomes30Min.compRaw)}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Student Outcomes - 14 Day Bootcamp */}
+            {metrics.outcomes14Day && metrics.outcomes14Day.count > 0 && (
+                <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">
+                    <h3 className="text-lg font-bold mb-6 flex items-center gap-2"><TrendingUp className="w-5 h-5 text-purple-400" /> Student Outcomes (After 14 Day Bootcamp)</h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-center">
+                            <div className="text-sm text-slate-500 uppercase tracking-widest mb-1">Graduates</div>
+                            <div className="text-4xl font-bold text-white mb-2">{metrics.outcomes14Day.count}</div>
+                            <div className="text-xs text-slate-400">Completed baseline & final tests</div>
+                        </div>
+
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800">
+                            <div className="text-sm text-slate-500 uppercase tracking-widest mb-4">Reading Speed (WPM)</div>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Adjusted Average</span>
+                                        <span className="text-xl font-bold text-emerald-400">+{Math.round(metrics.outcomes14Day.wpmAdj)}</span>
+                                    </div>
+                                    <div className="text-[10px] text-slate-500">Excludes top & bottom 10% outliers</div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Raw Average</span>
+                                        <span className="text-lg font-bold text-white">+{Math.round(metrics.outcomes14Day.wpmRaw)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800">
+                            <div className="text-sm text-slate-500 uppercase tracking-widest mb-4">Comprehension Score</div>
+                            <div className="space-y-4">
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Adjusted Average</span>
+                                        <span className="text-xl font-bold text-purple-400">{Math.round(metrics.outcomes14Day.compAdj) > 0 ? '+' : ''}{Math.round(metrics.outcomes14Day.compAdj)}%</span>
+                                    </div>
+                                    <div className="text-[10px] text-slate-500">Excludes top & bottom 10% outliers</div>
+                                </div>
+                                <div>
+                                    <div className="flex justify-between items-end mb-1">
+                                        <span className="text-slate-400 text-sm">Raw Average</span>
+                                        <span className="text-lg font-bold text-white">{Math.round(metrics.outcomes14Day.compRaw) > 0 ? '+' : ''}{Math.round(metrics.outcomes14Day.compRaw)}%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Funnel Visualization */}
             <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">

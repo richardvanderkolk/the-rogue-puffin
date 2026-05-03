@@ -155,7 +155,7 @@ function GraduationSessionContent() {
                                 </div>
                                 
                                 <div className="mt-8">
-                                    <Link href="/v2/bootcamp?unlocked=true" className="text-slate-500 hover:text-slate-300 font-medium transition-colors text-sm">
+                                    <Link href="/bootcamp?unlocked=true" className="text-slate-500 hover:text-slate-300 font-medium transition-colors text-sm">
                                         Return to Bootcamp Dashboard
                                     </Link>
                                 </div>

@@ -1,34 +1,72 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, Search, Sparkles, Eye, Clock, TrendingUp, Zap } from "lucide-react";
 
 // --- Shared Slide Component ---
 export function Slide({ title, children, icon, onNext, onBack, customButtonText, fullWidth, nextDisabled }: { title?: string, children: React.ReactNode, icon?: React.ReactNode, onNext: () => void, onBack?: () => void, customButtonText?: string, fullWidth?: boolean, nextDisabled?: boolean }) {
+    const [isScrolledToBottom, setIsScrolledToBottom] = useState(true);
+    const [hasScrollbar, setHasScrollbar] = useState(false);
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    const checkScroll = () => {
+        if (scrollRef.current) {
+            const { scrollTop, scrollHeight, clientHeight } = scrollRef.current;
+            // Check if there's meaningful overflow
+            setHasScrollbar(scrollHeight > clientHeight + 10);
+            // Check if we're near the bottom
+            setIsScrolledToBottom(scrollTop + clientHeight >= scrollHeight - 20);
+        }
+    };
+
+    // Re-check scroll when content or window size changes
+    useEffect(() => {
+        // Small delay to allow layout to settle
+        const timeout = setTimeout(checkScroll, 100);
+        window.addEventListener('resize', checkScroll);
+        return () => {
+            clearTimeout(timeout);
+            window.removeEventListener('resize', checkScroll);
+        };
+    }, [children]);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="flex flex-col items-center text-center w-full max-w-5xl mx-auto h-full max-h-[85vh] px-4"
+            className="flex flex-col items-center text-center w-full max-w-5xl mx-auto h-full max-h-[85vh] px-4 relative"
         >
-            <div className="flex-shrink-0 flex flex-col items-center mb-1">
+            <div className="flex-shrink-0 flex flex-col items-center mb-1 w-full">
                 {icon && <div className="p-4 bg-slate-900 rounded-full border border-slate-800 mb-4">{icon}</div>}
                 {title && (
-                    <div className="h-24 flex items-center justify-center flex-shrink-0 px-4">
-                        <h2 className="text-2xl md:text-5xl font-bold font-heading text-white leading-tight">{title}</h2>
+                    <div className="min-h-[4rem] flex items-center justify-center flex-shrink-0 px-4 w-full mb-4">
+                        <h2 className="text-2xl md:text-4xl font-bold font-heading text-white leading-tight">{title}</h2>
                     </div>
                 )}
             </div>
 
-            <div className="flex-1 overflow-y-auto w-full flex flex-col items-center min-h-0 custom-scrollbar">
-                <div className={`text-lg md:text-xl text-slate-300 leading-relaxed ${fullWidth ? 'w-full px-2' : 'max-w-3xl w-full'} space-y-6`}>
+            <div 
+                ref={scrollRef}
+                onScroll={checkScroll}
+                className="flex-1 overflow-y-auto w-full flex flex-col items-center min-h-0 custom-scrollbar relative"
+            >
+                <div className={`text-lg md:text-xl text-slate-300 leading-relaxed ${fullWidth ? 'w-full px-2' : 'max-w-3xl w-full'} space-y-6 pb-12`}>
                     {children}
                 </div>
             </div>
 
-            <div className="flex-shrink-0 mt-6 mb-2 pt-4 bg-gradient-to-t from-slate-950 to-transparent w-full flex justify-center items-center gap-4 relative">
+            {hasScrollbar && !isScrolledToBottom && (
+                <div className="absolute bottom-[100px] left-1/2 transform -translate-x-1/2 pointer-events-none z-50 flex flex-col items-center animate-bounce">
+                    <span className="bg-slate-900/80 backdrop-blur-sm text-slate-400 text-xs font-medium uppercase tracking-widest px-4 py-2 rounded-full border border-slate-800 flex items-center gap-2">
+                        Scroll for more
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                    </span>
+                </div>
+            )}
+
+            <div className="flex-shrink-0 mt-2 pt-4 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent w-full flex justify-center items-center gap-4 relative z-10 pb-4">
                 {onBack && (
                     <button
                         onClick={onBack}

@@ -7,6 +7,9 @@ create table profiles (
   email text,
   full_name text,
   avatar_url text,
+  learning_archetype text, -- E.g., 'linguistic', 'spatial', 'kinesthetic'
+  bootcamp_progress_day integer default 1, -- Tracks their current day (1-15)
+  has_paid_bootcamp boolean default false, -- True if they purchased the $29 upgrade
   created_at timestamp with time zone default timezone('utc'::text, now()) not null,
   updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );

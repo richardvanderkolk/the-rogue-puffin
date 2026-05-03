@@ -46,3 +46,16 @@ html.light video,
 html.light [data-theme-ignore] {
   filter: invert(1) hue-rotate(180deg);
 }
+@media print {
+  @page {
+    margin: 1.2cm; /* Real book margins */
+    size: auto;
+  }
+  
+  body {
+    background-color: white !important;
+    color: black !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

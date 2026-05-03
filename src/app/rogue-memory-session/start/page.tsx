@@ -5,7 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Clock, CheckCircle, ArrowRight, Sparkles, Eye, Layers, Home, BookOpen, Star } from "lucide-react";
 import Link from "next/link";
 import { Slide } from "@/components/onboarding/ConceptSlides";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
+import { updateBootcampProgress } from "@/app/actions/progress";
 
 // ─── Word Lists ────────────────────────────────────────────────────────────────
 
@@ -471,7 +472,7 @@ function RogueMemorySessionContent() {
     const searchParams = useSearchParams();
     const course = searchParams.get('course') || 'bootcamp';
     
-    const dashboardUrl = course === 'abridged' ? '/abridged' : '/v2/bootcamp?unlocked=true';
+    const dashboardUrl = course === 'abridged' ? '/abridged' : '/bootcamp?unlocked=true';
     const dashboardText = course === 'abridged' ? 'Return to Course' : 'Return to Bootcamp';
 
     const [step, setStep] = useState(0);
@@ -479,6 +480,7 @@ function RogueMemorySessionContent() {
     const [retestResult, setRetestResult] = useState<{ matched: string[]; missed: string[] } | null>(null);
     const [final60Result, setFinal60Result] = useState<{ matched: string[]; missed: string[] } | null>(null);
     const [methodAttempts, setMethodAttempts] = useState<Record<string, number>>({});
+    const router = useRouter();
 
     const recordAttempt = useCallback((m: string) => setMethodAttempts(p => ({ ...p, [m]: (p[m] || 0) + 1 })), []);
     const nextStep = useCallback(() => setStep(s => s + 1), []);
@@ -494,6 +496,17 @@ function RogueMemorySessionContent() {
     const handleRetestSubmit = (input: string) => {
         setRetestResult(scoreWords(input, SECOND_30));
         nextStep();
+    };
+
+    const handleComplete = async () => {
+        const currentProgress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
+        if (currentProgress < 4) {
+            localStorage.setItem('rogue_day_progress', '4');
+        }
+        if (course === 'bootcamp') {
+            await updateBootcampProgress(4);
+        }
+        router.push(dashboardUrl);
     };
 
     return (
@@ -1363,18 +1376,12 @@ function RogueMemorySessionContent() {
                             </div>
 
                             <div className="space-y-3 pb-4 pt-4">
-                                <Link
-                                    href={dashboardUrl}
+                                <button
+                                    onClick={handleComplete}
                                     className="w-full py-4 bg-white text-black font-bold rounded-full text-lg hover:bg-slate-200 transition-all flex items-center justify-center gap-2 hover:scale-105"
                                 >
-                                    {dashboardText} <Home className="w-5 h-5" />
-                                </Link>
-                                <Link
-                                    href="/blog"
-                                    className="w-full py-3 bg-slate-900 border border-slate-700 hover:border-violet-500/40 text-slate-300 font-medium rounded-full text-base transition-all flex items-center justify-center gap-2"
-                                >
-                                    Explore the Full Learning Library <ArrowRight className="w-5 h-5" />
-                                </Link>
+                                    {dashboardText} <ArrowRight className="w-5 h-5" />
+                                </button>
                             </div>
                         </motion.div>
                     )}

@@ -2,11 +2,25 @@
 
 import { useState, Suspense, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { ArrowRight, Brain, Zap } from "lucide-react";
+import { ArrowRight, Brain, Zap, Sparkles } from "lucide-react";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
 import { useSearchParams, useRouter } from "next/navigation";
+import { getArticleVariant } from "@/data/learningStyleVariants";
+import { createClient } from "@/lib/supabase/client-ssr";
+import { updateBootcampProgress } from "@/app/actions/progress";
+
+const INTELLIGENCE_INFO: Record<string, { title: string; icon: string }> = {
+    linguistic: { title: "Word Smart", icon: "📚" },
+    logical: { title: "Logic Smart", icon: "🧩" },
+    visual: { title: "Picture Smart", icon: "🖼️" },
+    kinesthetic: { title: "Body Smart", icon: "🏃" },
+    musical: { title: "Music Smart", icon: "🎵" },
+    interpersonal: { title: "People Smart", icon: "💬" },
+    intrapersonal: { title: "Self Smart", icon: "🧘" },
+    naturalistic: { title: "Nature Smart", icon: "🌿" }
+};
 
 function TimerExerciseSlide({ title, instruction, duration, onNext, onBack }: { title: string, instruction: string, duration: number, onNext: () => void, onBack?: () => void }) {
     const [timeLeft, setTimeLeft] = useState(duration);
@@ -60,19 +74,69 @@ function RogueDay5SessionContent() {
     const course = searchParams.get('course') || 'bootcamp';
     
     // The bootcamp URL logic
-    const dashboardUrl = '/v2/bootcamp?unlocked=true';
+    const dashboardUrl = '/bootcamp?unlocked=true';
 
     const [step, setStep] = useState(0);
     const [userMindset, setUserMindset] = useState("");
+    const [showVariant, setShowVariant] = useState(false);
+    const [archetypes, setArchetypes] = useState<string[]>([]);
+    const [activeArchetype, setActiveArchetype] = useState<string | undefined>(undefined);
 
-    const nextStep = () => setStep(s => s + 1);
-    const prevStep = () => setStep(s => Math.max(0, s - 1));
+    useEffect(() => {
+        const fetchArchetype = async () => {
+            const local = localStorage.getItem('rogue_superpowers');
+            if (local) {
+                try {
+                    const parsed = JSON.parse(local);
+                    if (parsed && parsed.length > 0) {
+                        setArchetypes(parsed);
+                        setActiveArchetype(parsed[0]);
+                    }
+                } catch (e) {}
+            }
 
-    const markCompleteAndReturn = () => {
-        // Mock persistence
+            const supabase = createClient();
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                const { data } = await supabase.from('profiles').select('learning_archetype').eq('id', user.id).single();
+                if (data && data.learning_archetype) {
+                    setArchetypes([data.learning_archetype]);
+                    setActiveArchetype(data.learning_archetype);
+                }
+            }
+        };
+        fetchArchetype();
+    }, []);
+
+    const nextStep = () => {
+        if (step === 6 && archetypes.length > 0 && !showVariant) {
+            setShowVariant(true);
+        } else {
+            setShowVariant(false);
+            setStep(s => s + 1);
+        }
+    };
+    
+    const prevStep = () => {
+        if (showVariant) {
+            setShowVariant(false);
+        } else if (step === 7 && archetypes.length > 0) {
+            setStep(s => Math.max(0, s - 1));
+            setShowVariant(true);
+        } else {
+            setStep(s => Math.max(0, s - 1));
+        }
+    };
+
+    const markCompleteAndReturn = async () => {
         const currentProgress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
         if (5 >= currentProgress) {
             localStorage.setItem('rogue_day_progress', '6'); // Unlock day 6
+        }
+        try {
+            await updateBootcampProgress(6);
+        } catch (error) {
+            console.error('Failed to update progress:', error);
         }
         router.push(dashboardUrl);
     };
@@ -96,7 +160,7 @@ function RogueDay5SessionContent() {
                                     <h4 className="text-sm font-bold text-slate-500 uppercase tracking-widest mb-2">Today's Protocol</h4>
                                     <ul className="text-slate-400 space-y-2 text-left w-max mx-auto">
                                         <li className="flex items-center gap-2"><ArrowRight className="w-4 h-4 text-indigo-400" /> 1. Learning Mastery: The Right Mindset</li>
-                                        <li className="flex items-center gap-2"><ArrowRight className="w-4 h-4 text-rose-400" /> 2. Physical Drill: Kinetic Words</li>
+                                        <li className="flex items-center gap-2"><ArrowRight className="w-4 h-4 text-rose-400" /> 2. Reading Drill: Kinetic Words</li>
                                     </ul>
                                 </div>
                             </div>
@@ -162,32 +226,39 @@ function RogueDay5SessionContent() {
 
                     {/* Step 3: Confidence and Curiosity */}
                     {step === 3 && (
-                        <Slide key="mindset-3" title="The Shift: Confidence & Curiosity" onNext={nextStep} onBack={prevStep}>
-                            <div className="space-y-6 max-w-2xl mx-auto text-left">
-                                <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] mb-8">
+                        <Slide key="mindset-3" title="The Shift: Confidence & Curiosity" onNext={nextStep} onBack={prevStep} fullWidth>
+                            <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start text-left">
+                                {/* Left Side: Image */}
+                                <div className="w-full lg:w-5/12 relative h-64 lg:h-[450px] rounded-3xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] shrink-0">
                                     <img src="/images/magical_lightbulb.png" alt="Intrinsic Motivation" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                                 </div>
-                                <p className="text-lg text-slate-300 mt-8">
-                                    If you want to learn well, you don't need hype or pressure. You need two things:
-                                </p>
                                 
-                                <div className="space-y-4 my-6">
-                                    <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 border-l-4 border-l-emerald-500">
-                                        <h3 className="text-xl font-bold text-emerald-400 mb-2">Confidence</h3>
-                                        <p className="text-slate-300">"I can grow into this—even if it's unfamiliar."</p>
-                                        <p className="text-sm text-slate-400 mt-2">When you begin with Confidence, your brain becomes more open and less defensive.</p>
+                                {/* Right Side: Text */}
+                                <div className="flex-1 space-y-6">
+                                    <p className="text-xl text-slate-300">
+                                        If you want to learn well, you don't need hype or pressure. You need two things:
+                                    </p>
+                                    
+                                    <div className="space-y-4 my-6">
+                                        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 border-l-4 border-l-emerald-500 shadow-lg">
+                                            <h3 className="text-xl font-bold text-emerald-400 mb-2">Confidence</h3>
+                                            <p className="text-slate-300 font-medium">"I can grow into this—even if it's unfamiliar."</p>
+                                            <p className="text-sm text-slate-400 mt-2 leading-relaxed">When you begin with Confidence, your brain becomes more open and less defensive.</p>
+                                        </div>
+                                        <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 border-l-4 border-l-indigo-500 shadow-lg">
+                                            <h3 className="text-xl font-bold text-indigo-400 mb-2">Curiosity</h3>
+                                            <p className="text-slate-300 font-medium">"There's something here worth discovering."</p>
+                                            <p className="text-sm text-slate-400 mt-2 leading-relaxed">When you begin with Curiosity, your attention sharpens and engagement increases.</p>
+                                        </div>
                                     </div>
-                                    <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-800 border-l-4 border-l-indigo-500">
-                                        <h3 className="text-xl font-bold text-indigo-400 mb-2">Curiosity</h3>
-                                        <p className="text-slate-300">"There's something here worth discovering."</p>
-                                        <p className="text-sm text-slate-400 mt-2">When you begin with Curiosity, your attention sharpens and engagement increases.</p>
+                                    
+                                    <div className="p-4 bg-slate-800/30 border border-slate-700/50 rounded-xl mt-6">
+                                        <p className="text-lg text-indigo-200 font-medium text-center">
+                                            When those two are present, you move from resistance to exploration.
+                                        </p>
                                     </div>
                                 </div>
-                                
-                                <p className="text-lg text-slate-300 font-medium text-center">
-                                    When those two are present, you move from resistance to exploration.
-                                </p>
                             </div>
                         </Slide>
                     )}
@@ -217,8 +288,8 @@ function RogueDay5SessionContent() {
                     )}
 
                     {/* Step 6: Apply to Your Goals */}
-                    {step === 6 && (
-                        <Slide key="mindset-refine" title="Set Your Expectation" onNext={nextStep} onBack={prevStep}>
+                    {step === 6 && !showVariant && (
+                        <Slide key="mindset-refine" title="Set Your Expectation" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Superpower'} Translation` : 'Next'}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
                                 <p className="text-lg text-slate-300">
                                     Think of a specific subject, skill, or project you are currently trying to learn. With this new posture of confidence and curiosity, what expectation are you setting for yourself?
@@ -239,9 +310,44 @@ function RogueDay5SessionContent() {
                         </Slide>
                     )}
 
+                    {/* Step 6.5: Personalized Translation */}
+                    {step === 6 && showVariant && activeArchetype && (
+                        <Slide key="variant" title={`Your ${INTELLIGENCE_INFO[activeArchetype]?.title} Translation`} icon={<Sparkles className="w-12 h-12 text-indigo-400" />} onNext={() => { setShowVariant(false); setStep(7); }} onBack={() => setShowVariant(false)} fullWidth>
+                            <div className="w-full flex flex-col pb-8">
+                                <div className="w-full relative z-0">
+                                    <div
+                                        className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:text-white"
+                                        dangerouslySetInnerHTML={{ __html: getArticleVariant('day-5-learning-mindset', activeArchetype) }}
+                                    />
+                                </div>
+                                {archetypes.length > 1 && (
+                                    <div className="mt-12 pt-8 border-t border-slate-800">
+                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary superpowers:</p>
+                                        <div className="flex justify-center gap-4 flex-wrap">
+                                            {archetypes.map((type) => (
+                                                <button
+                                                    key={type}
+                                                    onClick={() => setActiveArchetype(type)}
+                                                    className={`px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 ${
+                                                        activeArchetype === type
+                                                            ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50'
+                                                            : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:text-slate-300'
+                                                    }`}
+                                                >
+                                                    <span>{INTELLIGENCE_INFO[type]?.icon}</span>
+                                                    {INTELLIGENCE_INFO[type]?.title.split(' (')[0]}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </Slide>
+                    )}
+
                     {/* Step 7: Transition to Drill */}
                     {step === 7 && (
-                        <Slide key="transition" title="Physical Training" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
+                        <Slide key="transition" title="Reading Drill" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
                                     Your mindset is primed.
@@ -249,6 +355,14 @@ function RogueDay5SessionContent() {
                                 <p className="text-xl text-slate-400">
                                     Today's drill is <strong className="text-indigo-400">Kinetic Words</strong>. We will push words onto the screen faster than your inner voice can speak them.
                                 </p>
+                                <div className="mt-12 pt-8">
+                                    <button 
+                                        onClick={markCompleteAndReturn} 
+                                        className="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-300 underline underline-offset-4 transition-colors"
+                                    >
+                                        Skip today's drill and return to dashboard
+                                    </button>
+                                </div>
                                 <div className="flex justify-center mt-6">
                                     <div className="flex items-center gap-2 text-rose-400 font-bold bg-rose-500/10 px-4 py-2 rounded-full border border-rose-500/20">
                                         <Zap className="w-5 h-5" /> Sub-vocalization Breaking

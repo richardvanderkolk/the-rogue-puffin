@@ -12,42 +12,46 @@ export const articles: Article[] = [
         slug: "how-your-phone-destroys-deep-work",
         published: true,
         title: "How Your Phone is Destroying Your 'Deep Work'",
-        category: "FOCUS",
+        category: "PART2_FOCUS",
         excerpt: "You sit down to study, but keep your phone on the desk. Even if you don't look at it, it is actively draining your intelligence. Here is the science of Deep Work.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Let's set the scene: You have a difficult chapter to read or a complex problem to solve. You sit at your desk, determined to focus. You put your phone on silent and leave it face down on the table next to you.</p>
-                <p>You haven't checked it once. You are being "productive."</p>
-                <p>But according to cognitive scientists, your intelligence has just been significantly reduced, simply because the phone is in the room.</p>
+                <p class="print:mb-6">You haven't checked it once. You are being "productive."</p>
+                <p class="print:mb-6">But according to cognitive scientists, your intelligence has just been significantly reduced, simply because the phone is in the room.</p>
                 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The "Brain Drain" Effect</h2>
-                <p>Researchers at the University of Texas conducted a fascinating <a href="https://news.utexas.edu/2017/06/26/the-mere-presence-of-your-smartphone-reduces-brain-power/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">study on smartphone presence</a>. They brought over 500 students into a lab to take tests measuring their cognitive capacity and fluid intelligence.</p>
-                <p>They divided the students into three groups:</p>
+                <p class="print:mb-6">Researchers at the University of Texas conducted a fascinating <a href="https://news.utexas.edu/2017/06/26/the-mere-presence-of-your-smartphone-reduces-brain-power/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">study on smartphone presence</a>. They brought over 500 students into a lab to take tests measuring their cognitive capacity and fluid intelligence.</p>
+                <p class="print:mb-6">They divided the students into three groups:</p>
                 <ul class="list-disc pl-6 space-y-2 text-slate-300 my-4">
                     <li>Group 1 kept their phones face down on the desk.</li>
                     <li>Group 2 kept their phones in their pockets or bags.</li>
                     <li>Group 3 left their phones in another room entirely.</li>
                 </ul>
-                <p>The results were staggering. The students who left their phones in another room significantly outperformed the students with phones on their desks, and slightly outperformed those with phones in their pockets.</p>
+                <p class="print:mb-6">The results were staggering. The students who left their phones in another room significantly outperformed the students with phones on their desks, and slightly outperformed those with phones in their pockets.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">Why Does This Happen?</h2>
-                <p>The researchers discovered that even when you are successfully ignoring your phone, the <em>act of ignoring it</em> requires active mental effort. Your brain has to spend a portion of its limited cognitive bandwidth fighting the urge to look at the screen.</p>
-                <p>It's like trying to do a complicated math problem while someone in the corner of the room softly whispers your name. You might not listen to them, but blocking them out exhausts your focus.</p>
+                
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                "Even when you are successfully ignoring your phone, the act of ignoring it requires active mental effort. Your brain has to spend a portion of its limited cognitive bandwidth fighting the urge to look at the screen."
+            </blockquote>
+
+                <p class="print:mb-6">It's like trying to do a complicated math problem while someone in the corner of the room softly whispers your name. You might not listen to them, but blocking them out exhausts your focus.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">Enter: Deep Work</h2>
-                <p>In his bestselling book, computer science professor Cal Newport coined the term <strong>Deep Work</strong>.</p>
-                <p>He defines it as <em>"Professional activities performed in a state of distraction-free concentration that push your cognitive capabilities to their limit."</em> Deep Work creates new value, improves your skill, and is hard to replicate.</p>
-                <p>Deep Work requires 100% of your cognitive capacity. When your phone is in the room, you are only ever operating at 80%. You cannot achieve true Deep Work while simultaneously allocating subconscious energy to ignoring notifications.</p>
+                <p class="print:mb-6">In his bestselling book, computer science professor Cal Newport coined the term <strong>Deep Work</strong>.</p>
+                <p class="print:mb-6">He defines it as <em>"Professional activities performed in a state of distraction-free concentration that push your cognitive capabilities to their limit."</em> Deep Work creates new value, improves your skill, and is hard to replicate.</p>
+                <p class="print:mb-6">Deep Work requires 100% of your cognitive capacity. When your phone is in the room, you are only ever operating at 80%. You cannot achieve true Deep Work while simultaneously allocating subconscious energy to ignoring notifications.</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The Deep Work Protocol</h3>
                     <p class="mb-4">How to create a distraction-free environment for your brain to thrive:</p>
                     <ul class="space-y-4">
-                        <li>👉 <strong>The Geography Rule:</strong> "Face down on silent" does not work. When it is time to do difficult thinking, your phone must be physically located in a different room.</li>
+                        <li>👉 <mark><strong>The Geography Rule:</strong> "Face down on silent" does not work.</mark> When it is time to do difficult thinking, your phone must be physically located in a different room.</li>
                         <li>👉 <strong>Train Your Focus Span:</strong> If you are used to checking your phone every 5 minutes, 60 minutes of Deep Work will feel impossible. Start small. Do you struggle to read a book for even 10 minutes without getting distracted? A single pass through <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> will violently force your brain to focus on the page, rebuilding your attention span.</li>
                         <li>👉 <strong>Batch Your Shallow Work:</strong> Emails, Slack messages, and texts are "Shallow Work." Don't check them constantly. Assign two specific 30-minute windows per day to handle all of them at once.</li>
                     </ul>
-                    <p class="mt-6 font-bold text-emerald-400">Remember: Your attention is a finite resource. Guard it aggressively.</p>
+                    <p class="mt-6 font-bold text-emerald-400"><mark>Remember: Your attention is a finite resource.</mark> Guard it aggressively.</p>
                 </div>
             </div>
         `
@@ -56,29 +60,33 @@ export const articles: Article[] = [
         slug: "the-80-20-rule-of-expertise",
         published: true,
         title: "The 80/20 Rule of Expertise (Pareto Principle)",
-        category: "AIM",
+        category: "PART1_AIM",
         excerpt: "You don't need to learn 100% of a subject to be dangerous at it. You only need to learn the core 20%. Here is how to deconstruct any skill.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people look at a new language, a massive textbook, or a complex software program and see an impossibly steep mountain.</p>
-                <p>They think they need to learn <em>everything</em> before they can do <em>anything</em>.</p>
-                <p>This is why most people never start. But the world's fastest learners know a secret: You don't need to learn 100% of a subject to become competent. You only need the right 20%.</p>
+                <p class="print:mb-6">They think they need to learn <em>everything</em> before they can do <em>anything</em>.</p>
+                <p class="print:mb-6">This is why most people never start. But the world's fastest learners know a secret: You don't need to learn 100% of a subject to become competent. You only need the right 20%.</p>
                 
+                <figure class="my-12 break-inside-avoid shadow-2xl print:hidden rounded-2xl overflow-hidden border border-slate-800">
+                    <img src="/images/textbook/eighty-twenty-target.png" alt="A hyper-detailed 3D archery target where only the dead-center is glowing brightly with emerald and indigo light" class="w-full h-auto object-cover m-0 transition-transform duration-700 hover:scale-105" />
+                </figure>
+
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Pareto Principle</h2>
-                <p>In 1896, an Italian economist named Vilfredo Pareto noticed something strange: 80% of the land in Italy was owned by 20% of the population. When he looked at his garden, he noticed that 80% of his peas came from 20% of the peapods.</p>
-                <p>He had discovered the <strong>Pareto Principle</strong>, often called the 80/20 rule. And it applies to almost every skill you will ever try to learn.</p>
-                <p>In almost every field of human endeavor, 20% of the inputs create 80% of the results.</p>
+                <p class="print:mb-6">In 1896, an Italian economist named Vilfredo Pareto noticed something strange: 80% of the land in Italy was owned by 20% of the population. When he looked at his garden, he noticed that 80% of his peas came from 20% of the peapods.</p>
+                <p class="print:mb-6">He had discovered the <strong>Pareto Principle</strong>, often called the 80/20 rule. And it applies to almost every skill you will ever try to learn.</p>
+                <p class="print:mb-6">In almost every field of human endeavor, 20% of the inputs create 80% of the results.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">Deconstructing the 20%</h2>
-                <p>Let's look at language learning. The Oxford English Dictionary contains over 170,000 active words.</p>
-                <p>If you tried to memorize the whole dictionary, it would take a lifetime. But if you analyze human conversation, you'll find that just <strong>the 1,000 most common words make up over 80% of daily speech</strong>.</p>
-                <p>If you memorize those 1,000 words, you suddenly have 80% fluency. You haven't mastered the language, but you have unlocked the ability to actually use it.</p>
-                <p>The same is true for learning the guitar (4 basic chords make up thousands of pop songs), programming (a handful of core concepts make up most basic scripts), or <a href="/blog/slicing-the-elephant" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">any complex subject</a>.</p>
+                <p class="print:mb-6">Let's look at language learning. The Oxford English Dictionary contains over 170,000 active words.</p>
+                <p class="print:mb-6">If you tried to memorize the whole dictionary, it would take a lifetime. But if you analyze human conversation, you'll find that just <strong>the 1,000 most common words make up over 80% of daily speech</strong>.</p>
+                <p class="print:mb-6">If you memorize those 1,000 words, you suddenly have 80% fluency. You haven't mastered the language, but you have unlocked the ability to actually use it.</p>
+                <p class="print:mb-6">The same is true for learning the guitar (4 basic chords make up thousands of pop songs), programming (a handful of core concepts make up most basic scripts), or <a href="/blog/slicing-the-elephant" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">any complex subject</a>.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stop Trying to Be a Master</h2>
-                <p>The problem is that traditional schooling trains us to seek 100% mastery. It forces us to memorize obscure facts for multiple-choice tests.</p>
-                <p>In the real world, 80% is often enough to become highly effective.</p>
-                <p>Before you dive into a massive topic, your first job isn't to read the whole book. Your first job is to play detective. You need to <em>deconstruct</em> the skill to find its core 20%. What are the foundational elements that everything else is built upon?</p>
+                <p class="print:mb-6">The problem is that traditional schooling trains us to seek 100% mastery. It forces us to memorize obscure facts for multiple-choice tests.</p>
+                <p class="print:mb-6">In the real world, 80% is often enough to become highly effective.</p>
+                <p class="print:mb-6">Before you dive into a massive topic, your first job isn't to read the whole book. Your first job is to play detective. You need to <em>deconstruct</em> the skill to find its core 20%. What are the foundational elements that everything else is built upon?</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The 80/20 Action Plan</h3>
@@ -88,7 +96,7 @@ export const articles: Article[] = [
                         <li>👉 <strong>Ignore the Edge Cases:</strong> When reading a textbook, <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">skim past</a> the obscure exceptions and hyper-specific details. Focus entirely on understanding the core frameworks.</li>
                         <li>👉 <strong>Focus on Frequency:</strong> Look for the words, concepts, or tools that appear most frequently. Those are your 20%. Master them first.</li>
                     </ul>
-                    <p class="mt-6 font-bold text-emerald-400">Remember: Perfection is the enemy of progress. Find the 20% and master it.</p>
+                    <p class="mt-6 font-bold text-emerald-400"><mark>Remember: Perfection is the enemy of progress.</mark> Find the 20% and master it.</p>
                 </div>
             </div>
         `
@@ -97,31 +105,41 @@ export const articles: Article[] = [
         slug: "the-ugly-first-draft-rule",
         published: false,
         title: "The 'Ugly First Draft' Rule for Learning",
-        category: "MINDSET",
+        category: "PART2_TOOLS",
         excerpt: "Perfectionism destroys progress. We often won't start learning a new language or coding skill because we are afraid to be bad at it. Here is why your brain literally requires you to fail first.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people don't quit learning because the material is too hard. They quit because they expect to be good at it immediately.</p>
-                <p>Think about the last time you tried to learn a new language, pick up an instrument, or understand a complex software program. The moment you made a mistake, how did you feel?</p>
-                <p>Probably frustrated. Probably embarrassed. You likely thought, <em>"I'm just not cut out for this."</em></p>
-                <p>This is the perfectionism trap. And it is the single biggest killer of human potential.</p>
+                <p class="print:mb-6">Think about the last time you tried to learn a new language, pick up an instrument, or understand a complex software program. The moment you made a mistake, how did you feel?</p>
+                <p class="print:mb-6">Probably frustrated. Probably embarrassed. You likely thought, <em>"I'm just not cut out for this."</em></p>
+                <p class="print:mb-6">This is the perfectionism trap. And it is the single biggest killer of human potential.</p>
                 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Brain Requires Mistakes</h2>
-                <p>We treat mistakes as proof of our inadequacy. But from a neurological perspective, a mistake is the exact trigger your brain needs to physically change its shape.</p>
-                <p>When you attempt something new and fail, your brain releases a cocktail of neurochemicals, including epinephrine (alertness) and acetylcholine (focus). This chemical release flags the neural circuits involved and says, <em>"Pay attention. What we just did didn't work. We need to rewire this."</em></p>
-                <p>This process of rewiring is called <strong>Neuroplasticity</strong>. And neuroplasticity cannot happen without the friction of a mistake.</p>
-                <p>If you only ever do things you are already good at, your brain never gets the signal to grow.</p>
+                
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                "We treat mistakes as proof of our inadequacy. But from a neurological perspective, a mistake is the exact trigger your brain needs to physically change its shape."
+            </blockquote>
 
-                <h2 class="text-2xl font-bold text-white mt-12 mb-6">The "Ugly First Draft" Rule</h2>
-                <p>Writers have a concept called the "Ugly First Draft." The goal of a first draft isn't to write a masterpiece. The goal is simply to get words on the page so you have something to edit later.</p>
-                <p>You need to apply this exact same rule to your learning.</p>
-                <p>When you start a new subject, give yourself permission to be absolutely terrible at it for the first 30 days.</p>
-                <p>Accept that your first attempt at speaking Spanish will sound ridiculous. Accept that your first coding project will break immediately. Accept that the first time you try <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> to read faster, your comprehension might temporarily drop.</p>
+                <p class="print:mb-6">When you attempt something new and fail, your brain releases a cocktail of neurochemicals, including epinephrine (alertness) and acetylcholine (focus). This chemical release flags the neural circuits involved and says, <em>"Pay attention. What we just did didn't work. We need to rewire this."</em></p>
+                <p class="print:mb-6">This process of rewiring is called <strong>Neuroplasticity</strong>. And neuroplasticity cannot happen without the friction of a mistake.</p>
+                
+                <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-8 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                    "If you only ever do things you are already good at, your brain never gets the signal to grow."
+                </blockquote>
+
+
+                
+                <img src="/activation_energy_sphere_1777626069166.png" alt="Illustration" class="w-full my-12 rounded-2xl shadow-xl break-inside-avoid" />
+<h2 class="text-2xl font-bold text-white mt-12 mb-6">The "Ugly First Draft" Rule</h2>
+                <p class="print:mb-6">Writers have a concept called the "Ugly First Draft." The goal of a first draft isn't to write a masterpiece. <mark>The goal is simply to get words on the page so you have something to edit later.</mark></p>
+                <p class="print:mb-6">You need to apply this exact same rule to your learning.</p>
+                <p class="print:mb-6">When you start a new subject, give yourself permission to be absolutely terrible at it for the first 30 days.</p>
+                <p class="print:mb-6">Accept that your first attempt at speaking Spanish will sound ridiculous. Accept that your first coding project will break immediately. Accept that the first time you try <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> to read faster, your comprehension might temporarily drop.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">Exposure Before Elegance</h2>
-                <p>In the beginning stages of learning, volume is more important than quality.</p>
-                <p>You don't need elegance. You need exposure. You need to bump into the walls of the subject matter enough times that your brain starts to map out the room.</p>
-                <p>By removing the pressure to be perfect on day one, you remove the <a href="/blog/friction-of-starting" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">friction of starting</a>. You can sit down, make your necessary mistakes, trigger your neuroplasticity, and actually get better.</p>
+                <p class="print:mb-6">In the beginning stages of learning, volume is more important than quality.</p>
+                <p class="print:mb-6">You don't need elegance. You need exposure. You need to bump into the walls of the subject matter enough times that your brain starts to map out the room.</p>
+                <p class="print:mb-6">By removing the pressure to be perfect on day one, you remove the <a href="/blog/friction-of-starting" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">friction of starting</a>. You can sit down, make your necessary mistakes, trigger your neuroplasticity, and actually get better.</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The 30-Day Failure Pact</h3>
@@ -131,7 +149,7 @@ export const articles: Article[] = [
                         <li>👉 <strong>Celebrate the Error:</strong> When you make a mistake, force yourself to smile. Say out loud, "Good. That's the signal my brain needed to grow." It sounds silly, but it rewires your emotional response to failure.</li>
                         <li>👉 <strong>Choose Exposure:</strong> For the next 30 days, prioritize showing up over performing well. 10 minutes of fumbling through a new skill is infinitely better than 0 minutes of waiting to feel "ready."</li>
                     </ul>
-                    <p class="mt-6 font-bold text-emerald-400">Remember: You have to be willing to be a beginner before you can become a genius.</p>
+                    <p class="mt-6 font-bold text-emerald-400"><mark>Remember: You have to be willing to be a beginner before you can become a genius.</mark></p>
                 </div>
             </div>
         `
@@ -140,29 +158,29 @@ export const articles: Article[] = [
         slug: "sleep-the-ultimate-nootropic",
         published: false,
         title: "Sleep: The Ultimate Nootropic (Smart Drug)",
-        category: "READY",
+        category: "PART2_ENV",
         excerpt: "You can try all the speed reading and memory hacks in the world, but if you only sleep 5 hours a night, your brain is physically incapable of storing new information.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Let's talk about the world's most effective, completely free cognitive enhancement drug.</p>
-                <p>It improves focus, enhances problem-solving, regulates mood, and physically locks new information into your long-term memory. But instead of taking it, millions of students and professionals actively avoid it.</p>
-                <p>It's called sleep. And if you aren't getting enough of it, every other learning technique on this website is useless.</p>
+                <p class="print:mb-6">It improves focus, enhances problem-solving, regulates mood, and physically locks new information into your long-term memory. But instead of taking it, millions of students and professionals actively avoid it.</p>
+                <p class="print:mb-6">It's called sleep. And if you aren't getting enough of it, every other learning technique on this website is useless.</p>
                 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The All-Nighter Delusion</h2>
-                <p>We've all been there: It's 1:00 AM before a massive exam or presentation. You have a giant mug of coffee, a stack of notes, and a determination to "power through" until sunrise.</p>
-                <p>It feels like dedication. But biologically, you are literally erasing the information you just tried to learn.</p>
-                <p>When you learn something new, the data is temporarily stored in the hippocampus—a part of the brain that acts like a USB thumb drive. It has very limited capacity. If you don't transfer that data to a hard drive, it gets overwritten and lost forever.</p>
+                <p class="print:mb-6">We've all been there: It's 1:00 AM before a massive exam or presentation. You have a giant mug of coffee, a stack of notes, and a determination to "power through" until sunrise.</p>
+                <p class="print:mb-6">It feels like dedication. But biologically, you are literally erasing the information you just tried to learn.</p>
+                <p class="print:mb-6">When you learn something new, the data is temporarily stored in the hippocampus—a part of the brain that acts like a USB thumb drive. It has very limited capacity. If you don't transfer that data to a hard drive, it gets overwritten and lost forever.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Night Shift: Memory Consolidation</h2>
-                <p>The magic happens when you close your eyes.</p>
-                <p>During Deep Sleep (Non-REM), your brain acts like a file clerk. It takes the frantic, messy data from your hippocampus thumb drive and permanently writes it into the neocortex—your brain's massive, long-term hard drive. This process is called <strong>Memory Consolidation</strong>.</p>
-                <p>During REM sleep (the dreaming phase), your brain does something even more incredible: it connects this new information to the things you already know. This is how "Aha!" moments happen. It's why you can struggle with a complex problem all night, go to sleep, and wake up with the solution fully formed in your mind.</p>
-                <p>If you cut your sleep short, you cut this biological transfer process short. The files are never saved.</p>
+                <p class="print:mb-6">The magic happens when you close your eyes.</p>
+                <p class="print:mb-6">During Deep Sleep (Non-REM), your brain acts like a file clerk. It takes the frantic, messy data from your hippocampus thumb drive and permanently writes it into the neocortex—your brain's massive, long-term hard drive. This process is called <strong>Memory Consolidation</strong>.</p>
+                <p class="print:mb-6">During REM sleep (the dreaming phase), your brain does something even more incredible: it connects this new information to the things you already know. This is how "Aha!" moments happen. It's why you can struggle with a complex problem all night, go to sleep, and wake up with the solution fully formed in your mind.</p>
+                <p class="print:mb-6">If you cut your sleep short, you cut this biological transfer process short. The files are never saved.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Cannot "Catch Up" on Sleep</h2>
-                <p>A common myth is that you can sleep 5 hours a night during the week and 10 hours a night on the weekend to "catch up."</p>
-                <p>Unfortunately, memory consolidation is a daily biological event. If you don't consolidate Monday's learning on Monday night, that data is gone. Sleeping 12 hours on Saturday will not bring back the neuroplasticity you missed out on earlier in the week.</p>
-                <p>To learn like a genius, you must respect your biology. You must prioritize the night shift.</p>
+                <p class="print:mb-6">A common myth is that you can sleep 5 hours a night during the week and 10 hours a night on the weekend to "catch up."</p>
+                <p class="print:mb-6">Unfortunately, memory consolidation is a daily biological event. If you don't consolidate Monday's learning on Monday night, that data is gone. Sleeping 12 hours on Saturday will not bring back the neuroplasticity you missed out on earlier in the week.</p>
+                <p class="print:mb-6">To learn like a genius, you must respect your biology. You must prioritize the night shift.</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The Nootropic Protocol</h3>
@@ -172,7 +190,7 @@ export const articles: Article[] = [
                         <li>👉 <strong>The Recall Primer:</strong> Spend the final 20 minutes before bed doing light Active Recall on the hardest thing you learned that day. Tee up the data for your brain to process while you sleep.</li>
                         <li>👉 <strong>Protect the Mechanism:</strong> Avoid alcohol and screens right before bed. Both heavily disrupt the Deep Sleep required for memory consolidation.</li>
                     </ul>
-                    <p class="mt-6 font-bold text-emerald-400">Remember: Studying without sleeping is like typing an essay and unplugging the computer before you hit "Save".</p>
+                    <p class="mt-6 font-bold text-emerald-400"><mark>Remember: Studying without sleeping is like typing an essay and unplugging the computer before you hit "Save".</mark></p>
                 </div>
             </div>
         `
@@ -181,31 +199,37 @@ export const articles: Article[] = [
         slug: "the-zeigarnik-effect",
         published: false,
         title: "The Zeigarnik Effect: How to Use Procrastination to Your Advantage",
-        category: "AIM",
+        category: "PART2_FOCUS",
         excerpt: "We always remember the tasks we haven't finished, while forgetting the ones we have. Here is how to use psychological 'cognitive tension' to make your study sessions unforgettable.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Procrastination gets a bad reputation. We are told that stopping in the middle of a task is a sign of laziness.</p>
-                <p>But when you study for an exam, memorize a speech, or read a dense book, stopping right in the middle might be the smartest thing you can do.</p>
-                <p>Welcome to one of the strangest psychological glitches in the human brain.</p>
+                <p class="print:mb-6">But when you study for an exam, memorize a speech, or read a dense book, stopping right in the middle might be the smartest thing you can do.</p>
+                <p class="print:mb-6">Welcome to one of the strangest psychological glitches in the human brain.</p>
                 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Coffee Shop Discovery</h2>
-                <p>In the 1920s, a Russian psychologist named Bluma Zeigarnik was sitting in a busy Vienna cafe.</p>
-                <p>She noticed something fascinating about the waiters: they could remember incredibly complex, unpaid orders perfectly. But the second the bill was paid and the order was finalized, the waiters instantly forgot what the customers had eaten.</p>
-                <p>Zeigarnik went back to her lab and ran a series of experiments. The results were undeniable: <strong>Human beings remember interrupted or incomplete tasks up to 90% better than completed ones.</strong></p>
-                <p>When you leave a task unfinished, your brain creates "cognitive tension." It doesn't like loose ends. So, it keeps the unfinished information running in the background of your mind, preserving it in your active memory.</p>
+                <p class="print:mb-6">In the 1920s, a Russian psychologist named Bluma Zeigarnik was sitting in a busy Vienna cafe.</p>
+                <p class="print:mb-6">She noticed something fascinating about the waiters: they could remember incredibly complex, unpaid orders perfectly. But the second the bill was paid and the order was finalized, the waiters instantly forgot what the customers had eaten.</p>
+                <p class="print:mb-6">Zeigarnik went back to her lab and ran a series of experiments. The results were undeniable: <strong>Human beings remember interrupted or incomplete tasks up to 90% better than completed ones.</strong></p>
+                <p class="print:mb-6">When you leave a task unfinished, your brain creates "cognitive tension." It doesn't like loose ends. So, it keeps the unfinished information running in the background of your mind, preserving it in your active memory.</p>
 
-                <h2 class="text-2xl font-bold text-white mt-12 mb-6">How to Weaponize Cognitive Tension</h2>
-                <p>Most students study by trying to reach a clean, satisfying stopping point. They read to the very end of the chapter. They finish the entire flashcard deck. They close the book, feel a sense of completion, and move on.</p>
-                <p>This is a mistake.</p>
-                <p>By giving your brain a sense of completion, you are giving it permission to delete the information, just like the waiters deleting the paid orders.</p>
-                <p>Instead, you need to manufacture artificial interruptions. If you are reading a difficult textbook, stop in the middle of the most complex paragraph. Close the book. Walk away.</p>
-                <p>Your brain will hate this. It will desperately want to resolve the tension. And because of that tension, your subconscious mind will continue to process, organize, and remember that paragraph long after you've left your desk.</p>
+                
+                <img src="/jigsaw_puzzle_metaphor_1777629950165.png" alt="Illustration" class="w-full my-12 rounded-2xl shadow-xl break-inside-avoid" />
+<h2 class="text-2xl font-bold text-white mt-12 mb-6">How to Weaponize Cognitive Tension</h2>
+                <p class="print:mb-6">Most students study by trying to reach a clean, satisfying stopping point. They read to the very end of the chapter. They finish the entire flashcard deck. They close the book, feel a sense of completion, and move on.</p>
+                <p class="print:mb-6">This is a mistake.</p>
+                <p class="print:mb-6">By giving your brain a sense of completion, you are giving it permission to delete the information, just like the waiters deleting the paid orders.</p>
+                <p class="print:mb-6"><mark>Instead, you need to manufacture artificial interruptions.</mark> If you are reading a difficult textbook, stop in the middle of the most complex paragraph. Close the book. Walk away.</p>
+                <p class="print:mb-6">Your brain will hate this. It will desperately want to resolve the tension. And because of that tension, your subconscious mind will continue to process, organize, and remember that paragraph long after you've left your desk.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Hemingway Trick</h2>
-                <p>This isn't just for studying. Ernest Hemingway famously used this trick to avoid writer's block.</p>
-                <p>He would always stop writing right in the middle of a sentence he knew how to finish. By doing this, he guaranteed that his brain would keep thinking about the story overnight, making it effortless to start writing again the next morning.</p>
-                <p>You can apply this to your own learning. Next time you feel the <a href="/blog/friction-of-starting" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">friction of starting</a>, remember that leaving a task unfinished makes it significantly easier to pick back up.</p>
+                
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                Ernest Hemingway famously used this exact trick. He would always stop writing for the day when he still knew what was going to happen next, deliberately leaving the task unfinished overnight.
+            </blockquote>
+
+                <p class="print:mb-6">He would always stop writing right in the middle of a sentence he knew how to finish. By doing this, he guaranteed that his brain would keep thinking about the story overnight, making it effortless to start writing again the next morning.</p>
+                <p class="print:mb-6">You can apply this to your own learning. Next time you feel the <a href="/blog/friction-of-starting" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">friction of starting</a>, remember that leaving a task unfinished makes it significantly easier to pick back up.</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The Zeigarnik Action Plan</h3>
@@ -215,7 +239,7 @@ export const articles: Article[] = [
                         <li>👉 <strong>The Mid-Sentence Stop:</strong> If you are writing an essay or a report, stop mid-sentence before you go to bed. You will wake up with the solution ready to go.</li>
                         <li>👉 <strong>Combine with Recall:</strong> The next morning, before you open the book to finish the chapter, test yourself on the unfinished concept. If you want to process the rest of the chapter faster, warm up your eyes with <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> first.</li>
                     </ul>
-                    <p class="mt-6 font-bold text-emerald-400">Remember: A satisfied brain is a forgetful brain. Leave things unfinished.</p>
+                    <p class="mt-6 font-bold text-emerald-400"><mark>Remember: A satisfied brain is a forgetful brain.</mark> Leave things unfinished.</p>
                 </div>
             </div>
         `
@@ -224,23 +248,23 @@ export const articles: Article[] = [
         slug: "why-re-reading-is-not-as-helpful",
         published: false,
         title: "Why Re-Reading Is Not As Helpful As You May Think",
-        category: "LEARN",
+        category: "PART2_TOOLS",
         excerpt: "Highlighting and rereading are the two most popular study techniques in the world. They are also objectively the worst. Here's what to do instead.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Walk into any library, and you’ll see the exact same thing: Students hunched over textbooks, dragging neon yellow highlighters across the page, endlessly rereading the same paragraphs.</p>
-                <p>It feels incredibly productive. Your brain feels busy. Your notes look colorful and important.</p>
-                <p>But decades of cognitive science have delivered a brutal verdict: Rereading and highlighting are the two least effective learning strategies ever invented.</p>
+                <p class="print:mb-6">It feels incredibly productive. Your brain feels busy. Your notes look colorful and important.</p>
+                <p class="print:mb-6">But decades of cognitive science have delivered a brutal verdict: <mark>Rereading and highlighting are the two least effective learning strategies ever invented.</mark></p>
                 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Illusion of Fluency</h2>
-                <p>When you read a passage for the third time, it feels easier. The words flow faster. You recognize the concepts.</p>
-                <p>Your brain interprets this feeling of ease as <em>"I have learned this."</em> Psychologists call this the <strong>Illusion of Fluency</strong>. You are confusing <em>recognizing</em> the text with actually <em>knowing</em> the text.</p>
-                <p>Recognition requires almost no mental effort. Your brain simply says, "Oh yes, I've seen this shape before." But true learning—the kind that survives an exam paper or a high-stakes presentation—requires <strong>retrieval</strong>.</p>
-                <p>You don't need to know how to recognize the answer on a page. You need to know how to pull the answer out of your own memory on demand.</p>
+                <p class="print:mb-6">When you read a passage for the third time, it feels easier. The words flow faster. You recognize the concepts.</p>
+                <p class="print:mb-6">Your brain interprets this feeling of ease as <em>"I have learned this."</em> Psychologists call this the <strong>Illusion of Fluency</strong>. You are confusing <em>recognizing</em> the text with actually <em>knowing</em> the text.</p>
+                <p class="print:mb-6">Recognition requires almost no mental effort. Your brain simply says, "Oh yes, I've seen this shape before." But true learning—the kind that survives an exam paper or a high-stakes presentation—requires <strong>retrieval</strong>.</p>
+                <p class="print:mb-6">You don't need to know how to recognize the answer on a page. You need to know how to pull the answer out of your own memory on demand.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Antidote: Active Recall</h2>
-                <p>If rereading is a passive glide down a smooth hill, Active Recall is an uncomfortable hike up a mountain. And that discomfort is the exact mechanism that builds memory.</p>
-                <p>Active Recall is the process of intentionally retrieving information from your brain <em>without looking at the source material</em>. It’s closing the book and asking yourself, "What did I just read?"</p>
+                <p class="print:mb-6">If rereading is a passive glide down a smooth hill, Active Recall is an uncomfortable hike up a mountain. And that discomfort is the exact mechanism that builds memory.</p>
+                <p class="print:mb-6">Active Recall is the process of intentionally retrieving information from your brain <em>without looking at the source material</em>. It’s closing the book and asking yourself, "What did I just read?"</p>
 
                 <h3 class="text-xl font-bold text-white mt-8 mb-4">How to Stop Rereading Today</h3>
                 <ul class="space-y-4">
@@ -250,12 +274,16 @@ export const articles: Article[] = [
                 </ul>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">But What If You Need to Read Things Multiple Times?</h2>
-                <p>Sometimes material is dense, and you genuinely didn't understand it the first time. In that case, you don't need to reread it exactly the same way—you need to change <em>how</em> you read it.</p>
-                <p>This is where training your visual pace comes in. By practicing with tools like <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>, you can learn to process the <em>structure</em> of the text on the first pass, and the <em>details</em> on the second pass, without falling into the passive rereading trap.</p>
+                <p class="print:mb-6">Sometimes material is dense, and you genuinely didn't understand it the first time. In that case, you don't need to reread it exactly the same way—you need to change <em>how</em> you read it.</p>
+                <p class="print:mb-6">This is where training your visual pace comes in. By practicing with tools like <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>, you can learn to process the <em>structure</em> of the text on the first pass, and the <em>details</em> on the second pass, without falling into the passive rereading trap.</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The Friction Rule</h3>
-                    <p class="mb-4">If you want to know if a study method is actually working, ask yourself one question: <strong>Does this feel a little bit difficult?</strong></p>
+                    
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                If you want to know if a study method is actually working, ask yourself one question:<br/><span class="text-emerald-400 font-bold">Does this feel a little bit difficult?</span>
+            </blockquote>
+
                     <ul class="space-y-4">
                         <li>👉 <strong>If it feels smooth and easy:</strong> You are probably just recognizing information, not learning it.</li>
                         <li>👉 <strong>If it feels frustrating and clumsy:</strong> You are actively forcing your brain to forge new connections. That is what actual learning feels like.</li>
@@ -269,30 +297,30 @@ export const articles: Article[] = [
         slug: "the-myth-of-the-visual-learner",
         published: false,
         title: "The Myth of the 'Visual Learner'",
-        category: "MINDSET",
+        category: "PART2_TOOLS",
         excerpt: "Most people label themselves as 'visual' or 'hands-on' learners and refuse to learn any other way. But the science says sticking only to your preferred style actually stunts your intellectual growth.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">"I just can't learn from reading. I'm a visual learner."</p>
-                <p>If you've ever said this—or something similar—you are artificially limiting your own intelligence.</p>
-                <p>For decades, schools and seminars pushed the idea of "Learning Styles" (Visual, Auditory, Kinesthetic). They told us we all process information perfectly in one specific format, and if we just matched the format to the student, learning would be effortless.</p>
-                <p>There's just one problem: it's not actually true.</p>
+                <p class="print:mb-6">If you've ever said this—or something similar—you are artificially limiting your own intelligence.</p>
+                <p class="print:mb-6">For decades, schools and seminars pushed the idea of "Learning Styles" (Visual, Auditory, Kinesthetic). They told us we all process information perfectly in one specific format, and if we just matched the format to the student, learning would be effortless.</p>
+                <p class="print:mb-6">There's just one problem: it's not actually true.</p>
                 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Comfort Trap</h2>
-                <p>Cognitive science has repeatedly proven that teaching a "visual learner" using only pictures doesn't significantly improve their test scores compared to teaching them with text.</p>
-                <p>What we call a "Learning Style" is actually just a <em>preference</em>. It's the way we feel most comfortable receiving information. But learning and comfort are often opposites. When we refuse to engage with material outside our preferred format, we are choosing comfort over neuroplasticity.</p>
-                <p>Yes, you might <a href="/blog/know-your-learning-superpower" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">have a learning superpower</a>. You might naturally gravitate toward spatial reasoning, or linguistic logic, or interpersonal conversations. But true genius isn't about ignoring your weaknesses; it's about building bridges from your strengths to your weaknesses.</p>
+                <p class="print:mb-6">Cognitive science has repeatedly proven that teaching a "visual learner" using only pictures doesn't significantly improve their test scores compared to teaching them with text.</p>
+                <p class="print:mb-6">What we call a "Learning Style" is actually just a <em>preference</em>. It's the way we feel most comfortable receiving information. But learning and comfort are often opposites. When we refuse to engage with material outside our preferred format, we are choosing comfort over neuroplasticity.</p>
+                <p class="print:mb-6">Yes, you might <a href="/blog/know-your-learning-superpower" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">have a learning superpower</a>. You might naturally gravitate toward spatial reasoning, or linguistic logic, or interpersonal conversations. But true genius isn't about ignoring your weaknesses; it's about building bridges from your strengths to your weaknesses.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Power of Dual Coding</h2>
-                <p>Instead of restricting yourself to one style, the most efficient way to learn is a psychological concept called <strong>Dual Coding</strong>.</p>
-                <p>Dual Coding is the practice of combining verbal materials with visual materials. When you read a difficult paragraph of text, don't just highlight it. Draw a terrible stick-figure diagram representing the concept in the margins.</p>
-                <p>When you look at a complex chart, don't just stare at it. Write a two-sentence summary of what the chart is proving.</p>
-                <p>By forcing your brain to translate information from one format (words) into a completely different format (pictures or movements), you create a massive amount of cognitive friction. That friction is exactly what builds the durable neural pathways responsible for long-term memory.</p>
+                <p class="print:mb-6">Instead of restricting yourself to one style, the most efficient way to learn is a psychological concept called <strong>Dual Coding</strong>.</p>
+                <p class="print:mb-6">Dual Coding is the practice of combining verbal materials with visual materials. When you read a difficult paragraph of text, don't just highlight it. Draw a terrible stick-figure diagram representing the concept in the margins.</p>
+                <p class="print:mb-6">When you look at a complex chart, don't just stare at it. Write a two-sentence summary of what the chart is proving.</p>
+                <p class="print:mb-6">By forcing your brain to translate information from one format (words) into a completely different format (pictures or movements), you create a massive amount of cognitive friction. That friction is exactly what builds the durable neural pathways responsible for long-term memory.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">How to Break the Habit</h2>
-                <p>If you want to become a sharper thinker, you need to intentionally step outside your comfort zone.</p>
-                <p>If you consider yourself a "hands-on" learner who hates reading, you need to train your reading stamina. (You can actually jumpstart this process in 30 minutes with <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>.)</p>
-                <p>If you consider yourself a "bookworm" who struggles with spatial concepts, you need to start forcing yourself to draw mind maps instead of just writing linear notes.</p>
+                <p class="print:mb-6">If you want to become a sharper thinker, you need to intentionally step outside your comfort zone.</p>
+                <p class="print:mb-6">If you consider yourself a "hands-on" learner who hates reading, you need to train your reading stamina. (You can actually jumpstart this process in 30 minutes with <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>.)</p>
+                <p class="print:mb-6">If you consider yourself a "bookworm" who struggles with spatial concepts, you need to start forcing yourself to draw mind maps instead of just writing linear notes.</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The Truth About Your Brain</h3>
@@ -302,7 +330,7 @@ export const articles: Article[] = [
                         <li>👉 <strong>Embrace the friction:</strong> If a learning method feels hard, it probably means your brain is actually working and growing.</li>
                         <li>👉 <strong>Mix it up:</strong> Read the book, watch the video, draw the diagram, and explain it to a friend. Attack the concept from every angle.</li>
                     </ul>
-                    <p class="mt-6 font-bold text-emerald-400">Remember: The goal isn't to make learning easy. The goal is to make learning stick.</p>
+                    <p class="mt-6 font-bold text-emerald-400"><mark>Remember: The goal isn't to make learning easy.</mark> <mark>The goal is to make learning stick.</mark></p>
                 </div>
             </div>
         `
@@ -312,52 +340,52 @@ export const articles: Article[] = [
         slug: "how-to-use-ai-to-learn",
         published: false,
         title: "How to Use AI to Learn Anything Faster (Without Cheating)",
-        category: "LEARN",
+        category: "PART2_TOOLS",
         excerpt: "Artificial Intelligence isn't just for writing emails or passing in essays you didn't write. When used correctly, it becomes the most powerful, personalized tutor in human history. Here are 4 ways to use AI to actually build your brain.",
         content: `
             <div class="space-y-6">
                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people use AI completely wrong when it comes to learning. They treat it like an answer key.</p>
-                <p>They paste a complicated question into ChatGPT, get a perfectly formatted paragraph back, and copy-paste it into their notes. They feel productive. They feel like they've learned something.</p>
-                <p>But they haven't.</p>
-                <p>Because learning isn't about having the right answer on a piece of paper. It's about building the neural pathways in your brain to arrive at that answer yourself. When you let an AI do the heavy lifting of thinking, you bypass the very friction that creates comprehension and memory.</p>
-                <p>However, if you flip the script, AI becomes the greatest learning tool since the invention of the printing press.</p>
+                <p class="print:mb-6">They paste a complicated question into ChatGPT, get a perfectly formatted paragraph back, and copy-paste it into their notes. They feel productive. They feel like they've learned something.</p>
+                <p class="print:mb-6">But they haven't.</p>
+                <p class="print:mb-6">Because learning isn't about having the right answer on a piece of paper. It's about building the neural pathways in your brain to arrive at that answer yourself. When you let an AI do the heavy lifting of thinking, you bypass the very friction that creates comprehension and memory.</p>
+                <p class="print:mb-6">However, if you flip the script, AI becomes the greatest learning tool since the invention of the printing press.</p>
                 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stop Using AI as an Answer Key. Start Using it as a Tutor.</h2>
-                <p>A good tutor doesn't just give you the answer. They ask you questions. They find the exact gap in your knowledge and build a bridge to help you cross it. You can train an AI to do exactly this.</p>
-                <p>Here are four powerful ways to use AI as your personal learning assistant, rather than a shortcut.</p>
+                <p class="print:mb-6">A good tutor doesn't just give you the answer. They ask you questions. They find the exact gap in your knowledge and build a bridge to help you cross it. You can train an AI to do exactly this.</p>
+                <p class="print:mb-6">Here are four powerful ways to use AI as your personal learning assistant, rather than a shortcut.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">1. The Socratic Interrogator</h2>
-                <p>Instead of asking AI to explain a topic to you, ask it to test you on a topic. Use this exact prompt:</p>
+                <p class="print:mb-6">Instead of asking AI to explain a topic to you, ask it to test you on a topic. Use this exact prompt:</p>
                 <blockquote class="italic text-indigo-300 border-l-4 border-indigo-500 pl-4 my-6 py-4 bg-slate-900/50 rounded-r-lg text-lg">
                     "I am trying to learn about [Your Topic]. Act as a strict but encouraging Socratic tutor. Do not give me answers. Ask me one question at a time to test my understanding. Wait for my response, evaluate it, and then ask the next logical question to deepen my knowledge."
                 </blockquote>
-                <p>This forces you into Active Recall. It forces you to retrieve the information from your own brain, which is the only way to actually cement it.</p>
+                <p class="print:mb-6">This forces you into Active Recall. It forces you to retrieve the information from your own brain, which is the only way to actually cement it.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">2. The Analogy Generator</h2>
-                <p>Sometimes a concept is just too abstract. If you're struggling to understand a complex accounting principle or a piece of chemistry, ask an AI to map it onto something you already deeply understand.</p>
+                <p class="print:mb-6">Sometimes a concept is just too abstract. If you're struggling to understand a complex accounting principle or a piece of chemistry, ask an AI to map it onto something you already deeply understand.</p>
                 <blockquote class="italic text-emerald-300 border-l-4 border-emerald-500 pl-4 my-6 py-4 bg-emerald-950/20 rounded-r-lg text-lg">
                     "I am struggling to understand [Complex Concept]. Please explain it to me using an analogy based on [A Hobby You Love, e.g., baking, football, video games]."
                 </blockquote>
-                <p>By attaching new, difficult information to old, familiar information, your brain builds connections significantly faster.</p>
+                <p class="print:mb-6">By attaching new, difficult information to old, familiar information, your brain builds connections significantly faster.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">3. The Feynman Simulator</h2>
-                <p>In our article on the Feynman Technique, we discussed how the best way to test your knowledge is to try to explain it simply. You can use AI to simulate an audience.</p>
+                <p class="print:mb-6">In our article on the Feynman Technique, we discussed how the best way to test your knowledge is to try to explain it simply. You can use AI to simulate an audience.</p>
                 <blockquote class="italic text-sky-300 border-l-4 border-sky-500 pl-4 my-6 py-4 bg-sky-950/20 rounded-r-lg text-lg">
                     "I am going to explain [Topic] to you as if I were teaching a 12-year-old. After I finish, please point out any gaps in my logic, any jargon I used that wasn't properly explained, and rate my explanation out of 10."
                 </blockquote>
-                <p>This is incredible for finding the hidden blind spots in your own understanding.</p>
+                <p class="print:mb-6">This is incredible for finding the hidden blind spots in your own understanding.</p>
 
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">4. The Flashcard & Practice Test Creator</h2>
-                <p>If you have a massive PDF, an article, or a textbook chapter, feed it into the AI.</p>
+                <p class="print:mb-6">If you have a massive PDF, an article, or a textbook chapter, feed it into the AI.</p>
                 <blockquote class="italic text-violet-300 border-l-4 border-violet-500 pl-4 my-6 py-4 bg-violet-950/20 rounded-r-lg text-lg">
                     "Read this attached text. Generate 10 difficult multiple-choice questions and 5 short-answer questions based on the core concepts. Do not show me the answers until I ask for them."
                 </blockquote>
-                <p>Instantly, you have a custom practice test. If you want to take it a step further, before tackling dense material, prime your brain by taking <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>. It will help you read and process the AI's output significantly faster.</p>
+                <p class="print:mb-6">Instantly, you have a custom practice test. If you want to take it a step further, before tackling dense material, prime your brain by taking <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a>. It will help you read and process the AI's output significantly faster.</p>
 
                 <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                     <h3 class="text-xl font-bold text-indigo-300 mb-4">The Golden Rule of AI Learning</h3>
                     <p class="mb-4">If the AI is doing the thinking, you are not learning.</p>
-                    <p>Always use AI to generate <strong>friction</strong>. Use it to quiz you, to challenge your logic, and to generate alternative perspectives. If you use it as an outsourced brain, your own brain will simply atrophy.</p>
+                    <p class="print:mb-6">Always use AI to generate <strong>friction</strong>. Use it to quiz you, to challenge your logic, and to generate alternative perspectives. If you use it as an outsourced brain, your own brain will simply atrophy.</p>
                     <p class="mt-6 font-bold text-emerald-400">Treat AI like a personal trainer for your mind. It can hand you the weights, but you still have to do the lifting.</p>
                 </div>
             </div>
@@ -368,28 +396,28 @@ export const articles: Article[] = [
         slug: "the-4-stages-of-learning",
         published: false,
         title: "The 4 Stages of Learning",
-        category: "MINDSET",
+        category: "PART2_ENV",
         excerpt: "Learning a new skill is a predictable journey. Understanding the four stages of learning—using the classic driving analogy—will keep you from quitting when things get tough.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Have you ever started learning something new, only to feel like you're actually getting <em>worse</em> at it?</p>
-            <p>You’re not alone, and you’re not going backward. You are simply experiencing the universal process of acquiring a new skill. Psychologists call this the "Four Stages of Competence," and understanding it is the secret to not quitting when learning gets difficult.</p>
-            <p>The easiest way to understand these four stages is to think back to when you first learned to drive a car.</p>
+            <p class="print:mb-6">You’re not alone, and you’re not going backward. You are simply experiencing the universal process of acquiring a new skill. Psychologists call this the "Four Stages of Competence," and understanding it is the secret to not quitting when learning gets difficult.</p>
+            <p class="print:mb-6">The easiest way to understand these four stages is to think back to when you first learned to drive a car.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 1: Unconscious Incompetence (You don’t know what you don’t know)</h2>
-            <p>Before you ever sat behind the wheel of a car, driving looked easy. You watched your parents do it effortlessly while talking, drinking coffee, and changing the radio. You were completely unaware of the complex coordination required to steer, brake, accelerate, check mirrors, and watch for traffic.</p>
-            <p>You were incompetent, but you were <em>unconscious</em> of your incompetence. You didn't realize how much you didn't know.</p>
+            <p class="print:mb-6">Before you ever sat behind the wheel of a car, driving looked easy. You watched your parents do it effortlessly while talking, drinking coffee, and changing the radio. You were completely unaware of the complex coordination required to steer, brake, accelerate, check mirrors, and watch for traffic.</p>
+            <p class="print:mb-6">You were incompetent, but you were <em>unconscious</em> of your incompetence. You didn't realize how much you didn't know.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 2: Conscious Incompetence (You know what you don’t know)</h2>
-            <p>Then came your first driving lesson. You sat in the driver's seat, grabbed the wheel, and suddenly realized how overwhelming it was. The car jerked forward. You stared at your feet trying to find the brake. You forgot to check your blind spot. You were acutely aware of how terrible you were at driving.</p>
-            <p>This is <strong>Conscious Incompetence</strong>, and it is the most uncomfortable stage of learning. It’s the stage where most people quit. It feels frustrating precisely because your awareness has grown faster than your ability.</p>
+            <p class="print:mb-6">Then came your first driving lesson. You sat in the driver's seat, grabbed the wheel, and suddenly realized how overwhelming it was. The car jerked forward. You stared at your feet trying to find the brake. You forgot to check your blind spot. You were acutely aware of how terrible you were at driving.</p>
+            <p class="print:mb-6">This is <strong>Conscious Incompetence</strong>, and it is the most uncomfortable stage of learning. It’s the stage where most people quit. It feels frustrating precisely because your awareness has grown faster than your ability.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 3: Conscious Competence (You can do it, but it takes effort)</h2>
-            <p>After weeks of practice, you passed your driving test. You could drive safely, but it required your full, undivided attention. You had to turn down the radio to merge onto the highway. You had to consciously recite, "Mirror, signal, maneuver."</p>
-            <p>You were finally competent, but it took extreme focus. This is <strong>Conscious Competence</strong>. You can perform the skill, but it drains your mental energy.</p>
+            <p class="print:mb-6">After weeks of practice, you passed your driving test. You could drive safely, but it required your full, undivided attention. You had to turn down the radio to merge onto the highway. You had to consciously recite, "Mirror, signal, maneuver."</p>
+            <p class="print:mb-6">You were finally competent, but it took extreme focus. This is <strong>Conscious Competence</strong>. You can perform the skill, but it drains your mental energy.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Stage 4: Unconscious Competence (You do it without thinking)</h2>
-            <p>Fast forward a few years. You drive home from work and pull into your driveway, suddenly realizing you don't even remember the drive. Your brain handled the steering, the braking, the traffic lights, and the lane changes on autopilot.</p>
-            <p>This is <strong>Unconscious Competence</strong>. The skill has become second nature. It requires almost zero cognitive load, freeing your mind to think about other things.</p>
+            <p class="print:mb-6">Fast forward a few years. You drive home from work and pull into your driveway, suddenly realizing you don't even remember the drive. Your brain handled the steering, the braking, the traffic lights, and the lane changes on autopilot.</p>
+            <p class="print:mb-6">This is <strong>Unconscious Competence</strong>. The skill has become second nature. It requires almost zero cognitive load, freeing your mind to think about other things.</p>
 
             <div class="my-10 p-8 rounded-3xl bg-indigo-950/30 border-l-4 border-indigo-500">
                 <h3 class="text-xl font-bold text-indigo-300 mb-4">Applying This to Your Learning Speed</h3>
@@ -400,7 +428,7 @@ export const articles: Article[] = [
                     <li>👉 <strong>With practice:</strong> You will reach Stage 3. You will be able to read rapidly and memorize lists, but it will take intense focus and intentional effort.</li>
                     <li>👉 <strong>The ultimate goal:</strong> Stage 4. Speed reading and genius-level comprehension will become your default state. You won't have to "try" to learn efficiently; your brain will just do it automatically.</li>
                 </ul>
-                <p class="mt-6 font-bold text-emerald-400">Remember: When learning feels hardest, you haven't failed. You've just arrived at Stage 2. Keep going.</p>
+                <p class="mt-6 font-bold text-emerald-400"><mark>Remember: When learning feels hardest, you haven't failed.</mark> You've just arrived at Stage 2. Keep going.</p>
             </div>
         `
     },
@@ -409,53 +437,53 @@ export const articles: Article[] = [
         slug: "initiate-a-learning-mindset",
         published: true,
         title: "Initiate a Learning Mindset",
-        category: "READY",
+        category: "PART1_LEARN",
         excerpt: "Your learning doesn’t begin with a book. It begins with your mind. What you believe about yourself shapes everything that follows.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Your learning doesn’t begin with a book. It begins with your mind. Before techniques. Before speed reading. Before note-taking. What you believe about yourself—right at the start—shapes everything that follows.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Story About What We Believe</h2>
-            <p>In the 1960s, a study was carried out by Robert Rosenthal and Lenore Jacobson in a primary school.</p>
-            <p>At the beginning of the year, teachers were told that certain students in their class had been identified as “academic bloomers”—children expected to show significant intellectual growth.</p>
-            <p>The catch?</p>
-            <p>The students had been chosen completely at random. There was nothing different about them. No higher ability. No hidden potential that others didn’t have.</p>
-            <p>And yet, by the end of the year, those students did show significantly greater progress. Not because of intelligence. Because of expectation.</p>
+            <p class="print:mb-6">In the 1960s, a study was carried out by Robert Rosenthal and Lenore Jacobson in a primary school.</p>
+            <p class="print:mb-6">At the beginning of the year, teachers were told that certain students in their class had been identified as “academic bloomers”—children expected to show significant intellectual growth.</p>
+            <p class="print:mb-6">The catch?</p>
+            <p class="print:mb-6">The students had been chosen completely at random. There was nothing different about them. No higher ability. No hidden potential that others didn’t have.</p>
+            <p class="print:mb-6">And yet, by the end of the year, those students did show significantly greater progress. Not because of intelligence. Because of expectation.</p>
             
-            <p>The teachers, without realising it:</p>
+            <p class="print:mb-6">The teachers, without realising it:</p>
             <ul class="list-disc pl-6 space-y-2 mb-6">
                 <li>Gave them slightly more attention</li>
                 <li>Encouraged them a bit more</li>
                 <li>Expected better from them</li>
             </ul>
             
-            <p>And the students, in turn:</p>
+            <p class="print:mb-6">And the students, in turn:</p>
             <ul class="list-disc pl-6 space-y-2 mb-6">
                 <li>Became more confident</li>
                 <li>Took more risks</li>
                 <li>Engaged more fully</li>
             </ul>
-            <p>They began to live up to what was believed about them.</p>
+            <p class="print:mb-6">They began to live up to what was believed about them.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">What This Means for You</h2>
-            <p>You don’t have that teacher standing over you. But you do have something just as powerful:</p>
+            <p class="print:mb-6">You don’t have that teacher standing over you. But you do have something just as powerful:</p>
             <p class="font-medium text-indigo-300 my-6">👉 The way you speak to yourself before you begin</p>
-            <p>Every time you sit down to learn, there is a quiet narrative running:</p>
+            <p class="print:mb-6">Every time you sit down to learn, there is a quiet narrative running:</p>
             
             <blockquote class="border-l-2 border-slate-700 pl-6 italic text-slate-400 my-8 space-y-2">
-                <p>“I’m not great at this”</p>
-                <p>“This is going to be hard”</p>
-                <p>“I probably won’t understand it”</p>
+                <p class="print:mb-6">“I’m not great at this”</p>
+                <p class="print:mb-6">“This is going to be hard”</p>
+                <p class="print:mb-6">“I probably won’t understand it”</p>
             </blockquote>
             
-            <p>Or:</p>
+            <p class="print:mb-6">Or:</p>
             
             <blockquote class="border-l-2 border-indigo-500 pl-6 italic text-slate-300 my-8 space-y-2">
-                <p>“I can figure this out”</p>
-                <p>“There’s something here for me”</p>
-                <p>“I’m ready to engage”</p>
+                <p class="print:mb-6">“I can figure this out”</p>
+                <p class="print:mb-6">“There’s something here for me”</p>
+                <p class="print:mb-6">“I’m ready to engage”</p>
             </blockquote>
             
-            <p>And that voice matters more than you think. Because it changes:</p>
+            <p class="print:mb-6">And that voice matters more than you think. Because it changes:</p>
             <ul class="list-disc pl-6 space-y-2 mb-6 text-slate-300">
                 <li>How focused you are</li>
                 <li>How long you persist</li>
@@ -470,38 +498,38 @@ export const articles: Article[] = [
             </blockquote>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Shift: Confidence and Curiosity</h2>
-            <p>If you want to learn well, you don’t need hype. You don’t need pressure.</p>
-            <p>You need two things:</p>
+            <p class="print:mb-6">If you want to learn well, you don’t need hype. You don’t need pressure.</p>
+            <p class="print:mb-6">You need two things:</p>
             <ul class="space-y-4 my-8 font-medium text-lg text-indigo-300">
                 <li>👉 Confidence</li>
                 <li>👉 Curiosity</li>
             </ul>
-            <p><strong class="text-white">Confidence</strong> says: “I can grow into this—even if it’s unfamiliar.”</p>
-            <p><strong class="text-white">Curiosity</strong> says: “There’s something here worth discovering.”</p>
-            <p>When those two are present, learning changes completely. You stop resisting the material. You start engaging with it.</p>
+            <p class="print:mb-6"><strong class="text-white">Confidence</strong> says: “I can grow into this—even if it’s unfamiliar.”</p>
+            <p class="print:mb-6"><strong class="text-white">Curiosity</strong> says: “There’s something here worth discovering.”</p>
+            <p class="print:mb-6">When those two are present, learning changes completely. You stop resisting the material. You start engaging with it.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Simple Exercise to Set Your Mind</h2>
-            <p>Before you begin your next learning session, take a couple of minutes to do this. Not as a theory—but as a reset.</p>
+            <p class="print:mb-6">Before you begin your next learning session, take a couple of minutes to do this. Not as a theory—but as a reset.</p>
 
             <h3 class="text-xl font-bold text-white mt-8 mb-4">1. Remember Confidence</h3>
-            <p>Think back to a time in your life when you felt deeply confident. Not just capable—but certain.</p>
-            <p>What were you doing? How did you carry yourself? What did it feel like internally?</p>
+            <p class="print:mb-6">Think back to a time in your life when you felt deeply confident. Not just capable—but certain.</p>
+            <p class="print:mb-6">What were you doing? How did you carry yourself? What did it feel like internally?</p>
             <p class="mt-4">Sit in that for a moment. Let your body remember it.</p>
 
             <h3 class="text-xl font-bold text-white mt-8 mb-4">2. Remember Curiosity</h3>
-            <p>Now think of a time when you were genuinely curious. When you wanted to know.</p>
-            <p>You were asking questions. You were exploring. You were engaged without being forced.</p>
+            <p class="print:mb-6">Now think of a time when you were genuinely curious. When you wanted to know.</p>
+            <p class="print:mb-6">You were asking questions. You were exploring. You were engaged without being forced.</p>
             <p class="mt-4">Again, pause there. Feel it.</p>
 
             <h3 class="text-xl font-bold text-white mt-8 mb-4">3. Bring It Into the Present</h3>
-            <p>Now, as you’re about to begin <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all">The Rogue Session</a> or any learning endeavor, make a simple decision:</p>
+            <p class="print:mb-6">Now, as you’re about to begin <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all">The Rogue Session</a> or any learning endeavor, make a simple decision:</p>
             <p class="font-bold text-xl text-white italic my-8 text-center bg-slate-800/50 py-8 px-6 rounded-2xl">“I’m going to approach this with that same confidence… and that same curiosity.”</p>
-            <p>You don’t need to feel it perfectly. Just set the direction.</p>
+            <p class="print:mb-6">You don’t need to feel it perfectly. Just set the direction.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Why This Works</h2>
-            <p>This is not just a mindset trick. It’s how your brain works.</p>
-            <p>When you begin with <strong class="text-white">Confidence</strong> <span class="text-indigo-400 mx-2">→</span> your brain becomes more open and less defensive.</p>
-            <p>When you begin with <strong class="text-white">Curiosity</strong> <span class="text-indigo-400 mx-2">→</span> your attention sharpens and engagement increases.</p>
+            <p class="print:mb-6">This is not just a mindset trick. It’s how your brain works.</p>
+            <p class="print:mb-6">When you begin with <strong class="text-white">Confidence</strong> <span class="text-indigo-400 mx-2">→</span> your brain becomes more open and less defensive.</p>
+            <p class="print:mb-6">When you begin with <strong class="text-white">Curiosity</strong> <span class="text-indigo-400 mx-2">→</span> your attention sharpens and engagement increases.</p>
             
             <p class="mt-8">You move from:</p>
             <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
@@ -509,11 +537,15 @@ export const articles: Article[] = [
                 <li class="flex items-center"><span class="w-32 inline-block">resistance</span> <span class="text-indigo-500 mr-3">→</span> <strong class="text-white">exploration</strong></li>
             </ul>
             
-            <p>And just like in that classroom study: <em>What is expected… begins to happen.</em></p>
+            
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                "What is expected... begins to happen."
+            </blockquote>
+
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Bringing It Together</h2>
-            <p>A strong learning mindset isn’t complicated. It’s a choice you make at the beginning:</p>
-            <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
+            <p class="print:mb-6">A strong learning mindset isn’t complicated. It’s a choice you make at the beginning:</p>
+            <ul class="list-disc pl-6 space-y-1 my-4 text-slate-300">
                 <li>I can grow into this</li>
                 <li>There is something here worth understanding</li>
                 <li>I will engage, not just skim</li>
@@ -555,181 +587,194 @@ export const articles: Article[] = [
         slug: "know-your-why",
         published: true,
         title: "Know Your Why",
-        category: "READY",
+        category: "PART1_READY",
         excerpt: "What makes learning feel heavy isn't the effort—it's the absence of a clear reason. Discover why discovering your core motivation changes everything.",
         content: `
-            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">A 2020 study published in the <em>Education in Medicine Journal</em> of undergraduate medical students found that one of the main differences between study success and failure was their motivation... their 'why.'</p>
 
-    <p>Medical school is one of the most grueling, high-pressure academic environments in the world.When researchers investigate why some thrive while others burn out, they consistently find a fascinating distinction.Students who were trying to pass exams, meet family expectations, or secure a high-status job were found to be significantly more likely to experience exhaustion and consider abandoning their studies.</p>
-    <p>Those with a deep, internal fascination with healing, science, or purpose ... those who had a better 'why' didn’t just survive the workload, but they achieved higher sustained performance.</p>
+\n            <div class="break-inside-avoid print:hidden">
+                <div style="height: 160px; margin-top: 20px; margin-bottom: 16px; box-sizing: border-box;  display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px;">
+                    <h2 class="text-4xl sm:text-5xl font-black text-slate-800 print:text-slate-950 leading-tight m-0 tracking-tight text-center">Know Your Why</h2>
+                </div>
+                <div style="height: 350px; box-sizing: border-box;  display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; padding: 16px;">
+                    <p class="!m-0">Medical school is one of the most grueling, high-pressure academic environments in the world. When researchers investigate why some thrive while others burn out, they consistently find a fascinating distinction. Students who were trying to pass exams, meet family expectations, or secure a high-status job were found to be significantly more likely to experience exhaustion and consider abandoning their studies.</p>
+                    <p class="!mt-4 !mb-0">Those with a deep, internal fascination with healing, science, or purpose ... those who had a better \"why\" didn’t just survive the workload, but they achieved higher sustained performance.</p>
+                </div>
+            </div>
 
-    <p class="mt-8">When something matters, effort feels different. It’s not easy, but it is purposeful.</p>
-    <p>There is a simple principle: <strong>When your reason is strong enough, you will find a way.</strong></p>
-                    <p>You will return to it when distracted.You will push through when it feels slow.You will stay with it when others give up.</p>
-                        <p> But if your reason is weak, even the best ‘techniques’ won’t hold you.</p>
 
-    <h2 class="text-2xl font-bold text-white mt-12 mb-6">Go Beyond Surface Answers</h2>
-    <p>A student might say: <em>“I want good grades.”</em></p>
-    <p>That sounds fine. But it doesn’t go far enough. So you ask questions like:</p>
-    <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
-        <li>“Why do you want good grades?”</li>
-        <li>“What will that give you?”</li>
-        <li>“Why does that matter?”</li>
-    </ul>
 
-    <p>And then again. And again.</p>
-    <p>Like the medical students, it is important that it matters to you for the right reasons. If your first answers seem too shallow, keep asking, something deeper emerges.</p>
-    <p>Consider the medical students:</p>
+            <div class="break-inside-avoid print:hidden">
+                <div style="height: 160px; margin-top: 20px; margin-bottom: 16px; box-sizing: border-box;  display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px;">
+                    <div class="p-4 rounded-xl bg-indigo-950/40 border-l-4 border-indigo-500 shadow-md !m-0 w-full relative">
+                        <p class="text-sm font-bold text-indigo-300 print:text-indigo-800 print:text-indigo-800 print:text-indigo-800 font-serif leading-snug italic !m-0 !p-0">\"A 2020 study published in the Education in Medicine Journal found that the main difference between study success and failure was their motivation... their \"why.\"\"</p>
+                        <p class="text-[10px] text-slate-400 print:text-slate-600 print:text-slate-600 uppercase tracking-widest font-bold !m-0 !mt-2 !p-0">Science of Learning</p>
+                    </div>
+                </div>
+                <div style="height: 350px; box-sizing: border-box;  display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; padding: 16px;">
+                    <p class="!m-0">When something matters, effort feels different. It’s not easy, but it is purposeful.</p>
+                    <p class="!mt-4 !mb-0">There is a simple principle: <strong>When your reason is strong enough, you will find a way.</strong></p>
+                    <p class="!mt-4 !mb-0">You will return to it when distracted. You will push through when it feels slow. You will stay with it when others give up.</p>
+                    <p class="!mt-4 !mb-0">But if your reason is weak, even the best ‘techniques’ won’t hold you.</p>
+                </div>
+            </div>
+            <div class="hidden print:block mb-8 print:mb-6">
+                <!-- Title takes up upper third -->
+                <div class="flex flex-col items-center justify-center text-center pt-12 pb-16 print:pt-8 print:pb-10 border border-slate-300 rounded-sm mb-12 print:mb-8 relative">
+                    <div class="absolute inset-1 border border-slate-200 rounded-sm pointer-events-none"></div>
+                    <p class="text-slate-500 uppercase tracking-[0.3em] font-bold text-sm mb-6">Chapter 1</p>
+                    <h1 class="text-6xl font-black text-slate-900 tracking-tighter mb-8 leading-none">Know Your<br class="print:hidden"/>Why</h1>
+                    <p class="text-2xl text-slate-600 font-serif italic max-w-lg mx-auto">"When your reason is strong enough, you'll find a way."</p>
+                </div>
+                
+                <!-- Medical Study Hook -->
+                <div class="p-8 rounded-none border-t border-b border-l-4 border-r border-indigo-500 print:border-slate-800 print:border-l-[6px] print:border-t-0 print:border-b-0 print:border-r-0 w-full mb-8 relative print:bg-transparent" style="page-break-inside: avoid; display: inline-block;">
+                    <span class="hidden print:block absolute -top-8 -left-4 text-9xl font-serif text-slate-300 pointer-events-none">"</span>
+                    <p class="text-lg font-bold text-indigo-800 font-serif leading-snug italic !m-0 !p-0">"A 2020 study published in the Education in Medicine Journal found that the main difference between study success and failure was their motivation... their 'why.'"</p>
+                    <p class="text-xs text-slate-500 uppercase tracking-widest font-bold !m-0 !mt-3 !p-0">Science of Learning</p>
+                </div>
+                
+                <p class="print:mb-6"><span class="hidden print:inline float-left text-[80px] font-serif text-slate-900 font-black leading-[0.65] mr-4 mt-2">M</span><span class="print:hidden">M</span>edical school is one of the most grueling, high-pressure academic environments in the world. When researchers investigate why some thrive while others burn out, they consistently find a fascinating distinction. Students who were trying to pass exams, meet family expectations, or secure a high-status job were found to be significantly more likely to experience exhaustion and consider abandoning their studies.</p>
+                
+                <p class="print:mb-6">Those with a deep, internal fascination with healing, science, or purpose ... those who had a better "why" didn’t just survive the workload, but they achieved higher sustained performance.</p>
+                
+                <p class="print:mb-6">When something matters, effort feels different. It’s not easy, but it is purposeful.</p>
+                
+                <p class="print:mb-6">There is a simple principle: <strong>When your reason is strong enough, you will find a way.</strong></p>
+                
+                <p class="print:mb-6">You will return to it when distracted. You will push through when it feels slow. You will stay with it when others give up.</p>
+                
+                <p class="print:mb-6">But if your reason is weak, even the best ‘techniques’ won’t hold you.</p>
+            </div>
+\n        
 
-    <blockquote class="my-10 pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl">
-        <p class="text-xl font-medium text-white italic leading-relaxed space-y-4">
-            “I want to understand how healing works.”<br/><br/>
-            “I want to help people live healthier and longer.”<br/><br/>
-            “By doing this, my life can make a difference in the world.”
-        </p>
-    </blockquote>
 
-    <p class="text-lg text-white font-medium">That is different. That holds.</p>
+            <!-- SCREEN VERSION PAGE 11 -->
+            <div class="break-inside-avoid print:hidden">
+                <div style="height: 160px; margin-top: 20px; margin-bottom: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px;">
+                    <h2 class="text-2xl font-bold text-slate-800 leading-tight m-0 tracking-tight text-center">Your Why Needs to Go Beyond Surface Answers.</h2>
+                </div>
+                <div style="height: 350px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; padding: 16px;">
+                    <p class="!m-0">Most students settle for the first answer: <em>“I want good grades.”</em> While fine, these surface reasons lack the emotional weight to sustain you when learning becomes grueling. If your reason is weak, even the best techniques won’t hold you.</p>
 
-        <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Most People Stop Too Early </h2>
-            <p> The problem is not that people don’t have a reason.It’s that they settle for the first one.And the first one is rarely strong enough.</p>
-                <p> If your reason doesn’t carry emotional weight, it won’t sustain action.You don’t need something dramatic.But you do need something real.</p>
+                    <div class="my-6 p-5 bg-indigo-950/20 border border-indigo-500/30 rounded-xl relative shadow-lg w-full">
+                        <div class="absolute -left-3 top-6 w-1 h-12 bg-indigo-500 rounded-full"></div>
+                        <h3 class="text-lg font-bold text-indigo-300 mb-2 mt-0 uppercase tracking-widest font-serif">The Drill-Down Protocol</h3>
+                        <p class="text-sm !m-0 text-slate-800">Take a blank page and write your initial goal. Then ask: <strong>"Why does that matter?"</strong></p>
+                        <p class="text-sm mt-2 mb-0 text-slate-800">Repeat this process 4–5 times. Keep drilling down until you reach a reason that carries real emotional weight—a core "why" that will keep you on track when others give up.</p>
+                    </div>
 
-                    <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Your Why Brings Order </h2>
-                        <p> A clear “why” does something quietly powerful.It simplifies your decisions.</p>
-                            <p> Without a clear why, everything feels equally important.You drift between tasks.You react instead of choose.</p>
-                                <p> But with a clear why, you know what matters.You filter distractions.You stay consistent.</p>
+                    <p class="!mt-2 !mb-0">A clear “why” brings order. It simplifies decisions. You stop drifting between tasks and start filtering distractions because you know what truly matters.</p>
+                </div>
+            </div>
 
-                                    <div class="mt-16 p-8 bg-indigo-950/20 border border-indigo-500/20 rounded-3xl relative overflow-hidden">
-                                        <div class="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
-                                            <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"> <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" /> <polyline points="14 2 14 8 20 8" /> <path d="M8 13h2" /> <path d="M8 17h2" /> <path d="M14 13h2" /> <path d="M14 17h2" /> </svg>
-                                                </div>
-                                                <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                                                    A Simple Exercise
-                                                        </h3>
-                                                        <p class="mb-8 text-slate-300"> Take a blank page and follow these steps.Don't rush it.</p>
+            <!-- SCREEN VERSION PAGE 12 -->
+            <div class="break-inside-avoid print:hidden">
+                <div style="height: 160px; margin-top: 20px; margin-bottom: 16px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px;">
+                    <div class="p-5 border border-indigo-500/30 bg-indigo-950/20 rounded-xl relative shadow-lg w-full">
+                        <div class="absolute -left-3 top-6 w-1 h-12 bg-indigo-500 rounded-full"></div>
+                        <p class="text-[14px] font-medium text-slate-800 italic leading-snug !m-0">
+                            "If you drill down and realize you don’t actually have a strong 'why,' you have a much more serious question to ask yourself: Is this the right path for me?"
+                        </p>
+                        <div class="mt-4 pt-3 border-t border-indigo-500/20">
+                            <p class="text-indigo-800 text-[10px] uppercase tracking-widest font-bold !m-0">Note for Younger Learners</p>
+                            <p class="text-slate-600 text-[13px] mt-1 !mb-0 font-serif italic leading-snug">
+                                If you aren't yet mature enough to see how your studies will impact your future, it is entirely valid to trust and "borrow" your parents' 'why' for now.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 350px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; padding: 16px;">
+                    <h3 class="text-xl font-bold text-slate-800 mt-0 mb-2">Most Stop Too Early</h3>
+                    <p class="!m-0 text-[15px] leading-relaxed">The problem isn't lacking a reason—it's settling for the first one. Uncover a core motivation and your effort becomes purposeful. You'll push through when it feels slow.</p>
 
-                                                            <div class="space-y-6 mb-8">
-                                                                <div class="flex items-start gap-4">
-                                                                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0"> 1 </span>
-                                                                        <p class="text-white font-medium pt-1"> Write: <em class="text-indigo-300"> Why am I learning this ? </em> and answer it.</p>
-                                                                            </div>
-                                                                            <div class="flex items-start gap-4">
-                                                                                <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0"> 2 </span>
-                                                                                    <p class="text-white font-medium pt-1"> Then ask: <em class="text-indigo-300"> Why does that matter ? </em></p>
-                                                                                        </div>
-                                                                                        <div class="flex items-start gap-4">
-                                                                                            <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-800 text-indigo-300 font-bold shrink-0"> 3 </span>
-                                                                                                <p class="text-white font-medium pt-1"> Repeat this process 4–5 times.</p>
-                                                                                                    </div>
-                                                                                                    </div>
+                    <div class="mt-6 pt-5 border-t border-slate-300 w-full mt-auto">
+                        <p class="text-sm font-black text-indigo-500 uppercase tracking-widest !m-0 mb-2">⚠️ Action Required</p>
+                        <p class="font-serif text-slate-900 font-bold italic text-sm mt-1 !mb-0 leading-snug">Stop reading. Grab a pen and write down your core 'why' before turning the page.</p>
+                    </div>
+                </div>
+            </div>
 
-                                                                                                    <p class="font-bold text-indigo-300 text-lg">👉 At some point you will reach something real or you will realise you don’t yet have a strong reason.Both are useful.</p>
-                                                                                                        </div>
+            <!-- PRINT VERSION (Both Pages) -->
+            <div class="hidden print:block">
+                <h2 class="text-2xl font-bold text-slate-900 mt-0 pt-0 mb-4 tracking-tight leading-tight pr-4 break-after-avoid">Your Why Needs to Go Beyond Surface Answers.</h2>
+                <p class="mb-6">Most students settle for the first answer: <em>“I want good grades.”</em> While fine, these surface reasons lack the emotional weight to sustain you when learning becomes grueling. If your reason is weak, even the best techniques won’t hold you.</p>
 
-                                                                                                        <h2 class="text-2xl font-bold text-white mt-16 mb-6"> When the Why Isn’t There Yet </h2>
-                                                                                                            <p> This is important.</p>
-                                                                                                                <p> Sometimes the honest answer is: <em>“I don’t know why this matters to me.”</em></p>
-                                                                                                                    <p>That’s not failure.It’s clarity.And it gives you two options: </p>
-                                                                                                                        <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
-                                                                                                                            <li>Find a better reason.</li>
-                                                                                                                                <li> Or reconsider whether this is worth pursuing.</li>
-                                                                                                                                    </ul>
-                                                                                                                                    <p> Both are better than drifting without direction.</p>
+                <div class="my-6 p-5 border-slate-400 border-[2px] border-dashed rounded-none relative shadow-none break-inside-avoid bg-transparent" style="page-break-inside: avoid; break-inside: avoid; display: inline-block; width: 100%;">
+                    <h3 class="text-lg font-bold text-slate-800 mb-2 mt-0 uppercase tracking-widest font-serif">The Drill-Down Protocol</h3>
+                    <p class="text-sm !m-0">Take a blank page and write your initial goal. Then ask: <strong>"Why does that matter?"</strong></p>
+                    <p class="text-sm mt-2 mb-0">Repeat this process 4–5 times. Keep drilling down until you reach a reason that carries real emotional weight—a core "why" that will keep you on track when others give up.</p>
+                    <div class="mt-4 space-y-3 w-full">
+                        <div class="border-b-2 border-dashed border-slate-300 w-full flex items-end pb-1 pt-2"><span class="text-xs text-slate-400 font-serif italic">1.</span></div>
+                        <div class="border-b-2 border-dashed border-slate-300 w-full flex items-end pb-1 pt-2"><span class="text-xs text-slate-400 font-serif italic">Why does that matter?</span></div>
+                        <div class="border-b-2 border-dashed border-slate-300 w-full flex items-end pb-1 pt-2"><span class="text-xs text-slate-400 font-serif italic">Why does that matter?</span></div>
+                        <div class="border-b-2 border-dashed border-slate-300 w-full flex items-end pb-1 pt-2"><span class="text-xs text-slate-400 font-serif italic">Why does that matter?</span></div>
+                        <div class="border-b-2 border-dashed border-slate-300 w-full flex items-end pb-1 pt-2"><span class="text-xs text-slate-800 font-serif font-bold uppercase tracking-widest">My Core Why</span></div>
+                    </div>
+                </div>
 
-                                                                                                                                        <div class="my-12 p-6 border border-slate-800 rounded-2xl bg-slate-900/50 flex flex-col md:flex-row gap-6 items-center md:items-start">
-                                                                                                                                            <div class="w-16 h-24 shrink-0 bg-indigo-900/30 rounded border border-indigo-500/30 flex items-center justify-center text-indigo-400">
-                                                                                                                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" /> </svg>
-                                                                                                                                                    </div>
-                                                                                                                                                    <div>
-                                                                                                                                                    <h4 class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1"> A Helpful Resource </h4>
-                                                                                                                                                        <h3 class="text-lg font-bold text-white mb-2"> Man's Search for Meaning</h3>
-                                                                                                                                                            <p class="text-sm text-slate-400"> If you want to think more deeply about purpose, Viktor Frankl's classic is a powerful place to start. It doesn’t give you a quick answer—but it sharpens the question.</p>
-                                                                                                                                                                </div>
-                                                                                                                                                                </div>
+                <p class="mb-6">A clear “why” brings order. It simplifies decisions. You stop drifting between tasks and start filtering distractions because you know what truly matters.</p>
 
-                                                                                                                                                                <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Using AI to Clarify Your Why </h2>
-                                                                                                                                                                    <p> Most people use AI to summarise information.But it can also help you think more clearly.</p>
-                                                                                                                                                                        <p> Instead of asking: <em>“Summarise this chapter...”</em></p>
+                <div class="my-6 p-5 bg-transparent border-slate-300 shadow-none rounded-none border relative break-inside-avoid" style="page-break-inside: avoid; break-inside: avoid;">
+                    <p class="text-[14px] font-medium text-slate-900 italic leading-snug !m-0">
+                        "If you drill down and realize you don’t actually have a strong 'why,' you have a much more serious question to ask yourself: Is this the right path for me?"
+                    </p>
+                    <div class="mt-4 pt-3 border-t border-indigo-500/20">
+                        <p class="text-indigo-800 text-[10px] uppercase tracking-widest font-bold !m-0">Note for Younger Learners</p>
+                        <p class="text-slate-700 text-[13px] mt-1 !mb-0 font-serif italic leading-snug">
+                            If you aren't yet mature enough to see how your studies will impact your future, it is entirely valid to trust and "borrow" your parents' 'why' for now.
+                        </p>
+                    </div>
+                </div>
 
-                                                                                                                                                                            <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
-                                                                                                                                                                                <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
-                                                                                                                                                                                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest"> Try These AI Prompts </p>
-                                                                                                                                                                                        </div>
-                                                                                                                                                                                        <div class="p-6 bg-slate-950/50 space-y-6">
-                                                                                                                                                                                            <div>
-                                                                                                                                                                                            <p class="text-indigo-300 font-bold mb-1"> For deep probing: </p>
-                                                                                                                                                                                                <p class="text-slate-300 italic">“Help me identify a deeper reason for learning this by asking me a series of ‘why’ questions.”</p>
-                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                    <div>
-                                                                                                                                                                                                    <p class="text-indigo-300 font-bold mb-1"> For discovering long-term value: </p>
-                                                                                                                                                                                                        <p class="text-slate-300 italic">“Based on this subject, what are meaningful long-term reasons someone might care about understanding it ?”</p>
-                                                                                                                                                                                                            </div>
-                                                                                                                                                                                                            <div>
-                                                                                                                                                                                                            <p class="text-indigo-300 font-bold mb-1"> If you think better through conversation: </p>
-                                                                                                                                                                                                                <p class="text-slate-300 italic">“Walk me through a dialogue that helps me discover my real motivation for learning this.”</p>
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                    </div>
+                <h3 class="text-xl font-bold text-slate-900 mt-4 mb-2 break-after-avoid">Most Stop Too Early</h3>
+                <p class="!m-0">The problem isn't that people don't have a reason—it's that they settle for the first one they think of. Once you uncover a core motivation, your effort changes. It isn't easy, but it becomes purposeful.</p>
+                <p class="mt-3 mb-0">You will return to it when distracted, and you will push through when it feels slow.</p>
 
-                                                                                                                                                                                                                    <p> This turns AI into a thinking partner—not just a shortcut.</p>
-
-                                                                                                                                                                                                                        <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Final Thought </h2>
-                                                                                                                                                                                                                            <p> You don’t need perfect clarity.But you do need enough reason to stay.</p>
-                                                                                                                                                                                                                                <p> Because learning always involves friction.And when that friction comes, your “why” is what determines whether you continue—or stop.</p>
-
-                                                                                                                                                                                                                                    <p class="mt-8 text-slate-400"> Once your reason is clear, the next question is simple: <strong>What exactly are you aiming for? </strong> That’s where most people remain vague—and where progress begins to drift. In the next article, we’ll make that precise.</p>
-                                                                                                                                                                                                                                        <p class= "mt-6 text-slate-400"> If you have your 'why' and want to see the immediate 'how', <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all"> The Rogue Session </a> is designed to help you read faster and process better in just 30 minutes.</p>
-
-                                                                                                                                                                                                                                            <hr class="border-slate-800 my-16" />
-
-                                                                                                                                                                                                                                                <h3 class="text-xl font-bold text-white mb-6"> Continue Your Journey </h3>
-                                                                                                                                                                                                                                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                                                                                                                                                                                                                                                        <a href="/blog/set-your-goals" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                                                                                                                                                                                                                                                            <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2"> Next up in READY </p>
-                                                                                                                                                                                                                                                                <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors"> Set Your Goals <span class="text-indigo-500 ml-1">→</span></h4>
-                                                                                                                                                                                                                                                                    </a>
-                                                                                                                                                                                                                                                                    </div>
-                                                                                                                                                                                                                                                                        `
+                <div class="mt-8 pt-6 border-t border-slate-300 break-inside-avoid" style="page-break-inside: avoid; break-inside: avoid;">
+                    <p class="text-sm font-black text-slate-800 uppercase tracking-widest !m-0 mb-2">⚠️ Action Required</p>
+                    <p class="font-serif text-slate-900 font-bold italic text-base mt-1 !mb-0 leading-snug">Stop reading. Grab a pen and write down your core 'why' before turning the page.</p>
+                </div>
+            </div>
+        `
     },
     {
         slug: "set-your-goals",
         published: true,
         title: "Set Your Goals",
-        category: "READY",
+        category: "PART1_READY",
         excerpt: "Clarity of purpose is powerful, but not enough. Because a clear reason without a clear target leads to movement—but not progress.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Clarity of purpose is powerful. But on its own, it is not enough. Because a clear reason without a clear target leads to movement—but not progress.</p>
             
-            <p>Most people approach learning like this:</p>
+            <p class="print:mb-6">Most people approach learning like this:</p>
             <blockquote class="border-l-2 border-slate-700 pl-6 italic text-slate-400 my-8 space-y-2">
-                <p>“I’ll try to read more”</p>
-                <p>“I want to understand this better”</p>
+                <p class="print:mb-6">“I’ll try to read more”</p>
+                <p class="print:mb-6">“I want to understand this better”</p>
             </blockquote>
-            <p>It sounds good. But it lacks direction.</p>
+            <p class="print:mb-6">It sounds good. But it lacks direction.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Need Something to Aim At</h2>
-            <p>Learning improves dramatically when it becomes specific. Because once you define what you are aiming for, you can:</p>
+            <p class="print:mb-6">Learning improves dramatically when it becomes specific. Because once you define what you are aiming for, you can:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Plan</li>
                 <li>Adjust</li>
                 <li>Measure progress</li>
             </ul>
-            <p>Without that, everything remains vague.</p>
+            <p class="print:mb-6">Without that, everything remains vague.</p>
             <p class="font-medium text-indigo-300 my-6">👉 So the question is simple: What exactly are you trying to achieve?</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Different Goals, Different Approaches</h2>
-            <p>Not all learning goals are the same.</p>
-            <p>A student might ask: <em class="text-indigo-200">Do I want to pass—or excel?</em></p>
-            <p>A professional might ask: <em class="text-indigo-200">Do I need familiarity—or expertise?</em></p>
-            <p>Someone reading for interest might ask: <em class="text-indigo-200">Am I exploring—or mastering?</em></p>
+            <p class="print:mb-6">Not all learning goals are the same.</p>
+            <p class="print:mb-6">A student might ask: <em class="text-indigo-200">Do I want to pass—or excel?</em></p>
+            <p class="print:mb-6">A professional might ask: <em class="text-indigo-200">Do I need familiarity—or expertise?</em></p>
+            <p class="print:mb-6">Someone reading for interest might ask: <em class="text-indigo-200">Am I exploring—or mastering?</em></p>
             <p class="mt-6">Each of these requires a different level of effort, focus, and structure.</p>
             <p class="font-medium text-white my-6">If you don’t define it, you default to inconsistency.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Write It Down</h2>
-            <p>This matters more than it seems. What is your goal?</p>
-            <p>Write it clearly. Not mentally. <strong class="text-white">Physically.</strong></p>
-            <p>Because once it is written, it becomes:</p>
+            <p class="print:mb-6">This matters more than it seems. What is your goal?</p>
+            <p class="print:mb-6">Write it clearly. Not mentally. <strong class="text-white">Physically.</strong></p>
+            <p class="print:mb-6">Because once it is written, it becomes:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Concrete</li>
                 <li>Visible</li>
@@ -737,7 +782,7 @@ export const articles: Article[] = [
             </ul>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">The SMART Framework (Used Properly)</h2>
-            <p>The SMART framework is simple—but often used poorly. Used well, it brings clarity.</p>
+            <p class="print:mb-6">The SMART framework is simple—but often used poorly. Used well, it brings clarity.</p>
 
             <div class="space-y-8 my-10">
                 <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-6">
@@ -786,9 +831,9 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Common Mistake</h2>
-            <p>Many people set goals that are too broad.</p>
-            <p>For example: <em>“I want to understand this book.”</em></p>
-            <p>That’s not a goal. That’s an intention.</p>
+            <p class="print:mb-6">Many people set goals that are too broad.</p>
+            <p class="print:mb-6">For example: <em>“I want to understand this book.”</em></p>
+            <p class="print:mb-6">That’s not a goal. That’s an intention.</p>
             <p class="mt-6 mb-2">A better version:</p>
             <blockquote class="pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic">
                 “I will read 10 pages per day and summarise the key ideas in my own words.”
@@ -796,7 +841,7 @@ export const articles: Article[] = [
             <p class="mt-4 text-white font-bold">Now it’s actionable.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Using AI to Strengthen Your Goals</h2>
-            <p>AI can help you move from vague to structured—quickly.</p>
+            <p class="print:mb-6">AI can help you move from vague to structured—quickly.</p>
             
             <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
                 <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
@@ -826,71 +871,50 @@ export const articles: Article[] = [
                 </div>
             </div>
             
-            <p>Again, the goal is not to outsource thinking—but to support it.</p>
+            <p class="print:mb-6">Again, the goal is not to outsource thinking—but to support it.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Where This Leads</h2>
-            <p>Once you have:</p>
+            <p class="print:mb-6">Once you have:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>A clear reason</li>
                 <li>A defined goal</li>
             </ul>
-            <p>You are no longer guessing. You are prepared.</p>
-            <p>The next step is learning how to approach the material itself. Because even with clarity and direction, most people still begin poorly.</p>
+            <p class="print:mb-6">You are no longer guessing. You are prepared.</p>
+            <p class="print:mb-6">The next step is learning how to approach the material itself. Because even with clarity and direction, most people still begin poorly.</p>
 
-            <h2 class="text-2xl font-bold text-white mt-12 mb-6">Next Step</h2>
-            <p>Before you start learning, you need to prepare properly.</p>
-            <p>In the next article, we’ll look at how to approach material so that you don’t waste effort from the beginning.</p>
 
-            <div class="mt-12 p-8 border border-slate-800 bg-slate-900/50 rounded-3xl text-center">
-                <p class="text-slate-300">If you want to move from vague intention to structured learning quickly, <a href="/rogue-session" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">The Rogue Session</a> guides you through that process.</p>
-                <a href="/rogue-session" class="inline-block mt-6 px-8 py-3 bg-indigo-500 hover:bg-indigo-400 text-white font-bold rounded-full transition-colors">👉 Try it for $5</a>
-            </div>
-
-            <hr class="border-slate-800 my-16" />
-
-            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/know-your-learning-superpower" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Know Your Learning Superpower <span class="text-indigo-500 ml-1">→</span></h4>
-                </a>
-                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
-                </a>
-            </div>
         `
     },
     {
         slug: "feel-sharp",
         published: true,
         title: "Feel Sharp",
-        category: "READY",
+        category: "PART1_READY",
         excerpt: "If you are not feeling sharp, learning becomes unnecessarily difficult. It’s like trying to ride a bike with a flat tyre. Your state matters just as much as your strategy.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">If you are not feeling sharp, learning becomes unnecessarily difficult. It’s like trying to ride a bike with a flat tyre. You can still move—but it takes far more effort than it should.</p>
 
-            <p>Most people focus on techniques.</p>
+            <p class="print:mb-6">Most people focus on techniques.</p>
             <p class="font-medium text-white mb-8">But your state matters just as much as your strategy.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Body Affects Your Mind</h2>
-            <p>Try something simple.</p>
+            <p class="print:mb-6">Try something simple.</p>
             <ul class="space-y-2 my-6 text-slate-300">
                 <li>Stand up straight.</li>
                 <li>Shoulders back.</li>
                 <li>Take a deep breath.</li>
                 <li>Smile.</li>
             </ul>
-            <p>Now try to feel genuinely low or discouraged.</p>
+            <p class="print:mb-6">Now try to feel genuinely low or discouraged.</p>
             <p class="font-medium text-indigo-300 my-6">👉 It’s not easy.</p>
             
-            <p>Now reverse it:</p>
+            <p class="print:mb-6">Now reverse it:</p>
             <ul class="space-y-2 my-6 text-slate-400 italic border-l-2 border-slate-700 pl-4">
                 <li>Slouch</li>
                 <li>Shallow breathing</li>
                 <li>Look down</li>
             </ul>
-            <p>Your state shifts quickly.</p>
+            <p class="print:mb-6">Your state shifts quickly.</p>
             
             <p class="mt-8">This isn’t complicated. Your physiology affects:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
@@ -901,7 +925,7 @@ export const articles: Article[] = [
             <p class="font-bold text-white">And all three affect your ability to learn.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Foundations of Feeling Sharp</h2>
-            <p>You don’t need optimisation.</p>
+            <p class="print:mb-6">You don’t need optimisation.</p>
             <p class="text-lg text-indigo-300 font-medium mb-8">You need consistency in a few basics.</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
@@ -954,7 +978,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Simple 7-Day Reset</h2>
-            <p>Try this for one week:</p>
+            <p class="print:mb-6">Try this for one week:</p>
             <div class="my-8 p-6 bg-indigo-950/20 border border-indigo-500/20 rounded-2xl">
                 <ul class="space-y-4 font-medium text-white">
                     <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> 8 hours of sleep</li>
@@ -964,18 +988,18 @@ export const articles: Article[] = [
                     <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Write down 5 things you’re grateful for</li>
                 </ul>
             </div>
-            <p>Not extreme. Just consistent.</p>
+            <p class="print:mb-6">Not extreme. Just consistent.</p>
             <p class="font-bold text-indigo-300 my-6">Then observe the difference.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Why This Matters More Than You Think</h2>
-            <p>Most people try to fix learning by changing technique.</p>
-            <p>But if your baseline state is low, everything feels harder.</p>
+            <p class="print:mb-6">Most people try to fix learning by changing technique.</p>
+            <p class="print:mb-6">But if your baseline state is low, everything feels harder.</p>
             <blockquote class="pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8">
                 Improving your state doesn’t just help a little. It changes how learning feels.
             </blockquote>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Using AI to Support Your Energy and Focus</h2>
-            <p>This might not be obvious—but AI can help here too.</p>
+            <p class="print:mb-6">This might not be obvious—but AI can help here too.</p>
 
             <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
                 <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
@@ -993,11 +1017,11 @@ export const articles: Article[] = [
                     </div>
                 </div>
             </div>
-            <p>Again, not outsourcing—but supporting.</p>
+            <p class="print:mb-6">Again, not outsourcing—but supporting.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Final Thought</h2>
-            <p>You don’t need perfect conditions to learn.</p>
-            <p>But you do need to remove unnecessary friction.</p>
+            <p class="print:mb-6">You don’t need perfect conditions to learn.</p>
+            <p class="print:mb-6">But you do need to remove unnecessary friction.</p>
             <p class="text-lg font-bold text-white mt-6 mb-12">Because when your mind is clear and your energy is steady, learning becomes far more natural.</p>
 
             <hr class="border-slate-800 my-16" />
@@ -1019,41 +1043,41 @@ export const articles: Article[] = [
         slug: "create-your-learning-lab",
         published: true,
         title: "Create Your Learning Lab",
-        category: "READY",
+        category: "PART1_READY",
         excerpt: "Your environment matters more than most people realise. You don't need the perfect setup, but you do need a deliberate one. Here's how to build a space that supports your learning.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Imagine trying to learn something important in the middle of chaos. Noise. Distraction. Discomfort. You might manage—but it will cost you.</p>
 
-            <p>Now imagine a space that is:</p>
+            <p class="print:mb-6">Now imagine a space that is:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Calm</li>
                 <li>Familiar</li>
                 <li>Set up for focus</li>
             </ul>
-            <p>The same task feels different.</p>
+            <p class="print:mb-6">The same task feels different.</p>
             <p class="font-medium text-white mb-8">Your environment matters more than most people realise.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Don’t Need the Perfect Setup</h2>
-            <p>But you do need a deliberate one. Because your environment either:</p>
+            <p class="print:mb-6">But you do need a deliberate one. Because your environment either:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-indigo-300 font-medium">
                 <li>Supports your learning</li>
                 <li>Or quietly works against it</li>
             </ul>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Design a Space That Works for You</h2>
-            <p>There is no single “correct” setup.</p>
-            <p>Some people need:</p>
+            <p class="print:mb-6">There is no single “correct” setup.</p>
+            <p class="print:mb-6">Some people need:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Silence</li>
                 <li>Minimal distraction</li>
             </ul>
 
-            <p>Others work better with:</p>
+            <p class="print:mb-6">Others work better with:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Background noise</li>
                 <li>A sense of activity</li>
             </ul>
-            <p>The key is not copying someone else. It’s understanding what works for you.</p>
+            <p class="print:mb-6"><mark>The key is not copying someone else.</mark> It’s understanding what works for you.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">What to Consider</h2>
 
@@ -1113,8 +1137,8 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Thought From Learning Research</h2>
-            <p>In the 1970s, Georgi Lozanov developed methods to improve learning environments.</p>
-            <p>His work emphasised:</p>
+            <p class="print:mb-6">In the 1970s, Georgi Lozanov developed methods to improve learning environments.</p>
+            <p class="print:mb-6">His work emphasised:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Relaxation</li>
                 <li>Atmosphere</li>
@@ -1125,7 +1149,7 @@ export const articles: Article[] = [
             </blockquote>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Learning Lab Is Personal</h2>
-            <p>This is not about aesthetics. It’s about function.</p>
+            <p class="print:mb-6">This is not about aesthetics. It’s about function.</p>
             <p class="font-medium text-white my-6">Ask yourself:</p>
             <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
                 <li class="pl-4 border-l-2 border-slate-700">Where do I focus best?</li>
@@ -1135,7 +1159,7 @@ export const articles: Article[] = [
             <p class="font-bold text-indigo-300 my-6">Then build around that.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Using AI to Design Your Learning Environment</h2>
-            <p>You can even use AI here.</p>
+            <p class="print:mb-6">You can even use AI here.</p>
 
             <div class="my-8 rounded-2xl overflow-hidden border border-slate-800">
                 <div class="bg-slate-900 border-b border-slate-800 px-6 py-4">
@@ -1150,11 +1174,11 @@ export const articles: Article[] = [
                     </div>
                 </div>
             </div>
-            <p>You can refine your environment quickly—without guesswork.</p>
+            <p class="print:mb-6">You can refine your environment quickly—without guesswork.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Final Thought</h2>
-            <p>You don’t need perfect conditions.</p>
-            <p>But small improvements in your environment compound quickly.</p>
+            <p class="print:mb-6">You don’t need perfect conditions.</p>
+            <p class="print:mb-6">But small improvements in your environment compound quickly.</p>
             <p class="text-lg font-bold text-white mt-6 mb-12">Because when your space supports your focus, learning becomes easier to sustain.</p>
 
             <hr class="border-slate-800 my-16" />
@@ -1176,12 +1200,12 @@ export const articles: Article[] = [
         slug: "your-social-circle",
         published: true,
         title: "Show Me Your Friends and I'll Show You Your Future",
-        category: "READY",
+        category: "PART1_READY",
         excerpt: "Most people think learning is a solo activity. But the people in your life — the ones you speak with, learn alongside, or even just observe — quietly shape how well you grow.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people think learning is a solo activity. A book. A screen. A quiet room. Just you and the material. And yes — focused, solitary work matters. But it isn’t the whole picture.</p>
 
-            <p>Because the people in your life — the ones you speak with, learn alongside, or even just observe — quietly shape how well you grow.</p>
+            <p class="print:mb-6">Because the people in your life — the ones you speak with, learn alongside, or even just observe — quietly shape how well you grow.</p>
             <p class="font-medium text-white mb-8">Sometimes they lift you. Sometimes they limit you. Often, without meaning to.</p>
 
             <blockquote class="border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8 mb-12">
@@ -1189,13 +1213,13 @@ export const articles: Article[] = [
             </blockquote>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">1. The Influence You Don’t Notice (Bandura)</h2>
-            <p>In the 1970s, psychologist Albert Bandura showed that human beings do not learn in isolation. We absorb posture.</p>
-            <p>In his famous Bobo doll experiment, children who watched adults behave aggressively toward a doll were far more likely to imitate that behaviour themselves.</p>
+            <p class="print:mb-6">In the 1970s, psychologist Albert Bandura showed that human beings do not learn in isolation. We absorb posture.</p>
+            <p class="print:mb-6">In his famous Bobo doll experiment, children who watched adults behave aggressively toward a doll were far more likely to imitate that behaviour themselves.</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>No instruction required.</li>
                 <li>Just exposure.</li>
             </ul>
-            <p>The principle extends far beyond childhood. As adults, we absorb:</p>
+            <p class="print:mb-6">The principle extends far beyond childhood. As adults, we absorb:</p>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -1236,8 +1260,8 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">2. The Roommate Effect (Sacerdote)</h2>
-            <p>Does simply being in the same room as someone driven change your performance?</p>
-            <p>In 2001, economist Bruce Sacerdote studied students at Dartmouth College who were randomly assigned to dorm rooms. He found that peer effects were startlingly real: your roommate's academic dedication significantly impacted your own Grade Point Average.</p>
+            <p class="print:mb-6">Does simply being in the same room as someone driven change your performance?</p>
+            <p class="print:mb-6">In 2001, economist Bruce Sacerdote studied students at Dartmouth College who were randomly assigned to dorm rooms. He found that peer effects were startlingly real: your roommate's academic dedication significantly impacted your own Grade Point Average.</p>
             <p class="mt-6 mb-4 font-medium text-white">This research highlights a profound reality:</p>
             
             <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
@@ -1246,11 +1270,11 @@ export const articles: Article[] = [
                 <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> Posture is contagious</li>
             </ul>
             
-            <p>Even if you never study the same subject, the raw effort and focus of the person sitting next to you will pull your own performance up—or drag it down.</p>
+            <p class="print:mb-6">Even if you never study the same subject, the raw effort and focus of the person sitting next to you will pull your own performance up—or drag it down.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">3. The Medical Student Insight (The Protégé Effect)</h2>
-            <p>There’s another study that adds an important layer to this.</p>
-            <p>Research with medical students — those facing high cognitive demand and large volumes of material — found something interesting: The students who performed best did not simply study in groups. Nor did they only study alone.</p>
+            <p class="print:mb-6">There’s another study that adds an important layer to this.</p>
+            <p class="print:mb-6">Research with medical students — those facing high cognitive demand and large volumes of material — found something interesting: The students who performed best did not simply study in groups. Nor did they only study alone.</p>
             
             <p class="font-bold text-indigo-300 mt-6 mb-4">The strongest results came from those who:</p>
             <div class="flex flex-col sm:flex-row items-center gap-4 text-white font-medium my-6 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
@@ -1259,7 +1283,7 @@ export const articles: Article[] = [
                 <span class="px-4 py-2 bg-indigo-500/20 border border-indigo-500/30 rounded-lg text-center w-full sm:w-auto">Then explained it to others</span>
             </div>
             
-            <p>This reflects what researchers call the <strong class="text-white">“protégé effect”</strong> — the idea that preparing to teach or explain material significantly strengthens understanding and retention.</p>
+            <p class="print:mb-6">This reflects what researchers call the <strong class="text-white">“protégé effect”</strong> — the idea that preparing to teach or explain material significantly strengthens understanding and retention.</p>
             
             <p class="mt-6 font-medium text-slate-300">When you know you’ll need to articulate something:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
@@ -1267,10 +1291,10 @@ export const articles: Article[] = [
                 <li>You identify gaps in your understanding</li>
                 <li>You engage more deeply</li>
             </ul>
-            <p>And when you explain it to someone else, your knowledge stabilises. Learning moves from passive intake to active ownership.</p>
+            <p class="print:mb-6">And when you explain it to someone else, your knowledge stabilises. Learning moves from passive intake to active ownership.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Powerful Rhythm</h2>
-            <p>This gives us a helpful rhythm:</p>
+            <p class="print:mb-6">This gives us a helpful rhythm:</p>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8 text-center">
                 <div class="bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
@@ -1283,7 +1307,7 @@ export const articles: Article[] = [
                 </div>
             </div>
             
-            <p>Both matter. But many people lean too far in one direction.</p>
+            <p class="print:mb-6">Both matter. But many people lean too far in one direction.</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Some isolate completely — and their understanding remains untested.</li>
                 <li>Others rely only on group study — and never build internal clarity.</li>
@@ -1291,7 +1315,7 @@ export const articles: Article[] = [
             <p class="font-bold text-white my-8">The most powerful growth happens in the combination.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Try This</h2>
-            <p>Next time you study, experiment with this pattern:</p>
+            <p class="print:mb-6">Next time you study, experiment with this pattern:</p>
 
             <div class="space-y-6 my-8">
                 <div class="p-6 bg-slate-900/40 border-l-4 border-slate-600 rounded-r-2xl">
@@ -1314,11 +1338,11 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>Notice what happens. Where do you hesitate? Where do you feel confident? What becomes clearer as you speak?</p>
+            <p class="print:mb-6">Notice what happens. Where do you hesitate? Where do you feel confident? What becomes clearer as you speak?</p>
             <p class="font-medium text-white my-6">That moment of articulation is where learning deepens.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Choosing the Right People</h2>
-            <p>Not every environment strengthens growth.</p>
+            <p class="print:mb-6">Not every environment strengthens growth.</p>
             <p class="mt-6 mb-4 font-medium text-white">Ask yourself:</p>
             <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
                 <li class="pl-4 border-l-2 border-slate-700">Who in my life values understanding?</li>
@@ -1326,10 +1350,10 @@ export const articles: Article[] = [
                 <li class="pl-4 border-l-2 border-slate-700">Who raises the level of conversation?</li>
                 <li class="pl-4 border-l-2 border-slate-700">Who encourages persistence rather than cynicism?</li>
             </ul>
-            <p>You don’t need many. One or two serious learners in your orbit can change everything.</p>
+            <p class="print:mb-6">You don’t need many. One or two serious learners in your orbit can change everything.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Reflection</h2>
-            <p>Consider your current learning rhythm:</p>
+            <p class="print:mb-6">Consider your current learning rhythm:</p>
             <div class="my-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800">
                 <ul class="space-y-3 text-slate-300">
                     <li class="flex gap-3 items-start"><span class="text-indigo-400">1.</span> Am I isolating too much?</li>
@@ -1358,38 +1382,43 @@ export const articles: Article[] = [
         slug: "know-your-learning-superpower",
         published: true,
         title: "Know Your Learning Superpower",
-        category: "READY",
+        category: "PART1_READY",
         excerpt: "You have a learning superpower—do you know what it is? We all have different strengths, yet most of us were taught in exactly the same way.",
         content: `\n
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people think they are either "good at learning" or not. But that's not true!</p>
-            <p>What is true is that most people have never been shown how they learn best. No two people are exactly the same. We all have different strengths and different ways our brains process information.</p>
-            <p>And yet, most of us were taught in exactly the same way.</p>
+            <p class="print:mb-6">What is true is that most people have never been shown how they learn best. No two people are exactly the same. We all have different strengths and different ways our brains process information.</p>
+            <p class="print:mb-6">And yet, most of us were taught in exactly the same way.</p>
 
-            <blockquote class="my-10 pl-6 border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl">
-                <p class="text-xl font-medium text-white italic leading-relaxed">"Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."</p>
-                <footer class="mt-4 text-sm font-bold text-indigo-300 uppercase tracking-widest">— Often attributed to Albert Einstein</footer>
+            
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                "Everybody is a genius. But if you judge a fish by its ability to climb a tree, it will live its whole life believing that it is stupid."
+                <footer class="mt-6 text-sm font-sans font-bold text-indigo-400 uppercase tracking-widest">— Often attributed to Albert Einstein</footer>
             </blockquote>
+    
 
-            <p>Have you noticed that some students love writing essays, while others would rather build something with their hands?</p>
-            <p>Some people remember information when they hear a song, others when they see a diagram, and others when they try something themselves.</p>
-            <p>For a long time, school tended to assume that intelligence looked mostly like this:</p>
+            <p class="print:mb-6">Have you noticed that some students love writing essays, while others would rather build something with their hands?</p>
+            <p class="print:mb-6">Some people remember information when they hear a song, others when they see a diagram, and others when they try something themselves.</p>
+            <p class="print:mb-6">For a long time, school tended to assume that intelligence looked mostly like this:</p>
             <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
                 <li>reading well</li>
                 <li>writing clearly</li>
                 <li>solving math problems</li>
             </ul>
-            <p>But a psychologist from Harvard University, Howard Gardner, proposed something revolutionary.</p>
-            <p>He suggested that the real question is not:<br /><em>"How smart are you?"</em></p>
-            <p>Instead, the better question is:<br /><em>"How are you smart?"</em></p>
+            <p class="print:mb-6">But a psychologist from Harvard University, Howard Gardner, proposed something revolutionary.</p>
+            
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                The real question is not: "How smart are you?"<br/>The better question is: "How are you smart?"
+            </blockquote>
+    
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Gardner's Multiple Intelligences Theory</h2>
-            <p>Gardner called this idea Multiple Intelligences Theory.</p>
-            <p>According to this theory, humans don't have just one kind of intelligence. We have many different ways of being intelligent, and each person tends to have certain strengths.</p>
-            <p>Think of it like a set of learning superpowers.<br />Some people's minds are powerful with words. Others see the world in pictures. Some think best when they move their bodies. Others understand people, music, nature, or patterns in extraordinary ways.<br />None of these intelligences is better than the others. They are simply different ways our minds engage with the world.</p>
+            <p class="print:mb-6">Gardner called this idea Multiple Intelligences Theory.</p>
+            <p class="print:mb-6">According to this theory, humans don't have just one kind of intelligence. We have many different ways of being intelligent, and each person tends to have certain strengths.</p>
+            <p class="print:mb-6">Think of it like a set of learning superpowers.<br />Some people's minds are powerful with words. Others see the world in pictures. Some think best when they move their bodies. Others understand people, music, nature, or patterns in extraordinary ways.<br />None of these intelligences is better than the others. They are simply different ways our minds engage with the world.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Eight Learning Superpowers</h2>
-            <p>Gardner identified eight main kinds of intelligence that appear again and again in human learning.</p>
-            <p>You might recognize yourself in one or more of these:</p>
+            <p class="print:mb-6">Gardner identified eight main kinds of intelligence that appear again and again in human learning.</p>
+            <p class="print:mb-6">You might recognize yourself in one or more of these:</p>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
                 <div class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/30 transition-colors flex flex-col">
@@ -1518,39 +1547,39 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-16 mb-6">Why This Matters</h2>
-            <p>Many students struggle in school not because they lack intelligence, but because the teaching style doesn't match their strongest way of learning.</p>
-            <p>For example:</p>
+            <p class="print:mb-6">Many students struggle in school not because they lack intelligence, but because the teaching style doesn't match their strongest way of learning.</p>
+            <p class="print:mb-6">For example:</p>
             <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
                 <li>A student who is Body Smart may struggle with long lectures but thrive when building a model or acting out an idea.</li>
                 <li>A student who is Picture Smart may understand a concept instantly once they see a diagram.</li>
                 <li>A Music Smart learner might remember a concept easily if it is set to rhythm or song.</li>
             </ul>
-            <p>When you discover your learning superpower, something important happens:<br /><strong>Learning begins to feel more natural.</strong></p>
+            <p class="print:mb-6">When you discover your learning superpower, something important happens:<br /><strong>Learning begins to feel more natural.</strong></p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Probably Have More Than One</h2>
-            <p>Most people don't have just one intelligence.<br />Think of them like different muscles in your mind.</p>
-            <p>You might be strong in:</p>
+            <p class="print:mb-6">Most people don't have just one intelligence.<br />Think of them like different muscles in your mind.</p>
+            <p class="print:mb-6">You might be strong in:</p>
             <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
                 <li>Picture Smart and Nature Smart</li>
                 <li>Word Smart and People Smart</li>
                 <li>Body Smart and Music Smart</li>
             </ul>
-            <p>Your unique combination shapes how you learn best.</p>
+            <p class="print:mb-6">Your unique combination shapes how you learn best.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">A Simple Way to Start Discovering Your Strength</h2>
-            <p>Think about these questions:</p>
+            <p class="print:mb-6">Think about these questions:</p>
             <ul class="list-disc pl-6 space-y-2 my-4 text-slate-300">
                 <li>When do you feel most engaged while learning?</li>
                 <li>What kinds of activities make time fly?</li>
                 <li>When something is difficult, what helps you understand it?</li>
             </ul>
-            <p>Your answers may point toward your natural learning strengths.</p>
+            <p class="print:mb-6">Your answers may point toward your natural learning strengths.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Your Brain Was Designed to Learn</h2>
-            <p>One of the most encouraging discoveries from Gardner's work is this:</p>
+            <p class="print:mb-6">One of the most encouraging discoveries from Gardner's work is this:</p>
             <p class="text-xl font-bold text-white my-4">Everyone is intelligent.</p>
-            <p>But our intelligence shows itself in different ways.<br />Some people build bridges. Some write books. Some lead teams. Some compose music. Some explore the natural world.<br />Each of these abilities reflects a different form of intelligence.</p>
-            <p>And each one has the potential to become a learning superpower.</p>
+            <p class="print:mb-6">But our intelligence shows itself in different ways.<br />Some people build bridges. Some write books. Some lead teams. Some compose music. Some explore the natural world.<br />Each of these abilities reflects a different form of intelligence.</p>
+            <p class="print:mb-6">And each one has the potential to become a learning superpower.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Final Thought</h2>
             <p class="text-lg text-white font-medium mt-6">When your study method matches your superpower, learning becomes easier, faster, and a lot more fun.</p>
@@ -1574,31 +1603,31 @@ export const articles: Article[] = [
         slug: "how-to-read-faster",
         published: true,
         title: "How to Read Faster: The definitive guide to breaking 300 WPM",
-        category: "LEARN",
+        category: "PART2_SPEED",
         excerpt: "Stop subvocalizing and start scanning. The biological mechanics of speed reading explained.",
         content: `
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <p class="lead text-xl text-slate-300 mb-8 leading-relaxed"> Most potential speed readers get stuck at the 250 - 300 WPM barrier.This isn't a cognitive limit; it's a mechanical one.</p>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         <h2 class="text-2xl font-bold text-white mt-12 mb-6"> The Limit of Subvocalization </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p> If you say every word in your head, you can only read as fast as you speak.The average speaking rate is roughly 150 - 200 words per minute.Push it, and you get to 300. </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p> To break this barrier, you must decouple the visual recognition of a word from the auditory pronunciation of it.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p class="print:mb-6"> If you say every word in your head, you can only read as fast as you speak.The average speaking rate is roughly 150 - 200 words per minute.Push it, and you get to 300. </p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="print:mb-6"> To break this barrier, you must decouple the visual recognition of a word from the auditory pronunciation of it.</p>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <h2 class="text-2xl font-bold text-white mt-12 mb-6"> The Solution: Visual Pacing </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p> Using a visual pacer(like your finger or a cursor) forces your eyes to move smoothly, reducing fixations and eliminating regression.This mechanical aid is the training wheels for high-speed processing.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="print:mb-6"> Using a visual pacer(like your finger or a cursor) forces your eyes to move smoothly, reducing fixations and eliminating regression.This mechanical aid is the training wheels for high-speed processing.</p>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             `
     },
     {
         slug: "52-books-a-year",
-        published: true,
+        published: false,
         title: "How I Read 52 Books a Year (Without Quitting My Job)",
-        category: "AIM",
+        category: "ARCHIVED",
         excerpt: "It’s not about finding time, it’s about making time count. A system for the busy professional.",
         content: `
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <p class= "lead text-xl text-slate-300 mb-8 leading-relaxed"> Reading a book a week sounds daunting, but it's entirely possible with the right systems and mindset.</p>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Making Time Count </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p> The biggest misconception about reading is that you need long, uninterrupted blocks of time.You don't. You need consistency.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p> By capturing small moments—15 minutes in the morning, 20 minutes on a commute, 15 minutes before bed—you accumulate roughly an hour of reading a day.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="print:mb-6"> The biggest misconception about reading is that you need long, uninterrupted blocks of time.You don't. You need consistency.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="print:mb-6"> By capturing small moments—15 minutes in the morning, 20 minutes on a commute, 15 minutes before bed—you accumulate roughly an hour of reading a day.</p>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <h2 class="text-2xl font-bold text-white mt-12 mb-6"> The System </h2>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <ul class="list-disc pl-6 space-y-2 mb-6 text-slate-300">
@@ -1612,24 +1641,24 @@ export const articles: Article[] = [
         slug: "biohacking-brain",
         published: true,
         title: "Biohacking Your Brain: The Cognitive Benefits of Fast Processing",
-        category: "READY",
+        category: "PART2_TOOLS",
         excerpt: "Speed helps focus. Why reading faster actually improves your comprehension and retention.",
         content: `
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <p class="lead text-xl text-slate-300 mb-8 leading-relaxed"> It seems counterintuitive, but reading faster often leads to better comprehension.</p>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     <h2 class="text-2xl font-bold text-white mt-12 mb-6"> The Bored Brain </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p> When you read slowly(at speaking pace), your brain has excess processing capacity.It gets bored.It starts thinking about lunch, emails, or chores.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p class="print:mb-6"> When you read slowly(at speaking pace), your brain has excess processing capacity.It gets bored.It starts thinking about lunch, emails, or chores.</p>
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <h2 class="text-2xl font-bold text-white mt-12 mb-6"> Forced Focus </h2>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p> By forcing speed, you demand your brain's full attention. There is no excess capacity for daydreaming. This intense focus creates stronger neural pathways and significantly improves retention of the core concepts.</p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p> Speed doesn't kill comprehension; lack of focus does.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <p class="print:mb-6"> By forcing speed, you demand your brain's full attention. There is no excess capacity for daydreaming. This intense focus creates stronger neural pathways and significantly improves retention of the core concepts.</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <p class="print:mb-6"> Speed doesn't kill comprehension; lack of focus does.</p>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         `
     },
     {
         slug: "preview-the-material",
         published: true,
         title: "Preview the Material",
-        category: "AIM",
+        category: "PART1_LEARN",
         excerpt: "Most people start reading at page one. That’s the problem. If you want to learn faster and understand more, you don’t begin by reading. You begin by previewing.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people start reading at page one. That’s the problem. If you want to learn faster and understand more, you don’t begin by reading. You begin by previewing.</p>
@@ -1640,20 +1669,20 @@ export const articles: Article[] = [
                 "It is easier to do a jigsaw puzzle if you have the picture on the box!"
             </blockquote>
             
-            <p>It seems obvious that a jigsaw puzzle is much easier to assemble when you can see the final picture than without it.</p>
-            <p>Consider every bit of new information that you learn like a piece of the jigsaw puzzle. Every time you pick up a piece, you have a better idea of how it fits if you can locate it on the overall picture—but you remain quite clueless if you don’t see the big picture first.</p>
+            <p class="print:mb-6">It seems obvious that a jigsaw puzzle is much easier to assemble when you can see the final picture than without it.</p>
+            <p class="print:mb-6">Consider every bit of new information that you learn like a piece of the jigsaw puzzle. Every time you pick up a piece, you have a better idea of how it fits if you can locate it on the overall picture—but you remain quite clueless if you don’t see the big picture first.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🚀</span> Give Yourself a Head Start</h2>
-            <p>Previewing is one of the simplest and most overlooked learning techniques.</p>
+            <p class="print:mb-6">Previewing is one of the simplest and most overlooked learning techniques.</p>
             <p class="font-medium text-indigo-300 my-6">And it works.</p>
-            <p>When you preview material, you:</p>
+            <p class="print:mb-6">When you preview material, you:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>Build a mental framework</li>
                 <li>Reduce confusion</li>
                 <li>Improve comprehension</li>
                 <li>Increase retention</li>
             </ul>
-            <p>Instead of walking into information blindly, you already know:</p>
+            <p class="print:mb-6">Instead of walking into information blindly, you already know:</p>
             <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-white/5">
                 <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> What’s coming</li>
                 <li class="flex items-center gap-3"><span class="text-indigo-500">✓</span> What matters</li>
@@ -1661,28 +1690,28 @@ export const articles: Article[] = [
             </ul>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧠</span> Your Brain Needs Structure</h2>
-            <p>Your brain is constantly trying to organise information. When you preview, you help it do that.</p>
+            <p class="print:mb-6">Your brain is constantly trying to organise information. When you preview, you help it do that.</p>
             <p class="mt-6 mb-4 font-medium text-white">You begin connecting:</p>
             <ul class="space-y-4 my-6 text-slate-300 bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
                 <li class="flex items-center"><span class="w-24 inline-block">New ideas</span> <span class="text-indigo-500 mx-3">→</span> existing knowledge</li>
                 <li class="flex items-center"><span class="w-24 inline-block">Concepts</span> <span class="text-indigo-500 mx-3">→</span> context</li>
                 <li class="flex items-center"><span class="w-24 inline-block">Details</span> <span class="text-indigo-500 mx-3">→</span> structure</li>
             </ul>
-            <p>Without this, reading feels harder than it needs to be. With it, reading becomes smoother, faster, clearer.</p>
+            <p class="print:mb-6">Without this, reading feels harder than it needs to be. With it, reading becomes smoother, faster, clearer.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏱️</span> Turn It Into a Game</h2>
-            <p>Give yourself a short time limit:</p>
+            <p class="print:mb-6">Give yourself a short time limit:</p>
             <p class="font-bold text-xl text-white italic my-8 text-center bg-slate-800/50 py-8 px-6 rounded-2xl">👉 5–10 minutes</p>
-            <p>Your goal is not to understand everything. Your goal is to answer:</p>
+            <p class="print:mb-6">Your goal is not to understand everything. Your goal is to answer:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>What is this about?</li>
                 <li>What are the main ideas?</li>
                 <li>What stands out?</li>
             </ul>
-            <p>This creates focus. And it removes the pressure of <em class="text-slate-400">“I need to understand everything now.”</em></p>
+            <p class="print:mb-6">This creates focus. And it removes the pressure of <em class="text-slate-400">“I need to understand everything now.”</em></p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">👀</span> Learn to Skim Properly</h2>
-            <p>Skimming is not rushing. It is strategic scanning.</p>
+            <p class="print:mb-6">Skimming is not rushing. It is strategic scanning.</p>
             <p class="mt-6 mb-4 font-medium text-white">Look for:</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
@@ -1700,11 +1729,11 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>Well-written material is structured to help you. You just need to learn how to see it.</p>
+            <p class="print:mb-6">Well-written material is structured to help you. You just need to learn how to see it.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✍️</span> Start Taking Notes Immediately</h2>
             <p class="font-bold text-white text-lg mb-4">Don’t wait.</p>
-            <p>Even in your preview, begin:</p>
+            <p class="print:mb-6">Even in your preview, begin:</p>
             <ul class="space-y-2 my-6 text-slate-400 italic border-l-2 border-slate-700 pl-4">
                 <li>Writing headings</li>
                 <li>Noting key ideas</li>
@@ -1719,26 +1748,26 @@ export const articles: Article[] = [
             <p class="font-bold text-white mt-8">Messy notes are fine. They’re not final—they’re functional.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">❓</span> Ask Questions Early</h2>
-            <p>As you preview, start asking:</p>
+            <p class="print:mb-6">As you preview, start asking:</p>
             <ul class="space-y-4 my-8 text-white font-medium">
                 <li class="p-4 bg-slate-900/40 border-l-4 border-indigo-500 rounded-r-xl">What do I want to understand?</li>
                 <li class="p-4 bg-slate-900/40 border-l-4 border-indigo-500 rounded-r-xl">What is unclear?</li>
                 <li class="p-4 bg-slate-900/40 border-l-4 border-indigo-500 rounded-r-xl">What seems important?</li>
             </ul>
-            <p>Questions activate your brain. They turn passive reading into active searching.</p>
+            <p class="print:mb-6">Questions activate your brain. They turn passive reading into active searching.</p>
             <p class="mt-6 font-medium text-slate-300">And something interesting happens:</p>
             <div class="p-6 bg-indigo-950/20 border border-indigo-500/20 rounded-2xl my-6">
                 <p class="font-bold text-indigo-400 text-lg">👉 The more questions you ask, the more answers you notice.</p>
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> Decide What Deserves Depth</h2>
-            <p>You cannot read everything in depth. And you shouldn’t try.</p>
+            <p class="print:mb-6">You cannot read everything in depth. And you shouldn’t try.</p>
             <p class="mt-6 mb-4 text-slate-300 font-medium">Previewing helps you decide:</p>
             <ul class="list-disc pl-6 space-y-2 my-6 text-slate-300">
                 <li>What needs deep focus</li>
                 <li>What needs general understanding</li>
             </ul>
-            <p>This is where learning becomes strategic. Not all information is equal. And your time isn’t unlimited.</p>
+            <p class="print:mb-6">This is where learning becomes strategic. Not all information is equal. And your time isn’t unlimited.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧩</span> A Smarter Way to Start</h2>
             <div class="my-8 p-6 bg-slate-900/40 border border-slate-800 rounded-2xl relative overflow-hidden">
@@ -1765,7 +1794,7 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>It’s a small shift.</p>
+            <p class="print:mb-6">It’s a small shift.</p>
             <p class="text-xl font-bold text-white mt-4 mb-12">But it changes everything.</p>
 
             <hr class="border-slate-800 my-16" />
@@ -1783,37 +1812,37 @@ export const articles: Article[] = [
         slug: "psychology-of-time-and-deadlines",
         published: true,
         title: "The Psychology of Time & Deadlines",
-        category: "AIM",
+        category: "PART1_AIM",
         excerpt: "People talk about saving time, but it is impossible to save time. You can save and stockpile money, but you can’t save and stockpile time. We all have the same amount and spend it at the same rate.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">People talk about saving time, but it is impossible to save time.</p>
 
-            <p>You can save and stockpile money, but you can’t save and stockpile time. We all have the exact same amount, and we all spend it at the exact same rate: 60 seconds every minute, 60 minutes every hour, 24 hours every day, and seven days every week.</p>
+            <p class="print:mb-6">You can save and stockpile money, but you can’t save and stockpile time. We all have the exact same amount, and we all spend it at the exact same rate: 60 seconds every minute, 60 minutes every hour, 24 hours every day, and seven days every week.</p>
             <p class="font-medium text-white mb-8">We cannot manage time. We can only manage ourselves in the time we have.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏳</span> The Parkinson's Trap</h2>
-            <p>Have you already noticed this yourself?</p>
-            <p>Over and over again, studies have given merit to Parkinson’s Law—the adage first coined by C. Northcote Parkinson in 1955.</p>
+            <p class="print:mb-6">Have you already noticed this yourself?</p>
+            <p class="print:mb-6">Over and over again, studies have given merit to Parkinson’s Law—the adage first coined by C. Northcote Parkinson in 1955.</p>
             
             <blockquote class="border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8 text-lg">
                 "Work expands so as to fill the time which is available for its completion."
             </blockquote>
             
-            <p>This is due to procrastination and the undue time and attention given to trivial things.</p>
+            <p class="print:mb-6">This is due to procrastination and the undue time and attention given to trivial things.</p>
             
             <ul class="space-y-4 my-8 text-slate-300">
                 <li class="flex gap-4 items-start p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
                     <span class="text-indigo-500 font-bold">1</span>
-                    <p>Students will often take as long to finish an assignment as they’re given. Whether they have a week, a month, or a whole semester, they will likely finish it right before the deadline.</p>
+                    <p class="print:mb-6">Students will often take as long to finish an assignment as they’re given. Whether they have a week, a month, or a whole semester, they will likely finish it right before the deadline.</p>
                 </li>
                 <li class="flex gap-4 items-start p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
                     <span class="text-indigo-500 font-bold">2</span>
-                    <p>That project that has to get finished before you go on holiday... it’s amazing how quickly it gets finished the day before you pack your bags.</p>
+                    <p class="print:mb-6">That project that has to get finished before you go on holiday... it’s amazing how quickly it gets finished the day before you pack your bags.</p>
                 </li>
             </ul>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> Without a Plan, It's Called Wandering Aimlessly</h2>
-            <p>Without a plan, everything looks important. You waste time and energy chasing opportunities that don't serve your actual goal.</p>
+            <p class="print:mb-6">Without a plan, everything looks important. You waste time and energy chasing opportunities that don't serve your actual goal.</p>
             <p class="mt-6 mb-4 text-slate-300">Without a plan, you lack:</p>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
                 <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl text-center">
@@ -1827,7 +1856,7 @@ export const articles: Article[] = [
                 </div>
             </div>
             
-            <p>A plan focuses your energies in the right direction and gives you the confidence that you can actually execute.</p>
+            <p class="print:mb-6">A plan focuses your energies in the right direction and gives you the confidence that you can actually execute.</p>
             
             <blockquote class="border-l-4 border-slate-600 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-slate-300 italic my-8">
                 “A goal without a plan is just a wish.”<br/>
@@ -1837,14 +1866,14 @@ export const articles: Article[] = [
             <p class="font-medium text-white text-lg text-center my-8">... and a plan without action is just a daydream.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> Once You Plan Your Work, Work Your Plan</h2>
-            <p>The first step is to plan what you will do. But then you’ve got to get to work.</p>
-            <p>How long will it take?</p>
+            <p class="print:mb-6">The first step is to plan what you will do. But then you’ve got to get to work.</p>
+            <p class="print:mb-6">How long will it take?</p>
             
             <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8 text-center text-xl font-bold text-white">
                 It will take as long as you give yourself to do it.
             </div>
             
-            <p>To defeat Parkinson's Law, you must change how you set constraints.</p>
+            <p class="print:mb-6">To defeat Parkinson's Law, you must change how you set constraints.</p>
             <p class="font-medium text-indigo-300 my-4">Give yourself a deadline that is not determined by how much time you <em>have</em>, but by how long it <em>should take</em>.</p>
 
             <p class="mt-8">This changes the entire psychological game. You move from expanding your effort to fit a bloated timeline, to executing efficiently against a strict, self-imposed constraint.</p>
@@ -1869,12 +1898,12 @@ export const articles: Article[] = [
         slug: "cramming-to-compounding",
         published: true,
         title: "From Cramming to Compounding: How to Structure Your Study Time",
-        category: "AIM",
+        category: "PART1_AIM",
         excerpt: "What is your timeframe? Cramming will get you focused, but it destroys long-term retention. To move from last-minute panic to deep comprehension, you must build consistent habits.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">What’s your timeframe? When do you need to know this?</p>
 
-            <p>Once you have your plan in place, your approach completely changes depending on your horizon. The strategy you use for an exam tomorrow is fundamentally different than the one you use for a career pivot next year.</p>
+            <p class="print:mb-6">Once you have your plan in place, your approach completely changes depending on your horizon. The strategy you use for an exam tomorrow is fundamentally different than the one you use for a career pivot next year.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔭</span> The Three Horizons</h2>
             
@@ -1899,7 +1928,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚖️</span> The Reality of 'Lastminute.com' Cramming</h2>
-            <p>We've all been there. It works for passing a test, but it is a terrible strategy for building expertise.</p>
+            <p class="print:mb-6">We've all been there. It works for passing a test, but it is a terrible strategy for building expertise.</p>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
                 <div class="p-6 bg-slate-900/40 border-l-4 border-emerald-500 rounded-r-2xl">
@@ -1913,7 +1942,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📈</span> The Shift to Compounding</h2>
-            <p>If you have the time, you must move away from the cramming cycle. Long term study demands completely different habits.</p>
+            <p class="print:mb-6">If you have the time, you must move away from the cramming cycle. Long term study demands completely different habits.</p>
             
             <ul class="space-y-6 my-8 border-l border-slate-800 ml-3 pl-6">
                 <li class="relative">
@@ -1934,7 +1963,7 @@ export const articles: Article[] = [
             </ul>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏗️</span> Build Your Study Plan</h2>
-            <p>Plan your overall studies and plan your individual sessions. Allocate the appropriate time to making your plan—it will save you massive amounts of time as you go. </p>
+            <p class="print:mb-6">Plan your overall studies and plan your individual sessions. Allocate the appropriate time to making your plan—it will save you massive amounts of time as you go. </p>
             <p class="font-medium text-rose-400 mb-8">Caution: Do not use "planning" as an excuse to procrastinate the actual work.</p>
             
             <div class="bg-indigo-950/20 border border-indigo-500/30 p-8 rounded-2xl my-8">
@@ -1970,16 +1999,20 @@ export const articles: Article[] = [
         slug: "garbage-in-garbage-out",
         published: true,
         title: "Garbage In, Garbage Out: Choose Your Resources Wisely",
-        category: "AIM",
+        category: "PART1_AIM",
         excerpt: "In computer programming there is a term: ‘Garbage in, garbage out.’ This is also true of learning – you can only learn from the resource you choose to learn from.",
         content: `
-            <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">In computer programming, there is a fundamental truth: “Garbage in, garbage out.”</p>
-            <p>If you feed a system with flawed data, it will produce flawed results. This principle is perfectly mirrored in human learning.</p>
+            
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                In computer programming, there is a fundamental truth:<br/><span class="text-emerald-400">"Garbage in, garbage out."</span><br/><br/><span class="text-xl font-sans text-slate-300 block">Make sure that you are learning the best information.</span>
+            </blockquote>
+    
+            <p class="print:mb-6">If you feed a system with flawed data, it will produce flawed results. This principle is perfectly mirrored in human learning.</p>
             <p class="font-medium text-white mb-8">You can only learn from the resources you intentionally choose to consume.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🌊</span> The Abundance of Choice</h2>
-            <p>Just a few decades ago, information was scarce. You learned from the textbook you were given, the teacher in your classroom, or the encyclopedia on a library shelf.</p>
-            <p>Today, the landscape is entirely different.</p>
+            <p class="print:mb-6">Just a few decades ago, information was scarce. You learned from the textbook you were given, the teacher in your classroom, or the encyclopedia on a library shelf.</p>
+            <p class="print:mb-6">Today, the landscape is entirely different.</p>
             
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
                 <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl flex items-center justify-center">
@@ -1993,10 +2026,10 @@ export const articles: Article[] = [
                 </div>
             </div>
             
-            <p>These tools have made accessing information easier than ever before. But access is not discernment. With infinite resources, the burden shifts precisely to how well you curate your input.</p>
+            <p class="print:mb-6">These tools have made accessing information easier than ever before. But access is not discernment. With infinite resources, the burden shifts precisely to how well you curate your input.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> Navigating "What" and "How"</h2>
-            <p>To choose wisely, you must filter your resources across two dimensions: what you are trying to achieve, and how you naturally learn.</p>
+            <p class="print:mb-6">To choose wisely, you must filter your resources across two dimensions: what you are trying to achieve, and how you naturally learn.</p>
 
             <div class="space-y-6 my-8">
                 <div class="p-6 bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl">
@@ -2010,9 +2043,9 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏛️</span> The Institutional Reality</h2>
-            <p>Of course, constraints still exist. If you are studying in a formal academic setting, the person grading your examinations has likely dictated the texts you must use.</p>
+            <p class="print:mb-6">Of course, constraints still exist. If you are studying in a formal academic setting, the person grading your examinations has likely dictated the texts you must use.</p>
             <p class="font-medium text-amber-400 my-6">Keep the required reading in mind—but do not let it limit you.</p>
-            <p>You always have the power to supplement institutional material with resources that better suit your preferred way of learning. If the textbook is dry, find the lecture on YouTube. If the lecture is disorganized, ask an AI to structure the notes. </p>
+            <p class="print:mb-6">You always have the power to supplement institutional material with resources that better suit your preferred way of learning. If the textbook is dry, find the lecture on YouTube. If the lecture is disorganized, ask an AI to structure the notes. </p>
             <p class="font-bold text-white mt-8">Control your inputs, and you will control your outputs.</p>
 
             <hr class="border-slate-800 my-16" />
@@ -2034,16 +2067,16 @@ export const articles: Article[] = [
         slug: "friction-of-starting",
         published: true,
         title: "The Friction of Starting",
-        category: "LEARN",
+        category: "PART1_LEARN",
         excerpt: "The hardest part of any study session isn't the studying. It's sitting down. Understand the physics of procrastination and learn to eliminate the friction that's keeping you from your work.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">The hardest part of any study session isn't the studying.</p>
-            <p>It's sitting down.</p>
+            <p class="print:mb-6">It's sitting down.</p>
             <p class="font-medium text-white mb-8">Almost every learner who struggles with procrastination doesn't have a motivation problem. They have a <em>starting</em> problem.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> Newton Was Talking About You</h2>
-            <p>Sir Isaac Newton's First Law of Motion states that an object at rest stays at rest, and an object in motion stays in motion.</p>
-            <p>It applies to physics.</p>
+            <p class="print:mb-6">Sir Isaac Newton's First Law of Motion states that an object at rest stays at rest, and an object in motion stays in motion.</p>
+            <p class="print:mb-6">It applies to physics.</p>
             <p class="font-medium text-white mt-4">It also applies to you at your desk.</p>
 
             <div class="my-8 p-6 bg-slate-900/40 border border-white/5 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -2057,31 +2090,31 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>The problem is the gap between the two states. That gap is called <strong class="text-white">friction</strong>.</p>
+            <p class="print:mb-6">The problem is the gap between the two states. That gap is called <strong class="text-white">friction</strong>.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔬</span> The Science Behind the Dread</h2>
-            <p>Researchers studying procrastination have consistently found that the brain's threat-detection system (the amygdala) treats a daunting task the same way it treats physical danger: it activates avoidance.</p>
+            <p class="print:mb-6">Researchers studying procrastination have consistently found that the brain's threat-detection system (the amygdala) treats a daunting task the same way it treats physical danger: it activates avoidance.</p>
             <p class="mt-4">The dread you feel before opening the textbook isn't laziness.</p>
             <p class="font-medium text-white mt-4 mb-8">It's your brain trying to protect you from discomfort.</p>
-            <p>The insight here is powerful: <strong class="text-white">the dread is nearly always worse than the task itself.</strong></p>
-            <p>Studies consistently show that once people start a task they were avoiding, their negative emotional response drops sharply within minutes. The anticipation of the pain is almost always worse than the pain.</p>
+            <p class="print:mb-6">The insight here is powerful: <strong class="text-white">the dread is nearly always worse than the task itself.</strong></p>
+            <p class="print:mb-6">Studies consistently show that once people start a task they were avoiding, their negative emotional response drops sharply within minutes. The anticipation of the pain is almost always worse than the pain.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏱️</span> The 2-Minute Rule</h2>
-            <p>The most effective and field-tested solution to the starting problem is disarmingly simple.</p>
+            <p class="print:mb-6">The most effective and field-tested solution to the starting problem is disarmingly simple.</p>
 
             <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8 text-center">
                 <p class="text-3xl font-bold text-white mb-4">Commit to just 2 minutes.</p>
                 <p class="text-slate-400">Tell yourself: I am not going to study. I am just going to look at my notes for 2 minutes.</p>
             </div>
 
-            <p>That's it. A genuine, honest 2-minute commitment.</p>
+            <p class="print:mb-6">That's it. A genuine, honest 2-minute commitment.</p>
             <p class="mt-4">What happens in reality? You almost never stop at 2 minutes.</p>
             <p class="font-medium text-white mt-4">Because once you have broken the seal of inertia, momentum takes over.</p>
             <p class="mt-4">The 2-Minute Rule works because it re-frames the task: instead of confronting the enormous, threatening "study session," you are only committing to a tiny, harmless peek.</p>
             <p class="mt-4">Your brain's threat response has nothing to latch onto. The friction dissolves.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏗️</span> Reducing Activation Energy</h2>
-            <p>In chemistry, activation energy is the minimum amount of energy required to start a reaction.</p>
+            <p class="print:mb-6">In chemistry, activation energy is the minimum amount of energy required to start a reaction.</p>
             <p class="mt-4">The same principle applies to your work habits. Every barrier between you and starting is a form of activation energy. The more barriers you remove in advance, the easier starting becomes.</p>
 
             <div class="space-y-4 my-8">
@@ -2108,7 +2141,7 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p class="font-bold text-white text-lg text-center my-8">The goal is not willpower. The goal is to remove the need for willpower entirely.</p>
+            <p class="font-bold text-white text-lg text-center my-8"><mark>The goal is not willpower.</mark> <mark>The goal is to remove the need for willpower entirely.</mark></p>
 
             <hr class="border-slate-800 my-16" />
 
@@ -2129,15 +2162,19 @@ export const articles: Article[] = [
         slug: "active-recall",
         published: true,
         title: "Active Recall vs. The Illusion of Competence",
-        category: "LEARN",
+        category: "PART1_LEARN",
         excerpt: "Re-reading feels productive. It isn't. Highlighting feels like learning. It isn't. There is a dangerous gap between the feeling of knowing something and actually knowing it.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">You've read the chapter three times. The notes are highlighted. The summary is neat and colour-coded.</p>
-            <p>And on the day of the exam, you go blank.</p>
+            <p class="print:mb-6">And on the day of the exam, you go blank.</p>
             <p class="font-medium text-white mt-4 mb-8">This is not a memory failure. It's a strategy failure.</p>
 
+            <figure class="my-12 break-inside-avoid shadow-2xl print:hidden rounded-2xl overflow-hidden border border-slate-800">
+                <img src="/images/textbook/active-recall-brain.png" alt="A stylized, glowing translucent brain character lifting a heavy barbell made of light, representing neurological friction" class="w-full h-auto object-cover m-0 transition-transform duration-700 hover:scale-105" />
+            </figure>
+
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🪞</span> The Illusion of Competence</h2>
-            <p>Psychologists call it the "fluency illusion." When you re-read familiar material, your brain processes it smoothly. That smoothness feels like knowledge.</p>
+            <p class="print:mb-6">Psychologists call it the "fluency illusion." When you re-read familiar material, your brain processes it smoothly. That smoothness feels like knowledge.</p>
             <p class="mt-4">It isn't. It's recognition.</p>
 
             <div class="my-8 p-6 bg-slate-900/40 border border-white/5 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -2151,11 +2188,11 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>The research on this is abundant and clear. In a landmark study by Roediger and Karpicke (2006), students who did repeated tests on material they had read scored <strong class="text-white">50% higher</strong> on final tests than students who spent that same time re-reading.</p>
+            <p class="print:mb-6">The research on this is abundant and clear. In a landmark study by Roediger and Karpicke (2006), students who did repeated tests on material they had read scored <strong class="text-white">50% higher</strong> on final tests than students who spent that same time re-reading.</p>
             <p class="font-medium text-indigo-300 mt-4">Testing didn't just assess learning. Testing <em>was</em> learning.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧠</span> Why Testing Works</h2>
-            <p>Every time you try to retrieve a memory, you strengthen the neural pathway to that memory.</p>
+            <p class="print:mb-6">Every time you try to retrieve a memory, you strengthen the neural pathway to that memory.</p>
             <p class="mt-4">Think of it like creating a path through a field of grass.</p>
             <ul class="space-y-4 my-8 border-l border-slate-800 ml-3 pl-6">
                 <li class="relative">
@@ -2171,10 +2208,10 @@ export const articles: Article[] = [
                     <p class="text-white font-medium">Struggle to find your way from a new direction — you create new, stronger pathways. (Active recall)</p>
                 </li>
             </ul>
-            <p>The struggle to retrieve is the mechanism. It's not a sign that something is wrong — it's proof that you are actually learning.</p>
+            <p class="print:mb-6">The struggle to retrieve is the mechanism. It's not a sign that something is wrong — it's proof that you are actually learning.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✍️</span> How to Apply Active Recall</h2>
-            <p>You don't need special software or complex systems. You need one principle: close the book and try to retrieve.</p>
+            <p class="print:mb-6">You don't need special software or complex systems. You need one principle: close the book and try to retrieve.</p>
             
             <div class="space-y-4 my-8">
                 <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -2221,11 +2258,11 @@ export const articles: Article[] = [
         slug: "feynman-technique",
         published: true,
         title: "The Feynman Technique: If You Can't Explain It Simply, You Don't Understand It",
-        category: "LEARN",
+        category: "PART1_LEARN",
         excerpt: "Richard Feynman was a Nobel Prize-winning physicist who believed that the ultimate test of understanding was being able to explain something simply — so simply that a child could follow it.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Richard Feynman was one of the most brilliant physicists of the 20th century.</p>
-            <p>He was also one of the most effective explainers. Not just to experts, but to anyone.</p>
+            <p class="print:mb-6">He was also one of the most effective explainers. Not just to experts, but to anyone.</p>
             <p class="font-medium text-white mt-4 mb-8">And he believed these two qualities were inseparable.</p>
 
             <blockquote class="border-l-4 border-indigo-500 bg-slate-900/40 p-6 rounded-r-2xl font-medium text-white italic my-8 text-lg">
@@ -2233,7 +2270,7 @@ export const articles: Article[] = [
                 <span class="text-sm font-bold text-indigo-400 mt-2 block not-italic">— Richard Feynman</span>
             </blockquote>
 
-            <p>The Feynman Technique isn't a memorization hack. It is a ruthless test of genuine comprehension.</p>
+            <p class="print:mb-6">The Feynman Technique isn't a memorization hack. It is a ruthless test of genuine comprehension.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📋</span> The Four Steps</h2>
 
@@ -2269,7 +2306,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔍</span> Why Jargon Is a Warning Sign</h2>
-            <p>Jargon is useful for communication between experts. But when you are learning, over-reliance on technical language often signals a problem.</p>
+            <p class="print:mb-6">Jargon is useful for communication between experts. But when you are learning, over-reliance on technical language often signals a problem.</p>
             <p class="mt-4">It signals that you have memorized the vocabulary without internalising the idea.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
@@ -2286,7 +2323,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔗</span> The Connection to Active Recall</h2>
-            <p>The Feynman Technique is active recall at its highest level.</p>
+            <p class="print:mb-6">The Feynman Technique is active recall at its highest level.</p>
             <p class="mt-4">Flashcards test whether you remember a fact. The Feynman Technique tests whether you have truly understood a concept — deeply enough to rebuild it from scratch in your own words.</p>
             <p class="font-medium text-white mt-4 mb-8">Use both. They work at different depths of understanding.</p>
             <p class="font-bold text-white text-lg text-center my-8">If you can teach it clearly, you know it truly.</p>
@@ -2310,21 +2347,21 @@ export const articles: Article[] = [
         slug: "slicing-the-elephant",
         published: true,
         title: "Slicing the Elephant: Deconstruct the Skill",
-        category: "AIM",
+        category: "PART1_AIM",
         excerpt: "How do you eat an elephant? One bite at a time. Before you begin studying anything, you must first break the massive, intimidating whole into small, learnable slices.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">There is an old question: How do you eat an elephant?</p>
-            <p>One bite at a time.</p>
+            <p class="print:mb-6">One bite at a time.</p>
             <p class="font-medium text-white mt-4 mb-8">The same principle governs every skill, subject, or body of knowledge you will ever attempt to master.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🐘</span> Why Big Goals Paralyse Us</h2>
-            <p>When you look at a large subject in its entirety — a professional qualification, a new language, a complex technical skill — it triggers the same response as the starting problem: your brain perceives an enormous, ill-defined threat and activates avoidance.</p>
+            <p class="print:mb-6">When you look at a large subject in its entirety — a professional qualification, a new language, a complex technical skill — it triggers the same response as the starting problem: your brain perceives an enormous, ill-defined threat and activates avoidance.</p>
             <p class="mt-4">The antidote is not more motivation.</p>
             <p class="font-medium text-white mt-4 mb-8">The antidote is deconstruction.</p>
-            <p>When you break a subject into clearly defined, learnable components, the threat disappears. You are no longer staring at an elephant. You are looking at a neat set of slices — each one manageable, each one finite.</p>
+            <p class="print:mb-6">When you break a subject into clearly defined, learnable components, the threat disappears. You are no longer staring at an elephant. You are looking at a neat set of slices — each one manageable, each one finite.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔬</span> The Anatomy of a Skill</h2>
-            <p>Every skill has a structure. It is not a monolith. It is a system made up of sub-skills, and those sub-skills are made up of component knowledge blocks.</p>
+            <p class="print:mb-6">Every skill has a structure. It is not a monolith. It is a system made up of sub-skills, and those sub-skills are made up of component knowledge blocks.</p>
             <p class="mt-4">The process of learning is really the process of identifying and mastering those blocks, one at a time, in the right order.</p>
 
             <div class="my-8 p-8 bg-slate-900/40 border border-white/5 rounded-2xl">
@@ -2349,10 +2386,10 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>Notice how the process transforms. At the top, the goal is paralyzing. At the bottom, it is entirely achievable in a single session.</p>
+            <p class="print:mb-6">Notice how the process transforms. At the top, the goal is paralyzing. At the bottom, it is entirely achievable in a single session.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> How to Deconstruct Anything</h2>
-            <p>Good deconstruction requires asking the right questions before you begin. This is planning time well spent.</p>
+            <p class="print:mb-6">Good deconstruction requires asking the right questions before you begin. This is planning time well spent.</p>
 
             <div class="space-y-4 my-8">
                 <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -2386,7 +2423,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> The 80/20 Slice</h2>
-            <p>Not all slices are created equal.</p>
+            <p class="print:mb-6">Not all slices are created equal.</p>
             <p class="mt-4">In almost every skill, a small number of components generate the vast majority of results. This is the Pareto Principle applied to learning — and it is one of your most powerful tools.</p>
 
             <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
@@ -2420,15 +2457,15 @@ export const articles: Article[] = [
         slug: "genius-comprehension",
         published: true,
         title: "Genius Comprehension: Read It Once and Actually Understand It",
-        category: "LEARN",
+        category: "PART1_LEARN",
         excerpt: "Re-reading the same paragraph three times and still not getting it is not a focus problem. It's a strategy problem. These are the fundamentals that turn passive reading into genuine understanding.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Whether you are reading for business decisions, academic exams, career development, or pure enjoyment — how you read matters as much as what you read.</p>
-            <p>Most people read the same way they learned to as a child: linearly, passively, and alone with the words. But reading is a skill. And like every skill, it can be dramatically improved.</p>
+            <p class="print:mb-6">Most people read the same way they learned to as a child: linearly, passively, and alone with the words. But reading is a skill. And like every skill, it can be dramatically improved.</p>
             <p class="font-medium text-white mt-4 mb-8">These fundamentals will transform reading from something that happens to you into something you do with intention.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">👁️</span> Preview First, Read Second</h2>
-            <p>Before diving into a text, take two to three minutes to survey the landscape. Skim the headings, subheadings, and any bolded or italicised text. Read the introduction and the conclusion.</p>
+            <p class="print:mb-6">Before diving into a text, take two to three minutes to survey the landscape. Skim the headings, subheadings, and any bolded or italicised text. Read the introduction and the conclusion.</p>
             <p class="mt-4">This is not skipping — it is preparation.</p>
             <p class="mt-4">Previewing activates your prior knowledge and creates a mental framework before the detailed reading begins. Your brain is not a blank slate: it learns new information by connecting it to what it already knows. Give it the scaffolding first.</p>
             <div class="p-5 bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl my-6">
@@ -2436,7 +2473,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✍️</span> Read Actively, Not Passively</h2>
-            <p>Active reading means engaging with the text as you go — not merely moving your eyes across words.</p>
+            <p class="print:mb-6">Active reading means engaging with the text as you go — not merely moving your eyes across words.</p>
             <div class="space-y-3 my-8">
                 <div class="flex items-start gap-3 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
                     <span class="text-indigo-400 text-lg shrink-0">→</span>
@@ -2453,23 +2490,23 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> Hunt for the Main Ideas</h2>
-            <p>Every good piece of writing has a spine: the central ideas that everything else supports. Identifying this spine is your primary job as a reader.</p>
+            <p class="print:mb-6">Every good piece of writing has a spine: the central ideas that everything else supports. Identifying this spine is your primary job as a reader.</p>
             <p class="mt-4">Pay attention to topic sentences — typically the first sentence of each paragraph. Pay attention to headings and to summarizing statements. When you find the main idea of a section, everything else becomes supporting detail, and details are far easier to retain once the main structure is clear.</p>
             <p class="font-medium text-white mt-4">Understand the argument. The details will follow.</p>
 
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⏸️</span> Pause, Summarise, Continue</h2>
-            <p>At the end of each section, stop. Close the material. Write or say the main points in your own words.</p>
+            <p class="print:mb-6">At the end of each section, stop. Close the material. Write or say the main points in your own words.</p>
             <p class="mt-4">This is active recall applied to comprehension. If you can summarise it clearly, you understood it. If you cannot, that is valuable feedback — go back and re-read with more intention.</p>
             <p class="font-medium text-white mt-4">The summary is the proof of understanding.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">☕</span> Protect Your Mental Energy</h2>
-            <p>Reading for extended periods without breaks leads to cognitive fatigue, and a tired brain does not comprehend. It merely scans.</p>
+            <p class="print:mb-6">Reading for extended periods without breaks leads to cognitive fatigue, and a tired brain does not comprehend. It merely scans.</p>
             <p class="mt-4">Take short breaks every 25–45 minutes. Step away from the desk. Let your mind process what it has just absorbed. You will return sharper, and the break itself helps consolidate what you've learned.</p>
             <p class="font-medium text-white mt-4">Rest is not a reward for finishing. It is part of the process.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> Map Your Understanding</h2>
-            <p>True comprehension isn't just about remembering facts in isolation. It's about understanding how those facts connect to form a cohesive whole. As you read, actively map out the relationships between ideas.</p>
+            <p class="print:mb-6">True comprehension isn't just about remembering facts in isolation. It's about understanding how those facts connect to form a cohesive whole. As you read, actively map out the relationships between ideas.</p>
             <p class="mt-4">When you visualize the structure of information—grouping related concepts, establishing hierarchies, and drawing connections—you move from passive absorption to deep, architectural understanding. Your notes should reflect this structure, not just a linear timeline of what you read.</p>
             <div class="p-5 bg-indigo-950/20 border-l-4 border-indigo-500 rounded-r-2xl my-6">
                 <p class="text-slate-300 text-sm"><strong class="text-white">Learn to Mind Map:</strong> Discover how to capture and connect ideas in our guide to <a href="/blog/genius-note-taking" class="text-indigo-400 hover:underline">Genius Note-Taking</a>.</p>
@@ -2492,21 +2529,21 @@ export const articles: Article[] = [
         slug: "engaging-your-imagination",
         published: false,
         title: "Engage Your Imagination: Make Any Subject Come Alive",
-        category: "LEARN",
+        category: "PART2_TOOLS",
         excerpt: "The difficulty of learning rises in direct proportion to how little you are interested in it. But interest is not fixed. Imagination is a skill — and the most powerful comprehension tool you already own.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">The difficulty of learning increases in direct proportion to how little you are interested in the subject.</p>
-            <p>When material fails to capture your attention, your brain treats it as noise to be filtered out rather than signal to be stored. Motivation evaporates. Comprehension collapses.</p>
+            <p class="print:mb-6">When material fails to capture your attention, your brain treats it as noise to be filtered out rather than signal to be stored. Motivation evaporates. Comprehension collapses.</p>
             <p class="font-medium text-white mt-4 mb-8">But here is what most learners don't realise: interest is not a fixed trait. It is something you can deliberately cultivate.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔥</span> Someone Was Passionate Enough to Write This</h2>
-            <p>Every textbook chapter, every academic paper, every technical manual was written by a human being who found the topic fascinating enough to dedicate significant effort to it.</p>
+            <p class="print:mb-6">Every textbook chapter, every academic paper, every technical manual was written by a human being who found the topic fascinating enough to dedicate significant effort to it.</p>
             <p class="mt-4">That passion is in there somewhere. Your job is to find it.</p>
             <p class="mt-4">Before dismissing dry material, ask: <em class="text-indigo-300">What problem was this written to solve? Who does this knowledge help, and how? What would the world look like without this idea?</em></p>
             <p class="font-medium text-white mt-4">Find the stake in the material, and the material comes alive.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎬</span> Create Mental Images</h2>
-            <p>You have almost certainly noticed that your favourite book is one where you felt present in the story — you could see the scene, hear the characters, feel the tension.</p>
+            <p class="print:mb-6">You have almost certainly noticed that your favourite book is one where you felt present in the story — you could see the scene, hear the characters, feel the tension.</p>
             <p class="mt-4">The same mechanism is available to you in every type of learning.</p>
             <p class="mt-4">As you read or listen to new material, actively construct a mental image of what is being described. Visualise the process. Picture the system. Imagine the scene. The more vivid and specific the image, the stronger the memory trace.</p>
 
@@ -2521,10 +2558,10 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>Research in cognitive science consistently shows that dual-coding — pairing words with mental images — dramatically improves retention compared to verbal learning alone.</p>
+            <p class="print:mb-6">Research in cognitive science consistently shows that dual-coding — pairing words with mental images — dramatically improves retention compared to verbal learning alone.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">✨</span> Go Beyond the Text</h2>
-            <p>Here is where most readers stop — and where the best ones begin. The author has given you a starting point. Your imagination can take it further.</p>
+            <p class="print:mb-6">Here is where most readers stop — and where the best ones begin. The author has given you a starting point. Your imagination can take it further.</p>
             <p class="mt-4">This is not daydreaming. It is active cognitive processing — and it dramatically deepens comprehension, retention, and enjoyment.</p>
 
             <div class="space-y-4 my-8">
@@ -2555,7 +2592,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🖊️</span> Highlight with Intention</h2>
-            <p>Most learners highlight too much. When everything is highlighted, nothing is highlighted.</p>
+            <p class="print:mb-6">Most learners highlight too much. When everything is highlighted, nothing is highlighted.</p>
             <p class="mt-4">Strategic highlighting is a powerful focus tool — used poorly, it creates the illusion of engagement without the substance of it.</p>
 
             <div class="space-y-4 my-8">
@@ -2585,7 +2622,7 @@ export const articles: Article[] = [
             <p class="text-sm text-slate-500 italic">Note: when reviewing, always read slightly beyond your highlights. Context matters — and a highlight stripped of its surrounding sentences can lose its meaning.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🌊</span> Take Breaks — And Hydrate</h2>
-            <p>Sustained focus requires physical maintenance. Two of the most overlooked performance variables are rest and water.</p>
+            <p class="print:mb-6">Sustained focus requires physical maintenance. Two of the most overlooked performance variables are rest and water.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 my-8">
                 <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl">
@@ -2599,7 +2636,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">💬</span> Make It Social</h2>
-            <p>One of the most powerful ways to engage your imagination is to discuss what you're learning with others.</p>
+            <p class="print:mb-6">One of the most powerful ways to engage your imagination is to discuss what you're learning with others.</p>
             <p class="mt-4">Explaining a concept to someone else forces you to reconstruct it in your own words — which is the Feynman Technique in natural form. Finding a study partner, a discussion group, or even someone willing to listen as you talk through an idea will deepen your connection to the material far beyond anything you can achieve alone.</p>
             <p class="font-medium text-white mt-4">If you can make it relevant to someone else, it becomes relevant to you.</p>
 
@@ -2624,20 +2661,20 @@ export const articles: Article[] = [
         slug: "genius-note-taking",
         published: true,
         title: "Genius Note-Taking: How to Capture Knowledge That Actually Sticks",
-        category: "LEARN",
+        category: "PART1_LEARN",
         excerpt: "Most notes are a graveyard of words that are never revisited. Genius note-taking is a creative, personal, multi-sensory system that turns your notes into a powerful thinking tool.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people were never taught how to take notes. They were just handed a pen and told to write things down.</p>
-            <p>The result is pages of linear text, rarely revisited, quickly forgotten.</p>
+            <p class="print:mb-6">The result is pages of linear text, rarely revisited, quickly forgotten.</p>
             <p class="font-medium text-white mt-4 mb-8">Genius note-taking is different. It is active, creative, and deeply personal — designed not just to record information, but to help you think.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧬</span> Your Style</h2>
-            <p>There is no single correct way to take notes. The best system is the one that fits how your brain works.</p>
+            <p class="print:mb-6">There is no single correct way to take notes. The best system is the one that fits how your brain works.</p>
             <p class="mt-4">Some people think in lists. Others think in diagrams. Some prefer dense prose; others work best with sparse bullet points and white space. The key insight is this: your notes are for you, not for an audience.</p>
             <p class="mt-4">Experiment deliberately. Try different formats with different types of material. Over time you will discover what creates the strongest connections and the deepest recall for you specifically. Protect that style ruthlessly.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎨</span> Using Colour</h2>
-            <p>Colour is not decoration. It is a cognitive tool.</p>
+            <p class="print:mb-6">Colour is not decoration. It is a cognitive tool.</p>
             <p class="mt-4">When you assign consistent meaning to colours, you create a visual syntax that makes your notes scannable at a glance. Your brain processes colour faster than it processes words — a well-designed colour system turns a page of notes into a structured visual environment.</p>
 
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-8">
@@ -2661,12 +2698,12 @@ export const articles: Article[] = [
             <p class="text-sm text-slate-500">Choose a system and stick to it. Consistency is what makes the colour meaningful.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🖼️</span> Using Images</h2>
-            <p>The human brain is extraordinarily good at remembering images. The Picture Superiority Effect — a well-established finding in cognitive psychology — shows that people recall pictures far more reliably than words alone.</p>
+            <p class="print:mb-6">The human brain is extraordinarily good at remembering images. The Picture Superiority Effect — a well-established finding in cognitive psychology — shows that people recall pictures far more reliably than words alone.</p>
             <p class="mt-4">You do not need to be an artist. Rough sketches, simple diagrams, and stick figures all work. The act of translating an idea into a visual form forces you to understand it — you cannot draw something you don't understand.</p>
             <p class="mt-4">Draw the process. Sketch the system. Illustrate the relationship. Even a circle with arrows can anchor an abstract concept in a way that three paragraphs of text cannot.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗺️</span> Mind Mapping</h2>
-            <p>A mind map places a central idea at the centre of the page and radiates outward into branches — sub-topics, examples, connections, questions.</p>
+            <p class="print:mb-6">A mind map places a central idea at the centre of the page and radiates outward into branches — sub-topics, examples, connections, questions.</p>
             <p class="mt-4">Unlike linear notes, a mind map mirrors how your brain actually stores information: as a network of interconnected ideas, not a list. This makes it particularly powerful for subjects with complex relationships — history, science, business strategy, literature.</p>
 
             <img src="/mind-map-example.png" alt="A mind map diagram showing a central topic with branches radiating outward to key ideas, examples, questions, evidence, connections and details" class="w-full rounded-2xl my-8 border border-white/5" />
@@ -2729,12 +2766,12 @@ export const articles: Article[] = [
             </a>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📊</span> Flow Charts & Diagrams</h2>
-            <p>For processes, procedures, and sequences — anything where order matters — a flow chart is far superior to bullet points.</p>
+            <p class="print:mb-6">For processes, procedures, and sequences — anything where order matters — a flow chart is far superior to bullet points.</p>
             <p class="mt-4">Flow charts force you to understand the logic of a process: what causes what, what follows what, where decisions are made. They are particularly powerful for science, medicine, law, and engineering — any field where understanding causation and sequence is critical.</p>
             <p class="mt-4">If you can draw the process, you understand it. If you cannot draw it, you do not yet understand it well enough.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📝</span> Summarise in Your Own Words</h2>
-            <p>After every session, write a brief summary — not a copy of your notes, but a fresh reconstruction of the key ideas in your own language.</p>
+            <p class="print:mb-6">After every session, write a brief summary — not a copy of your notes, but a fresh reconstruction of the key ideas in your own language.</p>
             <p class="mt-4">This is the most important step that most people skip.</p>
             <p class="mt-4">Summarising in your own words is active recall applied to your own notes. It reveals what you actually understood versus what you merely transcribed. It consolidates the session. And it creates a compressed reference document that is genuinely useful when you return to review.</p>
             <p class="font-medium text-white mt-4">Summary notes written in your own voice are worth ten times the original notes.</p>
@@ -2760,15 +2797,15 @@ export const articles: Article[] = [
         slug: "learning-agility",
         published: false,
         title: "Learning Agility: How to Quickly Grasp Any Subject",
-        category: "LEARN",
+        category: "PART2_SPEED",
         excerpt: "Perfect for education and business. The ability to learn quickly is itself a learnable skill. These are the strategies used by the fastest, most adaptable thinkers in any field.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">In business and in education, the fastest learners win.</p>
-            <p>Not because they are smarter. Because they have learned how to learn.</p>
+            <p class="print:mb-6">Not because they are smarter. Because they have learned how to learn.</p>
             <p class="font-medium text-white mt-4 mb-8">Learning agility — the ability to quickly grasp any new subject — is itself a skill. And like every skill in this curriculum, it can be built deliberately.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🌱</span> Start with the Right Mindset</h2>
-            <p>The single most important variable in learning speed is not IQ. It is what psychologists call a <strong class="text-white">growth mindset</strong> — the belief that your abilities can be developed through effort.</p>
+            <p class="print:mb-6">The single most important variable in learning speed is not IQ. It is what psychologists call a <strong class="text-white">growth mindset</strong> — the belief that your abilities can be developed through effort.</p>
             <p class="mt-4">People with a fixed mindset — who believe intelligence is static — avoid challenges, hide difficulty, and give up at the first obstacle. People with a growth mindset do the opposite.</p>
             <p class="mt-4">Before you open any book or start any course, ask yourself: do I believe I can genuinely understand this? If the honest answer is no, that is the first thing to address.</p>
 
@@ -2777,7 +2814,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎯</span> The Fast Learner's Toolkit</h2>
-            <p>Once the mindset is right, the following strategies work in combination. Pick the ones most relevant to your context and apply them with intention.</p>
+            <p class="print:mb-6">Once the mindset is right, the following strategies work in combination. Pick the ones most relevant to your context and apply them with intention.</p>
 
             <div class="space-y-4 my-8">
                 <div class="flex items-start gap-4 p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -2839,7 +2876,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📐</span> The Infrastructure of Fast Learning</h2>
-            <p>Strategies are only effective inside a supporting structure. These three habits form the foundation.</p>
+            <p class="print:mb-6">Strategies are only effective inside a supporting structure. These three habits form the foundation.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
                 <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
@@ -2884,15 +2921,15 @@ export const articles: Article[] = [
         slug: "the-relaxed-genius",
         published: false,
         title: "The Relaxed Genius: Why Calm Is Your Most Powerful Learning Tool",
-        category: "READY",
+        category: "PART2_TOOLS",
         excerpt: "Stress narrows your thinking. Relaxation expands it. The world's best performers — in sport, business, and academia — share one underrated habit: they know how to switch off.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Your brain does not perform when it is tense. It survives.</p>
-            <p>Under stress, your cortisol spikes, your prefrontal cortex — the part responsible for reasoning, memory, and creativity — goes offline, and your cognitive resources are redirected toward threat management.</p>
+            <p class="print:mb-6">Under stress, your cortisol spikes, your prefrontal cortex — the part responsible for reasoning, memory, and creativity — goes offline, and your cognitive resources are redirected toward threat management.</p>
             <p class="font-medium text-white mt-4 mb-8">This is extraordinary for escaping danger. It is catastrophic for an exam, a presentation, or a learning session.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧬</span> What Relaxation Actually Does to Your Brain</h2>
-            <p>When you are genuinely relaxed, your brain shifts into what neuroscientists call a broader attentional state. You become more open to connections, more creative, more capable of retaining complex information.</p>
+            <p class="print:mb-6">When you are genuinely relaxed, your brain shifts into what neuroscientists call a broader attentional state. You become more open to connections, more creative, more capable of retaining complex information.</p>
 
             <div class="my-8 p-6 bg-slate-900/40 border border-white/5 rounded-2xl grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div class="border-l-4 border-rose-500 pl-4">
@@ -2917,11 +2954,11 @@ export const articles: Article[] = [
                 </div>
             </div>
 
-            <p>The research is unambiguous. A calm, well-rested learner will consistently outperform a stressed, high-effort one on virtually every metric of cognitive performance.</p>
+            <p class="print:mb-6">The research is unambiguous. A calm, well-rested learner will consistently outperform a stressed, high-effort one on virtually every metric of cognitive performance.</p>
             <p class="font-medium text-white mt-4 mb-8">Relaxation is not a reward for finishing. It is a prerequisite for performing.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🛠️</span> Six Techniques That Actually Work</h2>
-            <p>There is no single right method. Try each of the following and notice which produces the clearest shift for you. The best technique is the one you'll actually use.</p>
+            <p class="print:mb-6">There is no single right method. Try each of the following and notice which produces the clearest shift for you. The best technique is the one you'll actually use.</p>
 
             <div class="space-y-6 my-8">
 
@@ -3009,7 +3046,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔑</span> The Non-Negotiable Truth</h2>
-            <p>The highest performers in any field — elite athletes, top executives, world-class academics — share a quality that looks passive but is anything but: the ability to switch off completely.</p>
+            <p class="print:mb-6">The highest performers in any field — elite athletes, top executives, world-class academics — share a quality that looks passive but is anything but: the ability to switch off completely.</p>
             <p class="mt-4">They do not grind endlessly. They alternate between intense focus and genuine rest. They protect their recovery as carefully as they protect their preparation.</p>
             <p class="font-medium text-white mt-4">Relaxation is not the opposite of performance. It is the foundation of it.</p>
 
@@ -3034,15 +3071,15 @@ export const articles: Article[] = [
         slug: "studying-with-others",
         published: false,
         title: "Studying With Others: How to Make Group Study Actually Work",
-        category: "READY",
+        category: "PART2_TOOLS",
         excerpt: "Group study can be the most powerful learning environment you will ever have — or it can be the most expensive way to waste three hours. The difference is in the design.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Studying with others can accelerate your understanding dramatically.</p>
-            <p>Or it can feel like a very sociable way of learning almost nothing.</p>
+            <p class="print:mb-6">Or it can feel like a very sociable way of learning almost nothing.</p>
             <p class="font-medium text-white mt-4 mb-8">The difference between a group study session that works and one that doesn't is rarely talent or effort. It is design. The sessions that produce exceptional results are deliberately structured. The ones that don't are improvised.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> Why Studying With Others Works</h2>
-            <p>Learning in a social context engages different cognitive mechanisms than solo study. When you explain an idea to someone else, you expose every gap in your understanding. When you debate a concept, you are forced to hold your position under pressure — which is exactly what exams and professional contexts demand.</p>
+            <p class="print:mb-6">Learning in a social context engages different cognitive mechanisms than solo study. When you explain an idea to someone else, you expose every gap in your understanding. When you debate a concept, you are forced to hold your position under pressure — which is exactly what exams and professional contexts demand.</p>
             <p class="mt-4">Collaboration also brings something solo study cannot: the moment another person explains something in a way that finally makes it click.</p>
 
             <div class="space-y-3 my-8">
@@ -3091,7 +3128,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚠️</span> The Pitfalls — and How to Avoid Them</h2>
-            <p>Group study fails in predictable ways. Recognise them before they appear, and you can sidestep all of them.</p>
+            <p class="print:mb-6">Group study fails in predictable ways. Recognise them before they appear, and you can sidestep all of them.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 <div class="p-5 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-2xl">
@@ -3121,7 +3158,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📋</span> The Structure of a Session That Works</h2>
-            <p>The best group study sessions are not improvised. They follow a repeatable pattern.</p>
+            <p class="print:mb-6">The best group study sessions are not improvised. They follow a repeatable pattern.</p>
 
             <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
                 <div class="space-y-5">
@@ -3184,15 +3221,15 @@ export const articles: Article[] = [
         slug: "study-music",
         published: false,
         title: "The Sound of Focus: How to Use Music to Study Better",
-        category: "READY",
+        category: "PART2_TOOLS",
         excerpt: "Music can sharpen your focus, lift your mood, and make a three-hour session feel manageable — or it can quietly demolish your concentration without you noticing. Here's how to tell the difference.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Music has a major impact on your mood, your ability to concentrate, and your productivity.</p>
-            <p>But the relationship between music and learning is not simple. The same playlist that helps one person enter a state of deep flow will scatter another person's attention completely.</p>
-            <p class="font-medium text-white mt-4 mb-8">The goal is to understand the variables — and then run your own experiment.</p>
+            <p class="print:mb-6">But the relationship between music and learning is not simple. The same playlist that helps one person enter a state of deep flow will scatter another person's attention completely.</p>
+            <p class="font-medium text-white mt-4 mb-8"><mark>The goal is to understand the variables — and then run your own experiment.</mark></p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧠</span> What Music Actually Does to the Brain</h2>
-            <p>Music affects three things that are directly relevant to studying: <strong class="text-white">arousal</strong> (how alert and energised you feel), <strong class="text-white">mood</strong> (how you feel emotionally), and <strong class="text-white">attention</strong> (where your cognitive resources are pointed).</p>
+            <p class="print:mb-6">Music affects three things that are directly relevant to studying: <strong class="text-white">arousal</strong> (how alert and energised you feel), <strong class="text-white">mood</strong> (how you feel emotionally), and <strong class="text-white">attention</strong> (where your cognitive resources are pointed).</p>
             <p class="mt-4">The right music can raise arousal to an optimal level, create a positive mood that makes the work feel less aversive, and provide just enough sensory input to mask distracting environmental noise.</p>
             <p class="mt-4">The wrong music pulls attention toward itself. Your brain starts to process the lyrics, follow the melody, or react to sudden shifts — and the study material loses.</p>
 
@@ -3201,7 +3238,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🎵</span> What Works — and Why</h2>
-            <p>Not all music is created equal for concentration. These categories consistently produce better results across most learners:</p>
+            <p class="print:mb-6">Not all music is created equal for concentration. These categories consistently produce better results across most learners:</p>
 
             <div class="space-y-4 my-8">
                 <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -3235,7 +3272,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🚫</span> What Doesn't Work — and Why</h2>
-            <p>Some music actively degrades concentration, even when it feels like it's helping.</p>
+            <p class="print:mb-6">Some music actively degrades concentration, even when it feels like it's helping.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 <div class="p-4 bg-slate-900/40 border-l-4 border-rose-500 rounded-r-xl">
@@ -3257,7 +3294,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧪</span> Run Your Own Experiment</h2>
-            <p>There is no universal prescription. The research gives us principles, but your brain is the only one that matters here.</p>
+            <p class="print:mb-6">There is no universal prescription. The research gives us principles, but your brain is the only one that matters here.</p>
             <p class="mt-4">Try this deliberately over the next two weeks:</p>
 
             <div class="space-y-3 my-8">
@@ -3303,15 +3340,15 @@ export const articles: Article[] = [
         slug: "best-time-to-study",
         published: false,
         title: "Your Peak Hour: Finding the Best Time of Day to Study",
-        category: "READY",
+        category: "PART2_TOOLS",
         excerpt: "Not all hours are equal. Your brain at 7am is a different instrument to your brain at 7pm. Finding your peak window and protecting it is one of the highest-leverage learning decisions you can make.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">When you study matters almost as much as how you study.</p>
-            <p>Your capacity for concentration, memory consolidation, and deep thinking is not constant throughout the day. It rises and falls according to your body's internal rhythms — rhythms that are unique to you.</p>
-            <p class="font-medium text-white mt-4 mb-8">The goal is not to find the "best" time in general. It is to find your best time — and then protect it ruthlessly.</p>
+            <p class="print:mb-6">Your capacity for concentration, memory consolidation, and deep thinking is not constant throughout the day. It rises and falls according to your body's internal rhythms — rhythms that are unique to you.</p>
+            <p class="font-medium text-white mt-4 mb-8"><mark>The goal is not to find the "best" time in general.</mark> It is to find your best time — and then protect it ruthlessly.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🕐</span> Your Chronotype: The Rhythm You Actually Have</h2>
-            <p>Chronobiology — the science of biological time — has established that humans fall broadly into two categories: morning types (often called "larks") and evening types ("owls"), with most people sitting somewhere in between.</p>
+            <p class="print:mb-6">Chronobiology — the science of biological time — has established that humans fall broadly into two categories: morning types (often called "larks") and evening types ("owls"), with most people sitting somewhere in between.</p>
             <p class="mt-4">Your chronotype is largely determined by genetics, modified by age, and cannot be meaningfully overridden by willpower alone. Fighting your chronotype is one of the least efficient things a serious learner can do.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
@@ -3335,7 +3372,7 @@ export const articles: Article[] = [
             <p class="text-slate-400 italic text-sm">If you are unsure which you are: pay attention to when you feel genuinely sharp without caffeine. That is your answer.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">⚡</span> The Three Variables That Determine Your Window</h2>
-            <p>Beyond chronotype, three practical variables should shape when you study:</p>
+            <p class="print:mb-6">Beyond chronotype, three practical variables should shape when you study:</p>
 
             <div class="space-y-4 my-8">
                 <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -3363,7 +3400,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🗓️</span> Designing Your Study Window</h2>
-            <p>Once you know your peak time, protect it with the same seriousness you'd use to protect a meeting with someone important.</p>
+            <p class="print:mb-6">Once you know your peak time, protect it with the same seriousness you'd use to protect a meeting with someone important.</p>
 
             <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
                 <h3 class="text-lg font-bold text-white mb-5">The setup that works</h3>
@@ -3388,7 +3425,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧪</span> Find Yours</h2>
-            <p>There is no universal prescription. Research can tell you what tends to be true in aggregate. Your job is to find what is true for you.</p>
+            <p class="print:mb-6">There is no universal prescription. Research can tell you what tends to be true in aggregate. Your job is to find what is true for you.</p>
             <p class="mt-4">Spend the next week paying deliberate attention to your energy and focus levels at different times of day. You don't need to change anything yet — just observe. Note when thinking feels easy and when it feels like effort.</p>
             <p class="font-medium text-white mt-4">By the end of the week, you will know your window. Then it is simply a matter of organising your life around it.</p>
 
@@ -3413,15 +3450,15 @@ export const articles: Article[] = [
         slug: "the-power-of-questions",
         published: false,
         title: "The Power of Questions: How Asking More Gets You Further",
-        category: "LEARN",
+        category: "PART2_TOOLS",
         excerpt: "The more questions you ask, the more answers you find. Questioning is not a passive habit — it is one of the most powerful active learning techniques available, and almost no one uses it deliberately.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">This may sound obvious: the more questions you ask, the more answers you find.</p>
-            <p>But obvious is not the same as practised. Most people read passively. They receive information without interrogating it. They move from page to page in a kind of polite silence — never demanding anything from the material, never pushing back, never asking the text to justify itself.</p>
+            <p class="print:mb-6">But obvious is not the same as practised. Most people read passively. They receive information without interrogating it. They move from page to page in a kind of polite silence — never demanding anything from the material, never pushing back, never asking the text to justify itself.</p>
             <p class="font-medium text-white mt-4 mb-8">Deliberate questioning changes everything. It transforms reading from a passive to an active experience — and understanding from shallow to deep.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🛠️</span> How to Question Deliberately</h2>
-            <p>Asking good questions requires intention. It doesn't happen automatically — you have to create the conditions for it.</p>
+            <p class="print:mb-6">Asking good questions requires intention. It doesn't happen automatically — you have to create the conditions for it.</p>
 
             <div class="space-y-4 my-8">
                 <div class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -3450,7 +3487,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">💡</span> Seven Reasons This Works</h2>
-            <p>There is a reason that questioning is one of the most studied learning strategies in cognitive psychology. Here is what it actually does:</p>
+            <p class="print:mb-6">There is a reason that questioning is one of the most studied learning strategies in cognitive psychology. Here is what it actually does:</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 <div class="p-4 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -3526,11 +3563,11 @@ export const articles: Article[] = [
         slug: "making-boring-text-interesting",
         published: false,
         title: "Making Boring Text Interesting: Nine Ways to Engage With Material You Don't Love",
-        category: "READY",
+        category: "PART2_SPEED",
         excerpt: "Someone found this interesting enough to write. Someone else found it interesting enough to publish. The problem might not be the material — it might be the approach.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">One of the biggest challenges in reading and studying is material you simply have no interest in.</p>
-            <p>It is hard to get motivated. It is hard to focus. The words pass through your eyes without leaving much trace.</p>
+            <p class="print:mb-6">It is hard to get motivated. It is hard to focus. The words pass through your eyes without leaving much trace.</p>
             <p class="font-medium text-white mt-4 mb-8">But here is a reframe worth sitting with: someone found this subject interesting enough to spend years studying it. Someone else found it valuable enough to publish it. That doesn't prove the material is fascinating — but it does suggest the problem might not be the material itself. It might be the approach.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🛠️</span> Nine Things You Can Do</h2>
@@ -3596,13 +3633,13 @@ export const articles: Article[] = [
                     <span class="text-indigo-500 font-bold text-xl shrink-0 w-8">09</span>
                     <div>
                         <p class="font-bold text-white">If nothing works — change the material</p>
-                        <p class="text-sm text-slate-400 mt-1">Some resources are just badly written. If you have genuinely tried and a particular book or source remains impenetrable and joyless, consider whether a different book on the same subject would serve you better. The goal is to learn the subject, not to finish a specific document.</p>
+                        <p class="text-sm text-slate-400 mt-1">Some resources are just badly written. If you have genuinely tried and a particular book or source remains impenetrable and joyless, consider whether a different book on the same subject would serve you better. <mark>The goal is to learn the subject, not to finish a specific document.</mark></p>
                     </div>
                 </div>
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧭</span> The Deeper Question</h2>
-            <p>There is a more challenging question underneath all of this, and it is worth asking honestly.</p>
+            <p class="print:mb-6">There is a more challenging question underneath all of this, and it is worth asking honestly.</p>
             <p class="mt-4">If you consistently find your material boring — if every session is a battle, and nothing in the nine strategies above makes any meaningful difference — it may be worth pausing to ask: am I studying the right thing?</p>
 
             <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl my-8">
@@ -3639,15 +3676,15 @@ export const articles: Article[] = [
         slug: "understanding-technical-material",
         published: false,
         title: "Cracking Technical Material: How to Understand the Hard Stuff",
-        category: "LEARN",
+        category: "PART2_TOOLS",
         excerpt: "Technical subjects feel impenetrable until they don't. The shift from confusion to clarity is not random — it is the result of specific strategies, applied consistently.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Technical material is genuinely difficult. That is not a personal failing — it is the nature of the territory.</p>
-            <p>Complex concepts, dense notation, abstract principles, layers of prerequisite knowledge you may not yet have. Studying technical subjects at any level requires more than reading. It requires a method.</p>
+            <p class="print:mb-6">Complex concepts, dense notation, abstract principles, layers of prerequisite knowledge you may not yet have. Studying technical subjects at any level requires more than reading. It requires a method.</p>
             <p class="font-medium text-white mt-4 mb-8">The good news: the strategies that make technical material click are well understood. None of them are shortcuts. All of them work.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏗️</span> Build the Foundation First</h2>
-            <p>The most common reason technical material feels impenetrable is attempting to skip the foundations. Advanced concepts in any field are built on top of each other. Without the layer beneath, the layer above has nothing to grip.</p>
+            <p class="print:mb-6">The most common reason technical material feels impenetrable is attempting to skip the foundations. Advanced concepts in any field are built on top of each other. Without the layer beneath, the layer above has nothing to grip.</p>
 
             <div class="p-6 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
                 <p class="text-slate-300"><strong class="text-white">The principle:</strong> if you are confused by step 4, the answer is almost always in step 2. Go back further than feels comfortable. Master the foundation, and the advanced content becomes dramatically more accessible.</p>
@@ -3730,7 +3767,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧭</span> The Right Mindset for Hard Material</h2>
-            <p>Understanding technical material takes time. This is not a sign of inadequacy — it is a feature of the subject matter.</p>
+            <p class="print:mb-6">Understanding technical material takes time. This is not a sign of inadequacy — it is a feature of the subject matter.</p>
             <p class="mt-4">The most capable engineers, scientists, and mathematicians in the world did not intuitively grasp their fields. They struggled, misunderstood, revised, and tried again. The difference between them and those who stopped is not intelligence — it is the willingness to stay in the confusion long enough for it to resolve.</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
@@ -3776,16 +3813,16 @@ export const articles: Article[] = [
         slug: "how-to-create-a-mind-map",
         published: false,
         title: "How to Create a Mind Map: A Complete Step-by-Step Guide",
-        category: "LEARN",
+        category: "PART2_TOOLS",
         excerpt: "Mind mapping is one of the most powerful tools available for organising information, deepening comprehension, and building a knowledge you can actually retrieve. Here's exactly how to do it.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">A mind map is not just a prettier version of your notes. It is a fundamentally different way of organising knowledge — one that mirrors how your brain actually works.</p>
-            <p>Linear notes record information in sequences. Your brain stores it as a network. Mind mapping bridges that gap, making it easier to understand, remember, and retrieve complex material.</p>
+            <p class="print:mb-6">Linear notes record information in sequences. Your brain stores it as a network. Mind mapping bridges that gap, making it easier to understand, remember, and retrieve complex material.</p>
 
             <img src="/mind-map-example.png" alt="A mind map diagram showing a central topic with branches radiating outward to key ideas, examples, questions, evidence, connections and details" class="w-full rounded-2xl my-8 border border-white/5" />
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🏁</span> Before You Start</h2>
-            <p>A few practical decisions before you put pen to paper (or pixel to screen):</p>
+            <p class="print:mb-6">A few practical decisions before you put pen to paper (or pixel to screen):</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-xl">
@@ -3912,11 +3949,11 @@ export const articles: Article[] = [
         slug: "the-art-of-review",
         published: false,
         title: "The Art of Review: Why Revisiting Is the Most Underrated Learning Skill",
-        category: "LEARN",
+        category: "PART2_SPEED",
         excerpt: "Most learning is lost within 24 hours of first encountering it. Not because you didn't understand it — but because you didn't review it. Reviewing is not catching up. It is consolidation. It is how understanding becomes permanent.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">You can read perfectly, take excellent notes, and understand everything in the moment — and still remember almost none of it a week later.</p>
-            <p>This is not a failure of intelligence. It is a feature of how human memory works. Without deliberate review, even well-understood information fades rapidly. The forgetting curve — first mapped by Hermann Ebbinghaus in the 1880s — shows that without reinforcement, most new learning is gone within 24 to 48 hours.</p>
+            <p class="print:mb-6">This is not a failure of intelligence. It is a feature of how human memory works. Without deliberate review, even well-understood information fades rapidly. The forgetting curve — first mapped by Hermann Ebbinghaus in the 1880s — shows that without reinforcement, most new learning is gone within 24 to 48 hours.</p>
 
             <div class="my-10 p-6 sm:p-8 bg-slate-900/80 border border-slate-800 rounded-2xl overflow-hidden relative shadow-lg">
                 <h4 class="text-sm font-bold text-white mb-8 uppercase tracking-widest text-center">The Forgetting Curve (With & Without Review)</h4>
@@ -3982,7 +4019,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧰</span> Your Review Toolkit</h2>
-            <p>These seven strategies each attack the forgetting problem from a different angle. Used in combination, they compound. The goal is not to do all of them — it is to know which to reach for, and when.</p>
+            <p class="print:mb-6">These seven strategies each attack the forgetting problem from a different angle. Used in combination, they compound. <mark>The goal is not to do all of them — it is to know which to reach for, and when.</mark></p>
 
             <div class="space-y-4 my-8">
                 <a href="/blog/from-cramming-to-compounding" class="flex items-start gap-4 p-5 bg-slate-900/40 border border-slate-800 rounded-xl hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
@@ -4038,7 +4075,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">📅</span> How to Build a Review Schedule</h2>
-            <p>Ad-hoc review — whenever you happen to remember to do it — is significantly less effective than a deliberate schedule. The spacing matters.</p>
+            <p class="print:mb-6">Ad-hoc review — whenever you happen to remember to do it — is significantly less effective than a deliberate schedule. The spacing matters.</p>
 
             <div class="p-8 bg-slate-900/40 border border-white/5 rounded-2xl my-8">
                 <h3 class="text-base font-bold text-white mb-5">A simple starting point</h3>
@@ -4093,11 +4130,17 @@ export const articles: Article[] = [
         slug: "learning-by-teaching",
         published: false,
         title: "The Protégé Effect: Why Teaching Others Is the Most Powerful Way to Learn",
-        category: "LEARN",
+        category: "PART2_TOOLS",
         excerpt: "When you teach, you don't just share what you know — you deepen it, test it, and often discover gaps you didn't know were there. Teaching is not the reward for learning. It is part of the learning itself.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">"You learn best by teaching others." This feels like common wisdom — the kind of thing that sounds right without necessarily being proven. But it is, in fact, one of the most robustly supported findings in educational research.</p>
-            <p>Researchers call it the <strong class="text-white">Protégé Effect</strong>: the cognitive and motivational benefits that come from taking on the role of teacher, even a temporary or informal one. When you teach, your own learning deepens in ways that passive study cannot replicate.</p>
+            
+            <div class="my-10 p-8 rounded-3xl bg-indigo-950/40 border-l-4 border-indigo-500 break-inside-avoid shadow-xl relative mt-16">
+                <h3 class="text-2xl font-bold text-indigo-300 mb-4 font-sans">The Protégé Effect</h3>
+                <p class="text-lg text-white mb-4">When you take on the role of a teacher—even an informal one—your own learning deepens in ways that passive study cannot replicate.</p>
+                <p class="text-lg text-emerald-400 font-bold mt-4">Teaching someone else is one of the most robustly supported findings in educational research.</p>
+            </div>
+
             <p class="font-medium text-white mt-4 mb-8">Here is exactly why it works — and how to use it deliberately.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🧠</span> Eight Ways Teaching Deepens Your Learning</h2>
@@ -4164,7 +4207,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🛠️</span> How to Use This Deliberately</h2>
-            <p>You don't need a classroom or a formal audience to benefit from this effect. Here are four ways to practise it:</p>
+            <p class="print:mb-6">You don't need a classroom or a formal audience to benefit from this effect. Here are four ways to practise it:</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
@@ -4210,11 +4253,11 @@ export const articles: Article[] = [
         slug: "choosing-your-reading-format",
         published: false,
         title: "Paper, Screen, or Sound: How to Choose the Right Reading Format",
-        category: "READY",
+        category: "PART2_TOOLS",
         excerpt: "Print, e-book, and audiobook each have genuine strengths — and genuine limitations. The best readers don't pick one and stick to it. They match the format to the task.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">There is no single best way to read. Print books, e-books, and audiobooks each serve different purposes, different contexts, and different types of learner.</p>
-            <p>The question is not which format is superior — it is which format is right for this material, in this moment, for this purpose.</p>
+            <p class="print:mb-6">The question is not which format is superior — it is which format is right for this material, in this moment, for this purpose.</p>
             <p class="font-medium text-white mt-4 mb-8">Here is an honest breakdown of each, including what they do well and where they fall short.</p>
 
             <div class="space-y-8 my-8">
@@ -4376,7 +4419,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔀</span> The Best Answer: Use All Three</h2>
-            <p>No single format wins for every purpose. The most effective readers treat these as complementary tools rather than competing options.</p>
+            <p class="print:mb-6">No single format wins for every purpose. The most effective readers treat these as complementary tools rather than competing options.</p>
 
             <div class="p-8 bg-indigo-950/20 border border-indigo-500/30 rounded-2xl my-8">
                 <h3 class="text-base font-bold text-white mb-4">One approach that works well</h3>
@@ -4419,14 +4462,20 @@ export const articles: Article[] = [
         slug: "accelerated-learning",
         published: false,
         title: "Accelerated Learning: How to Learn Faster — Without Sacrificing Depth",
-        category: "LEARN",
+        category: "PART2_SPEED",
         excerpt: "Learning faster is not about rushing through material. It is about creating the conditions in which your brain absorbs information most effectively — and a landmark study by Georgi Lozanov showed us quite precisely what those conditions are.",
         content: `
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people assume that learning speed is fixed — a given. Either you pick things up quickly, or you don't. But a substantial body of research suggests this is not true.</p>
-            <p>The speed and effectiveness of learning is highly sensitive to the conditions under which it happens: your emotional state, your environment, the methods you use, and the way you engage with material. Optimise those conditions, and learning accelerates. Ignore them, and even capable learners underperform.</p>
+            <p class="print:mb-6">The speed and effectiveness of learning is highly sensitive to the conditions under which it happens: your emotional state, your environment, the methods you use, and the way you engage with material. Optimise those conditions, and learning accelerates. Ignore them, and even capable learners underperform.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🔬</span> The Lozanov Study</h2>
-            <p>In the 1960s and 70s, Bulgarian psychologist and educator Georgi Lozanov conducted some of the most provocative research in the field of accelerated learning. His method — which he called <strong class="text-white">Suggestopedia</strong> — was built around a simple but radical premise: that most learning is limited not by cognitive capacity, but by psychological barriers. Anxiety, self-doubt, passive engagement, and uninspiring environments suppress our natural ability to absorb and retain information.</p>
+            
+            <div class="my-10 p-8 rounded-3xl bg-indigo-950/40 border-l-4 border-indigo-500 break-inside-avoid shadow-xl relative mt-16">
+                <h3 class="text-2xl font-bold text-indigo-300 mb-4 font-sans">A Radical Premise</h3>
+                <p class="text-lg text-white mb-4">Most learning is limited not by cognitive capacity, but by <span class="text-emerald-400 font-bold">psychological barriers</span>.</p>
+                <p class="text-lg text-white mt-4">Anxiety, self-doubt, passive engagement, and uninspiring environments actively suppress our natural ability to absorb and retain information.</p>
+            </div>
+
             <p class="mt-4">Lozanov's work demonstrated that when learners are in a relaxed, receptive, and positively engaged state — and when the learning environment is carefully designed to support that state — the speed and retention of learning can increase dramatically.</p>
             <p class="mt-4 text-slate-400 text-sm italic">Suggestopedia is not universally accepted and has its critics — particularly regarding some of its more theatrical applications. But its core insight about the relationship between psychological state, environment, and learning outcomes is well-supported by subsequent research.</p>
 
@@ -4468,7 +4517,7 @@ export const articles: Article[] = [
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6 flex items-center gap-3"><span class="text-indigo-400">🛠️</span> What This Means in Practice</h2>
-            <p>You do not need a formal Suggestopedia programme to apply these principles. They translate directly into everyday study decisions:</p>
+            <p class="print:mb-6">You do not need a formal Suggestopedia programme to apply these principles. They translate directly into everyday study decisions:</p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8">
                 <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
@@ -4477,7 +4526,7 @@ export const articles: Article[] = [
                 </div>
                 <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
                     <h4 class="font-bold text-white mb-2 text-sm">🎵 Design your sonic environment</h4>
-                    <p class="text-xs text-slate-400">Experiment with study music — Baroque classical, lo-fi, ambient — and find what genuinely supports your concentration rather than distracts from it. If silence works better for you, protect that silence deliberately. The goal is the state, not any particular soundtrack.</p>
+                    <p class="text-xs text-slate-400">Experiment with study music — Baroque classical, lo-fi, ambient — and find what genuinely supports your concentration rather than distracts from it. If silence works better for you, protect that silence deliberately. <mark>The goal is the state, not any particular soundtrack.</mark></p>
                 </div>
                 <div class="p-5 bg-slate-900/40 border border-slate-800 rounded-2xl">
                     <h4 class="font-bold text-white mb-2 text-sm">🎨 Visualise as you learn</h4>
@@ -4490,7 +4539,12 @@ export const articles: Article[] = [
             </div>
 
             <div class="p-6 bg-slate-900/40 border border-white/5 rounded-2xl my-8">
-                <p class="text-slate-300 italic text-sm">The learner who walks into a study session relaxed, curious, and confident — with a purposefully designed environment and a habit of visualising what they learn — is not doing the same thing as the anxious student cramming under fluorescent lights at midnight. They are engaging a fundamentally different cognitive experience. One of them will remember what they studied. Both read the same words.</p>
+                
+            <blockquote class="text-3xl sm:text-4xl font-serif italic text-center leading-relaxed text-indigo-400 my-16 py-10 border-t border-b border-indigo-500/20 break-inside-avoid shadow-sm bg-indigo-950/10 rounded-3xl mx-[-2rem] px-[2rem]">
+                "One of them will remember what they studied. Both read the same words."
+                <footer class="mt-6 text-sm font-sans font-bold text-indigo-400 uppercase tracking-widest">— The difference is cognitive state.</footer>
+            </blockquote>
+
             </div>
 
             <p class="font-bold text-white text-lg text-center my-12">Learning is not just about what enters your mind — it is about the state your mind is in when it arrives.</p>

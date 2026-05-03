@@ -5,7 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { DrillStep } from '@/lib/course-content';
 import PacerEngine from '@/components/PacerEngine';
 import Link from 'next/link';
-import { Play, Pause, FastForward, CheckCircle, RotateCcw, ArrowLeft } from 'lucide-react';
+import { Play, Pause, FastForward, CheckCircle, RotateCcw, ArrowLeft, TrendingUp } from 'lucide-react';
+import { updateBootcampProgress } from '@/app/actions/progress';
+import ReadingTestEngine from '@/components/engines/ReadingTestEngine';
+import WpmProgressGraph from '@/components/ui/WpmProgressGraph';
+import { DAILY_TESTS } from '@/data/dailyTests';
 
 interface SessionPlayerProps {
     dayNumber: number;
@@ -16,7 +20,7 @@ interface SessionPlayerProps {
 }
 
 export default function SessionPlayer({ dayNumber, sequence, onComplete, dayContent, outroMessage }: SessionPlayerProps) {
-    const [phase, setPhase] = useState<'playing' | 'outro'>('playing');
+    const [phase, setPhase] = useState<'playing' | 'test' | 'outro'>('playing');
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const [timeLeft, setTimeLeft] = useState(
@@ -44,7 +48,7 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
                 setElapsedTime(0);
             }
         } else {
-            setPhase('outro');
+            setPhase('test');
         }
     };
 
@@ -63,6 +67,12 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
                 setElapsedTime(0);
             }
         }
+    };
+
+    const handleComplete = async () => {
+        // Optimistically unlock the next day in the DB (dayNumber + 1)
+        await updateBootcampProgress(dayNumber + 1);
+        onComplete();
     };
 
     // Timer Logic
@@ -123,7 +133,62 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
     // The user requested an out-of-copyright book, which is supplied in course-content.ts as COMMON_DRILL_TEXT
     const drillText = currentStep?.text || dayContent || "The quick brown fox jumps over the lazy dog. Speed reading requires focus. Keep your eyes moving. Do not look back. Trust your brain to capture words.";
 
+    const testData = DAILY_TESTS.find(t => t.day === dayNumber) || DAILY_TESTS[0];
+    
+    // For the outro graph
+    const [wpmHistory, setWpmHistory] = useState<{day: number, wpm: number}[]>([]);
 
+    useEffect(() => {
+        if (phase === 'outro') {
+            const historyStr = localStorage.getItem('rogue_daily_wpm_history');
+            if (historyStr) {
+                try {
+                    setWpmHistory(JSON.parse(historyStr));
+                } catch (e) {}
+            }
+        }
+    }, [phase]);
+
+    const handleTestComplete = (results: { wpm: number; comprehension: number }) => {
+        // Save to local storage
+        const historyStr = localStorage.getItem('rogue_daily_wpm_history');
+        let history: {day: number, wpm: number}[] = [];
+        if (historyStr) {
+            try { history = JSON.parse(historyStr); } catch (e) {}
+        }
+        
+        // Remove existing entry for today if they re-take it, then push new result
+        history = history.filter(h => h.day !== dayNumber);
+        history.push({ day: dayNumber, wpm: results.wpm });
+        
+        // Sort by day just in case
+        history.sort((a, b) => a.day - b.day);
+        
+        localStorage.setItem('rogue_daily_wpm_history', JSON.stringify(history));
+        
+        // Advance to outro
+        setPhase('outro');
+    };
+
+    if (phase === 'test') {
+        return (
+            <AnimatePresence mode="wait">
+                <motion.div
+                    key="test"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="w-full max-w-3xl mx-auto py-12"
+                >
+                    <ReadingTestEngine 
+                        title={`Day ${dayNumber} Reading Speed Test`}
+                        text={testData.text} 
+                        questions={testData.questions} 
+                        onComplete={handleTestComplete} 
+                    />
+                </motion.div>
+            </AnimatePresence>
+        );
+    }
 
     if (phase === 'outro') {
         return (
@@ -167,6 +232,16 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
                         <p className="text-sm text-slate-400">Day {dayNumber} of 14</p>
                     </div>
 
+                    {wpmHistory.length > 0 && (
+                        <div className="w-full bg-slate-900/50 border border-slate-800 p-8 rounded-3xl mt-8">
+                            <h3 className="text-xl font-bold text-white mb-6 flex items-center justify-center gap-2">
+                                <TrendingUp className="w-5 h-5 text-emerald-400" />
+                                Your Speed Progression
+                            </h3>
+                            <WpmProgressGraph data={wpmHistory} height={200} />
+                        </div>
+                    )}
+
                     {outroMessage && (
                         <div className="w-full max-w-md bg-indigo-500/10 border border-indigo-500/20 p-6 rounded-2xl mt-4">
                             <p className="text-lg text-indigo-300 font-medium">
@@ -183,7 +258,7 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
                             Test your new reading speed <FastForward className="w-5 h-5 ml-2" />
                         </Link>
                         <button
-                            onClick={onComplete}
+                            onClick={handleComplete}
                             className="w-full py-4 px-8 bg-slate-800 hover:bg-slate-700 text-slate-300 text-base md:text-lg font-bold rounded-full transition-all hover:scale-105 border border-slate-700 hover:border-slate-500"
                         >
                             No thanks, see you tomorrow
@@ -200,10 +275,16 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
             {currentStep?.mode !== 'message' && (
                 <div className="flex items-center justify-between bg-slate-900/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-800 sticky top-4 z-50 shadow-2xl">
                     <div>
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-4 mb-2">
                             <span className="px-2 py-0.5 bg-indigo-500/20 text-indigo-400 text-[10px] font-bold uppercase tracking-wider rounded border border-indigo-500/20">
                                 Day {dayNumber}
                             </span>
+                            <button 
+                                onClick={handleComplete} 
+                                className="text-[10px] font-bold uppercase tracking-wider text-slate-500 hover:text-slate-300 underline underline-offset-2 transition-colors"
+                            >
+                                Skip Drill
+                            </button>
                         </div>
                         <h2 className="text-xl font-bold text-white">{currentStep.title}</h2>
                         <p className="text-sm text-slate-400 mt-1">{currentStep.subtitle}</p>

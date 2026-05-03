@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+  .book-container {
+    width: 1000px;
+    height: 700px;
+    background: #ccc;
+    position: relative;
+    padding: 50px 40px;
+    box-sizing: border-box;
+  }
+  .columns {
+    column-width: 420px;
+    column-gap: 80px;
+    column-fill: auto;
+    height: 100%;
+    background: #eee;
+  }
+</style>
+</head>
+<body>
+  <div class="book-container">
+    <div class="columns">
+      <h1>Welcome to the 1%</h1>
+      <p>This is a test of CSS columns. This text should flow into the next column.</p>
+      <div style="height: 400px; background: red; margin-bottom: 20px;">Big block 1</div>
+      <div style="height: 400px; background: blue; margin-bottom: 20px;">Big block 2</div>
+      <div style="height: 400px; background: green; margin-bottom: 20px;">Big block 3</div>
+    </div>
+  </div>
+</body>
+</html>

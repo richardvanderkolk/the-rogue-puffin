@@ -1,29 +1,94 @@
 "use client";
 
-import { useState, Suspense } from "react";
+import { useState, Suspense, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { BookOpen, Target, Search, ArrowRight, Zap, CheckCircle, Eye } from "lucide-react";
+import { BookOpen, Target, Search, ArrowRight, Zap, CheckCircle, Eye, Sparkles } from "lucide-react";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
 import { useSearchParams } from "next/navigation";
+import { getArticleVariant } from "@/data/learningStyleVariants";
+import { createClient } from "@/lib/supabase/client-ssr";
+import { updateBootcampProgress } from "@/app/actions/progress";
+
+const INTELLIGENCE_INFO: Record<string, { title: string; icon: string; color: string }> = {
+    linguistic: { title: "Word Smart", icon: "📚", color: "indigo" },
+    logical: { title: "Logic Smart", icon: "🧩", color: "teal" },
+    visual: { title: "Picture Smart", icon: "🖼️", color: "amber" },
+    kinesthetic: { title: "Body Smart", icon: "🏃", color: "orange" },
+    musical: { title: "Music Smart", icon: "🎵", color: "pink" },
+    interpersonal: { title: "People Smart", icon: "💬", color: "blue" },
+    intrapersonal: { title: "Self Smart", icon: "🧘", color: "purple" },
+    naturalistic: { title: "Nature Smart", icon: "🌿", color: "emerald" }
+};
 
 function RogueDay4SessionContent() {
     const searchParams = useSearchParams();
     const course = searchParams.get('course') || 'bootcamp';
     
     // The bootcamp URL logic
-    const dashboardUrl = '/v2/bootcamp?unlocked=true';
+    const dashboardUrl = '/bootcamp?unlocked=true';
     const dashboardText = 'Return to Bootcamp';
 
     const [step, setStep] = useState(0);
     const [userWhy, setUserWhy] = useState("");
+    const [showVariant, setShowVariant] = useState(false);
+    const [archetypes, setArchetypes] = useState<string[]>([]);
+    const [activeArchetype, setActiveArchetype] = useState<string | undefined>(undefined);
 
-    const nextStep = () => setStep(s => s + 1);
-    const prevStep = () => setStep(s => Math.max(0, s - 1));
+    useEffect(() => {
+        const fetchArchetype = async () => {
+            const local = localStorage.getItem('rogue_superpowers');
+            if (local) {
+                try {
+                    const parsed = JSON.parse(local);
+                    if (parsed && parsed.length > 0) {
+                        setArchetypes(parsed);
+                        setActiveArchetype(parsed[0]);
+                    }
+                } catch (e) {}
+            }
 
-    const markCompleteAndReturn = () => {
-        // Here we could add a DB call or local storage update to mark Day 4 complete
+            const supabase = createClient();
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                const { data } = await supabase.from('profiles').select('learning_archetype').eq('id', user.id).single();
+                if (data && data.learning_archetype) {
+                    setArchetypes([data.learning_archetype]);
+                    setActiveArchetype(data.learning_archetype);
+                }
+            }
+        };
+        fetchArchetype();
+    }, []);
+
+    const nextStep = () => {
+        if (step === 8 && archetypes.length > 0 && !showVariant) {
+            setShowVariant(true);
+        } else {
+            setShowVariant(false);
+            setStep(s => s + 1);
+        }
+    };
+    
+    const prevStep = () => {
+        if (showVariant) {
+            setShowVariant(false);
+        } else if (step === 9 && archetypes.length > 0) {
+            setStep(s => Math.max(0, s - 1));
+            setShowVariant(true);
+        } else {
+            setStep(s => Math.max(0, s - 1));
+        }
+    };
+
+    const markCompleteAndReturn = async () => {
+        localStorage.setItem('rogue_day_progress', '5');
+        try {
+            await updateBootcampProgress(5);
+        } catch (error) {
+            console.error('Failed to update progress:', error);
+        }
         window.location.href = dashboardUrl;
     };
 
@@ -61,43 +126,70 @@ function RogueDay4SessionContent() {
 
                     {/* Step 1: Know Your Why (Concept) */}
                     {step === 1 && (
-                        <Slide key="why-1" title="Know Your Why" onNext={nextStep} onBack={prevStep}>
-                            <div className="space-y-8 max-w-2xl mx-auto">
-                                <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] mb-8">
+                        <Slide key="why-1" title="Know Your Why" onNext={nextStep} onBack={prevStep} fullWidth>
+                            <div className="flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto">
+                                <div className="relative w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] shrink-0">
                                     <img src="/images/compass_anchor.png" alt="Know Your Why" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-slate-950 via-slate-950/20 to-transparent" />
                                 </div>
-                                <div className="bg-slate-900/50 p-8 rounded-xl border border-slate-800 space-y-6 text-center relative z-10 -mt-16 mx-4 bg-clip-padding backdrop-filter backdrop-blur-md">
-                                    <p className="text-2xl font-serif italic text-slate-300">
-                                        "He who has a why to live for can bear almost any how."
+                                <div className="w-full md:w-1/2 space-y-8">
+                                    <div className="bg-slate-900/50 p-8 rounded-xl border border-slate-800 space-y-6 text-left shadow-xl backdrop-filter backdrop-blur-md">
+                                        <p className="text-2xl font-serif italic text-slate-300">
+                                            "He who has a why to live for can bear almost any how."
+                                        </p>
+                                        <p className="text-indigo-400 font-bold">— Friedrich Nietzsche</p>
+                                    </div>
+                                    <p className="text-lg text-slate-300 leading-relaxed text-left">
+                                        Before we build complex learning systems, we must find your True North. Why are you learning the subject in front of you?
                                     </p>
-                                    <p className="text-indigo-400 font-bold">— Friedrich Nietzsche</p>
                                 </div>
-                                <p className="text-lg text-slate-300 leading-relaxed text-center mt-8">
-                                    Before we build complex learning systems, we must establish your anchor. Why are you learning the subject in front of you?
-                                </p>
                             </div>
                         </Slide>
                     )}
 
                     {/* Step 2: The Medical School Study */}
                     {step === 2 && (
-                        <Slide key="why-study" title="The Difference Between Success & Burnout" onNext={nextStep} onBack={prevStep}>
-                            <div className="space-y-6 max-w-2xl mx-auto text-left">
-                                <p className="text-lg text-slate-300 leading-relaxed">
+                        <Slide key="why-study" title="The Difference Between Success & Burnout" onNext={nextStep} onBack={prevStep} fullWidth>
+                            <div className="space-y-8 max-w-5xl mx-auto w-full">
+                                <p className="text-xl text-slate-300 leading-relaxed text-center max-w-3xl mx-auto">
                                     A 2020 study of undergraduate medical students investigated why some thrive in grueling environments while others burn out.
                                 </p>
-                                <div className="bg-slate-900/50 p-6 rounded-xl border border-indigo-500/30">
-                                    <p className="text-slate-300 italic">
-                                        "Students who were trying to pass exams or meet family expectations were significantly more likely to experience exhaustion."
-                                    </p>
-                                    <p className="text-slate-300 mt-4 italic">
-                                        "Those with a deep, internal fascination with healing achieved higher sustained performance."
-                                    </p>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                                    <div className="bg-slate-900/50 p-8 rounded-3xl border border-rose-500/30 text-left relative overflow-hidden group hover:bg-slate-800 transition-colors shadow-lg">
+                                        <div className="absolute top-0 right-0 w-48 h-48 bg-rose-500/10 rounded-full blur-[50px] -mr-16 -mt-16 pointer-events-none" />
+                                        <div className="flex items-center gap-4 mb-6 relative z-10">
+                                            <div className="w-12 h-12 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center border border-rose-500/30 shrink-0">
+                                                <Target className="w-6 h-6" />
+                                            </div>
+                                            <h4 className="text-xl font-bold text-white">The Path to Exhaustion</h4>
+                                        </div>
+                                        <p className="text-lg text-slate-300 italic leading-relaxed relative z-10">
+                                            "Students who were trying to pass exams or meet family expectations were significantly more likely to experience exhaustion."
+                                        </p>
+                                    </div>
+
+                                    <div className="bg-slate-900/50 p-8 rounded-3xl border border-emerald-500/30 text-left relative overflow-hidden group hover:bg-slate-800 transition-colors shadow-lg">
+                                        <div className="absolute top-0 right-0 w-48 h-48 bg-emerald-500/10 rounded-full blur-[50px] -mr-16 -mt-16 pointer-events-none" />
+                                        <div className="flex items-center gap-4 mb-6 relative z-10">
+                                            <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30 shrink-0">
+                                                <Sparkles className="w-6 h-6" />
+                                            </div>
+                                            <h4 className="text-xl font-bold text-white">The Path to Success</h4>
+                                        </div>
+                                        <p className="text-lg text-slate-300 italic leading-relaxed relative z-10">
+                                            "Those with a deep, internal fascination with healing achieved higher sustained performance."
+                                        </p>
+                                    </div>
                                 </div>
-                                <p className="text-lg text-indigo-300 font-bold text-center mt-4">
-                                    When your reason is strong enough, effort feels purposeful.
-                                </p>
+                                
+                                <div className="pt-8 max-w-2xl mx-auto">
+                                    <div className="p-6 bg-indigo-950/30 border border-indigo-500/30 rounded-2xl">
+                                        <p className="text-xl text-indigo-300 font-bold text-center">
+                                            When your reason is strong enough, effort feels purposeful.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </Slide>
                     )}
@@ -154,6 +246,27 @@ function RogueDay4SessionContent() {
                                         rows={4}
                                     />
                                 </div>
+                                {archetypes.length > 1 && (
+                                    <div className="mt-12 pt-8 border-t border-slate-800">
+                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary superpowers:</p>
+                                        <div className="flex justify-center gap-4 flex-wrap">
+                                            {archetypes.map((type) => (
+                                                <button
+                                                    key={type}
+                                                    onClick={() => setActiveArchetype(type)}
+                                                    className={`px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 ${
+                                                        activeArchetype === type
+                                                            ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50'
+                                                            : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:text-slate-300'
+                                                    }`}
+                                                >
+                                                    <span>{INTELLIGENCE_INFO[type]?.icon}</span>
+                                                    {INTELLIGENCE_INFO[type]?.title.split(' (')[0]}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                                 <div className="mt-4 p-5 bg-slate-900/50 rounded-xl border border-indigo-500/30">
                                     <p className="font-bold text-indigo-300 text-center">
                                         At some point you will reach something real or you will realize you don't yet have a strong reason. Both are useful.
@@ -240,8 +353,8 @@ function RogueDay4SessionContent() {
                     )}
 
                     {/* Step 8: Refine Your Why */}
-                    {step === 8 && (
-                        <Slide key="why-refine" title="Refine Your Why" onNext={nextStep} onBack={prevStep}>
+                    {step === 8 && !showVariant && (
+                        <Slide key="why-refine" title="Refine Your Why" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Superpower'} Translation` : 'Next'}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
                                 <p className="text-lg text-slate-300">
                                     Before we move to physical training, take a moment to review and refine your reason based on everything we just covered. 
@@ -260,16 +373,59 @@ function RogueDay4SessionContent() {
                         </Slide>
                     )}
 
+                    {/* Step 8.5: Personalized Translation */}
+                    {step === 8 && showVariant && activeArchetype && (
+                        <Slide key="variant" title={`Your ${INTELLIGENCE_INFO[activeArchetype]?.title} Translation`} icon={<Sparkles className="w-12 h-12 text-indigo-400" />} onNext={() => { setShowVariant(false); setStep(9); }} onBack={() => setShowVariant(false)} fullWidth>
+                            <div className="w-full flex flex-col pb-8">
+                                <div className="w-full relative z-0">
+                                    <div
+                                        className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:text-white"
+                                        dangerouslySetInnerHTML={{ __html: getArticleVariant('day-4-know-your-why', activeArchetype) }}
+                                    />
+                                </div>
+                                {archetypes.length > 1 && (
+                                    <div className="mt-12 pt-8 border-t border-slate-800">
+                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary superpowers:</p>
+                                        <div className="flex justify-center gap-4 flex-wrap">
+                                            {archetypes.map((type) => (
+                                                <button
+                                                    key={type}
+                                                    onClick={() => setActiveArchetype(type)}
+                                                    className={`px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 ${
+                                                        activeArchetype === type
+                                                            ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50'
+                                                            : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:text-slate-300'
+                                                    }`}
+                                                >
+                                                    <span>{INTELLIGENCE_INFO[type]?.icon}</span>
+                                                    {INTELLIGENCE_INFO[type]?.title.split(' (')[0]}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </Slide>
+                    )}
+
                     {/* Step 9: Transition to Drill */}
                     {step === 9 && (
-                        <Slide key="transition" title="Physical Training" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
+                        <Slide key="transition" title="Reading Drill" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
-                                    Your cognitive anchor is set.
+                                    Your cognitive compass is set.
                                 </p>
                                 <p className="text-xl text-slate-400">
                                     Now, it is time to expand your physical capacity with today's speed reading drill.
                                 </p>
+                                <div className="mt-12 pt-8">
+                                    <button 
+                                        onClick={markCompleteAndReturn} 
+                                        className="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-300 underline underline-offset-4 transition-colors"
+                                    >
+                                        Skip today's drill and return to dashboard
+                                    </button>
+                                </div>
                             </div>
                         </Slide>
                     )}

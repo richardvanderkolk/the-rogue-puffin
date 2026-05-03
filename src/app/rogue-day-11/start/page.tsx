@@ -7,6 +7,21 @@ import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
 import { useSearchParams, useRouter } from "next/navigation";
+import { getArticleVariant } from "@/data/learningStyleVariants";
+import { createClient } from "@/lib/supabase/client-ssr";
+import { updateBootcampProgress } from "@/app/actions/progress";
+import { useEffect } from "react";
+
+const INTELLIGENCE_INFO: Record<string, { title: string; icon: string; color: string }> = {
+    linguistic: { title: "Word Smart", icon: "📚", color: "indigo" },
+    logical: { title: "Logic Smart", icon: "🧩", color: "teal" },
+    visual: { title: "Picture Smart", icon: "🖼️", color: "amber" },
+    kinesthetic: { title: "Body Smart", icon: "🏃", color: "orange" },
+    musical: { title: "Music Smart", icon: "🎵", color: "pink" },
+    interpersonal: { title: "People Smart", icon: "💬", color: "blue" },
+    intrapersonal: { title: "Self Smart", icon: "🧘", color: "purple" },
+    naturalistic: { title: "Nature Smart", icon: "🌿", color: "emerald" }
+};
 
 function RogueDay11SessionContent() {
     const searchParams = useSearchParams();
@@ -14,18 +29,68 @@ function RogueDay11SessionContent() {
     const course = searchParams.get('course') || 'bootcamp';
     
     // The bootcamp URL logic
-    const dashboardUrl = '/v2/bootcamp?unlocked=true';
+    const dashboardUrl = '/bootcamp?unlocked=true';
 
     const [step, setStep] = useState(0);
+    const [showVariant, setShowVariant] = useState(false);
+    const [archetypes, setArchetypes] = useState<string[]>([]);
+    const [activeArchetype, setActiveArchetype] = useState<string | undefined>(undefined);
 
-    const nextStep = () => setStep(s => s + 1);
-    const prevStep = () => setStep(s => Math.max(0, s - 1));
+    useEffect(() => {
+        const fetchArchetype = async () => {
+            const local = localStorage.getItem('rogue_superpowers');
+            if (local) {
+                try {
+                    const parsed = JSON.parse(local);
+                    if (parsed && parsed.length > 0) {
+                        setArchetypes(parsed);
+                        setActiveArchetype(parsed[0]);
+                    }
+                } catch (e) {}
+            }
 
-    const markCompleteAndReturn = () => {
-        // Mock persistence
+            const supabase = createClient();
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                const { data } = await supabase.from('profiles').select('learning_archetype').eq('id', user.id).single();
+                if (data && data.learning_archetype) {
+                    setArchetypes([data.learning_archetype]);
+                    setActiveArchetype(data.learning_archetype);
+                }
+            }
+        };
+        fetchArchetype();
+    }, []);
+
+    const nextStep = () => {
+        if (step === 5 && archetypes.length > 0 && !showVariant) {
+            setShowVariant(true);
+        } else {
+            setShowVariant(false);
+            setStep(s => s + 1);
+        }
+    };
+    
+    const prevStep = () => {
+        if (showVariant) {
+            setShowVariant(false);
+        } else if (step === 6 && archetypes.length > 0) {
+            setStep(s => Math.max(0, s - 1));
+            setShowVariant(true);
+        } else {
+            setStep(s => Math.max(0, s - 1));
+        }
+    };
+
+    const markCompleteAndReturn = async () => {
         const currentProgress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
         if (11 >= currentProgress) {
-            localStorage.setItem('rogue_day_progress', '12'); // Unlock day 12
+            localStorage.setItem('rogue_day_progress', '12');
+        }
+        try {
+            await updateBootcampProgress(12);
+        } catch (error) {
+            console.error('Failed to update progress:', error);
         }
         router.push(dashboardUrl);
     };
@@ -175,8 +240,8 @@ function RogueDay11SessionContent() {
                     )}
 
                     {/* Step 5: Your Mission */}
-                    {step === 5 && (
-                        <Slide key="mission" title="Your Mission" onNext={nextStep} onBack={prevStep}>
+                    {step === 5 && !showVariant && (
+                        <Slide key="mission" title="Your Mission" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Superpower'} Translation` : 'Next'}>
                             <div className="space-y-6 max-w-2xl mx-auto text-center">
                                 <div className="p-8 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl shadow-[0_0_30px_rgba(79,70,229,0.15)] text-left">
                                     <h4 className="text-xl font-bold text-indigo-300 mb-4 tracking-tight">Put this into practice today:</h4>
@@ -187,6 +252,41 @@ function RogueDay11SessionContent() {
                                         Use only the keywords on your map as prompts. Speak entirely in simple, plain English. If you stumble or resort to jargon, you have found a gap. Go back and fix it.
                                     </p>
                                 </div>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {/* Step 5.5: Personalized Translation */}
+                    {step === 5 && showVariant && activeArchetype && (
+                        <Slide key="variant" title={`Your ${INTELLIGENCE_INFO[activeArchetype]?.title} Translation`} icon={<span className="text-4xl">{INTELLIGENCE_INFO[activeArchetype]?.icon}</span>} onNext={() => { setShowVariant(false); setStep(6); }} onBack={() => setShowVariant(false)} fullWidth>
+                            <div className="w-full flex flex-col pb-8">
+                                <div className="w-full relative z-0">
+                                    <div
+                                        className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:text-white"
+                                        dangerouslySetInnerHTML={{ __html: getArticleVariant('day-11-feynman', activeArchetype) }}
+                                    />
+                                </div>
+                                {archetypes.length > 1 && (
+                                    <div className="mt-12 pt-8 border-t border-slate-800">
+                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary superpowers:</p>
+                                        <div className="flex justify-center gap-4 flex-wrap">
+                                            {archetypes.map((type) => (
+                                                <button
+                                                    key={type}
+                                                    onClick={() => setActiveArchetype(type)}
+                                                    className={`px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 ${
+                                                        activeArchetype === type
+                                                            ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50'
+                                                            : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:text-slate-300'
+                                                    }`}
+                                                >
+                                                    <span>{INTELLIGENCE_INFO[type]?.icon}</span>
+                                                    {INTELLIGENCE_INFO[type]?.title.split(' (')[0]}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         </Slide>
                     )}
@@ -210,6 +310,15 @@ function RogueDay11SessionContent() {
                                     <div className="flex items-center gap-2 text-indigo-400 font-bold bg-indigo-500/10 px-6 py-3 rounded-full border border-indigo-500/20 shadow-[0_0_15px_rgba(79,70,229,0.2)]">
                                         <Activity className="w-5 h-5" /> Learning Mindset
                                     </div>
+                                </div>
+                            
+                                <div className="mt-12 pt-8">
+                                    <button 
+                                        onClick={markCompleteAndReturn} 
+                                        className="text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-slate-300 underline underline-offset-4 transition-colors"
+                                    >
+                                        Skip today's drill and return to dashboard
+                                    </button>
                                 </div>
                             </div>
                         </Slide>

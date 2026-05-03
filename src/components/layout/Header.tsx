@@ -16,14 +16,9 @@ export function Header() {
 
     // Header is now visible on all routes globally to provide consistent navigation.
 
-    const commonLinks = [
-        { name: "Abridged Course", href: "/abridged" },
-        { name: "Masterclass Bundle", href: "/masterclass" },
-        { name: "Articles", href: "/blog" },
-    ];
+    const commonLinks: { name: string, href: string }[] = [];
 
     const authenticatedLinks = [
-        ...commonLinks,
         { name: "Training Dashboard", href: "/dashboard" },
     ];
 
@@ -59,8 +54,8 @@ export function Header() {
                         <Link href="/login" className="text-base lg:text-lg font-medium text-slate-300 hover:text-white transition-colors duration-200">
                             Log In
                         </Link>
-                        <Link href="/masterclass" className="px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white text-base lg:text-lg font-medium rounded-full transition-all active:scale-95 shadow-lg shadow-indigo-500/25">
-                            Start Masterclass
+                        <Link href="/rogue-session/start" className="px-5 py-2.5 bg-indigo-500 hover:bg-indigo-400 text-white text-base lg:text-lg font-medium rounded-full transition-all active:scale-95 shadow-lg shadow-indigo-500/25">
+                            Start Free Training
                         </Link>
                     </div>
                 ) : (
@@ -114,11 +109,11 @@ export function Header() {
                                 Log In
                             </Link>
                             <Link 
-                                href="/masterclass" 
+                                href="/rogue-session/start"
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="w-full text-center px-6 py-4 bg-indigo-500 hover:bg-indigo-400 text-white text-xl font-medium rounded-full transition-all active:scale-95 shadow-lg shadow-indigo-500/25"
                             >
-                                Start Masterclass
+                                Start Free Training
                             </Link>
                         </div>
                     ) : (

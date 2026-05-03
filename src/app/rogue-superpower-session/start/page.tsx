@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import { getArticleVariant } from "@/data/learningStyleVariants";
+import { saveSuperpower } from "@/app/actions/superpower";
+import { updateBootcampProgress } from "@/app/actions/progress";
 
 type Intelligence = 'linguistic' | 'logical' | 'visual' | 'kinesthetic' | 'musical' | 'interpersonal' | 'intrapersonal' | 'naturalistic';
 
@@ -124,14 +126,14 @@ const SUBJECT_EXAMPLES = [
 ];
 
 const PROMPT_INSTRUCTIONS = {
-    linguistic: 'Focus heavily on the narrative. Use rich vocabulary, storytelling, and elegant linguistic analogies. Explain the concept as if writing a compelling editorial or a chapter in a classic book.',
-    logical: 'Structure the explanation as a clear algorithm or flowchart. Use if-then logic, numbered systematic breakdowns, and clearly define the cause-and-effect variables of the concept.',
-    visual: 'Rely on spatial metaphors and highly descriptive visual imagery. Format your response to look like a visual map or diagram using structural text blocks so I can "see" how the parts connect.',
-    kinesthetic: 'Provide action-oriented examples. Use physical, tactile metaphors. Give me a physical experiment, movement, or hands-on activity I can do right now to "feel" how this concept works.',
-    musical: 'Use rhythmic cadence in your writing. Explain the concept using analogies related to sound, harmony, or musical instruments. Create a short rhyming jingle to help me memorize the core idea.',
-    interpersonal: 'Structure your explanation as a conversational dialogue between a mentor and a student. Focus on how this concept affects society, human relationships, and social dynamics.',
-    intrapersonal: 'Connect the concept deeply to human psychology and personal reflection. Ask me introspective questions that force me to relate the topic to my own life experiences and internal values.',
-    naturalistic: 'Explain the concept entirely through the lens of ecology and nature. Use analogies involving ecosystems, biology, weather patterns, animal behavior, or botanical growth classifications.'
+    linguistic: 'Select the most effective linguistic format for this specific topic—such as a compelling narrative, an engaging editorial, or a rich allegorical story. Focus heavily on vocabulary, storytelling, and elegant linguistic analogies.',
+    logical: 'Select the most effective logical format for this specific topic—such as a step-by-step algorithm, a logical flowchart, or a systematic breakdown. Use if-then logic and clearly define the cause-and-effect variables.',
+    visual: 'Select the most effective visual format for this specific topic—such as a descriptive mind map, a spatial diagram, or a strong visual metaphor. Rely on descriptive imagery and structural text blocks so I can "see" how the parts connect.',
+    kinesthetic: 'Select the most effective physical format for this specific topic—such as a step-by-step action protocol, a hands-on experiment, or a physical simulation. Use tactile metaphors and give me a concrete action I can take right now to "feel" how this works.',
+    musical: 'Select the most effective auditory format for this specific topic—such as a rhythmic poem, a musical metaphor, or an analysis of cadence and tempo. Explain the concept using analogies related to sound, harmony, or rhythm.',
+    interpersonal: 'Select the most effective interpersonal format for this specific topic—such as a conversational dialogue, an interview transcript, or a group debate. Focus on how this concept affects human relationships, society, and social dynamics.',
+    intrapersonal: 'Select the most effective introspective format for this specific topic—such as a personal journal entry, a philosophical reflection, or an internal monologue. Ask me deep, introspective questions that force me to relate the topic to my own life experiences.',
+    naturalistic: "Select the most effective environmental format for this specific topic—such as a biologist's field notes, an ecological case study, or a natural classification system. Use analogies involving ecosystems, biology, weather patterns, or animal behavior."
 };
 
 export default function SuperpowerSessionPage() {
@@ -146,7 +148,7 @@ function SuperpowerSessionContent() {
     const searchParams = useSearchParams();
     const course = searchParams.get('course') || 'bootcamp';
     
-    const dashboardUrl = course === 'abridged' ? '/abridged' : '/v2/bootcamp?unlocked=true';
+    const dashboardUrl = course === 'abridged' ? '/abridged' : '/bootcamp?unlocked=true';
     const dashboardText = course === 'abridged' ? 'Course' : 'Bootcamp';
     
     const nextLessonUrl = course === 'abridged' ? '/blog/preview-the-material?course=abridged' : dashboardUrl;
@@ -162,6 +164,7 @@ function SuperpowerSessionContent() {
     const [savedPowers, setSavedPowers] = useState<Intelligence[] | null>(null);
     const [useSaved, setUseSaved] = useState(false);
     const [isCopied, setIsCopied] = useState(false);
+    const [hasUpdatedProgress, setHasUpdatedProgress] = useState(false);
 
     useEffect(() => {
         const saved = localStorage.getItem('rogue_superpowers');
@@ -216,12 +219,15 @@ function SuperpowerSessionContent() {
             .map(([type]) => type as Intelligence);
     };
 
-    const triggerCalculation = () => {
+    const triggerCalculation = async () => {
         nextStep(); // Advance immediately to Slide 5 (Analyzing)
         
         // Save the calculated powers to local storage so they don't have to retake it
         const calculatedPowers = getTopSuperpowers();
         localStorage.setItem('rogue_superpowers', JSON.stringify(calculatedPowers));
+        
+        // Attempt to save to DB (will fail silently if not logged in)
+        await saveSuperpower(calculatedPowers[0]);
 
         setTimeout(() => {
             nextStep(); // Advance to Slide 6 (Results) after 2 seconds
@@ -253,6 +259,17 @@ Do not just give me a standard textbook definition. Completely format your expla
         navigator.clipboard.writeText(generateAIPrompt());
         setIsCopied(true);
         setTimeout(() => setIsCopied(false), 2000);
+    };
+
+    const handleComplete = async () => {
+        if (!hasUpdatedProgress) {
+            localStorage.setItem('rogue_day_progress', '3');
+            if (course === 'bootcamp') {
+                await updateBootcampProgress(3);
+            }
+            setHasUpdatedProgress(true);
+        }
+        window.location.href = nextLessonUrl;
     };
 
     return (
@@ -581,7 +598,7 @@ Do not just give me a standard textbook definition. Completely format your expla
 
                     {/* Slide 10: Conclusion & Call to Action */}
                     {step === 10 && (
-                        <Slide key="step-10" title="Your Mission" icon={<CheckCircle className="w-12 h-12 text-emerald-400" />} onNext={() => { window.location.href = nextLessonUrl; }} customButtonText={nextLessonText} onBack={prevStep} fullWidth>
+                        <Slide key="step-10" title="Your Mission" icon={<CheckCircle className="w-12 h-12 text-emerald-400" />} onNext={handleComplete} customButtonText={nextLessonText} onBack={prevStep} fullWidth>
                             <div className="bg-slate-900/50 p-8 md:p-12 rounded-3xl border border-slate-800 max-w-5xl mx-auto flex flex-col md:flex-row gap-12 items-center text-left shadow-2xl">
                                 
                                 {/* Left Side: The Mission */}

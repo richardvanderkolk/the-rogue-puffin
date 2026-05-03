@@ -1,486 +1,637 @@
-import Link from "next/link";
-import { PrintButton } from "@/components/ui/PrintButton";
-import { Brain, Zap, Target, BookOpen, Clock, Activity, CheckCircle2, ChevronRight, X } from "lucide-react";
-import { ActionCheckbox } from "@/components/textbook/ActionCheckbox";
-import { StudyPlannerMatrix } from "@/components/textbook/StudyPlannerMatrix";
-import { ViewToggle } from "@/components/textbook/ViewToggle";
+"use client";
 
-export const metadata = {
-    title: "The Digital Textbook | The Rogue Puffin",
-    description: "The complete playbook for the Ready/Aim/Learn framework.",
-};
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { BookOpen, Target, Zap, Brain, Rocket, ChevronRight, Menu, X, Download } from 'lucide-react';
+import PhaseReady from '@/components/textbook/PhaseReady';
+import PhaseAim from '@/components/textbook/PhaseAim';
+import PhaseLearn from '@/components/textbook/PhaseLearn';
+import PhasePartTwo from '@/components/textbook/PhasePartTwo';
+import StudyPlanSection from '@/components/textbook/StudyPlanSection';
+import Appendix from '@/components/textbook/Appendix';
+import BookViewer from '@/components/textbook/BookViewer';
+import { articles } from '@/data/articles';
+import Link from 'next/link';
+
+// Interactive Widgets
+import FlashcardWidget from '@/components/textbook/widgets/FlashcardWidget';
+import DeepWorkTimer from '@/components/textbook/widgets/DeepWorkTimer';
+import ZeigarnikNotepad from '@/components/textbook/widgets/ZeigarnikNotepad';
+import FourStagesDiagram from '@/components/textbook/widgets/FourStagesDiagram';
+import FeynmanFlowchart from '@/components/textbook/widgets/FeynmanFlowchart';
+
+const CHAPTERS = [
+    { id: 'intro', title: 'Introduction', icon: BookOpen },
+    { id: 'phase-ready', title: 'Phase I: Ready', icon: Target },
+    { id: 'phase-aim', title: 'Phase II: Aim', icon: Zap },
+    { id: 'phase-learn', title: 'Phase III: Learn', icon: Brain },
+    { id: 'study-plan', title: 'The Master Study Plan', icon: Rocket }
+];
 
 export default function TextbookPage() {
-    return (
-        <main className="min-h-screen bg-slate-950 text-slate-100 font-sans mt-20 md:mt-0 pb-32">
+    const [activeSection, setActiveSection] = useState('intro');
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isBookView, setIsBookView] = useState(false);
+
+    useEffect(() => {
+        if (isBookView) return; // Don't track scroll in book view
+        
+        const handleScroll = () => {
+            const sections = CHAPTERS.map(c => document.getElementById(c.id));
+            const scrollPosition = window.scrollY + 200;
+
+            for (let i = sections.length - 1; i >= 0; i--) {
+                const section = sections[i];
+                if (section && section.offsetTop <= scrollPosition) {
+                    setActiveSection(section.id);
+                    break;
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isBookView]);
+
+    const scrollToSection = (id: string) => {
+        const element = document.getElementById(id);
+        if (element) {
+            window.scrollTo({
+                top: element.offsetTop - 100,
+                behavior: 'smooth'
+            });
+        }
+        setIsSidebarOpen(false);
+    };
+
+    const renderBookContent = (inBook: boolean) => (
+        <>
+            {/* Table of Contents */}
             
-            {/* WEB NAVBAR */}
-            <div className="print:hidden w-full bg-slate-900 border-b border-white/10 sticky top-16 md:top-0 z-40 shadow-xl">
-                <div className="max-w-5xl mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center">
-                            <BookOpen className="w-4 h-4 text-indigo-400" />
-                        </div>
-                        <div>
-                            <h1 className="font-bold text-white tracking-tight">The Living Playbook</h1>
-                            <p className="text-xs text-slate-400">The Rogue Puffin Masterclass</p>
-                        </div>
-                    </div>
+            <section id="toc" className={`mb-32 ${inBook ? '' : 'min-h-screen'} print:min-h-0 print:break-after-page`}>
+                <p className="text-indigo-500 font-bold tracking-widest uppercase text-sm mb-4 print:text-indigo-700">Navigation</p>
+                <h1 className={`break-inside-avoid-column text-5xl sm:text-6xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-none mb-16 tracking-tighter`}>
+                    Table of Contents
+                </h1>
+
+                <div className={`space-y-16 ${inBook ? '' : 'max-w-2xl'}`}>
                     
-                    <div className="flex gap-4 items-center">
-                        <Link href="/masterclass" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
-                            Back to Course
-                        </Link>
-                        <PrintButton />
-                    </div>
-                </div>
-            </div>
-
-            <div className="max-w-4xl mx-auto px-6 print:px-0 print:mx-0 print:max-w-none">
-                
-                <ViewToggle />
-
-                {/* --- COVER PAGE --- */}
-                <div className="print:h-[297mm] print:w-full print:flex print:flex-col print:justify-center relative bg-slate-900/40 print:bg-white rounded-3xl print:rounded-none border border-white/10 print:border-none p-12 md:p-24 mt-12 print:mt-0 overflow-hidden print:break-after-page">
-                    <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 print:bg-indigo-50 blur-[100px] rounded-full translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-                    
-                    <div className="relative z-10 flex flex-col h-full justify-center">
-                        <div className="flex items-center gap-3 mb-8">
-                            <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
-                            <span className="text-sm font-bold text-indigo-400 uppercase tracking-[0.2em]">Official Playbook</span>
-                        </div>
+                    {/* PART 1 */}
+                    <div>
+                        <h2 className="text-sm font-bold tracking-[0.2em] text-emerald-400 print:text-emerald-700 uppercase mb-8 border-b border-emerald-500/20 print:border-slate-300 pb-4">Part I: The Blueprint</h2>
                         
-                        <h1 className="text-5xl md:text-7xl font-black text-white print:text-slate-950 tracking-tighter leading-[1.1] mb-6">
-                            The Cognitive<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 print:text-indigo-600">Cheat Code.</span>
-                        </h1>
-                        
-                        <p className="text-xl text-slate-400 print:text-slate-600 max-w-2xl leading-relaxed mb-12 font-light">
-                            The definitive guide to bypassing your biological limits, destroying subvocalization, and learning complex material faster than you ever thought possible.
-                        </p>
-                        
-                        <div className="mt-auto pt-16 border-t border-white/10 print:border-slate-200 flex justify-between items-end">
-                            <div>
-                                <p className="text-sm font-bold text-white print:text-slate-900 tracking-widest uppercase mb-1">The Rogue Puffin</p>
-                                <p className="text-xs text-slate-500">Learning Mastery</p>
-                            </div>
-                            <Brain className="w-12 h-12 text-slate-800 print:text-slate-200" />
-                        </div>
-                    </div>
-                </div>
-
-                {/* --- TABLE OF CONTENTS --- */}
-                <div className="mt-20 print:h-[297mm] print:mt-0 print:p-24 print:break-after-page">
-                    <h2 className="text-sm font-black text-slate-500 uppercase tracking-widest mb-10 border-b border-white/10 print:border-slate-200 pb-4">
-                        Table of Contents
-                    </h2>
-                    
-                    <div className="space-y-12">
-                        {/* TOC Section 1 */}
-                        <div>
-                            <h3 className="text-2xl font-bold text-white print:text-slate-900 mb-6 flex items-center gap-3">
-                                <Target className="w-6 h-6 text-indigo-400" /> Phase I: Ready
-                            </h3>
-                            <ul className="space-y-4 pl-9">
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span>The 'Why' Vector: Setting the target</span>
-                                </li>
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span>Your Learning Superpower</span>
-                                </li>
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span>Creating the Laboratory</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* TOC Section 2 */}
-                        <div>
-                            <h3 className="text-2xl font-bold text-white print:text-slate-900 mb-6 flex items-center gap-3">
-                                <BookOpen className="w-6 h-6 text-emerald-400" /> Phase II: Aim
-                            </h3>
-                            <ul className="space-y-4 pl-9">
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span>The 80/20 Rule of Expertise</span>
-                                </li>
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span>Slicing the Elephant: Deconstruction</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        {/* TOC Section 3 */}
-                        <div>
-                            <h3 className="text-2xl font-bold text-white print:text-slate-900 mb-6 flex items-center gap-3">
-                                <Zap className="w-6 h-6 text-purple-400" /> Phase III: Learn
-                            </h3>
-                            <ul className="space-y-4 pl-9">
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span className="font-medium text-white print:text-slate-900">Bypassing the Speed Limit (The Engine)</span>
-                                </li>
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span>The Feynman Matrix</span>
-                                </li>
-                                <li className="flex items-center gap-3 text-slate-300 print:text-slate-700">
-                                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                                    <span>Spaced Active Recall</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                {/* --- CHAPTER CONTENT --- */}
-                <div className="mt-32 print:mt-0 print:p-24 prose prose-invert print:prose-slate max-w-none prose-headings:font-bold prose-h1:text-4xl prose-h2:text-2xl prose-p:leading-relaxed prose-p:text-slate-300 print:prose-p:text-slate-700 prose-strong:text-white print:prose-strong:text-slate-900">
-                    
-                    {/* --- INTRODUCTION --- */}
-                    <div className="print:break-after-page mb-32">
-                        <h5 className="text-indigo-400 font-bold tracking-widest uppercase text-sm mb-2 not-prose">Introduction</h5>
-                        <h1 className="mt-0 mb-12">The Rules of the Game</h1>
-                        
-                        <p className="lead text-xl text-white print:text-slate-900 font-medium">The traditional school system lied to you. It wasn't intentional, but it was systematic. They taught you <em>what</em> to learn, but they never taught you <em>how</em> your brain actually acquires and stores information.</p>
-                        
-                        <h2>The "Cheat Code" Philosophy</h2>
-                        <p>Most students try to brute-force their way through material by staring at pages for hours, hoping the information sticks. This is like trying to drive a car with the emergency brake on. You are fighting against your own biology.</p>
-                        <p>This playbook is different. We are going to treat your brain like a mechanical engine. We are going to use specific, empirical "exploits" to bypass your biological bottlenecks (like subvocalization) and trigger rapid neuroplasticity. We work <em>with</em> your biology, not against it.</p>
-                        
-                        <div className="bg-indigo-950/40 print:bg-indigo-50 border border-indigo-500/30 print:border-indigo-200 p-8 rounded-2xl my-12 not-prose break-inside-avoid">
-                            <h3 className="text-indigo-400 print:text-indigo-700 font-black uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
-                                <Zap className="w-4 h-4" /> The 60-Second Proof
-                            </h3>
-                            <ActionCheckbox 
-                                id="intro_proof" 
-                                steps={[
-                                    "Stare at the tip of your nose right now. Notice how everything else in your vision is blurry.",
-                                    "Without moving your eyes, shift your attention to your peripheral vision. Notice how much information your brain is capturing even when you aren't looking directly at it.",
-                                    "Realize that your brain can process a massive field of vision instantly, yet you restrict it to looking at one tiny word at a time when reading."
-                                ]} 
-                            />
-                        </div>
-                    </div>
-
-                    {/* --- PHASE I: READY --- */}
-                    <div className="print:break-after-page mb-32">
-                        <h5 className="text-indigo-400 font-bold tracking-widest uppercase text-sm mb-2 not-prose">Phase I: Ready</h5>
-                        <h1 className="mt-0 mb-12">Preparing the Machine</h1>
-
-                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-12 gap-y-6 not-prose mb-12 items-start">
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl xl:col-start-1 xl:row-start-1">
-                                <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-indigo-500/20 print:bg-indigo-100 flex items-center justify-center shrink-0">
-                                        <Target className="w-4 h-4 text-indigo-400 print:text-indigo-600" />
-                                    </div>
-                                    The 'Why' Vector
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                    <p>Do not start reading until the objective is explicitly defined. Reading for deep, conceptual expertise requires a drastically different ingestion strategy than reading for broad, surface-level familiarity.</p>
-                                    <p>Before you open the textbook, ask yourself: "Am I hunting for a specific fact, am I trying to understand a broad framework, or am I memorizing for a test?" This is your 'Why' Vector. It calibrates your brain's reticular activating system (RAS) to filter incoming data.</p>
-                                </div>
-                            </div>
-
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl xl:col-start-1 xl:row-start-2">
-                                <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-indigo-500/20 print:bg-indigo-100 flex items-center justify-center shrink-0">
-                                        <Zap className="w-4 h-4 text-indigo-400 print:text-indigo-600" />
-                                    </div>
-                                    Your Learning Superpower
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                    <p>Are you struggling because the material is hard, or because the format of the material fights your biology?</p>
-                                    <p>Do not force a visual method if your brain heavily favors spatial logic or debate. Identifying your dominant cognitive learning style drastically reduces your friction of comprehension. If you are auditory, use text-to-speech engines. If kinesthetic, pace the room.</p>
-                                </div>
-                            </div>
-
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl xl:col-start-1 xl:row-start-3">
-                                <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-indigo-500/20 print:bg-indigo-100 flex items-center justify-center shrink-0">
-                                        <Activity className="w-4 h-4 text-indigo-400 print:text-indigo-600" />
-                                    </div>
-                                    Creating the Laboratory
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                    <p>Context-dependent memory is a biological fact. If you study in your bed, your brain associates the material with sleep and relaxation. You must build a specific environment—your "Lab"—that is exclusively reserved for high-velocity learning.</p>
-                                    <p>Clear the visual field. Remove the phone. Use noise-canceling headphones with consistent, non-lyrical background noise (like brown noise) to anchor your focus.</p>
-                                </div>
-                            </div>
-
-                            <div className="self-center xl:col-start-2 xl:row-start-3">
-                                <img src="/images/phase_1_lab.png" alt="Distraction-Free Laboratory" className="w-full rounded-3xl shadow-2xl border border-white/10 print:border-slate-200" />
-                            </div>
-                        </div>
-
-                        <div className="bg-indigo-950/40 print:bg-indigo-50 border border-indigo-500/30 print:border-indigo-200 p-8 rounded-2xl my-12 not-prose break-inside-avoid">
-                            <h3 className="text-indigo-400 print:text-indigo-700 font-black uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
-                                <Zap className="w-4 h-4" /> Immediate Action Step
-                            </h3>
-                            <ActionCheckbox 
-                                id="phase1_ready" 
-                                steps={[
-                                    "Define a specific 'Why' Vector for your next study session (e.g., 'I need to extract 3 arguments about macroeconomics').",
-                                    "Identify one distraction in your current study environment and permanently remove it.",
-                                    "Set up a dedicated 'Lab' space that is only used for deep work."
-                                ]} 
-                            />
-                        </div>
-                    </div>
-
-                    {/* --- PHASE II: AIM --- */}
-                    <div className="print:break-after-page mb-32">
-                        <h5 className="text-emerald-400 font-bold tracking-widest uppercase text-sm mb-2 not-prose">Phase II: Aim</h5>
-                        <h1 className="mt-0 mb-12">Targeting the 80/20</h1>
-
-                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-12 gap-y-6 not-prose mb-12 items-start">
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl xl:col-start-2 xl:row-start-1">
-                                <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-emerald-500/20 print:bg-emerald-100 flex items-center justify-center shrink-0">
-                                        <Target className="w-4 h-4 text-emerald-400 print:text-emerald-600" />
-                                    </div>
-                                    The 80/20 Rule of Expertise
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                    <p>The Pareto Principle dictates that 80% of the value in any subject is derived from just 20% of the core concepts. The biggest mistake amateur learners make is treating every page of a textbook as equally important.</p>
-                                    <p>Your goal is to become an apex predator for that 20%. You must scan the material to find the structural pillars before you attempt to learn the granular details.</p>
-                                </div>
-                            </div>
-
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl xl:col-start-2 xl:row-start-2">
-                                <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-emerald-500/20 print:bg-emerald-100 flex items-center justify-center shrink-0">
-                                        <Activity className="w-4 h-4 text-emerald-400 print:text-emerald-600" />
-                                    </div>
-                                    Slicing the Elephant
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                    <p>Complex subjects induce cognitive paralysis. You cannot learn "Organic Chemistry" in a single session. You must deconstruct the subject into micro-skills.</p>
-                                    <p>Slicing the elephant means breaking the massive, intimidating topic into small, manageable chunks that can be mastered in 25-minute blocks.</p>
-                                </div>
-                            </div>
-
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl xl:col-start-2 xl:row-start-3">
-                                <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-emerald-500/20 print:bg-emerald-100 flex items-center justify-center shrink-0">
-                                        <Zap className="w-4 h-4 text-emerald-400 print:text-emerald-600" />
-                                    </div>
-                                    Garbage In, Garbage Out
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                    <p>Your output is entirely dependent on the quality of your input. Stop reading poorly formatted, dense academic papers if a high-quality visual explainer exists.</p>
-                                    <p>Curate your inputs mercilessly. If a textbook is not working for you, switch your source material immediately.</p>
-                                </div>
-                            </div>
-
-                            <div className="self-center xl:col-start-1 xl:row-start-2">
-                                <img src="/images/phase_2_aim.png" alt="Slicing the Elephant" className="w-full rounded-3xl shadow-2xl border border-white/10 print:border-slate-200" />
-                            </div>
-                        </div>
-
-                        <div className="bg-emerald-950/40 print:bg-emerald-50 border border-emerald-500/30 print:border-emerald-200 p-8 rounded-2xl my-12 not-prose break-inside-avoid">
-                            <h3 className="text-emerald-400 print:text-emerald-700 font-black uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
-                                <Zap className="w-4 h-4" /> Immediate Action Step
-                            </h3>
-                            <ActionCheckbox 
-                                id="phase2_aim" 
-                                steps={[
-                                    "Take your current subject and identify the 20% of concepts that will yield 80% of the test results.",
-                                    "Break your next massive study block down into three specific, 25-minute micro-skills.",
-                                    "Preview the landscape: spend 5 minutes scanning headings and bold text before reading the chapter."
-                                ]} 
-                            />
-                        </div>
-                    </div>
-
-                    {/* --- PHASE III: LEARN --- */}
-                    <h5 className="text-purple-400 font-bold tracking-widest uppercase text-sm mb-2 not-prose">Phase III: Learn</h5>
-                    <h1 className="mt-0 mb-12">Bypassing the Speed Limit</h1>
-
-                    <div className="bg-slate-900 print:bg-slate-50 border-l-4 border-indigo-500 p-6 rounded-r-xl mb-12 not-prose">
-                        <p className="text-sm text-slate-300 print:text-slate-700 mb-2 font-bold uppercase tracking-widest">The Objective</p>
-                        <p className="text-lg text-white print:text-slate-900">Destroy your internal reading voice to unlock raw visual ingestion speeds.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 not-prose mb-16 items-center">
-                        <div className="order-2 lg:order-1">
-                            <img src="/images/subvocalization.png" alt="Subvocalization vs Visual Processing" className="w-full rounded-3xl shadow-2xl border border-white/10 print:border-slate-200" />
-                        </div>
-                        <div className="space-y-10 order-1 lg:order-2">
-                            <div>
-                                <h3 className="text-2xl font-bold text-white print:text-slate-900 mb-4 flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-rose-500/20 print:bg-rose-100 flex items-center justify-center shrink-0">
-                                        <X className="w-5 h-5 text-rose-400 print:text-rose-600" />
-                                    </div>
-                                    The Myth: Subvocalization
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed space-y-4 text-sm sm:text-base">
-                                    <p>You were probably taught to read by sounding out words aloud. As you grew older, the teacher told you to "read silently in your head."</p>
-                                    <p>But here is the neurological flaw: your brain is still acting like you are speaking. Because you can only <em>speak</em> at about 200 to 250 words per minute, your reading speed is permanently capped.</p>
-                                </div>
-                            </div>
-
-                            <div>
-                                <h3 className="text-2xl font-bold text-white print:text-slate-900 mb-4 flex items-center gap-3">
-                                    <div className="w-10 h-10 rounded-full bg-emerald-500/20 print:bg-emerald-100 flex items-center justify-center shrink-0">
-                                        <Brain className="w-5 h-5 text-emerald-400 print:text-emerald-600" />
-                                    </div>
-                                    The Science: Visual Processing
-                                </h3>
-                                <div className="text-slate-400 print:text-slate-600 leading-relaxed space-y-4 text-sm sm:text-base">
-                                    <p>Your eyes and brain process visual information instantly. When you look at a stop sign, you don't sound out "S-T-O-P" in your head—you instantly comprehend the meaning.</p>
-                                    <p>By bypassing the vocal mechanism and routing words directly to your visual cortex, you can ingest entire sentences in the time it used to take you to "say" a single word.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h2>The Protocol</h2>
-                    <p>
-                        To break the habit of subvocalization, you must force your eyes to move faster than your internal voice can keep up with.
-                    </p>
-
-                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 my-12 not-prose items-center">
-                        <div>
-                            <img src="/images/protocol_comic.png" alt="The 3-Step Fast Reading Protocol Comic" className="w-full rounded-3xl shadow-2xl border border-white/10 print:border-slate-200" />
-                        </div>
-
-                        <div className="space-y-6">
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl flex gap-6">
-                                <div className="w-12 h-12 rounded-xl bg-indigo-500/20 print:bg-indigo-100 flex items-center justify-center shrink-0">
-                                    <span className="text-indigo-400 print:text-indigo-700 font-black text-xl">1</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2">The Pacer</h3>
-                                    <p className="text-slate-400 print:text-slate-600 leading-relaxed text-sm">
-                                        Never read with your eyes alone. Your eyes are naturally drawn to motion. When looking at a static page, they jump around wildly (called <em>saccades</em>). You must use a physical pacer—a pen, your finger, or a digital cursor—to drag your eyes across the text at a smooth, continuous pace.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl flex gap-6">
-                                <div className="w-12 h-12 rounded-xl bg-indigo-500/20 print:bg-indigo-100 flex items-center justify-center shrink-0">
-                                    <span className="text-indigo-400 print:text-indigo-700 font-black text-xl">2</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2">The Gear Shift</h3>
-                                    <p className="text-slate-400 print:text-slate-600 leading-relaxed text-sm">
-                                        When you start pacing, you will feel the urge to slow down so your inner voice can catch up. <strong>Do not let it.</strong> Force your pacer to move twice as fast as your comfort zone. Your comprehension will temporarily drop to zero. Keep dragging your eyes at maximum speed for two full minutes.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl flex gap-6">
-                                <div className="w-12 h-12 rounded-xl bg-indigo-500/20 print:bg-indigo-100 flex items-center justify-center shrink-0">
-                                    <span className="text-indigo-400 print:text-indigo-700 font-black text-xl">3</span>
-                                </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2">The Drop-In</h3>
-                                    <p className="text-slate-400 print:text-slate-600 leading-relaxed text-sm">
-                                        After two minutes, slow your pacer down to a speed that feels manageable. You will find that your new "comfortable" speed is significantly faster than your old baseline. Your brain has adapted to the faster visual input, leaving the slow internal voice behind.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-indigo-950/40 print:bg-indigo-50 border border-indigo-500/30 print:border-indigo-200 p-8 rounded-2xl my-12 not-prose break-inside-avoid">
-                        <h3 className="text-indigo-400 print:text-indigo-700 font-black uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
-                            <Zap className="w-4 h-4" /> Immediate Action Step
-                        </h3>
-                        <ActionCheckbox 
-                            id="chapter_1" 
-                            steps={[
-                                "Open a book you are currently reading.",
-                                "Read for 1 minute normally to establish your baseline.",
-                                "Use your finger as a pacer and run it under the text at double speed for 2 minutes.",
-                                "Slow down slightly and read for 1 final minute. Notice the inner voice is silent."
-                            ]} 
-                        />
-                    </div>
-
-                    <div className="print:break-after-page mb-32">
-                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 not-prose mb-12 items-start mt-20">
-                            <div className="space-y-8">
-                                <div>
-                                    <h1 className="text-4xl font-bold text-white print:text-slate-900 mb-6">The Feynman Matrix</h1>
-                                    <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl">
-                                        <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-purple-500/20 print:bg-purple-100 flex items-center justify-center shrink-0">
-                                                <Brain className="w-4 h-4 text-purple-400 print:text-purple-600" />
-                                            </div>
-                                            Proving Comprehension
-                                        </h3>
-                                        <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                            <p>Do not confuse recognizing a concept with understanding it. To prove you actually comprehend what you just read, you must deploy the Feynman Technique. Close the source material completely. Attempt to verbally explain what you just ingested as if you were teaching a bright 12-year-old child.</p>
-                                            <p>Where you stumble, hesitate, or rely on complex jargon to cover up your ignorance is exactly where your knowledge gap exists. This creates a highly targeted feedback loop. Go back to the text and fix only those specific gaps.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <h1 className="text-4xl font-bold text-white print:text-slate-900 mb-6">Spaced Active Recall</h1>
-                                    <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl">
-                                        <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-purple-500/20 print:bg-purple-100 flex items-center justify-center shrink-0">
-                                                <Clock className="w-4 h-4 text-purple-400 print:text-purple-600" />
-                                            </div>
-                                            The Illusion of Competence
-                                        </h3>
-                                        <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                            <p>Rereading and highlighting create the "Illusion of Competence." Because the text is in front of you, your brain feels familiar with it, tricking you into thinking it's stored in long-term memory. It isn't.</p>
-                                            <p>True memory formation requires biological struggle. You must close the book and force your brain to pull the answer from nothing. This physical struggle is what builds the neural pathway.</p>
-                                            <p>Because memories decay exponentially over time (The Ebbinghaus Forgetting Curve), you must space these recall sessions out: 1 day later, 3 days later, 7 days later.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <h1 className="text-4xl font-bold text-white print:text-slate-900 mb-6">Advanced Memory Protocol</h1>
-                                    <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 p-6 rounded-2xl">
-                                        <h3 className="text-xl font-bold text-white print:text-slate-900 mb-2 flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-purple-500/20 print:bg-purple-100 flex items-center justify-center shrink-0">
-                                                <BookOpen className="w-4 h-4 text-purple-400 print:text-purple-600" />
-                                            </div>
-                                            Building the Palace
-                                        </h3>
-                                        <div className="text-slate-400 print:text-slate-600 leading-relaxed text-sm space-y-3">
-                                            <p>When you have to memorize abstract lists (like cranial nerves, historical dates, or legal statutes), rote repetition is inefficient. The human brain evolved to remember physical spaces and vivid imagery, not abstract text.</p>
-                                            <p>The Memory Palace technique anchors abstract facts to physical locations in a familiar room. By converting boring data into absurd, multi-sensory images and placing them around your childhood home or current bedroom, you can permanently store entire chapters of information in a single pass.</p>
-                                        </div>
-                                    </div>
+                        <div className="space-y-8">
+                            <div className="break-inside-avoid-column">
+                                <a href="#phase-ready" className={`block text-lg font-bold ${inBook ? "text-stone-900" : "text-white"} hover:text-indigo-400 no-underline mb-3`}>Phase I: Ready</a>
+                                <div className="space-y-2 pl-4 border-l border-slate-800 print:border-slate-300">
+                                    {articles.filter(a => a.category === 'PART1_READY').map(article => (
+                                        <a key={article.slug} href={`#${article.slug}`} className={`block text-sm ${inBook ? "text-stone-600 font-serif" : "text-slate-400"} hover:text-indigo-400 no-underline transition-colors`}>{article.title}</a>
+                                    ))}
                                 </div>
                             </div>
                             
-                            <div className="self-start">
-                                <img src="/images/phase_3_feynman.png" alt="The Feynman Matrix" className="w-full rounded-3xl shadow-2xl border border-white/10 print:border-slate-200" />
+                            <div className="break-inside-avoid-column">
+                                <a href="#phase-aim" className={`block text-lg font-bold ${inBook ? "text-stone-900" : "text-white"} hover:text-indigo-400 no-underline mb-3`}>Phase II: Aim</a>
+                                <div className="space-y-2 pl-4 border-l border-slate-800 print:border-slate-300">
+                                    {articles.filter(a => a.category === 'PART1_AIM').map(article => (
+                                        <a key={article.slug} href={`#${article.slug}`} className={`block text-sm ${inBook ? "text-stone-600 font-serif" : "text-slate-400"} hover:text-indigo-400 no-underline transition-colors`}>{article.title}</a>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
 
-                        <div className="bg-purple-950/40 print:bg-purple-50 border border-purple-500/30 print:border-purple-200 p-8 rounded-2xl my-12 not-prose break-inside-avoid">
-                            <h3 className="text-purple-400 print:text-purple-700 font-black uppercase tracking-widest text-sm mb-4 flex items-center gap-2">
-                                <Zap className="w-4 h-4" /> Immediate Action Step
-                            </h3>
-                            <ActionCheckbox 
-                                id="phase3_completion" 
-                                steps={[
-                                    "Close your textbook right now and try to explain the last chapter you read out loud to an imaginary 12-year-old.",
-                                    "Schedule your next 3 Active Recall review sessions using the Study Planner Matrix.",
-                                    "Pick 5 abstract facts you need to memorize and visualize placing ridiculous images representing them around your bedroom."
-                                ]} 
-                            />
+                            <div className="break-inside-avoid-column">
+                                <a href="#phase-learn" className={`block text-lg font-bold ${inBook ? "text-stone-900" : "text-white"} hover:text-indigo-400 no-underline mb-3`}>Phase III: Learn</a>
+                                <div className="space-y-2 pl-4 border-l border-slate-800 print:border-slate-300">
+                                    {articles.filter(a => a.category === 'PART1_LEARN').map(article => (
+                                        <a key={article.slug} href={`#${article.slug}`} className={`block text-sm ${inBook ? "text-stone-600 font-serif" : "text-slate-400"} hover:text-indigo-400 no-underline transition-colors`}>{article.title}</a>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    {/* PART 2 */}
+                    <div className="pt-8">
+                        <h2 className="text-sm font-bold tracking-[0.2em] text-emerald-400 print:text-emerald-700 uppercase mb-8 border-b border-emerald-500/20 print:border-slate-300 pb-4">Part II: The Arsenal</h2>
+                        
+                        <div className="space-y-8">
+                            <div className="break-inside-avoid-column">
+                                <a href="#module-part2-focus" className={`block text-lg font-bold ${inBook ? "text-stone-900" : "text-white"} hover:text-indigo-400 no-underline mb-3`}>Module A: Focus & Flow</a>
+                                <div className="space-y-2 pl-4 border-l border-slate-800 print:border-slate-300">
+                                    {articles.filter(a => a.category === 'PART2_FOCUS').map(article => (
+                                        <a key={article.slug} href={`#${article.slug}`} className={`block text-sm ${inBook ? "text-stone-600 font-serif" : "text-slate-400"} hover:text-indigo-400 no-underline transition-colors`}>{article.title}</a>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="break-inside-avoid-column">
+                                <a href="#module-part2-speed" className={`block text-lg font-bold ${inBook ? "text-stone-900" : "text-white"} hover:text-indigo-400 no-underline mb-3`}>Module B: Speed & Comprehension</a>
+                                <div className="space-y-2 pl-4 border-l border-slate-800 print:border-slate-300">
+                                    {articles.filter(a => a.category === 'PART2_SPEED').map(article => (
+                                        <a key={article.slug} href={`#${article.slug}`} className={`block text-sm ${inBook ? "text-stone-600 font-serif" : "text-slate-400"} hover:text-indigo-400 no-underline transition-colors`}>{article.title}</a>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="break-inside-avoid-column">
+                                <a href="#module-part2-env" className={`block text-lg font-bold ${inBook ? "text-stone-900" : "text-white"} hover:text-indigo-400 no-underline mb-3`}>Module C: Environment & Psychology</a>
+                                <div className="space-y-2 pl-4 border-l border-slate-800 print:border-slate-300">
+                                    {articles.filter(a => a.category === 'PART2_ENV').map(article => (
+                                        <a key={article.slug} href={`#${article.slug}`} className={`block text-sm ${inBook ? "text-stone-600 font-serif" : "text-slate-400"} hover:text-indigo-400 no-underline transition-colors`}>{article.title}</a>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="break-inside-avoid-column">
+                                <a href="#module-part2-tools" className={`block text-lg font-bold ${inBook ? "text-stone-900" : "text-white"} hover:text-indigo-400 no-underline mb-3`}>Module D: Advanced Tools</a>
+                                <div className="space-y-2 pl-4 border-l border-slate-800 print:border-slate-300">
+                                    {articles.filter(a => a.category === 'PART2_TOOLS').map(article => (
+                                        <a key={article.slug} href={`#${article.slug}`} className={`block text-sm ${inBook ? "text-stone-600 font-serif" : "text-slate-400"} hover:text-indigo-400 no-underline transition-colors`}>{article.title}</a>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Introduction */}
+            <section id="intro" className={`mb-32 ${inBook ? '' : 'min-h-screen'} print:min-h-0 print:break-after-page`}>
+                {inBook ? (
+                    <div>
+                        <p className="text-indigo-500 font-bold tracking-widest uppercase text-sm mb-4 print:text-indigo-700">Introduction</p>
+                        <h1 className={`text-5xl sm:text-6xl md:text-7xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-none mb-8 tracking-tighter`}>
+                            Welcome to the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400 print:text-indigo-600">1%.</span>
+                        </h1>
+                        <p className={`text-xl sm:text-2xl ${inBook ? "text-stone-700 font-serif" : "text-slate-400"} print:text-slate-600 leading-relaxed mb-12 max-w-2xl font-light`}>
+                            You are not lazy. You do not lack discipline. You are simply trying to operate a biological supercomputer without the user manual. You have likely spent over 15,000 hours in a classroom where you were taught <em>what</em> to learn, but you were never taught <strong>how your brain actually works</strong>. This masterclass is the user manual.
+                        </p>
+                        
+                        <hr className="border-slate-800 print:border-slate-300 my-16" />
+
+                        <h2>The Illusion of Learning</h2>
+                        <p>Walk into any library and you will see the exact same thing: students hunched over textbooks, dragging neon yellow highlighters across the page, endlessly rereading the same paragraphs.</p>
+                        <p>It feels incredibly productive. Your brain feels busy. Your notes look colourful and important.</p>
+                        <p>But decades of cognitive science have delivered a brutal verdict: <strong>Rereading and highlighting are the two least effective learning strategies ever invented.</strong></p>
+                        <p>They create a psychological trap called the <mark>Illusion of Fluency</mark>—you confuse <em>recognising</em> the text on the page with actually <em>knowing</em> the information in your brain. The moment you are tested, the knowledge vanishes.</p>
+                        
+                        <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 border-l-4 border-emerald-500 p-8 rounded-r-2xl my-12 break-inside-avoid">
+                            <h3 className="text-emerald-400 print:text-emerald-700 m-0 mb-4 text-xl">The Goal of This Masterclass</h3>
+                            <p className="m-0 text-slate-300 print:text-slate-700">
+                                We are going to replace passive recognition with active neurological friction. We will deconstruct exactly how the world's fastest learners absorb, process, and permanently store complex information. By the end of this book, you will have an unfair advantage in any academic or professional environment.
+                            </p>
+                        </div>
+                    </div>
+                ) : (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <p className="text-indigo-500 font-bold tracking-widest uppercase text-sm mb-4 print:text-indigo-700">Introduction</p>
+                        <h1 className={`text-5xl sm:text-6xl md:text-7xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-none mb-8 tracking-tighter`}>
+                            Welcome to the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-emerald-400 print:text-indigo-600">1%.</span>
+                        </h1>
+                        <p className={`text-xl sm:text-2xl ${inBook ? "text-stone-700 font-serif" : "text-slate-400"} print:text-slate-600 leading-relaxed mb-12 max-w-2xl font-light`}>
+                            You are not lazy. You do not lack discipline. You are simply trying to operate a biological supercomputer without the user manual. You have likely spent over 15,000 hours in a classroom where you were taught <em>what</em> to learn, but you were never taught <strong>how your brain actually works</strong>. This masterclass is the user manual.
+                        </p>
+                        
+                        <hr className="border-slate-800 print:border-slate-300 my-16" />
+
+                        <h2>The Illusion of Learning</h2>
+                        <p>Walk into any library and you will see the exact same thing: students hunched over textbooks, dragging neon yellow highlighters across the page, endlessly rereading the same paragraphs.</p>
+                        <p>It feels incredibly productive. Your brain feels busy. Your notes look colourful and important.</p>
+                        <p>But decades of cognitive science have delivered a brutal verdict: <strong>Rereading and highlighting are the two least effective learning strategies ever invented.</strong></p>
+                        <p>They create a psychological trap called the <mark>Illusion of Fluency</mark>—you confuse <em>recognising</em> the text on the page with actually <em>knowing</em> the information in your brain. The moment you are tested, the knowledge vanishes.</p>
+                        
+                        <div className="bg-slate-900/50 print:bg-white print:border print:border-slate-200 border-l-4 border-emerald-500 p-8 rounded-r-2xl my-12 break-inside-avoid">
+                            <h3 className="text-emerald-400 print:text-emerald-700 m-0 mb-4 text-xl">The Goal of This Masterclass</h3>
+                            <p className="m-0 text-slate-300 print:text-slate-700">
+                                We are going to replace passive recognition with active neurological friction. We will deconstruct exactly how the world's fastest learners absorb, process, and permanently store complex information. By the end of this book, you will have an unfair advantage in any academic or professional environment.
+                            </p>
+                        </div>
+                    </motion.div>
+                )}
+            </section>
+
+            <PhaseReady />
+            <div className={`${inBook ? 'space-y-0 pb-0' : 'space-y-16 pb-32'}`}>
+                {articles.filter(a => a.category === 'PART1_READY').map((article) => {
+                    const articleInner = (
+                        <>
+                            {article.slug !== 'know-your-why' && (
+                                <div className="break-inside-avoid mb-8">
+                                    <h2 className={`text-4xl sm:text-5xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-tight mt-0 tracking-tight`}>
+                                        {article.title}
+                                    </h2>
+                                </div>
+                            )}
+                            <div 
+                                className={`prose ${inBook ? "prose-stone" : "prose-invert"} prose-sm md:prose-base max-w-none print:max-w-3xl print:mx-auto print:prose-lg print:prose-p:font-serif print:prose-blockquote:font-serif print:prose-li:font-serif print:prose-p:leading-[1.8] print:prose-p:mb-6 print:text-slate-800 prose-headings:font-bold prose-a:text-indigo-500 prose-img:rounded-2xl break-inside-avoid-page`}
+                                dangerouslySetInnerHTML={{ __html: article.content }} 
+                            />
+                            
+                            {/* In-Book Widget Injection */}
+                            {article.slug === 'active-recall' && <FlashcardWidget question="What is Active Recall?" answer="Testing your memory to extract information from your brain, rather than passively re-reading it." />}
+                            {article.slug === 'how-your-phone-destroys-deep-work' && <DeepWorkTimer />}
+                            {article.slug === 'the-zeigarnik-effect' && <ZeigarnikNotepad />}
+
+                            <hr className="border-slate-800 print:border-slate-300 my-16" />
+                        </>
+                    );
+                    return (
+                        <section key={article.slug} id={article.slug} className={`print:break-after-page ${inBook ? 'pt-0' : 'pt-8 min-h-screen'} print:min-h-0`}>
+                            {inBook ? (
+                                <div>{articleInner}</div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className="print:!opacity-100 print:!transform-none"
+                                >
+                                    {articleInner}
+                                </motion.div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+
+            <PhaseAim />
+            <div className={`${inBook ? 'space-y-0 pb-0 pt-0' : 'space-y-16 pt-16 pb-32'}`}>
+                {articles.filter(a => a.category === 'PART1_AIM').map((article) => {
+                    const articleInner = (
+                        <>
+                            {article.slug !== 'know-your-why' && (
+                                <div className="break-inside-avoid mb-8">
+                                    <h2 className={`text-4xl sm:text-5xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-tight mt-0 tracking-tight`}>
+                                        {article.title}
+                                    </h2>
+                                </div>
+                            )}
+                            <div 
+                                className={`prose ${inBook ? "prose-stone" : "prose-invert"} prose-sm md:prose-base max-w-none print:max-w-2xl print:mx-auto print:prose-p:font-serif print:prose-blockquote:font-serif print:prose-li:font-serif prose-headings:font-bold prose-a:text-indigo-500 prose-img:rounded-2xl break-inside-avoid-page`}
+                                dangerouslySetInnerHTML={{ __html: article.content }} 
+                            />
+                            
+                            {/* In-Book Widget Injection */}
+                            {article.slug === 'active-recall' && <FlashcardWidget question="What is Active Recall?" answer="Testing your memory to extract information from your brain, rather than passively re-reading it." />}
+                            {article.slug === 'how-your-phone-destroys-deep-work' && <DeepWorkTimer />}
+                            {article.slug === 'the-zeigarnik-effect' && <ZeigarnikNotepad />}
+
+                            <hr className="border-slate-800 print:border-slate-300 my-16" />
+                        </>
+                    );
+                    return (
+                        <section key={article.slug} id={article.slug} className={`print:break-after-page ${inBook ? 'pt-0' : 'pt-8 min-h-screen'} print:min-h-0`}>
+                            {inBook ? (
+                                <div>{articleInner}</div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className="print:!opacity-100 print:!transform-none"
+                                >
+                                    {articleInner}
+                                </motion.div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+
+            <PhaseLearn />
+            <div className={`${inBook ? 'space-y-0 pb-0 pt-0' : 'space-y-16 pt-16 pb-32'}`}>
+                {articles.filter(a => a.category === 'PART1_LEARN').map((article) => {
+                    const articleInner = (
+                        <>
+                            {article.slug !== 'know-your-why' && (
+                                <div className="break-inside-avoid mb-8">
+                                    <h2 className={`text-4xl sm:text-5xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-tight mt-0 tracking-tight`}>
+                                        {article.title}
+                                    </h2>
+                                </div>
+                            )}
+                            <div 
+                                className={`prose ${inBook ? "prose-stone" : "prose-invert"} prose-sm md:prose-base max-w-none print:max-w-2xl print:mx-auto print:prose-p:font-serif print:prose-blockquote:font-serif print:prose-li:font-serif prose-headings:font-bold prose-a:text-indigo-500 prose-img:rounded-2xl break-inside-avoid-page`}
+                                dangerouslySetInnerHTML={{ __html: article.content }} 
+                            />
+                            
+                            {/* In-Book Widget Injection */}
+                            {article.slug === 'active-recall' && <FlashcardWidget question="What is Active Recall?" answer="Testing your memory to extract information from your brain, rather than passively re-reading it." />}
+                            {article.slug === 'how-your-phone-destroys-deep-work' && <DeepWorkTimer />}
+                            {article.slug === 'the-zeigarnik-effect' && <ZeigarnikNotepad />}
+                            {article.slug === 'feynman-technique' && <FeynmanFlowchart />}
+
+                            <hr className="border-slate-800 print:border-slate-300 my-16" />
+                        </>
+                    );
+                    return (
+                        <section key={article.slug} id={article.slug} className={`print:break-after-page ${inBook ? 'pt-0' : 'pt-8 min-h-screen'} print:min-h-0`}>
+                            {inBook ? (
+                                <div>{articleInner}</div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className="print:!opacity-100 print:!transform-none"
+                                >
+                                    {articleInner}
+                                </motion.div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+
+            <PhasePartTwo />
+            
+            <div className="print:break-before-page pt-16 pb-8" id="module-part2-focus">
+                <h3 className="text-3xl font-black text-emerald-400 print:text-emerald-700 uppercase tracking-widest mb-2">Module A: Focus & Flow</h3>
+                <p className="text-xl text-slate-400 print:text-slate-600 mb-16 italic">Techniques for managing attention and eliminating cognitive drag.</p>
+            </div>
+            <div className="space-y-16 pb-32">
+                {articles.filter(a => a.category === 'PART2_FOCUS').map((article) => {
+                    const articleInner = (
+                        <>
+                            <h2 className={`text-4xl sm:text-5xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-tight mb-8 mt-0 tracking-tight break-inside-avoid`}>
+                                {article.title}
+                            </h2>
+                            <div 
+                                className={`prose ${inBook ? "prose-stone" : "prose-invert"} prose-sm md:prose-base max-w-none print:max-w-2xl print:mx-auto print:prose-p:font-serif print:prose-blockquote:font-serif print:prose-li:font-serif prose-headings:font-bold prose-a:text-indigo-500 prose-img:rounded-2xl break-inside-avoid-page`}
+                                dangerouslySetInnerHTML={{ __html: article.content }} 
+                            />
+                            {/* In-Book Widget Injection */}
+                            {article.slug === 'active-recall' && <FlashcardWidget question="What is Active Recall?" answer="Testing your memory to extract information from your brain, rather than passively re-reading it." />}
+                            {article.slug === 'how-your-phone-destroys-deep-work' && <DeepWorkTimer />}
+                            {article.slug === 'the-zeigarnik-effect' && <ZeigarnikNotepad />}
+                            <hr className="border-slate-800 print:border-slate-300 my-16" />
+                        </>
+                    );
+                    return (
+                        <section key={article.slug} id={article.slug} className={`print:break-after-page pt-8 ${inBook ? '' : 'min-h-screen'} print:min-h-0 print:py-24 print:px-16`}>
+                            {inBook ? (
+                                <div>{articleInner}</div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className="print:!opacity-100 print:!transform-none"
+                                >
+                                    {articleInner}
+                                </motion.div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+            <div className="print:break-before-page pt-16 pb-8" id="module-part2-speed">
+                <h3 className="text-3xl font-black text-emerald-400 print:text-emerald-700 uppercase tracking-widest mb-2">Module B: Speed & Comprehension</h3>
+                <p className="text-xl text-slate-400 print:text-slate-600 mb-16 italic">Strategies to dramatically increase reading speed and retention.</p>
+            </div>
+            <div className="space-y-16 pb-32">
+                {articles.filter(a => a.category === 'PART2_SPEED').map((article) => {
+                    const articleInner = (
+                        <>
+                            <h2 className={`text-4xl sm:text-5xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-tight mb-8 mt-0 tracking-tight break-inside-avoid`}>
+                                {article.title}
+                            </h2>
+                            <div 
+                                className={`prose ${inBook ? "prose-stone" : "prose-invert"} prose-sm md:prose-base max-w-none print:max-w-2xl print:mx-auto print:prose-p:font-serif print:prose-blockquote:font-serif print:prose-li:font-serif prose-headings:font-bold prose-a:text-indigo-500 prose-img:rounded-2xl break-inside-avoid-page`}
+                                dangerouslySetInnerHTML={{ __html: article.content }} 
+                            />
+                            {/* In-Book Widget Injection */}
+                            {article.slug === 'active-recall' && <FlashcardWidget question="What is Active Recall?" answer="Testing your memory to extract information from your brain, rather than passively re-reading it." />}
+                            {article.slug === 'how-your-phone-destroys-deep-work' && <DeepWorkTimer />}
+                            {article.slug === 'the-zeigarnik-effect' && <ZeigarnikNotepad />}
+                            <hr className="border-slate-800 print:border-slate-300 my-16" />
+                        </>
+                    );
+                    return (
+                        <section key={article.slug} id={article.slug} className={`print:break-after-page pt-8 ${inBook ? '' : 'min-h-screen'} print:min-h-0 print:py-24 print:px-16`}>
+                            {inBook ? (
+                                <div>{articleInner}</div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className="print:!opacity-100 print:!transform-none"
+                                >
+                                    {articleInner}
+                                </motion.div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+            <div className="print:break-before-page pt-16 pb-8" id="module-part2-env">
+                <h3 className="text-3xl font-black text-emerald-400 print:text-emerald-700 uppercase tracking-widest mb-2">Module C: Environment & Psychology</h3>
+                <p className="text-xl text-slate-400 print:text-slate-600 mb-16 italic">Optimizing your physical space and mental frameworks.</p>
+            </div>
+            <div className="space-y-16 pb-32">
+                {articles.filter(a => a.category === 'PART2_ENV').map((article) => {
+                    const articleInner = (
+                        <>
+                            <h2 className={`text-4xl sm:text-5xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-tight mb-8 mt-0 tracking-tight break-inside-avoid`}>
+                                {article.title}
+                            </h2>
+                            <div 
+                                className={`prose ${inBook ? "prose-stone" : "prose-invert"} prose-sm md:prose-base max-w-none print:max-w-2xl print:mx-auto print:prose-p:font-serif print:prose-blockquote:font-serif print:prose-li:font-serif prose-headings:font-bold prose-a:text-indigo-500 prose-img:rounded-2xl break-inside-avoid-page`}
+                                dangerouslySetInnerHTML={{ __html: article.content }} 
+                            />
+                            {/* In-Book Widget Injection */}
+                            {article.slug === 'active-recall' && <FlashcardWidget question="What is Active Recall?" answer="Testing your memory to extract information from your brain, rather than passively re-reading it." />}
+                            {article.slug === 'how-your-phone-destroys-deep-work' && <DeepWorkTimer />}
+                            {article.slug === 'the-zeigarnik-effect' && <ZeigarnikNotepad />}
+                            {article.slug === 'the-4-stages-of-learning' && <FourStagesDiagram />}
+                            <hr className="border-slate-800 print:border-slate-300 my-16" />
+                        </>
+                    );
+                    return (
+                        <section key={article.slug} id={article.slug} className={`print:break-after-page pt-8 ${inBook ? '' : 'min-h-screen'} print:min-h-0 print:py-24 print:px-16`}>
+                            {inBook ? (
+                                <div>{articleInner}</div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className="print:!opacity-100 print:!transform-none"
+                                >
+                                    {articleInner}
+                                </motion.div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+            <div className="print:break-before-page pt-16 pb-8" id="module-part2-tools">
+                <h3 className="text-3xl font-black text-emerald-400 print:text-emerald-700 uppercase tracking-widest mb-2">Module D: Advanced Tools</h3>
+                <p className="text-xl text-slate-400 print:text-slate-600 mb-16 italic">Modern tactics including AI, mind maps, and group study.</p>
+            </div>
+            <div className="space-y-16 pb-32">
+                {articles.filter(a => a.category === 'PART2_TOOLS').map((article) => {
+                    const articleInner = (
+                        <>
+                            <h2 className={`text-4xl sm:text-5xl font-black ${inBook ? "text-stone-900" : "text-white"} print:text-slate-950 leading-tight mb-8 mt-0 tracking-tight break-inside-avoid`}>
+                                {article.title}
+                            </h2>
+                            <div 
+                                className={`prose ${inBook ? "prose-stone" : "prose-invert"} prose-sm md:prose-base max-w-none print:max-w-2xl print:mx-auto print:prose-p:font-serif print:prose-blockquote:font-serif print:prose-li:font-serif prose-headings:font-bold prose-a:text-indigo-500 prose-img:rounded-2xl break-inside-avoid-page`}
+                                dangerouslySetInnerHTML={{ __html: article.content }} 
+                            />
+                            {/* In-Book Widget Injection */}
+                            {article.slug === 'active-recall' && <FlashcardWidget question="What is Active Recall?" answer="Testing your memory to extract information from your brain, rather than passively re-reading it." />}
+                            {article.slug === 'how-your-phone-destroys-deep-work' && <DeepWorkTimer />}
+                            {article.slug === 'the-zeigarnik-effect' && <ZeigarnikNotepad />}
+                            <hr className="border-slate-800 print:border-slate-300 my-16" />
+                        </>
+                    );
+                    return (
+                        <section key={article.slug} id={article.slug} className={`print:break-after-page pt-8 ${inBook ? '' : 'min-h-screen'} print:min-h-0 print:py-24 print:px-16`}>
+                            {inBook ? (
+                                <div>{articleInner}</div>
+                            ) : (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-100px" }}
+                                    transition={{ duration: 0.6 }}
+                                    className="print:!opacity-100 print:!transform-none"
+                                >
+                                    {articleInner}
+                                </motion.div>
+                            )}
+                        </section>
+                    );
+                })}
+            </div>
+
+            <StudyPlanSection />
+            <Appendix />
+        </>
+    );
+
+    return (
+        <div className="min-h-screen bg-slate-950 print:bg-white text-slate-300 print:text-black flex font-sans selection:bg-indigo-500/30 print:block">
+
+            {/* Premium Print Headers & Footers */}
+            <div className="hidden print:flex fixed top-0 inset-x-0 pt-8 px-16 border-b border-slate-300 pb-4 justify-between items-end z-50 h-24 bg-transparent">
+                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-slate-500">The 1% Learner Blueprint</span>
+                <span className="text-[11px] uppercase tracking-[0.3em] font-bold text-slate-500 font-serif italic">Chapter 1</span>
+            </div>
+            <div className="hidden print:flex fixed bottom-0 inset-x-0 pb-8 pt-4 justify-center items-center z-50 h-24 bg-transparent">
+                <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-slate-400">The Rogue Puffin</span>
+            </div>
+
+            {isBookView && <BookViewer onClose={() => setIsBookView(false)}>{renderBookContent(true)}</BookViewer>}
+            
+            {/* Top Bar for Mobile */}
+            <div className="lg:hidden fixed top-0 w-full bg-slate-900/90 backdrop-blur border-b border-slate-800 z-50 p-4 flex justify-between items-center print:hidden">
+                <div className="font-bold text-white">The 1% Learner's Blueprint</div>
+                <button onClick={() => setIsSidebarOpen(!isSidebarOpen)} className="text-white">
+                    {isSidebarOpen ? <X /> : <Menu />}
+                </button>
+            </div>
+
+            {/* Sidebar Navigation */}
+            <aside className={`
+                fixed lg:sticky top-0 left-0 z-40 h-screen w-80 shrink-0
+                bg-slate-900/80 backdrop-blur-2xl border-r border-slate-800/50 
+                transform transition-transform duration-300 ease-in-out
+                ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+                flex flex-col pt-24 pb-8 px-6 overflow-y-auto print:hidden
+            `}>
+                <div className="mb-12">
+                    <Link href="/masterclass" className="text-xs font-bold text-slate-500 hover:text-indigo-400 uppercase tracking-widest mb-4 inline-flex items-center gap-1">
+                        ← Back to Course
+                    </Link>
+                    <h1 className="text-2xl font-black text-white leading-tight mt-2">
+                        The 1% Learner's Blueprint
+                    </h1>
                 </div>
 
-                {/* --- STUDY PLANNER MATRIX --- */}
-                <StudyPlannerMatrix />
+                <nav className="space-y-2 flex-1">
+                    {CHAPTERS.map((chapter) => (
+                        <button
+                            key={chapter.id}
+                            onClick={() => scrollToSection(chapter.id)}
+                            className={`
+                                w-full flex items-center justify-between p-4 rounded-xl transition-all duration-200 group text-left
+                                ${activeSection === chapter.id 
+                                    ? 'bg-indigo-600/10 text-indigo-400 border border-indigo-500/20 shadow-[0_0_15px_rgba(99,102,241,0.05)]' 
+                                    : 'text-slate-400 hover:bg-slate-800/50 hover:text-slate-200 border border-transparent'}
+                            `}
+                        >
+                            <div className="flex items-center gap-3">
+                                <chapter.icon className={`w-5 h-5 ${activeSection === chapter.id ? 'text-indigo-400' : 'text-slate-500 group-hover:text-slate-300'}`} />
+                                <span className="font-medium text-sm">{chapter.title}</span>
+                            </div>
+                            <ChevronRight className={`w-4 h-4 transition-transform ${activeSection === chapter.id ? 'opacity-100 translate-x-1' : 'opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'}`} />
+                        </button>
+                    ))}
+                </nav>
 
-            </div>
-        </main>
+                <div className="mt-8 p-6 bg-slate-950/50 rounded-2xl border border-slate-800 space-y-3">
+                    <button onClick={() => setIsBookView(true)} className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-colors text-sm flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.3)]">
+                        <BookOpen className="w-4 h-4" /> Open 3D Book View
+                    </button>
+                    <button onClick={() => window.print()} className="w-full py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl font-bold transition-colors text-sm flex items-center justify-center gap-2">
+                        <Download className="w-4 h-4" /> Download PDF
+                    </button>
+                </div>
+            </aside>
+
+            {/* Main Content */}
+            <main className="flex-1 w-full lg:max-w-4xl mx-auto pt-32 pb-32 px-6 sm:px-12 lg:px-24 print:p-0 print:m-0 print:max-w-none print:w-full">
+                
+                {/* PDF Cover Page (Visible only in print) */}
+                <div className="hidden print:flex print:h-[297mm] print:w-full print:flex-col print:justify-center relative bg-white p-24 break-after-page">
+                    <div className="flex items-center gap-3 mb-8">
+                        <span className="text-sm font-bold text-indigo-600 uppercase tracking-[0.2em]">Official Playbook</span>
+                    </div>
+                    <h1 className="text-7xl font-black text-slate-950 tracking-tighter leading-[1.1] mb-6">
+                        The 1% Learner's Blueprint
+                    </h1>
+                    <p className="text-2xl text-slate-600 max-w-2xl leading-relaxed mb-12 font-light">
+                        A Masterclass in Speed, Memory, and Mastery.
+                    </p>
+                    <div className="mt-auto pt-16 border-t border-slate-200 flex justify-between items-end">
+                        <div>
+                            <p className="text-sm font-bold text-slate-900 tracking-widest uppercase mb-1">The Rogue Puffin</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <table className="w-full block print:table">
+                    <thead className="hidden print:table-header-group">
+                        <tr><td><div className="h-32"></div></td></tr>
+                    </thead>
+                    <tbody className="block print:table-row-group">
+                        <tr className="block print:table-row"><td className="block print:table-cell">
+<article className="prose prose-invert prose-slate max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-indigo-400 hover:prose-a:text-indigo-300 prose-img:rounded-3xl prose-img:shadow-2xl print:prose-slate print:prose-headings:text-slate-900 print:prose-headings:break-after-avoid print:prose-p:text-slate-800 print:prose-strong:text-slate-900">
+                    {renderBookContent(false)}
+                </article>
+                        </td></tr>
+                    </tbody>
+                    <tfoot className="hidden print:table-footer-group">
+                        <tr><td><div className="h-32"></div></td></tr>
+                    </tfoot>
+                </table>
+
+            </main>
+        </div>
     );
 }

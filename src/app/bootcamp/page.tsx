@@ -4,13 +4,43 @@ import { headers } from "next/headers";
 import { getCurrencyInfo } from "@/lib/currency";
 import { GraduationBanner } from "@/components/bootcamp/GraduationBanner";
 import { BootcampRoadmap } from "@/components/bootcamp/BootcampRoadmap";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function BootcampDashboard(props: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
     const headersList = await headers();
     const country = headersList.get('x-vercel-ip-country');
     const { symbol } = getCurrencyInfo(country);
+    
+    // Auth & DB Check
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    
+    let isUnlocked = false;
+    let initialProgress = 1;
+    
     const searchParams = await props.searchParams;
-    const isUnlocked = searchParams.unlocked === 'true';
+    const forceUnlock = searchParams.unlocked === 'true';
+
+    if (user) {
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('has_paid_bootcamp, bootcamp_progress_day')
+            .eq('id', user.id)
+            .single();
+            
+        if (profile) {
+            // Unlock everything automatically in local development, or via the ?unlocked=true flag
+            const isLocal = process.env.NODE_ENV === 'development';
+            isUnlocked = profile.has_paid_bootcamp || forceUnlock || isLocal;
+            const dbProgress = profile.bootcamp_progress_day;
+            initialProgress = searchParams.progress ? parseInt(searchParams.progress as string) : dbProgress;
+        }
+    } else {
+        // Fallback or preview logic if not logged in
+        const isLocal = process.env.NODE_ENV === 'development';
+        isUnlocked = forceUnlock || isLocal;
+        initialProgress = searchParams.progress ? parseInt(searchParams.progress as string) : 1;
+    }
 
     return (
         <main className="min-h-screen bg-slate-950 text-slate-100 font-sans pb-32">
@@ -27,7 +57,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
                         </div>
                     </div>
                     <div className="flex items-center gap-4">
-                        <Link href="/v2" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
+                        <Link href="/" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">
                             Back to Home
                         </Link>
                     </div>
@@ -36,7 +66,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
 
             <div className="max-w-5xl mx-auto px-6 mt-12 space-y-16">
                 <GraduationBanner />
-                <BootcampRoadmap isUnlocked={isUnlocked} symbol={symbol} />
+                <BootcampRoadmap isUnlocked={isUnlocked} symbol={symbol} initialProgress={initialProgress} />
             </div>
         </main>
     );

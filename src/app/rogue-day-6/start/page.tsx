@@ -7,6 +7,21 @@ import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
 import { useSearchParams, useRouter } from "next/navigation";
+import { getArticleVariant } from "@/data/learningStyleVariants";
+import { createClient } from "@/lib/supabase/client-ssr";
+import { updateBootcampProgress } from "@/app/actions/progress";
+import { useEffect } from "react";
+
+const INTELLIGENCE_INFO: Record<string, { title: string; icon: string; color: string }> = {
+    linguistic: { title: "Word Smart", icon: "📚", color: "indigo" },
+    logical: { title: "Logic Smart", icon: "🧩", color: "teal" },
+    visual: { title: "Picture Smart", icon: "🖼️", color: "amber" },
+    kinesthetic: { title: "Body Smart", icon: "🏃", color: "orange" },
+    musical: { title: "Music Smart", icon: "🎵", color: "pink" },
+    interpersonal: { title: "People Smart", icon: "💬", color: "blue" },
+    intrapersonal: { title: "Self Smart", icon: "🧘", color: "purple" },
+    naturalistic: { title: "Nature Smart", icon: "🌿", color: "emerald" }
+};
 
 function RogueDay6SessionContent() {
     const searchParams = useSearchParams();
@@ -14,19 +29,69 @@ function RogueDay6SessionContent() {
     const course = searchParams.get('course') || 'bootcamp';
     
     // The bootcamp URL logic
-    const dashboardUrl = '/v2/bootcamp?unlocked=true';
+    const dashboardUrl = '/bootcamp?unlocked=true';
 
     const [step, setStep] = useState(0);
     const [userCommitment, setUserCommitment] = useState("");
+    const [showVariant, setShowVariant] = useState(false);
+    const [archetypes, setArchetypes] = useState<string[]>([]);
+    const [activeArchetype, setActiveArchetype] = useState<string | undefined>(undefined);
 
-    const nextStep = () => setStep(s => s + 1);
-    const prevStep = () => setStep(s => Math.max(0, s - 1));
+    useEffect(() => {
+        const fetchArchetype = async () => {
+            const local = localStorage.getItem('rogue_superpowers');
+            if (local) {
+                try {
+                    const parsed = JSON.parse(local);
+                    if (parsed && parsed.length > 0) {
+                        setArchetypes(parsed);
+                        setActiveArchetype(parsed[0]);
+                    }
+                } catch (e) {}
+            }
 
-    const markCompleteAndReturn = () => {
-        // Mock persistence
+            const supabase = createClient();
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                const { data } = await supabase.from('profiles').select('learning_archetype').eq('id', user.id).single();
+                if (data && data.learning_archetype) {
+                    setArchetypes([data.learning_archetype]);
+                    setActiveArchetype(data.learning_archetype);
+                }
+            }
+        };
+        fetchArchetype();
+    }, []);
+
+    const nextStep = () => {
+        if (step === 4 && archetypes.length > 0 && !showVariant) {
+            setShowVariant(true);
+        } else {
+            setShowVariant(false);
+            setStep(s => s + 1);
+        }
+    };
+    
+    const prevStep = () => {
+        if (showVariant) {
+            setShowVariant(false);
+        } else if (step === 5 && archetypes.length > 0) {
+            setStep(s => Math.max(0, s - 1));
+            setShowVariant(true);
+        } else {
+            setStep(s => Math.max(0, s - 1));
+        }
+    };
+
+    const markCompleteAndReturn = async () => {
         const currentProgress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
         if (6 >= currentProgress) {
             localStorage.setItem('rogue_day_progress', '7'); // Unlock day 7
+        }
+        try {
+            await updateBootcampProgress(7);
+        } catch (error) {
+            console.error('Failed to update progress:', error);
         }
         router.push(dashboardUrl);
     };
@@ -102,10 +167,6 @@ function RogueDay6SessionContent() {
                     {step === 2 && (
                         <Slide key="foundations" title="The 4 Foundations" onNext={nextStep} onBack={prevStep}>
                             <div className="space-y-6 max-w-4xl mx-auto text-left">
-                                <div className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] mb-8">
-                                    <img src="/images/elemental_orbs.png" alt="Physical Foundations" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                                </div>
                                 <p className="text-lg text-slate-300 mb-6 text-center mt-8">
                                     You don’t need bio-hacking or complex optimisations. You just need consistency in four areas.
                                 </p>
@@ -171,8 +232,8 @@ function RogueDay6SessionContent() {
                     )}
 
                     {/* Step 4: Refine Your Mindset */}
-                    {step === 4 && (
-                        <Slide key="commit" title="Make Your Commitment" onNext={nextStep} onBack={prevStep}>
+                    {step === 4 && !showVariant && (
+                        <Slide key="commit" title="Make Your Commitment" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Superpower'} Translation` : 'Next'}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
                                 <p className="text-lg text-slate-300">
                                     Which of the four foundations will you commit to improving for the remaining 9 days of this bootcamp?
@@ -193,9 +254,44 @@ function RogueDay6SessionContent() {
                         </Slide>
                     )}
 
+                    {/* Step 4.5: Personalized Translation */}
+                    {step === 4 && showVariant && activeArchetype && (
+                        <Slide key="variant" title={`Your ${INTELLIGENCE_INFO[activeArchetype]?.title} Translation`} icon={<span className="text-4xl">{INTELLIGENCE_INFO[activeArchetype]?.icon}</span>} onNext={() => { setShowVariant(false); setStep(5); }} onBack={() => setShowVariant(false)} fullWidth>
+                            <div className="w-full flex flex-col pb-8">
+                                <div className="w-full relative z-0">
+                                    <div
+                                        className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-strong:text-white"
+                                        dangerouslySetInnerHTML={{ __html: getArticleVariant('day-6-feel-sharp', activeArchetype) }}
+                                    />
+                                </div>
+                                {archetypes.length > 1 && (
+                                    <div className="mt-12 pt-8 border-t border-slate-800">
+                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary superpowers:</p>
+                                        <div className="flex justify-center gap-4 flex-wrap">
+                                            {archetypes.map((type) => (
+                                                <button
+                                                    key={type}
+                                                    onClick={() => setActiveArchetype(type)}
+                                                    className={`px-4 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-2 ${
+                                                        activeArchetype === type
+                                                            ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/50'
+                                                            : 'bg-slate-900/50 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:text-slate-300'
+                                                    }`}
+                                                >
+                                                    <span>{INTELLIGENCE_INFO[type]?.icon}</span>
+                                                    {INTELLIGENCE_INFO[type]?.title.split(' (')[0]}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        </Slide>
+                    )}
+
                     {/* Step 5: Transition to Drill */}
                     {step === 5 && (
-                        <Slide key="transition" title="Physical Training" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
+                        <Slide key="transition" title="Reading Drill" onNext={nextStep} onBack={prevStep} customButtonText="Start Drill" fullWidth>
                             <div className="space-y-6 max-w-3xl mx-auto text-center">
                                 <p className="text-2xl text-slate-200 font-light">
                                     Time to train.
