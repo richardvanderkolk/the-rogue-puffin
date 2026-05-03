@@ -351,10 +351,7 @@ export default function RogueSessionPage() {
                         </Slide>
                     )}
 
-                    {/* --- PAYWALL SECTION --- */}
-                    {step === 19 && (
-                        <PaywallSlide onUnlock={handleUnlock} />
-                    )}
+
 
 
                     {/* --- FLASH DRILL SECTION --- */}
