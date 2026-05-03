@@ -28,7 +28,10 @@ export default function SignupPage() {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md z-10">
         <div className="bg-slate-900/80 backdrop-blur-xl py-8 px-4 shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-slate-800 sm:rounded-3xl sm:px-10">
-          <form className="space-y-6" action={signup}>
+          <form className="space-y-6" action={async (formData) => {
+              "use server";
+              await signup(formData);
+          }}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-slate-300">
                 First Name

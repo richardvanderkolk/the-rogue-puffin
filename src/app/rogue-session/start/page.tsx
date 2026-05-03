@@ -56,7 +56,11 @@ export default function RogueSessionPage() {
         nextStep();
     };
 
-    
+    const handleUnlock = () => {
+        // Mock payment processing
+        setIsUnlocked(true);
+        nextStep();
+    }
 
     // --- Steps Configuration ---
     // 0: Baseline Intro
@@ -347,7 +351,73 @@ export default function RogueSessionPage() {
                         </Slide>
                     )}
 
-                     {
+                    {/* --- PAYWALL SECTION --- */}
+                    {step === 19 && (
+                        <PaywallSlide onUnlock={handleUnlock} />
+                    )}
+
+
+                    {/* --- FLASH DRILL SECTION --- */}
+                    {step === 19 && (
+                        <Slide key="drill_intro" title="Step 2: The Rogue Session" icon={<Zap className="w-12 h-12 text-yellow-400" />} onNext={nextStep}>
+                            <div className="space-y-6 max-w-2xl mx-auto">
+                                <p className="text-2xl text-white font-bold">We are about to force your brain to process visual information faster.</p>
+                                <div className="bg-slate-900/80 p-6 rounded-xl border border-slate-700 text-left space-y-4">
+                                    <p className="text-slate-300">You will see pages of text flashing on the screen.</p>
+                                    <ul className="space-y-2">
+                                        <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">1</span> <span>1 Page per second</span></li>
+                                        <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">2</span> <span>2 Pages per second (0.5s)</span></li>
+                                        <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">3</span> <span>3 Pages per second (0.3s)</span></li>
+                                    </ul>
+                                </div>
+                                <p className="text-rose-400 font-bold text-xl uppercase tracking-widest">DO NOT TRY TO READ THEM.</p>
+                                <p className="text-slate-400">Just soften your gaze and let your brain "photograph" the pages. <br />It will feel too fast. <strong>That is the point.</strong></p>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {step === 20 && (
+                        <RogueSessionEngine onComplete={nextStep} />
+                    )}
+
+                    {/* --- RETEST SECTION --- */}
+                    {step === 21 && (
+                        <Slide key="retest_intro" title="Step 3: The After Test" icon={<BrainCircuit className="w-12 h-12 text-emerald-400" />} onNext={nextStep}>
+                            <div className="space-y-8 max-w-2xl mx-auto">
+                                <p className="text-xl text-slate-200">Check out how much your reading speed has increased by doing these exercises.</p>
+                                <p className="text-slate-400">Read the next text at a pace that feels <strong>comfortable</strong> to you now.</p>
+                            </div>
+                        </Slide>
+                    )}
+
+                    {step === 22 && (
+                        <ReadingTest onComplete={handleRetestComplete} isRetest={true} />
+                    )}
+
+                    {/* --- RESULTS / UPSELL --- */}
+                    {step === 23 && baselineStats && finalStats && (
+                        <ResultsOverview baseline={baselineStats} final={finalStats} isV2={isV2} />
+                    )}
+
+                </AnimatePresence>
+            </div>
+            {/* Progress Bar (Global - Moved to Bottom) */}
+            <div className="fixed bottom-0 left-0 w-full h-2 bg-slate-900 z-50">
+                <motion.div
+                    className="h-full bg-indigo-500"
+                    animate={{ width: `${((step + 1) / totalSteps) * 100}%` }}
+                />
+            </div>
+        </div>
+    );
+}
+
+// --- Sub-Components ---
+
+import { StripeCheckoutMock } from "@/components/ui/StripeCheckoutMock";
+import { useAuth } from "@/lib/auth-context";
+
+function PaywallSlide({ onUnlock }: { onUnlock: () => void }) {
     const [showCheckout, setShowCheckout] = useState(false);
     const { user } = useAuth();
     const isAdmin = user?.email?.toLowerCase().includes('richard') || 
