@@ -31,7 +31,8 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
         if (profile) {
             // Unlock everything automatically in local development, or via the ?unlocked=true flag
             const isLocal = process.env.NODE_ENV === 'development';
-            isUnlocked = profile.has_paid_bootcamp || forceUnlock || isLocal;
+            const isAdmin = user.email?.toLowerCase().includes('richard');
+            isUnlocked = profile.has_paid_bootcamp || forceUnlock || isLocal || isAdmin;
             const dbProgress = profile.bootcamp_progress_day;
             initialProgress = searchParams.progress ? parseInt(searchParams.progress as string) : dbProgress;
         }

@@ -42,7 +42,8 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
     ];
 
     // Evaluate dynamic status
-    const effectiveProgress = isUnlocked ? currentProgress : Math.min(currentProgress, 2);
+    // If not unlocked, cap effective progress at 2 so they can't access Day 3+, but if they somehow completed Day 2 (e.g. admin bypass), let Day 2 show as completed by capping at 3.
+    const effectiveProgress = isUnlocked ? currentProgress : Math.min(currentProgress, 3);
 
     const days = baseDays.map(day => {
         let status = "locked";
@@ -51,12 +52,14 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
         if (day.day === 1) {
             status = effectiveProgress > 1 ? "completed" : "available";
         } 
-        // Day 2 depends on unlock status
+        // Day 2 depends on unlock status, but if they already completed it (progress > 2), show as completed
         else if (day.day === 2) {
-            if (!isUnlocked) {
+            if (effectiveProgress > 2) {
+                status = "completed";
+            } else if (!isUnlocked) {
                 status = "unlocked"; // "Unlock required"
             } else {
-                status = effectiveProgress > 2 ? "completed" : (effectiveProgress === 2 ? "available" : "locked");
+                status = effectiveProgress === 2 ? "available" : "locked";
             }
         } 
         // Days 3-14 are locked if not unlocked, else depend on progress
