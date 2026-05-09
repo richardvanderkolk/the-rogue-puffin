@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronRight, Brain, Gauge, Unlock, Volume2, RotateCcw, BrainCircuit, Zap, Clock, TrendingUp, Search, CheckCircle, Sparkles } from "lucide-react";
+import { ArrowRight, ChevronRight, Brain, Gauge, Unlock, Volume2, RotateCcw, BrainCircuit, Zap, Clock, TrendingUp, Search, CheckCircle, Sparkles, Target, Activity, Database } from "lucide-react";
 import Link from "next/link";
 import { RogueSessionEngine } from "@/components/engines/RogueSessionEngine";
 import { ViewTracker } from "@/components/ViewTracker";
@@ -651,15 +651,70 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                     </div>
                 )}
 
-                <div className="pt-8 space-y-4">
-                    <p className="text-lg text-slate-300">This was just a glimpse of what your brain can do.</p>
-                    <Link href="/bootcamp" className="inline-block">
-                        <button className="bg-white text-indigo-900 px-10 py-5 rounded-full font-bold text-2xl hover:bg-indigo-50 hover:scale-105 transition-all shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)] flex items-center gap-3">
-                            "Continue to Day 2"
-                            <ArrowRight className="w-6 h-6" />
+                {/* --- The Sales Pitch --- */}
+                <div className="pt-12 text-left space-y-8 max-w-2xl mx-auto w-full">
+                    {/* The Problem */}
+                    <div className="space-y-4 border-l-2 border-rose-500/50 pl-6">
+                        <h3 className="text-2xl font-bold text-white">The "Rubber Band" Effect</h3>
+                        <p className="text-slate-300 leading-relaxed">
+                            Your brain is elastic. You just stretched it to process information significantly faster. But without sustained repetition, neuroplasticity works in reverse: <strong>your brain will snap back to its old speed by tomorrow.</strong>
+                        </p>
+                    </div>
+
+                    {/* The Solution */}
+                    <div className="bg-slate-900/50 rounded-2xl p-8 border border-slate-800 space-y-8 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
+                        
+                        <div className="relative z-10 space-y-2">
+                            <h3 className="text-3xl font-bold text-white tracking-tight">The 14-Day Bootcamp</h3>
+                            <p className="text-indigo-400 font-medium">Make the change permanent.</p>
+                            <p className="text-slate-400 text-sm pt-2">
+                                We designed a 14-day protocol to permanently embed this new reading speed, while unlocking advanced memory and learning systems.
+                            </p>
+                        </div>
+
+                        <div className="relative z-10 space-y-4">
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30 flex-shrink-0">
+                                    <Brain className="w-5 h-5 text-purple-400" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold">Day 2: The Superpower Protocol</h4>
+                                    <p className="text-slate-400 text-sm mt-1">Diagnose your unique cognitive learning style to absorb information naturally.</p>
+                                </div>
+                            </div>
+                            
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30 flex-shrink-0">
+                                    <Database className="w-5 h-5 text-emerald-400" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold">Day 3: Advanced Memory</h4>
+                                    <p className="text-slate-400 text-sm mt-1">Learn the exact spatial visualization techniques used by world memory champions.</p>
+                                </div>
+                            </div>
+
+                            <div className="flex items-start gap-4">
+                                <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 flex-shrink-0">
+                                    <Activity className="w-5 h-5 text-indigo-400" />
+                                </div>
+                                <div>
+                                    <h4 className="text-white font-bold">Days 4-14: Daily Execution</h4>
+                                    <p className="text-slate-400 text-sm mt-1">Daily 10-minute drills (peripheral expansion, active reading, and rapid ingestion) to make your speed permanent.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="pt-8 pb-16 space-y-4 flex flex-col items-center">
+                    <Link href="/bootcamp" className="inline-block group">
+                        <button className="bg-indigo-600 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-indigo-500 hover:scale-105 transition-all shadow-[0_0_40px_rgba(79,70,229,0.4)] flex items-center gap-3 w-full justify-center sm:w-auto">
+                            Unlock the 14-Day Bootcamp
+                            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                         </button>
                     </Link>
-                    <p className="text-sm text-slate-500 pt-4">14-Day Guarantee. Keep the book regardless.</p>
+                    <p className="text-sm text-slate-500 pt-2 font-medium">14-Day Guarantee. Only $29.</p>
                 </div>
             </div>
         </motion.div>
