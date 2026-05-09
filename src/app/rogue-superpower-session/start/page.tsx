@@ -228,6 +228,20 @@ function SuperpowerSessionContent() {
         
         // Attempt to save to DB (will fail silently if not logged in)
         await saveSuperpower(calculatedPowers[0]);
+        
+        // Save anonymous
+        try {
+            const visitorId = localStorage.getItem('rp_visitor_id');
+            if (visitorId) {
+                fetch('/api/learning-styles', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ visitor_id: visitorId, learning_style: calculatedPowers[0] })
+                });
+            }
+        } catch (e) {
+            console.error(e);
+        }
 
         setTimeout(() => {
             nextStep(); // Advance to Slide 6 (Results) after 2 seconds

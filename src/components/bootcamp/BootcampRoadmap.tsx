@@ -7,6 +7,7 @@ import { CheckCircle2, Lock, Zap, Target, Brain, BookOpen, Activity, Database, A
 
 export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { isUnlocked: boolean, symbol: string, initialProgress?: number }) {
     const [currentProgress, setCurrentProgress] = useState(initialProgress);
+    const [visitorId, setVisitorId] = useState<string>('');
 
     useEffect(() => {
         // If the server tells us they are further along than we thought, update.
@@ -17,12 +18,15 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
         } else {
             setCurrentProgress(initialProgress);
         }
+        setVisitorId(localStorage.getItem('rp_visitor_id') || '');
     }, [initialProgress]);
 
     // Base definition of all days
+    const checkoutLink = `/api/checkout?productId=bootcamp${visitorId ? `&visitor_id=${visitorId}` : ''}`;
+    
     const baseDays = [
         { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, link: "/rogue-session/start?v2=true" },
-        { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, link: isUnlocked ? "/rogue-superpower-session/start?course=bootcamp" : "/api/checkout?productId=bootcamp" },
+        { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, link: isUnlocked ? "/rogue-superpower-session/start?course=bootcamp" : checkoutLink },
         { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, link: "/rogue-memory-session/start?course=bootcamp" },
         { day: 4, title: "Know Your Why", desc: "Setting your foundation & peripheral vision", icon: <Brain className="w-5 h-5" />, link: "/rogue-day-4/start?course=bootcamp" },
         { day: 5, title: "A Learning Mindset", desc: "The psychological foundation & kinetic words", icon: <Brain className="w-5 h-5" />, link: "/rogue-day-5/start?course=bootcamp" },

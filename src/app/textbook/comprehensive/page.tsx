@@ -14,6 +14,8 @@ const phase1Slugs = [
     "initiate-a-learning-mindset",
     "know-your-why",
     "set-your-goals",
+    "the-science-of-goal-achievement",
+    "raise-your-standards",
     "know-your-learning-superpower",
     "create-your-learning-lab",
     "sleep-the-ultimate-nootropic"

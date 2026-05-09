@@ -142,6 +142,23 @@ export function SuperpowerQuiz() {
 
     const showResults = () => {
         setIsCalculating(true);
+        
+        const topPowers = getTopSuperpowers();
+        
+        // Save anonymous
+        try {
+            const visitorId = localStorage.getItem('rp_visitor_id');
+            if (visitorId) {
+                fetch('/api/learning-styles', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ visitor_id: visitorId, learning_style: topPowers[0] })
+                });
+            }
+        } catch (e) {
+            console.error(e);
+        }
+        
         setTimeout(() => {
             setIsCalculating(false);
             setStep('results');

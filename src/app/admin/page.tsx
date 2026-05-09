@@ -257,6 +257,46 @@ export default function AdminDashboard() {
                 </div>
             )}
 
+            {/* Memory Training Outcomes */}
+            {metrics.memoryStats && (metrics.memoryStats.baselineAvg > 0 || metrics.memoryStats.retestAvg > 0) && (
+                <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-6">
+                    <h3 className="text-lg font-bold mb-6 flex items-center gap-2"><TrendingUp className="w-5 h-5 text-amber-400" /> Memory Session Outcomes</h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800 flex justify-between items-center">
+                            <div>
+                                <div className="text-sm text-slate-500 uppercase tracking-widest mb-1">Baseline Average</div>
+                                <div className="text-xs text-slate-400">Before learning techniques</div>
+                            </div>
+                            <div className="text-3xl font-bold text-white"><span className="text-amber-400">{Math.round(metrics.memoryStats.baselineAvg)}</span><span className="text-xl text-slate-600">/30</span></div>
+                        </div>
+
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800 flex justify-between items-center">
+                            <div>
+                                <div className="text-sm text-slate-500 uppercase tracking-widest mb-1">Retest Average</div>
+                                <div className="text-xs text-slate-400">After learning 3 techniques</div>
+                            </div>
+                            <div className="text-3xl font-bold text-white"><span className="text-emerald-400">{Math.round(metrics.memoryStats.retestAvg)}</span><span className="text-xl text-slate-600">/30</span></div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Learning Style Distribution */}
+            {metrics.styleDistribution && Object.keys(metrics.styleDistribution).length > 0 && (
+                <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">
+                    <h3 className="text-lg font-bold mb-6 flex items-center gap-2"><TrendingUp className="w-5 h-5 text-sky-400" /> Learning Style Superpowers</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        {Object.entries(metrics.styleDistribution).sort((a: any, b: any) => b[1] - a[1]).map(([style, count]: any) => (
+                            <div key={style} className="p-4 bg-slate-950 rounded-xl border border-slate-800 flex flex-col justify-center items-center text-center">
+                                <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">{style}</div>
+                                <div className="text-2xl font-bold text-white">{count}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
             {/* Funnel Visualization */}
             <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">
                 <h3 className="text-lg font-bold mb-6">Live Conversion Funnel</h3>

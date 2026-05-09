@@ -494,7 +494,27 @@ function RogueMemorySessionContent() {
     };
 
     const handleRetestSubmit = (input: string) => {
-        setRetestResult(scoreWords(input, SECOND_30));
+        const result = scoreWords(input, SECOND_30);
+        setRetestResult(result);
+        
+        // Save anonymous
+        try {
+            const visitorId = localStorage.getItem('rp_visitor_id');
+            if (visitorId && baselineResult) {
+                fetch('/api/memory-tests', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        visitor_id: visitorId, 
+                        baseline_score: baselineResult.matched.length,
+                        retest_score: result.matched.length
+                    })
+                });
+            }
+        } catch (e) {
+            console.error(e);
+        }
+        
         nextStep();
     };
 

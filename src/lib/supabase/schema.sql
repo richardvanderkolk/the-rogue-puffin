@@ -118,3 +118,44 @@ $$ language plpgsql security definer;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- ANONYMOUS TRACKING (Free Test & Lead Gen)
+create table anonymous_tests (
+  id uuid default uuid_generate_v4() primary key,
+  visitor_id text not null, -- Stores the local storage UUID
+  wpm integer,
+  comprehension_score integer,
+  test_type text default 'baseline',
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- LEARNING STYLES (Superpower Quiz)
+create table learning_style_tests (
+  id uuid default uuid_generate_v4() primary key,
+  visitor_id text, -- Nullable if they clear local storage
+  primary_style text not null,
+  secondary_style text,
+  tertiary_style text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- MEMORY TESTS (Rogue Memory Session)
+create table memory_tests (
+  id uuid default uuid_generate_v4() primary key,
+  visitor_id text, 
+  baseline_score integer, -- Out of 30
+  retest_score integer, -- Out of 30
+  final_score integer, -- Out of 60
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- RLS for new tables
+alter table anonymous_tests enable row level security;
+alter table learning_style_tests enable row level security;
+alter table memory_tests enable row level security;
+
+-- Policies for anonymous tables (Allow insert from anywhere, but read only by service role / admin)
+create policy "Allow anonymous inserts" on anonymous_tests for insert with check (true);
+create policy "Allow anonymous inserts" on learning_style_tests for insert with check (true);
+create policy "Allow anonymous inserts" on memory_tests for insert with check (true);
+

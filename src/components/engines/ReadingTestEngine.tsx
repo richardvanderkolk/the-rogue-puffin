@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, RotateCcw, CheckCircle, Clock, ArrowDown } from 'lucide-react';
+import { Play, RotateCcw, CheckCircle, Clock, ArrowDown, Brain } from 'lucide-react';
 
 interface Question {
     id: number;
@@ -97,10 +97,13 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
 
             {status === 'idle' && (
                 <div className="text-center space-y-6 py-12">
-                    <p className="text-slate-400">
+                    <p className="text-slate-300 text-lg leading-relaxed">
                         Read the following text at your normal pace.<br />
                         Tap "Done" immediately when you finish.
                     </p>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-400 text-sm font-medium border border-amber-500/20">
+                        <Brain className="w-4 h-4" /> You will be tested on comprehension afterwards
+                    </div>
                     <button
                         onClick={handleStart}
                         className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-bold transition-all flex items-center gap-2 mx-auto"

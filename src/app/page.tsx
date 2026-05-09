@@ -23,21 +23,26 @@ export default function V2LandingPage() {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">right now.</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-                            It takes 30 minutes. It's completely free. Experience the biological shift in your brain immediately.
+                            It takes 30 minutes. It's completely free. Unlock the ultimate unfair advantage for your studies, your career, and your time.
                         </p>
                     </div>
 
                     <div className="flex flex-col items-center gap-6">
-                        <Link 
-                            href="/rogue-session/start?v2=true" 
-                            className="group relative px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
-                        >
-                            Start the Free Session <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
+                        <div className="flex flex-col items-center gap-4">
+                            <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                                <Activity className="w-4 h-4" /> Requires 30 mins of distraction-free focus
+                            </div>
+                            <Link 
+                                href="/rogue-session/start?v2=true" 
+                                className="group relative px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
+                            >
+                                Start the Free Session <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </div>
                         
-                        <a href="#bootcamp" className="text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-2">
-                            Skip the demo. View the 14-Day Bootcamp <ArrowDown className="w-3 h-3" />
-                        </a>
+                        <Link href="/bootcamp" className="text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-2">
+                            Skip the free session. View the 14-Day Bootcamp <ArrowRight className="w-3 h-3" />
+                        </Link>
                     </div>
                 </div>
             </section>

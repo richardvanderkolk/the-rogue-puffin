@@ -43,8 +43,8 @@ export default function DashboardPage() {
                         <p className="text-slate-400 text-lg">Good to see you, {user.name}.</p>
                     </div>
                     {/* Dynamic Start Button for Current Progress */}
-                    <Link href={`/train/day/${currentDay}`} className="px-8 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-500 hover:scale-105 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(79,70,229,0.3)]">
-                        <Play className="w-5 h-5 fill-current" /> Resume Day {currentDay}
+                    <Link href="/bootcamp" className="px-8 py-3 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-500 hover:scale-105 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(79,70,229,0.3)]">
+                        <Play className="w-5 h-5 fill-current" /> Resume Bootcamp
                     </Link>
                 </header>
 
@@ -62,30 +62,45 @@ export default function DashboardPage() {
                             </h2>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <Link href="/rogue-session/start" className="block bg-gradient-to-br from-violet-950/80 to-indigo-950/80 border border-violet-500/30 p-6 rounded-2xl hover:bg-violet-900/60 hover:border-violet-400/50 transition-all hover:-translate-y-1 group relative overflow-hidden h-full">
+                        <div className="flex flex-col gap-4">
+                            {/* Step 1: Foundation */}
+                            <Link href="/rogue-session/start" className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-gradient-to-br from-violet-950/80 to-indigo-950/80 border border-violet-500/30 p-6 rounded-2xl hover:bg-violet-900/60 hover:border-violet-400/50 transition-all hover:-translate-y-1 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-4">
                                     <div className="w-2 h-2 bg-indigo-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(129,140,248,0.8)]" />
                                 </div>
-                                <h4 className="font-bold text-white text-xl mb-2 group-hover:text-indigo-300 transition-colors pr-6">The Rogue Reading Session</h4>
-                                <p className="text-sm text-violet-300/70">Masterclass & Baseline Test</p>
-                            </Link>
-                            <Link href="/dashboard/protocol" className="block bg-indigo-950/40 border border-indigo-500/20 p-6 rounded-2xl hover:bg-indigo-900/50 hover:border-indigo-500/40 transition-all hover:-translate-y-1 group relative overflow-hidden h-full">
-                                <h4 className="font-bold text-white text-xl mb-2 group-hover:text-indigo-300 transition-colors pr-6">14-Day Reading Protocol</h4>
-                                <p className="text-sm text-indigo-300/70">Daily speed & peripheral drills</p>
-                                <div className="mt-4 flex items-center gap-2">
-                                    <span className="text-xs font-bold px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded">Day {currentDay}</span>
-                                    <span className="text-xs text-slate-500 uppercase tracking-widest">{Math.round(((currentDay - 1) / 14) * 100)}% Complete</span>
+                                <div>
+                                    <h4 className="font-bold text-white text-xl mb-1 group-hover:text-indigo-300 transition-colors">Step 1: The Rogue Reading Session</h4>
+                                    <p className="text-sm text-violet-300/70">Free Speed Reading Masterclass & Baseline Test</p>
+                                </div>
+                                <div className="hidden md:flex items-center text-indigo-400 font-bold text-sm">
+                                    Start Core Technique &rarr;
                                 </div>
                             </Link>
-                            <Link href="/rogue-memory-session/start" className="block bg-violet-950/40 border border-violet-500/20 p-6 rounded-2xl hover:bg-violet-900/50 hover:border-violet-500/40 transition-all hover:-translate-y-1 group h-full">
-                                <h4 className="font-bold text-white text-xl mb-2 group-hover:text-amber-300 transition-colors">The Rogue Memory Session</h4>
-                                <p className="text-sm text-violet-300/70">Visualization & Recall Training</p>
+
+                            {/* Step 2: The Bootcamp */}
+                            <Link href="/bootcamp" className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-indigo-950/40 border border-indigo-500/20 p-6 rounded-2xl hover:bg-indigo-900/50 hover:border-indigo-500/40 transition-all hover:-translate-y-1 group relative overflow-hidden">
+                                <div>
+                                    <h4 className="font-bold text-white text-xl mb-1 group-hover:text-indigo-300 transition-colors">Step 2: The 14-Day Bootcamp</h4>
+                                    <p className="text-sm text-indigo-300/70">The complete execution plan (Reading, Superpower, & Memory).</p>
+                                    <div className="mt-3 flex items-center gap-2">
+                                        <span className="text-xs font-bold px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded">Day {currentDay}</span>
+                                        <span className="text-xs text-slate-500 uppercase tracking-widest">{Math.round(((currentDay - 1) / 14) * 100)}% Complete</span>
+                                    </div>
+                                </div>
+                                <div className="hidden md:flex items-center text-indigo-400 font-bold text-sm">
+                                    View Roadmap &rarr;
+                                </div>
                             </Link>
 
-                            <Link href="/blog" className="block bg-fuchsia-950/30 border border-fuchsia-500/20 p-6 rounded-2xl hover:bg-fuchsia-900/40 hover:border-fuchsia-500/40 transition-all hover:-translate-y-1 group h-full">
-                                <h4 className="font-bold text-white text-xl mb-2 group-hover:text-rose-300 transition-colors">Learning Like a Genius</h4>
-                                <p className="text-sm text-fuchsia-300/70">Masterclass Articles</p>
+                            {/* Step 3: Theory */}
+                            <Link href="/blog" className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-fuchsia-950/30 border border-fuchsia-500/20 p-6 rounded-2xl hover:bg-fuchsia-900/40 hover:border-fuchsia-500/40 transition-all hover:-translate-y-1 group">
+                                <div>
+                                    <h4 className="font-bold text-white text-xl mb-1 group-hover:text-rose-300 transition-colors">Step 3: Learning Like a Genius</h4>
+                                    <p className="text-sm text-fuchsia-300/70">Masterclass Articles & Advanced Theory</p>
+                                </div>
+                                <div className="hidden md:flex items-center text-fuchsia-400 font-bold text-sm">
+                                    Read Library &rarr;
+                                </div>
                             </Link>
                         </div>
 
@@ -98,7 +113,7 @@ export default function DashboardPage() {
                                 <Zap className="w-5 h-5" /> Recommended Path
                             </h4>
                             <p className="text-sm text-slate-300 leading-relaxed relative z-10 max-w-xl">
-                                Complete <strong>The Rogue Reading Session</strong> before starting Day 1 of the 14-Day Protocol to establish your baseline and learn the core techniques.
+                                Complete <strong>Step 1: The Rogue Session</strong> before starting the 14-Day Bootcamp to establish your baseline and learn the core techniques.
                             </p>
                         </div>
                     </div>

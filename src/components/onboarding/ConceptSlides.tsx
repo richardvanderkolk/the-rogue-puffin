@@ -159,7 +159,7 @@ function FSlide({ mode, onNext, onBack }: { mode: 'interactive' | 'reveal', onNe
                             className="absolute inset-0 flex items-center justify-center w-full"
                         >
                             <button onClick={onBack} className="absolute left-0 p-2 -ml-2 text-slate-400 hover:text-slate-600 transition-colors z-10"><ArrowLeft className="w-6 h-6" /></button>
-                            <h3 className="text-lg md:text-xl font-bold text-center text-slate-500 uppercase tracking-widest w-full">Count the F's</h3>
+                            <h3 className="text-lg md:text-xl font-bold text-center text-slate-500 uppercase tracking-widest w-full">Count the F's in this text</h3>
                         </motion.div>
                     ) : (
                         <motion.div
@@ -183,40 +183,51 @@ function FSlide({ mode, onNext, onBack }: { mode: 'interactive' | 'reveal', onNe
                 <p>
                     <span className="whitespace-nowrap">I<PopF mode={mode} /></span> HE WAS <span className="whitespace-nowrap">O<PopF mode={mode} /><PopF mode={mode} />ICIAL</span> MAYOR HE WOULD <span className="whitespace-nowrap">O<PopF mode={mode} /><PopF mode={mode} />ER</span> <span className="whitespace-nowrap"><PopF mode={mode} />OOD</span> <span className="whitespace-nowrap">O<PopF mode={mode} /></span> THE <span className="whitespace-nowrap"><PopF mode={mode} />INEST</span> QUALITY TO EVERY CITIZEN REGARDLESS <span className="whitespace-nowrap">O<PopF mode={mode} /></span> THEIR <span className="whitespace-nowrap"><PopF mode={mode} />INANCIAL</span> STATE OR <span className="whitespace-nowrap"><PopF mode={mode} />EAR</span> <span className="whitespace-nowrap">O<PopF mode={mode} /></span> <span className="whitespace-nowrap"><PopF mode={mode} />AMINE</span>.
                 </p>
+                
+                <AnimatePresence>
+                    {mode === 'reveal' && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                            animate={{ opacity: 1, height: "auto", marginTop: "2rem", transition: { delay: 1.5 } }}
+                            className="space-y-3 border-t border-slate-200 pt-6 font-sans text-left"
+                        >
+                            <p className="text-base md:text-[1.1rem] text-slate-600 leading-snug">
+                                <strong>Missed some? Great news!</strong> Your brain already skipped small words like "of" to process them visually.
+                            </p>
+                            <p className="text-base md:text-[1.1rem] text-slate-600 leading-snug">
+                                <strong>Got all 21? Also great!</strong> You are still "sounding out" every word. Massive speed gains await!
+                            </p>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
 
-            <div className="mt-auto pt-6 flex-shrink-0 relative min-h-[8rem]">
-                <AnimatePresence initial={false}>
+            <div className="mt-auto pt-6 flex-shrink-0">
+                <AnimatePresence mode="wait">
                     {mode === 'interactive' ? (
-                        <motion.div
+                        <motion.button
                             key="btn-interactive"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 w-full"
+                            onClick={onNext} 
+                            className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-500 transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-900/20"
                         >
-                            <button onClick={onNext} className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-500 transition-all flex items-center justify-center gap-2">
-                                I've Counted Them
-                                <ArrowRight className="w-5 h-5" />
-                            </button>
-                        </motion.div>
+                            I've Counted Them
+                            <ArrowRight className="w-5 h-5" />
+                        </motion.button>
                     ) : (
-                        <motion.div
+                        <motion.button
                             key="btn-reveal"
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: 1, transition: { delay: 1.5 } }} // Delay footer appearance
+                            animate={{ opacity: 1, transition: { delay: 1.5 } }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 space-y-4 text-center w-full"
+                            onClick={onNext} 
+                            className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold text-xl hover:bg-indigo-500 transition-all flex items-center justify-center gap-2 shadow-lg shadow-indigo-900/20"
                         >
-                            <p className="text-base md:text-lg text-slate-600">
-                                The ones you missed are most likely the F's that you didn't sound out in your head ... probably words like "of" and "if."
-                            </p>
-
-                            <button onClick={onNext} className="w-full bg-slate-100 text-slate-900 py-3 md:py-4 rounded-xl font-bold text-lg hover:bg-slate-200 transition-all flex items-center justify-center gap-2">
-                                Next Concept
-                                <ArrowRight className="w-5 h-5" />
-                            </button>
-                        </motion.div>
+                            Next Concept
+                            <ArrowRight className="w-5 h-5" />
+                        </motion.button>
                     )}
                 </AnimatePresence>
             </div>
@@ -283,7 +294,7 @@ function TriangleSlide({ onNext, onBack }: { onNext: () => void, onBack: () => v
             className="flex flex-col items-center text-center w-full max-w-5xl mx-auto h-full max-h-[85vh] px-4 relative"
         >
             {/* --- HEADER SECTION (Animates) --- */}
-            <div className="flex-shrink-0 flex flex-col items-center mb-8 h-32 justify-center w-full relative">
+            <div className="flex-shrink-0 flex flex-col items-center mb-4 h-24 justify-center w-full relative">
                 <AnimatePresence mode="wait">
                     {!revealed ? (
                         <motion.div
@@ -312,7 +323,7 @@ function TriangleSlide({ onNext, onBack }: { onNext: () => void, onBack: () => v
 
             {/* --- CONTENT SECTION (Static / Internal Animation) --- */}
             <div className="flex-1 w-full flex flex-col items-center justify-center relative">
-                <div className="flex flex-col items-center justify-center gap-0 pb-12 transform scale-110">
+                <div className="flex flex-col items-center justify-center gap-0 pb-4">
                     {/* Top Triangle */}
                     <div className="w-56 h-48 relative">
                         <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
@@ -327,7 +338,7 @@ function TriangleSlide({ onNext, onBack }: { onNext: () => void, onBack: () => v
                     </div>
 
                     {/* Bottom Row */}
-                    <div className="flex gap-16 -mt-12">
+                    <div className="flex gap-8 -mt-12">
                         {/* Bottom Left Triangle */}
                         <div className="w-56 h-48 relative">
                             <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-xl">
@@ -358,7 +369,7 @@ function TriangleSlide({ onNext, onBack }: { onNext: () => void, onBack: () => v
             </div>
 
             {/* --- FOOTER SECTION (Animates) --- */}
-            <div className="flex-shrink-0 mt-6 mb-2 pt-4 w-full h-24 relative flex justify-center items-center">
+            <div className="flex-shrink-0 mt-4 mb-4 pt-4 w-full min-h-[5rem] flex justify-center items-center relative">
                 <AnimatePresence mode="wait">
                     {!revealed ? (
                         <motion.div
@@ -366,7 +377,7 @@ function TriangleSlide({ onNext, onBack }: { onNext: () => void, onBack: () => v
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 flex items-center justify-center gap-4"
+                            className="flex items-center justify-center gap-4 w-full"
                         >
                             <button
                                 onClick={onBack}
@@ -386,7 +397,7 @@ function TriangleSlide({ onNext, onBack }: { onNext: () => void, onBack: () => v
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1, transition: { delay: 1.5 } }} // Delayed fade-in
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 flex items-center justify-center gap-4"
+                            className="flex items-center justify-center gap-4 w-full"
                         >
                             <button
                                 onClick={onBack}

@@ -80,6 +80,7 @@ const PageDisplay = ({
     className?: string
 }) => {
     const [highlightGroupIndex, setHighlightGroupIndex] = useState(0);
+    const [hasSkipped, setHasSkipped] = useState(false);
 
     // Timer for Page Flip (Only if not in highlight mode, or as fallback)
     useEffect(() => {
@@ -247,7 +248,7 @@ const PageDisplay = ({
 
 
 // --- Engine Component ---
-export function RogueSessionEngine({ onComplete }: { onComplete: () => void }) {
+export function RogueSessionEngine({ onComplete }: { onComplete: (skipped?: boolean) => void }) {
     const [phase, setPhase] = useState<DrillPhase>('intro');
     const [pageIndex, setPageIndex] = useState(0);
     const [paused, setPaused] = useState(false);
@@ -483,6 +484,18 @@ export function RogueSessionEngine({ onComplete }: { onComplete: () => void }) {
                 const canGoPrev = currentCycleIndex > 0;
                 const canGoNext = currentCycleIndex < cycleOrder.length - 1;
 
+                const handleSkip = () => {
+                    setHasSkipped(true);
+                    if (canGoNext) {
+                        startPhase(cycleOrder[currentCycleIndex + 1]);
+                    } else {
+                        setPhase('complete');
+                        setPaused(false);
+                    }
+                };
+
+                const isLaterCycle = currentCycleIndex >= 4; // Cycles 5, 6, 7 (index 4 is cycle 5)
+
                 return (
                     <div className="w-full h-full flex flex-col relative">
 
@@ -555,6 +568,19 @@ export function RogueSessionEngine({ onComplete }: { onComplete: () => void }) {
                                         </div>
                                     </div>
                                 </div>
+                                {isLaterCycle && (
+                                    <div className="mt-4 pt-4 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+                                        <p className="text-amber-500/80 text-xs text-left leading-relaxed">
+                                            <strong>Note:</strong> If you feel dizzy or uncomfortable during this exercise, it is completely normal. Feel free to skip forward.
+                                        </p>
+                                        <button 
+                                            onClick={handleSkip}
+                                            className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-lg transition-colors whitespace-nowrap"
+                                        >
+                                            Skip Exercise →
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         </div>
 
@@ -571,7 +597,7 @@ export function RogueSessionEngine({ onComplete }: { onComplete: () => void }) {
                         <h2 className="text-4xl font-bold text-white">Rogue Session Complete</h2>
                         <p className="text-xl text-slate-300">Your old patterns have been shattered.</p>
                         <p className="text-slate-400">Now, let's see what you can really do.</p>
-                        <button onClick={onComplete} className="bg-emerald-600 px-8 py-4 rounded-full font-bold text-white hover:bg-emerald-500 transition-all flex items-center justify-center gap-2 mx-auto">
+                        <button onClick={() => onComplete(hasSkipped)} className="bg-emerald-600 px-8 py-4 rounded-full font-bold text-white hover:bg-emerald-500 transition-all flex items-center justify-center gap-2 mx-auto">
                             Take The Final Test <ArrowRight className="w-5 h-5" />
                         </button>
                     </div>

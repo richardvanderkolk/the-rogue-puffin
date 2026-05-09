@@ -22,13 +22,18 @@ export default function RogueMemoryPage() {
                     <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
                         In just 30 minutes, you will discover a powerful mental framework that allows you to effortlessly memorize 30 disconnected words on your first try.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-                        <Link
-                            href="/rogue-memory-session/start"
-                            className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
-                        >
-                            Start The Masterclass <ArrowRight className="w-5 h-5" />
-                        </Link>
+                    <div className="flex flex-col items-center gap-4 pt-8">
+                        <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
+                            <Clock className="w-4 h-4" /> Requires 30 mins of distraction-free focus
+                        </div>
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                            <Link
+                                href="/rogue-memory-session/start"
+                                className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
+                            >
+                                Start The Masterclass <ArrowRight className="w-5 h-5" />
+                            </Link>
+                        </div>
                     </div>
                     <p className="text-sm text-slate-500">Instant access. 100% money-back guarantee if your score doesn't double.</p>
                 </div>

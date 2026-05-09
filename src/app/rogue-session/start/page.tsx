@@ -38,22 +38,107 @@ export default function RogueSessionPage() {
     const [finalStats, setFinalStats] = useState<{ wpm: number; comprehension: number } | null>(null);
     const [isUnlocked, setIsUnlocked] = useState(false); // Track if $5 paid
     const [isV2, setIsV2] = useState(false);
+    const [hasSkippedExercises, setHasSkippedExercises] = useState(false);
+    const [visitorId, setVisitorId] = useState<string>('');
 
     useEffect(() => {
-        setIsV2(new URLSearchParams(window.location.search).get('v2') === 'true');
+        let id = localStorage.getItem('rp_visitor_id');
+        if (!id) {
+            id = crypto.randomUUID();
+            localStorage.setItem('rp_visitor_id', id);
+        }
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        if (urlParams.has('restart')) {
+            localStorage.removeItem('rp_baseline_stats');
+            localStorage.removeItem('rp_final_stats');
+            localStorage.removeItem('rp_skipped_exercises');
+        } else {
+            // Load saved baseline if they refreshed the page
+            const savedBaseline = localStorage.getItem('rp_baseline_stats');
+            const savedFinal = localStorage.getItem('rp_final_stats');
+            const savedSkipped = localStorage.getItem('rp_skipped_exercises');
+            
+            let hasBaseline = false;
+            let hasFinal = false;
+
+            if (savedBaseline) {
+                try {
+                    setBaselineStats(JSON.parse(savedBaseline));
+                    hasBaseline = true;
+                } catch (e) {
+                    console.error("Failed to parse saved baseline");
+                }
+            }
+            
+            if (savedFinal) {
+                try {
+                    setFinalStats(JSON.parse(savedFinal));
+                    hasFinal = true;
+                } catch (e) {
+                    console.error("Failed to parse saved final stats");
+                }
+            }
+            
+            if (savedSkipped) {
+                setHasSkippedExercises(savedSkipped === 'true');
+            }
+            
+            if (hasBaseline && hasFinal) {
+                setStep(23); // Jump to Results
+            }
+        }
+        
+        setIsV2(urlParams.get('v2') === 'true');
     }, []);
 
     const nextStep = () => setStep(s => s + 1);
     const prevStep = () => setStep(s => Math.max(0, s - 1));
 
-    const handleBaselineComplete = (results: { wpm: number; comprehension: number }) => {
+    const handleBaselineComplete = async (results: { wpm: number; comprehension: number }) => {
         setBaselineStats(results);
-        nextStep();
+        localStorage.setItem('rp_baseline_stats', JSON.stringify(results));
+        nextStep(); // Advance UI immediately
+        
+        if (visitorId) {
+            try {
+                fetch('/api/anonymous-tests', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        visitor_id: visitorId,
+                        wpm: results.wpm,
+                        comprehension_score: results.comprehension,
+                        test_type: 'baseline'
+                    })
+                });
+            } catch (err) {
+                console.error("Failed to log baseline", err);
+            }
+        }
     };
 
-    const handleRetestComplete = (results: { wpm: number; comprehension: number }) => {
+    const handleRetestComplete = async (results: { wpm: number; comprehension: number }) => {
         setFinalStats(results);
-        nextStep();
+        localStorage.setItem('rp_final_stats', JSON.stringify(results));
+        nextStep(); // Advance UI immediately
+        
+        if (visitorId) {
+            try {
+                fetch('/api/anonymous-tests', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        visitor_id: visitorId,
+                        wpm: results.wpm,
+                        comprehension_score: results.comprehension,
+                        test_type: 'rogue_session'
+                    })
+                });
+            } catch (err) {
+                console.error("Failed to log retest", err);
+            }
+        }
     };
 
     const handleUnlock = () => {
@@ -117,7 +202,10 @@ export default function RogueSessionPage() {
                         <Slide key="lets_do_this" title="Step 1: The Baseline" icon={<Clock className="w-12 h-12 text-indigo-400" />} onNext={nextStep} customButtonText="Start Baseline">
                             <div className="space-y-8 max-w-2xl mx-auto">
                                 <p className="text-xl text-slate-200">Before we begin the training, we need to know exactly where you are starting from.</p>
-                                <p className="text-slate-400">Read the next text at your <strong>normal, comfortable pace</strong>. Do not rush. We will test your comprehension.</p>
+                                <div className="bg-amber-500/10 border border-amber-500/20 p-6 rounded-xl text-left mt-6">
+                                    <p className="text-amber-400 font-bold mb-2 flex items-center gap-2"><Brain className="w-5 h-5" /> Comprehension Test</p>
+                                    <p className="text-slate-300 leading-relaxed">Read the following text at your <strong>normal, comfortable pace</strong>. Do not rush. Immediately after reading, you will be asked to answer a series of questions to test your recall.</p>
+                                </div>
                             </div>
                         </Slide>
                     )}
@@ -150,7 +238,7 @@ export default function RogueSessionPage() {
                     {/* --- THEORY SECTION --- */}
 
                     {step === 3 && (
-                        <Slide key="intro_primary_school" title="The Supercomputer Paradox" icon={<Brain className="w-12 h-12 text-indigo-400" />} onNext={nextStep}>
+                        <Slide key="intro_primary_school" title="The Supercomputer Paradox" icon={<Brain className="w-12 h-12 text-indigo-400" />} onNext={nextStep} onBack={prevStep}>
                             <p className="text-xl text-slate-300">You have the most powerful supercomputer in the known universe sitting between your ears.</p>
                             <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 my-4 shadow-2xl">
                                 <p className="text-2xl font-bold text-white mb-3">"But you are running it on reading software installed when you were between six and twelve years old."</p>
@@ -374,7 +462,13 @@ export default function RogueSessionPage() {
                     )}
 
                     {step === 20 && (
-                        <RogueSessionEngine onComplete={nextStep} />
+                        <RogueSessionEngine onComplete={(skipped) => {
+                            if (skipped) {
+                                setHasSkippedExercises(true);
+                                localStorage.setItem('rp_skipped_exercises', 'true');
+                            }
+                            nextStep();
+                        }} />
                     )}
 
                     {/* --- RETEST SECTION --- */}
@@ -393,7 +487,7 @@ export default function RogueSessionPage() {
 
                     {/* --- RESULTS / UPSELL --- */}
                     {step === 23 && baselineStats && finalStats && (
-                        <ResultsOverview baseline={baselineStats} final={finalStats} isV2={isV2} />
+                        <ResultsOverview baseline={baselineStats} final={finalStats} isV2={isV2} hasSkippedExercises={hasSkippedExercises} />
                     )}
 
                 </AnimatePresence>
@@ -506,7 +600,7 @@ function ReadingTest({ onComplete, isRetest = false }: { onComplete: (results: {
 
 
 
-function ResultsOverview({ baseline, final, isV2 }: { baseline: { wpm: number }, final: { wpm: number }, isV2?: boolean }) {
+function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { baseline: { wpm: number }, final: { wpm: number }, isV2?: boolean, hasSkippedExercises?: boolean }) {
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
 
     return (
@@ -529,6 +623,33 @@ function ResultsOverview({ baseline, final, isV2 }: { baseline: { wpm: number },
                         <p className="text-4xl text-white font-mono font-bold">{final.wpm} <span className="text-lg text-slate-500">WPM</span></p>
                     </div>
                 </div>
+
+                {/* Account Creation Prompt */}
+                <div className="bg-indigo-900/20 border border-indigo-500/30 p-6 rounded-xl max-w-2xl mx-auto mt-8 flex flex-col md:flex-row items-center gap-6">
+                    <div className="flex-shrink-0">
+                        <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
+                            <Unlock className="w-6 h-6 text-indigo-400" />
+                        </div>
+                    </div>
+                    <div className="text-left flex-1">
+                        <p className="text-white font-bold mb-1">Don't Lose Your Progress</p>
+                        <p className="text-slate-300 text-sm mb-3">Your scores are currently only saved in this browser. If you clear your history or use a different device, they will be permanently lost.</p>
+                        <Link href="/login?course=bootcamp" className="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+                            Create a free account to save your scores →
+                        </Link>
+                    </div>
+                </div>
+
+                {hasSkippedExercises && (
+                    <div className="bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl max-w-2xl mx-auto mt-6">
+                        <p className="text-amber-400 font-bold mb-1 flex items-center justify-center gap-2">
+                            Note: Exercises Skipped
+                        </p>
+                        <p className="text-amber-200/80 text-sm">
+                            Because you skipped some of the reading exercises, your speed increase may not be as high as it would be if you were able to complete the full session.
+                        </p>
+                    </div>
+                )}
 
                 <div className="pt-8 space-y-4">
                     <p className="text-lg text-slate-300">This was just a glimpse of what your brain can do.</p>

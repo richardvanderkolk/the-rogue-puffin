@@ -5,7 +5,7 @@ import { getCurrencyInfo } from '@/lib/currency';
 // Provide a dummy test key as fallback so Vercel Next.js build doesn't crash statically analyzing the file
 const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_123';
 
-async function createCheckoutSession(request: Request, productMode: string, email?: string) {
+async function createCheckoutSession(request: Request, productMode: string, email?: string, visitorId?: string) {
     if (!stripeKey) {
         console.error("Missing STRIPE_SECRET_KEY");
         throw new Error('Stripe configuration error');
@@ -77,7 +77,8 @@ async function createCheckoutSession(request: Request, productMode: string, emai
                      `${baseUrl}/train/sales?success=true`,
         cancel_url: productMode === 'rogue-session' ? `${baseUrl}/rogue-session?canceled=true` : `${baseUrl}/train/sales?canceled=true`,
         metadata: {
-            productMode
+            productMode,
+            visitor_id: visitorId || ''
         }
     });
 
@@ -87,8 +88,8 @@ async function createCheckoutSession(request: Request, productMode: string, emai
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { productMode, email } = body; 
-        const session = await createCheckoutSession(request, productMode, email);
+        const { productMode, email, visitor_id } = body; 
+        const session = await createCheckoutSession(request, productMode, email, visitor_id);
         return NextResponse.json({ url: session.url });
     } catch (err: any) {
         console.error("Stripe Checkout POST Error:", err);
@@ -100,11 +101,12 @@ export async function GET(request: Request) {
     try {
         const url = new URL(request.url);
         const productId = url.searchParams.get('productId');
+        const visitorId = url.searchParams.get('visitor_id') || undefined;
         if (!productId) {
             return NextResponse.json({ error: "Missing productId" }, { status: 400 });
         }
         
-        const session = await createCheckoutSession(request, productId);
+        const session = await createCheckoutSession(request, productId, undefined, visitorId);
         if (session.url) {
             return NextResponse.redirect(session.url);
         } else {
