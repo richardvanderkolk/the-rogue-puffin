@@ -34,14 +34,12 @@ export async function GET(request: Request) {
     }
 
     let totalRevenueCents = 0;
-    let rogueSessions = 0;
-    let masterclasses = 0;
+    let bootcampsSold = 0;
 
     if (purchases) {
         purchases.forEach(p => {
             totalRevenueCents += (p.amount_total || 0);
-            if (p.product === 'rogue_session') rogueSessions++;
-            if (p.product === 'masterclass') masterclasses++;
+            if (p.product === 'bootcamp') bootcampsSold++;
         });
     }
 
@@ -177,8 +175,7 @@ export async function GET(request: Request) {
     return NextResponse.json({
         totalLeads: leadsCount || 0,
         totalRevenue: totalRevenueCents / 100, // Convert cents to dollars
-        rogueSessions,
-        masterclasses,
+        bootcampsSold,
         uniqueVisitors,
         outcomes30Min,
         outcomes14Day,

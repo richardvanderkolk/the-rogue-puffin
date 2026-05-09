@@ -99,8 +99,7 @@ export default function AdminDashboard() {
     };
 
     const leadConv = metrics.totalLeads > 0 && metrics.uniqueVisitors > 0 ? Math.round((metrics.totalLeads / metrics.uniqueVisitors) * 100) : 0;
-    const sessionConv = metrics.rogueSessions > 0 && metrics.totalLeads > 0 ? Math.round((metrics.rogueSessions / metrics.totalLeads) * 100) : 0;
-    const upgradeConv = metrics.masterclasses > 0 && metrics.totalLeads > 0 ? Math.round((metrics.masterclasses / metrics.totalLeads) * 100) : 0;
+    const bootcampConv = metrics.bootcampsSold > 0 && metrics.totalLeads > 0 ? Math.round((metrics.bootcampsSold / metrics.totalLeads) * 100) : 0;
 
     return (
         <div className="min-h-screen bg-slate-950 text-white p-8">
@@ -120,7 +119,7 @@ export default function AdminDashboard() {
             </header>
 
             {/* Top Level Metrics */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
                     <div className="flex items-center gap-3 mb-2 text-slate-400">
                         <Users className="w-5 h-5" /> Total Leads
@@ -130,17 +129,10 @@ export default function AdminDashboard() {
                 </div>
                 <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
                     <div className="flex items-center gap-3 mb-2 text-slate-400">
-                        <TrendingUp className="w-5 h-5" /> Sessions Sold
+                        <TrendingUp className="w-5 h-5" /> Bootcamps Sold
                     </div>
-                    <div className="text-3xl font-bold">{metrics.rogueSessions.toLocaleString()}</div>
-                    <div className="text-xs text-indigo-400 mt-2">$5 Rogue Sessions</div>
-                </div>
-                <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
-                    <div className="flex items-center gap-3 mb-2 text-slate-400">
-                        <TrendingUp className="w-5 h-5" /> Masterclasses Sold
-                    </div>
-                    <div className="text-3xl font-bold">{metrics.masterclasses.toLocaleString()}</div>
-                    <div className="text-xs text-indigo-400 mt-2">$10 Protocols</div>
+                    <div className="text-3xl font-bold">{metrics.bootcampsSold?.toLocaleString() || 0}</div>
+                    <div className="text-xs text-indigo-400 mt-2">$29 14-Day Bootcamp</div>
                 </div>
                 <div className="p-6 bg-slate-900 rounded-xl border border-slate-800">
                     <div className="flex items-center gap-3 mb-2 text-slate-400">
@@ -300,7 +292,7 @@ export default function AdminDashboard() {
             {/* Funnel Visualization */}
             <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">
                 <h3 className="text-lg font-bold mb-6">Live Conversion Funnel</h3>
-                <div className="flex items-center justify-between text-center relative">
+                <div className="flex items-center justify-between text-center relative max-w-4xl mx-auto">
                     {/* Step 1 */}
                     <div className="flex-1">
                         <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Free Test Taken</div>
@@ -312,28 +304,15 @@ export default function AdminDashboard() {
                     </div>
 
                     {/* Arrow */}
-                    <div className="px-4 text-slate-600">→</div>
+                    <div className="px-8 text-slate-600 font-bold text-xl">→</div>
 
                     {/* Step 2 */}
                     <div className="flex-1">
-                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Rogue Session ($5)</div>
-                        <div className="text-4xl font-bold text-white mb-2">{metrics.rogueSessions.toLocaleString()}</div>
-                        <div className="text-xs text-indigo-400 mb-2">{sessionConv}% Lead Conv.</div>
+                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">14-Day Bootcamp ($29)</div>
+                        <div className="text-4xl font-bold text-white mb-2">{metrics.bootcampsSold?.toLocaleString() || 0}</div>
+                        <div className="text-xs text-indigo-400 mb-2">{bootcampConv}% Lead Conv.</div>
                         <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                            <div className={`h-full bg-indigo-600`} style={{ width: `${Math.max(sessionConv, 2)}%` }}></div>
-                        </div>
-                    </div>
-
-                    {/* Arrow */}
-                    <div className="px-4 text-slate-600">→</div>
-
-                    {/* Step 3 */}
-                    <div className="flex-1">
-                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Masterclass ($10)</div>
-                        <div className="text-4xl font-bold text-white mb-2">{metrics.masterclasses.toLocaleString()}</div>
-                        <div className="text-xs text-indigo-400 mb-2">{upgradeConv}% Lead Conv.</div>
-                        <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                            <div className={`h-full bg-indigo-600`} style={{ width: `${Math.max(upgradeConv, 2)}%` }}></div>
+                            <div className={`h-full bg-indigo-600`} style={{ width: `${Math.max(bootcampConv, 2)}%` }}></div>
                         </div>
                     </div>
                 </div>
