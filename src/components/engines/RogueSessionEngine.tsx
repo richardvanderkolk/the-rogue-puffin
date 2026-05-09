@@ -80,7 +80,6 @@ const PageDisplay = ({
     className?: string
 }) => {
     const [highlightGroupIndex, setHighlightGroupIndex] = useState(0);
-    const [hasSkipped, setHasSkipped] = useState(false);
 
     // Timer for Page Flip (Only if not in highlight mode, or as fallback)
     useEffect(() => {
@@ -253,6 +252,7 @@ export function RogueSessionEngine({ onComplete }: { onComplete: (skipped?: bool
     const [pageIndex, setPageIndex] = useState(0);
     const [paused, setPaused] = useState(false);
     const [nextPhase, setNextPhase] = useState<DrillPhase | null>(null);
+    const [hasSkipped, setHasSkipped] = useState(false);
 
     // Refs for timer management
     const timeInPhase = useRef(0);
