@@ -482,11 +482,12 @@ export function RogueSessionEngine({ onComplete }: { onComplete: (skipped?: bool
                 const cycleOrder: DrillPhase[] = ['drill_cycle_1_a', 'drill_cycle_1_b', 'drill_cycle_2', 'drill_cycle_3', 'drill_cycle_4', 'drill_cycle_5', 'drill_cycle_6', 'drill_cycle_7'];
                 const currentCycleIndex = cycleOrder.indexOf(phase);
                 const canGoPrev = currentCycleIndex > 0;
-                const canGoNext = currentCycleIndex < cycleOrder.length - 1;
+                // canGoNext is now always true because if it's the last cycle, clicking next completes the session.
+                const canGoNext = true;
 
                 const handleSkip = () => {
                     setHasSkipped(true);
-                    if (canGoNext) {
+                    if (currentCycleIndex < cycleOrder.length - 1) {
                         startPhase(cycleOrder[currentCycleIndex + 1]);
                     } else {
                         setPhase('complete');
@@ -549,7 +550,14 @@ export function RogueSessionEngine({ onComplete }: { onComplete: (skipped?: bool
                                         </button>
 
                                         <button
-                                            onClick={() => canGoNext && startPhase(cycleOrder[currentCycleIndex + 1])}
+                                            onClick={() => {
+                                                if (currentCycleIndex < cycleOrder.length - 1) {
+                                                    startPhase(cycleOrder[currentCycleIndex + 1]);
+                                                } else {
+                                                    setPhase('complete');
+                                                    setPaused(false);
+                                                }
+                                            }}
                                             disabled={!canGoNext}
                                             className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                                         >

@@ -624,97 +624,58 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                     </div>
                 </div>
 
-                {/* Account Creation Prompt */}
-                <div className="bg-indigo-900/20 border border-indigo-500/30 p-6 rounded-xl max-w-2xl mx-auto mt-8 flex flex-col md:flex-row items-center gap-6">
-                    <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-full bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
-                            <Unlock className="w-6 h-6 text-indigo-400" />
-                        </div>
-                    </div>
-                    <div className="text-left flex-1">
-                        <p className="text-white font-bold mb-1">Don't Lose Your Progress</p>
-                        <p className="text-slate-300 text-sm mb-3">Your scores are currently only saved in this browser. If you clear your history or use a different device, they will be permanently lost.</p>
-                        <Link href="/login?course=bootcamp" className="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
-                            Create a free account to save your scores →
-                        </Link>
-                    </div>
-                </div>
+                {/* --- Next Steps --- */}
+                <div className="pt-8 w-full max-w-5xl mx-auto space-y-6 text-left">
+                    <h3 className="text-2xl font-bold text-white text-center mb-8">What are your next steps?</h3>
 
-                {hasSkippedExercises && (
-                    <div className="bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl max-w-2xl mx-auto mt-6">
-                        <p className="text-amber-400 font-bold mb-1 flex items-center justify-center gap-2">
-                            Note: Exercises Skipped
-                        </p>
-                        <p className="text-amber-200/80 text-sm">
-                            Because you skipped some of the reading exercises, your speed increase may not be as high as it would be if you were able to complete the full session.
-                        </p>
-                    </div>
-                )}
-
-                {/* --- The Sales Pitch --- */}
-                <div className="pt-12 text-left space-y-8 max-w-2xl mx-auto w-full">
-                    {/* The Problem */}
-                    <div className="space-y-4 border-l-2 border-rose-500/50 pl-6">
-                        <h3 className="text-2xl font-bold text-white">The "Rubber Band" Effect</h3>
-                        <p className="text-slate-300 leading-relaxed">
-                            Your brain is elastic. You just stretched it to process information significantly faster. But without sustained repetition, neuroplasticity works in reverse: <strong>your brain will snap back to its old speed by tomorrow.</strong>
-                        </p>
-                    </div>
-
-                    {/* The Solution */}
-                    <div className="bg-slate-900/50 rounded-2xl p-8 border border-slate-800 space-y-8 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                         
-                        <div className="relative z-10 space-y-2">
-                            <h3 className="text-3xl font-bold text-white tracking-tight">The 14-Day Bootcamp</h3>
-                            <p className="text-indigo-400 font-medium">Make the change permanent.</p>
-                            <p className="text-slate-400 text-sm pt-2">
-                                We designed a 14-day protocol to permanently embed this new reading speed, while unlocking advanced memory and learning systems.
-                            </p>
-                        </div>
-
-                        <div className="relative z-10 space-y-4">
-                            <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30 flex-shrink-0">
-                                    <Brain className="w-5 h-5 text-purple-400" />
-                                </div>
+                        {/* Option 1: The 14-Day Bootcamp */}
+                        <div className="bg-slate-900/50 rounded-2xl p-8 border border-indigo-500/30 flex flex-col relative overflow-hidden shadow-[0_0_40px_rgba(79,70,229,0.1)]">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
+                            <div className="relative z-10 flex-1 space-y-6">
                                 <div>
-                                    <h4 className="text-white font-bold">Day 2: The Superpower Protocol</h4>
-                                    <p className="text-slate-400 text-sm mt-1">Diagnose your unique cognitive learning style to absorb information naturally.</p>
+                                    <h4 className="text-xl font-bold text-white flex items-center gap-2"><Sparkles className="w-5 h-5 text-indigo-400"/> 1. Make the Change Permanent</h4>
+                                    <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+                                        Your brain is elastic. Without sustained repetition, it will snap back to its old speed by tomorrow. The 14-Day Bootcamp is designed to embed this new speed, whilst discovering your unique learning superpower and advanced memory techniques.
+                                    </p>
+                                </div>
+                                <div className="space-y-3 pt-2">
+                                    <div className="flex items-center gap-3"><Brain className="w-5 h-5 text-purple-400" /><span className="text-sm text-slate-300">Diagnose your learning style</span></div>
+                                    <div className="flex items-center gap-3"><Database className="w-5 h-5 text-emerald-400" /><span className="text-sm text-slate-300">Advanced Memory Training</span></div>
+                                    <div className="flex items-center gap-3"><Activity className="w-5 h-5 text-indigo-400" /><span className="text-sm text-slate-300">Daily neuroplasticity drills</span></div>
                                 </div>
                             </div>
-                            
-                            <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30 flex-shrink-0">
-                                    <Database className="w-5 h-5 text-emerald-400" />
-                                </div>
-                                <div>
-                                    <h4 className="text-white font-bold">Day 3: Advanced Memory</h4>
-                                    <p className="text-slate-400 text-sm mt-1">Learn the exact spatial visualization techniques used by world memory champions.</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30 flex-shrink-0">
-                                    <Activity className="w-5 h-5 text-indigo-400" />
-                                </div>
-                                <div>
-                                    <h4 className="text-white font-bold">Days 4-14: Daily Execution</h4>
-                                    <p className="text-slate-400 text-sm mt-1">Daily 10-minute drills (peripheral expansion, active reading, and rapid ingestion) to make your speed permanent.</p>
-                                </div>
+                            <div className="relative z-10 pt-8 mt-auto space-y-2 text-center">
+                                <Link href="/bootcamp" className="block group">
+                                    <button className="w-full bg-indigo-600 text-white py-4 rounded-xl font-bold hover:bg-indigo-500 transition-colors shadow-lg flex justify-center items-center gap-2">
+                                        Unlock the 14-Day Bootcamp <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                </Link>
+                                <p className="text-xs text-slate-500 font-medium">14-Day Guarantee. Only $29.</p>
                             </div>
                         </div>
+
+                        {/* Option 2: Create Account */}
+                        <div className="bg-slate-900/30 rounded-2xl p-8 border border-slate-800 flex flex-col">
+                            <div className="flex-1 space-y-6">
+                                <div>
+                                    <h4 className="text-xl font-bold text-white flex items-center gap-2"><Unlock className="w-5 h-5 text-slate-400"/> 2. Save Your Progress</h4>
+                                    <p className="text-slate-400 text-sm mt-2 leading-relaxed">
+                                        If you aren't ready to continue immediately, please save your scores. Your scores are currently only saved in this browser session. If you clear your history or leave, your +{increase}% speed record will be permanently lost.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="pt-8 mt-auto">
+                                <Link href="/login?course=bootcamp" className="block group">
+                                    <button className="w-full bg-slate-800 text-white py-4 rounded-xl font-bold hover:bg-slate-700 transition-colors border border-slate-700 flex justify-center items-center gap-2">
+                                        Create a Free Account <ArrowRight className="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-
-                <div className="pt-8 pb-16 space-y-4 flex flex-col items-center">
-                    <Link href="/bootcamp" className="inline-block group">
-                        <button className="bg-indigo-600 text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-indigo-500 hover:scale-105 transition-all shadow-[0_0_40px_rgba(79,70,229,0.4)] flex items-center gap-3 w-full justify-center sm:w-auto">
-                            Unlock the 14-Day Bootcamp
-                            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </Link>
-                    <p className="text-sm text-slate-500 pt-2 font-medium">14-Day Guarantee. Only $29.</p>
                 </div>
             </div>
         </motion.div>
