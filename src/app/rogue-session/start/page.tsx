@@ -645,21 +645,21 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                                         <Brain className="w-6 h-6 text-purple-400" />
                                     </div>
                                     <h4 className="text-white font-bold">Day 2: Superpowers</h4>
-                                    <p className="text-sm text-slate-400 leading-relaxed">Discover your unique learning style to absorb information naturally.</p>
+                                    <p className="text-sm text-slate-400 leading-relaxed">Absorb information effortlessly by diagnosing and leveraging your brain's unique learning style.</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
                                         <Database className="w-6 h-6 text-emerald-400" />
                                     </div>
                                     <h4 className="text-white font-bold">Day 3: Memory</h4>
-                                    <p className="text-sm text-slate-400 leading-relaxed">Master the spatial visualization tactics used by world memory champions.</p>
+                                    <p className="text-sm text-slate-400 leading-relaxed"><strong className="text-slate-300">Never forget what you read.</strong> Master the spatial visualization tactics of world memory champions.</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
                                         <Activity className="w-6 h-6 text-indigo-400" />
                                     </div>
                                     <h4 className="text-white font-bold">Days 4-14: The Protocol</h4>
-                                    <p className="text-sm text-slate-400 leading-relaxed">Daily 10-minute drills to expand your peripheral vision, eliminate the inner reading voice, and master the state of learning flow.</p>
+                                    <p className="text-sm text-slate-400 leading-relaxed"><strong className="text-slate-300">Make your new speed permanent.</strong> Eliminate the inner reading voice and train your eyes to read faster on autopilot.</p>
                                 </div>
                             </div>
 
