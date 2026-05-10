@@ -23,7 +23,7 @@ export default function V2LandingPage() {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">right now.</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-                            It takes 30 minutes. It's completely free. Unlock the ultimate unfair advantage for your studies, your career, and your time.
+                            It takes 30 minutes. It's completely free. Unlock the ultimate unfair advantage for your studies, your career, and your life.
                         </p>
                     </div>
 
