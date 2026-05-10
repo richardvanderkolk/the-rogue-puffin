@@ -634,7 +634,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                         <div className="relative z-10 space-y-8">
                             <div className="text-center md:text-left">
                                 <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                                    If you can do this in 15 minutes...<br/>
+                                    If you can do this in 30 minutes...<br/>
                                     <span className="text-indigo-400">imagine what you could do in 14 days.</span>
                                 </h3>
                             </div>
