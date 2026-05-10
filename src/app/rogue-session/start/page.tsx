@@ -624,14 +624,14 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                     </div>
                 </div>
 
-                {/* --- Next Steps (Hero + Footer Layout) --- */}
-                <div className="pt-8 w-full max-w-4xl mx-auto space-y-4 text-left">
+                {/* --- Next Steps (Hero + Sidebar Layout) --- */}
+                <div className="pt-8 w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 text-left items-stretch">
                     
-                    {/* Hero: The 14-Day Bootcamp */}
-                    <div className="bg-slate-900/50 rounded-2xl p-8 md:p-10 border border-indigo-500/30 flex flex-col relative overflow-hidden shadow-[0_0_40px_rgba(79,70,229,0.15)]">
+                    {/* Main Hero: The 14-Day Bootcamp (Takes up ~75% width) */}
+                    <div className="flex-[3] bg-slate-900/50 rounded-2xl p-8 md:p-10 border border-indigo-500/30 flex flex-col relative overflow-hidden shadow-[0_0_40px_rgba(79,70,229,0.15)]">
                         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px]" />
                         
-                        <div className="relative z-10 space-y-8">
+                        <div className="relative z-10 space-y-8 flex flex-col h-full">
                             <div className="text-center md:text-left">
                                 <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
                                     If you can do this in 30 minutes...<br/>
@@ -639,7 +639,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                                 </h3>
                             </div>
                             
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 flex-1">
                                 <div className="space-y-2">
                                     <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
                                         <Brain className="w-6 h-6 text-purple-400" />
@@ -674,21 +674,26 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                         </div>
                     </div>
 
-                    {/* Footer: Create Account Fallback */}
-                    <div className="bg-slate-800/80 rounded-xl p-5 md:p-6 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left shadow-lg">
-                        <div>
-                            <p className="text-white text-base font-bold flex items-center justify-center md:justify-start gap-2">
-                                <Unlock className="w-5 h-5 text-slate-400" /> Not ready for the Bootcamp yet?
-                            </p>
-                            <p className="text-slate-300 text-sm mt-1.5">
-                                Save your <span className="text-emerald-400 font-bold">+{increase}% speed record</span> before you leave so you don't lose it.
+                    {/* Sidebar: Create Account Fallback (Takes up ~25% width) */}
+                    <div className="flex-[1] bg-slate-800/80 rounded-2xl p-6 md:p-8 border border-slate-700 flex flex-col justify-center text-center lg:text-left shadow-lg">
+                        <div className="flex-1 flex flex-col justify-center">
+                            <div className="mx-auto lg:mx-0 w-12 h-12 rounded-full bg-slate-700/50 flex items-center justify-center mb-4">
+                                <Unlock className="w-6 h-6 text-slate-400" />
+                            </div>
+                            <h4 className="text-white text-xl font-bold mb-3">
+                                Not ready for the Bootcamp yet?
+                            </h4>
+                            <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                                Save your <span className="text-emerald-400 font-bold">+{increase}% speed record</span> before you leave so you don't lose it forever.
                             </p>
                         </div>
-                        <Link href="/login?course=bootcamp" className="flex-shrink-0 w-full md:w-auto mt-2 md:mt-0">
-                            <button className="w-full md:w-auto bg-slate-700 hover:bg-slate-600 text-white text-sm px-8 py-3 rounded-xl font-bold transition-colors border border-slate-500 shadow-sm">
-                                Save My Progress →
-                            </button>
-                        </Link>
+                        <div className="mt-auto">
+                            <Link href="/login?course=bootcamp" className="block group">
+                                <button className="w-full bg-slate-700 hover:bg-slate-600 text-white py-4 rounded-xl font-bold transition-colors border border-slate-500 shadow-sm flex items-center justify-center gap-2">
+                                    Save My Progress <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                            </Link>
+                        </div>
                     </div>
 
                 </div>
