@@ -644,21 +644,21 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                                     <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
                                         <Brain className="w-6 h-6 text-purple-400" />
                                     </div>
-                                    <h4 className="text-white font-bold">Day 2: Superpowers</h4>
+                                    <h4 className="text-white font-bold">Day 2: Your Cognitive Blueprint</h4>
                                     <p className="text-sm text-slate-400 leading-relaxed">Increase understanding by discovering your personal learning superpower.</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
                                         <Database className="w-6 h-6 text-emerald-400" />
                                     </div>
-                                    <h4 className="text-white font-bold">Day 3: Memory</h4>
+                                    <h4 className="text-white font-bold">Day 3: Flawless Recall</h4>
                                     <p className="text-sm text-slate-400 leading-relaxed">Unlock the memory you thought you didn't have.</p>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
                                         <Activity className="w-6 h-6 text-indigo-400" />
                                     </div>
-                                    <h4 className="text-white font-bold">Days 4-14: The Protocol</h4>
+                                    <h4 className="text-white font-bold">Days 4-14: Permanent Integration</h4>
                                     <p className="text-sm text-slate-400 leading-relaxed">Make your new reading speed permanent and discover learning secrets uncovered in scientific studies.</p>
                                 </div>
                             </div>
