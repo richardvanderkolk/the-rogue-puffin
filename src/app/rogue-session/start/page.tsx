@@ -658,8 +658,8 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                                     <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
                                         <Activity className="w-6 h-6 text-indigo-400" />
                                     </div>
-                                    <h4 className="text-white font-bold">Days 4-14: The Wire</h4>
-                                    <p className="text-sm text-slate-400 leading-relaxed">Daily 10-minute kinetic drills to permanently embed your new reading speed.</p>
+                                    <h4 className="text-white font-bold">Days 4-14: The Protocol</h4>
+                                    <p className="text-sm text-slate-400 leading-relaxed">Daily 10-minute drills to expand your peripheral vision, eliminate the inner reading voice, and master the state of learning flow.</p>
                                 </div>
                             </div>
 
@@ -675,17 +675,17 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                     </div>
 
                     {/* Footer: Create Account Fallback */}
-                    <div className="bg-slate-900/30 rounded-xl p-4 md:p-6 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                    <div className="bg-slate-800/80 rounded-xl p-5 md:p-6 border border-slate-700 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left shadow-lg">
                         <div>
-                            <p className="text-slate-300 text-sm font-medium flex items-center justify-center md:justify-start gap-2">
-                                <Unlock className="w-4 h-4 text-slate-500" /> Not ready for the Bootcamp yet?
+                            <p className="text-white text-base font-bold flex items-center justify-center md:justify-start gap-2">
+                                <Unlock className="w-5 h-5 text-slate-400" /> Not ready for the Bootcamp yet?
                             </p>
-                            <p className="text-slate-500 text-xs mt-1">
-                                Save your +{increase}% speed record before you leave so you don't lose it.
+                            <p className="text-slate-300 text-sm mt-1.5">
+                                Save your <span className="text-emerald-400 font-bold">+{increase}% speed record</span> before you leave so you don't lose it.
                             </p>
                         </div>
-                        <Link href="/login?course=bootcamp" className="flex-shrink-0">
-                            <button className="bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm px-6 py-2 rounded-lg font-bold transition-colors border border-slate-700">
+                        <Link href="/login?course=bootcamp" className="flex-shrink-0 w-full md:w-auto mt-2 md:mt-0">
+                            <button className="w-full md:w-auto bg-slate-700 hover:bg-slate-600 text-white text-sm px-8 py-3 rounded-xl font-bold transition-colors border border-slate-500 shadow-sm">
                                 Save My Progress →
                             </button>
                         </Link>
