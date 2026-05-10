@@ -669,7 +669,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                                         Unlock the 14-Day Bootcamp <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </Link>
-                                <p className="text-sm text-slate-500 font-medium mt-3">14-Day Guarantee. Only $29.</p>
+                                <p className="text-sm text-slate-500 font-medium mt-3">14-Day Bootcamp. Only $29.</p>
                             </div>
                         </div>
                     </div>
