@@ -635,15 +635,15 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                             <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px]" />
                             <div className="relative z-10 flex-1 space-y-6">
                                 <div>
-                                    <h4 className="text-xl font-bold text-white flex items-center gap-2"><Sparkles className="w-5 h-5 text-indigo-400"/> 1. Make the Change Permanent</h4>
+                                    <h4 className="text-xl font-bold text-white flex items-center gap-2"><Sparkles className="w-5 h-5 text-indigo-400"/> 1. Unlock Your Cognitive Potential</h4>
                                     <p className="text-slate-300 text-sm mt-2 leading-relaxed">
-                                        Your brain is elastic. Without sustained repetition, it will snap back to its old speed by tomorrow. The 14-Day Bootcamp is designed to embed this new speed, whilst discovering your unique learning superpower and advanced memory techniques.
+                                        That speed increase wasn't a trick—you just shattered the ceiling of your visual processing. But Day 1 is only the foundation. The 14-Day Bootcamp uses neuroplasticity to permanently embed this speed, while equipping you with elite memory systems and discovering your unique learning superpower.
                                     </p>
                                 </div>
                                 <div className="space-y-3 pt-2">
-                                    <div className="flex items-center gap-3"><Brain className="w-5 h-5 text-purple-400" /><span className="text-sm text-slate-300">Diagnose your learning style</span></div>
-                                    <div className="flex items-center gap-3"><Database className="w-5 h-5 text-emerald-400" /><span className="text-sm text-slate-300">Advanced Memory Training</span></div>
-                                    <div className="flex items-center gap-3"><Activity className="w-5 h-5 text-indigo-400" /><span className="text-sm text-slate-300">Daily neuroplasticity drills</span></div>
+                                    <div className="flex items-start gap-3"><Brain className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" /><div><span className="text-sm text-white font-bold">The Superpower Protocol:</span><span className="text-sm text-slate-300"> Diagnose your unique cognitive learning style.</span></div></div>
+                                    <div className="flex items-start gap-3"><Database className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" /><div><span className="text-sm text-white font-bold">Advanced Memory:</span><span className="text-sm text-slate-300"> Learn the spatial visualization tactics used by memory champions.</span></div></div>
+                                    <div className="flex items-start gap-3"><Activity className="w-5 h-5 text-indigo-400 mt-0.5 flex-shrink-0" /><div><span className="text-sm text-white font-bold">Permanent Neuroplasticity:</span><span className="text-sm text-slate-300"> 13 days of kinetic drills to make your new speed permanent.</span></div></div>
                                 </div>
                             </div>
                             <div className="relative z-10 pt-8 mt-auto space-y-2 text-center">
