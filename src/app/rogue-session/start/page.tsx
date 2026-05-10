@@ -604,9 +604,9 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-screen flex flex-col items-center pt-32 pb-12 px-6 bg-gradient-to-br from-slate-950 to-indigo-950/20">
-            <div className="max-w-4xl w-full flex-1 flex flex-col justify-center space-y-12 text-center">
-                <div className="space-y-4">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-screen flex flex-col items-center pt-24 pb-8 px-6 bg-gradient-to-br from-slate-950 to-indigo-950/20">
+            <div className="max-w-4xl w-full flex-1 flex flex-col justify-center space-y-8 text-center">
+                <div className="space-y-3">
                     <h2 className="text-5xl md:text-7xl font-bold font-heading text-white">
                         <span className="text-emerald-400">+{increase}%</span> Speed Increase
                     </h2>
@@ -625,7 +625,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                 </div>
 
                 {/* --- Next Steps (Hero + Sidebar Layout) --- */}
-                <div className="pt-8 w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 text-left items-stretch">
+                <div className="pt-2 w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 text-left items-stretch">
                     
                     {/* Main Hero: The 14-Day Bootcamp (Takes up ~75% width) */}
                     <div className="flex-[3] bg-slate-900/50 rounded-2xl p-8 md:p-10 border border-indigo-500/30 flex flex-col relative overflow-hidden shadow-[0_0_40px_rgba(79,70,229,0.15)]">
