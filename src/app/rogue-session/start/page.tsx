@@ -604,100 +604,95 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-screen flex flex-col items-center pt-24 pb-8 px-6 bg-gradient-to-br from-slate-950 to-indigo-950/20">
-            <div className="max-w-4xl w-full flex-1 flex flex-col justify-center space-y-8 text-center">
-                <div className="space-y-3">
-                    <h2 className="text-5xl md:text-7xl font-bold font-heading text-white">
-                        <span className="text-emerald-400">+{increase}%</span> Speed Increase
-                    </h2>
-                    <p className="text-xl text-slate-300">In just one session.</p>
-                </div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-screen flex flex-col items-center justify-center py-12 px-4 md:px-6 bg-gradient-to-br from-slate-950 to-indigo-950/20">
+            
+            <div className="w-full max-w-5xl bg-slate-900/60 backdrop-blur-xl rounded-3xl border border-slate-800/80 shadow-[0_0_50px_rgba(79,70,229,0.15)] overflow-hidden flex flex-col relative">
+                
+                {/* Glow Effect */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
 
-                <div className="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
-                    <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800">
-                        <p className="text-slate-500 uppercase tracking-widest text-sm font-bold mb-2">Baseline</p>
-                        <p className="text-4xl text-white font-mono font-bold">{baseline.wpm} <span className="text-lg text-slate-500">WPM</span></p>
+                {/* Top Section: The Win */}
+                <div className="p-8 md:p-10 border-b border-slate-800/50 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+                    <div className="text-center md:text-left space-y-2">
+                        <h2 className="text-4xl md:text-5xl font-bold font-heading text-white">
+                            <span className="text-emerald-400">+{increase}%</span> Speed
+                        </h2>
+                        <p className="text-slate-400 font-medium tracking-wide">INCREASED IN JUST 15 MINUTES</p>
                     </div>
-                    <div className="bg-slate-900/50 p-6 rounded-2xl border border-slate-800 border-indigo-500/50 shadow-[0_0_30px_rgba(99,102,241,0.1)]">
-                        <p className="text-indigo-400 uppercase tracking-widest text-sm font-bold mb-2">Current</p>
-                        <p className="text-4xl text-white font-mono font-bold">{final.wpm} <span className="text-lg text-slate-500">WPM</span></p>
-                    </div>
-                </div>
-
-                {/* --- Next Steps (Hero + Sidebar Layout) --- */}
-                <div className="pt-2 w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-6 text-left items-stretch">
                     
-                    {/* Main Hero: The 14-Day Bootcamp (Takes up ~75% width) */}
-                    <div className="flex-[3] bg-slate-900/50 rounded-2xl p-8 md:p-10 border border-indigo-500/30 flex flex-col relative overflow-hidden shadow-[0_0_40px_rgba(79,70,229,0.15)]">
-                        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px]" />
-                        
-                        <div className="relative z-10 space-y-8 flex flex-col h-full">
-                            <div className="text-center md:text-left">
-                                <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                                    If you can do this in 30 minutes...<br/>
-                                    <span className="text-indigo-400">imagine what you could do in 14 days.</span>
-                                </h3>
-                            </div>
-                            
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 flex-1">
-                                <div className="space-y-2">
-                                    <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
-                                        <Brain className="w-6 h-6 text-purple-400" />
-                                    </div>
-                                    <h4 className="text-white font-bold">Day 2: Effortless Understanding</h4>
-                                    <p className="text-sm text-slate-400 leading-relaxed">Increase understanding by discovering your personal learning superpower.</p>
-                                </div>
-                                <div className="space-y-2">
-                                    <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
-                                        <Database className="w-6 h-6 text-emerald-400" />
-                                    </div>
-                                    <h4 className="text-white font-bold">Day 3: Unbreakable Memory</h4>
-                                    <p className="text-sm text-slate-400 leading-relaxed">Unlock the memory you thought you didn't have.</p>
-                                </div>
-                                <div className="space-y-2">
-                                    <div className="w-12 h-12 rounded-xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
-                                        <Activity className="w-6 h-6 text-indigo-400" />
-                                    </div>
-                                    <h4 className="text-white font-bold">Days 4-14: Permanent Mastery</h4>
-                                    <p className="text-sm text-slate-400 leading-relaxed">Make your new reading speed permanent and discover learning secrets uncovered in scientific studies.</p>
-                                </div>
-                            </div>
-
-                            <div className="pt-6 flex flex-col items-center">
-                                <Link href="/bootcamp" className="block group w-full max-w-md">
-                                    <button className="w-full bg-indigo-600 text-white py-5 rounded-xl font-bold text-xl hover:bg-indigo-500 transition-all shadow-lg flex justify-center items-center gap-3 hover:scale-105">
-                                        Unlock the 14-Day Bootcamp <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                                    </button>
-                                </Link>
-                                <p className="text-sm text-slate-500 font-medium mt-3">14-Day Bootcamp. Only $29.</p>
-                            </div>
+                    <div className="flex items-center gap-4 md:gap-8">
+                        <div className="text-center md:text-right">
+                            <p className="text-slate-500 uppercase tracking-wider text-xs font-bold mb-1">Baseline</p>
+                            <p className="text-2xl md:text-3xl text-white font-mono font-bold">{baseline.wpm}</p>
+                        </div>
+                        <div className="h-12 w-px bg-slate-800"></div>
+                        <div className="text-center md:text-left">
+                            <p className="text-indigo-400 uppercase tracking-wider text-xs font-bold mb-1">Current</p>
+                            <p className="text-3xl md:text-4xl text-white font-mono font-bold">{final.wpm}</p>
                         </div>
                     </div>
-
-                    {/* Sidebar: Create Account Fallback (Takes up ~25% width) */}
-                    <div className="flex-[1] bg-slate-800/80 rounded-2xl p-6 md:p-8 border border-slate-700 flex flex-col justify-center text-center lg:text-left shadow-lg">
-                        <div className="flex-1 flex flex-col justify-center">
-                            <div className="mx-auto lg:mx-0 w-12 h-12 rounded-full bg-slate-700/50 flex items-center justify-center mb-4">
-                                <Unlock className="w-6 h-6 text-slate-400" />
-                            </div>
-                            <h4 className="text-white text-xl font-bold mb-3">
-                                Not ready for the Bootcamp yet?
-                            </h4>
-                            <p className="text-slate-300 text-sm leading-relaxed mb-6">
-                                Save your <span className="text-emerald-400 font-bold">+{increase}% speed record</span> before you leave so you don't lose it forever.
-                            </p>
-                        </div>
-                        <div className="mt-auto">
-                            <Link href="/login?course=bootcamp" className="block group">
-                                <button className="w-full bg-slate-700 hover:bg-slate-600 text-white py-4 rounded-xl font-bold transition-colors border border-slate-500 shadow-sm flex items-center justify-center gap-2">
-                                    Save My Progress <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                            </Link>
-                        </div>
-                    </div>
-
                 </div>
+
+                {/* Middle Section: The Pitch */}
+                <div className="p-8 md:p-10 md:pt-12 relative z-10 flex-1">
+                    <div className="text-center space-y-3 mb-10">
+                        <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                            If you can do this in 30 minutes...
+                        </h3>
+                        <h3 className="text-2xl md:text-3xl font-bold text-indigo-400 tracking-tight">
+                            imagine what you could do in 14 days.
+                        </h3>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div className="space-y-3 text-center md:text-left">
+                            <div className="w-14 h-14 mx-auto md:mx-0 rounded-2xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
+                                <Brain className="w-7 h-7 text-purple-400" />
+                            </div>
+                            <h4 className="text-white font-bold text-lg">Day 2: Effortless Understanding</h4>
+                            <p className="text-sm text-slate-400 leading-relaxed">Increase understanding by discovering your personal learning superpower.</p>
+                        </div>
+                        <div className="space-y-3 text-center md:text-left">
+                            <div className="w-14 h-14 mx-auto md:mx-0 rounded-2xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
+                                <Database className="w-7 h-7 text-emerald-400" />
+                            </div>
+                            <h4 className="text-white font-bold text-lg">Day 3: Unbreakable Memory</h4>
+                            <p className="text-sm text-slate-400 leading-relaxed">Unlock the memory you thought you didn't have.</p>
+                        </div>
+                        <div className="space-y-3 text-center md:text-left">
+                            <div className="w-14 h-14 mx-auto md:mx-0 rounded-2xl bg-indigo-500/20 flex items-center justify-center border border-indigo-500/30">
+                                <Activity className="w-7 h-7 text-indigo-400" />
+                            </div>
+                            <h4 className="text-white font-bold text-lg">Days 4-14: Permanent Mastery</h4>
+                            <p className="text-sm text-slate-400 leading-relaxed">Make your new reading speed permanent and discover learning secrets uncovered in scientific studies.</p>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                        <Link href="/bootcamp" className="block group w-full max-w-md">
+                            <button className="w-full bg-indigo-600 text-white py-5 rounded-2xl font-bold text-xl hover:bg-indigo-500 transition-all shadow-[0_0_30px_rgba(79,70,229,0.3)] hover:shadow-[0_0_40px_rgba(79,70,229,0.5)] flex justify-center items-center gap-3 hover:scale-105">
+                                Unlock the 14-Day Bootcamp <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </Link>
+                        <p className="text-sm text-slate-500 font-medium mt-4">14-Day Bootcamp. Only $29.</p>
+                    </div>
+                </div>
+
+                {/* Bottom Section: The Fallback */}
+                <div className="bg-slate-950/50 p-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-800/80 relative z-10">
+                    <div className="text-center md:text-left">
+                        <p className="text-slate-300 text-sm font-medium">Not ready for the Bootcamp yet?</p>
+                        <p className="text-slate-500 text-xs mt-1">Save your <span className="text-emerald-400 font-medium">+{increase}% speed record</span> before you leave.</p>
+                    </div>
+                    <Link href="/login?course=bootcamp" className="w-full md:w-auto">
+                        <button className="w-full md:w-auto bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm px-6 py-2.5 rounded-lg font-bold transition-colors border border-slate-700 flex items-center justify-center gap-2">
+                            Save My Progress <ArrowRight className="w-4 h-4" />
+                        </button>
+                    </Link>
+                </div>
+
             </div>
+
         </motion.div>
     );
 }
