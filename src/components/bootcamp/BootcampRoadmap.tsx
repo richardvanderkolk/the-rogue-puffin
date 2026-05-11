@@ -90,16 +90,26 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                         
                         <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest">
-                                <Zap className="w-3 h-3" /> The 14-Day Blueprint
+                                <Zap className="w-3 h-3" /> The 14-Day Boot Camp
                             </div>
                             
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
                                 Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Billionaire Superpower.</span>
                             </h2>
                             
-                            <div className="space-y-4 text-left max-w-2xl mx-auto w-full">
+                            <div className="space-y-6 text-left max-w-2xl mx-auto w-full mt-4">
+                                {/* Fear of Loss Warning */}
+                                <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4 flex items-start gap-4 mb-4">
+                                    <div className="p-2 bg-amber-500/10 rounded-lg shrink-0 mt-0.5">
+                                        <Activity className="w-5 h-5 text-amber-400" />
+                                    </div>
+                                    <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
+                                        <span className="font-bold text-amber-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, the human brain reverts to its baseline reading speed within 48 hours. Don't lose the speed you just gained.
+                                    </p>
+                                </div>
+
                                 <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed text-center mb-6">
-                                    Reading faster is just the first step. Unlock the complete 14-Day Blueprint to upgrade your brain's entire operating system.
+                                    Reading faster is just the first step. Unlock the complete 14-Day Boot Camp to upgrade your brain's entire operating system.
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="flex items-start gap-3">
