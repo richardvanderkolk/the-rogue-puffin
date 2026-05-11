@@ -14,17 +14,6 @@ export default function V2LandingPage() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-indigo-900/10 rounded-full blur-[150px] -z-10" />
                 
                 <div className="max-w-4xl mx-auto text-center relative z-10 space-y-12 mt-12">
-                    {/* The Post-it Note */}
-                    <div className="hidden lg:block absolute -right-16 top-16 rotate-[8deg] hover:rotate-[4deg] transition-transform cursor-default z-20 animate-in fade-in slide-in-from-right-8 duration-1000 delay-700 fill-mode-both">
-                        <div className="bg-amber-100 text-amber-900 p-5 w-60 rounded shadow-xl border border-amber-200/60 relative transform origin-top hover:scale-105 transition-all">
-                           {/* Tape */}
-                           <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2.5 w-14 h-5 bg-white/70 shadow-sm rotate-[-4deg] backdrop-blur-sm" /> 
-                           <p className="font-mono text-[13px] leading-relaxed font-bold">
-                             P.S. When asked how he learned to build rockets, Elon Musk famously said:<br/><br/>
-                             "I read books."
-                           </p>
-                        </div>
-                    </div>
                     <div className="space-y-6">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-4">
                             <Zap className="w-3 h-3" /> The Speed Reading Masterclass
@@ -45,7 +34,19 @@ export default function V2LandingPage() {
                     </div>
 
                     <div className="flex flex-col items-center gap-6 pt-4">
-                        <div className="flex flex-col items-center gap-4">
+                        <div className="flex flex-col items-center gap-4 relative">
+                            {/* The Post-it Note (Now anchored to the CTA) */}
+                            <div className="hidden md:block absolute -right-[280px] top-4 rotate-[6deg] hover:rotate-[2deg] transition-transform cursor-default z-30 animate-in fade-in slide-in-from-right-8 duration-1000 delay-700 fill-mode-both">
+                                <div className="bg-gradient-to-br from-[#fdf5cc] to-[#f4e087] text-slate-800 p-6 w-64 rounded-sm shadow-[4px_12px_24px_rgba(0,0,0,0.6)] border border-yellow-300/60 relative transform origin-top-left hover:scale-105 transition-all before:content-[''] before:absolute before:bottom-0 before:right-0 before:w-full before:h-2 before:bg-gradient-to-t before:from-black/5 before:to-transparent">
+                                   {/* Tape */}
+                                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2 w-16 h-5 bg-white/50 shadow-sm rotate-[-3deg] backdrop-blur-sm border border-white/20" /> 
+                                   <p className="font-handwriting text-2xl leading-tight font-medium opacity-90 mix-blend-multiply">
+                                     P.S. When asked how he learned to build rockets, Elon Musk famously said:<br/>
+                                     <span className="font-bold block mt-2 text-3xl">"I read books."</span>
+                                   </p>
+                                </div>
+                            </div>
+                            
                             <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                                 <Activity className="w-4 h-4" /> Requires 30 mins of distraction-free focus
                             </div>
