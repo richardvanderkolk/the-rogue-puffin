@@ -14,6 +14,17 @@ export default function V2LandingPage() {
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-indigo-900/10 rounded-full blur-[150px] -z-10" />
                 
                 <div className="max-w-4xl mx-auto text-center relative z-10 space-y-12 mt-12">
+                    {/* The Post-it Note */}
+                    <div className="hidden lg:block absolute -right-16 top-16 rotate-[8deg] hover:rotate-[4deg] transition-transform cursor-default z-20 animate-in fade-in slide-in-from-right-8 duration-1000 delay-700 fill-mode-both">
+                        <div className="bg-amber-100 text-amber-900 p-5 w-60 rounded shadow-xl border border-amber-200/60 relative transform origin-top hover:scale-105 transition-all">
+                           {/* Tape */}
+                           <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2.5 w-14 h-5 bg-white/70 shadow-sm rotate-[-4deg] backdrop-blur-sm" /> 
+                           <p className="font-mono text-[13px] leading-relaxed font-bold">
+                             P.S. When asked how he learned to build rockets, Elon Musk famously said:<br/><br/>
+                             "I read books."
+                           </p>
+                        </div>
+                    </div>
                     <div className="space-y-6">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-4">
                             <Zap className="w-3 h-3" /> The Speed Reading Masterclass
@@ -22,21 +33,27 @@ export default function V2LandingPage() {
                             Read 2x faster <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">right now.</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
-                            It takes 30 minutes. It's completely free. Unlock the ultimate unfair advantage for your studies, your career, and your life.
-                        </p>
+                        
+                        <div className="space-y-4 max-w-2xl mx-auto pt-2">
+                            <p className="text-2xl md:text-3xl text-amber-400 font-bold tracking-tight">
+                                The One Superpower Bill Gates and Warren Buffett Both Wish They Had.
+                            </p>
+                            <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed">
+                                You don't need a billion dollars to read like a billionaire. Most people waste a decade of their lives reading slowly. It takes 30 minutes. It's completely free. Start your transformation today.
+                            </p>
+                        </div>
                     </div>
 
-                    <div className="flex flex-col items-center gap-6">
+                    <div className="flex flex-col items-center gap-6 pt-4">
                         <div className="flex flex-col items-center gap-4">
                             <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                                 <Activity className="w-4 h-4" /> Requires 30 mins of distraction-free focus
                             </div>
                             <Link 
                                 href="/rogue-session/start?v2=true" 
-                                className="group relative px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
+                                className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
                             >
-                                Start the Free Session <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                Get My Free Superpower Training <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                         
