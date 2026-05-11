@@ -38,8 +38,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
         }
     } else {
         // Fallback or preview logic if not logged in
-        const isLocal = process.env.NODE_ENV === 'development';
-        isUnlocked = forceUnlock || isLocal;
+        isUnlocked = forceUnlock;
         initialProgress = searchParams.progress ? parseInt(searchParams.progress as string) : 1;
     }
 
