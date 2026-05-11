@@ -28,7 +28,7 @@ export default function V2LandingPage() {
                                 The One Superpower Bill Gates and Warren Buffett Both Wish They Had.
                             </p>
                             <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed">
-                                You don't need a billion dollars to read like a billionaire. Most people waste a decade of their lives reading slowly. It takes 30 minutes. It's completely free. Start your transformation today.
+                                You don't need a billion dollars to read like a billionaire. Most people waste a decade of their lives reading slowly. It takes 30 minutes. It's completely free. Unlock the ultimate unfair advantage for your studies, your career, and your life.
                             </p>
                         </div>
                     </div>
