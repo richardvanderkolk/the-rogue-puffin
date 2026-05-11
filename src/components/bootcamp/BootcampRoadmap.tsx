@@ -109,7 +109,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 </div>
 
                                 <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed text-center mb-6">
-                                    Reading faster is just the first step. Unlock the complete 14-Day Boot Camp to upgrade your brain's entire operating system.
+                                    Reading faster is just the first step. Unlock the complete 14-Day Boot Camp to upgrade your brain's entire learning operating system.
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="flex items-start gap-3">
