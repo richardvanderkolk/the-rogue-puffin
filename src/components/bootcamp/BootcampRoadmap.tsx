@@ -104,7 +104,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                         <Activity className="w-5 h-5 text-amber-400" />
                                     </div>
                                     <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
-                                        <span className="font-bold text-amber-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, the human brain reverts to its baseline reading speed within 48 hours. Don't lose the speed you just gained.
+                                        <span className="font-bold text-amber-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, your reading speed will slow significantly from its true potential instead of continuing to increase. Don't lose your momentum.
                                     </p>
                                 </div>
 
