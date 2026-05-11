@@ -614,10 +614,10 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                 {/* Top Section: The Win */}
                 <div className="p-8 md:p-10 border-b border-slate-800/50 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                     <div className="text-center md:text-left space-y-2">
-                        <h2 className="text-4xl md:text-5xl font-bold font-heading text-white">
-                            <span className="text-emerald-400">+{increase}%</span> Speed
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white">
+                            You unlocked the <span className="text-emerald-400">Billionaire Superpower.</span>
                         </h2>
-                        <p className="text-slate-400 font-medium tracking-wide">INCREASED IN JUST 15 MINUTES</p>
+                        <p className="text-slate-400 font-medium tracking-wide uppercase text-sm">Your reading speed increased by +{increase}% in just 30 minutes.</p>
                     </div>
                     
                     <div className="flex items-center gap-4 md:gap-8">
@@ -635,13 +635,23 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
 
                 {/* Middle Section: The Pitch */}
                 <div className="p-8 md:p-10 md:pt-12 relative z-10 flex-1">
-                    <div className="text-center space-y-3 mb-10">
+                    <div className="text-center space-y-3 mb-8">
                         <h3 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
-                            If you can do this in 30 minutes...
+                            If you can achieve this in 30 minutes...
                         </h3>
                         <h3 className="text-2xl md:text-3xl font-bold text-indigo-400 tracking-tight">
-                            imagine what you could do in 14 days.
+                            imagine what happens when you build knowledge like compound interest over 14 days.
                         </h3>
+                    </div>
+
+                    {/* Fear of Loss Warning */}
+                    <div className="max-w-3xl mx-auto mb-10 bg-amber-500/5 border border-amber-500/20 rounded-xl p-5 flex items-start gap-4">
+                        <div className="p-2 bg-amber-500/10 rounded-lg shrink-0 mt-0.5">
+                            <Activity className="w-5 h-5 text-amber-400" />
+                        </div>
+                        <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
+                            <span className="font-bold text-amber-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, the human brain reverts to its baseline reading speed within 48 hours. Don't lose the speed you just gained.
+                        </p>
                     </div>
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -669,12 +679,12 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                     </div>
 
                     <div className="flex flex-col items-center">
-                        <Link href="/bootcamp" className="block group w-full max-w-md">
-                            <button className="w-full bg-indigo-600 text-white py-5 rounded-2xl font-bold text-xl hover:bg-indigo-500 transition-all shadow-[0_0_30px_rgba(79,70,229,0.3)] hover:shadow-[0_0_40px_rgba(79,70,229,0.5)] flex justify-center items-center gap-3 hover:scale-105">
-                                Unlock the 14-Day Bootcamp <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                        <Link href="/bootcamp" className="block group w-full max-w-lg">
+                            <button className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 py-5 rounded-full font-black text-xl hover:from-amber-300 hover:to-amber-400 transition-all shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] flex justify-center items-center gap-3 hover:scale-105 border border-amber-300/50">
+                                Secure My Superpower (14-Day Bootcamp) <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </Link>
-                        <p className="text-sm text-slate-500 font-medium mt-4">14-Day Bootcamp. Only $29.</p>
+                        <p className="text-sm text-slate-500 font-medium mt-5">14-Day Guided Execution Plan. Only $29.</p>
                     </div>
                 </div>
 

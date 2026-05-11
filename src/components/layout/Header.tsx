@@ -16,7 +16,9 @@ export function Header() {
 
     // Header is now visible on all routes globally to provide consistent navigation.
 
-    const commonLinks: { name: string, href: string }[] = [];
+    const commonLinks: { name: string, href: string }[] = [
+        { name: "14-Day Bootcamp", href: "/bootcamp" }
+    ];
 
     const authenticatedLinks = [
         { name: "Training Dashboard", href: "/dashboard" },
