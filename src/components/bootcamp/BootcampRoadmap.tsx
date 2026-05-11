@@ -97,9 +97,29 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Billionaire Superpower.</span>
                             </h2>
                             
-                            <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed">
-                                Unlock the complete 14-Day Blueprint. Get instant access to daily 15-minute video protocols, the Memory Installation module, and lifetime platform access.
-                            </p>
+                            <div className="space-y-4 text-left max-w-2xl mx-auto w-full">
+                                <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed text-center mb-6">
+                                    Reading faster is just the first step. Unlock the complete 14-Day Blueprint to upgrade your brain's entire operating system.
+                                </p>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="flex items-start gap-3">
+                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Effortless Comprehension.</span> Understand complex topics on the first read.</p>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Unbreakable Memory.</span> Install facts directly into long-term storage.</p>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Laser Focus.</span> Eliminate distractions and overcome the friction of starting.</p>
+                                    </div>
+                                    <div className="flex items-start gap-3">
+                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Permanent Mastery.</span> 14 daily, 15-minute protocols to lock in your new habits.</p>
+                                    </div>
+                                </div>
+                            </div>
                             
                             <div className="w-full max-w-md pt-4">
                                 <Link href={checkoutLink} className="block group w-full">
