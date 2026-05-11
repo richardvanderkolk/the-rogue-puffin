@@ -82,6 +82,38 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
 
     return (
         <>
+            {/* The High-Authority Pitch Box (For Locked Users) */}
+            {!isUnlocked && (
+                <section className="mb-12">
+                    <div className="bg-slate-900 border border-amber-500/30 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-[0_0_50px_rgba(251,191,36,0.1)]">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+                        
+                        <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest">
+                                <Zap className="w-3 h-3" /> The 14-Day Blueprint
+                            </div>
+                            
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Billionaire Superpower.</span>
+                            </h2>
+                            
+                            <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed">
+                                Unlock the complete 14-Day Blueprint. Get instant access to daily 15-minute video protocols, the Memory Installation module, and lifetime platform access.
+                            </p>
+                            
+                            <div className="w-full max-w-md pt-4">
+                                <Link href={checkoutLink} className="block group w-full">
+                                    <button className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 py-5 rounded-full font-black text-xl hover:from-amber-300 hover:to-amber-400 transition-all shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] flex justify-center items-center gap-3 hover:scale-105 border border-amber-300/50">
+                                        Unlock Instant Access - {symbol}29 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                                    </button>
+                                </Link>
+                                <p className="text-sm text-slate-500 font-medium mt-4">100% Risk-Free 14-Day Guarantee.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* Progress Section */}
             <section className="bg-slate-900/40 border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
@@ -147,10 +179,10 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                             badge = <span className="absolute top-4 right-4 px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded text-[10px] font-bold uppercase tracking-widest border border-indigo-500/30 animate-pulse">Start Next</span>;
                             href = day.link;
                         } else if (day.status === "unlocked") {
-                            containerStyle = "bg-slate-900 border border-purple-500/50 shadow-[0_0_30px_-5px_rgba(168,85,247,0.15)] hover:bg-slate-800 transition-all cursor-pointer transform hover:-translate-y-1";
-                            iconBoxStyle = "bg-purple-500/20 text-purple-400";
-                            actionIcon = <Lock className="w-5 h-5 text-purple-400" />;
-                            badge = <span className="absolute top-4 right-4 px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-[10px] font-bold uppercase tracking-widest border border-purple-500/30">Unlock Required</span>;
+                            containerStyle = "bg-slate-900 border border-amber-500/50 shadow-[0_0_30px_-5px_rgba(251,191,36,0.2)] hover:bg-slate-800 transition-all cursor-pointer transform hover:-translate-y-1";
+                            iconBoxStyle = "bg-amber-500/20 text-amber-400";
+                            actionIcon = <Lock className="w-5 h-5 text-amber-400" />;
+                            badge = <span className="absolute top-4 right-4 px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-[10px] font-bold uppercase tracking-widest border border-amber-500/30 animate-pulse">Click to Unlock Full Course</span>;
                             href = day.link; // This links to checkout
                         }
 
@@ -173,7 +205,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 </p>
 
                                 <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                                    <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-purple-400" : day.status === "available" ? "text-indigo-400" : "text-slate-500"}`}>
+                                    <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-amber-400" : day.status === "available" ? "text-indigo-400" : "text-slate-500"}`}>
                                         {day.status === "completed" ? "Review material" : day.status === "available" ? "Start Module" : day.status === "unlocked" ? `Unlock Days 2-14 for ${symbol}29` : "Locked"}
                                     </span>
                                     {actionIcon}
@@ -196,8 +228,8 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                             <div key={day.day} className={`relative flex flex-col h-full ${day.day === 2 && day.status === "unlocked" ? 'mt-8 md:mt-0' : ''}`}>
                                 {day.day === 2 && day.status === "unlocked" && (
                                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-10 w-full pointer-events-none">
-                                        <span className="text-purple-400 font-bold text-[10px] md:text-xs uppercase tracking-widest text-center mb-1 drop-shadow-md">Click here to continue your 14 day boot camp</span>
-                                        <ArrowDown className="w-4 h-4 text-purple-400 drop-shadow-md" />
+                                        <span className="text-amber-400 font-bold text-[10px] md:text-xs uppercase tracking-widest text-center mb-1 drop-shadow-md">Click here to unlock the full course</span>
+                                        <ArrowDown className="w-4 h-4 text-amber-400 drop-shadow-md" />
                                     </div>
                                 )}
                                 {cardElement}
@@ -206,6 +238,21 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                     })}
                 </div>
             </section>
+
+            {/* Zero-Risk Guarantee (For Locked Users) */}
+            {!isUnlocked && (
+                <section className="mt-16 pt-16 border-t border-white/5">
+                    <div className="max-w-3xl mx-auto text-center space-y-8">
+                        <div className="w-16 h-16 mx-auto bg-slate-900 border border-slate-700 rounded-2xl flex items-center justify-center">
+                            <Activity className="w-8 h-8 text-slate-300" />
+                        </div>
+                        <h3 className="text-3xl font-bold text-white tracking-tight">Zero-Risk Guarantee</h3>
+                        <p className="text-lg text-slate-400 leading-relaxed font-light">
+                            Try the Bootcamp for 14 days. If your reading speed and comprehension haven't permanently doubled, simply send an email and get a 100% refund. No questions asked.
+                        </p>
+                    </div>
+                </section>
+            )}
         </>
     );
 }
