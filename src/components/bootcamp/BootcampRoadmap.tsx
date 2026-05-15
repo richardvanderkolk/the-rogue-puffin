@@ -3,23 +3,36 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { AdminBypassLink } from "@/components/AdminBypassLink";
-import { CheckCircle2, Lock, Zap, Target, Brain, BookOpen, Activity, Database, ArrowRight, ArrowDown, Search, Network, MessageCircle } from "lucide-react";
+import { CheckCircle2, Lock, Zap, Target, Brain, BookOpen, Activity, Database, ArrowRight, ArrowDown, Search, Network, MessageCircle, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { isUnlocked: boolean, symbol: string, initialProgress?: number }) {
     const [currentProgress, setCurrentProgress] = useState(initialProgress);
     const [visitorId, setVisitorId] = useState<string>('');
+    const [showOnboarding, setShowOnboarding] = useState(false);
 
     useEffect(() => {
         // If the server tells us they are further along than we thought, update.
         // Also fallback to localStorage if they are playing without logging in.
         const localProgress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
-        if (localProgress > initialProgress) {
-            setCurrentProgress(localProgress);
-        } else {
-            setCurrentProgress(initialProgress);
-        }
+        const resolvedProgress = localProgress > initialProgress ? localProgress : initialProgress;
+        setCurrentProgress(resolvedProgress);
+        
         setVisitorId(localStorage.getItem('rp_visitor_id') || '');
-    }, [initialProgress]);
+
+        // Post-Purchase Onboarding Logic
+        if (isUnlocked && resolvedProgress === 1) {
+            const hasSeen = localStorage.getItem('rp_has_seen_onboarding');
+            if (!hasSeen) {
+                setShowOnboarding(true);
+            }
+        }
+    }, [initialProgress, isUnlocked]);
+
+    const handleCloseOnboarding = () => {
+        localStorage.setItem('rp_has_seen_onboarding', 'true');
+        setShowOnboarding(false);
+    };
 
     // Base definition of all days
     const checkoutLink = `/api/checkout?productId=bootcamp${visitorId ? `&visitor_id=${visitorId}` : ''}`;
@@ -84,6 +97,70 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
 
     return (
         <>
+            <AnimatePresence>
+                {showOnboarding && (
+                    <motion.div 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm"
+                    >
+                        <motion.div 
+                            initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.95, opacity: 0, y: 20 }}
+                            className="bg-slate-900 border border-indigo-500/30 rounded-3xl p-8 md:p-10 max-w-2xl w-full relative shadow-[0_0_50px_rgba(99,102,241,0.15)] overflow-hidden"
+                        >
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-[80px] pointer-events-none" />
+                            
+                            <button 
+                                onClick={handleCloseOnboarding}
+                                className="absolute top-6 right-6 text-slate-500 hover:text-white transition-colors"
+                            >
+                                <X className="w-6 h-6" />
+                            </button>
+
+                            <div className="relative z-10 flex flex-col items-center text-center space-y-6">
+                                <div className="p-4 bg-indigo-500/20 rounded-full">
+                                    <Target className="w-10 h-10 text-indigo-400" />
+                                </div>
+                                
+                                <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+                                    Welcome to the Boot Camp.
+                                </h2>
+                                
+                                <div className="space-y-4 text-left w-full bg-slate-950/50 p-6 rounded-2xl border border-slate-800">
+                                    <p className="text-slate-300">
+                                        <span className="font-bold text-white">How it works:</span> You now have access to 14 daily protocols. 
+                                    </p>
+                                    <ul className="space-y-3 text-slate-400">
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                                            <span><strong>Do one protocol a day.</strong> Do not skip ahead. It takes time for new neural pathways to settle.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                                            <span><strong>It takes 15 minutes.</strong> Pick a consistent time (e.g., right after your morning coffee).</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                                            <span><strong>Trust the process.</strong> You will read slower at first as you break old habits. By Day 14, you will be flying.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <button 
+                                    onClick={handleCloseOnboarding}
+                                    className="w-full bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-lg py-4 rounded-xl transition-colors shadow-lg shadow-indigo-500/20"
+                                >
+                                    I understand. Let's begin.
+                                </button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Returning User Welcome Back Banner (For Unlocked Users) */}
             {isUnlocked && (
                 <section className="mb-12">
