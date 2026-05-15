@@ -472,8 +472,8 @@ function RogueMemorySessionContent() {
     const searchParams = useSearchParams();
     const course = searchParams.get('course') || 'bootcamp';
     
-    const dashboardUrl = course === 'abridged' ? '/abridged' : '/bootcamp?unlocked=true';
-    const dashboardText = course === 'abridged' ? 'Return to Course' : 'Return to Bootcamp';
+    const dashboardUrl = '/bootcamp';
+    const dashboardText = 'Return to Bootcamp';
 
     const [step, setStep] = useState(0);
     const [baselineResult, setBaselineResult] = useState<{ matched: string[]; missed: string[] } | null>(null);

@@ -570,15 +570,12 @@ export const articles: Article[] = [
 
             <hr class="border-slate-800 my-16" />
             
-            <h3 class="text-xl font-bold text-white mb-6">Continue Your Journey</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <a href="/blog/preview-the-material" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Preview the Material <span class="text-indigo-500 ml-1">→</span></h4>
-                </a>
-                <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                    <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">The Rogue Session <span class="text-indigo-500 ml-1">→</span></h4>
+            <h3 class="text-xl font-bold text-white mb-6">Your Next Step:</h3>
+            <div class="grid grid-cols-1 gap-6">
+                <a href="/rogue-session/start" class="block p-8 rounded-2xl bg-indigo-900/30 border border-indigo-500/30 hover:border-indigo-500/50 hover:bg-indigo-900/40 transition-all group shadow-lg shadow-indigo-500/10">
+                    <p class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Apply These Concepts</p>
+                    <h4 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">Free Interactive Training to Double Your Reading Speed <span class="text-indigo-500 ml-2">→</span></h4>
+                    <p class="text-slate-400 font-light">Experience the exact visual pacing protocol used by top performers. This free 15-minute session forces your brain out of subvocalization and permanently increases your reading speed.</p>
                 </a>
             </div>
         `

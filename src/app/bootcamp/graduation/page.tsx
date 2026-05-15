@@ -19,7 +19,7 @@ function GraduationSessionContent() {
     const prevStep = () => setStep(s => Math.max(0, s - 1));
 
     const finishGraduation = () => {
-        router.push('/abridged');
+        router.push('/bootcamp');
     };
 
     return (
@@ -149,15 +149,9 @@ function GraduationSessionContent() {
                                         onClick={finishGraduation}
                                         className="group relative inline-flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-5 rounded-full font-bold text-lg hover:bg-indigo-50 transition-all hover:scale-105 shadow-[0_0_40px_rgba(255,255,255,0.3)]"
                                     >
-                                        Enter the Abridged Masterclass
+                                        Return to Bootcamp Dashboard
                                         <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                     </button>
-                                </div>
-                                
-                                <div className="mt-8">
-                                    <Link href="/bootcamp?unlocked=true" className="text-slate-500 hover:text-slate-300 font-medium transition-colors text-sm">
-                                        Return to Bootcamp Dashboard
-                                    </Link>
                                 </div>
                             </div>
                         </div>

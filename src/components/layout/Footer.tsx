@@ -11,24 +11,35 @@ export function Footer() {
     if (pathname?.includes("/rogue-session/start") || pathname?.includes("/rogue-memory-session/start") || pathname?.includes("/train/app")) {
         return null;
     }
-    return (
-        <footer className="bg-slate-950 border-t border-slate-900 py-20 px-6">
-            <div className="max-w-6xl mx-auto flex flex-col items-center gap-12">
+        <footer className="bg-slate-950 border-t border-white/5 py-20 px-6">
+            <div className="max-w-6xl mx-auto flex flex-col items-center gap-16">
+                
                 <div className="w-full max-w-sm hover:scale-105 transition-transform duration-700">
                     <img src="/assets/premium-logo.png" alt="The Rogue Puffin Logo" className="w-full h-auto drop-shadow-2xl" />
                 </div>
                 
-                <div className="w-full flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm gap-4 border-t border-slate-800/50 pt-8">
-                    <div>
-                        &copy; {new Date().getFullYear()} Authoring Life (KvK 99977516). All rights reserved.
+                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left border-t border-white/5 pt-16">
+                    <div className="space-y-4 flex flex-col items-center md:items-start">
+                        <h4 className="text-white font-bold tracking-widest text-sm uppercase">Products</h4>
+                        <Link href="/bootcamp" className="text-slate-400 hover:text-indigo-300 transition-colors">The 14-Day Bootcamp</Link>
                     </div>
-                    <div className="flex flex-wrap gap-4 md:gap-6 mt-4 md:mt-0">
-                        <Link href="/legal/privacy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
-                        <Link href="/legal/terms" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
-                        <Link href="/legal/imprint" className="hover:text-slate-300 transition-colors">Imprint</Link>
+                    <div className="space-y-4 flex flex-col items-center md:items-start">
+                        <h4 className="text-white font-bold tracking-widest text-sm uppercase">Free Resources</h4>
+                        <Link href="/blog" className="text-slate-400 hover:text-emerald-300 transition-colors">The Archive (Articles)</Link>
+
+                        <Link href="/rogue-session/start" className="text-slate-400 hover:text-emerald-300 transition-colors">Free Reading Diagnostic</Link>
                     </div>
+                    <div className="space-y-4 flex flex-col items-center md:items-start">
+                        <h4 className="text-white font-bold tracking-widest text-sm uppercase">Legal</h4>
+                        <Link href="/legal/privacy" className="text-slate-400 hover:text-slate-200 transition-colors">Privacy Policy</Link>
+                        <Link href="/legal/terms" className="text-slate-400 hover:text-slate-200 transition-colors">Terms of Service</Link>
+                        <Link href="/legal/imprint" className="text-slate-400 hover:text-slate-200 transition-colors">Imprint</Link>
+                    </div>
+                </div>
+
+                <div className="w-full text-center text-slate-600 text-sm border-t border-white/5 pt-8">
+                    &copy; {new Date().getFullYear()} Authoring Life (KvK 99977516). All rights reserved.
                 </div>
             </div>
         </footer>
-    );
 }

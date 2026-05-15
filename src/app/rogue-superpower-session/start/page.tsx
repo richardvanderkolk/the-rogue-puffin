@@ -149,11 +149,11 @@ function SuperpowerSessionContent() {
     const searchParams = useSearchParams();
     const course = searchParams.get('course') || 'bootcamp';
     
-    const dashboardUrl = course === 'abridged' ? '/abridged' : '/bootcamp?unlocked=true';
-    const dashboardText = course === 'abridged' ? 'Course' : 'Bootcamp';
+    const dashboardUrl = '/bootcamp';
+    const dashboardText = 'Bootcamp';
     
-    const nextLessonUrl = course === 'abridged' ? '/blog/preview-the-material?course=abridged' : dashboardUrl;
-    const nextLessonText = course === 'abridged' ? 'Continue to Next Lesson' : `Return to ${dashboardText}`;
+    const nextLessonUrl = '/bootcamp';
+    const nextLessonText = 'Return to Bootcamp';
 
     const [step, setStep] = useState(0);
     const [part1Index, setPart1Index] = useState(0);

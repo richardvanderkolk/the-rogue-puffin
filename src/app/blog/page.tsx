@@ -2,12 +2,17 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { createClient } from '@supabase/supabase-js';
 
-export const metadata = {
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
     title: "The Archive | The Rogue Puffin",
     description: "Strategies to learn faster, think clearer, and retain more.",
+    alternates: {
+        canonical: "/blog",
+    },
 };
 
-export const revalidate = 0;
+export const revalidate = 3600;
 
 export default async function BlogPage() {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';

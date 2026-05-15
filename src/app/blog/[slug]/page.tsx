@@ -7,6 +7,7 @@ import { getArticleVariant, getArticleExample } from '@/data/learningStyleVarian
 import { LeadCapture } from '@/components/LeadCapture';
 import { PrintButton } from '@/components/ui/PrintButton';
 import { SuperpowerQuiz } from '@/components/blog/SuperpowerQuiz';
+import { ArticleRenderer } from '@/components/blog/ArticleRenderer';
 import type { Metadata } from 'next';
 
 interface PageProps {
@@ -35,6 +36,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
         title: `${article.title} | The Rogue Puffin`,
         description: article.excerpt,
+        alternates: {
+            canonical: `/blog/${slug}`,
+        },
         openGraph: {
             title: `${article.title} | The Rogue Puffin`,
             description: article.excerpt,
@@ -42,6 +46,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             type: 'article',
         }
     }
+}
+
+export const revalidate = 3600;
+
+export async function generateStaticParams() {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const { data: articles } = await supabase
+        .from('articles')
+        .select('slug')
+        .eq('published', true);
+
+    return (articles || []).map((article) => ({
+        slug: article.slug,
+    }));
 }
 
 export default async function BlogPost({ params, searchParams }: PageProps) {
@@ -61,91 +82,13 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
         .single();
         
     const course = resolvedSearchParams.course as string;
-    const isAbridged = course === 'abridged';
     const isBootcamp = course === 'bootcamp';
 
     let finalContent = article?.content || '';
-    let nextAbridgedLink = null;
-    let nextAbridgedTitle = null;
-    let nextBootcampLink = null;
-    let nextBootcampTitle = null;
-
-    if (isAbridged && article) {
-        // Strip out the hardcoded 'Continue Your Journey' HTML from the database
-        finalContent = finalContent.replace(/<hr class="border-slate-800 my-16" \/>[\s\S]*$/, '');
-        
-        const abridgedSequence = [
-            "/blog/know-your-why",
-            "/rogue-superpower-session/start",
-            "/blog/preview-the-material",
-            "/rogue-session/start",
-            "/blog/feynman-technique",
-            "/blog/active-recall"
-        ];
-        
-        const titles = [
-            "Define the 'Why' Vector",
-            "Know Your \"Superpower\"",
-            "Preview the Landscape",
-            "Rapid Ingestion",
-            "The Feynman Brain Dump",
-            "Spaced Active Recall"
-        ];
-
-        const currentPath = `/blog/${slug}`;
-        const currentIndex = abridgedSequence.indexOf(currentPath);
-        
-        if (currentIndex !== -1 && currentIndex < abridgedSequence.length - 1) {
-            nextAbridgedLink = abridgedSequence[currentIndex + 1] + "?course=abridged";
-            nextAbridgedTitle = titles[currentIndex + 1];
-        }
-    }
 
     if (isBootcamp && article) {
         // Strip out the hardcoded 'Continue Your Journey' HTML from the database
         finalContent = finalContent.replace(/<hr class="border-slate-800 my-16" \/>[\s\S]*$/, '');
-
-        const bootcampSequence = [
-            "/rogue-session/start",
-            "/rogue-superpower-session/start",
-            "/rogue-memory-session",
-            "/blog/create-your-learning-lab",
-            "/blog/slicing-the-elephant",
-            "/blog/preview-the-material",
-            "/blog/feynman-technique",
-            "/blog/active-recall",
-            "/blog/engaging-your-imagination",
-            "/blog/the-zeigarnik-effect",
-            "/blog/how-to-read-faster",
-            "/blog/the-art-of-review",
-            "/blog/how-to-use-ai-to-learn",
-            "/blog/the-4-stages-of-learning"
-        ];
-
-        const bootcampTitles = [
-            "Discover Reading Possibilities",
-            "Discover Your Personal Superpower",
-            "Memory Training",
-            "The Laboratory",
-            "Slicing the Elephant",
-            "Preview the Landscape",
-            "Feynman Brain Dump",
-            "Active Recall",
-            "The Memory Palace",
-            "The Zeigarnik Effect",
-            "Speed Maintenance",
-            "Memory Maintenance",
-            "AI as a Tutor",
-            "The 4 Stages"
-        ];
-
-        const currentPath = `/blog/${slug}`;
-        const currentIndex = bootcampSequence.indexOf(currentPath);
-        
-        if (currentIndex !== -1 && currentIndex < bootcampSequence.length - 1) {
-            nextBootcampLink = bootcampSequence[currentIndex + 1] + "?course=bootcamp";
-            nextBootcampTitle = bootcampTitles[currentIndex + 1];
-        }
     }
 
     if (!article || article.published === false) {
@@ -164,6 +107,25 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
 
     return (
         <article className="min-h-screen bg-slate-950 text-white pt-24 pb-20 print:bg-white print:text-black print:pt-0 print:pb-0">
+            {/* SEO JSON-LD Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Article",
+                        headline: article.title,
+                        description: article.description || "Learn faster, think clearer, and retain more with The Rogue Puffin.",
+                        datePublished: article.created_at,
+                        dateModified: article.updated_at || article.created_at,
+                        author: {
+                            "@type": "Organization",
+                            name: "The Rogue Puffin",
+                            url: process.env.NEXT_PUBLIC_SITE_URL || "https://theroguepuffin.vercel.app"
+                        }
+                    })
+                }}
+            />
             <ViewTracker path={`/blog/${slug}`} title={article.title} category="Article" />
             
             {/* --- PRINT ONLY HEADER --- */}
@@ -174,7 +136,7 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
 
             <div className="max-w-3xl mx-auto p-8 print:p-0">
                 <div className="flex justify-between items-start mb-12 print:hidden">
-                    <Link href={isAbridged ? "/abridged" : "/blog"} className="inline-flex items-center text-slate-400 hover:text-white transition-colors">
+                    <Link href={isBootcamp ? "/bootcamp" : "/blog"} className="inline-flex items-center text-slate-400 hover:text-white transition-colors">
                         <ArrowLeft className="w-4 h-4 mr-2" /> Back to Course
                     </Link>
                     <PrintButton />
@@ -188,9 +150,10 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
 
                 <h1 className="text-4xl md:text-5xl font-bold mb-12 leading-tight text-white print:hidden">{article.title}</h1>
 
-                <div
-                    className="prose prose-invert prose-lg max-w-none text-slate-300 prose-headings:text-white prose-a:text-indigo-400 hover:prose-a:text-indigo-300 prose-strong:text-white print:prose-headings:text-black print:prose-p:text-slate-800 print:text-slate-800 print:prose-strong:text-black print:prose-li:text-slate-800 print:prose-a:text-indigo-600 print:max-w-none print:prose-blockquote:border-slate-300 print:prose-blockquote:text-slate-600"
-                    dangerouslySetInnerHTML={{ __html: finalContent }}
+                <ArticleRenderer 
+                    content={finalContent} 
+                    isPremium={slug !== 'know-your-why'}
+                    articleSlug={slug}
                 />
 
                 {slug === 'know-your-learning-superpower' && (
@@ -199,27 +162,14 @@ export default async function BlogPost({ params, searchParams }: PageProps) {
                     </div>
                 )}
 
-                {/* DYNAMIC ABRIDGED NAVIGATION */}
-                {isAbridged && nextAbridgedLink && (
-                    <div className="mt-16 pt-16 border-t border-slate-800 print:hidden">
-                        <h3 className="text-xl font-bold text-white mb-6">Continue Your Abridged Course</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <Link href={nextAbridgedLink} className="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
-                                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next Step</p>
-                                <h4 className="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">{nextAbridgedTitle} <span className="text-indigo-500 ml-1">→</span></h4>
-                            </Link>
-                        </div>
-                    </div>
-                )}
-
                 {/* DYNAMIC BOOTCAMP NAVIGATION */}
-                {isBootcamp && nextBootcampLink && (
+                {isBootcamp && (
                     <div className="mt-16 pt-16 border-t border-slate-800 print:hidden">
-                        <h3 className="text-xl font-bold text-white mb-6">Continue Your 14-Day Boot Camp</h3>
+                        <h3 className="text-xl font-bold text-white mb-6">Continue Your Boot Camp</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <Link href={nextBootcampLink} className="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-purple-500/30 hover:bg-slate-900 transition-all group">
-                                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next Module</p>
-                                <h4 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">{nextBootcampTitle} <span className="text-purple-500 ml-1">→</span></h4>
+                            <Link href="/bootcamp" className="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-purple-500/30 hover:bg-slate-900 transition-all group">
+                                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next Step</p>
+                                <h4 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">Return to Dashboard <span className="text-purple-500 ml-1">→</span></h4>
                             </Link>
                         </div>
                     </div>

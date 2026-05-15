@@ -5,6 +5,13 @@ import { OutliersSection } from "@/components/landing/OutliersSection";
 import { IsThisForYouSection } from "@/components/landing/IsThisForYouSection";
 import { WallOfWinsSection } from "@/components/landing/WallOfWinsSection";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Speed Reading & Cognitive Performance | The Rogue Puffin",
+    description: "Read 2x faster right now. Apply verifiable cognitive science to instantly increase your understanding, reading speed, and recall in 30 minutes.",
+};
+
 export default function V2LandingPage() {
     return (
         <main className="flex min-h-screen flex-col bg-slate-950 text-slate-100 selection:bg-indigo-500/30 font-sans">

@@ -21,10 +21,6 @@ const INTELLIGENCE_INFO: Record<string, { title: string; icon: string }> = {
 
 function RogueGraduationContent() {
     const searchParams = useSearchParams();
-    const course = searchParams.get('course') || 'bootcamp';
-    
-    // The next step after bootcamp graduation
-    const nextStepUrl = course === 'abridged' ? '/abridged' : '/masterclass';
 
     const [mounted, setMounted] = useState(false);
     
@@ -262,7 +258,7 @@ function RogueGraduationContent() {
                             </p>
                         </div>
 
-                        <Link href="/dashboard" className="group relative inline-flex items-center justify-center px-10 py-6 text-xl font-bold text-white bg-slate-800 rounded-2xl overflow-hidden transition-all hover:scale-105 hover:bg-slate-700">
+                        <Link href="/bootcamp" className="group relative inline-flex items-center justify-center px-10 py-6 text-xl font-bold text-white bg-slate-800 rounded-2xl overflow-hidden transition-all hover:scale-105 hover:bg-slate-700">
                             <span className="relative flex items-center gap-3">
                                 Return to Dashboard
                                 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />

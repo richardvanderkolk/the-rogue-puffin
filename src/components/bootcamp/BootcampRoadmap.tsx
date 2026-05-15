@@ -339,7 +339,11 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                             iconBoxStyle = "bg-amber-500/20 text-amber-400";
                             actionIcon = <Lock className="w-5 h-5 text-amber-400" />;
                             badge = <span className="absolute top-4 right-4 px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-[10px] font-bold uppercase tracking-widest border border-amber-500/30 animate-pulse">Click to Unlock Full Course</span>;
-                            href = day.link; // This links to checkout
+                            href = checkoutLink; // This links to checkout
+                        } else if (day.status === "locked" && !isUnlocked) {
+                            // If they haven't unlocked the bootcamp, make ALL future days clickable to checkout
+                            containerStyle = "bg-slate-900 border border-white/5 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:border-amber-500/30 transition-all cursor-pointer group/lockedcard";
+                            href = checkoutLink;
                         }
 
                         const cardContent = (
@@ -347,12 +351,12 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 {badge}
                                 
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${iconBoxStyle}`}>
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${iconBoxStyle} ${day.status === 'locked' && !isUnlocked ? 'group-hover/lockedcard:bg-amber-500/10 group-hover/lockedcard:text-amber-400 transition-colors' : ''}`}>
                                         {day.icon}
                                     </div>
                                     <div>
                                         <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">Day {day.day}</div>
-                                        <h4 className={`text-lg font-bold leading-tight ${day.status === "locked" ? "text-slate-400" : "text-white"}`}>{day.title}</h4>
+                                        <h4 className={`text-lg font-bold leading-tight ${day.status === "locked" ? "text-slate-400 group-hover/lockedcard:text-white transition-colors" : "text-white"}`}>{day.title}</h4>
                                     </div>
                                 </div>
                                 
@@ -361,10 +365,10 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 </p>
 
                                 <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                                    <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-amber-400" : day.status === "available" ? "text-indigo-400" : "text-slate-500"}`}>
-                                        {day.status === "completed" ? "Review material" : day.status === "available" ? "Start Module" : day.status === "unlocked" ? `Unlock Days 2-14 for ${symbol}29` : "Locked"}
+                                    <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-amber-400" : day.status === "available" ? "text-indigo-400" : day.status === "locked" && !isUnlocked ? "text-slate-500 group-hover/lockedcard:text-amber-400 transition-colors" : "text-slate-500"}`}>
+                                        {day.status === "completed" ? "Review material" : day.status === "available" ? "Start Module" : day.status === "unlocked" ? `Unlock Days 2-14 for ${symbol}29` : day.status === "locked" && !isUnlocked ? "Unlock Bootcamp" : "Locked"}
                                     </span>
-                                    {actionIcon}
+                                    {day.status === "locked" && !isUnlocked ? <Lock className="w-5 h-5 text-slate-600 group-hover/lockedcard:text-amber-400 transition-colors" /> : actionIcon}
                                 </div>
                             </>
                         );

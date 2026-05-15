@@ -1,4 +1,21 @@
 export function getArticleVariant(slug: string, style: string): string {
+    const slugMap: Record<string, string> = {
+        'know-your-why': 'day-4-know-your-why',
+        'initiate-a-learning-mindset': 'day-5-learning-mindset',
+        'know-your-learning-superpower': 'know-your-learning-superpower',
+        'feel-sharp': 'day-6-feel-sharp',
+        'friction-of-starting': 'day-7-activation-energy',
+        'preview-the-material': 'day-8-overview',
+        'active-recall': 'day-9-active-reading',
+        'genius-note-taking': 'day-10-genius-notes',
+        'feynman-technique': 'day-11-feynman',
+        'the-art-of-review': 'day-12-review',
+        'psychology-of-time-and-deadlines': 'day-13-parkinsons',
+        'studying-with-others': 'day-14-community'
+    };
+
+    const variantKey = slugMap[slug] || slug;
+
     const variants: Record<string, Record<string, string>> = {
         'day-4-know-your-why': {
             'linguistic': `
@@ -2307,7 +2324,7 @@ export function getArticleVariant(slug: string, style: string): string {
         }
     };
 
-    return variants[slug]?.[style] || "<p>Variant not found for this learning style.</p>";
+    return variants[variantKey]?.[style] || "";
 }
 
 export const getArticleExample = getArticleVariant;
