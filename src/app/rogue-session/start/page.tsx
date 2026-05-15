@@ -273,9 +273,13 @@ export default function RogueSessionPage() {
                                         {leadStatus === 'error' && (
                                             <p className="text-red-400 text-sm font-medium mt-2">Something went wrong. Please try again.</p>
                                         )}
-                                        <div className="flex items-center justify-center gap-2 mt-4 text-xs text-slate-500 font-medium">
-                                            <Lock className="w-3 h-3" />
-                                            <span>We promise to keep your email safe. No spam, and we will never sell your data to 3rd parties.</span>
+                                        <div className="flex items-center justify-center gap-3 mt-6 bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-sm text-slate-300 font-medium">
+                                            <div className="bg-indigo-500/20 p-2 rounded-full shrink-0">
+                                                <Lock className="w-4 h-4 text-indigo-400" />
+                                            </div>
+                                            <p className="text-left leading-relaxed">
+                                                <span className="text-white font-bold">100% Privacy Promise:</span> We will keep your email safe. No spam, and we will never sell your data to 3rd parties.
+                                            </p>
                                         </div>
                                     </form>
                                 </div>
