@@ -7,6 +7,8 @@ import Link from "next/link";
 import { RogueSessionEngine } from "@/components/engines/RogueSessionEngine";
 import { ViewTracker } from "@/components/ViewTracker";
 import { Slide, IntroductionToFs, TrianglesExercise, PeripheralVisionSequence, NotEveryWordSlide, PeripheralVisionPrep, PeripheralVisionPassive, PeripheralVisionComparison } from "@/components/onboarding/ConceptSlides";
+import { supabase } from "@/lib/supabase/client";
+import { useAuth } from "@/lib/auth-context";
 
 import ReadingTestEngine from "@/components/engines/ReadingTestEngine";
 
@@ -596,7 +598,6 @@ export default function RogueSessionPage() {
 // --- Sub-Components ---
 
 import { StripeCheckoutMock } from "@/components/ui/StripeCheckoutMock";
-import { useAuth } from "@/lib/auth-context";
 
 function PaywallSlide({ onUnlock }: { onUnlock: () => void }) {
     const [showCheckout, setShowCheckout] = useState(false);
@@ -692,6 +693,61 @@ function ReadingTest({ onComplete, isRetest = false }: { onComplete: (results: {
 
 function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { baseline: { wpm: number }, final: { wpm: number }, isV2?: boolean, hasSkippedExercises?: boolean }) {
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
+    const { user, signIn } = useAuth();
+    const [capturedEmail, setCapturedEmail] = useState<string | null>(null);
+    const [password, setPassword] = useState('');
+    const [isSaving, setIsSaving] = useState(false);
+    const [saveSuccess, setSaveSuccess] = useState(false);
+    const [saveError, setSaveError] = useState('');
+    const [showPasswordInput, setShowPasswordInput] = useState(false);
+
+    useEffect(() => {
+        const email = localStorage.getItem('rp_captured_email');
+        if (email) {
+            setCapturedEmail(email);
+        }
+    }, []);
+
+    const handleSaveProgress = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!password || !capturedEmail) return;
+
+        setIsSaving(true);
+        setSaveError('');
+
+        try {
+            const { data, error } = await supabase.auth.signUp({
+                email: capturedEmail,
+                password: password,
+            });
+
+            if (error) {
+                // If already registered, try signing in
+                if (error.message.includes('already registered')) {
+                    const { error: signInError } = await supabase.auth.signInWithPassword({
+                        email: capturedEmail,
+                        password: password
+                    });
+                    if (signInError) {
+                        setSaveError(signInError.message);
+                        setIsSaving(false);
+                        return;
+                    }
+                } else {
+                    setSaveError(error.message);
+                    setIsSaving(false);
+                    return;
+                }
+            }
+
+            await signIn(capturedEmail);
+            setSaveSuccess(true);
+        } catch (err: any) {
+            setSaveError(err.message || 'Something went wrong');
+        } finally {
+            setIsSaving(false);
+        }
+    };
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="min-h-screen flex flex-col items-center justify-center py-12 px-4 md:px-6 bg-gradient-to-br from-slate-950 to-indigo-950/20">
@@ -779,16 +835,52 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                 </div>
 
                 {/* Bottom Section: The Fallback */}
-                <div className="bg-slate-950/50 p-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-800/80 relative z-10">
-                    <div className="text-center md:text-left">
-                        <p className="text-slate-300 text-sm font-medium">Not ready for the Bootcamp yet?</p>
-                        <p className="text-slate-500 text-xs mt-1">Save your <span className="text-emerald-400 font-medium">+{increase}% speed record</span> before you leave.</p>
-                    </div>
-                    <Link href="/login?course=bootcamp" className="w-full md:w-auto">
-                        <button className="w-full md:w-auto bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm px-6 py-2.5 rounded-lg font-bold transition-colors border border-slate-700 flex items-center justify-center gap-2">
-                            Save My Progress <ArrowRight className="w-4 h-4" />
-                        </button>
-                    </Link>
+                <div className="bg-slate-950/50 p-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-800/80 relative z-10 min-h-[100px]">
+                    {user || saveSuccess ? (
+                        <div className="w-full text-center flex items-center justify-center gap-2 text-emerald-400">
+                            <CheckCircle className="w-5 h-5" />
+                            <span className="font-bold">Your progress is safely stored.</span>
+                        </div>
+                    ) : (
+                        <>
+                            <div className="text-center md:text-left shrink-0">
+                                <p className="text-slate-300 text-sm font-medium">Not ready for the Bootcamp yet?</p>
+                                <p className="text-slate-500 text-xs mt-1">Save your <span className="text-emerald-400 font-medium">+{increase}% speed record</span> before you leave.</p>
+                            </div>
+                            
+                            <div className="w-full md:w-auto flex-1 flex justify-end">
+                                {!showPasswordInput ? (
+                                    <button 
+                                        onClick={() => setShowPasswordInput(true)}
+                                        className="w-full md:w-auto bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm px-6 py-3 rounded-lg font-bold transition-colors border border-slate-700 flex items-center justify-center gap-2"
+                                    >
+                                        Create Free Account <ArrowRight className="w-4 h-4" />
+                                    </button>
+                                ) : (
+                                    <form onSubmit={handleSaveProgress} className="w-full md:max-w-md flex flex-col sm:flex-row gap-3">
+                                        <div className="flex-1">
+                                            <input 
+                                                type="password" 
+                                                required
+                                                placeholder="Choose a password..." 
+                                                value={password}
+                                                onChange={(e) => setPassword(e.target.value)}
+                                                className="w-full bg-black border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                                            />
+                                            {saveError && <p className="text-red-400 text-xs mt-2 absolute">{saveError}</p>}
+                                        </div>
+                                        <button 
+                                            type="submit"
+                                            disabled={isSaving}
+                                            className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm px-6 py-3 rounded-lg font-bold transition-colors flex items-center justify-center"
+                                        >
+                                            {isSaving ? "Saving..." : "Save Now"}
+                                        </button>
+                                    </form>
+                                )}
+                            </div>
+                        </>
+                    )}
                 </div>
 
             </div>
