@@ -837,9 +837,16 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                 {/* Bottom Section: The Fallback */}
                 <div className="bg-slate-950/50 p-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-800/80 relative z-10 min-h-[100px]">
                     {user || saveSuccess ? (
-                        <div className="w-full text-center flex items-center justify-center gap-2 text-emerald-400">
-                            <CheckCircle className="w-5 h-5" />
-                            <span className="font-bold">Your progress is safely stored.</span>
+                        <div className="w-full flex flex-col items-center justify-center gap-4">
+                            <div className="flex items-center gap-2 text-emerald-400">
+                                <CheckCircle className="w-5 h-5" />
+                                <span className="font-bold">Your progress is safely stored.</span>
+                            </div>
+                            <Link href="/bootcamp">
+                                <button className="text-sm px-6 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-full transition-colors border border-slate-700 hover:border-slate-600 flex items-center gap-2 group">
+                                    Explore the Dashboard <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                            </Link>
                         </div>
                     ) : (
                         <>

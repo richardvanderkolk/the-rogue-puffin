@@ -9,6 +9,7 @@ import { Slide } from "@/components/onboarding/ConceptSlides";
 import { getArticleVariant } from "@/data/learningStyleVariants";
 import { saveSuperpower } from "@/app/actions/superpower";
 import { updateBootcampProgress } from "@/app/actions/progress";
+import { supabase } from "@/lib/supabase/client";
 
 type Intelligence = 'linguistic' | 'logical' | 'visual' | 'kinesthetic' | 'musical' | 'interpersonal' | 'intrapersonal' | 'naturalistic';
 
@@ -167,12 +168,47 @@ function SuperpowerSessionContent() {
     const [hasUpdatedProgress, setHasUpdatedProgress] = useState(false);
 
     useEffect(() => {
-        const saved = localStorage.getItem('rogue_superpowers');
-        if (saved) {
+        const fetchSuperpowers = async () => {
+            // First try fetching from Supabase
             try {
-                setSavedPowers(JSON.parse(saved));
-            } catch (e) {}
-        }
+                const { data: { user } } = await supabase.auth.getUser();
+                if (user) {
+                    const { data } = await supabase
+                        .from('profiles')
+                        .select('learning_archetype')
+                        .eq('id', user.id)
+                        .single();
+
+                    if (data?.learning_archetype) {
+                        try {
+                            const parsed = JSON.parse(data.learning_archetype);
+                            if (Array.isArray(parsed) && parsed.length > 0) {
+                                setSavedPowers(parsed);
+                                localStorage.setItem('rogue_superpowers', data.learning_archetype); // Sync local storage
+                                return; // Success, exit
+                            }
+                        } catch (e) {
+                            // If it's just a raw string like 'visual', convert to array
+                            setSavedPowers([data.learning_archetype as Intelligence]);
+                            localStorage.setItem('rogue_superpowers', JSON.stringify([data.learning_archetype]));
+                            return;
+                        }
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to fetch superpower from Supabase", e);
+            }
+
+            // Fallback to local storage
+            const saved = localStorage.getItem('rogue_superpowers');
+            if (saved) {
+                try {
+                    setSavedPowers(JSON.parse(saved));
+                } catch (e) {}
+            }
+        };
+
+        fetchSuperpowers();
     }, []);
     
     // Shuffle statements once on mount
@@ -224,10 +260,11 @@ function SuperpowerSessionContent() {
         
         // Save the calculated powers to local storage so they don't have to retake it
         const calculatedPowers = getTopSuperpowers();
-        localStorage.setItem('rogue_superpowers', JSON.stringify(calculatedPowers));
+        const powersStr = JSON.stringify(calculatedPowers);
+        localStorage.setItem('rogue_superpowers', powersStr);
         
         // Attempt to save to DB (will fail silently if not logged in)
-        await saveSuperpower(calculatedPowers[0]);
+        await saveSuperpower(powersStr);
         
         // Save anonymous
         try {
