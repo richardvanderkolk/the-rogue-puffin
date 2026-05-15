@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ChevronRight, Brain, Gauge, Unlock, Volume2, RotateCcw, BrainCircuit, Zap, Clock, TrendingUp, Search, CheckCircle, Sparkles, Target, Activity, Database } from "lucide-react";
+import { ArrowRight, ChevronRight, Brain, Gauge, Unlock, Volume2, RotateCcw, BrainCircuit, Zap, Clock, TrendingUp, Search, CheckCircle, Sparkles, Target, Activity, Database, Lock } from "lucide-react";
 import Link from "next/link";
 import { RogueSessionEngine } from "@/components/engines/RogueSessionEngine";
 import { ViewTracker } from "@/components/ViewTracker";
@@ -273,9 +273,10 @@ export default function RogueSessionPage() {
                                         {leadStatus === 'error' && (
                                             <p className="text-red-400 text-sm font-medium mt-2">Something went wrong. Please try again.</p>
                                         )}
-                                        <p className="text-xs text-slate-500 mt-4">
-                                            We respect your privacy. No spam, ever.
-                                        </p>
+                                        <div className="flex items-center justify-center gap-2 mt-4 text-xs text-slate-500 font-medium">
+                                            <Lock className="w-3 h-3" />
+                                            <span>We promise to keep your email safe. No spam, and we will never sell your data to 3rd parties.</span>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
