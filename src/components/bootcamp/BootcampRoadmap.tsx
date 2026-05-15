@@ -80,8 +80,57 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
     const totalDays = 14;
     const progressPercentage = (completedDays / totalDays) * 100;
 
+    const nextDay = days.find(d => d.status === "available");
+
     return (
         <>
+            {/* Returning User Welcome Back Banner (For Unlocked Users) */}
+            {isUnlocked && (
+                <section className="mb-12">
+                    <div className="bg-gradient-to-r from-indigo-900/40 to-slate-900 border border-indigo-500/30 rounded-3xl p-8 md:p-10 relative overflow-hidden shadow-[0_0_40px_rgba(99,102,241,0.15)] flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+                        
+                        <div className="relative z-10 space-y-3">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest">
+                                <Activity className="w-3 h-3" /> Boot Camp Progress
+                            </div>
+                            
+                            {completedDays === 14 ? (
+                                <>
+                                    <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+                                        Boot Camp Completed!
+                                    </h2>
+                                    <p className="text-slate-300 text-lg">
+                                        You have successfully installed the learning operating system.
+                                    </p>
+                                </>
+                            ) : nextDay ? (
+                                <>
+                                    <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+                                        Ready for Day {nextDay.day}?
+                                    </h2>
+                                    <p className="text-slate-300 text-lg">
+                                        <span className="font-bold text-white">{nextDay.title}:</span> {nextDay.desc}
+                                    </p>
+                                </>
+                            ) : null}
+                        </div>
+                        
+                        <div className="relative z-10 shrink-0 w-full md:w-auto">
+                            {completedDays === 14 ? (
+                                <Link href="/rogue-graduation" className="w-full md:w-auto px-8 py-4 bg-emerald-500 text-white rounded-full font-bold text-lg hover:bg-emerald-400 transition-all shadow-[0_0_30px_rgba(16,185,129,0.3)] hover:scale-105 flex items-center justify-center gap-2">
+                                    <CheckCircle2 className="w-5 h-5" /> View Certificate
+                                </Link>
+                            ) : nextDay ? (
+                                <Link href={nextDay.link} className="w-full md:w-auto px-8 py-5 bg-indigo-500 text-white rounded-full font-black text-xl hover:bg-indigo-400 transition-all shadow-[0_0_30px_rgba(99,102,241,0.3)] hover:scale-105 flex items-center justify-center gap-3 group">
+                                    Start Protocol <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            ) : null}
+                        </div>
+                    </div>
+                </section>
+            )}
+
             {/* The High-Authority Pitch Box (For Locked Users) */}
             {!isUnlocked && (
                 <section className="mb-12">
