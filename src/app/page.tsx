@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Zap, Brain, BookOpen, Clock, Activity, ArrowDown } from "lucide-react";
 import { OutliersSection } from "@/components/landing/OutliersSection";
+import { IsThisForYouSection } from "@/components/landing/IsThisForYouSection";
+import { WallOfWinsSection } from "@/components/landing/WallOfWinsSection";
 
 export default function V2LandingPage() {
     return (
@@ -67,8 +69,14 @@ export default function V2LandingPage() {
 
             {/* 2. The Mechanics (Why It Works) - Replaced with Outliers Section */}
             <OutliersSection />
+            
+            {/* 3. The Social Proof (Wall of Wins) */}
+            <WallOfWinsSection />
+            
+            {/* 4. Audience Self-Selection (Is this for you?) */}
+            <IsThisForYouSection />
 
-            {/* 4. The 14-Day Bootcamp (The Paid Execution Plan) */}
+            {/* 5. The 14-Day Bootcamp (The Paid Execution Plan) */}
             <section id="bootcamp" className="py-24 md:py-40 px-6 border-t border-white/5 bg-slate-950 relative overflow-hidden">
                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full bg-purple-500/5 blur-[120px] -z-10" />
                 
