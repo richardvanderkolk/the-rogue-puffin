@@ -10,6 +10,7 @@ import { updateBootcampProgress } from '@/app/actions/progress';
 import ReadingTestEngine from '@/components/engines/ReadingTestEngine';
 import WpmProgressGraph from '@/components/ui/WpmProgressGraph';
 import { DAILY_TESTS } from '@/data/dailyTests';
+import { supabase } from '@/lib/supabase/client';
 
 interface SessionPlayerProps {
     dayNumber: number;
@@ -140,32 +141,75 @@ export default function SessionPlayer({ dayNumber, sequence, onComplete, dayCont
 
     useEffect(() => {
         if (phase === 'outro') {
-            const historyStr = localStorage.getItem('rogue_daily_wpm_history');
-            if (historyStr) {
+            const fetchHistory = async () => {
+                let dbHistory: {day: number, wpm: number}[] = [];
                 try {
-                    setWpmHistory(JSON.parse(historyStr));
-                } catch (e) {}
-            }
+                    const { data: { user } } = await supabase.auth.getUser();
+                    if (user) {
+                        const { data, error } = await supabase
+                            .from('training_sessions')
+                            .select('day_id, average_wpm')
+                            .eq('user_id', user.id)
+                            .order('day_id', { ascending: true });
+                        
+                        if (!error && data) {
+                            // Deduplicate by taking the latest if multiple exist
+                            const map = new Map<number, number>();
+                            data.forEach(d => {
+                                if (d.average_wpm) map.set(d.day_id, d.average_wpm);
+                            });
+                            dbHistory = Array.from(map.entries()).map(([day, wpm]) => ({ day, wpm })).sort((a, b) => a.day - b.day);
+                        }
+                    }
+                } catch (e) {
+                    console.error("Failed to fetch history from Supabase", e);
+                }
+
+                if (dbHistory.length > 0) {
+                    setWpmHistory(dbHistory);
+                } else {
+                    const historyStr = localStorage.getItem('rogue_daily_wpm_history');
+                    if (historyStr) {
+                        try {
+                            setWpmHistory(JSON.parse(historyStr));
+                        } catch (e) {}
+                    }
+                }
+            };
+            fetchHistory();
         }
     }, [phase]);
 
-    const handleTestComplete = (results: { wpm: number; comprehension: number }) => {
-        // Save to local storage
+    const handleTestComplete = async (results: { wpm: number; comprehension: number }) => {
+        // 1. Fallback Local Storage
         const historyStr = localStorage.getItem('rogue_daily_wpm_history');
         let history: {day: number, wpm: number}[] = [];
         if (historyStr) {
             try { history = JSON.parse(historyStr); } catch (e) {}
         }
-        
-        // Remove existing entry for today if they re-take it, then push new result
         history = history.filter(h => h.day !== dayNumber);
         history.push({ day: dayNumber, wpm: results.wpm });
-        
-        // Sort by day just in case
         history.sort((a, b) => a.day - b.day);
-        
         localStorage.setItem('rogue_daily_wpm_history', JSON.stringify(history));
         
+        // 2. Save to Supabase for Persistence
+        try {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                // Delete existing entry for this day to avoid duplicates if re-taken
+                await supabase.from('training_sessions').delete().eq('user_id', user.id).eq('day_id', dayNumber);
+                
+                await supabase.from('training_sessions').insert({
+                    user_id: user.id,
+                    day_id: dayNumber,
+                    average_wpm: results.wpm,
+                    comprehension_score: results.comprehension
+                });
+            }
+        } catch (e) {
+            console.error("Failed to save session to Supabase", e);
+        }
+
         // Advance to outro
         setPhase('outro');
     };

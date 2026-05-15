@@ -6,6 +6,7 @@ import { Award, Zap, Brain, Anchor, ArrowRight, Star, TrendingUp, Sparkles, Book
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import WpmProgressGraph from '@/components/ui/WpmProgressGraph';
+import { supabase } from '@/lib/supabase/client';
 
 const INTELLIGENCE_INFO: Record<string, { title: string; icon: string }> = {
     linguistic: { title: "Word Smart", icon: "📚" },
@@ -39,37 +40,64 @@ function RogueGraduationContent() {
     useEffect(() => {
         setMounted(true);
         
-        // Fetch real data from local storage if it exists, otherwise use sensible fallbacks for the celebration
-        try {
-            const localSuper = localStorage.getItem('rogue_superpowers');
-            if (localSuper) {
-                try {
-                    const parsed = JSON.parse(localSuper);
-                    if (parsed && parsed.length > 0) setSuperpowers(parsed);
-                } catch (e) {}
+        const fetchGraduationData = async () => {
+            // 1. Fetch WPM History from Supabase (Primary)
+            let dbHistory: {day: number, wpm: number}[] = [];
+            try {
+                const { data: { user } } = await supabase.auth.getUser();
+                if (user) {
+                    const { data, error } = await supabase
+                        .from('training_sessions')
+                        .select('day_id, average_wpm')
+                        .eq('user_id', user.id)
+                        .order('day_id', { ascending: true });
+                    
+                    if (!error && data) {
+                        const map = new Map<number, number>();
+                        data.forEach(d => {
+                            if (d.average_wpm) map.set(d.day_id, d.average_wpm);
+                        });
+                        dbHistory = Array.from(map.entries()).map(([day, wpm]) => ({ day, wpm })).sort((a, b) => a.day - b.day);
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to fetch history from Supabase", e);
             }
 
-            const localWpmHistory = localStorage.getItem('rogue_daily_wpm_history');
-            if (localWpmHistory) {
-                try {
-                    const parsedHistory = JSON.parse(localWpmHistory);
-                    if (parsedHistory && parsedHistory.length > 0) {
-                        setWpmHistory(parsedHistory);
-                        // If they have history, use first and last day as baseline and final
-                        setWpmBaseline(parsedHistory[0].wpm);
-                        setWpmFinal(parsedHistory[parsedHistory.length - 1].wpm);
-                    }
-                } catch (e) {}
+            if (dbHistory.length > 0) {
+                setWpmHistory(dbHistory);
+                setWpmBaseline(dbHistory[0].wpm);
+                setWpmFinal(dbHistory[dbHistory.length - 1].wpm);
             } else {
-                setSuperpowers(['logical', 'visual', 'kinesthetic']); // Fallback
+                // Fallback to local storage if DB is empty
+                const localWpmHistory = localStorage.getItem('rogue_daily_wpm_history');
+                if (localWpmHistory) {
+                    try {
+                        const parsedHistory = JSON.parse(localWpmHistory);
+                        if (parsedHistory && parsedHistory.length > 0) {
+                            setWpmHistory(parsedHistory);
+                            setWpmBaseline(parsedHistory[0].wpm);
+                            setWpmFinal(parsedHistory[parsedHistory.length - 1].wpm);
+                        }
+                    } catch (e) {}
+                }
             }
-            // setWpmBaseline(parseInt(localStorage.getItem('wpm_baseline') || '250'));
-            // setWpmFinal(parseInt(localStorage.getItem('wpm_final') || '420'));
-            
-        } catch (error) {
-            console.error("Error fetching graduation data", error);
-            setSuperpowers(['logical', 'visual', 'kinesthetic']);
-        }
+
+            // 2. Fetch other non-critical data from local storage
+            try {
+                const localSuper = localStorage.getItem('rogue_superpowers');
+                if (localSuper) {
+                    const parsed = JSON.parse(localSuper);
+                    if (parsed && parsed.length > 0) setSuperpowers(parsed);
+                } else {
+                    setSuperpowers(['logical', 'visual', 'kinesthetic']); // Fallback
+                }
+            } catch (error) {
+                setSuperpowers(['logical', 'visual', 'kinesthetic']);
+            }
+        };
+
+        fetchGraduationData();
     }, []);
 
     if (!mounted) return <div className="min-h-screen bg-black" />;
