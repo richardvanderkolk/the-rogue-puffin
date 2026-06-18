@@ -25,7 +25,7 @@ export function OutliersSection() {
                 href="/rogue-session/start?v2=true" 
                 className="inline-flex px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 items-center gap-3 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]"
             >
-                Double My Reading Speed (Free Drill) <ArrowRight className="w-5 h-5" />
+                Double my reading speed for Free <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
 

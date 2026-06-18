@@ -16,7 +16,7 @@ export function StorySection() {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Why This Exists
+                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Why I Built This
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">
                 Why I Built <br />
@@ -24,23 +24,18 @@ export function StorySection() {
                   The Rogue Puffin.
                 </span>
               </h2>
+              <p className="text-xl md:text-2xl text-indigo-300 font-semibold tracking-tight italic pt-2">
+                "I was so angry that no one taught me this."
+              </p>
             </div>
 
-            <div className="space-y-6 text-base md:text-lg text-slate-300 font-light leading-relaxed">
+            <div className="space-y-6 text-lg md:text-xl text-slate-300 font-light leading-relaxed">
               <p>
-                Discovering that I could double my reading speed in 30 minutes was incredibly exciting. But immediately after the excitement came a deep sense of frustration.
+                After graduating from University, I came across an exercise that doubled my reading speed. I should have been happy, but I was so angry that I had spent so many years reading and studying and no one had ever shown me this.
               </p>
               
               <p>
-                Why did I spend 16 years of grade school and university sitting in classrooms, yet nobody ever taught me how to process information at the speed of visual thought?
-              </p>
-              
-              <p>
-                That frustration turned into an obsession. I started teaching speed reading to others. Then, I went deeper—deciphering the exact cognitive science of how we process information, understand complex concepts, and build memory that lasts.
-              </p>
-              
-              <p className="border-l-2 border-indigo-500/30 pl-4 py-1 italic text-slate-400 font-serif">
-                <strong>The Rogue Puffin</strong> is everything school should have taught you about the human mind, but didn't.
+                I decided that I would share it with people and have seen thousands of people do the same.
               </p>
             </div>
 
@@ -101,7 +96,7 @@ export function StorySection() {
                   href="/rogue-session/start?v2=true"
                   className="w-full group/btn relative py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white rounded-2xl font-bold text-base transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] border border-indigo-400/20"
                 >
-                  Start Your Free Assessment
+                  Double my reading speed for Free
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
               </div>

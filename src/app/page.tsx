@@ -20,10 +20,10 @@ export default function V2LandingPage() {
 
 
             {/* 1. The "Aha!" Hero Section */}
-            <section className="relative px-6 min-h-screen flex flex-col justify-center overflow-hidden">
+            <section className="relative px-6 pt-24 pb-12 md:pt-32 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-indigo-900/10 rounded-full blur-[150px] -z-10" />
                 
-                <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8 mt-4 md:mt-8">
+                <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8 mt-8 md:mt-12">
                     <div className="space-y-5">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-4">
                             <Zap className="w-3 h-3" /> Over 12,000+ Speed Drills Completed
@@ -35,10 +35,10 @@ export default function V2LandingPage() {
                         
                         <div className="space-y-4 max-w-2xl mx-auto pt-2">
                             <p className="text-2xl md:text-3xl text-amber-400 font-bold tracking-tight">
-                                16 years of school. 0 classes on how to learn.
+                                Double your reading speed in 30 minutes. No sign-up required.
                             </p>
                             <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed">
-                                After 12 years of grade school and 4 years of university, I stumbled upon a simple cognitive exercise. In 30 minutes, I doubled my reading speed. At first, I was thrilled. Then, I got angry: Why did we spend a decade and a half in classrooms, yet nobody ever taught us how to read at the speed of visual thought?
+                                Skeptical? You should be. Most speed-reading apps teach you to skim, which ruins recall. Instead, this free training uses biological eye-movement drills to silence your inner speaking voice, helping you absorb information at the speed of sight.
                             </p>
                         </div>
                     </div>
@@ -64,7 +64,7 @@ export default function V2LandingPage() {
                                 href="/rogue-session/start?v2=true" 
                                 className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
                             >
-                                Double My Reading Speed (Free Drill) <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                Double my reading speed for Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                         
