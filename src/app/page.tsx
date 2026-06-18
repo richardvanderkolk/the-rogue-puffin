@@ -25,7 +25,7 @@ export default function V2LandingPage() {
                 <div className="max-w-4xl mx-auto text-center relative z-10 space-y-8 mt-4 md:mt-8">
                     <div className="space-y-5">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-4">
-                            <Zap className="w-3 h-3" /> The Speed Reading Masterclass
+                            <Zap className="w-3 h-3" /> Over 12,000+ Speed Drills Completed
                         </div>
                         <h1 className="text-5xl md:text-7xl xl:text-8xl font-black tracking-tighter text-white leading-[1.0]">
                             Read 2x faster <br />
@@ -34,10 +34,10 @@ export default function V2LandingPage() {
                         
                         <div className="space-y-4 max-w-2xl mx-auto pt-2">
                             <p className="text-2xl md:text-3xl text-amber-400 font-bold tracking-tight">
-                                The One Superpower Bill Gates and Warren Buffett Both Wish They Had.
+                                The One Advantage Bill Gates and Warren Buffett Both Wished They Had.
                             </p>
                             <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed">
-                                You don't need a billion dollars to read like a billionaire. Most people waste a decade of their lives reading slowly. It takes 30 minutes. It's completely free. Unlock the ultimate unfair advantage for your studies, your career, and your life.
+                                Skeptical? You should be. Most speed-reading apps teach you to skim, which ruins recall. Instead, this free 30-minute training uses biological eye-movement drills to silence your inner speaking voice, helping you absorb information at the speed of sight.
                             </p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ export default function V2LandingPage() {
                             </div>
                             
                             <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                                <Activity className="w-4 h-4" /> Requires 30 mins of distraction-free focus
+                                <Activity className="w-4 h-4" /> 100% Free Assessment & Drill • No Sign-up/Card Needed to Start
                             </div>
                             <Link 
                                 href="/rogue-session/start?v2=true" 
