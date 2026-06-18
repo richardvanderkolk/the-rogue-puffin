@@ -63,7 +63,7 @@ export default function V2LandingPage() {
                                 href="/rogue-session/start?v2=true" 
                                 className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
                             >
-                                Get My Free Superpower Training <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                Double My Reading Speed (Free Drill) <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>
                         
