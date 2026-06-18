@@ -4,6 +4,7 @@ import { ArrowRight, Zap, Brain, BookOpen, Clock, Activity, ArrowDown } from "lu
 import { OutliersSection } from "@/components/landing/OutliersSection";
 import { IsThisForYouSection } from "@/components/landing/IsThisForYouSection";
 import { WallOfWinsSection } from "@/components/landing/WallOfWinsSection";
+import { StorySection } from "@/components/landing/StorySection";
 
 import { Metadata } from "next";
 
@@ -73,6 +74,9 @@ export default function V2LandingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* 1.5 Founder's Story Section */}
+            <StorySection />
 
             {/* 2. The Mechanics (Why It Works) - Replaced with Outliers Section */}
             <OutliersSection />
