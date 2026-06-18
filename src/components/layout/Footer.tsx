@@ -12,6 +12,7 @@ export function Footer() {
     if (pathname?.includes("/rogue-session/start") || pathname?.includes("/rogue-memory-session/start") || pathname?.includes("/train/app")) {
         return null;
     }
+    return (
         <footer className="bg-slate-950 border-t border-white/5 py-20 px-6">
             <div className="max-w-6xl mx-auto flex flex-col items-center gap-16">
                 
@@ -43,4 +44,5 @@ export function Footer() {
                 </div>
             </div>
         </footer>
+    );
 }
