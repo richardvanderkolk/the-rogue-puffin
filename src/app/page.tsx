@@ -57,7 +57,7 @@ export default function V2LandingPage() {
                                         href="/rogue-session/start?v2=true&mode=assessment" 
                                         className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
                                     >
-                                        Start with a 60-second reading speed assessment (100% Free) <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                        Click here to start by measuring your current reading speed (100% Free)
                                     </Link>
                                 </div>
                                 
@@ -131,7 +131,7 @@ export default function V2LandingPage() {
                             href="/bootcamp" 
                             className="inline-flex px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-500 transition-all shadow-[0_0_30px_-5px_rgba(147,51,234,0.4)] active:scale-95 items-center gap-3"
                         >
-                            View The Bootcamp <ArrowRight className="w-5 h-5" />
+                            View The Bootcamp
                         </Link>
                     </div>
 
