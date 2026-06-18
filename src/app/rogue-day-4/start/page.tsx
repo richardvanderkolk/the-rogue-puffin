@@ -3,6 +3,7 @@
 import { useState, Suspense, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { BookOpen, Target, Search, ArrowRight, Zap, CheckCircle, Eye, Sparkles } from "lucide-react";
+import Image from "next/image";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
@@ -129,8 +130,8 @@ function RogueDay4SessionContent() {
                         <Slide key="why-1" title="Know Your Why" onNext={nextStep} onBack={prevStep} fullWidth>
                             <div className="flex flex-col md:flex-row items-center gap-8 max-w-5xl mx-auto">
                                 <div className="relative w-full md:w-1/2 h-64 md:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] shrink-0">
-                                    <img src="/images/compass_anchor.png" alt="Know Your Why" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
-                                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-slate-950 via-slate-950/20 to-transparent" />
+                                    <Image src="/images/compass_anchor.png" alt="Know Your Why" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-l from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
                                 </div>
                                 <div className="w-full md:w-1/2 space-y-8">
                                     <div className="bg-slate-900/50 p-8 rounded-xl border border-slate-800 space-y-6 text-left shadow-xl backdrop-filter backdrop-blur-md">

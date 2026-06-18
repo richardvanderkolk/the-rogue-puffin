@@ -10,6 +10,8 @@ interface User {
     name: string;
     beforeWpm?: number;
     afterWpm?: number;
+    subscription_status?: string;
+    subscription_tier?: string;
 }
 
 interface AuthContextType {

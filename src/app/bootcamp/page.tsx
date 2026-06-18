@@ -5,6 +5,15 @@ import { getCurrencyInfo } from "@/lib/currency";
 import { GraduationBanner } from "@/components/bootcamp/GraduationBanner";
 import { BootcampRoadmap } from "@/components/bootcamp/BootcampRoadmap";
 import { createClient } from "@/lib/supabase/server";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "14-Day Speed Reading Bootcamp | The Rogue Puffin",
+    description: "A structured, day-by-day guided cognitive protocol to double your reading speed, eliminate subvocalization, and dramatically improve recall in 14 days.",
+    alternates: {
+        canonical: "/bootcamp",
+    },
+};
 
 export default async function BootcampDashboard(props: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }) {
     const headersList = await headers();

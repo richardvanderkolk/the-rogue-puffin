@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { signup } from '@/app/login/actions'
 
@@ -13,7 +14,7 @@ export default function SignupPage() {
       
       <div className="sm:mx-auto sm:w-full sm:max-w-md z-10">
         <div className="flex justify-center mb-8">
-            <img src="/assets/premium-logo.png" alt="The Rogue Puffin" className="w-40 h-40 object-contain drop-shadow-2xl" />
+            <Image src="/assets/premium-logo.png" alt="The Rogue Puffin" width={160} height={160} className="w-40 h-40 object-contain drop-shadow-2xl" />
         </div>
         <h2 className="text-center text-3xl font-bold tracking-tight text-white">
           Join the Bootcamp

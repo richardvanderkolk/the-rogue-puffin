@@ -9,6 +9,7 @@ import { ViewTracker } from "@/components/ViewTracker";
 import { Slide, IntroductionToFs, TrianglesExercise, PeripheralVisionSequence, NotEveryWordSlide, PeripheralVisionPrep, PeripheralVisionPassive, PeripheralVisionComparison } from "@/components/onboarding/ConceptSlides";
 import { supabase } from "@/lib/supabase/client";
 import { useAuth } from "@/lib/auth-context";
+import { usePostHog } from "posthog-js/react";
 
 import ReadingTestEngine from "@/components/engines/ReadingTestEngine";
 
@@ -45,6 +46,20 @@ export default function RogueSessionPage() {
     const [hasCapturedLead, setHasCapturedLead] = useState(false);
     const [leadEmail, setLeadEmail] = useState('');
     const [leadStatus, setLeadStatus] = useState<'idle' | 'loading' | 'error'>('idle');
+    
+    const posthog = usePostHog();
+
+    useEffect(() => {
+        if (hasCapturedLead) {
+            if (step === 0) {
+                posthog?.capture('diagnostic_started');
+            } else if (step === 23) {
+                posthog?.capture('diagnostic_completed', { baseline_wpm: baselineStats?.wpm, final_wpm: finalStats?.wpm });
+            } else {
+                posthog?.capture('diagnostic_step_completed', { step_number: step });
+            }
+        }
+    }, [step, hasCapturedLead, posthog, baselineStats, finalStats]);
 
     useEffect(() => {
         let id = localStorage.getItem('rp_visitor_id');
@@ -89,7 +104,7 @@ export default function RogueSessionPage() {
                 setHasSkippedExercises(savedSkipped === 'true');
             }
             
-            if (localStorage.getItem('rp_captured_email') || savedBaseline || savedFinal) {
+            if (localStorage.getItem('rp_captured_email')) {
                 setHasCapturedLead(true);
             }
             
@@ -199,24 +214,27 @@ export default function RogueSessionPage() {
 
     const totalSteps = 25;
 
-    const handleLeadSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!leadEmail) return;
+    const handleLeadSubmitDirect = async (emailToSubmit: string, wpmVal: number, compVal: number) => {
+        if (!emailToSubmit) return false;
         setLeadStatus('loading');
         try {
             const res = await fetch('/api/leads', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: leadEmail, wpm: 0, comprehension: 0 }),
+                body: JSON.stringify({ email: emailToSubmit, wpm: wpmVal, comprehension: compVal }),
             });
             if (res.ok) {
-                localStorage.setItem('rp_captured_email', leadEmail);
+                localStorage.setItem('rp_captured_email', emailToSubmit);
                 setHasCapturedLead(true);
+                setLeadStatus('idle');
+                return true;
             } else {
                 setLeadStatus('error');
+                return false;
             }
         } catch {
             setLeadStatus('error');
+            return false;
         }
     };
 
@@ -227,70 +245,8 @@ export default function RogueSessionPage() {
             <div className="max-w-3xl w-full flex-1 flex flex-col justify-center">
                 <AnimatePresence mode="wait">
 
-                    {!hasCapturedLead && (
-                        <motion.div
-                            key="lead_gate"
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95 }}
-                            className="w-full max-w-xl mx-auto"
-                        >
-                            <div className="bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 text-center shadow-2xl relative overflow-hidden">
-                                {/* Decorative Glow */}
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[80px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
-                                <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/10 blur-[80px] rounded-full pointer-events-none translate-y-1/2 -translate-x-1/2" />
-                                
-                                <div className="relative z-10 flex flex-col items-center">
-                                    <div className="w-16 h-16 bg-indigo-500/10 rounded-2xl flex items-center justify-center mb-6 border border-indigo-500/20">
-                                        <Target className="w-8 h-8 text-indigo-400" />
-                                    </div>
-                                    <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-4">
-                                        Where should we send your results?
-                                    </h2>
-                                    <p className="text-lg text-slate-300 font-light leading-relaxed mb-8">
-                                        You are about to start a 30-minute cognitive diagnostic. Enter your email so we can save your baseline speed and send your final comprehension scores.
-                                    </p>
-
-                                    <form onSubmit={handleLeadSubmit} className="w-full space-y-4">
-                                        <input
-                                            type="email"
-                                            required
-                                            value={leadEmail}
-                                            onChange={(e) => setLeadEmail(e.target.value)}
-                                            placeholder="Enter your email address..."
-                                            disabled={leadStatus === 'loading'}
-                                            className="w-full bg-slate-950 border border-slate-700/50 rounded-2xl px-6 py-5 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-lg disabled:opacity-50"
-                                        />
-                                        <button
-                                            type="submit"
-                                            disabled={leadStatus === 'loading'}
-                                            className="w-full py-5 bg-indigo-500 text-white rounded-2xl font-bold text-lg hover:bg-indigo-400 transition-all flex items-center justify-center shadow-[0_0_30px_rgba(99,102,241,0.2)] disabled:opacity-50 disabled:active:scale-100 active:scale-95 group"
-                                        >
-                                            {leadStatus === 'loading' ? (
-                                                <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                            ) : (
-                                                <>Start My Free Diagnostic <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" /></>
-                                            )}
-                                        </button>
-                                        {leadStatus === 'error' && (
-                                            <p className="text-red-400 text-sm font-medium mt-2">Something went wrong. Please try again.</p>
-                                        )}
-                                        <div className="flex items-center justify-center gap-3 mt-6 bg-slate-800/50 border border-slate-700/50 rounded-xl p-4 text-sm text-slate-300 font-medium">
-                                            <div className="bg-indigo-500/20 p-2 rounded-full shrink-0">
-                                                <Lock className="w-4 h-4 text-indigo-400" />
-                                            </div>
-                                            <p className="text-left leading-relaxed">
-                                                <span className="text-white font-bold">100% Privacy Promise:</span> We will keep your email safe. No spam, and we will never sell your data to 3rd parties.
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </motion.div>
-                    )}
-
                     {/* --- BASELINE SECTION --- */}
-                    {hasCapturedLead && step === 0 && (
+                    {step === 0 && (
                         <Slide key="lets_do_this" title="Step 1: The Baseline" icon={<Clock className="w-12 h-12 text-indigo-400" />} onNext={nextStep} customButtonText="Start Baseline">
                             <div className="space-y-8 max-w-2xl mx-auto">
                                 <p className="text-xl text-slate-200">Before we begin the training, we need to know exactly where you are starting from.</p>
@@ -307,7 +263,21 @@ export default function RogueSessionPage() {
                     )}
 
                     {step === 2 && baselineStats && (
-                        <Slide key="baseline_result" title="Baseline Established" icon={<CheckCircle className="w-12 h-12 text-emerald-400" />} onNext={nextStep} customButtonText="Analyze My Reading">
+                        <Slide 
+                            key="baseline_result" 
+                            title="Baseline Established" 
+                            icon={<CheckCircle className="w-12 h-12 text-emerald-400" />} 
+                            onNext={async () => {
+                                if (!hasCapturedLead) {
+                                    const success = await handleLeadSubmitDirect(leadEmail, baselineStats.wpm, baselineStats.comprehension);
+                                    if (success) nextStep();
+                                } else {
+                                    nextStep();
+                                }
+                            }}
+                            customButtonText={leadStatus === 'loading' ? "Saving..." : (hasCapturedLead ? "Analyze My Reading" : "Save & Unlock Training")}
+                            nextDisabled={leadStatus === 'loading' || (!hasCapturedLead && !leadEmail)}
+                        >
                             <div className="space-y-8 max-w-xl mx-auto">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
@@ -319,10 +289,51 @@ export default function RogueSessionPage() {
                                         <p className="text-sm text-slate-500 uppercase tracking-wider font-bold mt-2">Recall</p>
                                     </div>
                                 </div>
-                                <p className="text-lg text-slate-300">
-                                    This is your starting point. Most people read between 150-250 WPM. <br />
-                                    <span className="text-indigo-400 font-bold">Now let's see why you are stuck at this speed.</span>
-                                </p>
+
+                                {!hasCapturedLead ? (
+                                    <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 text-center relative overflow-hidden mt-6">
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 blur-[40px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
+                                        <div className="relative z-10 flex flex-col items-center">
+                                            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                                                Save Your Score & Unlock Training
+                                            </h3>
+                                            <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed mb-6">
+                                                Enter your email to save your baseline score of <strong className="text-white font-bold">{baselineStats.wpm} WPM</strong> and instantly unlock the 10-minute visual training exercises.
+                                            </p>
+                                            <form 
+                                                onSubmit={async (e) => {
+                                                    e.preventDefault();
+                                                    if (leadStatus === 'loading' || !leadEmail) return;
+                                                    const success = await handleLeadSubmitDirect(leadEmail, baselineStats.wpm, baselineStats.comprehension);
+                                                    if (success) nextStep();
+                                                }}
+                                                className="w-full space-y-3"
+                                            >
+                                                <input
+                                                    type="email"
+                                                    required
+                                                    value={leadEmail}
+                                                    onChange={(e) => setLeadEmail(e.target.value)}
+                                                    placeholder="Enter your email address..."
+                                                    disabled={leadStatus === 'loading'}
+                                                    className="w-full bg-slate-950 border border-slate-700/50 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-base disabled:opacity-50"
+                                                />
+                                                {leadStatus === 'error' && (
+                                                    <p className="text-red-400 text-sm font-medium mt-1">Something went wrong. Please try again.</p>
+                                                )}
+                                                <div className="flex items-center gap-2 mt-4 text-xs text-slate-400 text-left bg-slate-950/40 p-3 rounded-lg border border-slate-800">
+                                                    <Lock className="w-4 h-4 text-indigo-400 shrink-0" />
+                                                    <p>We respect your privacy. No spam, ever.</p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <p className="text-lg text-slate-300">
+                                        This is your starting point. Most people read between 150-250 WPM. <br />
+                                        <span className="text-indigo-400 font-bold">Now let's see why you are stuck at this speed.</span>
+                                    </p>
+                                )}
                             </div>
                         </Slide>
                     )}

@@ -10,6 +10,10 @@ create table profiles (
   learning_archetype text, -- E.g., 'linguistic', 'spatial', 'kinesthetic'
   bootcamp_progress_day integer default 1, -- Tracks their current day (1-15)
   has_paid_bootcamp boolean default false, -- True if they purchased the $29 upgrade
+  subscription_tier text default 'free',
+  stripe_customer_id text,
+  stripe_subscription_id text,
+  subscription_status text,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null,
   updated_at timestamp with time zone default timezone('utc'::text, now()) not null
 );

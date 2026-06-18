@@ -5,7 +5,7 @@ import { getCurrencyInfo } from '@/lib/currency';
 // Provide a dummy test key as fallback so Vercel Next.js build doesn't crash statically analyzing the file
 const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_123';
 
-async function createCheckoutSession(request: Request, productMode: string, email?: string, visitorId?: string) {
+async function createCheckoutSession(request: Request, productMode: string, email?: string, visitorId?: string, userId?: string) {
     if (!stripeKey) {
         console.error("Missing STRIPE_SECRET_KEY");
         throw new Error('Stripe configuration error');
@@ -18,7 +18,7 @@ async function createCheckoutSession(request: Request, productMode: string, emai
     const countryCode = request.headers.get('x-vercel-ip-country');
     const { currency } = getCurrencyInfo(countryCode);
 
-    let priceData;
+    let priceData: Stripe.Checkout.SessionCreateParams.LineItem.PriceData;
     if (productMode === 'complete_masterclass_bundle') {
         priceData = {
             currency,
@@ -55,6 +55,18 @@ async function createCheckoutSession(request: Request, productMode: string, emai
             },
             unit_amount: 2900, // $29.00
         };
+    } else if (productMode === 'mastery_subscription') {
+        priceData = {
+            currency,
+            product_data: {
+                name: 'Rogue Mastery Subscription',
+                description: 'Bring Your Own Book Engine & Daily Cognitive Drills',
+            },
+            unit_amount: 900, // $9.00
+            recurring: {
+                interval: 'month' as const,
+            },
+        };
     } else {
         throw new Error('Invalid product mode');
     }
@@ -71,14 +83,18 @@ async function createCheckoutSession(request: Request, productMode: string, emai
                 quantity: 1,
             },
         ],
-        mode: 'payment',
-        success_url: productMode === 'bootcamp' ? `${baseUrl}/bootcamp?success=true` : 
+        mode: productMode === 'mastery_subscription' ? 'subscription' : 'payment',
+        success_url: productMode === 'mastery_subscription' ? `${baseUrl}/mastery/dashboard?success=true` :
+                     productMode === 'bootcamp' ? `${baseUrl}/bootcamp?success=true` : 
                      productMode === 'rogue-session' ? `${baseUrl}/rogue-session/start?success=true` : 
                      `${baseUrl}/train/sales?success=true`,
-        cancel_url: productMode === 'rogue-session' ? `${baseUrl}/rogue-session?canceled=true` : `${baseUrl}/train/sales?canceled=true`,
+        cancel_url: productMode === 'mastery_subscription' ? `${baseUrl}/mastery?canceled=true` :
+                    productMode === 'rogue-session' ? `${baseUrl}/rogue-session?canceled=true` : `${baseUrl}/train/sales?canceled=true`,
+        client_reference_id: userId || undefined,
         metadata: {
             productMode,
-            visitor_id: visitorId || ''
+            visitor_id: visitorId || '',
+            user_id: userId || ''
         }
     });
 
@@ -88,8 +104,8 @@ async function createCheckoutSession(request: Request, productMode: string, emai
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { productMode, email, visitor_id } = body; 
-        const session = await createCheckoutSession(request, productMode, email, visitor_id);
+        const { productMode, email, visitor_id, user_id } = body; 
+        const session = await createCheckoutSession(request, productMode, email, visitor_id, user_id);
         return NextResponse.json({ url: session.url });
     } catch (err: any) {
         console.error("Stripe Checkout POST Error:", err);
@@ -102,11 +118,12 @@ export async function GET(request: Request) {
         const url = new URL(request.url);
         const productId = url.searchParams.get('productId');
         const visitorId = url.searchParams.get('visitor_id') || undefined;
+        const userId = url.searchParams.get('user_id') || undefined;
         if (!productId) {
             return NextResponse.json({ error: "Missing productId" }, { status: 400 });
         }
         
-        const session = await createCheckoutSession(request, productId, undefined, visitorId);
+        const session = await createCheckoutSession(request, productId, undefined, visitorId, userId);
         if (session.url) {
             return NextResponse.redirect(session.url);
         } else {

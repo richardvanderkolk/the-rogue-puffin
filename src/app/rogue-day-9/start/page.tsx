@@ -3,6 +3,7 @@
 import { useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ArrowRight, Zap, Target, BookOpen, Search, Pause, Coffee } from "lucide-react";
+import Image from "next/image";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
@@ -119,7 +120,7 @@ function RogueDay9SessionContent() {
                         <Slide key="sponge-detective" title="The Sponge vs. The Detective" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/detective.png" alt="A cute detective character examining a glowing book with a magnifying glass" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/detective.png" alt="A cute detective character examining a glowing book with a magnifying glass" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
@@ -138,7 +139,7 @@ function RogueDay9SessionContent() {
                         <Slide key="curiosity" title="The Curiosity Mindset" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/curiosity.png" alt="Golden question marks and lightbulbs floating out of a magical book" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/curiosity.png" alt="Golden question marks and lightbulbs floating out of a magical book" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">

@@ -3,6 +3,7 @@
 import { useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ArrowRight, Zap, Target, BookOpen, Layers } from "lucide-react";
+import Image from "next/image";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
@@ -119,7 +120,7 @@ function RogueDay8SessionContent() {
                         <Slide key="scaffold" title="The Mental Scaffold" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/scaffold.png" alt="House framing and scaffolding on a blueprint" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/scaffold.png" alt="House framing and scaffolding on a blueprint" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
@@ -138,7 +139,7 @@ function RogueDay8SessionContent() {
                         <Slide key="puzzle" title="Let's Put It Another Way" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/jigsaw_puzzle_metaphor.png" alt="A hand holding a puzzle piece comparing it to the picture on the box" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/jigsaw_puzzle_metaphor.png" alt="A hand holding a puzzle piece comparing it to the picture on the box" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
@@ -230,7 +231,7 @@ function RogueDay8SessionContent() {
                         <Slide key="summary" title="The 1-Minute Summary" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/summary.png" alt="A notebook with a mind map next to a stopwatch" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/summary.png" alt="A notebook with a mind map next to a stopwatch" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">

@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/lib/auth-context";
 import { Footer } from "@/components/layout/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { PostHogProvider } from "@/components/providers/PostHogProvider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
@@ -42,6 +43,8 @@ export const metadata: Metadata = {
 
 import { Header } from "@/components/layout/Header";
 import { Analytics } from "@vercel/analytics/react";
+import PostHogPageView from "@/components/providers/PostHogPageView";
+import { Suspense } from "react";
 
 export default function RootLayout({
   children,
@@ -51,14 +54,19 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${outfit.variable} ${caveat.variable} font-sans bg-slate-950 text-slate-100 antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-          <AuthProvider>
-            <Header />
-            {children}
-            <Footer />
-          </AuthProvider>
-          <Analytics />
-        </ThemeProvider>
+        <PostHogProvider>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+            <AuthProvider>
+              <Suspense fallback={null}>
+                <PostHogPageView />
+              </Suspense>
+              <Header />
+              {children}
+              <Footer />
+            </AuthProvider>
+            <Analytics />
+          </ThemeProvider>
+        </PostHogProvider>
       </body>
     </html>
   );

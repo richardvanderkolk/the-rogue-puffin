@@ -3,6 +3,7 @@
 import { useState, Suspense, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ArrowRight, Brain, Zap, Sparkles } from "lucide-react";
+import Image from "next/image";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
@@ -230,8 +231,8 @@ function RogueDay5SessionContent() {
                             <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 items-center lg:items-start text-left">
                                 {/* Left Side: Image */}
                                 <div className="w-full lg:w-5/12 relative h-64 lg:h-[450px] rounded-3xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)] shrink-0">
-                                    <img src="/images/magical_lightbulb.png" alt="Intrinsic Motivation" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                                    <Image src="/images/magical_lightbulb.png" alt="Intrinsic Motivation" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
                                 </div>
                                 
                                 {/* Right Side: Text */}

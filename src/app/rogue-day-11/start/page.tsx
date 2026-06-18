@@ -3,6 +3,7 @@
 import { useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Zap, Activity, MessageCircle, AlertTriangle, Lightbulb } from "lucide-react";
+import Image from "next/image";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
@@ -119,7 +120,7 @@ function RogueDay11SessionContent() {
                         <Slide key="simplicity" title="The Illusion of Knowledge" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/simplicity.png" alt="A tangled ball of yarn being pulled into a single straight glowing thread" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/simplicity.png" alt="A tangled ball of yarn being pulled into a single straight glowing thread" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6 italic">

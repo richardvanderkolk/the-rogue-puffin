@@ -3,6 +3,7 @@
 import { useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import { ArrowRight, Zap, Target } from "lucide-react";
+import Image from "next/image";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
@@ -106,8 +107,8 @@ function RogueDay7SessionContent() {
                             <div className="max-w-4xl mx-auto">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                                     <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-slate-800 shadow-[0_0_50px_rgba(99,102,241,0.15)]">
-                                        <img src="/images/activation_energy.png" alt="Activation Energy" className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
-                                        <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/50 to-transparent" />
+                                        <Image src="/images/activation_energy.png" alt="Activation Energy" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover opacity-90 hover:opacity-100 transition-opacity duration-500" />
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/50 to-transparent pointer-events-none" />
                                     </div>
                                     <div className="space-y-6 text-left">
                                         <p className="text-2xl text-slate-300 leading-relaxed font-light">

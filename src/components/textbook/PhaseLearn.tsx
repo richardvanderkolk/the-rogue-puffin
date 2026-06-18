@@ -1,4 +1,5 @@
 import { Brain, Zap, X } from "lucide-react";
+import Image from "next/image";
 import { ActionCheckbox } from "./ActionCheckbox";
 
 export default function PhaseLearn() {
@@ -19,7 +20,7 @@ export default function PhaseLearn() {
 
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 not-prose mb-16 items-center">
  <div className="order-2 lg:order-1">
- <img src="/images/subvocalization.png" alt="Subvocalization vs Visual Processing" className="w-full rounded-3xl shadow-2xl border border-white/10 " />
+ <Image src="/images/subvocalization.png" alt="Subvocalization vs Visual Processing" width={800} height={800} className="w-full h-auto rounded-3xl shadow-2xl border border-white/10 " />
  </div>
  <div className="space-y-10 order-1 lg:order-2">
  <div>

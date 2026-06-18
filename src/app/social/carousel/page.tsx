@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import { Play, Pause, RotateCcw } from "lucide-react";
 
 // Images from logical order based on timestamps
@@ -57,11 +58,12 @@ export default function VideoGenerator() {
                 ref={videoRef}
                 className="relative w-[1080px] h-[1920px] max-h-[80vh] aspect-[9/16] bg-black border border-slate-800 shadow-2xl overflow-hidden"
             >
-                <img
+                <Image
                     key={currentSlide}
                     src={BRIEF_IMAGES[currentSlide]}
                     alt={`Slide ${currentSlide + 1}`}
-                    className="w-full h-full object-contain animate-ken-burns transition-opacity duration-500"
+                    fill
+                    className="object-contain animate-ken-burns transition-opacity duration-500"
                     style={{
                         animation: isPlaying ? `ken-burns ${SLIDE_DURATION}s ease-out` : 'none'
                     }}

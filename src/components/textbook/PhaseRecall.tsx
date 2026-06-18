@@ -1,4 +1,5 @@
 import { Brain, Clock, BookOpen, Zap } from "lucide-react";
+import Image from "next/image";
 import { ActionCheckbox } from "./ActionCheckbox";
 
 export default function PhaseRecall() {
@@ -63,7 +64,7 @@ export default function PhaseRecall() {
  </div>
  
  <div className="self-start">
- <img src="/images/phase_3_feynman.png" alt="The Feynman Matrix" className="w-full rounded-3xl shadow-2xl border border-white/10 " />
+ <Image src="/images/phase_3_feynman.png" alt="The Feynman Matrix" width={800} height={800} className="w-full h-auto rounded-3xl shadow-2xl border border-white/10 " />
  </div>
  </div>
 

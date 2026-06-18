@@ -3,6 +3,7 @@
 import { useState, Suspense } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Zap, BookOpen, PenTool, Share2 } from "lucide-react";
+import Image from "next/image";
 import { Slide } from "@/components/onboarding/ConceptSlides";
 import SessionPlayer from '@/components/train/SessionPlayer';
 import { COURSE_CONTENT } from '@/lib/course-content';
@@ -213,7 +214,7 @@ function RogueDay10SessionContent() {
                         <Slide key="mapping" title="Linear Lists vs. Mind Maps" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/transcription.png" alt="A glowing mind map next to a boring notebook of text" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/transcription.png" alt="A glowing mind map next to a boring notebook of text" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
@@ -232,7 +233,7 @@ function RogueDay10SessionContent() {
                         <Slide key="keywords" title="Keywords Only" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/images/keywords.png" alt="A magical, glowing keyword lifting off the page" className="w-full max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
+                                    <Image src="/images/keywords.png" alt="A magical, glowing keyword lifting off the page" width={384} height={384} className="w-full h-auto max-w-sm rounded-2xl shadow-2xl border border-indigo-500/20" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
@@ -251,7 +252,7 @@ function RogueDay10SessionContent() {
                         <Slide key="what-is" title="The Architecture of a Concept" onNext={nextStep} onBack={prevStep}>
                             <div className="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-left items-center">
                                 <div className="md:col-span-2 flex justify-center">
-                                    <img src="/mind-map-example.png" alt="An example of a Mind Map" className="w-full rounded-2xl shadow-2xl border border-indigo-500/20 bg-white" />
+                                    <Image src="/mind-map-example.png" alt="An example of a Mind Map" width={384} height={384} className="w-full h-auto rounded-2xl shadow-2xl border border-indigo-500/20 bg-white" />
                                 </div>
                                 <div className="md:col-span-3 p-8 border border-indigo-500/30 rounded-2xl bg-indigo-900/10">
                                     <p className="text-xl text-slate-200 leading-relaxed font-medium mb-6">
