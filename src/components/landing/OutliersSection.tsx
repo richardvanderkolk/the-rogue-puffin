@@ -23,7 +23,7 @@ export function OutliersSection() {
             </p>
             <Link 
                 href="/rogue-session/start?v2=true" 
-                className="inline-flex px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 items-center gap-3 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)]"
+                className="inline-flex px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 items-center justify-center text-center gap-3 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] w-full sm:w-auto"
             >
                 Double my reading speed for Free
             </Link>
@@ -72,7 +72,7 @@ export function OutliersSection() {
             <div className="pt-4">
                 <Link 
                     href="/free-test" 
-                    className="inline-flex px-8 py-4 bg-slate-800 text-white rounded-full font-bold text-lg hover:bg-slate-700 transition-all active:scale-95 items-center gap-3 border border-slate-700"
+                    className="inline-flex px-8 py-4 bg-slate-800 text-white rounded-full font-bold text-lg hover:bg-slate-700 transition-all active:scale-95 items-center justify-center text-center gap-3 border border-slate-700 w-full sm:w-auto"
                 >
                     Take the Free Speed Test
                 </Link>

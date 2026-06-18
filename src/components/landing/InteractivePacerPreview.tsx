@@ -42,6 +42,7 @@ export function InteractivePacerPreview() {
   };
 
   const handleWpmChange = (newWpm: number) => {
+    console.log("[PacerPreview] WPM changed to:", newWpm);
     setWpm(newWpm);
   };
 
@@ -95,7 +96,7 @@ export function InteractivePacerPreview() {
       </div>
 
       {/* Controls Footer */}
-      <div className="space-y-4">
+      <div className="space-y-4 relative z-20">
         {/* Speed presets */}
         <div className="flex justify-between items-center gap-2">
           <span className="text-xs text-slate-500 font-bold uppercase">Set Speed:</span>
@@ -108,7 +109,7 @@ export function InteractivePacerPreview() {
                 className={`px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
                   wpm === preset
                     ? "bg-indigo-500 text-white shadow-md shadow-indigo-500/20"
-                    : "text-slate-400 hover:text-slate-200"
+                    : "text-slate-400 lg:hover:text-slate-200 active:text-white active:bg-slate-800"
                 }`}
               >
                 {preset}
@@ -122,7 +123,7 @@ export function InteractivePacerPreview() {
           <button
             type="button"
             onClick={togglePlay}
-            className="flex-1 py-3 px-4 bg-slate-800 hover:bg-slate-700 active:scale-98 transition-all text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-slate-700/60 cursor-pointer"
+            className="flex-1 py-3 px-4 bg-slate-800 lg:hover:bg-slate-700 active:bg-slate-700 active:scale-98 transition-all text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-slate-700/60 cursor-pointer"
           >
             {isPlaying ? (
               <>
@@ -138,7 +139,7 @@ export function InteractivePacerPreview() {
           <button
             type="button"
             onClick={resetDemo}
-            className="p-3 bg-slate-800 hover:bg-slate-700 active:scale-98 transition-all text-slate-300 hover:text-white rounded-xl border border-slate-700/60 cursor-pointer"
+            className="p-3 bg-slate-800 lg:hover:bg-slate-700 active:bg-slate-700 active:scale-98 transition-all text-slate-300 lg:hover:text-white active:text-white rounded-xl border border-slate-700/60 cursor-pointer"
             title="Reset demo"
           >
             <RefreshCw className="w-4 h-4" />

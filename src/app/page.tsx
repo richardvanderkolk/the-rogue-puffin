@@ -55,7 +55,7 @@ export default function V2LandingPage() {
                                     </div>
                                     <Link 
                                         href="/rogue-session/start?v2=true&mode=assessment" 
-                                        className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
+                                        className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center text-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
                                     >
                                         Click here to start by measuring your current reading speed (100% Free)
                                     </Link>
@@ -68,8 +68,8 @@ export default function V2LandingPage() {
 
                             {/* The Post-it Note (Now positioned in the left column on large screens) */}
                             <div className="hidden lg:block pt-8 rotate-[-3deg] hover:rotate-[-1deg] transition-transform cursor-default z-30 max-w-sm mx-auto lg:mx-0">
-                                <div className="bg-gradient-to-br from-[#fdf5cc] to-[#f4e087] text-slate-800 p-6 rounded-sm shadow-[4px_12px_24px_rgba(0,0,0,0.6)] border border-yellow-300/60 relative transform origin-top-left hover:scale-105 transition-all">
-                                   <div className="absolute top-0 left-12 -mt-2 w-16 h-5 bg-white/50 shadow-sm rotate-[-3deg] backdrop-blur-sm border border-white/20" /> 
+                                <div className="w-72 h-72 bg-gradient-to-br from-[#fdf5cc] to-[#f4e087] text-slate-800 p-8 rounded-sm shadow-[4px_12px_24px_rgba(0,0,0,0.6)] border border-yellow-300/60 relative transform origin-top-left hover:scale-105 transition-all flex flex-col justify-center text-center">
+                                   <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2 w-16 h-5 bg-white/50 shadow-sm rotate-[-3deg] backdrop-blur-sm border border-white/20" /> 
                                    <p className="font-handwriting text-2xl leading-tight font-medium opacity-90 mix-blend-multiply">
                                      P.S. When asked how he learned to build rockets, Elon Musk famously said:<br/>
                                      <span className="font-bold block mt-2 text-3xl">"I read books."</span>
@@ -129,7 +129,7 @@ export default function V2LandingPage() {
 
                         <Link 
                             href="/bootcamp" 
-                            className="inline-flex px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-500 transition-all shadow-[0_0_30px_-5px_rgba(147,51,234,0.4)] active:scale-95 items-center gap-3"
+                            className="inline-flex px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-500 transition-all shadow-[0_0_30px_-5px_rgba(147,51,234,0.4)] active:scale-95 items-center justify-center text-center gap-3"
                         >
                             View The Bootcamp
                         </Link>
