@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Play, Pause, RefreshCw, Zap } from "lucide-react";
 
 const DEMO_WORDS = [
@@ -16,29 +16,22 @@ export function InteractivePacerPreview() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [wordIndex, setWordIndex] = useState(0);
   const [wpm, setWpm] = useState(350);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    if (isPlaying) {
-      const delay = (60 / wpm) * 1000;
-      intervalRef.current = setInterval(() => {
-        setWordIndex((prev) => {
-          if (prev >= DEMO_WORDS.length - 1) {
-            return 0; // loop back
-          }
-          return prev + 1;
-        });
-      }, delay);
-    } else {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    }
+    if (!isPlaying) return;
+
+    const delay = (60 / wpm) * 1000;
+    const interval = setInterval(() => {
+      setWordIndex((prev) => {
+        if (prev >= DEMO_WORDS.length - 1) {
+          return 0; // loop back
+        }
+        return prev + 1;
+      });
+    }, delay);
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      clearInterval(interval);
     };
   }, [isPlaying, wpm]);
 
@@ -109,9 +102,10 @@ export function InteractivePacerPreview() {
           <div className="flex items-center gap-1.5 bg-slate-950/80 border border-slate-800 rounded-lg p-1">
             {[250, 350, 500].map((preset) => (
               <button
+                type="button"
                 key={preset}
                 onClick={() => handleWpmChange(preset)}
-                className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${
+                className={`px-3 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${
                   wpm === preset
                     ? "bg-indigo-500 text-white shadow-md shadow-indigo-500/20"
                     : "text-slate-400 hover:text-slate-200"
@@ -126,8 +120,9 @@ export function InteractivePacerPreview() {
         {/* Play/Pause controls */}
         <div className="flex gap-2">
           <button
+            type="button"
             onClick={togglePlay}
-            className="flex-1 py-3 px-4 bg-slate-800 hover:bg-slate-700 active:scale-98 transition-all text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-slate-700/60"
+            className="flex-1 py-3 px-4 bg-slate-800 hover:bg-slate-700 active:scale-98 transition-all text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 border border-slate-700/60 cursor-pointer"
           >
             {isPlaying ? (
               <>
@@ -141,8 +136,9 @@ export function InteractivePacerPreview() {
           </button>
           
           <button
+            type="button"
             onClick={resetDemo}
-            className="p-3 bg-slate-800 hover:bg-slate-700 active:scale-98 transition-all text-slate-300 hover:text-white rounded-xl border border-slate-700/60"
+            className="p-3 bg-slate-800 hover:bg-slate-700 active:scale-98 transition-all text-slate-300 hover:text-white rounded-xl border border-slate-700/60 cursor-pointer"
             title="Reset demo"
           >
             <RefreshCw className="w-4 h-4" />
