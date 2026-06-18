@@ -19,24 +19,20 @@ export function StorySection() {
                 <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Why This Exists
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">
-                16 years of school. <br />
+                Why I Built <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-                  0 classes on how to learn.
+                  The Rogue Puffin.
                 </span>
               </h2>
             </div>
 
             <div className="space-y-6 text-base md:text-lg text-slate-300 font-light leading-relaxed">
               <p>
-                After 12 years of grade school and 4 years of university, I stumbled upon a simple cognitive exercise. In 30 minutes, I doubled my reading speed.
+                Discovering that I could double my reading speed in 30 minutes was incredibly exciting. But immediately after the excitement came a deep sense of frustration.
               </p>
               
               <p>
-                At first, I was thrilled. <span className="text-white font-semibold underline decoration-indigo-500/50 underline-offset-4">Then, I got angry.</span>
-              </p>
-              
-              <p className="text-slate-200">
-                Why did I spend a decade and a half in classrooms, yet nobody ever taught me how to read at the speed of visual thought?
+                Why did I spend 16 years of grade school and university sitting in classrooms, yet nobody ever taught me how to process information at the speed of visual thought?
               </p>
               
               <p>

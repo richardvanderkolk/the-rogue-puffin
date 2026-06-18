@@ -35,10 +35,10 @@ export default function V2LandingPage() {
                         
                         <div className="space-y-4 max-w-2xl mx-auto pt-2">
                             <p className="text-2xl md:text-3xl text-amber-400 font-bold tracking-tight">
-                                The One Advantage Bill Gates and Warren Buffett Both Wished They Had.
+                                16 years of school. 0 classes on how to learn.
                             </p>
                             <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed">
-                                Skeptical? You should be. Most speed-reading apps teach you to skim, which ruins recall. Instead, this free 30-minute training uses biological eye-movement drills to silence your inner speaking voice, helping you absorb information at the speed of sight.
+                                After 12 years of grade school and 4 years of university, I stumbled upon a simple cognitive exercise. In 30 minutes, I doubled my reading speed. At first, I was thrilled. Then, I got angry: Why did we spend a decade and a half in classrooms, yet nobody ever taught us how to read at the speed of visual thought?
                             </p>
                         </div>
                     </div>
