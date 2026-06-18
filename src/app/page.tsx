@@ -53,20 +53,12 @@ export default function V2LandingPage() {
                                     <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                                         <Activity className="w-4 h-4" /> 100% Free Assessment & Drill • No Sign-up/Card Needed to Start
                                     </div>
-                                    <div className="flex flex-col sm:flex-row items-center gap-4 w-full justify-center lg:justify-start">
-                                        <Link 
-                                            href="/rogue-session/start?v2=true" 
-                                            className="w-full sm:w-auto group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-base hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center gap-2.5 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50 whitespace-nowrap"
-                                        >
-                                            Double my reading speed for Free <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                        </Link>
-                                        <Link 
-                                            href="/rogue-session/start?v2=true&mode=assessment" 
-                                            className="w-full sm:w-auto px-8 py-5 bg-slate-900/80 hover:bg-slate-800 text-white rounded-full font-bold text-base transition-all active:scale-95 flex items-center justify-center gap-2.5 border border-slate-700/60 backdrop-blur-sm whitespace-nowrap"
-                                        >
-                                            Take 60-Second Speed Assessment <ArrowRight className="w-4 h-4 text-slate-400" />
-                                        </Link>
-                                    </div>
+                                    <Link 
+                                        href="/rogue-session/start?v2=true&mode=assessment" 
+                                        className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
+                                    >
+                                        Start with a 60-second reading speed assessment (100% Free) <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </Link>
                                 </div>
                                 
                                 <Link href="/bootcamp" className="text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-2 mx-auto lg:mx-0">
