@@ -74,7 +74,7 @@ export function InteractivePacerPreview() {
   const { start, middle, end } = getStyledWord(currentWord);
 
   return (
-    <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between w-full h-80 max-w-md mx-auto group">
+    <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between w-full min-h-[350px] max-w-md mx-auto group">
       {/* Decorative top header glow */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-amber-500" />
       
@@ -148,6 +148,10 @@ export function InteractivePacerPreview() {
             <RefreshCw className="w-4 h-4" />
           </button>
         </div>
+
+        <p className="text-[10px] text-center text-slate-500 leading-tight">
+          * This demo is just one of the multiple biological eye-drills in our full protocol.
+        </p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
+import { Mascot } from "@/components/Mascot";
 import Image from "next/image";
-import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 export function StorySection() {
   return (
@@ -35,20 +36,17 @@ export function StorySection() {
               </p>
               
               <p>
-                I decided that I would share it with people and have seen thousands of people do the same.
+                I decided that I would share it with people and have seen thousands of people experience the same improvement.
               </p>
             </div>
 
             {/* Signature Block */}
             <div className="flex items-center gap-4 pt-4">
-              <div className="relative w-14 h-14 rounded-full border border-indigo-500/20 overflow-hidden bg-slate-900 shadow-inner">
-                <Image
-                  src="/assets/mascot.png"
-                  alt="The Rogue Puffin Founder"
-                  fill
-                  className="object-cover scale-110"
-                />
-              </div>
+              <Mascot
+                variant="headshot"
+                size={56}
+                className="w-14 h-14 border border-indigo-500/20 shadow-inner"
+              />
               <div>
                 <p className="font-handwriting text-3xl text-indigo-300 leading-none mb-1">
                   Richard
