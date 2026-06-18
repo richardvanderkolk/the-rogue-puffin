@@ -23,17 +23,6 @@ export default function V2LandingPage() {
             {/* 1. The "Aha!" Hero Section */}
             <section className="relative px-6 pt-24 pb-12 md:pt-32 md:pb-16 min-h-screen flex flex-col justify-center overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-indigo-900/10 rounded-full blur-[150px] -z-10" />
-                
-                {/* P.S. Post-it Note floating in the bottom-right space of the viewport (Large screen only) */}
-                <div className="hidden xl:block absolute right-12 bottom-12 rotate-[6deg] hover:rotate-[2deg] transition-transform cursor-default z-30 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700 fill-mode-both">
-                    <div className="bg-gradient-to-br from-[#fdf5cc] to-[#f4e087] text-slate-800 p-6 w-64 rounded-sm shadow-[4px_12px_24px_rgba(0,0,0,0.6)] border border-yellow-300/60 relative transform origin-top-left hover:scale-105 transition-all">
-                       <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-2 w-16 h-5 bg-white/50 shadow-sm rotate-[-3deg] backdrop-blur-sm border border-white/20" /> 
-                       <p className="font-handwriting text-2xl leading-tight font-medium opacity-90 mix-blend-multiply">
-                         P.S. When asked how he learned to build rockets, Elon Musk famously said:<br/>
-                         <span className="font-bold block mt-2 text-3xl">"I read books."</span>
-                       </p>
-                    </div>
-                </div>
 
                 <div className="max-w-6xl mx-auto relative z-10 w-full mt-8 md:mt-12">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -83,6 +72,17 @@ export default function V2LandingPage() {
                                 <Link href="/bootcamp" className="text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-2 mx-auto lg:mx-0">
                                     Skip the free session. View the 14-Day Bootcamp <ArrowRight className="w-3 h-3" />
                                 </Link>
+                            </div>
+
+                            {/* The Post-it Note (Now positioned in the left column on large screens) */}
+                            <div className="hidden lg:block pt-8 rotate-[-3deg] hover:rotate-[-1deg] transition-transform cursor-default z-30 max-w-sm mx-auto lg:mx-0">
+                                <div className="bg-gradient-to-br from-[#fdf5cc] to-[#f4e087] text-slate-800 p-6 rounded-sm shadow-[4px_12px_24px_rgba(0,0,0,0.6)] border border-yellow-300/60 relative transform origin-top-left hover:scale-105 transition-all">
+                                   <div className="absolute top-0 left-12 -mt-2 w-16 h-5 bg-white/50 shadow-sm rotate-[-3deg] backdrop-blur-sm border border-white/20" /> 
+                                   <p className="font-handwriting text-2xl leading-tight font-medium opacity-90 mix-blend-multiply">
+                                     P.S. When asked how he learned to build rockets, Elon Musk famously said:<br/>
+                                     <span className="font-bold block mt-2 text-3xl">"I read books."</span>
+                                   </p>
+                                </div>
                             </div>
                         </div>
 
