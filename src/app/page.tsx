@@ -40,7 +40,7 @@ export default function V2LandingPage() {
                                 
                                 <div className="space-y-4 max-w-2xl mx-auto lg:mx-0 pt-2">
                                     <p className="text-2xl md:text-3xl text-amber-400 font-bold tracking-tight">
-                                        Double your reading speed in 30 minutes. No sign-up required.
+                                        Double your reading speed for free in 30 minutes. No sign-up required.
                                     </p>
                                     <p className="text-lg text-slate-400 font-light leading-relaxed">
                                         Skeptical? You should be. Most speed-reading apps teach you to skim, which ruins recall. Instead, this free training uses biological eye-movement drills to silence your inner speaking voice, helping you absorb information at the speed of sight.
@@ -51,13 +51,13 @@ export default function V2LandingPage() {
                             <div className="flex flex-col items-center lg:items-start gap-5 pt-2">
                                 <div className="flex flex-col items-center lg:items-start gap-4 relative w-full">
                                     <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                                        <Activity className="w-4 h-4" /> 100% Free Assessment & Drill • No Sign-up/Card Needed to Start
+                                        <Activity className="w-4 h-4" /> Double your reading speed for free • No account or credit card needed
                                     </div>
                                     <Link 
                                         href="/rogue-session/start?v2=true&mode=assessment" 
                                         className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center text-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
                                     >
-                                        Click here to start by measuring your current reading speed (100% Free)
+                                        Click here to start by measuring your current reading speed and double it (100% Free)
                                     </Link>
                                 </div>
                                 
