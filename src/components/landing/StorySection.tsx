@@ -85,7 +85,7 @@ export function StorySection() {
                 </h3>
                 
                 <p className="text-sm text-slate-400 leading-relaxed font-light">
-                  Most people read at the speed of their inner voice—about 200 words per minute. By training your eyes to move non-linearly, you unlock your brain's natural ability to scan and synthesize entire ideas at once.
+                  Most people read at the speed of their inner voice—about 200 words per minute. By training your eyes to move non-linearly and rewiring your brain to process text at the speed of sight, you unlock your natural ability to scan and synthesize entire ideas at once.
                 </p>
               </div>
 
