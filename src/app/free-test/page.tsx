@@ -7,7 +7,14 @@ import { ArrowRight, Mail, Lock } from 'lucide-react';
 import { ViewTracker } from '@/components/ViewTracker';
 import { usePostHog } from 'posthog-js/react';
 
-const TEST_TEXT = `Reading is a complex cognitive process of decoding symbols in order to look to derive meaning. It is a means of language acquisition, of communication, and of sharing information and ideas. Like all language, it is a complex interaction between the text and the reader which is shaped by the reader’s prior knowledge, experiences, attitude, and language community which is culturally and socially situated. The reading process requires continuous practice, development, and refinement. In addition, reading requires creativity and critical analysis. Consumers of literature make ventures with each piece, innately deviating from literal words to create images that make sense to them in the unfamiliar places the texts describe. Because reading is such a complex process, it cannot be controlled or restricted to one or two interpretations. There are no concrete laws in reading, but rather allows readers an escape to produce their own products introspectively. This promotes deep exploration of texts during interpretation. Readers use a variety of reading strategies to assist with decoding (to translate symbols into sounds or visual representations of speech) and comprehension. Readers may use context clues to identify the meaning of unknown words. Readers integrate the words they have read into their existing framework of knowledge or schema (schemata theory).`;
+const TEST_TEXT = `Reading is a complex cognitive process of decoding symbols in order to look to derive meaning. It is a means of language acquisition, of communication, and of sharing information and ideas. Like all language, it is a complex interaction between the text and the reader which is shaped by the reader’s prior knowledge, experiences, attitude, and language community which is culturally and socially situated.
+
+The reading process requires continuous practice, development, and refinement. In addition, reading requires creativity and critical analysis. Consumers of literature make ventures with each piece, innately deviating from literal words to create images that make sense to them in the unfamiliar places the texts describe.
+
+Because reading is such a complex process, it cannot be controlled or restricted to one or two interpretations. There are no concrete laws in reading, but rather allows readers an escape to produce their own products introspectively. This promotes deep exploration of texts during interpretation.
+
+Readers use a variety of reading strategies to assist with decoding (to translate symbols into sounds or visual representations of speech) and comprehension. Readers may use context clues to identify the meaning of unknown words. Readers integrate the words they have read into their existing framework of knowledge or schema (schemata theory).`;
+
 
 const TEST_QUESTIONS = [
     { id: 1, text: "What is reading described as?", options: ["A simple task", "A complex cognitive process", "A physical exercise", "A visual trick"], correctIndex: 1 },
@@ -77,7 +84,7 @@ export default function FreeTestPage() {
                     <div className="bg-slate-900 p-6 rounded-xl border border-slate-800 text-left space-y-4">
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-bold">1</div>
-                            <span className="text-slate-300">Read a short passage at your normal pace.</span>
+                            <span className="text-slate-300">Read a short passage at your normal, comfortable pace.</span>
                         </div>
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-bold">2</div>
@@ -86,6 +93,9 @@ export default function FreeTestPage() {
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-bold">3</div>
                             <span className="text-slate-300">Get your detailed report instantly.</span>
+                        </div>
+                        <div className="text-xs text-indigo-300 border-t border-slate-800/80 pt-3 mt-1 font-medium leading-relaxed">
+                            * Note: Do not skim or rush. Read at a speed where you comfortably understand the text—comprehension is just as important as speed.
                         </div>
                     </div>
                     <button

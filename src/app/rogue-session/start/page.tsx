@@ -15,7 +15,11 @@ import ReadingTestEngine from "@/components/engines/ReadingTestEngine";
 
 // --- Constants ---
 
-const BASELINE_TEXT = `Speed reading is often misunderstood as a trick or a way to skim text without truly understanding it. However, the true goal of speed reading is to improve the efficiency of the connection between your eyes and your brain. Most people read sequentially, processing one word after another, subvocalizing each one as if speaking aloud. This limits reading speed to speaking speed, which is typically around 150 to 200 words per minute. By expanding your peripheral vision and reducing the fixation time on each word, you can capture phrases or entire lines at a glance. This visual processing is significantly faster than auditory processing, unlocking your brain's natural ability to absorb information rapidly.`;
+const BASELINE_TEXT = `Speed reading is often misunderstood as a trick or a way to skim text without truly understanding it. However, the true goal of speed reading is to improve the efficiency of the connection between your eyes and your brain.
+
+Most people read sequentially, processing one word after another, subvocalizing each one as if speaking aloud. This limits reading speed to speaking speed, which is typically around 150 to 200 words per minute.
+
+By expanding your peripheral vision and reducing the fixation time on each word, you can capture phrases or entire lines at a glance. This visual processing is significantly faster than auditory processing, unlocking your brain's natural ability to absorb information rapidly.`;
 
 const BASELINE_QUESTIONS = [
     { id: 1, text: "What limits reading speed for most people?", options: ["Lack of focus", "Subvocalization (speaking words in your head)", "Small font size", "Poor lighting"], correctIndex: 1 },
@@ -23,7 +27,11 @@ const BASELINE_QUESTIONS = [
     { id: 3, text: "How does speed reading improve efficiency?", options: ["By skipping unimportant words", "By using a finger guide", "By using visual processing instead of auditory", "By reading aloud faster"], correctIndex: 2 }
 ];
 
-const RETEST_TEXT = `The concept of neuroplasticity suggests that the brain is not a static organ, but rather a dynamic web of connections that can be rewired continuously throughout life. For decades, scientists believed that the brain stopped developing after childhood. We now know that this is fundamentally incorrect. In fact, focused attention and deliberate practice can physically alter the structure of your neural pathways. When you push your reading speed beyond comfortable limits, you are essentially forcing your brain to recruit new neurons to handle the increased data load. This adaptation mechanism is what allows speed readers to process information at rates that seem impossible to the untrained eye. It is not magic; it is simply biological adaptation to environmental demand for your busy life.`;
+const RETEST_TEXT = `The concept of neuroplasticity suggests that the brain is not a static organ, but rather a dynamic web of connections that can be rewired continuously throughout life. For decades, scientists believed that the brain stopped developing after childhood. We now know that this is fundamentally incorrect.
+
+In fact, focused attention and deliberate practice can physically alter the structure of your neural pathways. When you push your reading speed beyond comfortable limits, you are essentially forcing your brain to recruit new neurons to handle the increased data load.
+
+This adaptation mechanism is what allows speed readers to process information at rates that seem impossible to the untrained eye. It is not magic; it is simply biological adaptation to environmental demand for your busy life.`;
 
 const RETEST_QUESTIONS = [
     { id: 1, text: "What is neuroplasticity?", options: ["The brain's ability to rewire itself", "A type of brain surgery", "The hardening of neural pathways", "Static brain development"], correctIndex: 0 },
@@ -279,7 +287,10 @@ export default function RogueSessionPage() {
                                 </p>
                                 <div className="bg-amber-500/10 border border-amber-500/20 p-6 rounded-xl text-left mt-6">
                                     <p className="text-amber-400 font-bold mb-2 flex items-center gap-2"><Brain className="w-5 h-5" /> Comprehension Test</p>
-                                    <p className="text-slate-300 leading-relaxed">Read the following text at your <strong>normal, comfortable pace</strong>. Do not rush. Immediately after reading, you will be asked to answer a series of questions to test your recall.</p>
+                                    <p className="text-slate-300 leading-relaxed mb-3">Read the following text at your <strong>normal, comfortable pace</strong>. Do not rush. Immediately after reading, you will be asked to answer a series of questions to test your recall.</p>
+                                    <p className="text-xs text-indigo-300 border-t border-indigo-500/10 pt-3 font-medium">
+                                        * Note: This protocol trains your eyes and brain to absorb whole phrases at once. It is not skimming—your comprehension is just as important as your speed.
+                                    </p>
                                 </div>
                             </div>
                         </Slide>
