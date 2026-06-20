@@ -52,15 +52,15 @@ export default function V2LandingPage() {
 
                             <div className="flex flex-col items-center lg:items-start gap-5 pt-2">
                                 <div className="flex flex-col items-center lg:items-start gap-4 relative w-full">
-                                    <div className="flex items-center gap-2 text-sm font-medium text-amber-400/90 bg-amber-500/10 border border-amber-500/20 px-4 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
-                                        <Activity className="w-4 h-4" /> Double your reading speed for free • No account or credit card needed
-                                    </div>
                                     <Link 
                                         href="/rogue-session/start?v2=true&mode=assessment" 
                                         className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center text-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
                                     >
-                                        Click here to start by measuring your current reading speed and double it (100% Free)
+                                        Double My Reading Speed (100% Free)
                                     </Link>
+                                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 bg-slate-900/60 border border-slate-800/80 px-4 py-1.5 rounded-full shadow-md backdrop-blur-sm mt-1">
+                                        <Activity className="w-3.5 h-3.5 text-amber-400" /> Takes 30 minutes • No account or credit card required
+                                    </div>
                                 </div>
                                 
                                 <Link href="/bootcamp" className="text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-2 mx-auto lg:mx-0">

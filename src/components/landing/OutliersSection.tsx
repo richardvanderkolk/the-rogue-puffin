@@ -22,7 +22,7 @@ export function OutliersSection() {
               In a world drowning in noise, those who can process information fastest win. President JFK used speed reading to consume 6 newspapers before breakfast. Now, you can use those same neurological protocols to stay ahead of the curve.
             </p>
             <Link 
-                href="/rogue-session/start?v2=true" 
+                href="/rogue-session/start?v2=true&mode=assessment" 
                 className="inline-flex px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 items-center justify-center text-center gap-3 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] w-full sm:w-auto"
             >
                 Double my reading speed for Free
@@ -71,7 +71,7 @@ export function OutliersSection() {
             </p>
             <div className="pt-4">
                 <Link 
-                    href="/free-test" 
+                    href="/rogue-session/start?v2=true&mode=assessment" 
                     className="inline-flex px-8 py-4 bg-slate-800 text-white rounded-full font-bold text-lg hover:bg-slate-700 transition-all active:scale-95 items-center justify-center text-center gap-3 border border-slate-700 w-full sm:w-auto"
                 >
                     Take the Free Speed Test
