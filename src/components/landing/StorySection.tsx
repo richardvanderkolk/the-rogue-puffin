@@ -85,13 +85,13 @@ export function StorySection() {
                 </h3>
                 
                 <p className="text-sm text-slate-400 leading-relaxed font-light">
-                  Most people read at the speed of their inner voice—about 200 words per minute. By training your eyes to move non-linearly and rewiring your brain to process text at the speed of sight, you unlock your natural ability to scan and synthesize entire ideas at once.
+                  Most people read at the speed of their inner voice—about 200 words per minute. By training your eyes to move non-linearly and rewiring your brain to process text much faster than you are used to, you unlock your natural ability to scan and synthesize entire ideas at once.
                 </p>
               </div>
 
               <div className="pt-8 relative z-10">
                 <Link
-                  href="/rogue-session/start?v2=true"
+                  href="/rogue-session/start?v2=true&mode=assessment"
                   className="w-full group/btn relative py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white rounded-2xl font-bold text-base transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] border border-indigo-400/20"
                 >
                   Double my reading speed for Free

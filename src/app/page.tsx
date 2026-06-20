@@ -45,7 +45,7 @@ export default function V2LandingPage() {
                                         Double your reading speed for free in 30 minutes. No sign-up required.
                                     </p>
                                     <p className="text-lg text-slate-400 font-light leading-relaxed">
-                                        Skeptical? You should be. Most speed-reading apps teach you to skim, which ruins recall. Instead, this free training uses biological eye-movement drills to silence your inner speaking voice, helping you absorb information at the speed of sight.
+                                        Skeptical? You should be. Most speed-reading apps teach you to skim, which ruins recall. Instead, this free training uses biological eye-movement drills to silence your inner speaking voice, helping you absorb information much faster than you are used to.
                                     </p>
                                 </div>
                             </div>

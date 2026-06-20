@@ -152,9 +152,11 @@ export function InteractivePacerPreview() {
           </button>
         </div>
 
-        <p className="text-[10px] text-center text-slate-500 leading-tight">
-          * This demo is just one of the multiple biological eye-drills in our full protocol.
-        </p>
+        <div className="bg-indigo-500/10 border border-indigo-500/20 rounded-xl p-3 text-center transition-all duration-500 hover:bg-indigo-500/15">
+          <p className="text-xs text-indigo-300 font-semibold leading-relaxed">
+            💡 This demo is just one of the multiple biological eye-drills in our full protocol.
+          </p>
+        </div>
       </div>
     </div>
   );
