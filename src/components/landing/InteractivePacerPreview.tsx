@@ -13,7 +13,8 @@ const DEMO_WORDS = [
 ];
 
 export function InteractivePacerPreview() {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const [wordIndex, setWordIndex] = useState(0);
   const [wpm, setWpm] = useState(350);
 
@@ -35,10 +36,14 @@ export function InteractivePacerPreview() {
     };
   }, [isPlaying, wpm]);
 
-  const togglePlay = () => setIsPlaying(!isPlaying);
+  const togglePlay = () => {
+    setIsPlaying(!isPlaying);
+    setHasStarted(true);
+  };
   const resetDemo = () => {
     setWordIndex(0);
     setIsPlaying(false);
+    setHasStarted(false);
   };
 
   const handleWpmChange = (newWpm: number) => {
@@ -137,7 +142,7 @@ export function InteractivePacerPreview() {
               </>
             ) : (
               <>
-                <Play className="w-4 h-4 fill-white" /> Resume Demo
+                <Play className="w-4 h-4 fill-white" /> {hasStarted ? "Resume Demo" : "Start Demo"}
               </>
             )}
           </button>
