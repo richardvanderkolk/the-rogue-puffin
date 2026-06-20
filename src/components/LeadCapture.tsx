@@ -3,11 +3,14 @@
 import { useState } from 'react';
 import { CheckCircle, FileText, Download, Zap } from 'lucide-react';
 import Link from 'next/link';
+import { usePostHog } from 'posthog-js/react';
 
 export function LeadCapture() {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const posthog = usePostHog();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -28,6 +31,10 @@ export function LeadCapture() {
             if (!res.ok) {
                 throw new Error('Failed to submit email');
             }
+
+            posthog?.capture('lead_submitted', { 
+                email_source: 'pdf_protocol_checklist' 
+            });
 
             setStatus('success');
         } catch (error: any) {

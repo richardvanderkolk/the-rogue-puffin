@@ -124,6 +124,11 @@ export default function RogueSessionPage() {
     const handleBaselineComplete = async (results: { wpm: number; comprehension: number }) => {
         setBaselineStats(results);
         localStorage.setItem('rp_baseline_stats', JSON.stringify(results));
+        posthog?.capture('test_completed', {
+            test_flow: 'precision_reading_drill',
+            wpm: results.wpm,
+            comprehension: results.comprehension
+        });
         nextStep(); // Advance UI immediately
         
         if (visitorId) {
@@ -227,6 +232,11 @@ export default function RogueSessionPage() {
             });
             if (res.ok) {
                 localStorage.setItem('rp_captured_email', emailToSubmit);
+                posthog?.capture('lead_submitted', {
+                    email_source: 'precision_reading_drill',
+                    wpm: wpmVal,
+                    comprehension: compVal
+                });
                 setHasCapturedLead(true);
                 setLeadStatus('idle');
                 return true;
@@ -238,6 +248,11 @@ export default function RogueSessionPage() {
             setLeadStatus('error');
             return false;
         }
+    };
+
+    const handleStartBaseline = () => {
+        posthog?.capture('test_started', { test_flow: 'precision_reading_drill' });
+        nextStep();
     };
 
     return (
@@ -253,7 +268,7 @@ export default function RogueSessionPage() {
                             key="lets_do_this" 
                             title={assessmentMode ? "Reading Speed Assessment" : "Step 1: The Baseline"} 
                             icon={<Clock className="w-12 h-12 text-indigo-400" />} 
-                            onNext={nextStep} 
+                            onNext={handleStartBaseline} 
                             customButtonText={assessmentMode ? "Start Assessment" : "Start Baseline"}
                         >
                             <div className="space-y-8 max-w-2xl mx-auto">

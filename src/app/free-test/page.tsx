@@ -5,6 +5,7 @@ import ReadingTestEngine from '@/components/engines/ReadingTestEngine';
 import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Lock } from 'lucide-react';
 import { ViewTracker } from '@/components/ViewTracker';
+import { usePostHog } from 'posthog-js/react';
 
 const TEST_TEXT = `Reading is a complex cognitive process of decoding symbols in order to look to derive meaning. It is a means of language acquisition, of communication, and of sharing information and ideas. Like all language, it is a complex interaction between the text and the reader which is shaped by the reader’s prior knowledge, experiences, attitude, and language community which is culturally and socially situated. The reading process requires continuous practice, development, and refinement. In addition, reading requires creativity and critical analysis. Consumers of literature make ventures with each piece, innately deviating from literal words to create images that make sense to them in the unfamiliar places the texts describe. Because reading is such a complex process, it cannot be controlled or restricted to one or two interpretations. There are no concrete laws in reading, but rather allows readers an escape to produce their own products introspectively. This promotes deep exploration of texts during interpretation. Readers use a variety of reading strategies to assist with decoding (to translate symbols into sounds or visual representations of speech) and comprehension. Readers may use context clues to identify the meaning of unknown words. Readers integrate the words they have read into their existing framework of knowledge or schema (schemata theory).`;
 
@@ -19,9 +20,15 @@ export default function FreeTestPage() {
     const [results, setResults] = useState({ wpm: 0, comprehension: 0 });
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const posthog = usePostHog();
 
     const handleTestComplete = (data: { wpm: number; comprehension: number }) => {
         setResults(data);
+        posthog?.capture('test_completed', { 
+            test_flow: '3_minute_free_test',
+            wpm: data.wpm,
+            comprehension: data.comprehension 
+        });
         setStep('capture');
     };
 
@@ -40,7 +47,13 @@ export default function FreeTestPage() {
                 })
             });
             
-            if (!res.ok) {
+            if (res.ok) {
+                posthog?.capture('lead_submitted', { 
+                    email_source: '3_minute_free_test',
+                    wpm: results.wpm,
+                    comprehension: results.comprehension
+                });
+            } else {
                 console.error("Failed to save lead:", await res.text());
             }
         } catch (err) {
@@ -76,7 +89,10 @@ export default function FreeTestPage() {
                         </div>
                     </div>
                     <button
-                        onClick={() => setStep('test')}
+                        onClick={() => {
+                            posthog?.capture('test_started', { test_flow: '3_minute_free_test' });
+                            setStep('test');
+                        }}
                         className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform"
                     >
                         Start Test

@@ -72,7 +72,7 @@ export async function GET(request: Request) {
     // 5. Get purchases / revenue
     const { data: purchases, error: purchasesError } = await supabase
         .from('purchases')
-        .select('amount_total, product');
+        .select('*');
 
     if (purchasesError) {
          console.error("Error fetching purchases, table might not exist yet:", purchasesError);
@@ -80,11 +80,16 @@ export async function GET(request: Request) {
 
     let totalRevenueCents = 0;
     let bootcampsSold = 0;
+    const revenueByCurrency: Record<string, number> = {};
 
     if (purchases) {
         purchases.forEach(p => {
-            totalRevenueCents += (p.amount_total || 0);
+            const rawAmount = p.amount_total || 0;
+            const currencyCode = (p.currency || 'usd').toLowerCase();
+            totalRevenueCents += rawAmount;
             if (p.product === 'bootcamp') bootcampsSold++;
+            
+            revenueByCurrency[currencyCode] = (revenueByCurrency[currencyCode] || 0) + (rawAmount / 100);
         });
     }
 
@@ -220,6 +225,7 @@ export async function GET(request: Request) {
     return NextResponse.json({
         totalLeads: leadsCount || 0,
         totalRevenue: totalRevenueCents / 100, // Convert cents to dollars
+        revenueByCurrency,
         bootcampsSold,
         uniqueVisitors,
         landingViews,

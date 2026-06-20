@@ -98,6 +98,10 @@ export default function AdminDashboard() {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
     };
 
+    const formatRevenueByCurrency = (currencyCode: string, amount: number) => {
+        return new Intl.NumberFormat('en-US', { style: 'currency', currency: currencyCode.toUpperCase() }).format(amount);
+    };
+
     const getPercentage = (value: number, total: number) => {
         if (!total || total <= 0) return 0;
         return Math.round((value / total) * 100);
@@ -152,8 +156,20 @@ export default function AdminDashboard() {
                     <div className="flex items-center gap-3 mb-2 text-slate-400">
                         <DollarSign className="w-5 h-5" /> Total Revenue
                     </div>
-                    <div className="text-3xl font-bold text-emerald-400">{formatCurrency(metrics.totalRevenue)}</div>
-                    <div className="text-xs text-slate-500 mt-2">All-time specific volume</div>
+                    {metrics.revenueByCurrency && Object.keys(metrics.revenueByCurrency).length > 0 ? (
+                        <div className="space-y-1">
+                            {Object.entries(metrics.revenueByCurrency).map(([currency, amount]: any) => (
+                                <div key={currency} className="text-2xl font-bold text-emerald-400">
+                                    {formatRevenueByCurrency(currency, amount)}
+                                </div>
+                            ))}
+                        </div>
+                    ) : (
+                        <div className="text-3xl font-bold text-emerald-400">
+                            {formatCurrency(metrics.totalRevenue)}
+                        </div>
+                    )}
+                    <div className="text-xs text-slate-500 mt-2">All-time volume split by currency</div>
                 </div>
             </div>
 

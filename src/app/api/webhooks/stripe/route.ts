@@ -49,6 +49,7 @@ export async function POST(request: Request) {
                     product: productMode,
                     stripe_session_id: session.id,
                     amount_total: session.amount_total,
+                    currency: session.currency || 'usd',
                 });
 
             if (error) {
