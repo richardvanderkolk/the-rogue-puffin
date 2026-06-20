@@ -371,7 +371,7 @@ export function getArticleVariant(slug: string, style: string): string {
                         </div>
 
                         <div class="order-1 md:order-2 w-full overflow-hidden flex justify-center bg-slate-900/80 rounded-3xl border border-slate-700 shadow-2xl p-4">
-                            <img src="/images/blog/learning-superpower-map.jpg" alt="Learning Superpower Visual Map" class="w-full h-auto rounded-xl drop-shadow-xl hover:scale-105 transition-transform duration-500" />
+                            <img src="/images/blog/learning-superpower-map.jpg" alt="Learning Style Visual Map" class="w-full h-auto rounded-xl drop-shadow-xl hover:scale-105 transition-transform duration-500" />
                         </div>
                     </div>
                 </div>
@@ -599,7 +599,7 @@ export function getArticleVariant(slug: string, style: string): string {
 
                             <p>
                                 <span class="font-bold uppercase tracking-wider text-sm text-emerald-800">Conclusion:</span> 
-                                The traditional classroom assumes the entire world is a desert and forces every organism to act like a cactus. Discovering your learning superpower is simply discovering which environment you naturally evolved to thrive in.
+                                The traditional classroom assumes the entire world is a desert and forces every organism to act like a cactus. Discovering your cognitive learning style is simply discovering which environment you naturally evolved to thrive in.
                             </p>
                             <p class="text-center font-bold text-xl text-emerald-700 mt-8 italic">
                                 Stop trying to be a cactus. Grow where your roots naturally take hold.

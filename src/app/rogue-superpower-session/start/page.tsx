@@ -345,7 +345,7 @@ Do not just give me a standard textbook definition. Completely format your expla
                                 <div className="space-y-8 w-full max-w-2xl mx-auto">
                                     <div className="bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
                                         <p className="text-xl text-slate-300 mb-6">
-                                            We noticed you have already discovered your top learning superpowers:
+                                            We noticed you have already identified your top learning styles:
                                         </p>
                                         <div className="flex justify-center gap-4 flex-wrap mb-8">
                                             {savedPowers.map((p, i) => (
@@ -409,7 +409,7 @@ Do not just give me a standard textbook definition. Completely format your expla
                     {step === 2 && (
                         <Slide key="step-2" title="Multiple Intelligences" icon={<Layers className="w-12 h-12 text-amber-400" />} onNext={nextStep} onBack={prevStep}>
                             <p className="text-xl text-slate-300 mb-8">
-                                Gardner identified 8 main kinds of intelligence. Think of them like <strong className="text-white">learning superpowers</strong>. None is better than the others—they are simply different ways our minds engage with the world.
+                                Gardner identified 8 main kinds of intelligence. Think of them like <strong className="text-white">learning styles</strong>. None is better than the others—they are simply different ways our minds process information and engage with the world.
                             </p>
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
                                 {Object.values(INTELLIGENCE_INFO).map((info, i) => (
@@ -427,7 +427,7 @@ Do not just give me a standard textbook definition. Completely format your expla
 
                     {/* Slide 3: Part 1 Scenarios */}
                     {step === 3 && (
-                        <Slide key={`step-3-${part1Index}`} title="Discover Your Superpower Quiz" customButtonText="Skip to Part 2" onNext={nextStep} onBack={part1Index === 0 ? prevStep : () => setPart1Index(p => p - 1)}>
+                        <Slide key={`step-3-${part1Index}`} title="Identify Your Learning Style" customButtonText="Skip to Part 2" onNext={nextStep} onBack={part1Index === 0 ? prevStep : () => setPart1Index(p => p - 1)}>
                             <div className="w-full max-w-2xl mx-auto text-left">
                                 <div className="flex justify-between items-end mb-8 border-b border-slate-800 pb-4">
                                     <div>
@@ -461,7 +461,7 @@ Do not just give me a standard textbook definition. Completely format your expla
 
                     {/* Slide 4: Part 2 Statements */}
                     {step === 4 && (
-                        <Slide key="step-4" title="Discover Your Superpower Quiz" customButtonText="Calculate My Superpowers" onNext={triggerCalculation} onBack={prevStep}>
+                        <Slide key="step-4" title="Identify Your Learning Style" customButtonText="Calculate My Profile" onNext={triggerCalculation} onBack={prevStep}>
                             <div className="w-full text-left flex flex-col h-full max-h-[60vh]">
                                 <div className="border-b border-slate-800 pb-4 mb-6 flex-shrink-0">
                                     <p className="text-indigo-400 text-sm font-bold uppercase tracking-widest mb-1">Part 2: Deep Dive</p>
@@ -516,7 +516,7 @@ Do not just give me a standard textbook definition. Completely format your expla
 
                     {/* Slide 6: Results */}
                     {step === 6 && (
-                        <Slide key="step-6" title="Your Dominant Superpowers" icon={<Star className="w-12 h-12 text-emerald-400" />} onNext={nextStep} onBack={() => {
+                        <Slide key="step-6" title="Your Dominant Learning Styles" icon={<Star className="w-12 h-12 text-emerald-400" />} onNext={nextStep} onBack={() => {
                             if (useSaved) {
                                 setStep(0); // If they used saved powers, go back to welcome screen
                             } else {
@@ -552,7 +552,7 @@ Do not just give me a standard textbook definition. Completely format your expla
                         <Slide key="step-7" title="Your Custom Toolkit" icon={<BookOpen className="w-12 h-12 text-sky-400" />} customButtonText="How to use AI" onNext={nextStep} onBack={prevStep}>
                             <div className="text-left max-w-4xl mx-auto w-full">
                                 <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                                    Instead of relying on just one style, your strongest learning potential comes from combining your top 3 superpowers. Here is how you can apply your unique profile to different subjects:
+                                    Instead of relying on just one style, your strongest learning potential comes from combining your top 3 learning styles. Here is how you can apply your unique profile to different subjects:
                                 </p>
                                 
                                 <div className="space-y-6">
@@ -656,7 +656,7 @@ Do not just give me a standard textbook definition. Completely format your expla
                                 <div className="flex-1 space-y-6">
                                     <h3 className="text-3xl font-bold text-white leading-tight">You Have The Code</h3>
                                     <p className="text-xl text-slate-300 leading-relaxed">
-                                        You now know that intelligence isn't a single number—it's a vibrant ecosystem. You've discovered your top learning superpowers: <strong className="text-indigo-400">{INTELLIGENCE_INFO[topPowers[0]].title.split(' (')[0]}, {INTELLIGENCE_INFO[topPowers[1]].title.split(' (')[0]}, and {INTELLIGENCE_INFO[topPowers[2]].title.split(' (')[0]}</strong>.
+                                        You now know that intelligence isn't a single number—it's a vibrant ecosystem. You've identified your dominant learning styles: <strong className="text-indigo-400">{INTELLIGENCE_INFO[topPowers[0]].title.split(' (')[0]}, {INTELLIGENCE_INFO[topPowers[1]].title.split(' (')[0]}, and {INTELLIGENCE_INFO[topPowers[2]].title.split(' (')[0]}</strong>.
                                     </p>
                                     
                                     <div className="h-px bg-slate-800 w-full my-8"></div>

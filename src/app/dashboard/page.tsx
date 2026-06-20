@@ -81,7 +81,7 @@ export default function DashboardPage() {
                             <Link href="/bootcamp" className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-indigo-950/40 border border-indigo-500/20 p-6 rounded-2xl hover:bg-indigo-900/50 hover:border-indigo-500/40 transition-all hover:-translate-y-1 group relative overflow-hidden">
                                 <div>
                                     <h4 className="font-bold text-white text-xl mb-1 group-hover:text-indigo-300 transition-colors">Step 2: The 14-Day Bootcamp</h4>
-                                    <p className="text-sm text-indigo-300/70">The complete execution plan (Reading, Superpower, & Memory).</p>
+                                    <p className="text-sm text-indigo-300/70">The complete execution plan (Reading, Learning Style, & Memory).</p>
                                     <div className="mt-3 flex items-center gap-2">
                                         <span className="text-xs font-bold px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded">Day {currentDay}</span>
                                         <span className="text-xs text-slate-500 uppercase tracking-widest">{Math.round(((currentDay - 1) / 14) * 100)}% Complete</span>

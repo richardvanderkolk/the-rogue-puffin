@@ -752,7 +752,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                                 <Brain className="w-7 h-7 text-purple-400" />
                             </div>
                             <h4 className="text-white font-bold text-lg">Day 2: Effortless Understanding</h4>
-                            <p className="text-sm text-slate-400 leading-relaxed">Increase understanding by discovering your personal learning superpower.</p>
+                            <p className="text-sm text-slate-400 leading-relaxed">Increase understanding by identifying your unique learning style.</p>
                         </div>
                         <div className="space-y-3 text-center md:text-left">
                             <div className="w-14 h-14 mx-auto md:mx-0 rounded-2xl bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
@@ -773,7 +773,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                     <div className="flex flex-col items-center">
                         <Link href="/bootcamp" className="block group w-full max-w-lg">
                             <button className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 py-5 rounded-full font-black text-xl hover:from-amber-300 hover:to-amber-400 transition-all shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] flex justify-center items-center gap-3 hover:scale-105 border border-amber-300/50">
-                                Secure My Superpower (14-Day Bootcamp) <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                                Secure Your 14-Day Bootcamp Access <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </Link>
                         <p className="text-sm text-slate-500 font-medium mt-5">14-Day Guided Execution Plan. Only $29.</p>

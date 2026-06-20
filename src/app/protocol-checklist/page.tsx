@@ -94,7 +94,7 @@ export default function ProtocolChecklistPage() {
                                 <div className="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center shadow-lg shrink-0">
                                     <span className="text-white font-black text-lg">2</span>
                                 </div>
-                                <h3 className="text-xl font-bold tracking-tight text-slate-950">Know Your "Superpower"</h3>
+                                <h3 className="text-xl font-bold tracking-tight text-slate-950">Identify Your Learning Style</h3>
                             </div>
                             <div className="pl-14">
                                 <p className="text-slate-600 text-sm leading-relaxed mb-3">

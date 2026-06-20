@@ -191,7 +191,7 @@ export function SuperpowerQuiz() {
                             <div className="w-16 h-16 bg-indigo-500/20 rounded-2xl flex items-center justify-center mx-auto text-indigo-400">
                                 <Brain className="w-8 h-8" />
                             </div>
-                            <h3 className="text-3xl font-black text-white">Discover Your Learning Superpower</h3>
+                            <h3 className="text-3xl font-black text-white">Identify Your Learning Style</h3>
                             <p className="text-slate-300 max-w-xl mx-auto leading-relaxed">
                                 Ready to find out how your brain works best? Take this quick 3-minute interactive assessment to uncover your primary Multiple Intelligences.
                             </p>
@@ -290,7 +290,7 @@ export function SuperpowerQuiz() {
                                     {isCalculating ? (
                                         <><RefreshCw className="w-5 h-5 animate-spin" /> Calculating...</>
                                     ) : (
-                                        <>Reveal My Superpowers <ArrowRight className="w-5 h-5" /></>
+                                        <>Reveal My Learning Profile <ArrowRight className="w-5 h-5" /></>
                                     )}
                                 </button>
                             </div>
@@ -307,7 +307,7 @@ export function SuperpowerQuiz() {
                         >
                             <div className="text-center space-y-2 mb-10">
                                 <p className="text-emerald-400 text-xs font-bold uppercase tracking-widest">Assessment Complete</p>
-                                <h3 className="text-3xl font-black text-white">Your Dominant Superpowers</h3>
+                                <h3 className="text-3xl font-black text-white">Your Dominant Learning Styles</h3>
                             </div>
 
                             <div className="grid gap-4">

@@ -233,7 +233,7 @@ function RogueDay6SessionContent() {
 
                     {/* Step 4: Refine Your Mindset */}
                     {step === 4 && !showVariant && (
-                        <Slide key="commit" title="Make Your Commitment" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Superpower'} Translation` : 'Next'}>
+                        <Slide key="commit" title="Make Your Commitment" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Learning Style'} Translation` : 'Next'}>
                             <div className="space-y-6 max-w-2xl mx-auto text-left">
                                 <p className="text-lg text-slate-300">
                                     Which of the four foundations will you commit to improving for the remaining 9 days of this bootcamp?
@@ -266,7 +266,7 @@ function RogueDay6SessionContent() {
                                 </div>
                                 {archetypes.length > 1 && (
                                     <div className="mt-12 pt-8 border-t border-slate-800">
-                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary superpowers:</p>
+                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary learning styles:</p>
                                         <div className="flex justify-center gap-4 flex-wrap">
                                             {archetypes.map((type) => (
                                                 <button

@@ -89,7 +89,7 @@ export function ArticleRenderer({ content, isPremium, articleSlug }: ArticleRend
                         </div>
                         <div>
                             <h3 className="text-white font-bold mb-1 text-lg">We found your Learning Translation.</h3>
-                            <p className="text-slate-400 text-sm">Because your primary superpower is <span className="text-indigo-400 font-bold capitalize">{superpower}</span>, we have a custom version of this theory just for you.</p>
+                            <p className="text-slate-400 text-sm">Because your primary learning style is <span className="text-indigo-400 font-bold capitalize">{superpower}</span>, we have a custom version of this theory just for you.</p>
                         </div>
                     </div>
                     <Link href={`?style=${superpower}`} scroll={false} className="shrink-0 px-6 py-3 bg-indigo-500/10 text-indigo-400 font-bold rounded-xl border border-indigo-500/20 hover:bg-indigo-500 hover:text-white transition-all flex items-center gap-2 group-hover:scale-105">

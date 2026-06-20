@@ -39,7 +39,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
     
     const baseDays = [
         { day: 1, title: "Discover Reading Possibilities", desc: "The Subvocalization Drill", icon: <Zap className="w-5 h-5" />, link: "/rogue-session/start?v2=true" },
-        { day: 2, title: "Discover Your Personal Superpower", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, link: isUnlocked ? "/rogue-superpower-session/start?course=bootcamp" : checkoutLink },
+        { day: 2, title: "Identify Your Learning Style", desc: "Diagnosing your learning style", icon: <Brain className="w-5 h-5" />, link: isUnlocked ? "/rogue-superpower-session/start?course=bootcamp" : checkoutLink },
         { day: 3, title: "Memory Training", desc: "The foundational memory protocols", icon: <Target className="w-5 h-5" />, link: "/rogue-memory-session/start?course=bootcamp" },
         { day: 4, title: "Know Your Why", desc: "Setting your foundation & peripheral vision", icon: <Brain className="w-5 h-5" />, link: "/rogue-day-4/start?course=bootcamp" },
         { day: 5, title: "A Learning Mindset", desc: "The psychological foundation & kinetic words", icon: <Brain className="w-5 h-5" />, link: "/rogue-day-5/start?course=bootcamp" },
@@ -220,7 +220,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                             </div>
                             
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Billionaire Superpower.</span>
+                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Billionaire's Edge.</span>
                             </h2>
                             
                             <div className="space-y-6 text-left max-w-2xl mx-auto w-full mt-4">
@@ -284,8 +284,8 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                         </h2>
                         <p className="text-lg text-slate-400 font-light leading-relaxed">
                             {isUnlocked 
-                                ? (completedDays === 1 ? "Congratulations! You have discovered your unique learning superpower. You now have full access to all remaining modules in the bootcamp. Dive into Memory Training next!" : "Keep up the momentum. Stick to the daily rhythm to ensure your new speed and comprehension habits become permanent.")
-                                : `Congratulations! You have discovered that you are able to read faster. During the rest of this bootcamp you will embed this new speed as your new habit, discover your personal learning superpower, memory skills that will blow your mind and much more for just ${symbol}29.`
+                                ? (completedDays === 1 ? "Congratulations! You have identified your unique cognitive learning style. You now have full access to all remaining modules in the bootcamp. Dive into Memory Training next!" : "Keep up the momentum. Stick to the daily rhythm to ensure your new speed and comprehension habits become permanent.")
+                                : `Congratulations! You have discovered that you are able to read faster. During the rest of this bootcamp you will embed this new speed as your new habit, identify your cognitive learning style, master memory techniques to lock in retention, and much more for just ${symbol}29.`
                             }
                         </p>
                     </div>

@@ -207,7 +207,7 @@ function RogueGraduationContent() {
                         >
                             <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-6">
                                 <Star className="w-6 h-6 text-fuchsia-400" /> 
-                                Your Learning Superpowers
+                                Your Cognitive Profile
                             </h2>
                             <div className="flex flex-col md:flex-row gap-4">
                                 {superpowers.map((power, idx) => (

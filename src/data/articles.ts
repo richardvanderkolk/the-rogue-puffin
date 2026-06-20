@@ -309,8 +309,7 @@ export const articles: Article[] = [
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Comfort Trap</h2>
                 <p class="print:mb-6">Cognitive science has repeatedly proven that teaching a "visual learner" using only pictures doesn't significantly improve their test scores compared to teaching them with text.</p>
                 <p class="print:mb-6">What we call a "Learning Style" is actually just a <em>preference</em>. It's the way we feel most comfortable receiving information. But learning and comfort are often opposites. When we refuse to engage with material outside our preferred format, we are choosing comfort over neuroplasticity.</p>
-                <p class="print:mb-6">Yes, you might <a href="/blog/know-your-learning-superpower" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">have a learning superpower</a>. You might naturally gravitate toward spatial reasoning, or linguistic logic, or interpersonal conversations. But true genius isn't about ignoring your weaknesses; it's about building bridges from your strengths to your weaknesses.</p>
-
+                <p class="print:mb-6">Yes, you might <a href="/blog/know-your-learning-superpower" class="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 decoration-indigo-500/30 transition-all font-medium">have a unique learning style</a>. You might naturally gravitate toward spatial reasoning, or linguistic logic, or interpersonal conversations. But true genius isn't about ignoring your weaknesses; it's about building bridges from your strengths to your weaknesses.</p>
                 <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Power of Dual Coding</h2>
                 <p class="print:mb-6">Instead of restricting yourself to one style, the most efficient way to learn is a psychological concept called <strong>Dual Coding</strong>.</p>
                 <p class="print:mb-6">Dual Coding is the practice of combining verbal materials with visual materials. When you read a difficult paragraph of text, don't just highlight it. Draw a terrible stick-figure diagram representing the concept in the margins.</p>
@@ -1009,7 +1008,7 @@ export const articles: Article[] = [
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <a href="/blog/know-your-learning-superpower" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Next in Curriculum</p>
-                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Know Your Learning Superpower <span class="text-indigo-500 ml-1">→</span></h4>
+                    <h4 class="text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">Identify Your Learning Style <span class="text-indigo-500 ml-1">→</span></h4>
                 </a>
                 <a href="/rogue-session" class="block p-6 rounded-2xl bg-slate-900/40 border border-white/5 hover:border-indigo-500/30 hover:bg-slate-900 transition-all group">
                     <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Apply These Concepts</p>
@@ -1514,9 +1513,9 @@ export const articles: Article[] = [
     {
         slug: "know-your-learning-superpower",
         published: true,
-        title: "Know Your Learning Superpower",
+        title: "Identify Your Learning Style",
         category: "PART1_READY",
-        excerpt: "You have a learning superpower—do you know what it is? We all have different strengths, yet most of us were taught in exactly the same way.",
+        excerpt: "You have a unique learning style—do you know what it is? We all have different strengths, yet most of us were taught in exactly the same way.",
         content: `\n
             <p class="lead text-xl text-slate-300 mb-8 leading-relaxed">Most people think they are either "good at learning" or not. But that's not true!</p>
             <p class="print:mb-6">What is true is that most people have never been shown how they learn best. No two people are exactly the same. We all have different strengths and different ways our brains process information.</p>
@@ -1547,9 +1546,9 @@ export const articles: Article[] = [
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Gardner's Multiple Intelligences Theory</h2>
             <p class="print:mb-6">Gardner called this idea Multiple Intelligences Theory.</p>
             <p class="print:mb-6">According to this theory, humans don't have just one kind of intelligence. We have many different ways of being intelligent, and each person tends to have certain strengths.</p>
-            <p class="print:mb-6">Think of it like a set of learning superpowers.<br />Some people's minds are powerful with words. Others see the world in pictures. Some think best when they move their bodies. Others understand people, music, nature, or patterns in extraordinary ways.<br />None of these intelligences is better than the others. They are simply different ways our minds engage with the world.</p>
+            <p class="print:mb-6">Think of it like a set of learning styles.<br />Some people's minds are powerful with words. Others see the world in pictures. Some think best when they move their bodies. Others understand people, music, nature, or patterns in extraordinary ways.<br />None of these intelligences is better than the others. They are simply different ways our minds engage with the world.</p>
 
-            <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Eight Learning Superpowers</h2>
+            <h2 class="text-2xl font-bold text-white mt-12 mb-6">The Eight Learning Styles</h2>
             <p class="print:mb-6">Gardner identified eight main kinds of intelligence that appear again and again in human learning.</p>
             <p class="print:mb-6">You might recognize yourself in one or more of these:</p>
 
@@ -1561,7 +1560,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You learn best by reading, writing, and explaining things out loud. You are great at turning ideas into exciting sentences.</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=linguistic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=linguistic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=linguistic" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1573,7 +1572,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You love finding patterns, solving problems, and figuring out how things work. You naturally want to organize ideas step-by-step.</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=logical" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=logical" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=logical" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1585,7 +1584,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You learn best when there are diagrams, maps, or pictures. You probably remember what a page looked like better than the words on it!</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=visual" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=visual" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=visual" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1597,7 +1596,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You understand things best by doing. Movement, building, acting, and hands-on experiences help you think clearly.</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=kinesthetic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=kinesthetic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=kinesthetic" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1609,7 +1608,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You are especially sensitive to rhythm, tone, and sound. Music helps you remember and understand ideas.</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=musical" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=musical" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=musical" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1621,7 +1620,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You learn best when you can work in a group, teach a friend, or discuss ideas. Talking helps you understand things perfectly.</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=interpersonal" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=interpersonal" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=interpersonal" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1633,7 +1632,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You are reflective and self-aware. They understand their own thoughts and feelings and often learn best through quiet reflection.</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=intrapersonal" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=intrapersonal" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=intrapersonal" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1645,7 +1644,7 @@ export const articles: Article[] = [
                         <p class="text-sm text-slate-400 mb-4">You notice patterns in nature and enjoy learning through observing plants, animals, and ecosystems.</p>
                     </div>
                     <div class="mt-auto flex flex-col items-start gap-2">
-                        <a href="?style=naturalistic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this superpower →</a>
+                        <a href="?style=naturalistic" class="inline-block text-sm font-bold text-indigo-400 hover:text-indigo-300 transition-colors">See how to use this learning style →</a>
                         <a href="?example=naturalistic" class="inline-block text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors">See an example in this style →</a>
                     </div>
                 </div>
@@ -1656,7 +1655,7 @@ export const articles: Article[] = [
                     <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
                 </div>
                 <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-                    So What Is Your Superpower?
+                    So What Is Your Learning Style?
                 </h3>
                 <p class="mb-8 text-slate-300">You probably have a mix of 2 or 3! Ask yourself these questions to help find out:</p>
                 
@@ -1676,7 +1675,7 @@ export const articles: Article[] = [
                     </div>
                 </div>
 
-                <p class="font-bold text-indigo-300 text-lg">👉 Take the answers to those questions. Which of the 7 superpowers above matches them best?</p>
+                <p class="font-bold text-indigo-300 text-lg">👉 Take the answers to those questions. Which of the 7 learning styles above matches them best?</p>
             </div>
 
             <h2 class="text-2xl font-bold text-white mt-16 mb-6">Why This Matters</h2>
@@ -1687,7 +1686,7 @@ export const articles: Article[] = [
                 <li>A student who is Picture Smart may understand a concept instantly once they see a diagram.</li>
                 <li>A Music Smart learner might remember a concept easily if it is set to rhythm or song.</li>
             </ul>
-            <p class="print:mb-6">When you discover your learning superpower, something important happens:<br /><strong>Learning begins to feel more natural.</strong></p>
+            <p class="print:mb-6">When you identify your learning style, something important happens:<br /><strong>Learning begins to feel more natural.</strong></p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">You Probably Have More Than One</h2>
             <p class="print:mb-6">Most people don't have just one intelligence.<br />Think of them like different muscles in your mind.</p>
@@ -1712,10 +1711,10 @@ export const articles: Article[] = [
             <p class="print:mb-6">One of the most encouraging discoveries from Gardner's work is this:</p>
             <p class="text-xl font-bold text-white my-4">Everyone is intelligent.</p>
             <p class="print:mb-6">But our intelligence shows itself in different ways.<br />Some people build bridges. Some write books. Some lead teams. Some compose music. Some explore the natural world.<br />Each of these abilities reflects a different form of intelligence.</p>
-            <p class="print:mb-6">And each one has the potential to become a learning superpower.</p>
+            <p class="print:mb-6">And each one has the potential to become a powerful learning tool.</p>
 
             <h2 class="text-2xl font-bold text-white mt-12 mb-6">Final Thought</h2>
-            <p class="text-lg text-white font-medium mt-6">When your study method matches your superpower, learning becomes easier, faster, and a lot more fun.</p>
+            <p class="text-lg text-white font-medium mt-6">When your study method matches your learning style, learning becomes easier, faster, and a lot more fun.</p>
 
             <hr class="border-slate-800 my-16" />
 

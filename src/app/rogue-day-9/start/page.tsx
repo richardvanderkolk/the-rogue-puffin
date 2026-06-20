@@ -239,7 +239,7 @@ function RogueDay9SessionContent() {
 
                     {/* Step 7: Your Mission */}
                     {step === 7 && !showVariant && (
-                        <Slide key="mission" title="Your Mission" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Superpower'} Translation` : 'Next'}>
+                        <Slide key="mission" title="Your Mission" onNext={nextStep} onBack={prevStep} customButtonText={archetypes.length > 0 ? `See the ${INTELLIGENCE_INFO[archetypes[0]]?.title || 'Learning Style'} Translation` : 'Next'}>
                             <div className="space-y-6 max-w-2xl mx-auto text-center">
                                 <div className="p-8 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl shadow-[0_0_30px_rgba(79,70,229,0.15)] text-left">
                                     <h4 className="text-xl font-bold text-indigo-300 mb-4 tracking-tight">Put this into practice today:</h4>
@@ -266,7 +266,7 @@ function RogueDay9SessionContent() {
                                 </div>
                                 {archetypes.length > 1 && (
                                     <div className="mt-12 pt-8 border-t border-slate-800">
-                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary superpowers:</p>
+                                        <p className="text-sm text-slate-500 font-medium mb-4 text-center uppercase tracking-widest">Also highly compatible with your secondary learning styles:</p>
                                         <div className="flex justify-center gap-4 flex-wrap">
                                             {archetypes.map((type) => (
                                                 <button
