@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from 'next/link';
-import { Users, DollarSign, TrendingUp, AlertCircle, Lock } from 'lucide-react';
+import { Users, DollarSign, TrendingUp, AlertCircle, Lock, Activity } from 'lucide-react';
 
 export default function AdminDashboard() {
     const [authData, setAuthData] = useState({ authenticated: false, passkey: "" });
@@ -98,12 +98,26 @@ export default function AdminDashboard() {
         return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
     };
 
-    const leadConv = metrics.totalLeads > 0 && metrics.uniqueVisitors > 0 ? Math.round((metrics.totalLeads / metrics.uniqueVisitors) * 100) : 0;
-    const bootcampConv = metrics.bootcampsSold > 0 && metrics.totalLeads > 0 ? Math.round((metrics.bootcampsSold / metrics.totalLeads) * 100) : 0;
+    const getPercentage = (value: number, total: number) => {
+        if (!total || total <= 0) return 0;
+        return Math.round((value / total) * 100);
+    };
+
+    const landingViews = metrics.landingViews || 0;
+    const testStarts = metrics.testStarts || 0;
+    const testCompletions = metrics.testCompletions || 0;
+    const totalLeads = metrics.totalLeads || 0;
+    const bootcampsSold = metrics.bootcampsSold || 0;
+
+    const rateStart = getPercentage(testStarts, landingViews);
+    const rateComplete = getPercentage(testCompletions, testStarts);
+    const rateLead = getPercentage(totalLeads, testCompletions);
+    const rateEnrolled = getPercentage(bootcampsSold, totalLeads);
+    const overallConv = getPercentage(bootcampsSold, landingViews);
 
     return (
-        <div className="min-h-screen bg-slate-950 text-white p-8">
-            <header className="mb-10 border-b border-slate-800 pb-6 flex justify-between items-center">
+        <div className="min-h-screen bg-slate-950 text-white pt-28 pb-8 px-4 sm:px-6 md:p-8 md:pt-32">
+            <header className="mb-10 border-b border-slate-800 pb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h1 className="text-2xl font-bold text-white">Admin Analytics</h1>
                     <p className="text-slate-500">Live Growth & Funnel Metrics</p>
@@ -290,30 +304,122 @@ export default function AdminDashboard() {
             )}
 
             {/* Funnel Visualization */}
-            <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">
-                <h3 className="text-lg font-bold mb-6">Live Conversion Funnel</h3>
-                <div className="flex items-center justify-between text-center relative max-w-4xl mx-auto">
+            <div className="bg-slate-900 p-6 md:p-8 rounded-2xl border border-slate-800 mb-10 shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl -z-10" />
+                
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
+                    <div>
+                        <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                            <Activity className="w-5 h-5 text-indigo-400" />
+                            Multi-Step Conversion Funnel
+                        </h3>
+                        <p className="text-slate-400 text-sm mt-1">Track customer journey from initial visit to paid bootcamp enrollment</p>
+                    </div>
+                    <div className="bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs px-3.5 py-2 rounded-full font-bold shadow-lg">
+                        Overall Conversion: {overallConv}%
+                    </div>
+                </div>
+
+                <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-1">
                     {/* Step 1 */}
-                    <div className="flex-1">
-                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">Free Test Taken</div>
-                        <div className="text-4xl font-bold text-white mb-2">{metrics.totalLeads.toLocaleString()}</div>
-                        <div className="text-xs text-slate-600 mb-2">Verified Unique Emails</div>
-                        <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                            <div className="w-full h-full bg-indigo-600"></div>
+                    <div className="flex-1 bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between group hover:border-slate-700 transition-all min-h-[140px]">
+                        <div>
+                            <div className="flex justify-between items-center mb-2">
+                                <span className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase">Step 01</span>
+                                <span className="w-2 h-2 rounded-full bg-indigo-500 shadow-[0_0_10px_rgba(99,102,241,0.5)]"></span>
+                            </div>
+                            <h4 className="text-sm font-semibold text-slate-300 mb-1">Landing Page</h4>
+                            <p className="text-2xl font-black text-white">{landingViews.toLocaleString()}</p>
                         </div>
+                        <div className="text-[10px] text-slate-500 mt-2">Total unique visits</div>
                     </div>
 
-                    {/* Arrow */}
-                    <div className="px-8 text-slate-600 font-bold text-xl">→</div>
+                    {/* Connect Arrow 1 */}
+                    <div className="flex flex-col lg:flex-row items-center justify-center shrink-0 py-2 lg:py-0 lg:px-1">
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                        <span className="text-xs font-bold text-indigo-400 bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-full shadow-md font-mono my-1 lg:my-0 lg:mx-1">
+                            {rateStart}%
+                        </span>
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                    </div>
 
                     {/* Step 2 */}
-                    <div className="flex-1">
-                        <div className="text-xs text-slate-500 uppercase tracking-widest mb-2">14-Day Bootcamp ($29)</div>
-                        <div className="text-4xl font-bold text-white mb-2">{metrics.bootcampsSold?.toLocaleString() || 0}</div>
-                        <div className="text-xs text-indigo-400 mb-2">{bootcampConv}% Lead Conv.</div>
-                        <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
-                            <div className={`h-full bg-indigo-600`} style={{ width: `${Math.max(bootcampConv, 2)}%` }}></div>
+                    <div className="flex-1 bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between group hover:border-slate-700 transition-all min-h-[140px]">
+                        <div>
+                            <div className="flex justify-between items-center mb-2">
+                                <span className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase">Step 02</span>
+                                <span className="w-2 h-2 rounded-full bg-indigo-500/50"></span>
+                            </div>
+                            <h4 className="text-sm font-semibold text-slate-300 mb-1">Started Test</h4>
+                            <p className="text-2xl font-black text-white">{testStarts.toLocaleString()}</p>
                         </div>
+                        <div className="text-[10px] text-slate-500 mt-2">Clicked to take test</div>
+                    </div>
+
+                    {/* Connect Arrow 2 */}
+                    <div className="flex flex-col lg:flex-row items-center justify-center shrink-0 py-2 lg:py-0 lg:px-1">
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                        <span className="text-xs font-bold text-indigo-400 bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-full shadow-md font-mono my-1 lg:my-0 lg:mx-1">
+                            {rateComplete}%
+                        </span>
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                    </div>
+
+                    {/* Step 3 */}
+                    <div className="flex-1 bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between group hover:border-slate-700 transition-all min-h-[140px]">
+                        <div>
+                            <div className="flex justify-between items-center mb-2">
+                                <span className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase">Step 03</span>
+                                <span className="w-2 h-2 rounded-full bg-indigo-500/50"></span>
+                            </div>
+                            <h4 className="text-sm font-semibold text-slate-300 mb-1">Finished Test</h4>
+                            <p className="text-2xl font-black text-white">{testCompletions.toLocaleString()}</p>
+                        </div>
+                        <div className="text-[10px] text-slate-500 mt-2">Completed baseline test</div>
+                    </div>
+
+                    {/* Connect Arrow 3 */}
+                    <div className="flex flex-col lg:flex-row items-center justify-center shrink-0 py-2 lg:py-0 lg:px-1">
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                        <span className="text-xs font-bold text-indigo-400 bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-full shadow-md font-mono my-1 lg:my-0 lg:mx-1">
+                            {rateLead}%
+                        </span>
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                    </div>
+
+                    {/* Step 4 */}
+                    <div className="flex-1 bg-slate-950 p-5 rounded-xl border border-slate-800 flex flex-col justify-between group hover:border-slate-700 transition-all min-h-[140px]">
+                        <div>
+                            <div className="flex justify-between items-center mb-2">
+                                <span className="text-[10px] font-bold text-indigo-400 tracking-widest uppercase">Step 04</span>
+                                <span className="w-2 h-2 rounded-full bg-indigo-500/50"></span>
+                            </div>
+                            <h4 className="text-sm font-semibold text-slate-300 mb-1">Submitted Email</h4>
+                            <p className="text-2xl font-black text-white">{totalLeads.toLocaleString()}</p>
+                        </div>
+                        <div className="text-[10px] text-slate-500 mt-2">Saved results (Leads)</div>
+                    </div>
+
+                    {/* Connect Arrow 4 */}
+                    <div className="flex flex-col lg:flex-row items-center justify-center shrink-0 py-2 lg:py-0 lg:px-1">
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                        <span className="text-xs font-bold text-indigo-400 bg-slate-950 border border-slate-800 px-2 py-0.5 rounded-full shadow-md font-mono my-1 lg:my-0 lg:mx-1">
+                            {rateEnrolled}%
+                        </span>
+                        <div className="w-px h-6 lg:w-4 lg:h-px bg-slate-800"></div>
+                    </div>
+
+                    {/* Step 5 */}
+                    <div className="flex-1 bg-slate-950 p-5 rounded-xl border border-emerald-500/20 flex flex-col justify-between group hover:border-emerald-500/40 transition-all min-h-[140px] shadow-[0_0_15px_rgba(16,185,129,0.05)]">
+                        <div>
+                            <div className="flex justify-between items-center mb-2">
+                                <span className="text-[10px] font-bold text-emerald-400 tracking-widest uppercase">Step 05</span>
+                                <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"></span>
+                            </div>
+                            <h4 className="text-sm font-semibold text-slate-300 mb-1">Enrolled Bootcamp</h4>
+                            <p className="text-2xl font-black text-emerald-400">{bootcampsSold.toLocaleString()}</p>
+                        </div>
+                        <div className="text-[10px] text-slate-500 mt-2">Paid $29 Enrollment</div>
                     </div>
                 </div>
             </div>

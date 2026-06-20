@@ -15,7 +15,52 @@ export async function GET(request: Request) {
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // 1. Get total leads (Free Test Takes)
+    // 1. Get Landing Page views (path = '/')
+    const { data: landingViewsData, error: landingViewsError } = await supabase
+        .from('page_views')
+        .select('views')
+        .eq('path', '/')
+        .single();
+    if (landingViewsError && landingViewsError.code !== 'PGRST116') {
+        console.error("Error fetching landing page views:", landingViewsError);
+    }
+    const landingViews = landingViewsData?.views || 0;
+
+    // 2. Get Test Starts (path = '/rogue-session/start' + path = '/free-test')
+    const { data: testStartsData, error: testStartsError } = await supabase
+        .from('page_views')
+        .select('path, views')
+        .in('path', ['/rogue-session/start', '/free-test']);
+    if (testStartsError) {
+        console.error("Error fetching test starts views:", testStartsError);
+    }
+    let testStarts = 0;
+    if (testStartsData) {
+        testStartsData.forEach(pv => {
+            testStarts += (pv.views || 0);
+        });
+    }
+
+    // 3. Get Test Completions (anonymous_tests + benchmarks where test_type = 'baseline')
+    const { count: anonBaselineCount, error: anonBaselineError } = await supabase
+        .from('anonymous_tests')
+        .select('*', { count: 'exact', head: true })
+        .eq('test_type', 'baseline');
+    if (anonBaselineError) {
+        console.error("Error fetching anon baseline completions:", anonBaselineError);
+    }
+
+    const { count: authBaselineCount, error: authBaselineError } = await supabase
+        .from('benchmarks')
+        .select('*', { count: 'exact', head: true })
+        .eq('test_type', 'baseline');
+    if (authBaselineError) {
+        console.error("Error fetching auth baseline completions:", authBaselineError);
+    }
+
+    const testCompletions = (anonBaselineCount || 0) + (authBaselineCount || 0);
+
+    // 4. Get total leads (Free Test Takes/Email captured)
     const { count: leadsCount, error: leadsError } = await supabase
         .from('leads')
         .select('*', { count: 'exact', head: true });
@@ -24,7 +69,7 @@ export async function GET(request: Request) {
         console.error("Error fetching leads count:", leadsError);
     }
 
-    // 2. Get purchases / revenue
+    // 5. Get purchases / revenue
     const { data: purchases, error: purchasesError } = await supabase
         .from('purchases')
         .select('amount_total, product');
@@ -45,7 +90,7 @@ export async function GET(request: Request) {
 
     // Assume 15,000 baseline unique visitors to make the conversion math look realistic for now
     // until we properly integrate a traffic analytics tool like Plausible or Google Analytics.
-    const uniqueVisitors = 15000;
+    const uniqueVisitors = landingViews;
 
     // 3. Benchmarks analysis (Legacy + Anonymous)
     const { data: benchmarks, error: benchmarksError } = await supabase
@@ -177,6 +222,9 @@ export async function GET(request: Request) {
         totalRevenue: totalRevenueCents / 100, // Convert cents to dollars
         bootcampsSold,
         uniqueVisitors,
+        landingViews,
+        testStarts,
+        testCompletions,
         outcomes30Min,
         outcomes14Day,
         styleDistribution,

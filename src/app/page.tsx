@@ -6,6 +6,7 @@ import { IsThisForYouSection } from "@/components/landing/IsThisForYouSection";
 import { WallOfWinsSection } from "@/components/landing/WallOfWinsSection";
 import { StorySection } from "@/components/landing/StorySection";
 import { InteractivePacerPreview } from "@/components/landing/InteractivePacerPreview";
+import { ViewTracker } from "@/components/ViewTracker";
 
 import { Metadata } from "next";
 
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
 export default function V2LandingPage() {
     return (
         <main className="flex min-h-screen flex-col bg-slate-950 text-slate-100 selection:bg-indigo-500/30 font-sans">
+            <ViewTracker path="/" title="Landing Page" category="Marketing" />
             
 
 

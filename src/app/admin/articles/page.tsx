@@ -98,9 +98,9 @@ export default function ArticlesCMS() {
 
     if (!editing) {
         return (
-            <div className="min-h-screen bg-slate-950 text-slate-200 font-sans p-6 md:p-12">
+            <div className="min-h-screen bg-slate-950 text-slate-200 font-sans pt-28 pb-8 px-4 sm:px-6 md:p-12 md:pt-32">
                 <div className="max-w-5xl mx-auto space-y-8">
-                    <div className="flex justify-between items-center border-b border-slate-800 pb-6">
+                    <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-800 pb-6 gap-4">
                         <div>
                             <div className="flex items-center gap-4 mb-1">
                                 <a href="/admin" className="text-slate-500 hover:text-white"><ArrowLeft className="w-5 h-5" /></a>
@@ -162,8 +162,8 @@ export default function ArticlesCMS() {
     }
 
     return (
-        <div className="h-screen bg-slate-950 text-slate-200 font-sans flex flex-col overflow-hidden">
-            <div className="bg-slate-900 border-b border-slate-800 p-4 flex items-center justify-between shrink-0">
+        <div className="h-screen bg-slate-950 text-slate-200 font-sans flex flex-col overflow-hidden pt-28 md:pt-32">
+            <div className="bg-slate-900 border-b border-slate-800 p-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-between shrink-0 gap-4">
                 <button 
                     onClick={() => setEditing(null)}
                     className="flex items-center gap-2 text-slate-400 hover:text-white font-medium px-4 py-2 rounded-lg transition-colors"

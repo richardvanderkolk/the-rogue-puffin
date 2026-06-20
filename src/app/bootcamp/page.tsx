@@ -5,6 +5,7 @@ import { getCurrencyInfo } from "@/lib/currency";
 import { GraduationBanner } from "@/components/bootcamp/GraduationBanner";
 import { BootcampRoadmap } from "@/components/bootcamp/BootcampRoadmap";
 import { createClient } from "@/lib/supabase/server";
+import { ViewTracker } from "@/components/ViewTracker";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
 
     return (
         <main className="min-h-screen bg-slate-950 text-slate-100 font-sans pb-32">
+            <ViewTracker path="/bootcamp" title="Bootcamp Dashboard" category="Portal" />
             
             {/* Header / Navbar area */}
             <div className="w-full bg-slate-900 border-b border-white/5 sticky top-0 z-40">
