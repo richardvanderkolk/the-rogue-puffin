@@ -7,7 +7,7 @@ export function WallOfWinsSection() {
             <div className="max-w-7xl mx-auto space-y-16">
                 
                 <div className="text-center space-y-4 max-w-3xl mx-auto">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-widest mb-2">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-2">
                         <TrendingUp className="w-3 h-3" /> Proof of Concept
                     </div>
                     <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.1]">
@@ -54,7 +54,7 @@ export function WallOfWinsSection() {
                                 <div className="flex gap-1 text-emerald-400">
                                     ★★★★★
                                 </div>
-                                <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 uppercase tracking-widest">
+                                <span className="text-[10px] font-extrabold px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 uppercase tracking-widest">
                                     Subvocalization Broken
                                 </span>
                             </div>

@@ -41,7 +41,7 @@ export default function V2LandingPage() {
                                 </h1>
                                 
                                 <div className="space-y-4 max-w-2xl mx-auto lg:mx-0 pt-2">
-                                    <p className="text-2xl md:text-3xl text-amber-400 font-bold tracking-tight">
+                                    <p className="text-2xl md:text-3xl text-indigo-300 font-bold tracking-tight">
                                         Double your reading speed for free in 30 minutes. No sign-up required.
                                     </p>
                                     <p className="text-lg text-slate-400 font-light leading-relaxed">
@@ -54,12 +54,12 @@ export default function V2LandingPage() {
                                 <div className="flex flex-col items-center lg:items-start gap-4 relative w-full">
                                     <Link 
                                         href="/rogue-session/start?v2=true&mode=assessment" 
-                                        className="group relative px-8 py-5 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 rounded-full font-black text-lg hover:from-amber-300 hover:to-amber-400 transition-all active:scale-95 flex items-center justify-center text-center gap-3 shadow-[0_0_40px_rgba(251,191,36,0.3)] hover:shadow-[0_0_60px_rgba(251,191,36,0.5)] border border-amber-300/50"
+                                        className="group relative px-8 py-5 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white rounded-full font-black text-lg transition-all active:scale-95 flex items-center justify-center text-center gap-3 shadow-[0_0_30px_rgba(99,102,241,0.25)] hover:shadow-[0_0_45px_rgba(99,102,241,0.4)] border border-indigo-400/20"
                                     >
                                         Double My Reading Speed (100% Free)
                                     </Link>
                                     <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 bg-slate-900/60 border border-slate-800/80 px-4 py-1.5 rounded-full shadow-md backdrop-blur-sm mt-1">
-                                        <Activity className="w-3.5 h-3.5 text-amber-400" /> Takes 30 minutes • No account or credit card required
+                                        <Activity className="w-3.5 h-3.5 text-indigo-400" /> Takes 30 minutes • No account or credit card required
                                     </div>
                                 </div>
                                 

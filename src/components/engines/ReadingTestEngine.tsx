@@ -101,8 +101,8 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
                         Read the following text at your normal pace.<br />
                         Tap "Done" immediately when you finish.
                     </p>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 text-amber-400 text-sm font-medium border border-amber-500/20">
-                        <Brain className="w-4 h-4" /> You will be tested on comprehension afterwards
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 text-indigo-300 text-sm font-medium border border-indigo-500/20">
+                        <Brain className="w-4 h-4 text-indigo-400" /> You will be tested on comprehension afterwards
                     </div>
                     <button
                         onClick={handleStart}

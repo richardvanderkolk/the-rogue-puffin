@@ -285,8 +285,8 @@ export default function RogueSessionPage() {
                                         ? "Discover your current reading speed and comprehension rate in 60 seconds."
                                         : "Before we begin the training, we need to know exactly where you are starting from."}
                                 </p>
-                                <div className="bg-amber-500/10 border border-amber-500/20 p-6 rounded-xl text-left mt-6">
-                                    <p className="text-amber-400 font-bold mb-2 flex items-center gap-2"><Brain className="w-5 h-5" /> Comprehension Test</p>
+                                <div className="bg-indigo-500/10 border border-indigo-500/20 p-6 rounded-xl text-left mt-6">
+                                    <p className="text-indigo-400 font-bold mb-2 flex items-center gap-2"><Brain className="w-5 h-5" /> Comprehension Test</p>
                                     <p className="text-slate-300 leading-relaxed mb-3">Read the following text at your <strong>normal, comfortable pace</strong>. Do not rush. Immediately after reading, you will be asked to answer a series of questions to test your recall.</p>
                                     <p className="text-xs text-indigo-300 border-t border-indigo-500/10 pt-3 font-medium">
                                         * Note: This protocol trains your eyes and brain to absorb whole phrases at once. It is not skimming—your comprehension is just as important as your speed.
@@ -400,7 +400,7 @@ export default function RogueSessionPage() {
                     )}
 
                     {step === 5 && (
-                        <Slide key="intro_unlock" title="The Abilities You Already Have" icon={<Unlock className="w-12 h-12 text-amber-400" />} onNext={nextStep} onBack={prevStep}>
+                        <Slide key="intro_unlock" title="The Abilities You Already Have" icon={<Unlock className="w-12 h-12 text-indigo-400" />} onNext={nextStep} onBack={prevStep}>
                             <p className="text-xl text-slate-300">
                                 Reading faster is more about learning to use the dormant abilities you already have...
                             </p>
@@ -763,12 +763,12 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                     </div>
 
                     {/* Fear of Loss Warning */}
-                    <div className="max-w-3xl mx-auto mb-10 bg-amber-500/5 border border-amber-500/20 rounded-xl p-5 flex items-start gap-4">
-                        <div className="p-2 bg-amber-500/10 rounded-lg shrink-0 mt-0.5">
-                            <Activity className="w-5 h-5 text-amber-400" />
+                    <div className="max-w-3xl mx-auto mb-10 bg-slate-900/60 border border-slate-800/80 rounded-xl p-5 flex items-start gap-4">
+                        <div className="p-2 bg-rose-500/10 rounded-lg shrink-0 mt-0.5">
+                            <Activity className="w-5 h-5 text-rose-400" />
                         </div>
                         <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
-                            <span className="font-bold text-amber-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, your reading speed will slow significantly from its true potential instead of continuing to increase. Don't lose your momentum.
+                            <span className="font-bold text-rose-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, your reading speed will slow significantly from its true potential instead of continuing to increase. Don't lose your momentum.
                         </p>
                     </div>
                     
@@ -798,7 +798,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
 
                     <div className="flex flex-col items-center">
                         <Link href="/bootcamp" className="block group w-full max-w-lg">
-                            <button className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 py-5 rounded-full font-black text-xl hover:from-amber-300 hover:to-amber-400 transition-all shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] flex justify-center items-center gap-3 hover:scale-105 border border-amber-300/50">
+                            <button className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-5 rounded-full font-black text-xl hover:from-indigo-400 hover:to-purple-500 transition-all shadow-[0_0_30px_rgba(99,102,241,0.25)] hover:shadow-[0_0_45px_rgba(99,102,241,0.4)] flex justify-center items-center gap-3 hover:scale-105 border border-indigo-400/20">
                                 Secure Your 14-Day Bootcamp Access <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </Link>

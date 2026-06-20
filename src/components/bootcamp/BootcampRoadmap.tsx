@@ -217,22 +217,22 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                         
                         <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-widest">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-widest">
                                 <Zap className="w-3 h-3" /> The 14-Day Boot Camp
                             </div>
                             
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-200">Billionaire's Edge.</span>
+                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Billionaire's Edge.</span>
                             </h2>
                             
                             <div className="space-y-6 text-left max-w-2xl mx-auto w-full mt-4">
                                 {/* Fear of Loss Warning */}
-                                <div className="bg-amber-500/5 border border-amber-500/20 rounded-xl p-4 flex items-start gap-4 mb-4">
-                                    <div className="p-2 bg-amber-500/10 rounded-lg shrink-0 mt-0.5">
-                                        <Activity className="w-5 h-5 text-amber-400" />
+                                <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 flex items-start gap-4 mb-4">
+                                    <div className="p-2 bg-rose-500/10 rounded-lg shrink-0 mt-0.5">
+                                        <Activity className="w-5 h-5 text-rose-400" />
                                     </div>
                                     <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
-                                        <span className="font-bold text-amber-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, your reading speed will slow significantly from its true potential instead of continuing to increase. Don't lose your momentum.
+                                        <span className="font-bold text-rose-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, your reading speed will slow significantly from its true potential instead of continuing to increase. Don't lose your momentum.
                                     </p>
                                 </div>
 
@@ -241,19 +241,19 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
                                         <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Effortless Comprehension.</span> Understand complex topics on the first read.</p>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
                                         <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Unbreakable Memory.</span> Install facts directly into long-term storage.</p>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
                                         <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Laser Focus.</span> Eliminate distractions and overcome the friction of starting.</p>
                                     </div>
                                     <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-amber-500/20 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-amber-400" /></div>
+                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
                                         <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Permanent Mastery.</span> 14 daily, 15-minute protocols to lock in your new habits.</p>
                                     </div>
                                 </div>
@@ -265,7 +265,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                     onClick={() => posthog?.capture('checkout_initiated', { product: 'bootcamp', location: 'lock_screen' })}
                                     className="block group w-full"
                                 >
-                                    <button className="w-full bg-gradient-to-r from-amber-400 to-amber-500 text-slate-950 py-5 rounded-full font-black text-xl hover:from-amber-300 hover:to-amber-400 transition-all shadow-[0_0_30px_rgba(251,191,36,0.3)] hover:shadow-[0_0_50px_rgba(251,191,36,0.5)] flex justify-center items-center gap-3 hover:scale-105 border border-amber-300/50">
+                                    <button className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-5 rounded-full font-black text-xl hover:from-indigo-400 hover:to-purple-500 transition-all shadow-[0_0_30px_rgba(99,102,241,0.25)] hover:shadow-[0_0_45px_rgba(99,102,241,0.4)] flex justify-center items-center gap-3 hover:scale-105 border border-indigo-400/20">
                                         Unlock Instant Access - {symbol}29 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                                     </button>
                                 </Link>
@@ -341,14 +341,14 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                             badge = <span className="absolute top-4 right-4 px-2 py-1 bg-indigo-500/20 text-indigo-400 rounded text-[10px] font-bold uppercase tracking-widest border border-indigo-500/30 animate-pulse">Start Next</span>;
                             href = day.link;
                         } else if (day.status === "unlocked") {
-                            containerStyle = "bg-slate-900 border border-amber-500/50 shadow-[0_0_30px_-5px_rgba(251,191,36,0.2)] hover:bg-slate-800 transition-all cursor-pointer transform hover:-translate-y-1";
-                            iconBoxStyle = "bg-amber-500/20 text-amber-400";
-                            actionIcon = <Lock className="w-5 h-5 text-amber-400" />;
-                            badge = <span className="absolute top-4 right-4 px-2 py-1 bg-amber-500/20 text-amber-400 rounded text-[10px] font-bold uppercase tracking-widest border border-amber-500/30 animate-pulse">Click to Unlock Full Course</span>;
+                            containerStyle = "bg-slate-900 border border-purple-500/50 shadow-[0_0_30px_-5px_rgba(168,85,247,0.2)] hover:bg-slate-800 transition-all cursor-pointer transform hover:-translate-y-1";
+                            iconBoxStyle = "bg-purple-500/20 text-purple-400";
+                            actionIcon = <Lock className="w-5 h-5 text-purple-400" />;
+                            badge = <span className="absolute top-4 right-4 px-2 py-1 bg-purple-500/20 text-purple-400 rounded text-[10px] font-bold uppercase tracking-widest border border-purple-500/30 animate-pulse">Click to Unlock Full Course</span>;
                             href = checkoutLink; // This links to checkout
                         } else if (day.status === "locked" && !isUnlocked) {
                             // If they haven't unlocked the bootcamp, make ALL future days clickable to checkout
-                            containerStyle = "bg-slate-900 border border-white/5 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:border-amber-500/30 transition-all cursor-pointer group/lockedcard";
+                            containerStyle = "bg-slate-900 border border-white/5 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 hover:border-purple-500/30 transition-all cursor-pointer group/lockedcard";
                             href = checkoutLink;
                         }
 
@@ -357,7 +357,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 {badge}
                                 
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${iconBoxStyle} ${day.status === 'locked' && !isUnlocked ? 'group-hover/lockedcard:bg-amber-500/10 group-hover/lockedcard:text-amber-400 transition-colors' : ''}`}>
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 ${iconBoxStyle} ${day.status === 'locked' && !isUnlocked ? 'group-hover/lockedcard:bg-purple-500/10 group-hover/lockedcard:text-purple-400 transition-colors' : ''}`}>
                                         {day.icon}
                                     </div>
                                     <div>
@@ -369,12 +369,12 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 <p className={`text-sm font-light leading-relaxed flex-grow mb-6 ${day.status === "locked" ? "text-slate-500" : "text-slate-400"}`}>
                                     {day.desc}
                                 </p>
-
+ 
                                 <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
-                                    <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-amber-400" : day.status === "available" ? "text-indigo-400" : day.status === "locked" && !isUnlocked ? "text-slate-500 group-hover/lockedcard:text-amber-400 transition-colors" : "text-slate-500"}`}>
+                                    <span className={`text-xs font-bold uppercase tracking-widest ${day.status === "unlocked" ? "text-purple-400" : day.status === "available" ? "text-indigo-400" : day.status === "locked" && !isUnlocked ? "text-slate-500 group-hover/lockedcard:text-purple-400 transition-colors" : "text-slate-500"}`}>
                                         {day.status === "completed" ? "Review material" : day.status === "available" ? "Start Module" : day.status === "unlocked" ? `Unlock Days 2-14 for ${symbol}29` : day.status === "locked" && !isUnlocked ? "Unlock Bootcamp" : "Locked"}
                                     </span>
-                                    {day.status === "locked" && !isUnlocked ? <Lock className="w-5 h-5 text-slate-600 group-hover/lockedcard:text-amber-400 transition-colors" /> : actionIcon}
+                                    {day.status === "locked" && !isUnlocked ? <Lock className="w-5 h-5 text-slate-600 group-hover/lockedcard:text-purple-400 transition-colors" /> : actionIcon}
                                 </div>
                             </>
                         );
@@ -410,8 +410,8 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                             <div key={day.day} className={`relative flex flex-col h-full ${day.day === 2 && day.status === "unlocked" ? 'mt-8 md:mt-0' : ''}`}>
                                 {day.day === 2 && day.status === "unlocked" && (
                                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex flex-col items-center animate-bounce z-10 w-full pointer-events-none">
-                                        <span className="text-amber-400 font-bold text-[10px] md:text-xs uppercase tracking-widest text-center mb-1 drop-shadow-md">Click here to unlock the full course</span>
-                                        <ArrowDown className="w-4 h-4 text-amber-400 drop-shadow-md" />
+                                        <span className="text-purple-400 font-bold text-[10px] md:text-xs uppercase tracking-widest text-center mb-1 drop-shadow-md">Click here to unlock the full course</span>
+                                        <ArrowDown className="w-4 h-4 text-purple-400 drop-shadow-md" />
                                     </div>
                                 )}
                                 {cardElement}
