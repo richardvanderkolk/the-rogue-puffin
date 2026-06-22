@@ -17,7 +17,7 @@ export function StorySection() {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Why I Built This
+                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> A 30-Year Mission
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">
                 Why I Built <br />
@@ -26,17 +26,21 @@ export function StorySection() {
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-indigo-300 font-semibold tracking-tight italic pt-2">
-                "I was so angry that no one taught me this."
+                "I was so angry that no one had ever taught me how to learn."
               </p>
             </div>
 
             <div className="space-y-6 text-lg md:text-xl text-slate-300 font-light leading-relaxed">
               <p>
-                After graduating from University, I came across an exercise that doubled my reading speed. I should have been happy, but I was so angry that I had spent so many years reading and studying and no one had ever shown me this.
+                When I went to school, they taught me *what* to learn, but they never taught me *how* to learn. It wasn't until I finished university that I stumbled upon speed reading, memory, and study systems. The sudden shift in my own learning capacity made me angry. Why had I spent so many years reading word-by-word, struggling, and forgetting 80% of it, when a few simple biological shifts could have changed everything?
               </p>
               
               <p>
-                I decided that I would share it with people and have seen thousands of people experience the same improvement.
+                I started teaching these skills as a side business. Today, 30 years later, I recognize that these foundational learning methods are *still* not taught. Yet, when I speak to students, the excitement is still the same: they are blown away when they realize they can double their reading speed and recall dense textbooks in minutes.
+              </p>
+
+              <p>
+                I built the **Free 30-Minute Session** to show you instantly what is possible, and the **14-Day Bootcamp** to embed these visual and memory habits permanently so you can study with ease.
               </p>
             </div>
 
@@ -85,7 +89,7 @@ export function StorySection() {
                 </h3>
                 
                 <p className="text-sm text-slate-400 leading-relaxed font-light">
-                  Most people read at the speed of their inner voice—about 200 words per minute. By training your eyes to move non-linearly and rewiring your brain to process text much faster than you are used to, you unlock your natural ability to scan and synthesize entire ideas at once.
+                  Most people read at the speed of their inner voice—about 200 words per minute—capping their intake at how fast they can hear words. By training your eyes to scan chunks visually, you unlock your ability to read at the speed of thought, processing text directly without saying it out loud.
                 </p>
               </div>
 

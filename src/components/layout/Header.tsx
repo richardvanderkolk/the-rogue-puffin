@@ -19,12 +19,14 @@ export function Header() {
 
     const commonLinks: { name: string, href: string }[] = [
         { name: "Free Speed Test", href: "/free-test" },
+        { name: "Reading Engine", href: "/train/app" },
         { name: "Articles", href: "/blog" },
         { name: "14-Day Bootcamp", href: "/bootcamp" }
     ];
 
     const authenticatedLinks = [
         { name: "Free Speed Test", href: "/free-test" },
+        { name: "Reading Engine", href: "/train/app" },
         { name: "My Bootcamp", href: "/bootcamp" },
         { name: "Mastery Hub", href: "/mastery/dashboard" },
         { name: "Articles", href: "/blog" }

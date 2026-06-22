@@ -19,13 +19,13 @@ export function OutliersSection() {
               Build Knowledge Like <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Compound Interest.</span>
             </h2>
             <p className="text-lg text-slate-400 leading-relaxed">
-              In a world drowning in noise, those who can process information fastest win. President JFK used speed reading to consume 6 newspapers before breakfast. Now, you can use those same neurological protocols to stay ahead of the curve.
+              High-throughput thinkers like JFK and Warren Buffett master both reading velocity and conceptual synthesis to compound their knowledge. Now, you can use those same neurological protocols to stay ahead of the curve.
             </p>
             <Link 
                 href="/rogue-session/start?v2=true&mode=assessment" 
                 className="inline-flex px-8 py-4 bg-white text-slate-950 rounded-full font-bold text-lg hover:bg-slate-200 transition-all active:scale-95 items-center justify-center text-center gap-3 shadow-[0_0_30px_-5px_rgba(255,255,255,0.3)] w-full sm:w-auto"
             >
-                Double my reading speed for Free
+                Start Free Masterclass
             </Link>
           </div>
 
@@ -67,14 +67,14 @@ export function OutliersSection() {
               Leadership and Learning are <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Indispensable.</span>
             </h2>
             <p className="text-lg text-slate-400 leading-relaxed">
-              From Tony Robbins reading 700 books in 7 years to Elon Musk "downloading" expertise, the world's most impactful people are voracious readers. Speed reading isn't just about finishing a book—it's about becoming the person who has the answers first.
+              From Tony Robbins reading 700 books in 7 years to Elon Musk "downloading" expertise, the world's most impactful people are voracious readers. Learning mastery isn't just about reading faster—it's about building a structured mental library and synthesizing complex ideas in record time.
             </p>
             <div className="pt-4">
                 <Link 
                     href="/rogue-session/start?v2=true&mode=assessment" 
                     className="inline-flex px-8 py-4 bg-slate-800 text-white rounded-full font-bold text-lg hover:bg-slate-700 transition-all active:scale-95 items-center justify-center text-center gap-3 border border-slate-700 w-full sm:w-auto"
                 >
-                    Take the Free Speed Test
+                    Start Free Masterclass
                 </Link>
             </div>
           </div>

@@ -9,7 +9,7 @@ import { ViewTracker } from "@/components/ViewTracker";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "14-Day Speed Reading Bootcamp | The Rogue Puffin",
+    title: "14-Day Learning Mastery Bootcamp | The Rogue Puffin",
     description: "A structured, day-by-day guided cognitive protocol to double your reading speed, eliminate subvocalization, and dramatically improve recall in 14 days.",
     alternates: {
         canonical: "/bootcamp",
@@ -32,20 +32,39 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
     const forceUnlock = searchParams.unlocked === 'true';
 
     if (user) {
-        const { data: profile } = await supabase
+        let { data: profile } = await supabase
             .from('profiles')
             .select('has_paid_bootcamp, bootcamp_progress_day')
             .eq('id', user.id)
             .single();
             
-        if (profile) {
-            // Unlock everything automatically in local development, or via the ?unlocked=true flag
-            const isLocal = process.env.NODE_ENV === 'development';
-            const isAdmin = user.email?.toLowerCase().includes('richard');
-            isUnlocked = profile.has_paid_bootcamp || forceUnlock || isLocal || isAdmin;
-            const dbProgress = profile.bootcamp_progress_day;
-            initialProgress = searchParams.progress ? parseInt(searchParams.progress as string) : dbProgress;
+        const isLocal = process.env.NODE_ENV === 'development';
+        const isAdmin = user.email?.toLowerCase().includes('richard') || false;
+
+        if (!profile) {
+            // Auto-create missing profile
+            try {
+                const { data: newProfile } = await supabase
+                    .from('profiles')
+                    .insert({
+                        id: user.id,
+                        email: user.email,
+                        has_paid_bootcamp: isAdmin,
+                        bootcamp_progress_day: 1
+                    })
+                    .select('has_paid_bootcamp, bootcamp_progress_day')
+                    .single();
+                if (newProfile) {
+                    profile = newProfile;
+                }
+            } catch (e) {
+                console.error("Failed to auto-create profile row:", e);
+            }
         }
+            
+        isUnlocked = (profile?.has_paid_bootcamp || false) || forceUnlock || isLocal || isAdmin;
+        const dbProgress = profile?.bootcamp_progress_day ?? 1;
+        initialProgress = searchParams.progress ? parseInt(searchParams.progress as string) : dbProgress;
     } else {
         // Fallback or preview logic if not logged in
         isUnlocked = forceUnlock;

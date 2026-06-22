@@ -50,8 +50,8 @@ async function createCheckoutSession(request: Request, productMode: string, emai
         priceData = {
             currency,
             product_data: {
-                name: '14-Day Cognitive Bootcamp',
-                description: 'Unlock Days 2-14: Identify your learning style, master memory protocols, and achieve cognitive reading mastery.',
+                name: '14-Day Learning Mastery Bootcamp',
+                description: 'Unlock Days 2-14: Identify your learning style superpower, master memory protocols, and achieve permanent learning mastery.',
             },
             unit_amount: 2900, // $29.00
         };

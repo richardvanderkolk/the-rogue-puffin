@@ -81,7 +81,7 @@ export default function LearningMasteryPage() {
                                 </div>
 
                                 <Link href="/bootcamp" className="text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-2 mx-auto lg:mx-0">
-                                    View the 14-Day Cognitive Bootcamp <ArrowRight className="w-3 h-3" />
+                                    View the 14-Day Learning Mastery Bootcamp <ArrowRight className="w-3 h-3" />
                                 </Link>
                             </div>
                         </div>
@@ -117,9 +117,9 @@ export default function LearningMasteryPage() {
                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-widest mb-2">
                                 <Clock className="w-3 h-3" /> Guided Skill Acquisition
                             </div>
-                            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
                                 The 14-Day <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Cognitive Bootcamp.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Learning Mastery Bootcamp.</span>
                             </h2>
                         </div>
                         
@@ -128,7 +128,7 @@ export default function LearningMasteryPage() {
                                 Reading theory is valuable, but changing automatic habits requires structured daily practice.
                             </p>
                             <p className="border-l-2 border-slate-800 pl-6 italic text-slate-300">
-                                "This is a structured, day-by-day protocol that forces you to build permanent visual processing habits that stick."
+                                "A daily structured sprint to transition from raw reading speed to active concept synthesis and permanent memory recall."
                             </p>
                             <p>
                                 Instead of manually figuring out how to stop subvocalizing, follow a daily roadmap designed to unlock your natural ability to synthesize entire ideas at once, helping you feel smarter and get promoted.
@@ -139,7 +139,7 @@ export default function LearningMasteryPage() {
                             href="/bootcamp" 
                             className="inline-flex px-8 py-4 bg-purple-600 text-white rounded-full font-bold text-lg hover:bg-purple-500 transition-all shadow-[0_0_30px_-5px_rgba(147,51,234,0.4)] active:scale-95 items-center justify-center text-center gap-3"
                         >
-                            Explore The Bootcamp
+                            Explore the Learning Mastery Bootcamp
                         </Link>
                     </div>
 

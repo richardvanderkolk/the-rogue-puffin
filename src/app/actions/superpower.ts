@@ -7,9 +7,14 @@ export async function saveSuperpower(archetype: string) {
   const { data: { user } } = await supabase.auth.getUser()
 
   if (user) {
+    const isAdmin = user.email?.toLowerCase().includes('richard') || false;
     await supabase
       .from('profiles')
-      .update({ learning_archetype: archetype })
-      .eq('id', user.id)
+      .upsert({
+        id: user.id,
+        email: user.email,
+        learning_archetype: archetype,
+        has_paid_bootcamp: isAdmin
+      })
   }
 }

@@ -217,45 +217,41 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                         <div className="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                         
                         <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto space-y-8">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-widest">
-                                <Zap className="w-3 h-3" /> The 14-Day Boot Camp
-                            </div>
-                            
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Reading Breakthrough.</span>
-                            </h2>
-                            
-                            <div className="space-y-6 text-left max-w-2xl mx-auto w-full mt-4">
-                                {/* Fear of Loss Warning */}
-                                <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 flex items-start gap-4 mb-4">
-                                    <div className="p-2 bg-rose-500/10 rounded-lg shrink-0 mt-0.5">
-                                        <Activity className="w-5 h-5 text-rose-400" />
-                                    </div>
-                                    <p className="text-sm md:text-base text-slate-300 leading-relaxed font-light">
-                                        <span className="font-bold text-rose-400">Warning:</span> Without structured daily practice to lock in your new neural pathways, your reading speed will slow significantly from its true potential instead of continuing to increase. Don't lose your momentum.
-                                    </p>
-                                </div>
+                             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-widest">
+                                 <Zap className="w-3 h-3" /> 14-Day Learning Mastery Bootcamp
+                             </div>
+                             
+                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
+                                 Inside the 14-Day <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Learning Mastery Bootcamp.</span>
+                             </h2>
+                             
+                             <div className="space-y-6 text-left max-w-2xl mx-auto w-full mt-4">
+                                 {/* habit Problem Statement */}
+                                 <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-4 flex items-start gap-4 mb-4">
+                                     <div className="p-2 bg-indigo-500/10 rounded-lg shrink-0 mt-0.5">
+                                         <Activity className="w-5 h-5 text-indigo-400" />
+                                     </div>
+                                     <p className="text-sm text-slate-300 leading-relaxed font-light">
+                                         <span className="font-bold text-indigo-400">The Problem:</span> Highlighting textbooks and re-reading notes creates a temporary "illusion of competence." To build permanent recall, you need a structured daily rhythm to wire in actual cognitive habits.
+                                     </p>
+                                 </div>
 
-                                <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed text-center mb-6">
-                                    Reading faster is just the first step. Unlock the complete 14-Day Boot Camp to build permanent, visual reading habits that stick.
-                                </p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
-                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Effortless Comprehension.</span> Understand complex topics on the first read.</p>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
-                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Unbreakable Memory.</span> Install facts directly into long-term storage.</p>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
-                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Laser Focus.</span> Eliminate distractions and overcome the friction of starting.</p>
-                                    </div>
-                                    <div className="flex items-start gap-3">
-                                        <div className="mt-1 bg-emerald-500/10 p-1 rounded-full"><CheckCircle2 className="w-4 h-4 text-emerald-400" /></div>
-                                        <p className="text-slate-300 text-sm md:text-base"><span className="font-bold text-white">Permanent Mastery.</span> 14 daily, 15-minute protocols to lock in your new habits.</p>
-                                    </div>
+                                 <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed text-center mb-6">
+                                     Reading speed is only the first step. Unlock the complete 14-day sprint to wire in systematic visual habits, conceptual synthesis, and spaced memory recall.
+                                 </p>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 bg-slate-950/40 p-6 rounded-2xl border border-white/5">
+                                    {baseDays.map((d) => (
+                                        <div key={d.day} className="flex items-start gap-3">
+                                            <span className="w-6 h-6 rounded-full bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-xs text-purple-300 font-mono font-bold shrink-0 mt-0.5">
+                                                {d.day}
+                                            </span>
+                                            <div className="space-y-0.5">
+                                                <h4 className="text-sm font-bold text-slate-200">{d.title}</h4>
+                                                <p className="text-xs text-slate-400 font-light leading-relaxed">{d.desc}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             
@@ -290,8 +286,8 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                         </h2>
                         <p className="text-lg text-slate-400 font-light leading-relaxed">
                             {isUnlocked 
-                                ? (completedDays === 1 ? "Congratulations! You have identified your unique cognitive learning style. You now have full access to all remaining modules in the bootcamp. Dive into Memory Training next!" : "Keep up the momentum. Stick to the daily rhythm to ensure your new speed and comprehension habits become permanent.")
-                                : `Congratulations! You have discovered that you are able to read faster. During the rest of this bootcamp you will embed this new speed as your new habit, identify your cognitive learning style, master memory techniques to lock in retention, and much more for just ${symbol}29.`
+                                ? (completedDays === 1 ? "Congratulations! You have identified your unique cognitive learning style superpower. You now have full access to all remaining modules in the bootcamp. Dive into Memory Training next!" : "Keep up the momentum! Stick to your daily learning routine to permanently integrate visual ingestion, concept mapping, and memory recall habits.")
+                                : `Congratulations on starting your journey! In this bootcamp, you will lock in visual reading speed, diagnose your unique cognitive learning style superpower, master champion-level memory recall, build visual concept maps, and establish a lifelong study routine for just ${symbol}29.`
                             }
                         </p>
                     </div>
@@ -430,7 +426,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                         </div>
                         <h3 className="text-3xl font-bold text-white tracking-tight">Zero-Risk Guarantee</h3>
                         <p className="text-lg text-slate-400 leading-relaxed font-light">
-                            Try the Bootcamp for 14 days. If your reading speed and comprehension haven't permanently doubled, simply send an email and get a 100% refund. No questions asked.
+                            Try the Bootcamp for 14 days. If your learning speed, memory retention, and conceptual synthesis haven't permanently transformed, simply send an email and get a 100% refund. No questions asked.
                         </p>
                     </div>
                 </section>
