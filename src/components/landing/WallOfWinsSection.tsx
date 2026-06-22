@@ -8,13 +8,13 @@ export function WallOfWinsSection() {
                 
                 <div className="text-center space-y-4 max-w-3xl mx-auto">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mb-2">
-                        <TrendingUp className="w-3 h-3" /> Proof of Concept
+                        <TrendingUp className="w-3 h-3" /> Empirical Proof
                     </div>
                     <h2 className="text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.1]">
-                        Don't take our word for it.
+                        Looking for proof? Don’t take our word for it.
                     </h2>
-                    <p className="text-lg text-slate-400 font-light leading-relaxed">
-                        Results from early adopters who installed the learning operating system.
+                    <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">
+                        Take the free training and measure your own reading speed before and after. In less than 30 minutes, you’ll have stronger evidence than any testimonial we could show you.
                     </p>
                 </div>
 

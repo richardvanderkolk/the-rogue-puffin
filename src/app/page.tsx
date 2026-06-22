@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Zap, Brain, BookOpen, Clock, Activity, ArrowDown } from "lucide-react";
+import { ArrowRight, Zap, Brain, BookOpen, Clock, Activity, ArrowDown, CheckCircle2 } from "lucide-react";
 import { OutliersSection } from "@/components/landing/OutliersSection";
 import { IsThisForYouSection } from "@/components/landing/IsThisForYouSection";
 import { WallOfWinsSection } from "@/components/landing/WallOfWinsSection";
@@ -63,6 +63,26 @@ export default function V2LandingPage() {
                                     </div>
                                 </div>
                                 
+                                {/* Core Outcomes */}
+                                <div className="grid grid-cols-2 gap-x-6 gap-y-3 w-full pt-4 max-w-xl mx-auto lg:mx-0 text-left border-t border-white/5">
+                                    <div className="flex items-center gap-2.5 text-sm text-slate-400">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                                        <span>Read 50+ books a year</span>
+                                    </div>
+                                    <div className="flex items-center gap-2.5 text-sm text-slate-400">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                                        <span>Slash study workloads</span>
+                                    </div>
+                                    <div className="flex items-center gap-2.5 text-sm text-slate-400">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                                        <span>Stay ahead at work</span>
+                                    </div>
+                                    <div className="flex items-center gap-2.5 text-sm text-slate-400">
+                                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                                        <span>Learn & synthesize faster</span>
+                                    </div>
+                                </div>
+
                                 <Link href="/bootcamp" className="text-sm font-medium text-slate-500 hover:text-slate-300 transition-colors flex items-center gap-2 mx-auto lg:mx-0">
                                     Skip the free session. View the 14-Day Bootcamp <ArrowRight className="w-3 h-3" />
                                 </Link>
