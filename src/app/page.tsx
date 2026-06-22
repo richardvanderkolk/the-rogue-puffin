@@ -151,9 +151,6 @@ export default function V2LandingPage() {
                                 </Link>
                                 <span className="text-xs text-slate-500 font-medium">Takes 30 minutes • No signup required</span>
                             </div>
-                            <p className="text-sm font-semibold text-indigo-300 flex items-center justify-center lg:justify-start gap-2 pt-4">
-                                <Zap className="w-4 h-4 text-indigo-400 shrink-0 animate-bounce" /> Or use the interactive speed drill on the right to test your visual processing now:
-                            </p>
                         </div>
 
                         {/* Right Side: Interactive RSVP Speed Drill Widget */}
