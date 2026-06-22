@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Zap, Brain, BookOpen, Clock, Activity, CheckCircle2, GraduationCap, X, Check, Eye, HelpCircle } from "lucide-react";
+import { ArrowRight, Zap, Brain, BookOpen, Clock, Activity, CheckCircle2, X, Check, Eye, HelpCircle } from "lucide-react";
 import { OutliersSection } from "@/components/landing/OutliersSection";
 import { IsThisForYouSection } from "@/components/landing/IsThisForYouSection";
 import { WallOfWinsSection } from "@/components/landing/WallOfWinsSection";
@@ -322,39 +322,7 @@ export default function V2LandingPage() {
                 </div>
             </section>
 
-            {/* 9. For Educators Section (Academic Alliance) */}
-            <section id="educators" className="py-24 px-6 border-t border-white/5 bg-slate-950 relative overflow-hidden">
-                <div className="max-w-4xl mx-auto bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 md:p-12 text-center relative z-10 overflow-hidden">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/5 rounded-full blur-[80px] -z-10 pointer-events-none" />
-                    
-                    <div className="space-y-6">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-300 text-xs font-bold uppercase tracking-widest mb-2">
-                            <GraduationCap className="w-4 h-4 text-blue-400" /> For Academics & Teachers
-                        </div>
-                        <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
-                            Are you an educator, advisor, or professor?
-                        </h2>
-                        <p className="text-lg text-slate-400 font-light leading-relaxed max-w-2xl mx-auto">
-                            We design study skills and cognitive tools based on peer-reviewed research. If you want to introduce these evidence-based learning systems to your high school or university, we would love to collaborate.
-                        </p>
-                        
-                        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
-                            <Link 
-                                href="mailto:educators@theroguepuffin.com?subject=Study%20Skills%20Guide%20Request"
-                                className="px-6 py-3.5 bg-slate-850 hover:bg-slate-800 text-slate-200 border border-white/10 rounded-full font-bold text-base transition-all active:scale-95 flex items-center justify-center gap-2 hover:border-white/20"
-                            >
-                                Get Our Study Skills Guide
-                            </Link>
-                            <Link 
-                                href="mailto:educators@theroguepuffin.com?subject=Classroom%20Pilot%20Request"
-                                className="px-6 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-bold text-base transition-all active:scale-95 flex items-center justify-center gap-2"
-                            >
-                                Request Free Student Access
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
         </main>
     );
