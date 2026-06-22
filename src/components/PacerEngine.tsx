@@ -28,13 +28,6 @@ interface PacerEngineProps {
     increaseChunkSizeAfter?: number; // Timestamp in seconds to increase chunk size
     increaseChunkSizeTo?: number; // Target chunk size
 }
-const getFontSizeClass = (text: string) => {
-    const len = text ? text.length : 0;
-    if (len > 25) return "text-xl md:text-4xl";
-    if (len > 15) return "text-2xl md:text-5xl";
-    if (len > 8) return "text-3xl md:text-6xl";
-    return "text-4xl md:text-7xl";
-};
 
 export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3, onComplete, highlightMode = false, acceleration = 0, customInterval, smallFont = false, reduceFontSizeAfter, extraSmallFont = false, reduceFontSizeAgainAfter, increaseChunkSizeAfter, increaseChunkSizeTo }: PacerEngineProps) {
     const [chunks, setChunks] = useState<SmartChunk[]>([]);
@@ -418,21 +411,14 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
                 renderReadMode()
             ) : (
                 /* Flash Mode (RSVP / Standard) */
-                <AnimatePresence mode="popLayout">
-                    <motion.div
-                        key={currentIndex}
-                        initial={{ opacity: 0.5, scale: 0.95, y: 10 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 1.05, y: -10 }}
-                        transition={{ duration: 0.1 }}
-                        className={`font-bold text-slate-900 text-center leading-tight ${isFullPage
-                            ? 'text-lg md:text-xl max-w-4xl text-left whitespace-pre-wrap' // Full Page style
-                            : `px-4 md:px-12 whitespace-normal md:whitespace-nowrap break-words ${getFontSizeClass(currentText)}` // Standard RSVP style
-                            } ${getModeStyles()}`}
-                    >
-                        {currentText}
-                    </motion.div>
-                </AnimatePresence>
+                <div
+                    className={`font-bold text-slate-900 text-center leading-tight ${isFullPage
+                        ? 'text-lg md:text-xl max-w-4xl text-left whitespace-pre-wrap' // Full Page style
+                        : 'text-3xl md:text-5xl px-4 md:px-12 md:whitespace-nowrap whitespace-normal break-words' // Standard RSVP style
+                        } ${getModeStyles()}`}
+                >
+                    {currentText}
+                </div>
             )}
         </div>
     );
