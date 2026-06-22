@@ -180,7 +180,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                         Boot Camp Completed!
                                     </h2>
                                     <p className="text-slate-300 text-lg">
-                                        You have successfully installed the learning operating system.
+                                        You have successfully completed the 14-day cognitive reading protocol.
                                     </p>
                                 </>
                             ) : nextDay ? (
@@ -222,7 +222,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                             </div>
                             
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Billionaire's Edge.</span>
+                                Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Reading Breakthrough.</span>
                             </h2>
                             
                             <div className="space-y-6 text-left max-w-2xl mx-auto w-full mt-4">
@@ -237,7 +237,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                 </div>
 
                                 <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed text-center mb-6">
-                                    Reading faster is just the first step. Unlock the complete 14-Day Boot Camp to upgrade your brain's entire learning operating system.
+                                    Reading faster is just the first step. Unlock the complete 14-Day Boot Camp to build permanent, visual reading habits that stick.
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div className="flex items-start gap-3">

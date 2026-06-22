@@ -101,11 +101,11 @@ export default function V2LandingPage() {
             {/* 1.5 Founder's Story Section */}
             <StorySection />
 
-            {/* 2. The Mechanics (Why It Works) - Replaced with Outliers Section */}
-            <OutliersSection />
-            
             {/* 3. The Social Proof (Wall of Wins) */}
             <WallOfWinsSection />
+
+            {/* 2. The Mechanics (Why It Works) - Replaced with Outliers Section */}
+            <OutliersSection />
             
             {/* 4. Audience Self-Selection (Is this for you?) */}
             <IsThisForYouSection />

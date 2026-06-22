@@ -132,7 +132,7 @@ export default function RogueSessionSalesPage() {
             <br /><br />
             However, your brain can process visual information thousands of times faster.
             <br /><br />
-            The Rogue Session is a <strong>neurological drill</strong> designed to decouple your visual processing from your auditory processing, allowing you to read at the speed of sight.
+            The Rogue Session is a <strong>neurological drill</strong> designed to decouple your visual processing from your auditory processing, allowing you to read much faster than you are used to.
           </p>
         </div>
       </section>

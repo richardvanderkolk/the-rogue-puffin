@@ -733,7 +733,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                 <div className="p-8 md:p-10 border-b border-slate-800/50 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                     <div className="text-center md:text-left space-y-2">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white">
-                            You unlocked the <span className="text-emerald-400">Billionaire's Edge.</span>
+                            You unlocked <span className="text-emerald-400">permanent reading mastery.</span>
                         </h2>
                         <p className="text-slate-400 font-medium tracking-wide uppercase text-sm">Your reading speed increased by +{increase}% in just 30 minutes.</p>
                     </div>

@@ -49,7 +49,7 @@ export function StorySection() {
               />
               <div>
                 <p className="font-handwriting text-3xl text-indigo-300 leading-none mb-1">
-                  Richard
+                  Richard John
                 </p>
                 <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold">
                   Founder, The Rogue Puffin
