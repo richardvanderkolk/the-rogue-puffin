@@ -28,6 +28,13 @@ interface PacerEngineProps {
     increaseChunkSizeAfter?: number; // Timestamp in seconds to increase chunk size
     increaseChunkSizeTo?: number; // Target chunk size
 }
+const getFontSizeClass = (text: string) => {
+    const len = text ? text.length : 0;
+    if (len > 25) return "text-xl md:text-4xl";
+    if (len > 15) return "text-2xl md:text-5xl";
+    if (len > 8) return "text-3xl md:text-6xl";
+    return "text-4xl md:text-7xl";
+};
 
 export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3, onComplete, highlightMode = false, acceleration = 0, customInterval, smallFont = false, reduceFontSizeAfter, extraSmallFont = false, reduceFontSizeAgainAfter, increaseChunkSizeAfter, increaseChunkSizeTo }: PacerEngineProps) {
     const [chunks, setChunks] = useState<SmartChunk[]>([]);
@@ -352,7 +359,7 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
     return (
         <div
             ref={containerRef}
-            className={`w-full h-[60vh] flex rounded-3xl overflow-hidden relative ${mode === 'message'
+            className={`w-full max-w-full h-[60vh] flex rounded-3xl overflow-hidden relative ${mode === 'message'
                 ? 'bg-slate-900 border border-slate-800'
                 : 'bg-slate-50 shadow-inner border border-slate-200 p-4 md:p-8'
                 } ${isScrollingMode && mode !== 'message' ? 'items-start justify-start' : 'items-center justify-center'}`}
@@ -420,7 +427,7 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
                         transition={{ duration: 0.1 }}
                         className={`font-bold text-slate-900 text-center leading-tight ${isFullPage
                             ? 'text-lg md:text-xl max-w-4xl text-left whitespace-pre-wrap' // Full Page style
-                            : 'text-3xl md:text-7xl px-4 md:px-12 md:whitespace-nowrap whitespace-normal break-words' // Standard RSVP style
+                            : `px-4 md:px-12 whitespace-normal md:whitespace-nowrap break-words ${getFontSizeClass(currentText)}` // Standard RSVP style
                             } ${getModeStyles()}`}
                     >
                         {currentText}
