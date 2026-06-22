@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
-import { createClient } from '@/lib/supabase/server';
+import { createClient } from '@supabase/supabase-js';
 
 const stripeKey = process.env.STRIPE_SECRET_KEY || 'sk_test_123';
 const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 export async function POST(req: Request) {
     if (!stripeKey) {
@@ -31,17 +35,31 @@ export async function POST(req: Request) {
         return NextResponse.json({ error: `Webhook Error: ${err.message}` }, { status: 400 });
     }
 
-    const supabase = await createClient();
-
     try {
         switch (event.type) {
             case 'checkout.session.completed': {
                 const session = event.data.object as Stripe.Checkout.Session;
-                if (session.mode === 'subscription') {
-                    const userId = session.client_reference_id || session.metadata?.user_id;
-                    const customerId = session.customer as string;
-                    const subscriptionId = session.subscription as string;
+                const userId = session.client_reference_id || session.metadata?.user_id;
+                const customerEmail = session.customer_details?.email || session.metadata?.email;
+                const productMode = session.metadata?.productMode;
+                const customerId = session.customer as string;
 
+                if (productMode === 'bootcamp' || productMode === 'complete_masterclass_bundle') {
+                    if (userId) {
+                        const { error } = await supabase
+                            .from('profiles')
+                            .update({ has_paid_bootcamp: true })
+                            .eq('id', userId);
+                        if (error) console.error("Failed to update profile for bootcamp purchase:", error);
+                    } else if (customerEmail) {
+                        const { error } = await supabase
+                            .from('profiles')
+                            .update({ has_paid_bootcamp: true })
+                            .eq('email', customerEmail);
+                        if (error) console.error("Failed to update profile by email for bootcamp purchase:", error);
+                    }
+                } else if (productMode === 'mastery_subscription' || session.mode === 'subscription') {
+                    const subscriptionId = session.subscription as string;
                     if (userId) {
                         const { error } = await supabase
                             .from('profiles')
@@ -52,8 +70,18 @@ export async function POST(req: Request) {
                                 subscription_status: 'active'
                             })
                             .eq('id', userId);
-
                         if (error) console.error("Failed to update profile after checkout:", error);
+                    } else if (customerEmail) {
+                        const { error } = await supabase
+                            .from('profiles')
+                            .update({
+                                subscription_tier: 'mastery',
+                                stripe_customer_id: customerId,
+                                stripe_subscription_id: subscriptionId,
+                                subscription_status: 'active'
+                            })
+                            .eq('email', customerEmail);
+                        if (error) console.error("Failed to update profile by email after checkout:", error);
                     }
                 }
                 break;

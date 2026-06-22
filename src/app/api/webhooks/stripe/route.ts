@@ -34,28 +34,54 @@ export async function POST(request: Request) {
     if (event.type === 'checkout.session.completed') {
         const session = event.data.object as Stripe.Checkout.Session;
         
-        const customerEmail = session.customer_details?.email;
+        const customerEmail = session.customer_details?.email || session.metadata?.email;
         const productMode = session.metadata?.productMode;
 
         if (customerEmail && productMode) {
             console.log(`Fulfilling purchase for ${customerEmail} - ${productMode}`);
-            
-            // Here you would insert a record into a `purchases` or `users` table to grant access
-            // Using service role to bypass RLS
-            const { error } = await supabase
-                .from('purchases')
-                .insert({
-                    email: customerEmail,
-                    product: productMode,
-                    stripe_session_id: session.id,
-                    amount_total: session.amount_total,
-                    currency: session.currency || 'usd',
-                });
+            const userId = session.client_reference_id || session.metadata?.user_id;
 
-            if (error) {
-                console.error("Error granting access in Supabase:", error);
-                // Return 200 anyway so Stripe doesn't continually retry a DB-related failure
-                // In production, consider queuing this or alerting admin
+            if (productMode === 'bootcamp' || productMode === 'complete_masterclass_bundle') {
+                if (userId) {
+                    const { error } = await supabase
+                        .from('profiles')
+                        .update({ has_paid_bootcamp: true })
+                        .eq('id', userId);
+                    if (error) console.error("Error updating profile for bootcamp purchase:", error);
+                } else {
+                    const { error } = await supabase
+                        .from('profiles')
+                        .update({ has_paid_bootcamp: true })
+                        .eq('email', customerEmail);
+                    if (error) console.error("Error updating profile by email for bootcamp purchase:", error);
+                }
+            } else if (productMode === 'mastery_subscription') {
+                const customerId = session.customer as string;
+                const subscriptionId = session.subscription as string;
+                
+                if (userId) {
+                    const { error } = await supabase
+                        .from('profiles')
+                        .update({
+                            subscription_tier: 'mastery',
+                            stripe_customer_id: customerId,
+                            stripe_subscription_id: subscriptionId,
+                            subscription_status: 'active'
+                        })
+                        .eq('id', userId);
+                    if (error) console.error("Error updating profile for subscription purchase:", error);
+                } else {
+                    const { error } = await supabase
+                        .from('profiles')
+                        .update({
+                            subscription_tier: 'mastery',
+                            stripe_customer_id: customerId,
+                            stripe_subscription_id: subscriptionId,
+                            subscription_status: 'active'
+                        })
+                        .eq('email', customerEmail);
+                    if (error) console.error("Error updating profile by email for subscription purchase:", error);
+                }
             }
         }
     }
