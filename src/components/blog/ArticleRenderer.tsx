@@ -75,6 +75,26 @@ export function ArticleRenderer({ content, isPremium, articleSlug }: ArticleRend
 
     }, [user, isPremium, articleSlug]);
 
+    useEffect(() => {
+        if (mounted && hasAccess) {
+            try {
+                const readStr = localStorage.getItem('rogue_read_articles');
+                let readList: string[] = [];
+                if (readStr) {
+                    readList = JSON.parse(readStr);
+                }
+                if (Array.isArray(readList)) {
+                    if (!readList.includes(articleSlug)) {
+                        readList.push(articleSlug);
+                        localStorage.setItem('rogue_read_articles', JSON.stringify(readList));
+                    }
+                }
+            } catch (e) {
+                console.error("Failed to track article view", e);
+            }
+        }
+    }, [mounted, hasAccess, articleSlug]);
+
     // We render the HTML. We want to always render the full HTML for SEO.
     // But if they don't have access, we apply a CSS class to visually hide the rest and fade it out.
 

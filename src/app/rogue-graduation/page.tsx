@@ -91,6 +91,17 @@ function RogueGraduationContent() {
             } catch (error) {
                 setSuperpowers(['logical', 'visual', 'kinesthetic']);
             }
+
+            try {
+                const localMemBase = localStorage.getItem('rogue_memory_baseline');
+                const localMemCurr = localStorage.getItem('rogue_memory_current');
+                if (localMemBase) {
+                    setMemoryBaseline(parseInt(localMemBase) || 6);
+                }
+                if (localMemCurr) {
+                    setMemoryScore(parseInt(localMemCurr) || 28);
+                }
+            } catch (e) {}
         };
 
         fetchGraduationData();

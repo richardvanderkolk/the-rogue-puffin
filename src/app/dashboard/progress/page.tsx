@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/lib/auth-context';
+import { supabase } from '@/lib/supabase/client';
+import WpmProgressGraph from '@/components/ui/WpmProgressGraph';
 import { Activity, BarChart2, BookOpen, BrainCircuit, Target, CheckCircle, ChevronRight, TrendingUp } from 'lucide-react';
 
 export default function ProgressPage() {
@@ -11,13 +13,13 @@ export default function ProgressPage() {
     const router = useRouter();
     const [mounted, setMounted] = useState(false);
 
-    // Mock progress data for UI demonstration
-    const currentDay = 2; // In reality, fetch from localStorage or API
-    const baselineWPM = 250;
-    const currentWPM = 310;
-    const memoryBaseline = 4; // words recalled
-    const memoryCurrent = 7;
-    const articlesRead = 0;
+    const [currentDay, setCurrentDay] = useState(1);
+    const [baselineWPM, setBaselineWPM] = useState(250);
+    const [currentWPM, setCurrentWPM] = useState(250);
+    const [wpmHistory, setWpmHistory] = useState<{day: number, wpm: number}[]>([]);
+    const [memoryBaseline, setMemoryBaseline] = useState(4);
+    const [memoryCurrent, setMemoryCurrent] = useState(7);
+    const [articlesRead, setArticlesRead] = useState(0);
     const totalArticles = 12;
 
     useEffect(() => {
@@ -25,12 +27,104 @@ export default function ProgressPage() {
             router.push('/login');
         } else if (!loading && user) {
             setMounted(true);
+            
+            const fetchProgressData = async () => {
+                // 1. Fetch WPM History from Supabase
+                let dbHistory: {day: number, wpm: number}[] = [];
+                try {
+                    const { data, error } = await supabase
+                        .from('training_sessions')
+                        .select('day_id, average_wpm')
+                        .eq('user_id', user.id)
+                        .order('day_id', { ascending: true });
+                    
+                    if (!error && data) {
+                        const map = new Map<number, number>();
+                        data.forEach(d => {
+                            if (d.average_wpm) map.set(d.day_id, d.average_wpm);
+                        });
+                        dbHistory = Array.from(map.entries())
+                            .map(([day, wpm]) => ({ day, wpm }))
+                            .sort((a, b) => a.day - b.day);
+                    }
+                } catch (e) {
+                    console.error("Failed to fetch history from Supabase", e);
+                }
+
+                if (dbHistory.length > 0) {
+                    setWpmHistory(dbHistory);
+                    setBaselineWPM(dbHistory[0].wpm);
+                    setCurrentWPM(dbHistory[dbHistory.length - 1].wpm);
+                } else {
+                    // Fallback to local storage if DB is empty
+                    const localWpmHistory = localStorage.getItem('rogue_daily_wpm_history');
+                    if (localWpmHistory) {
+                        try {
+                            const parsedHistory = JSON.parse(localWpmHistory);
+                            if (parsedHistory && parsedHistory.length > 0) {
+                                const sorted = parsedHistory.sort((a: any, b: any) => a.day - b.day);
+                                setWpmHistory(sorted);
+                                setBaselineWPM(sorted[0].wpm);
+                                setCurrentWPM(sorted[sorted.length - 1].wpm);
+                            }
+                        } catch (e) {}
+                    }
+                }
+
+                // 2. Fetch progress day
+                try {
+                    const { data: profile } = await supabase
+                        .from('profiles')
+                        .select('bootcamp_progress_day')
+                        .eq('id', user.id)
+                        .maybeSingle();
+                    
+                    if (profile?.bootcamp_progress_day) {
+                        setCurrentDay(profile.bootcamp_progress_day);
+                    } else {
+                        const localProgress = localStorage.getItem('rogue_day_progress');
+                        if (localProgress) {
+                            setCurrentDay(parseInt(localProgress) || 1);
+                        }
+                    }
+                } catch (e) {
+                    console.error("Failed to fetch progress day", e);
+                }
+
+                // 3. Fetch memory stats from localStorage
+                try {
+                    const localMemBase = localStorage.getItem('rogue_memory_baseline');
+                    const localMemCurr = localStorage.getItem('rogue_memory_current');
+                    if (localMemBase) {
+                        setMemoryBaseline(parseInt(localMemBase) || 4);
+                    }
+                    if (localMemCurr) {
+                        setMemoryCurrent(parseInt(localMemCurr) || 7);
+                    }
+                } catch (e) {}
+
+                // 4. Fetch read articles list from localStorage
+                try {
+                    const readStr = localStorage.getItem('rogue_read_articles');
+                    if (readStr) {
+                        const parsed = JSON.parse(readStr);
+                        if (Array.isArray(parsed)) {
+                            setArticlesRead(parsed.length);
+                        }
+                    }
+                } catch(e) {}
+            };
+
+            fetchProgressData();
         }
     }, [user, loading, router]);
 
     if (!mounted || loading || !user) {
         return <div className="min-h-screen bg-black" />;
     }
+
+    const wpmImprovementPercent = baselineWPM > 0 ? Math.round(((currentWPM - baselineWPM) / baselineWPM) * 100) : 0;
+    const memoryImprovementPercent = memoryBaseline > 0 ? Math.round(((memoryCurrent - memoryBaseline) / memoryBaseline) * 100) : 0;
 
     return (
         <div className="flex min-h-screen bg-black text-white font-sans">
@@ -62,11 +156,11 @@ export default function ProgressPage() {
                                 <p className="text-slate-400 text-sm">Words per minute progression</p>
                             </div>
                             <div className="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 border border-emerald-500/20">
-                                <TrendingUp className="w-3 h-3" /> +24% Faster
+                                <TrendingUp className="w-3 h-3" /> {wpmImprovementPercent >= 0 ? '+' : ''}{wpmImprovementPercent}% Faster
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-6 relative">
+                        <div className="grid grid-cols-2 gap-6 relative mb-6">
                             <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800/50">
                                 <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">Baseline (Day 0)</p>
                                 <div className="text-4xl font-bold text-white font-mono">{baselineWPM}</div>
@@ -81,6 +175,16 @@ export default function ProgressPage() {
                                 <p className="text-emerald-500/50 text-sm mt-1">WPM</p>
                             </div>
                         </div>
+
+                        {/* Trajectory Graph */}
+                        {wpmHistory.length > 0 && (
+                            <div className="mt-6 pt-6 border-t border-slate-800">
+                                <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">14-Day Trajectory</div>
+                                <div className="bg-slate-950 rounded-xl border border-slate-800 p-4">
+                                    <WpmProgressGraph data={wpmHistory} height={180} />
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                     {/* Secondary Tracking: Memory */}
@@ -95,14 +199,14 @@ export default function ProgressPage() {
                                 <p className="text-slate-400 text-sm">Visualization recall accuracy</p>
                             </div>
                             <div className="bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1 border border-amber-500/20">
-                                <TrendingUp className="w-3 h-3" /> +75% Retention
+                                <TrendingUp className="w-3 h-3" /> {memoryImprovementPercent >= 0 ? '+' : ''}{memoryImprovementPercent}% Retention
                             </div>
                         </div>
 
                         <div className="grid grid-cols-2 gap-6 relative">
                             <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800/50">
                                 <p className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-2">First Attempt</p>
-                                <div className="text-4xl font-bold text-white font-mono">{memoryBaseline}<span className="text-xl text-slate-500">/20</span></div>
+                                <div className="text-4xl font-bold text-white font-mono">{memoryBaseline}<span className="text-xl text-slate-500">/30</span></div>
                                 <p className="text-slate-600 text-sm mt-1">Words Recalled</p>
                             </div>
                             <div className="bg-slate-950 p-6 rounded-2xl border border-amber-500/30 relative">
@@ -110,7 +214,7 @@ export default function ProgressPage() {
                                     <CheckCircle className="w-4 h-4 text-slate-950" />
                                 </div>
                                 <p className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">High Score</p>
-                                <div className="text-4xl font-bold text-amber-400 font-mono">{memoryCurrent}<span className="text-xl text-amber-500/50">/20</span></div>
+                                <div className="text-4xl font-bold text-amber-400 font-mono">{memoryCurrent}<span className="text-xl text-amber-500/50">/30</span></div>
                                 <p className="text-amber-500/50 text-sm mt-1">Words Recalled</p>
                             </div>
                         </div>
@@ -123,7 +227,7 @@ export default function ProgressPage() {
                         <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                             <Target className="w-5 h-5 text-indigo-400" /> 14-Day Protocol
                         </h2>
-                        <span className="text-indigo-400 font-bold bg-indigo-500/10 px-4 py-1.5 rounded-full border border-indigo-500/20">Day {currentDay} of 14</span>
+                        <span className="text-indigo-400 font-bold bg-indigo-500/10 px-4 py-1.5 rounded-full border border-indigo-500/20">Day {Math.min(14, currentDay)} of 14</span>
                     </div>
 
                     <div className="w-full bg-slate-950 p-4 rounded-2xl border border-slate-800">
@@ -134,7 +238,7 @@ export default function ProgressPage() {
                         <div className="relative w-full h-4 bg-slate-800 rounded-full overflow-hidden">
                             <div
                                 className="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-600 to-indigo-400 rounded-full"
-                                style={{ width: `${(currentDay / 14) * 100}%` }}
+                                style={{ width: `${Math.min(100, (currentDay / 14) * 100)}%` }}
                             />
                         </div>
                     </div>

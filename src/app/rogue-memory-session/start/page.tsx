@@ -489,13 +489,20 @@ function RogueMemorySessionContent() {
     const prevPrevStep = useCallback(() => setStep(s => Math.max(0, s - 2)), []);
 
     const handleBaselineSubmit = (input: string) => {
-        setBaselineResult(scoreWords(input, FIRST_30));
+        const result = scoreWords(input, FIRST_30);
+        setBaselineResult(result);
+        try {
+            localStorage.setItem('rogue_memory_baseline', result.matched.length.toString());
+        } catch (e) {}
         nextStep();
     };
 
     const handleRetestSubmit = (input: string) => {
         const result = scoreWords(input, SECOND_30);
         setRetestResult(result);
+        try {
+            localStorage.setItem('rogue_memory_current', result.matched.length.toString());
+        } catch (e) {}
         
         // Save anonymous
         try {
