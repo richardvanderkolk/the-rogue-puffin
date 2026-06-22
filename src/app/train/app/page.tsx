@@ -7,6 +7,7 @@ import Link from "next/link";
 import PacerEngine from "@/components/PacerEngine";
 import { COURSE_CONTENT, DrillStep } from "@/lib/course-content";
 import { useAuth } from "@/lib/auth-context";
+import { DRILL_TEXT_FULL, DRILL_TEXT_CHAPTER_1 } from "@/lib/drill-content";
 
 function TrainingContent() {
     const searchParams = useSearchParams();
@@ -24,9 +25,7 @@ function TrainingContent() {
     const [activeTab, setActiveTab] = useState<"drills" | "custom">("drills");
 
     // Text Content
-    const [text, setText] = useState(
-        "Speed reading is not just about reading faster. It is about comprehending more in less time. By grouping words together, you reduce the strain on your eyes and allow your brain to process information more efficiently. The average person reads at about 200 words per minute. With practice, you can easily double or triple that speed. The key is consistent practice and breaking old habits. When you master the art of speed reading, you unlock a new level of productivity and learning potential that can transform your career and personal growth."
-    );
+    const [text, setText] = useState(DRILL_TEXT_FULL);
 
     // Workout Mode State
     const [workoutSteps, setWorkoutSteps] = useState<DrillStep[]>([]);
@@ -45,9 +44,14 @@ function TrainingContent() {
         setAcceleration(0); // Reset acceleration
         setIsWorkoutActive(false);
 
+        // Restore default text if it was overwritten by a short drill text
+        if (text.length < 500) {
+            setText(DRILL_TEXT_FULL);
+        }
+
         switch (index) {
             case 0: // Warm Up
-                setText("Speed reading is not just about reading faster. It is about comprehending more in less time. By grouping words together, you reduce the strain on your eyes and allow your brain to process information more efficiently.");
+                setText(DRILL_TEXT_CHAPTER_1);
                 setMode("normal");
                 setChunkSize(3);
                 setWpm(300);
@@ -69,7 +73,7 @@ function TrainingContent() {
                 setWpm(400); // Highlight moves faster
                 break;
             case 4: // Speed Challenge (Video Script)
-                setText("School taught you to read LIKE THIS... But your brain can actually process information MUCH FASTER THAN YOU THINK. The Rogue Puffin helps you double your speed.");
+                setText("School taught you to read LIKE THIS... But your brain can actually process information MUCH FASTER THAN YOU THINK. The Rogue Puffin helps you double your speed. By training your eyes to scan chunks visually, you unlock your ability to read at the speed of thought, processing text directly without saying it out loud. Keep practicing this daily to wire in your visual reading skills.");
                 setMode("normal");
                 setChunkSize(1);
                 setWpm(200); // Start slow
