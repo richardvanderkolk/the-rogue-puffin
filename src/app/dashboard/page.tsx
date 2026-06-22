@@ -116,6 +116,37 @@ export default function DashboardPage() {
                                 Complete <strong>Step 1: The Rogue Session</strong> before starting the 14-Day Bootcamp to establish your baseline and learn the core techniques.
                             </p>
                         </div>
+
+                        {/* Practice Utilities Section */}
+                        <div className="mt-12 space-y-6">
+                            <h2 className="text-2xl font-bold font-heading text-white flex items-center gap-3">
+                                <Zap className="w-6 h-6 text-indigo-400" />
+                                Practice Utilities
+                            </h2>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {/* Custom Reading Engine */}
+                                <Link href="/train/app" className="flex items-start gap-4 bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl hover:bg-slate-900/60 hover:border-indigo-500/30 transition-all hover:-translate-y-1 group">
+                                    <div className="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center border border-indigo-500/20 text-indigo-400 shrink-0">
+                                        <Zap className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white text-lg mb-1 group-hover:text-indigo-300 transition-colors">Custom Reading Engine</h4>
+                                        <p className="text-sm text-slate-400 leading-relaxed">Paste your own articles, textbook chapters, or work emails to read them at speed.</p>
+                                    </div>
+                                </Link>
+
+                                {/* Speed Diagnostic Test */}
+                                <Link href="/free-test" className="flex items-start gap-4 bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl hover:bg-slate-900/60 hover:border-emerald-500/30 transition-all hover:-translate-y-1 group">
+                                    <div className="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 text-emerald-400 shrink-0">
+                                        <Activity className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-white text-lg mb-1 group-hover:text-emerald-300 transition-colors">Speed Diagnostic Test</h4>
+                                        <p className="text-sm text-slate-400 leading-relaxed">Re-test your baseline reading speed and comprehension index at any time.</p>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
                     </div>
 
                     {/* Right: Progress Snapshot */}

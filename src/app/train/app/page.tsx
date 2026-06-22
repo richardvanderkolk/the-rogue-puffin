@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { Suspense, useState, useEffect, useRef } from "react";
 import { Play, Pause, RefreshCw, Settings, ChevronRight, Zap, BookOpen, ScanEye, ArrowUp, MonitorPlay, Timer, CheckCircle } from "lucide-react";
 import Link from "next/link";
@@ -11,9 +11,28 @@ import { DRILL_TEXT_FULL, DRILL_TEXT_CHAPTER_1 } from "@/lib/drill-content";
 
 function TrainingContent() {
     const searchParams = useSearchParams();
+    const router = useRouter();
     const dayParam = searchParams.get("day");
     const [dayTitle, setDayTitle] = useState("");
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
+    const [mounted, setMounted] = useState(false);
+
+    // Track component mounting to prevent hydration issues
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    // Gating: Redirect guests to login
+    useEffect(() => {
+        if (mounted && !loading && !user) {
+            router.push('/login?redirectTo=/train/app');
+        }
+    }, [user, loading, mounted, router]);
+
+    // Prevent rendering pacer for unauthorized/unmounted states
+    if (!mounted || loading || !user) {
+        return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Loading Trainer...</div>;
+    }
 
     // Core Pacer State
     const [isPlaying, setIsPlaying] = useState(false);
