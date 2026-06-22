@@ -51,9 +51,11 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
     const [currentWpm, setCurrentWpm] = useState(wpm);
 
     // Reset WPM when base WPM changes or on stop
+    const lastWpmPropRef = useRef(wpm);
     useEffect(() => {
-        if (!isPlaying) {
+        if (!isPlaying || wpm !== lastWpmPropRef.current) {
             setCurrentWpm(wpm);
+            lastWpmPropRef.current = wpm;
         }
     }, [wpm, isPlaying]);
 

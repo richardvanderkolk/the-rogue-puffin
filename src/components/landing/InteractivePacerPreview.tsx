@@ -73,7 +73,7 @@ export function InteractivePacerPreview() {
   const { start, middle, end } = getStyledWord(currentWord);
 
   return (
-    <div className={`bg-slate-900/60 backdrop-blur-xl border rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between w-full min-h-[350px] max-w-md mx-auto group transition-all duration-500 ${
+    <div className={`bg-slate-900/60 backdrop-blur-xl border rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between w-full h-[395px] max-w-md mx-auto group transition-all duration-500 ${
       isPlaying ? 'border-indigo-500/30 shadow-[0_0_50px_rgba(99,102,241,0.08)]' : 'border-white/10 shadow-none'
     }`}>
       {/* Decorative top header glow */}
@@ -88,7 +88,7 @@ export function InteractivePacerPreview() {
       </div>
 
       {/* Pacer Word Window */}
-      <div className={`flex-1 flex items-center justify-center relative my-6 bg-slate-950/60 border rounded-2xl overflow-hidden min-h-[120px] transition-colors duration-500 ${
+      <div className={`flex-shrink-0 h-28 flex items-center justify-center relative my-4 bg-slate-950/60 border rounded-2xl overflow-hidden transition-colors duration-500 ${
         isPlaying ? 'border-indigo-500/20' : 'border-slate-800/80'
       }`}>
         {/* Horizontal alignment guides */}
@@ -96,7 +96,7 @@ export function InteractivePacerPreview() {
         <div className="absolute left-1/2 -translate-x-1/2 inset-y-0 border-l border-dashed border-slate-800/40 pointer-events-none" />
         
         {/* Render Word with colored fixation point */}
-        <div className="relative z-10 text-3xl md:text-4xl font-extrabold tracking-tight select-none">
+        <div className="relative z-10 text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight select-none whitespace-nowrap">
           <span className="text-slate-400">{start}</span>
           <span className="text-indigo-400 font-black relative">
             {middle}
