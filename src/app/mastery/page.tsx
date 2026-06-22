@@ -94,15 +94,15 @@ export default function MasteryLandingPage() {
                                     <p className="text-slate-400">Randomized 3-minute drills designed to keep your peripheral vision and subvocalization suppression sharp.</p>
                                 </div>
                             </li>
-                            <li className="flex items-start gap-4">
-                                <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0">
-                                    <Shield className="w-5 h-5 text-purple-400" />
-                                </div>
-                                <div>
-                                    <h4 className="text-white font-bold text-lg">Monthly Masterclasses</h4>
-                                    <p className="text-slate-400">New advanced cognitive protocols released every month directly to your dashboard.</p>
-                                </div>
-                            </li>
+                             <li className="flex items-start gap-4">
+                                 <div className="w-10 h-10 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0">
+                                     <Shield className="w-5 h-5 text-purple-400" />
+                                 </div>
+                                 <div>
+                                     <h4 className="text-white font-bold text-lg">Advanced Tracking & Analytics</h4>
+                                     <p className="text-slate-400">Log your daily training sessions, visualize your WPM growth curve, and track retention metrics over time.</p>
+                                 </div>
+                             </li>
                         </ul>
                     </div>
 
