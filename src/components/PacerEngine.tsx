@@ -96,6 +96,8 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
                     maxLength = Math.floor(maxLength * 2.25);
                 } else if (reduceFontSizeAfter && elapsedSeconds >= reduceFontSizeAfter) {
                     maxLength = Math.floor(maxLength * 1.5);
+                } else {
+                    maxLength = Math.min(25, maxLength);
                 }
 
                 let currentChunkWords: string[] = [];
