@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase/client";
 
 interface User {
     id: string;
@@ -31,12 +32,64 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const router = useRouter();
 
     useEffect(() => {
-        // Check local storage for "fake" session
-        const storedUser = localStorage.getItem("rogue_user");
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
-        setLoading(false);
+        // Sync with Supabase Auth state dynamically
+        const syncSession = async () => {
+            try {
+                const { data: { session } } = await supabase.auth.getSession();
+                if (session?.user) {
+                    const { data: profile } = await supabase
+                        .from('profiles')
+                        .select('full_name, has_paid_bootcamp')
+                        .eq('id', session.user.id)
+                        .maybeSingle();
+
+                    setUser({
+                        id: session.user.id,
+                        email: session.user.email || "",
+                        isPro: profile?.has_paid_bootcamp || false,
+                        name: profile?.full_name || session.user.email || "Student",
+                    });
+                } else {
+                    const storedUser = localStorage.getItem("rogue_user");
+                    if (storedUser) {
+                        setUser(JSON.parse(storedUser));
+                    } else {
+                        setUser(null);
+                    }
+                }
+            } catch (e) {
+                console.error("Auth sync error:", e);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        syncSession();
+
+        // Listen for authentication changes (login, logout, token refresh)
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+            if (session?.user) {
+                const { data: profile } = await supabase
+                    .from('profiles')
+                    .select('full_name, has_paid_bootcamp')
+                    .eq('id', session.user.id)
+                    .maybeSingle();
+
+                setUser({
+                    id: session.user.id,
+                    email: session.user.email || "",
+                    isPro: profile?.has_paid_bootcamp || false,
+                    name: profile?.full_name || session.user.email || "Student",
+                });
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
+        });
+
+        return () => {
+            subscription.unsubscribe();
+        };
     }, []);
 
     const signIn = async (email: string) => {
@@ -47,7 +100,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             id: "mock-user-" + Date.now().toString(),
             email: email,
             isPro: true,
-            name: email, // In the new flow, we will just pass their chosen username into the 'email' param for simplicity
+            name: email,
             beforeWpm: 0,
             afterWpm: 0,
         };
@@ -59,6 +112,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     const signOut = async () => {
+        await supabase.auth.signOut();
         setUser(null);
         localStorage.removeItem("rogue_user");
         router.push("/");
@@ -68,7 +122,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         if (user) {
             const updatedUser = { ...user, isPro: true };
             setUser(updatedUser);
-            localStorage.setItem("rogue_user", JSON.stringify(updatedUser)); // Persist pro status
+            localStorage.setItem("rogue_user", JSON.stringify(updatedUser));
         }
     };
 
