@@ -41,7 +41,7 @@ export default function V2LandingPage() {
                                         School teaches you <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">WHAT</span> to learn.
                                     </span>
                                     <span className="text-slate-300 block mt-2">
-                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">HOW</span> to master it.
+                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">HOW</span> to master it, unlocking true learning mastery.
                                     </span>
                                 </h1>
                                 
@@ -51,6 +51,9 @@ export default function V2LandingPage() {
                                     </p>
                                     <p className="text-base md:text-lg text-slate-400 font-light leading-relaxed">
                                         Unlock a scientifically proven meta-learning system. By training your brain to ingest visual information at the speed of thought, actively synthesize complex concepts, and encode them into permanent memory, we help you turn coursework into lasting expertise.
+                                    </p>
+                                    <p className="text-base md:text-lg text-slate-400 font-light leading-relaxed">
+                                        Our goal is for you to deeply understand what you need to learn in the most efficient and effective way known.
                                     </p>
                                 </div>
                             </div>
