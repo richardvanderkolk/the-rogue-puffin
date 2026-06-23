@@ -6,9 +6,9 @@ import { supabase } from "@/lib/supabase/client";
 
 interface User {
     id: string;
-    email: string;
+    email?: string | null;
     isPro: boolean;
-    name: string;
+    name?: string | null;
     beforeWpm?: number;
     afterWpm?: number;
     subscription_status?: string;

@@ -307,7 +307,7 @@ export default function MasteryDashboardPage() {
                 ) : activeHubTab === 'toolkit' ? (
                     <CognitiveToolkit userId={user.id} />
                 ) : (
-                    <DiscoveriesHub userId={user.id} userStyle={userStyle} userName={user.name} />
+                    <DiscoveriesHub userId={user.id} userStyle={userStyle} userName={user.name || "Student"} />
                 )}
             </div>
         </div>
