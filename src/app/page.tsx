@@ -41,7 +41,7 @@ export default function V2LandingPage() {
                                         School teaches you <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">WHAT</span> to learn.
                                     </span>
                                     <span className="text-slate-300 block mt-2">
-                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">HOW</span> to master it, unlocking true learning mastery.
+                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">HOW</span> to master learning it.
                                     </span>
                                 </h1>
                                 

@@ -61,7 +61,7 @@ export default function GatedFeaturePreview({ featureType, currentDay }: GatedFe
             icon: <Compass className="w-5 h-5 text-purple-400" />
         },
         {
-            title: "Community Discoveries Hub",
+            title: "Learning Community Discoveries",
             desc: "Share high-value internet resources, upvoting and segmenting value by student learning styles.",
             icon: <Share2 className="w-5 h-5 text-pink-400" />
         }

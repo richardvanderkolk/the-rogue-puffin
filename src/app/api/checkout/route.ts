@@ -73,9 +73,11 @@ async function createCheckoutSession(request: Request, productMode: string, emai
 
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
+    const isValidEmail = email && email.includes('@') && email.includes('.');
+
     const session = await stripe.checkout.sessions.create({
         payment_method_types: ['card'],
-        customer_email: email || undefined,
+        customer_email: isValidEmail ? email : undefined,
         allow_promotion_codes: true,
         line_items: [
             {

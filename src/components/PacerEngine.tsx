@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { smartChunkText, calculateInterval, SmartChunk } from "@/lib/pacer";
+import { renderBionicText } from "@/lib/bionic";
 
 interface BouncePoint {
     x: number;
@@ -15,7 +16,7 @@ interface PacerEngineProps {
     text: string;
     wpm: number;
     isPlaying: boolean;
-    mode: "normal" | "inverted" | "peripheral" | "backward" | "flash" | "read" | "message" | "recall";
+    mode: "normal" | "inverted" | "peripheral" | "backward" | "flash" | "read" | "message" | "recall" | "bionic";
     chunkSize?: number;
     onComplete?: () => void;
     highlightMode?: boolean;
@@ -27,9 +28,10 @@ interface PacerEngineProps {
     reduceFontSizeAgainAfter?: number; // Optional timestamp to adjust chunk sizing further
     increaseChunkSizeAfter?: number; // Timestamp in seconds to increase chunk size
     increaseChunkSizeTo?: number; // Target chunk size
+    bionicContinuous?: boolean; // Render full-text bionic view instead of RSVP
 }
 
-export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3, onComplete, highlightMode = false, acceleration = 0, customInterval, smallFont = false, reduceFontSizeAfter, extraSmallFont = false, reduceFontSizeAgainAfter, increaseChunkSizeAfter, increaseChunkSizeTo }: PacerEngineProps) {
+export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3, onComplete, highlightMode = false, acceleration = 0, customInterval, smallFont = false, reduceFontSizeAfter, extraSmallFont = false, reduceFontSizeAgainAfter, increaseChunkSizeAfter, increaseChunkSizeTo, bionicContinuous = false }: PacerEngineProps) {
     const [chunks, setChunks] = useState<SmartChunk[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -336,6 +338,14 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
         );
     };
 
+    const renderBionicContinuousMode = () => {
+        return (
+            <div className="w-full h-full overflow-y-auto p-4 md:p-8 bg-white text-slate-800 text-xl md:text-2xl font-sans leading-relaxed whitespace-pre-wrap relative z-20 pointer-events-auto text-justify shadow-inner rounded-3xl">
+                {renderBionicText(text)}
+            </div>
+        );
+    };
+
     const renderMessageMode = () => {
         return (
             <div className="w-full h-full flex flex-col items-center p-6 md:p-8 text-slate-300 text-lg md:text-xl font-medium leading-relaxed whitespace-pre-wrap relative z-20 text-center overflow-y-auto">
@@ -347,9 +357,9 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
     };
 
     // Check if we are in "Full Page Flash" mode (very large chunk)
-    const isFullPage = chunkSize > 20 && mode !== "read";
+    const isFullPage = chunkSize > 20 && mode !== "read" && !(mode === "bionic" && bionicContinuous);
 
-    const isScrollingMode = highlightMode || mode === "read" || mode === "message";
+    const isScrollingMode = highlightMode || mode === "read" || mode === "message" || (mode === "bionic" && bionicContinuous);
 
     return (
         <div
@@ -360,7 +370,7 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
                 } ${isScrollingMode && mode !== 'message' ? 'items-start justify-start' : 'items-center justify-center'}`}
         >
             {/* Progress bar */}
-            {mode !== "read" && (
+            {mode !== "read" && !(mode === "bionic" && bionicContinuous) && (
                 <div className="absolute top-0 left-0 w-full h-2 bg-slate-200 z-10">
                     <motion.div
                         className="h-full bg-indigo-500"
@@ -411,6 +421,8 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
                 renderMessageMode()
             ) : mode === "read" ? (
                 renderReadMode()
+            ) : mode === "bionic" && bionicContinuous ? (
+                renderBionicContinuousMode()
             ) : (
                 /* Flash Mode (RSVP / Standard) */
                 <div
@@ -419,7 +431,7 @@ export default function PacerEngine({ text, wpm, isPlaying, mode, chunkSize = 3,
                         : 'text-3xl md:text-5xl px-4 md:px-12 md:whitespace-nowrap whitespace-normal break-words' // Standard RSVP style
                         } ${getModeStyles()}`}
                 >
-                    {currentText}
+                    {mode === "bionic" ? renderBionicText(currentText) : currentText}
                 </div>
             )}
         </div>

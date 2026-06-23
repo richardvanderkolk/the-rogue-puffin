@@ -155,7 +155,7 @@ export default function MasteryDashboardPage() {
                                 : 'text-slate-500 hover:text-slate-350'
                         }`}
                     >
-                        <Share2 className="w-4 h-4 text-indigo-400" /> Discoveries Hub
+                        <Share2 className="w-4 h-4 text-indigo-400" /> Learning Community Discoveries
                         {activeHubTab === 'discoveries' && (
                             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-indigo-500 rounded" />
                         )}
