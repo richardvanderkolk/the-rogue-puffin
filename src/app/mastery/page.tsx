@@ -57,8 +57,8 @@ export default function MasteryLandingPage() {
     };
 
     const isAdmin = 
-        user?.email?.toLowerCase().includes('richard') || 
-        user?.name?.toLowerCase().includes('richard') || 
+        user?.email?.toLowerCase()?.includes('richard') || 
+        user?.name?.toLowerCase()?.includes('richard') || 
         false;
 
     useEffect(() => {

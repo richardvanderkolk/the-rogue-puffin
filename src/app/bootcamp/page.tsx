@@ -39,7 +39,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
             .single();
             
         const isLocal = process.env.NODE_ENV === 'development';
-        const isAdmin = user.email?.toLowerCase().includes('richard') || false;
+        const isAdmin = user.email?.toLowerCase()?.includes('richard') || false;
 
         if (!profile) {
             // Auto-create missing profile

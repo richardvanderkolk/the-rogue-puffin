@@ -19,10 +19,9 @@ export function AdminBypassLink({ href, bypassHref, className, children }: Admin
         setIsMounted(true);
     }, []);
     
-    // Very lenient check - if the name contains richard, let them in.
     const isAdmin = isMounted && (
-        user?.email?.toLowerCase().includes('richard') || 
-        user?.name?.toLowerCase().includes('richard')
+        user?.email?.toLowerCase()?.includes('richard') || 
+        user?.name?.toLowerCase()?.includes('richard')
     );
 
     const finalHref = (isAdmin && bypassHref) ? bypassHref : href;

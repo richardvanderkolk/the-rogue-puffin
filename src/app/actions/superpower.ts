@@ -7,7 +7,7 @@ export async function saveSuperpower(archetype: string) {
   const { data: { user } } = await supabase.auth.getUser()
 
   if (user) {
-    const isAdmin = user.email?.toLowerCase().includes('richard') || false;
+    const isAdmin = user.email?.toLowerCase()?.includes('richard') || false;
     await supabase
       .from('profiles')
       .upsert({

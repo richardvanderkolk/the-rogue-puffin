@@ -66,8 +66,8 @@ export default function MasteryDashboardPage() {
 
     const progressDay = Math.max(user?.bootcamp_progress_day || 1, localProgress);
     const isAdmin = 
-        user?.email?.toLowerCase().includes('richard') || 
-        user?.name?.toLowerCase().includes('richard') || 
+        user?.email?.toLowerCase()?.includes('richard') || 
+        user?.name?.toLowerCase()?.includes('richard') || 
         false;
 
     if (!user || (user?.subscription_status !== 'active' && !isAdmin)) {

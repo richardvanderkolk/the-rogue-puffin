@@ -21,7 +21,7 @@ export async function updateBootcampProgress(newProgressDay: number) {
     .eq('id', user.id)
     .single()
 
-  const isAdmin = user.email?.toLowerCase().includes('richard') || false;
+  const isAdmin = user.email?.toLowerCase()?.includes('richard') || false;
 
   if (!profile) {
     const { error } = await supabase
