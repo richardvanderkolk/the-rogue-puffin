@@ -52,3 +52,54 @@ export async function updateBootcampProgress(newProgressDay: number) {
   revalidatePath('/bootcamp', 'page')
   return { success: true }
 }
+
+export async function applyPromoCode(code: string, product: 'bootcamp' | 'mastery') {
+  if (code.toLowerCase().trim() !== 'educator') {
+    return { success: false, message: 'Invalid promo code' }
+  }
+
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
+    return { success: false, message: 'Please log in first to apply promo codes.' }
+  }
+
+  const updateFields: any = {};
+  if (product === 'bootcamp') {
+    updateFields.has_paid_bootcamp = true;
+  } else if (product === 'mastery') {
+    updateFields.subscription_status = 'active';
+    updateFields.subscription_tier = 'educator';
+  }
+
+  const { error } = await supabase
+    .from('profiles')
+    .update(updateFields)
+    .eq('id', user.id)
+
+  if (error) {
+    console.error('Error applying promo code in profile:', error)
+    // Fallback if profile row doesn't exist yet: insert it
+    const insertFields: any = {
+      id: user.id,
+      email: user.email,
+      bootcamp_progress_day: 1,
+      has_paid_bootcamp: product === 'bootcamp',
+      subscription_status: product === 'mastery' ? 'active' : null,
+      subscription_tier: product === 'mastery' ? 'educator' : 'free'
+    };
+    
+    const { error: insertError } = await supabase
+      .from('profiles')
+      .insert(insertFields)
+    
+    if (insertError) {
+      return { success: false, message: insertError.message }
+    }
+  }
+
+  revalidatePath('/bootcamp', 'page')
+  revalidatePath('/mastery', 'page')
+  return { success: true }
+}

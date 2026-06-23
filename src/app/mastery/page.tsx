@@ -4,12 +4,14 @@ import { useState, useEffect } from "react";
 import { CheckCircle, Zap, Shield, BookOpen, Lock } from "lucide-react";
 import { useAuth } from "@/lib/auth-context";
 import { useRouter } from "next/navigation";
+import { PromoCodeSection } from "@/components/PromoCodeSection";
 
 export default function MasteryLandingPage() {
     const { user, loading } = useAuth();
     const router = useRouter();
     const [isProcessing, setIsProcessing] = useState(false);
     const [currencyInfo, setCurrencyInfo] = useState({ currency: 'usd', symbol: '$' });
+    const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
         fetch('/api/currency')
@@ -59,7 +61,11 @@ export default function MasteryLandingPage() {
         user?.name?.toLowerCase().includes('richard') || 
         false;
 
-    const isAuthorized = user && (user?.subscription_status === 'active' || isAdmin);
+    useEffect(() => {
+        const dbAuthorized = user && (user?.subscription_status === 'active' || isAdmin);
+        const locallyUnlocked = typeof window !== 'undefined' && localStorage.getItem('rp_mastery_unlocked') === 'true';
+        setIsAuthorized(!!dbAuthorized || !!locallyUnlocked);
+    }, [user, isAdmin]);
 
     useEffect(() => {
         if (!loading && isAuthorized) {
@@ -162,6 +168,9 @@ export default function MasteryLandingPage() {
                             {isProcessing ? "Redirecting to secure checkout..." : "Subscribe Now"}
                         </button>
                         <p className="text-center text-xs text-slate-500 mt-4">Secure payment processed by Stripe</p>
+                        <div className="mt-4 text-center">
+                            <PromoCodeSection product="mastery" onUnlock={() => setIsAuthorized(true)} />
+                        </div>
                     </div>
                 </div>
             </div>

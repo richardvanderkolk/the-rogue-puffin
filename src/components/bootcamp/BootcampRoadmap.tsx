@@ -6,12 +6,27 @@ import { AdminBypassLink } from "@/components/AdminBypassLink";
 import { usePostHog } from 'posthog-js/react';
 import { CheckCircle2, Lock, Zap, Target, Brain, BookOpen, Activity, Database, ArrowRight, ArrowDown, Search, Network, MessageCircle, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { PromoCodeSection } from "@/components/PromoCodeSection";
 
-export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { isUnlocked: boolean, symbol: string, initialProgress?: number }) {
+export function BootcampRoadmap({ isUnlocked: propIsUnlocked, symbol, initialProgress = 1 }: { isUnlocked: boolean, symbol: string, initialProgress?: number }) {
+    const [isUnlocked, setIsUnlocked] = useState(propIsUnlocked);
     const [currentProgress, setCurrentProgress] = useState(initialProgress);
     const [visitorId, setVisitorId] = useState<string>('');
     const [showOnboarding, setShowOnboarding] = useState(false);
     const posthog = usePostHog();
+
+    useEffect(() => {
+        setIsUnlocked(propIsUnlocked);
+    }, [propIsUnlocked]);
+
+    useEffect(() => {
+        if (!isUnlocked) {
+            const locallyUnlocked = localStorage.getItem('rp_bootcamp_unlocked') === 'true';
+            if (locallyUnlocked) {
+                setIsUnlocked(true);
+            }
+        }
+    }, [isUnlocked]);
 
     useEffect(() => {
         // If the server tells us they are further along than we thought, update.
@@ -266,6 +281,9 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                     </button>
                                 </Link>
                                 <p className="text-sm text-slate-500 font-medium mt-4">100% Risk-Free 14-Day Guarantee.</p>
+                                <div className="mt-4">
+                                    <PromoCodeSection product="bootcamp" onUnlock={() => setIsUnlocked(true)} />
+                                </div>
                             </div>
                         </div>
                     </div>
