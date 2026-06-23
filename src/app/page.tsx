@@ -9,13 +9,19 @@ import { InteractivePacerPreview } from "@/components/landing/InteractivePacerPr
 import { ViewTracker } from "@/components/ViewTracker";
 
 import { Metadata } from "next";
+import { headers } from "next/headers";
+import { getCurrencyInfo } from "@/lib/currency";
 
 export const metadata: Metadata = {
     title: "Learning Mastery & Study Skills | The Rogue Puffin",
     description: "Master the skill behind every other skill: learning. Learn faster, understand deeper, remember longer. Start with our free 30-minute reading training.",
 };
 
-export default function V2LandingPage() {
+export default async function V2LandingPage() {
+    const headersList = await headers();
+    const country = headersList.get('x-vercel-ip-country');
+    const { symbol, currency } = getCurrencyInfo(country);
+
     return (
         <main className="flex min-h-screen flex-col bg-slate-950 text-slate-100 selection:bg-indigo-500/30 font-sans">
             <ViewTracker path="/" title="Landing Page" category="Marketing" />
@@ -102,7 +108,7 @@ export default function V2LandingPage() {
                                                 <span className="w-6 h-6 rounded-full bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-xs text-purple-300 font-mono">2</span>
                                                 14-Day Learning Mastery Bootcamp
                                             </span>
-                                            <span className="text-xs text-slate-400 font-mono font-semibold">$29 Lifetime</span>
+                                            <span className="text-xs text-slate-400 font-mono font-semibold">{symbol}29 Lifetime</span>
                                         </div>
                                         <p className="text-xs text-slate-400 font-light leading-relaxed pl-8">
                                             Lock in your visual reading speed, synthesize complex concepts, and build permanent memory recall habits.
@@ -280,12 +286,12 @@ export default function V2LandingPage() {
                             <div className="flex justify-between items-center gap-4">
                                 <div>
                                     <span className="text-xs text-slate-500 uppercase tracking-widest font-extrabold block">One-Time Lifetime Access</span>
-                                    <div className="text-3xl font-black text-white mt-1">$29 <span className="text-sm text-slate-400 font-medium">USD</span></div>
+                                    <div className="text-3xl font-black text-white mt-1">{symbol}29 <span className="text-sm text-slate-400 font-medium">{currency.toUpperCase()}</span></div>
                                 </div>
                                 <Link 
                                     href="/bootcamp" 
                                     className="px-6 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-full font-bold text-base transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)] active:scale-95 text-center shrink-0"
-                                >
+                                  >
                                     Get Instant Access
                                 </Link>
                             </div>
@@ -301,7 +307,7 @@ export default function V2LandingPage() {
                                 </div>
                                 <div className="flex justify-between text-xs text-indigo-400 font-bold border-t border-slate-800/40 pt-2">
                                     <span>The 14-Day Learning Mastery Bootcamp</span>
-                                    <span className="font-mono">$29 (One-Time)</span>
+                                    <span className="font-mono">{symbol}29 (One-Time)</span>
                                 </div>
                             </div>
  

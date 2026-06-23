@@ -55,6 +55,18 @@ export default function RogueSessionPage() {
     const [leadEmail, setLeadEmail] = useState('');
     const [leadStatus, setLeadStatus] = useState<'idle' | 'loading' | 'error'>('idle');
     const [assessmentMode, setAssessmentMode] = useState(false);
+    const [currencyInfo, setCurrencyInfo] = useState({ currency: 'usd', symbol: '$' });
+
+    useEffect(() => {
+        fetch('/api/currency')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.symbol) {
+                    setCurrencyInfo(data);
+                }
+            })
+            .catch(err => console.error("Failed to load currency info:", err));
+    }, []);
     
     const posthog = usePostHog();
 
@@ -628,9 +640,8 @@ export default function RogueSessionPage() {
                         <ReadingTest onComplete={handleRetestComplete} isRetest={true} />
                     )}
 
-                    {/* --- RESULTS / UPSELL --- */}
                     {step === 23 && baselineStats && finalStats && (
-                        <ResultsOverview baseline={baselineStats} final={finalStats} isV2={isV2} hasSkippedExercises={hasSkippedExercises} />
+                        <ResultsOverview baseline={baselineStats} final={finalStats} isV2={isV2} hasSkippedExercises={hasSkippedExercises} symbol={currencyInfo.symbol} />
                     )}
 
                 </AnimatePresence>
@@ -665,7 +676,7 @@ function ReadingTest({ onComplete, isRetest = false }: { onComplete: (results: {
 
 
 
-function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { baseline: { wpm: number }, final: { wpm: number }, isV2?: boolean, hasSkippedExercises?: boolean }) {
+function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = "$" }: { baseline: { wpm: number }, final: { wpm: number }, isV2?: boolean, hasSkippedExercises?: boolean, symbol?: string }) {
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
     const { user, signIn } = useAuth();
     const [capturedEmail, setCapturedEmail] = useState<string | null>(null);
@@ -804,7 +815,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises }: { basel
                                 Secure Your 14-Day Bootcamp Access <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </Link>
-                        <p className="text-sm text-slate-500 font-medium mt-5">14-Day Guided Execution Plan. Only $29.</p>
+                        <p className="text-sm text-slate-500 font-medium mt-5">14-Day Guided Execution Plan. Only {symbol}29.</p>
                     </div>
                 </div>
 

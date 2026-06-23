@@ -9,6 +9,18 @@ export default function MasteryLandingPage() {
     const { user, loading } = useAuth();
     const router = useRouter();
     const [isProcessing, setIsProcessing] = useState(false);
+    const [currencyInfo, setCurrencyInfo] = useState({ currency: 'usd', symbol: '$' });
+
+    useEffect(() => {
+        fetch('/api/currency')
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.symbol) {
+                    setCurrencyInfo(data);
+                }
+            })
+            .catch(err => console.error("Failed to load currency info:", err));
+    }, []);
 
     const handleSubscribe = async () => {
         if (!user) {
@@ -121,7 +133,7 @@ export default function MasteryLandingPage() {
                         <div className="mb-8 relative z-10">
                             <h3 className="text-2xl font-bold text-indigo-300 mb-2">Mastery Subscription</h3>
                             <div className="flex items-baseline gap-2">
-                                <span className="text-5xl font-black text-white">$9</span>
+                                <span className="text-5xl font-black text-white">{currencyInfo.symbol}9</span>
                                 <span className="text-slate-400 font-medium text-lg">/ month</span>
                             </div>
                             <p className="text-slate-400 mt-4">Cancel anytime. Maintain your edge permanently.</p>
