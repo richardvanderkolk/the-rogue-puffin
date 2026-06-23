@@ -23,7 +23,8 @@ export function Footer() {
                 <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left border-t border-white/5 pt-16">
                     <div className="space-y-4 flex flex-col items-center md:items-start">
                         <h4 className="text-white font-bold tracking-widest text-sm uppercase">Products</h4>
-                        <Link href="/bootcamp" className="text-slate-400 hover:text-indigo-300 transition-colors">The 14-Day Bootcamp</Link>
+                        <Link href="/bootcamp" className="text-slate-400 hover:text-indigo-300 transition-colors">The 14-Day Bootcamp (Includes Reading Engine)</Link>
+                        <Link href="/mastery" className="text-slate-400 hover:text-indigo-300 transition-colors">Rogue Mastery Hub (Advanced Tools & Community)</Link>
                     </div>
                     <div className="space-y-4 flex flex-col items-center md:items-start">
                         <h4 className="text-white font-bold tracking-widest text-sm uppercase">Free Resources</h4>
