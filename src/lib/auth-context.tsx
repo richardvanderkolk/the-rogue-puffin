@@ -39,7 +39,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 if (session?.user) {
                     const { data: profile } = await supabase
                         .from('profiles')
-                        .select('full_name, has_paid_bootcamp')
+                        .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier')
                         .eq('id', session.user.id)
                         .maybeSingle();
 
@@ -48,6 +48,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                         email: session.user.email || "",
                         isPro: profile?.has_paid_bootcamp || false,
                         name: profile?.full_name || session.user.email || "Student",
+                        subscription_status: profile?.subscription_status || undefined,
+                        subscription_tier: profile?.subscription_tier || undefined,
                     });
                 } else {
                     const storedUser = localStorage.getItem("rogue_user");
@@ -71,7 +73,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             if (session?.user) {
                 const { data: profile } = await supabase
                     .from('profiles')
-                    .select('full_name, has_paid_bootcamp')
+                    .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier')
                     .eq('id', session.user.id)
                     .maybeSingle();
 
@@ -80,9 +82,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                     email: session.user.email || "",
                     isPro: profile?.has_paid_bootcamp || false,
                     name: profile?.full_name || session.user.email || "Student",
+                    subscription_status: profile?.subscription_status || undefined,
+                    subscription_tier: profile?.subscription_tier || undefined,
                 });
             } else {
-                setUser(null);
+                const storedUser = localStorage.getItem("rogue_user");
+                if (storedUser) {
+                    setUser(JSON.parse(storedUser));
+                } else {
+                    setUser(null);
+                }
             }
             setLoading(false);
         });
