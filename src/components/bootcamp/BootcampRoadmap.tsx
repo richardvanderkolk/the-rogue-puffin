@@ -237,7 +237,7 @@ export function BootcampRoadmap({ isUnlocked, symbol, initialProgress = 1 }: { i
                                  </div>
 
                                  <p className="text-lg md:text-xl text-slate-300 font-light leading-relaxed text-center mb-6">
-                                     Reading speed is only the first step. Unlock the complete 14-day sprint to wire in systematic visual habits, conceptual synthesis, and spaced memory recall.
+                                      Reading speed is one of the steps, but there are many more. Unlock the complete 14-day sprint to wire in systematic visual habits, conceptual synthesis, and spaced memory recall.
                                  </p>
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 bg-slate-950/40 p-6 rounded-2xl border border-white/5">
