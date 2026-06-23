@@ -38,9 +38,6 @@ export default async function V2LandingPage() {
                         {/* Left Column (Core Messaging) */}
                         <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col justify-center">
                             <div className="space-y-5">
-                                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mx-auto lg:mx-0 shadow-md">
-                                    <Zap className="w-3.5 h-3.5 text-indigo-400 animate-pulse" /> Over 12,000+ Speed Drills Completed
-                                </div>
                                 
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] mx-auto lg:mx-0">
                                     <span className="text-white block">
