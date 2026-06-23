@@ -13,6 +13,7 @@ interface User {
     afterWpm?: number;
     subscription_status?: string;
     subscription_tier?: string;
+    bootcamp_progress_day?: number;
 }
 
 interface AuthContextType {
@@ -39,7 +40,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                 if (session?.user) {
                     const { data: profile } = await supabase
                         .from('profiles')
-                        .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier')
+                        .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
                         .eq('id', session.user.id)
                         .maybeSingle();
 
@@ -50,6 +51,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                         name: profile?.full_name || session.user.email || "Student",
                         subscription_status: profile?.subscription_status || undefined,
                         subscription_tier: profile?.subscription_tier || undefined,
+                        bootcamp_progress_day: profile?.bootcamp_progress_day || undefined,
                     });
                 } else {
                     const storedUser = localStorage.getItem("rogue_user");
@@ -73,7 +75,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             if (session?.user) {
                 const { data: profile } = await supabase
                     .from('profiles')
-                    .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier')
+                    .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
                     .eq('id', session.user.id)
                     .maybeSingle();
 
@@ -84,6 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                     name: profile?.full_name || session.user.email || "Student",
                     subscription_status: profile?.subscription_status || undefined,
                     subscription_tier: profile?.subscription_tier || undefined,
+                    bootcamp_progress_day: profile?.bootcamp_progress_day || undefined,
                 });
             } else {
                 const storedUser = localStorage.getItem("rogue_user");

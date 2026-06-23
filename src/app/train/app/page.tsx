@@ -8,6 +8,7 @@ import PacerEngine from "@/components/PacerEngine";
 import { COURSE_CONTENT, DrillStep } from "@/lib/course-content";
 import { useAuth } from "@/lib/auth-context";
 import { DRILL_TEXT_FULL, DRILL_TEXT_CHAPTER_1 } from "@/lib/drill-content";
+import GatedFeaturePreview from "@/components/GatedFeaturePreview";
 
 function TrainingContent() {
     const searchParams = useSearchParams();
@@ -16,10 +17,13 @@ function TrainingContent() {
     const [dayTitle, setDayTitle] = useState("");
     const { user, loading } = useAuth();
     const [mounted, setMounted] = useState(false);
+    const [localProgress, setLocalProgress] = useState(1);
 
     // Track component mounting to prevent hydration issues
     useEffect(() => {
         setMounted(true);
+        const progress = parseInt(localStorage.getItem('rogue_day_progress') || '1');
+        setLocalProgress(progress);
     }, []);
 
     // Gating: Redirect guests to login
@@ -32,6 +36,20 @@ function TrainingContent() {
     // Prevent rendering pacer for unauthorized/unmounted states
     if (!mounted || loading || !user) {
         return <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">Loading Trainer...</div>;
+    }
+
+    const progressDay = Math.max(user?.bootcamp_progress_day || 1, localProgress);
+    const isAdmin = 
+        user?.email?.toLowerCase().includes('richard') || 
+        user?.name?.toLowerCase().includes('richard') || 
+        false;
+
+    if (progressDay < 15 && !isAdmin) {
+        return (
+            <div className="min-h-screen bg-slate-950 pt-28">
+                <GatedFeaturePreview featureType="reading-engine" currentDay={progressDay} />
+            </div>
+        );
     }
 
     // Core Pacer State
