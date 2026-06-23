@@ -6,36 +6,6 @@ import { useAuth } from "@/lib/auth-context";
 import { ArrowRight, CheckCircle, Clock, Zap, BookOpen } from "lucide-react";
 
 export default function RogueSessionSalesPage() {
-  const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
-
-  const handleCheckout = async () => {
-    const isAdmin = user?.email?.toLowerCase().includes('richard') || 
-                    user?.name?.toLowerCase().includes('richard');
-    if (isAdmin) {
-      window.location.href = '/train/rogue';
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const res = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ productMode: 'rogue-session' })
-      });
-      const data = await res.json();
-      if (data.url) window.location.href = data.url;
-      else {
-        alert("Checkout failed: " + data.error);
-        setLoading(false);
-      }
-    } catch (err) {
-      alert("Error initiating checkout");
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/30">
 
@@ -55,35 +25,12 @@ export default function RogueSessionSalesPage() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-            <button
-              onClick={async (e) => {
-                const btn = e.currentTarget;
-                const originalText = btn.innerHTML;
-                btn.innerHTML = "Processing...";
-                btn.disabled = true;
-                try {
-                  const res = await fetch('/api/checkout', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ productMode: 'rogue-session' })
-                  });
-                  const data = await res.json();
-                  if (data.url) window.location.href = data.url;
-                  else {
-                    alert("Checkout failed: " + data.error);
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                  }
-                } catch (err) {
-                  alert("Error initiating checkout");
-                  btn.innerHTML = originalText;
-                  btn.disabled = false;
-                }
-              }}
+            <Link
+              href="/rogue-session/start"
               className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
             >
-              Start The Session <ArrowRight className="w-5 h-5" />
-            </button>
+              Start The Free Session <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -143,35 +90,12 @@ export default function RogueSessionSalesPage() {
           <div className="p-8 rounded-3xl border border-slate-800 bg-slate-900/20 relative overflow-hidden">
             <div className="relative z-10">
               <h2 className="text-4xl font-bold mb-6">Ready to upgrade your reading?</h2>
-              <button
-                onClick={async (e) => {
-                  const btn = e.currentTarget;
-                  const originalText = btn.innerHTML;
-                  btn.innerHTML = "Processing...";
-                  btn.disabled = true;
-                  try {
-                    const res = await fetch('/api/checkout', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({ productMode: 'rogue-session' })
-                    });
-                    const data = await res.json();
-                    if (data.url) window.location.href = data.url;
-                    else {
-                      alert("Checkout failed: " + data.error);
-                      btn.innerHTML = originalText;
-                      btn.disabled = false;
-                    }
-                  } catch (err) {
-                    alert("Error initiating checkout");
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                  }
-                }}
+              <Link
+                href="/rogue-session/start"
                 className="inline-flex px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-all items-center gap-3"
               >
-                Start The Session <ArrowRight className="w-6 h-6" />
-              </button>
+                Start The Free Session <ArrowRight className="w-6 h-6" />
+              </Link>
             </div>
           </div>
         </div>

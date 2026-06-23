@@ -15,16 +15,20 @@ export async function GET(request: Request) {
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // 1. Get Landing Page views (path = '/')
+    // 1. Get Landing Page views (path = '/' and path = '/speed-reading')
     const { data: landingViewsData, error: landingViewsError } = await supabase
         .from('page_views')
         .select('views')
-        .eq('path', '/')
-        .single();
-    if (landingViewsError && landingViewsError.code !== 'PGRST116') {
+        .in('path', ['/', '/speed-reading']);
+    if (landingViewsError) {
         console.error("Error fetching landing page views:", landingViewsError);
     }
-    const landingViews = landingViewsData?.views || 0;
+    let landingViews = 0;
+    if (landingViewsData) {
+        landingViewsData.forEach(pv => {
+            landingViews += (pv.views || 0);
+        });
+    }
 
     // 2. Get Test Starts (path = '/rogue-session/start' + path = '/free-test')
     const { data: testStartsData, error: testStartsError } = await supabase

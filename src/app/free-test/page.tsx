@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Mail, Lock } from 'lucide-react';
 import { ViewTracker } from '@/components/ViewTracker';
 import { usePostHog } from 'posthog-js/react';
+import Link from 'next/link';
 
 const TEST_TEXT = `Reading is a complex cognitive process of decoding symbols in order to look to derive meaning. It is a means of language acquisition, of communication, and of sharing information and ideas. Like all language, it is a complex interaction between the text and the reader which is shaped by the reader’s prior knowledge, experiences, attitude, and language community which is culturally and socially situated.
 
@@ -31,6 +32,7 @@ export default function FreeTestPage() {
 
     const handleTestComplete = (data: { wpm: number; comprehension: number }) => {
         setResults(data);
+        localStorage.setItem('rp_baseline_stats', JSON.stringify(data));
         posthog?.capture('test_completed', { 
             test_flow: '3_minute_free_test',
             wpm: data.wpm,
@@ -173,21 +175,18 @@ export default function FreeTestPage() {
                         <h3 className="text-xl font-bold text-indigo-400 mb-2">Analysis</h3>
                         <p className="text-slate-300">
                             You are reading at {results.wpm > 300 ? 'an above average' : 'an average'} speed.
-                            Your bottleneck is likely {
-                                results.wpm < 250 ? 'Subvocalization (saying words in your head)' :
-                                    results.wpm < 400 ? 'Regression (re-reading)' : 'Efficiency'
-                            }.
+                            Most readers are limited by traditional reading habits like subvocalization (saying words silently in your head) and regression (backtracking), which artificially cap reading speeds to speaking speeds (~150-250 WPM). Fortunately, these habits can be rewired visually.
                         </p>
                     </div>
 
                     <div className="space-y-4 pt-4">
-                        <p className="text-slate-400">Fix this bottleneck in 30 minutes.</p>
-                        <a
-                            href="/rogue-session"
+                        <p className="text-slate-400">Unlock your true visual reading capacity in 30 minutes.</p>
+                        <Link
+                            href="/rogue-session/start"
                             className="block w-full py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform"
                         >
-                            Start Rogue Session ($5)
-                        </a>
+                            Start Free Speed Reading Course
+                        </Link>
                     </div>
                 </div>
             )}

@@ -38,10 +38,10 @@ export default function V2LandingPage() {
                                 
                                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] mx-auto lg:mx-0">
                                     <span className="text-white block">
-                                        School teaches you <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">WHAT</span> to learn.
+                                        School teaches you <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">what</span> to learn.
                                     </span>
                                     <span className="text-slate-300 block mt-2">
-                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">HOW</span> to master learning it.
+                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">how</span> to master learning it.
                                     </span>
                                 </h1>
                                 
@@ -50,10 +50,7 @@ export default function V2LandingPage() {
                                         Learn faster. &nbsp;&bull;&nbsp; Understand deeper. &nbsp;&bull;&nbsp; Remember longer.
                                     </p>
                                     <p className="text-base md:text-lg text-slate-400 font-light leading-relaxed">
-                                        Unlock a scientifically proven meta-learning system. By training your brain to ingest visual information at the speed of thought, actively synthesize complex concepts, and encode them into permanent memory, we help you turn coursework into lasting expertise.
-                                    </p>
-                                    <p className="text-base md:text-lg text-slate-400 font-light leading-relaxed">
-                                        Our goal is for you to deeply understand what you need to learn in the most efficient and effective way known.
+                                        Our goal is to empower you to master deep comprehension in the most efficient way. Using scientifically proven meta-learning protocols we will help you to double your reading speed, master memory retention, and turn study material into lasting expertise.
                                     </p>
                                 </div>
                             </div>

@@ -226,7 +226,7 @@ export default function ProtocolChecklistPage() {
                             className="inline-flex items-center gap-3 px-10 py-5 bg-white hover:bg-slate-100 text-indigo-950 rounded-full font-bold text-lg transition-all hover:scale-[1.02] active:scale-95 shadow-[0_0_60px_rgba(255,255,255,0.2)]"
                         >
                             Start The Reading Drill
-                            <span className="bg-indigo-100/50 text-indigo-900 px-3 py-1 rounded-full text-sm ml-2">$5.00</span>
+                            <span className="bg-indigo-100/50 text-indigo-900 px-3 py-1 rounded-full text-sm ml-2">Free</span>
                         </Link>
                     </div>
                 </div>

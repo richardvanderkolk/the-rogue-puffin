@@ -76,7 +76,7 @@ export function LeadCapture() {
                         <div className="flex items-center gap-2">
                             <Zap className="w-5 h-5 text-indigo-500" /> Unlock the Engine
                         </div>
-                        <span className="bg-indigo-100 text-indigo-900 px-2.5 py-0.5 rounded-full text-xs opacity-80">$5</span>
+                        <span className="bg-indigo-100 text-indigo-900 px-2.5 py-0.5 rounded-full text-xs opacity-80">Free</span>
                     </Link>
                 </div>
             </div>

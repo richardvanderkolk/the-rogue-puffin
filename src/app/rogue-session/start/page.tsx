@@ -119,6 +119,8 @@ export default function RogueSessionPage() {
             
             if (hasBaseline && hasFinal) {
                 setStep(23); // Jump to Results
+            } else if (hasBaseline) {
+                setStep(3); // Jump to Theory/Paradox since baseline is established
             }
         }
         
