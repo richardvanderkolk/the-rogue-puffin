@@ -141,7 +141,7 @@ export default async function V2LandingPage() {
                                 Let us prove to you that your mind is <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">capable of much more.</span>
                             </h2>
                             <p className="text-lg text-slate-400 font-light leading-relaxed">
-                                We start with speed reading because it gives you immediate, tangible proof of how much you can improve in a short amount of time. Once you see that you can double your reading speed in under 30 minutes—without losing comprehension—you realize that your mind is capable of far more than you think. Because reading is the primary gateway to absorbing new knowledge, this visual acceleration upgrades the foundation of your entire learning process.
+                                We start with increasing your comfortable reading speed because it gives you immediate, tangible proof of how much you can improve in a short amount of time. Once you see that you can double your reading speed in under 30 minutes—without losing comprehension—you realize that your mind is capable of far more than you think. Because reading is the primary gateway to absorbing new knowledge, this visual acceleration upgrades the foundation of your entire learning process.
                             </p>
                             <div className="pt-2 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
                                 <Link 
