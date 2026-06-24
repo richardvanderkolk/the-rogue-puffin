@@ -11,10 +11,13 @@ export function IsThisForYouSection() {
                         <Target className="w-3 h-3" /> Who is this for?
                     </div>
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-                        Are you running on <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">outdated software?</span>
+                        Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">Competitive Advantage</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed">
                         The Rogue Puffin is not for casual readers. It is a rigorous cognitive protocol designed for ambitious individuals who treat learning as a competitive advantage.
+                    </p>
+                    <p className="text-xs text-indigo-300 font-bold uppercase tracking-widest pt-2">
+                        * Designed for individuals with a minimum of a 12-year-old reading ability in the language being read.
                     </p>
                 </div>
 

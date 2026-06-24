@@ -302,9 +302,10 @@ export default function RogueSessionPage() {
                                 <div className="bg-indigo-500/10 border border-indigo-500/20 p-6 rounded-xl text-left mt-6">
                                     <p className="text-indigo-400 font-bold mb-2 flex items-center gap-2"><Brain className="w-5 h-5" /> Comprehension Test</p>
                                     <p className="text-slate-300 leading-relaxed mb-3">Read the following text at your <strong>normal, comfortable pace</strong>. Do not rush. Immediately after reading, you will be asked to answer a series of questions to test your recall.</p>
-                                    <p className="text-xs text-indigo-300 border-t border-indigo-500/10 pt-3 font-medium">
-                                        * Note: This protocol trains your eyes and brain to absorb whole phrases at once. It is not skimming—your comprehension is just as important as your speed.
-                                    </p>
+                                    <div className="text-xs text-indigo-300 border-t border-indigo-500/10 pt-3 font-medium space-y-1">
+                                        <p>* Note: This protocol trains your eyes and brain to absorb whole phrases at once. It is not skimming—your comprehension is just as important as your speed.</p>
+                                        <p>* Requirements: Designed for individuals with a minimum of a 12-year-old reading ability in the language being read.</p>
+                                    </div>
                                 </div>
                             </div>
                         </Slide>

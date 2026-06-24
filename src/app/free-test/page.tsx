@@ -96,8 +96,9 @@ export default function FreeTestPage() {
                             <div className="w-8 h-8 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 font-bold">3</div>
                             <span className="text-slate-300">Get your detailed report instantly.</span>
                         </div>
-                        <div className="text-xs text-indigo-300 border-t border-slate-800/80 pt-3 mt-1 font-medium leading-relaxed">
-                            * Note: Do not skim or rush. Read at a speed where you comfortably understand the text—comprehension is just as important as speed.
+                        <div className="text-xs text-indigo-300 border-t border-slate-800/80 pt-3 mt-1 font-medium leading-relaxed space-y-1">
+                            <p>* Note: Do not skim or rush. Read at a speed where you comfortably understand the text—comprehension is just as important as speed.</p>
+                            <p>* Requirements: Designed for individuals with a minimum of a 12-year-old reading ability in the language being read.</p>
                         </div>
                     </div>
                     <button

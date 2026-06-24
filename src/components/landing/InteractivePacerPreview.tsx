@@ -130,7 +130,7 @@ export function InteractivePacerPreview() {
         </div>
 
         {/* Play/Pause controls */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 relative">
           <button
             type="button"
             onClick={togglePlay}

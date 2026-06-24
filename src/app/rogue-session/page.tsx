@@ -24,13 +24,16 @@ export default function RogueSessionSalesPage() {
             A guided interactive experience to break your reading speed plateau, improve focus, and unlock your brain's natural processing power.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
+          <div className="flex flex-col items-center justify-center gap-3 pt-8">
             <Link
               href="/rogue-session/start"
               className="px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-slate-200 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
             >
               Start The Free Session <ArrowRight className="w-5 h-5" />
             </Link>
+            <p className="text-xs text-slate-500 font-medium">
+              * Requires a minimum of a 12-year-old reading ability in the language being read.
+            </p>
           </div>
         </div>
       </section>
@@ -88,14 +91,17 @@ export default function RogueSessionSalesPage() {
       <section className="py-24 px-6 border-t border-slate-900 bg-black">
         <div className="max-w-4xl mx-auto text-center">
           <div className="p-8 rounded-3xl border border-slate-800 bg-slate-900/20 relative overflow-hidden">
-            <div className="relative z-10">
+            <div className="relative z-10 flex flex-col items-center">
               <h2 className="text-4xl font-bold mb-6">Ready to upgrade your reading?</h2>
               <Link
                 href="/rogue-session/start"
-                className="inline-flex px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-all items-center gap-3"
+                className="inline-flex px-10 py-5 bg-white text-black rounded-full font-bold text-xl hover:bg-slate-200 transition-all items-center gap-3 mb-3"
               >
                 Start The Free Session <ArrowRight className="w-6 h-6" />
               </Link>
+              <p className="text-xs text-slate-500 font-medium">
+                * Requires a minimum of a 12-year-old reading ability in the language being read.
+              </p>
             </div>
           </div>
         </div>

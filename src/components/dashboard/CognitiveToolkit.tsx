@@ -19,7 +19,9 @@ import {
   AlertTriangle, 
   Check, 
   ArrowRight,
-  HelpCircle
+  HelpCircle,
+  ExternalLink,
+  Globe
 } from "lucide-react";
 
 interface Flashcard {
@@ -46,6 +48,16 @@ export default function CognitiveToolkit({ userId }: CognitiveToolkitProps) {
   const [showStudyGuide, setShowStudyGuide] = useState(false);
   const [guideContent, setGuideContent] = useState<{ title: string; sections: { heading: string; body: string }[] } | null>(null);
   
+  // Search Verification State
+  const [showSearchVerification, setShowSearchVerification] = useState(false);
+  const [verifiedQueries, setVerifiedQueries] = useState<{
+    site: string;
+    query: string;
+    urlTemplate: string;
+    rationale: string;
+    checked: boolean;
+  }[]>([]);
+
   // Questionnaire Wizard state
   const [wizardStep, setWizardStep] = useState<"idle" | "questionnaire" | "generating" | "complete">("idle");
   const [focusArea, setFocusArea] = useState<string>("Core Principles & Architecture");
@@ -112,29 +124,147 @@ export default function CognitiveToolkit({ userId }: CognitiveToolkitProps) {
 
   const isKinSequenceCorrect = kinSteps.every((step, index) => step.correctOrder === index);
 
-  // Trigger resource search on external sites
+  // Trigger resource search on external sites (intercepted for verification check)
   const handleSearchWeb = (e: React.FormEvent) => {
     e.preventDefault();
     if (!subject.trim()) return;
 
-    let query = encodeURIComponent(subject);
-    let url = "";
+    let searchTargets: typeof verifiedQueries = [];
 
     switch (learningStyle) {
       case "visual":
-        url = `https://www.youtube.com/results?search_query=${query}+animation+explanation+visual+diagram`;
+        searchTargets = [
+          {
+            site: "YouTube Animations",
+            query: `${subject} animation explanation visual diagram`,
+            urlTemplate: "https://www.youtube.com/results?search_query={query}",
+            rationale: "Perfect for mapping out spatial structures, dynamic process animations, and visual node interactions.",
+            checked: true
+          },
+          {
+            site: "Wikipedia Diagrams",
+            query: `${subject} process flow diagram structure schema`,
+            urlTemplate: "https://www.google.com/search?q={query}+site:en.wikipedia.org",
+            rationale: "Locates structured high-resolution process flowcharts, architectural maps, and taxonomic tables.",
+            checked: true
+          },
+          {
+            site: "Google Images Infographics",
+            query: `${subject} infographic concept map cheat sheet`,
+            urlTemplate: "https://www.google.com/search?tbm=isch&q={query}",
+            rationale: "Aggregates single-page summaries, cheatsheets, and mind-maps to visual-spatial learners.",
+            checked: false
+          }
+        ];
         break;
       case "auditory":
-        url = `https://open.spotify.com/search/${query}%20education`;
+        searchTargets = [
+          {
+            site: "Spotify Podcasts",
+            query: `${subject} lecture explanation episode`,
+            urlTemplate: "https://open.spotify.com/search/{query}",
+            rationale: "Finds educational podcasts and conversations detailing the subject matter in verbal dialogue.",
+            checked: true
+          },
+          {
+            site: "YouTube Lectures",
+            query: `${subject} audio lecture podcast talk`,
+            urlTemplate: "https://www.youtube.com/results?search_query={query}",
+            rationale: "Accesses university course playlists, narrated slide presentations, and panel discussions.",
+            checked: true
+          },
+          {
+            site: "Google Podcast Feeds",
+            query: `${subject} podcast interview audio guide`,
+            urlTemplate: "https://www.google.com/search?q={query}",
+            rationale: "Locates standalone audio files, MP3 feeds, and interview recordings on educational networks.",
+            checked: false
+          }
+        ];
         break;
       case "reading":
-        url = `https://scholar.google.com/scholar?q=${query}+introduction+overview`;
+        searchTargets = [
+          {
+            site: "Google Scholar",
+            query: `${subject} introduction overview review filetype:pdf`,
+            urlTemplate: "https://scholar.google.com/scholar?q={query}",
+            rationale: "Retrieves peer-reviewed literature reviews and university PDF publications for formal reference.",
+            checked: true
+          },
+          {
+            site: "Wikipedia Article",
+            query: subject,
+            urlTemplate: "https://en.wikipedia.org/wiki/{query}",
+            rationale: "Offers structured heading sections, conceptual outlines, and extensive textual summaries.",
+            checked: true
+          },
+          {
+            site: "Google Web Guides",
+            query: `${subject} tutorial textbook study guide documentation`,
+            urlTemplate: "https://www.google.com/search?q={query}",
+            rationale: "Finds detailed textbook chapters, code documentation pages, and long-form learning guides.",
+            checked: false
+          }
+        ];
         break;
       case "kinesthetic":
-        url = `https://phet.colorado.edu/en/simulations/filter?query=${query}`;
+        searchTargets = [
+          {
+            site: "PhET Simulations",
+            query: subject,
+            urlTemplate: "https://phet.colorado.edu/en/simulations/filter?query={query}",
+            rationale: "Provides interactive physics, math, and biology modules where variables can be altered dynamically.",
+            checked: true
+          },
+          {
+            site: "GitHub Sandboxes",
+            query: `${subject} interactive simulator sandbox dashboard demo`,
+            urlTemplate: "https://github.com/search?q={query}",
+            rationale: "Discovers open-source playgrounds and dashboards to tweak systems, view source configurations, or inspect runtime code.",
+            checked: true
+          },
+          {
+            site: "Google Sandbox Search",
+            query: `${subject} online interactive builder simulation playground`,
+            urlTemplate: "https://www.google.com/search?q={query}",
+            rationale: "Finds custom browser-based widgets, simulation tools, and calculators for hands-on adjustments.",
+            checked: false
+          }
+        ];
         break;
     }
-    window.open(url, "_blank");
+
+    setVerifiedQueries(searchTargets);
+    setShowSearchVerification(true);
+  };
+
+  const handleToggleCheck = (index: number) => {
+    setVerifiedQueries((prev) =>
+      prev.map((item, idx) => (idx === index ? { ...item, checked: !item.checked } : item))
+    );
+  };
+
+  const handleQueryChange = (index: number, val: string) => {
+    setVerifiedQueries((prev) =>
+      prev.map((item, idx) => (idx === index ? { ...item, query: val } : item))
+    );
+  };
+
+  const handleLaunchVerifiedSearches = () => {
+    const activeSearches = verifiedQueries.filter((q) => q.checked);
+    if (activeSearches.length === 0) return;
+
+    activeSearches.forEach((item) => {
+      const formattedQuery = encodeURIComponent(item.query);
+      const url = item.urlTemplate.replace("{query}", formattedQuery);
+      window.open(url, "_blank");
+    });
+
+    setShowSearchVerification(false);
+  };
+
+  const handleCancelVerification = () => {
+    setShowSearchVerification(false);
   };
 
   // Overhauled customized study guide generation based on questionnaire results
@@ -713,7 +843,7 @@ export default function CognitiveToolkit({ userId }: CognitiveToolkitProps) {
             </p>
           </div>
 
-          {wizardStep === "idle" && (
+          {wizardStep === "idle" && !showSearchVerification && (
             <form onSubmit={handleSearchWeb} className="grid grid-cols-1 md:grid-cols-3 gap-4 items-end bg-slate-950 p-6 rounded-2xl border border-slate-800/60">
               <div className="md:col-span-2 space-y-2">
                 <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">What subject are you studying?</label>
@@ -766,6 +896,107 @@ export default function CognitiveToolkit({ userId }: CognitiveToolkitProps) {
                 </button>
               </div>
             </form>
+          )}
+
+          {wizardStep === "idle" && showSearchVerification && (
+            <div className="bg-slate-950 p-6 md:p-8 rounded-3xl border border-slate-800/80 space-y-6 shadow-2xl relative overflow-hidden animate-in zoom-in-95 duration-200">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/5 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="flex items-center justify-between border-b border-slate-800/80 pb-4">
+                <div>
+                  <span className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest block mb-0.5">AI Pathfinder Checklist</span>
+                  <h3 className="text-base md:text-lg font-bold text-white flex items-center gap-2">
+                    <Search className="w-4 h-4 text-indigo-400 animate-pulse" /> Verify Search Vector & Rationales
+                  </h3>
+                </div>
+                <button
+                  type="button"
+                  onClick={handleCancelVerification}
+                  className="text-xs text-slate-500 hover:text-slate-300 font-bold border border-slate-850 hover:border-slate-850 px-3 py-1.5 rounded-lg transition-colors"
+                >
+                  Cancel
+                </button>
+              </div>
+
+              <div className="p-4 bg-indigo-950/15 border border-indigo-900/35 rounded-2xl text-xs md:text-sm text-slate-350 leading-relaxed">
+                We mapped your subject <strong className="text-indigo-400">"{subject}"</strong> for a <strong className="text-indigo-300">{learningStyle}</strong> learning profile. Check or edit the optimized search queries below, or launch them directly with the individual link buttons to ensure they bypass browser popup blockers.
+              </div>
+
+              <div className="space-y-4">
+                {verifiedQueries.map((item, index) => (
+                  <div key={index} className={`p-4 md:p-5 rounded-2xl border transition-all ${item.checked ? "bg-slate-900/60 border-indigo-500/25" : "bg-slate-950 border-slate-850 opacity-60"}`}>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                      <label className="flex items-start gap-3 cursor-pointer group">
+                        <input
+                          type="checkbox"
+                          checked={item.checked}
+                          onChange={() => handleToggleCheck(index)}
+                          className="mt-1 w-4 h-4 rounded text-indigo-600 bg-slate-950 border-slate-800 focus:ring-indigo-500"
+                        />
+                        <div>
+                          <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-0.5">Target Site</span>
+                          <span className="text-sm font-bold text-white group-hover:text-indigo-300 transition-colors flex items-center gap-1.5">
+                            <Globe className="w-3.5 h-3.5 text-slate-450" /> {item.site}
+                          </span>
+                        </div>
+                      </label>
+
+                      {/* Individual search button to bypass popup blockers */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const formattedQuery = encodeURIComponent(item.query);
+                          const url = item.urlTemplate.replace("{query}", formattedQuery);
+                          window.open(url, "_blank");
+                        }}
+                        className="py-1.5 px-3 bg-slate-850 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-bold rounded-lg flex items-center gap-1.5 transition-all self-start sm:self-center border border-slate-800 hover:border-slate-700"
+                      >
+                        Launch Direct <ExternalLink className="w-3 h-3" />
+                      </button>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      <div className="relative">
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[10px] font-bold text-indigo-400 select-none">QUERY:</span>
+                        <input
+                          type="text"
+                          value={item.query}
+                          onChange={(e) => handleQueryChange(index, e.target.value)}
+                          className="w-full pl-16 pr-3 py-2 bg-slate-950 border border-slate-800 rounded-lg text-slate-300 focus:outline-none focus:border-indigo-500 text-xs"
+                          placeholder="Search query..."
+                        />
+                      </div>
+                      
+                      <div className="text-xs text-slate-400 pl-1 leading-relaxed">
+                        <strong className="text-slate-500 uppercase tracking-wider text-[9px] block mb-0.5">Rationale / Solution Verification:</strong>
+                        {item.rationale}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={handleLaunchVerifiedSearches}
+                  disabled={verifiedQueries.filter((q) => q.checked).length === 0}
+                  className="flex-1 py-3 px-6 bg-indigo-650 hover:bg-indigo-600 disabled:opacity-50 text-white rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-md shadow-indigo-650/20"
+                >
+                  <Search className="w-4 h-4" /> Launch Selected ({verifiedQueries.filter((q) => q.checked).length})
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCancelVerification}
+                  className="py-3 px-6 bg-slate-900 hover:bg-slate-850 border border-slate-800 rounded-xl text-slate-350 hover:text-slate-200 text-sm font-bold transition-all"
+                >
+                  Adjust Topic / Style
+                </button>
+              </div>
+              <p className="text-[10px] text-slate-500 text-center italic mt-2">
+                * Note: Launching multiple sites at once might require you to allow popups in your browser. Use the "Launch Direct" buttons to open them individually.
+              </p>
+            </div>
           )}
 
           {/* QUESTIONNAIRE WIZARD STEPPER */}

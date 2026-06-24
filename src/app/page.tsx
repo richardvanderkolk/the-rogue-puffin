@@ -6,6 +6,7 @@ import { IsThisForYouSection } from "@/components/landing/IsThisForYouSection";
 import { WallOfWinsSection } from "@/components/landing/WallOfWinsSection";
 import { StorySection } from "@/components/landing/StorySection";
 import { InteractivePacerPreview } from "@/components/landing/InteractivePacerPreview";
+import { ChooseYourPath } from "@/components/landing/ChooseYourPath";
 import { ViewTracker } from "@/components/ViewTracker";
 
 import { Metadata } from "next";
@@ -113,7 +114,7 @@ export default async function V2LandingPage() {
                                         <div className="pl-8">
                                             <Link 
                                                 href="/bootcamp" 
-                                                className="w-full py-3 bg-slate-850 hover:bg-slate-800 text-slate-200 border border-white/10 hover:border-white/20 rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2"
+                                                className="w-full py-3 bg-slate-850 hover:bg-slate-850 text-slate-200 border border-white/10 hover:border-white/20 rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2"
                                             >
                                                 View 14-Day Syllabus
                                             </Link>
@@ -130,8 +131,6 @@ export default async function V2LandingPage() {
             {/* 2. Immediate Proof */}
             <section className="py-24 px-6 border-t border-white/5 bg-slate-950 relative overflow-hidden">
                 <div className="max-w-6xl mx-auto">
-                    
-                    {/* Module 1: Immediate Proof & Live Pacer Grid */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                         {/* Left Side: Copy */}
                         <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
@@ -168,7 +167,13 @@ export default async function V2LandingPage() {
             {/* 3. Founder's Story Section */}
             <StorySection />
 
-            {/* 4. The 3 Learning Bottlenecks */}
+            {/* 4. Choose Your Path Section (Consolidated Detailed Showcase with Interactive Syllabus Drawer) */}
+            <ChooseYourPath symbol={symbol} currency={currency} />
+
+            {/* 5. Audience Self-Selection (Is this for you?) */}
+            <IsThisForYouSection />
+
+            {/* 6. The 3 Learning Bottlenecks */}
             <section className="py-24 px-6 border-t border-white/5 bg-slate-950 relative overflow-hidden">
                 <div className="max-w-6xl mx-auto">
                     <div className="space-y-12">
@@ -238,95 +243,11 @@ export default async function V2LandingPage() {
                 </div>
             </section>
 
-            {/* 5. The Social Proof (Wall of Wins) */}
+            {/* 7. Testimonials (Wall of Wins) */}
             <WallOfWinsSection />
 
-
-
-            {/* 6. The Mechanics (Why It Works) - Outliers Section */}
+            {/* 8. Famous People / High Performers (Outliers Section) */}
             <OutliersSection />
-            
-            {/* 7. Audience Self-Selection (Is this for you?) */}
-            <IsThisForYouSection />
-               {/* 8. The 14-Day Bootcamp (The Paid Execution Plan) */}
-            <section id="bootcamp" className="py-24 md:py-40 px-6 border-t border-white/5 bg-slate-950 relative overflow-hidden">
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full bg-purple-500/5 blur-[120px] -z-10" />
-                
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div className="space-y-8 lg:order-1 order-2">
-                        <div className="space-y-4">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-widest mb-2">
-                                <Clock className="w-3.5 h-3.5" /> Permanent habit lock-in
-                            </div>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-                                The 14-Day <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">Learning Mastery Bootcamp.</span>
-                            </h2>
-                        </div>
-                        
-                        <div className="space-y-6 text-lg text-slate-400 font-light leading-relaxed">
-                            <p>
-                                You have all the theory for free. But knowing the theory doesn't change your reading habits.
-                            </p>
-                            <p className="border-l-2 border-purple-950/60 pl-6 italic text-slate-300">
-                                "A daily structured protocol to transition from raw reading speed to active concept synthesis and permanent memory recall."
-                            </p>
-                            <p>
-                                Stop wasting hours trying to figure it out yourself. We priced the Bootcamp to be highly accessible so every student can get the exact daily roadmap to rewire their brain and permanently upgrade their learning capacity.
-                            </p>
-                        </div>
-                        
-                        {/* Bootcamp Price Pitch & Comparison Card */}
-                        <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6 max-w-lg shadow-2xl relative overflow-hidden">
-                            <div className="absolute top-0 right-0 bg-indigo-500/10 text-indigo-300 px-4 py-1 rounded-bl-2xl text-[10px] font-extrabold uppercase tracking-widest border-b border-l border-slate-800">No Subscription</div>
-                            
-                            <div className="flex justify-between items-center gap-4">
-                                <div>
-                                    <span className="text-xs text-slate-500 uppercase tracking-widest font-extrabold block">One-Time Lifetime Access</span>
-                                    <div className="text-3xl font-black text-white mt-1">{symbol}29 <span className="text-sm text-slate-400 font-medium">{currency.toUpperCase()}</span></div>
-                                </div>
-                                <Link 
-                                    href="/bootcamp" 
-                                    className="px-6 py-4 bg-purple-600 hover:bg-purple-500 text-white rounded-full font-bold text-base transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)] active:scale-95 text-center shrink-0"
-                                  >
-                                    Get Instant Access
-                                </Link>
-                            </div>
- 
-                            <div className="border-t border-slate-800/80 pt-4 space-y-3">
-                                <div className="flex justify-between text-xs text-slate-500 font-medium">
-                                    <span>Traditional Academic Tutoring</span>
-                                    <span className="line-through font-mono">$150+/hr</span>
-                                </div>
-                                <div className="flex justify-between text-xs text-slate-500 font-medium">
-                                    <span>Speed Reading Seminars</span>
-                                    <span className="line-through font-mono">$1,200+</span>
-                                </div>
-                                <div className="flex justify-between text-xs text-indigo-400 font-bold border-t border-slate-800/40 pt-2">
-                                    <span>The 14-Day Learning Mastery Bootcamp</span>
-                                    <span className="font-mono">{symbol}29 (One-Time)</span>
-                                </div>
-                            </div>
- 
-                            <div className="text-[10px] text-slate-500 font-medium text-center border-t border-slate-800/40 pt-3">
-                                🔒 100% Risk-Free 14-Day Learning Mastery Guarantee.
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="relative aspect-square md:aspect-[4/3] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl lg:order-2 order-1">
-                        <Image src="/images/phase_1_lab.png" alt="The 14-Day Bootcamp" fill className="object-cover" />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80" />
-                        <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                            <Clock className="w-6 h-6 text-white" />
-                            <span className="text-white font-bold tracking-widest uppercase text-sm">Guided Execution</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
         </main>
     );
 }
