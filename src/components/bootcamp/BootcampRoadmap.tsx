@@ -270,18 +270,30 @@ export function BootcampRoadmap({ isUnlocked: propIsUnlocked, symbol, initialPro
                                 </div>
                             </div>
                             
-                            <div className="w-full max-w-md pt-4">
-                                <Link 
-                                    href={checkoutLink} 
-                                    onClick={() => posthog?.capture('checkout_initiated', { product: 'bootcamp', location: 'lock_screen' })}
-                                    className="block group w-full"
-                                >
-                                    <button className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-5 rounded-full font-black text-xl hover:from-indigo-400 hover:to-purple-500 transition-all shadow-[0_0_30px_rgba(99,102,241,0.25)] hover:shadow-[0_0_45px_rgba(99,102,241,0.4)] flex justify-center items-center gap-3 hover:scale-105 border border-indigo-400/20">
-                                        Unlock Instant Access - {symbol}29 <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-                                    </button>
-                                </Link>
-                                <p className="text-sm text-slate-500 font-medium mt-4">100% Risk-Free 14-Day Guarantee.</p>
-                                <div className="mt-4">
+                            <div className="w-full max-w-2xl pt-4 space-y-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                                    {/* Option 1: Start Day 1 for Free */}
+                                    <Link 
+                                        href="/rogue-session/start?v2=true" 
+                                        className="w-full py-4 px-6 bg-slate-950 hover:bg-slate-900 text-slate-200 border border-white/10 hover:border-white/20 rounded-full font-bold text-base transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2"
+                                    >
+                                        Start Day 1 for Free
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                    
+                                    {/* Option 2: Let's just get started - I'm in */}
+                                    <Link 
+                                        href={checkoutLink} 
+                                        onClick={() => posthog?.capture('checkout_initiated', { product: 'bootcamp', location: 'lock_screen' })}
+                                        className="block group w-full"
+                                    >
+                                        <button className="w-full bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white py-4 px-6 rounded-full font-black text-base transition-all active:scale-[0.98] shadow-lg shadow-indigo-500/25 flex justify-center items-center gap-2 hover:scale-105 border border-indigo-400/20 cursor-pointer">
+                                            Let's just get started - I'm in ({symbol}29)
+                                        </button>
+                                    </Link>
+                                </div>
+                                <p className="text-sm text-slate-500 font-medium mt-4 text-center">100% Risk-Free 14-Day Guarantee.</p>
+                                <div className="mt-4 max-w-md mx-auto">
                                     <PromoCodeSection product="bootcamp" onUnlock={() => setIsUnlocked(true)} />
                                 </div>
                             </div>

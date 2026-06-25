@@ -38,6 +38,28 @@ export default function FreeTestPage() {
             wpm: data.wpm,
             comprehension: data.comprehension 
         });
+
+        // Log completion to database as an anonymous test baseline
+        let visitorId = localStorage.getItem('rp_visitor_id');
+        if (!visitorId) {
+            visitorId = crypto.randomUUID();
+            localStorage.setItem('rp_visitor_id', visitorId);
+        }
+        try {
+            fetch('/api/anonymous-tests', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    visitor_id: visitorId,
+                    wpm: data.wpm,
+                    comprehension_score: data.comprehension,
+                    test_type: 'baseline'
+                })
+            });
+        } catch (err) {
+            console.error("Failed to log baseline test completion:", err);
+        }
+
         setStep('capture');
     };
 

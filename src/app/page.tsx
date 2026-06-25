@@ -45,7 +45,7 @@ export default async function V2LandingPage() {
                                         School teaches you <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">what</span> to learn.
                                     </span>
                                     <span className="text-slate-300 block mt-2">
-                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">how</span> to master learning it.
+                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">learning mastery.</span>
                                     </span>
                                 </h1>
                                 
@@ -56,6 +56,21 @@ export default async function V2LandingPage() {
                                     <p className="text-base md:text-lg text-slate-400 font-light leading-relaxed">
                                         Our goal is to empower you to master deep comprehension in the most efficient way. Using scientifically proven meta-learning protocols we will help you to double your reading speed, master memory retention, and turn study material into lasting expertise.
                                     </p>
+                                </div>
+                                
+                                {/* Hero CTA button to make starting the test immediately visible above-the-fold */}
+                                <div className="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                                    <Link 
+                                        href="/rogue-session/start?v2=true&mode=assessment" 
+                                        className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-sm transition-all active:scale-[0.98] flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.2)] border border-indigo-400/20"
+                                    >
+                                        Start Free Masterclass
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                    <div className="text-left">
+                                        <span className="text-xs text-slate-500 font-medium block">Takes 30 minutes • No signup required</span>
+                                        <span className="text-xs text-indigo-400/80 font-medium italic block">If you never try, you'll never know.</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,25 +83,36 @@ export default async function V2LandingPage() {
                                 {/* Decorative top header glow */}
                                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600" />
                                 
-                                <div className="space-y-6">
+                                <div className="space-y-5">
                                     <div className="border-b border-white/5 pb-4">
-                                        <span className="text-xs text-indigo-400 uppercase tracking-widest font-extrabold block">Get Started</span>
-                                        <h3 className="text-lg font-bold text-white mt-1">Select your starting path:</h3>
+                                        <span className="text-xs text-indigo-400 uppercase tracking-widest font-extrabold block">The Roadmap</span>
+                                        <h3 className="text-lg font-bold text-white mt-1">Discover the ultimate in learning mastery in just 15-30 mins a day for 2 weeks:</h3>
                                     </div>
                                     
-                                    {/* Option 1: Free Masterclass */}
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-sm font-bold text-white flex items-center gap-2">
-                                                <span className="w-6 h-6 rounded-full bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-xs text-indigo-300 font-mono">1</span>
-                                                Free 30-Minute Masterclass
-                                            </span>
-                                            <span className="text-xs text-emerald-400 font-bold uppercase tracking-wider font-mono">Free</span>
-                                        </div>
-                                        <p className="text-xs text-slate-400 font-light leading-relaxed pl-8">
-                                            Double your reading speed, assess your eye focus, and experience instant gains with no account or signup required.
-                                        </p>
-                                        <div className="pl-8">
+                                    <ul className="space-y-2 text-sm font-light text-left">
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Doubling your reading speed</span>
+                                        </li>
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Discovering your personal learning style</span>
+                                        </li>
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Memory hacks of the memory champions</span>
+                                        </li>
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Scientifically proven protocols to turn you into a genius learner!</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div className="border-t border-white/5 pt-4 space-y-4">
+                                        <div className="space-y-2">
+                                            <p className="text-xs text-slate-400 font-light leading-relaxed">
+                                                Start for free by improving your reading speed in 30mins … our way of proving to you that it works.
+                                            </p>
                                             <Link 
                                                 href="/rogue-session/start?v2=true&mode=assessment" 
                                                 className="w-full group/btn relative py-3 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 shadow-[0_0_20px_rgba(99,102,241,0.15)] border border-indigo-400/20"
@@ -95,28 +121,15 @@ export default async function V2LandingPage() {
                                                 <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                                             </Link>
                                         </div>
-                                    </div>
-                                    
-                                    <div className="border-t border-white/5" />
-                                    
-                                    {/* Option 2: The Bootcamp */}
-                                    <div className="space-y-3">
-                                        <div className="flex justify-between items-center">
-                                            <span className="text-sm font-bold text-white flex items-center gap-2">
-                                                <span className="w-6 h-6 rounded-full bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-xs text-purple-300 font-mono">2</span>
-                                                14-Day Learning Mastery Bootcamp
-                                            </span>
-                                            <span className="text-xs text-slate-400 font-mono font-semibold">{symbol}29 Lifetime</span>
-                                        </div>
-                                        <p className="text-xs text-slate-400 font-light leading-relaxed pl-8">
-                                            Lock in your visual reading speed, synthesize complex concepts, and build permanent memory recall habits.
-                                        </p>
-                                        <div className="pl-8">
+                                        
+                                        <div className="flex items-center justify-between pt-1">
+                                            <span className="text-xs text-slate-500 font-medium">Or skip the free preview:</span>
                                             <Link 
                                                 href="/bootcamp" 
-                                                className="w-full py-3 bg-slate-850 hover:bg-slate-850 text-slate-200 border border-white/10 hover:border-white/20 rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2"
+                                                className="text-xs font-bold text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-1"
                                             >
-                                                View 14-Day Syllabus
+                                                Join 14-Day Bootcamp ({symbol}29)
+                                                <ArrowRight className="w-3 h-3" />
                                             </Link>
                                         </div>
                                     </div>
@@ -151,7 +164,10 @@ export default async function V2LandingPage() {
                                     Start Free Masterclass
                                     <ArrowRight className="w-3.5 h-3.5" />
                                 </Link>
-                                <span className="text-xs text-slate-500 font-medium">Takes 30 minutes • No signup required</span>
+                                <div className="text-left">
+                                    <span className="text-xs text-slate-500 font-medium block">Takes 30 minutes • No signup required</span>
+                                    <span className="text-xs text-indigo-400/80 font-medium italic block">If you never try, you'll never know.</span>
+                                </div>
                             </div>
                         </div>
 

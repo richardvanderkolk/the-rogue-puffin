@@ -17,7 +17,7 @@ export function StorySection() {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> A 30-Year Mission
+                <Sparkles className="w-3.5 h-3.5 text-indigo-400" /> Our Mission
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">
                 Why I Built <br />
@@ -36,7 +36,7 @@ export function StorySection() {
               </p>
               
               <p>
-                I started teaching these skills as a side business. Today, 30 years later, I recognize that these foundational learning methods are *still* not taught. Yet, when I speak to students, the excitement is still the same: they are blown away when they realize they can double their reading speed and recall dense textbooks in minutes.
+                I started teaching these skills as a side business. Over time, I recognized that these foundational learning methods are still not taught in mainstream education. Yet, when I speak to students, the excitement is still the same: they are blown away when they realize they can double their reading speed and recall dense textbooks in minutes.
               </p>
 
               <p>

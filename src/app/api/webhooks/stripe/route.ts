@@ -41,6 +41,20 @@ export async function POST(request: Request) {
             console.log(`Fulfilling purchase for ${customerEmail} - ${productMode}`);
             const userId = session.client_reference_id || session.metadata?.user_id;
 
+            // Record the purchase in the purchases table for analytics dashboard
+            const { error: purchaseError } = await supabase
+                .from('purchases')
+                .insert([{
+                    email: customerEmail,
+                    product: productMode,
+                    stripe_session_id: session.id,
+                    amount_total: session.amount_total || 0,
+                    currency: session.currency || 'usd'
+                }]);
+            if (purchaseError) {
+                console.error("Error inserting purchase record in webhook:", purchaseError);
+            }
+
             if (productMode === 'bootcamp' || productMode === 'complete_masterclass_bundle') {
                 if (userId) {
                     const { error } = await supabase

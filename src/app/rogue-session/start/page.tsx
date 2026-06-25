@@ -88,6 +88,7 @@ export default function RogueSessionPage() {
             id = crypto.randomUUID();
             localStorage.setItem('rp_visitor_id', id);
         }
+        setVisitorId(id);
         const urlParams = new URLSearchParams(window.location.search);
         
         if (urlParams.has('restart')) {
@@ -153,13 +154,14 @@ export default function RogueSessionPage() {
         });
         nextStep(); // Advance UI immediately
         
-        if (visitorId) {
+        const activeVisitorId = visitorId || localStorage.getItem('rp_visitor_id');
+        if (activeVisitorId) {
             try {
                 fetch('/api/anonymous-tests', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        visitor_id: visitorId,
+                        visitor_id: activeVisitorId,
                         wpm: results.wpm,
                         comprehension_score: results.comprehension,
                         test_type: 'baseline'
@@ -176,13 +178,14 @@ export default function RogueSessionPage() {
         localStorage.setItem('rp_final_stats', JSON.stringify(results));
         nextStep(); // Advance UI immediately
         
-        if (visitorId) {
+        const activeVisitorId = visitorId || localStorage.getItem('rp_visitor_id');
+        if (activeVisitorId) {
             try {
                 fetch('/api/anonymous-tests', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        visitor_id: visitorId,
+                        visitor_id: activeVisitorId,
                         wpm: results.wpm,
                         comprehension_score: results.comprehension,
                         test_type: 'rogue_session'
@@ -288,17 +291,24 @@ export default function RogueSessionPage() {
                     {step === 0 && (
                         <Slide 
                             key="lets_do_this" 
-                            title={assessmentMode ? "Reading Speed Assessment" : "Step 1: The Baseline"} 
+                            title={assessmentMode ? "Your ‘Before’ Reading Speed" : "Step 1: The Baseline"} 
                             icon={<Clock className="w-12 h-12 text-indigo-400" />} 
                             onNext={handleStartBaseline} 
-                            customButtonText={assessmentMode ? "Start Assessment" : "Start Baseline"}
+                            customButtonText={assessmentMode ? "Start assessment" : "Start Baseline"}
                         >
                             <div className="space-y-8 max-w-2xl mx-auto">
-                                <p className="text-xl text-slate-200">
-                                    {assessmentMode 
-                                        ? "Discover your current reading speed and comprehension rate in 60 seconds."
-                                        : "Before we begin the training, we need to know exactly where you are starting from."}
-                                </p>
+                                {assessmentMode ? (
+                                    <div className="text-center space-y-3">
+                                        <p className="text-3xl font-black text-indigo-400 tracking-tight">60 seconds</p>
+                                        <p className="text-lg text-slate-300 font-light leading-relaxed max-w-xl mx-auto">
+                                            Read the following text at your normal, comfortable pace. Do not rush so that your increased measurement at the end is real.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <p className="text-xl text-slate-200 text-center">
+                                        Before we begin the training, we need to know exactly where you are starting from.
+                                    </p>
+                                )}
                                 <div className="bg-indigo-500/10 border border-indigo-500/20 p-6 rounded-xl text-left mt-6">
                                     <p className="text-indigo-400 font-bold mb-2 flex items-center gap-2"><Brain className="w-5 h-5" /> Comprehension Test</p>
                                     <p className="text-slate-300 leading-relaxed mb-3">Read the following text at your <strong>normal, comfortable pace</strong>. Do not rush. Immediately after reading, you will be asked to answer a series of questions to test your recall.</p>

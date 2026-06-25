@@ -29,7 +29,7 @@ export default function ImprintPage() {
                         <h2 className="text-2xl font-semibold text-white">Contact</h2>
                         <div className="space-y-2 text-slate-300">
                             <p>
-                                <strong>Email:</strong> <a href="mailto:hello@theroguepuffin.com" className="text-indigo-400 hover:text-indigo-300 transition-colors">hello@theroguepuffin.com</a>
+                                <strong>Email:</strong> <a href="mailto:richard@theroguepuffin.com" className="text-indigo-400 hover:text-indigo-300 transition-colors">richard@theroguepuffin.com</a>
                             </p>
                         </div>
                     </section>

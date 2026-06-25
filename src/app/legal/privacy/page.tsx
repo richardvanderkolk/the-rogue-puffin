@@ -18,7 +18,7 @@ export default function PrivacyPage() {
                 </p>
                 <ul>
                     <li><strong>KVK Number:</strong> 99977516</li>
-                    <li><strong>Email:</strong> info@authoringlife.com</li>
+                    <li><strong>Email:</strong> richard@theroguepuffin.com</li>
                 </ul>
 
                 <h3>2. Data Processing for Minors (Under 16)</h3>
@@ -43,7 +43,7 @@ export default function PrivacyPage() {
 
                 <h3>5. Data Retention & Your Rights</h3>
                 <p>
-                    Under GDPR, you have the "Right to be Forgotten." If you wish to delete your account, cancel your program access, and have all your personal data permanently erased from our servers, email us at info@authoringlife.com.
+                    Under GDPR, you have the "Right to be Forgotten." If you wish to delete your account, cancel your program access, and have all your personal data permanently erased from our servers, email us at richard@theroguepuffin.com.
                 </p>
                 
                 <h3>6. Cookies</h3>

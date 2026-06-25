@@ -35,7 +35,7 @@ export function StripeCheckoutMock({ price = "$5.00", onSuccess }: { price?: str
                     <label className="text-xs font-bold uppercase text-slate-500 tracking-wider">Email Address</label>
                     <input
                         type="email"
-                        placeholder="you@example.com"
+                        placeholder="richard@theroguepuffin.com"
                         className="w-full p-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all text-slate-900"
                     />
                 </div>
