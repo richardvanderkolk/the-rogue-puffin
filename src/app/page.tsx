@@ -85,48 +85,62 @@ export default async function V2LandingPage() {
                                 
                                 <div className="space-y-6">
                                     <div className="border-b border-white/5 pb-4">
-                                        <span className="text-xs text-indigo-400 uppercase tracking-widest font-extrabold block">Get Started</span>
-                                        <h3 className="text-xl font-black text-white mt-1">Choose Your Path</h3>
-                                        <p className="text-xs text-slate-400 font-light mt-1">Unlock your cognitive potential with two ways to start.</p>
+                                        <span className="text-xs text-indigo-400 uppercase tracking-widest font-extrabold block">The Roadmap</span>
+                                        <h3 className="text-lg font-bold text-white mt-1">Discover the ultimate in learning mastery in just 15-30 mins a day for 2 weeks:</h3>
                                     </div>
                                     
-                                    {/* Option 1: Start For Free */}
-                                    <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-5 space-y-3 hover:border-indigo-500/25 transition-all">
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-xs font-extrabold text-indigo-300 uppercase tracking-wider">Option 1: Start For Free</span>
-                                            <span className="text-[10px] bg-indigo-500/15 border border-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-bold uppercase">No Signup</span>
+                                    <ul className="space-y-2 text-sm font-light text-left">
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Doubling your reading speed</span>
+                                        </li>
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Discovering your personal learning style</span>
+                                        </li>
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Memory hacks of the memory champions</span>
+                                        </li>
+                                        <li className="flex items-start gap-2.5">
+                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
+                                            <span className="text-slate-300">Scientifically proven protocols to turn you into a genius learner!</span>
+                                        </li>
+                                    </ul>
+                                    
+                                    <div className="border-t border-white/5 pt-4 space-y-4">
+                                        {/* Option 1: Start For Free */}
+                                        <div className="space-y-2">
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider">Option 1: Start For Free</span>
+                                                <span className="text-[10px] bg-indigo-500/15 border border-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-bold uppercase">No Signup</span>
+                                            </div>
+                                            <Link 
+                                                href="/rogue-session/start?v2=true&mode=assessment" 
+                                                className="w-full group/btn relative py-3 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-indigo-400/20 shadow-[0_0_20px_rgba(99,102,241,0.15)]"
+                                            >
+                                                Start Free Masterclass
+                                                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                                            </Link>
                                         </div>
-                                        <p className="text-xs text-slate-400 leading-relaxed font-light">
-                                            Test your baseline reading speed in 60 seconds and experience the immediate speed training masterclass.
-                                        </p>
-                                        <Link 
-                                            href="/rogue-session/start?v2=true&mode=assessment" 
-                                            className="w-full group/btn relative py-3 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-indigo-400/20"
-                                        >
-                                            Start Free Masterclass
-                                            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                                        </Link>
+
+                                        {/* Option 2: Explore the 14-Day Bootcamp */}
+                                        <div className="space-y-2 pt-2">
+                                            <div className="flex items-center justify-between">
+                                                <span className="text-xs font-bold text-purple-300 uppercase tracking-wider">Option 2: 14-Day Bootcamp</span>
+                                                <span className="text-[10px] bg-purple-500/15 border border-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold uppercase">{symbol}29</span>
+                                            </div>
+                                            <Link 
+                                                href="/bootcamp" 
+                                                className="w-full group/btn relative py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-white/10"
+                                            >
+                                                Explore 14-Day Bootcamp
+                                                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                                            </Link>
+                                        </div>
                                     </div>
 
-                                    {/* Option 2: Explore the 14-Day Bootcamp */}
-                                    <div className="bg-slate-950/40 border border-white/5 rounded-2xl p-5 space-y-3 hover:border-purple-500/25 transition-all">
-                                        <div className="flex items-center justify-between">
-                                            <span className="text-xs font-extrabold text-purple-300 uppercase tracking-wider">Option 2: 14-Day Bootcamp</span>
-                                            <span className="text-[10px] bg-purple-500/15 border border-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold uppercase">{symbol}29</span>
-                                        </div>
-                                        <p className="text-xs text-slate-400 leading-relaxed font-light">
-                                            See what the 14 days cover. Start Day 1 for free, or pay to get started immediately.
-                                        </p>
-                                        <Link 
-                                            href="/bootcamp" 
-                                            className="w-full group/btn relative py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-white/10"
-                                        >
-                                            Explore 14-Day Bootcamp
-                                            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                                        </Link>
-                                    </div>
-
-                                    <div className="text-center pt-1">
+                                    <div className="text-center pt-1 border-t border-white/5">
                                         <span className="text-[11px] text-indigo-400/80 font-medium italic">If you never try, you'll never know.</span>
                                     </div>
                                 </div>
