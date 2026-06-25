@@ -69,7 +69,6 @@ export default async function V2LandingPage() {
                                     </Link>
                                     <div className="text-left">
                                         <span className="text-xs text-slate-500 font-medium block">Takes 30 minutes • No signup required</span>
-                                        <span className="text-xs text-indigo-400/80 font-medium italic block">If you never try, you'll never know.</span>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +115,7 @@ export default async function V2LandingPage() {
                                                 <span className="text-[10px] bg-indigo-500/15 border border-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-bold uppercase">No Signup</span>
                                             </div>
                                             <p className="text-xs text-slate-400 leading-relaxed font-light">
-                                                Start for free by improving your reading speed in 30mins … our way of proving to you that it works.
+                                                Start Day 1 for free by improving your reading speed in 30mins … our way of proving to you that it works.
                                             </p>
                                             <Link 
                                                 href="/rogue-session/start?v2=true&mode=assessment" 
@@ -134,7 +133,7 @@ export default async function V2LandingPage() {
                                                 <span className="text-[10px] bg-purple-500/15 border border-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold uppercase">{symbol}29</span>
                                             </div>
                                             <p className="text-xs text-slate-400 leading-relaxed font-light">
-                                                See what the 14 days cover. Start Day 1 for free, or pay to get started immediately.
+                                                Check out what the 14 days cover (15-30mins per day).
                                             </p>
                                             <Link 
                                                 href="/bootcamp" 
@@ -146,8 +145,8 @@ export default async function V2LandingPage() {
                                         </div>
                                     </div>
 
-                                    <div className="text-center pt-1 border-t border-white/5">
-                                        <span className="text-[11px] text-indigo-400/80 font-medium italic">If you never try, you'll never know.</span>
+                                    <div className="text-center pt-2 border-t border-white/5">
+                                        <span className="text-sm font-semibold text-indigo-300 italic block">If you never try, you'll never know.</span>
                                     </div>
                                 </div>
                             </div>
@@ -182,14 +181,13 @@ export default async function V2LandingPage() {
                                 </Link>
                                 <div className="text-left">
                                     <span className="text-xs text-slate-500 font-medium block">Takes 30 minutes • No signup required</span>
-                                    <span className="text-xs text-indigo-400/80 font-medium italic block">If you never try, you'll never know.</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right Side: Interactive RSVP Speed Drill Widget */}
                         <div className="lg:col-span-5 flex flex-col items-center justify-center relative w-full pt-8 lg:pt-0">
-                            <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-500/10 to-purple-500/10 rounded-[2.5rem] blur-3xl -z-10 opacity-30 pointer-events-none animate-pulse" />
+                            <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-500/10 to-purple-500/10 rounded-[2.5rem] blur-[80px] -z-10 opacity-60 pointer-events-none animate-pulse" />
                             <InteractivePacerPreview />
                         </div>
                     </div>
