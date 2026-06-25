@@ -115,6 +115,9 @@ export default async function V2LandingPage() {
                                                 <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider">Option 1: Start For Free</span>
                                                 <span className="text-[10px] bg-indigo-500/15 border border-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-bold uppercase">No Signup</span>
                                             </div>
+                                            <p className="text-xs text-slate-400 leading-relaxed font-light">
+                                                Start for free by improving your reading speed in 30mins … our way of proving to you that it works.
+                                            </p>
                                             <Link 
                                                 href="/rogue-session/start?v2=true&mode=assessment" 
                                                 className="w-full group/btn relative py-3 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-indigo-400/20 shadow-[0_0_20px_rgba(99,102,241,0.15)]"
@@ -130,6 +133,9 @@ export default async function V2LandingPage() {
                                                 <span className="text-xs font-bold text-purple-300 uppercase tracking-wider">Option 2: 14-Day Bootcamp</span>
                                                 <span className="text-[10px] bg-purple-500/15 border border-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold uppercase">{symbol}29</span>
                                             </div>
+                                            <p className="text-xs text-slate-400 leading-relaxed font-light">
+                                                See what the 14 days cover. Start Day 1 for free, or pay to get started immediately.
+                                            </p>
                                             <Link 
                                                 href="/bootcamp" 
                                                 className="w-full group/btn relative py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-white/10"
