@@ -15,18 +15,25 @@ export async function GET(request: Request) {
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // 1. Get Landing Page views (path = '/' and path = '/speed-reading')
+    // 1. Get Landing Page views (path = '/', '/speed-reading', '/learning-mastery')
     const { data: landingViewsData, error: landingViewsError } = await supabase
         .from('page_views')
-        .select('views')
-        .in('path', ['/', '/speed-reading']);
+        .select('path, views')
+        .in('path', ['/', '/speed-reading', '/learning-mastery']);
     if (landingViewsError) {
         console.error("Error fetching landing page views:", landingViewsError);
     }
     let landingViews = 0;
+    let mainLandingViews = 0;
+    let speedReadingViews = 0;
+    let learningMasteryViews = 0;
     if (landingViewsData) {
         landingViewsData.forEach(pv => {
-            landingViews += (pv.views || 0);
+            const v = pv.views || 0;
+            if (pv.path === '/') mainLandingViews = v;
+            if (pv.path === '/speed-reading') speedReadingViews = v;
+            if (pv.path === '/learning-mastery') learningMasteryViews = v;
+            landingViews += v;
         });
     }
 
@@ -39,9 +46,14 @@ export async function GET(request: Request) {
         console.error("Error fetching test starts views:", testStartsError);
     }
     let testStarts = 0;
+    let mainTestStarts = 0;
+    let freeTestStarts = 0;
     if (testStartsData) {
         testStartsData.forEach(pv => {
-            testStarts += (pv.views || 0);
+            const v = pv.views || 0;
+            if (pv.path === '/rogue-session/start') mainTestStarts = v;
+            if (pv.path === '/free-test') freeTestStarts = v;
+            testStarts += v;
         });
     }
 
@@ -235,6 +247,15 @@ export async function GET(request: Request) {
         landingViews,
         testStarts,
         testCompletions,
+        landingViewsBreakdown: {
+            main: mainLandingViews,
+            speedReading: speedReadingViews,
+            learningMastery: learningMasteryViews
+        },
+        testStartsBreakdown: {
+            main: mainTestStarts,
+            freeTest: freeTestStarts
+        },
         outcomes30Min,
         outcomes14Day,
         styleDistribution,

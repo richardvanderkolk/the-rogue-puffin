@@ -485,6 +485,91 @@ export default function AdminDashboard() {
                 )}
             </div>
             
+            {/* Landing Page & Entry Point Traffic Breakdown */}
+            {metrics.landingViewsBreakdown && metrics.testStartsBreakdown && (
+                <div className="bg-slate-900 p-8 rounded-xl border border-slate-800 mb-10">
+                    <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
+                        <Activity className="w-5 h-5 text-indigo-400" /> Landing Page & Entry Point Traffic Breakdown
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {/* Landing Page views breakdown */}
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800 space-y-4">
+                            <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Landing Page Views</h4>
+                            
+                            <div className="space-y-4">
+                                <div className="space-y-1">
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-slate-300 font-medium">Learning Mastery Hero Page (/)</span>
+                                        <span className="font-mono font-bold text-white">
+                                            {metrics.landingViewsBreakdown.main.toLocaleString()} ({getPercentage(metrics.landingViewsBreakdown.main, metrics.landingViews)}%)
+                                        </span>
+                                    </div>
+                                    <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                        <div className="bg-indigo-500 h-full rounded-full" style={{ width: `${getPercentage(metrics.landingViewsBreakdown.main, metrics.landingViews)}%` }}></div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1">
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-slate-300 font-medium">Speed Reading Page (/speed-reading)</span>
+                                        <span className="font-mono font-bold text-white">
+                                            {metrics.landingViewsBreakdown.speedReading.toLocaleString()} ({getPercentage(metrics.landingViewsBreakdown.speedReading, metrics.landingViews)}%)
+                                        </span>
+                                    </div>
+                                    <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                        <div className="bg-purple-500 h-full rounded-full" style={{ width: `${getPercentage(metrics.landingViewsBreakdown.speedReading, metrics.landingViews)}%` }}></div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1">
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-slate-300 font-medium">Learning Mastery Page (/learning-mastery)</span>
+                                        <span className="font-mono font-bold text-white">
+                                            {(metrics.landingViewsBreakdown.learningMastery || 0).toLocaleString()} ({getPercentage(metrics.landingViewsBreakdown.learningMastery || 0, metrics.landingViews)}%)
+                                        </span>
+                                    </div>
+                                    <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                        <div className="bg-emerald-500 h-full rounded-full" style={{ width: `${getPercentage(metrics.landingViewsBreakdown.learningMastery || 0, metrics.landingViews)}%` }}></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Test starts breakdown */}
+                        <div className="p-6 bg-slate-950 rounded-xl border border-slate-800 space-y-4">
+                            <h4 className="text-sm font-semibold text-slate-400 uppercase tracking-wider">Test Start Entry Points</h4>
+                            
+                            <div className="space-y-4">
+                                <div className="space-y-1">
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-slate-300 font-medium">Speed Reading Protocol (/rogue-session/start)</span>
+                                        <span className="font-mono font-bold text-white">
+                                            {metrics.testStartsBreakdown.main.toLocaleString()} ({getPercentage(metrics.testStartsBreakdown.main, metrics.testStarts)}%)
+                                        </span>
+                                    </div>
+                                    <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                        <div className="bg-indigo-500 h-full rounded-full" style={{ width: `${getPercentage(metrics.testStartsBreakdown.main, metrics.testStarts)}%` }}></div>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-1">
+                                    <div className="flex justify-between items-center text-xs">
+                                        <span className="text-slate-300 font-medium">Standalone Speed Test (/free-test)</span>
+                                        <span className="font-mono font-bold text-white">
+                                            {metrics.testStartsBreakdown.freeTest.toLocaleString()} ({getPercentage(metrics.testStartsBreakdown.freeTest, metrics.testStarts)}%)
+                                        </span>
+                                    </div>
+                                    <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden">
+                                        <div className="bg-purple-500 h-full rounded-full" style={{ width: `${getPercentage(metrics.testStartsBreakdown.freeTest, metrics.testStarts)}%` }}></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            
             <div className="text-center text-slate-500 text-xs">
                 To view detailed customer lists, issue refunds, or connect payouts to your bank account, log into your Stripe Dashboard. 
             </div>
