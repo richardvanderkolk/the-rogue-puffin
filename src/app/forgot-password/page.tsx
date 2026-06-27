@@ -24,7 +24,11 @@ export default function ForgotPasswordPage() {
     const result = await resetPassword(formData);
     
     if (result && result.error) {
-      setError(result.error);
+      let friendlyError = result.error;
+      if (result.error.toLowerCase().includes('rate limit')) {
+        friendlyError = "For security, password reset emails are limited to once every 60 seconds. Please wait a moment and try again.";
+      }
+      setError(friendlyError);
       setLoading(false);
     } else {
       setSuccess(true);
