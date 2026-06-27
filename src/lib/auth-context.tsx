@@ -38,11 +38,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             try {
                 const { data: { session } } = await supabase.auth.getSession();
                 if (session?.user) {
-                    const { data: profile } = await supabase
-                        .from('profiles')
-                        .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
-                        .eq('id', session.user.id)
-                        .maybeSingle();
+                    let profile = null;
+                    try {
+                        const { data } = await supabase
+                            .from('profiles')
+                            .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
+                            .eq('id', session.user.id)
+                            .maybeSingle();
+                        profile = data;
+                    } catch (profileErr) {
+                        console.error("Failed to fetch profile in syncSession:", profileErr);
+                    }
 
                     setUser({
                         id: session.user.id,
@@ -54,7 +60,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                         bootcamp_progress_day: profile?.bootcamp_progress_day || undefined,
                     });
                 } else {
-                    const storedUser = localStorage.getItem("rogue_user");
+                    const isDev = process.env.NODE_ENV === 'development';
+                    const storedUser = isDev ? localStorage.getItem("rogue_user") : null;
                     if (storedUser) {
                         setUser(JSON.parse(storedUser));
                     } else {
@@ -72,31 +79,43 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
         // Listen for authentication changes (login, logout, token refresh)
         const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
-            if (session?.user) {
-                const { data: profile } = await supabase
-                    .from('profiles')
-                    .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
-                    .eq('id', session.user.id)
-                    .maybeSingle();
+            try {
+                if (session?.user) {
+                    let profile = null;
+                    try {
+                        const { data } = await supabase
+                            .from('profiles')
+                            .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
+                            .eq('id', session.user.id)
+                            .maybeSingle();
+                        profile = data;
+                    } catch (profileErr) {
+                        console.error("Failed to fetch profile in onAuthStateChange:", profileErr);
+                    }
 
-                setUser({
-                    id: session.user.id,
-                    email: session.user.email || "",
-                    isPro: profile?.has_paid_bootcamp || false,
-                    name: profile?.full_name || session.user.email || "Student",
-                    subscription_status: profile?.subscription_status || undefined,
-                    subscription_tier: profile?.subscription_tier || undefined,
-                    bootcamp_progress_day: profile?.bootcamp_progress_day || undefined,
-                });
-            } else {
-                const storedUser = localStorage.getItem("rogue_user");
-                if (storedUser) {
-                    setUser(JSON.parse(storedUser));
+                    setUser({
+                        id: session.user.id,
+                        email: session.user.email || "",
+                        isPro: profile?.has_paid_bootcamp || false,
+                        name: profile?.full_name || session.user.email || "Student",
+                        subscription_status: profile?.subscription_status || undefined,
+                        subscription_tier: profile?.subscription_tier || undefined,
+                        bootcamp_progress_day: profile?.bootcamp_progress_day || undefined,
+                    });
                 } else {
-                    setUser(null);
+                    const isDev = process.env.NODE_ENV === 'development';
+                    const storedUser = isDev ? localStorage.getItem("rogue_user") : null;
+                    if (storedUser) {
+                        setUser(JSON.parse(storedUser));
+                    } else {
+                        setUser(null);
+                    }
                 }
+            } catch (e) {
+                console.error("onAuthStateChange callback error:", e);
+            } finally {
+                setLoading(false);
             }
-            setLoading(false);
         });
 
         return () => {

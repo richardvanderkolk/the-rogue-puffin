@@ -88,7 +88,7 @@ export default async function V2LandingPage() {
                                         School teaches you <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">what</span> to learn.
                                     </span>
                                     <span className="text-slate-300 block mt-2">
-                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">learning mastery.</span>
+                                        We teach you <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-400">the how</span> of learning mastery.
                                     </span>
                                 </h1>
                                 
