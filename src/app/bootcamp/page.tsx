@@ -30,6 +30,7 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
     
     const searchParams = await props.searchParams;
     const forceUnlock = searchParams.unlocked === 'true';
+    const isSuccess = searchParams.success === 'true';
 
     if (user) {
         let { data: profile } = await supabase
@@ -96,7 +97,13 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
 
             <div className="max-w-5xl mx-auto px-6 mt-12 space-y-16">
                 <GraduationBanner />
-                <BootcampRoadmap isUnlocked={isUnlocked} symbol={symbol} initialProgress={initialProgress} />
+                <BootcampRoadmap 
+                    isUnlocked={isUnlocked} 
+                    symbol={symbol} 
+                    initialProgress={initialProgress} 
+                    isLoggedIn={!!user}
+                    isSuccess={isSuccess}
+                />
             </div>
         </main>
     );

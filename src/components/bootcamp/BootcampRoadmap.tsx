@@ -2,22 +2,64 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AdminBypassLink } from "@/components/AdminBypassLink";
 import { usePostHog } from 'posthog-js/react';
 import { CheckCircle2, Lock, Zap, Target, Brain, BookOpen, Activity, Database, ArrowRight, ArrowDown, Search, Network, MessageCircle, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { PromoCodeSection } from "@/components/PromoCodeSection";
 
-export function BootcampRoadmap({ isUnlocked: propIsUnlocked, symbol, initialProgress = 1 }: { isUnlocked: boolean, symbol: string, initialProgress?: number }) {
+export function BootcampRoadmap({ 
+    isUnlocked: propIsUnlocked, 
+    symbol, 
+    initialProgress = 1,
+    isLoggedIn = false,
+    isSuccess = false
+}: { 
+    isUnlocked: boolean;
+    symbol: string;
+    initialProgress?: number;
+    isLoggedIn?: boolean;
+    isSuccess?: boolean;
+}) {
+    const router = useRouter();
     const [isUnlocked, setIsUnlocked] = useState(propIsUnlocked);
     const [currentProgress, setCurrentProgress] = useState(initialProgress);
     const [visitorId, setVisitorId] = useState<string>('');
     const [showOnboarding, setShowOnboarding] = useState(false);
+    
+    // Sync states for checkout success handling
+    const [isSyncing, setIsSyncing] = useState(isSuccess && isLoggedIn && !propIsUnlocked);
+    const [syncSuccess, setSyncSuccess] = useState(false);
     const posthog = usePostHog();
 
     useEffect(() => {
         setIsUnlocked(propIsUnlocked);
     }, [propIsUnlocked]);
+
+    useEffect(() => {
+        let interval: NodeJS.Timeout;
+        
+        // If they just paid (isSuccess) and are logged in but still locked on screen, poll
+        if (isSuccess && isLoggedIn && !isUnlocked) {
+            setIsSyncing(true);
+            interval = setInterval(() => {
+                console.log("Polling database for checkout fulfillment...");
+                router.refresh();
+            }, 2000);
+        } else if (isUnlocked && isSyncing) {
+            setIsSyncing(false);
+            setSyncSuccess(true);
+            const timeout = setTimeout(() => setSyncSuccess(false), 8000);
+            return () => clearTimeout(timeout);
+        } else {
+            setIsSyncing(false);
+        }
+        
+        return () => {
+            if (interval) clearInterval(interval);
+        };
+    }, [isSuccess, isLoggedIn, isUnlocked, isSyncing, router]);
 
     useEffect(() => {
         if (!isUnlocked) {
@@ -177,6 +219,54 @@ export function BootcampRoadmap({ isUnlocked: propIsUnlocked, symbol, initialPro
                     </motion.div>
                 )}
             </AnimatePresence>
+
+            {/* 1. Payment Success but Logged Out Alert */}
+            {isSuccess && !isLoggedIn && (
+                <div className="mb-12 bg-gradient-to-r from-purple-950/40 to-slate-900 border border-purple-500/30 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-[0_0_40px_rgba(168,85,247,0.15)] flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
+                    <div className="relative z-10 space-y-2 max-w-2xl">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-widest">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-purple-400 animate-pulse" /> Payment Confirmed
+                        </div>
+                        <h3 className="text-2xl font-black text-white tracking-tight">Thank you for your purchase!</h3>
+                        <p className="text-slate-300 text-sm md:text-base leading-relaxed font-light">
+                            To unlock your 14-Day Learning Mastery Bootcamp, please **Sign Up** or **Log In** using the exact same email address you entered at checkout. Once logged in, your roadmap will automatically unlock!
+                        </p>
+                    </div>
+                    <div className="relative z-10 shrink-0 w-full md:w-auto flex flex-col sm:flex-row gap-3">
+                        <Link href="/signup" className="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-sm text-center shadow-lg transition-transform hover:scale-105 active:scale-98">
+                            Create Account
+                        </Link>
+                        <Link href="/login" className="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-white border border-white/10 rounded-xl font-bold text-sm text-center transition-colors">
+                            Log In
+                        </Link>
+                    </div>
+                </div>
+            )}
+
+            {/* 2. Logged In, Syncing with Stripe Webhook Loader */}
+            {isSyncing && (
+                <div className="mb-12 bg-gradient-to-r from-indigo-950/60 to-slate-900 border border-indigo-500/30 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-[0_0_30px_rgba(99,102,241,0.15)] flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+                    <div className="w-10 h-10 rounded-full border-4 border-indigo-500/30 border-t-indigo-400 animate-spin shrink-0 mx-auto" />
+                    <div className="space-y-1">
+                        <h4 className="text-lg font-bold text-white">Unlocking your bootcamp...</h4>
+                        <p className="text-xs text-indigo-300 font-light">We are syncing your payment confirmation with Stripe. This takes just a few seconds.</p>
+                    </div>
+                </div>
+            )}
+
+            {/* 3. Logged In, Stripe Sync Successful Alert */}
+            {syncSuccess && (
+                <div className="mb-12 bg-gradient-to-r from-emerald-950/60 to-slate-900 border border-emerald-500/30 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.15)] flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+                    <div className="w-10 h-10 bg-emerald-500/20 rounded-full flex items-center justify-center border border-emerald-500/30 text-emerald-400 shrink-0 mx-auto">
+                        <CheckCircle2 className="w-6 h-6 animate-bounce" />
+                    </div>
+                    <div className="space-y-1">
+                        <h4 className="text-lg font-bold text-white">Bootcamp Fully Unlocked!</h4>
+                        <p className="text-xs text-emerald-300 font-light">Congratulations! Your transaction processed successfully. Day 2 is now available below.</p>
+                    </div>
+                </div>
+            )}
 
             {/* Returning User Welcome Back Banner (For Unlocked Users) */}
             {isUnlocked && (
