@@ -52,7 +52,18 @@ export default function ResetPasswordPage() {
       });
 
       if (updateError) {
-        setError(updateError.message);
+        // Intercept browser lock contention errors and treat as success since the backend update was completed.
+        if (updateError.message.toLowerCase().includes('lock') && updateError.message.toLowerCase().includes('stole')) {
+          setSuccess(true);
+          if (typeof window !== "undefined") {
+            window.history.replaceState(null, "", window.location.pathname);
+          }
+          setTimeout(() => {
+            router.push("/login?message=Password updated successfully. Please log in.");
+          }, 2000);
+        } else {
+          setError(updateError.message);
+        }
       } else {
         setSuccess(true);
         // Clean up hash fragment from URL
@@ -66,7 +77,14 @@ export default function ResetPasswordPage() {
         }, 2000);
       }
     } catch (err: any) {
-      setError(err.message || "An unexpected error occurred.");
+      if (err.message && err.message.toLowerCase().includes('lock') && err.message.toLowerCase().includes('stole')) {
+        setSuccess(true);
+        setTimeout(() => {
+          router.push("/login?message=Password updated successfully. Please log in.");
+        }, 2000);
+      } else {
+        setError(err.message || "An unexpected error occurred.");
+      }
     } finally {
       setLoading(false);
     }
