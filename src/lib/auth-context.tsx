@@ -143,10 +143,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
 
     const signOut = async () => {
-        await supabase.auth.signOut();
+        try {
+            await supabase.auth.signOut();
+        } catch (e) {
+            console.error("SignOut error:", e);
+        }
         setUser(null);
         localStorage.removeItem("rogue_user");
-        router.push("/");
+        window.location.href = "/";
     };
 
     const upgradeToPro = () => {
