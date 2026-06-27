@@ -2,6 +2,7 @@
 
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
+import { headers } from 'next/headers'
 import { createClient } from '@/lib/supabase/server'
 
 export async function login(formData: FormData) {
@@ -56,7 +57,12 @@ export async function logout() {
 export async function resetPassword(formData: FormData) {
   const supabase = await createClient()
   const email = formData.get('email') as string
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+  
+  // Dynamically get the current request's host to resolve URL dynamically
+  const headerList = await headers()
+  const host = headerList.get('host') || 'theroguepuffin.com'
+  const protocol = host.includes('localhost') ? 'http' : 'https'
+  const siteUrl = `${protocol}://${host}`
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
     redirectTo: `${siteUrl}/reset-password`,
