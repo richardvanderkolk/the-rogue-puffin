@@ -87,3 +87,26 @@ export async function updatePassword(formData: FormData) {
 
   return { success: true }
 }
+
+export async function updatePasswordWithToken(accessToken: string, refreshToken: string, password: string) {
+  const supabase = await createClient()
+  
+  // Establish the recovery session on the server client using the tokens from the recovery link hash
+  const { error: sessionError } = await supabase.auth.setSession({
+    access_token: accessToken,
+    refresh_token: refreshToken,
+  })
+
+  if (sessionError) {
+    return { error: sessionError.message }
+  }
+
+  // Update the user's password under the authenticated session
+  const { error: updateError } = await supabase.auth.updateUser({ password })
+
+  if (updateError) {
+    return { error: updateError.message }
+  }
+
+  return { success: true }
+}

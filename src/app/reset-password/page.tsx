@@ -6,6 +6,7 @@ import { ArrowRight, Loader2, Lock, CheckCircle } from 'lucide-react';
 import { supabase } from '@/lib/supabase/client';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { updatePassword, updatePasswordWithToken } from '../login/actions';
 
 export default function ResetPasswordPage() {
   const [password, setPassword] = useState("");
@@ -46,24 +47,29 @@ export default function ResetPasswordPage() {
 
     setLoading(true);
 
-    try {
-      const { error: updateError } = await supabase.auth.updateUser({
-        password: password,
-      });
+    let accessToken = "";
+    let refreshToken = "";
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash;
+      const params = new URLSearchParams(hash.replace('#', '?'));
+      accessToken = params.get('access_token') || "";
+      refreshToken = params.get('refresh_token') || "";
+    }
 
-      if (updateError) {
-        // Intercept browser lock contention errors and treat as success since the backend update was completed.
-        if (updateError.message.toLowerCase().includes('lock') && updateError.message.toLowerCase().includes('stole')) {
-          setSuccess(true);
-          if (typeof window !== "undefined") {
-            window.history.replaceState(null, "", window.location.pathname);
-          }
-          setTimeout(() => {
-            router.push("/login?message=Password updated successfully. Please log in.");
-          }, 2000);
-        } else {
-          setError(updateError.message);
-        }
+    try {
+      let result;
+      if (accessToken && refreshToken) {
+        // Option 1: Safely update using the token directly on the server to completely bypass browser locks
+        result = await updatePasswordWithToken(accessToken, refreshToken, password);
+      } else {
+        // Option 2: Fallback to session cookie update action
+        const formData = new FormData();
+        formData.append('password', password);
+        result = await updatePassword(formData);
+      }
+
+      if (result && result.error) {
+        setError(result.error);
       } else {
         setSuccess(true);
         // Clean up hash fragment from URL
@@ -71,20 +77,13 @@ export default function ResetPasswordPage() {
           window.history.replaceState(null, "", window.location.pathname);
         }
         
-        // Wait 2 seconds and redirect to dashboard
-        setTimeout(() => {
-          router.push("/dashboard");
-        }, 2000);
-      }
-    } catch (err: any) {
-      if (err.message && err.message.toLowerCase().includes('lock') && err.message.toLowerCase().includes('stole')) {
-        setSuccess(true);
+        // Wait 2 seconds and redirect to login
         setTimeout(() => {
           router.push("/login?message=Password updated successfully. Please log in.");
         }, 2000);
-      } else {
-        setError(err.message || "An unexpected error occurred.");
       }
+    } catch (err: any) {
+      setError(err.message || "An unexpected error occurred.");
     } finally {
       setLoading(false);
     }
