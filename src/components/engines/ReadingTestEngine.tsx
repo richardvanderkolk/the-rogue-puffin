@@ -52,8 +52,9 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
     const submitResults = () => {
         if (!startTime || !endTime) return;
 
-        // Calculate WPM
-        const durationInMinutes = (endTime - startTime) / 60000;
+        // Calculate WPM with a minimum time threshold of 5 seconds to prevent accidental misclick spike values (e.g. 10,000 WPM)
+        const rawDurationMs = Math.max(endTime - startTime, 5000);
+        const durationInMinutes = rawDurationMs / 60000;
         const calculatedWpm = Math.round(wordCount / durationInMinutes);
         setWpm(calculatedWpm);
 

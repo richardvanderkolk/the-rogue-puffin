@@ -26,13 +26,32 @@ const TEST_QUESTIONS = [
 export default function FreeTestPage() {
     const [step, setStep] = useState<'intro' | 'test' | 'capture' | 'results'>('intro');
     const [results, setResults] = useState({ wpm: 0, comprehension: 0 });
+    const [initialBaseline, setInitialBaseline] = useState<{ wpm: number; comprehension: number } | null>(null);
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const posthog = usePostHog();
 
+    useState(() => {
+        if (typeof window !== 'undefined') {
+            const saved = localStorage.getItem('rp_baseline_stats');
+            if (saved) {
+                try {
+                    setInitialBaseline(JSON.parse(saved));
+                } catch (e) {
+                    console.error("Failed to parse initial baseline", e);
+                }
+            }
+        }
+    });
+
     const handleTestComplete = (data: { wpm: number; comprehension: number }) => {
         setResults(data);
-        localStorage.setItem('rp_baseline_stats', JSON.stringify(data));
+        const hasBaseline = initialBaseline !== null;
+        if (hasBaseline) {
+            localStorage.setItem('rp_final_stats', JSON.stringify(data));
+        } else {
+            localStorage.setItem('rp_baseline_stats', JSON.stringify(data));
+        }
         posthog?.capture('test_completed', { 
             test_flow: '3_minute_free_test',
             wpm: data.wpm,
@@ -53,7 +72,7 @@ export default function FreeTestPage() {
                     visitor_id: visitorId,
                     wpm: data.wpm,
                     comprehension_score: data.comprehension,
-                    test_type: 'baseline'
+                    test_type: hasBaseline ? 'rogue_session' : 'baseline'
                 })
             });
         } catch (err) {
@@ -179,40 +198,84 @@ export default function FreeTestPage() {
                 </div>
             )}
 
-            {step === 'results' && (
-                <div className="max-w-xl w-full text-center space-y-8">
-                    <h2 className="text-3xl font-bold">Your Baseline</h2>
+            {step === 'results' && (() => {
+                const hasBaseline = initialBaseline !== null;
+                const baselineWpm = hasBaseline ? initialBaseline.wpm : results.wpm;
+                const currentWpm = results.wpm;
+                const increase = baselineWpm > 0 ? Math.round(((currentWpm - baselineWpm) / baselineWpm) * 100) : 0;
+                const isImprovement = increase >= 0;
+                const displayPercentage = isImprovement ? `+${increase}%` : `${increase}%`;
 
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-                            <div className="text-6xl font-bold text-white mb-2">{results.wpm}</div>
-                            <div className="text-xs text-slate-500 uppercase tracking-widest">WPM</div>
+                return (
+                    <div className="max-w-xl w-full text-center space-y-8">
+                        <h2 className="text-3xl font-bold">{hasBaseline ? "Retest Results" : "Your Baseline"}</h2>
+
+                        {hasBaseline ? (
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                                    <div className="text-4xl font-bold text-slate-400 mb-1">{baselineWpm}</div>
+                                    <div className="text-xs text-slate-500 uppercase tracking-widest font-bold">Original Baseline WPM</div>
+                                </div>
+                                <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                                    <div className="text-4xl font-bold text-white mb-1">{currentWpm}</div>
+                                    <div className="text-xs text-indigo-400 uppercase tracking-widest font-bold">Current Speed WPM</div>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                                    <div className="text-6xl font-bold text-white mb-2">{results.wpm}</div>
+                                    <div className="text-xs text-slate-500 uppercase tracking-widest">WPM</div>
+                                </div>
+                                <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                                    <div className="text-6xl font-bold text-emerald-400 mb-2">{results.comprehension}%</div>
+                                    <div className="text-xs text-slate-500 uppercase tracking-widest">Comprehension</div>
+                                </div>
+                            </div>
+                        )}
+
+                        {hasBaseline && (
+                            <div className="flex justify-center">
+                                <span className={isImprovement 
+                                    ? "inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-extrabold text-lg shadow-[0_0_20px_rgba(16,185,129,0.15)]"
+                                    : "inline-flex items-center gap-2 px-5 py-2 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-400 font-extrabold text-lg shadow-[0_0_20px_rgba(244,63,94,0.15)]"
+                                }>
+                                    <span className={isImprovement 
+                                        ? "w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" 
+                                        : "w-2.5 h-2.5 rounded-full bg-rose-400 animate-pulse"
+                                    } />
+                                    {displayPercentage} {isImprovement ? "Speed Increase" : "Speed Decrease"}
+                                </span>
+                            </div>
+                        )}
+
+                        <div className="bg-indigo-900/10 border border-indigo-500/30 p-6 rounded-xl">
+                            <h3 className="text-xl font-bold text-indigo-400 mb-2">Analysis</h3>
+                            <p className="text-slate-300">
+                                {hasBaseline ? (
+                                    isImprovement ? (
+                                        `Fantastic progress! You've verified a ${displayPercentage} increase in your reading speed compared to your baseline. Continue practicing to lock in these neural pathways permanently.`
+                                    ) : (
+                                        `Your speed changed by ${displayPercentage}. This is normal and fluctuates based on focus and fatigue. Keep training to build consistent visual chunking habits.`
+                                    )
+                                ) : (
+                                    `You are reading at ${results.wpm > 300 ? 'an above average' : 'an average'} speed. Most readers are limited by traditional reading habits like subvocalization (saying words silently in your head) and regression (backtracking), which artificially cap reading speeds to speaking speeds (~150-250 WPM). Fortunately, these habits can be rewired visually.`
+                                )}
+                            </p>
                         </div>
-                        <div className="bg-slate-900 p-8 rounded-2xl border border-slate-800">
-                            <div className="text-6xl font-bold text-emerald-400 mb-2">{results.comprehension}%</div>
-                            <div className="text-xs text-slate-500 uppercase tracking-widest">Comprehension</div>
+
+                        <div className="space-y-4 pt-4">
+                            {!hasBaseline && <p className="text-slate-400">Unlock your true visual reading capacity in 30 minutes.</p>}
+                            <Link
+                                href={hasBaseline ? "/bootcamp" : "/rogue-session/start"}
+                                className="block w-full py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform"
+                            >
+                                {hasBaseline ? "Return to Bootcamp Dashboard" : "Start Free Speed Reading Course"}
+                            </Link>
                         </div>
                     </div>
-
-                    <div className="bg-indigo-900/10 border border-indigo-500/30 p-6 rounded-xl">
-                        <h3 className="text-xl font-bold text-indigo-400 mb-2">Analysis</h3>
-                        <p className="text-slate-300">
-                            You are reading at {results.wpm > 300 ? 'an above average' : 'an average'} speed.
-                            Most readers are limited by traditional reading habits like subvocalization (saying words silently in your head) and regression (backtracking), which artificially cap reading speeds to speaking speeds (~150-250 WPM). Fortunately, these habits can be rewired visually.
-                        </p>
-                    </div>
-
-                    <div className="space-y-4 pt-4">
-                        <p className="text-slate-400">Unlock your true visual reading capacity in 30 minutes.</p>
-                        <Link
-                            href="/rogue-session/start"
-                            className="block w-full py-4 bg-white text-black rounded-full font-bold text-lg hover:scale-105 transition-transform"
-                        >
-                            Start Free Speed Reading Course
-                        </Link>
-                    </div>
-                </div>
-            )}
+                );
+            })()}
         </div>
     );
 }

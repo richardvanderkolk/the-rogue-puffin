@@ -879,6 +879,8 @@ function ReadingTest({ onComplete, isRetest = false }: { onComplete: (results: {
 
 function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = "$" }: { baseline: { wpm: number }, final: { wpm: number }, isV2?: boolean, hasSkippedExercises?: boolean, symbol?: string }) {
     const increase = Math.round(((final.wpm - baseline.wpm) / baseline.wpm) * 100);
+    const isImprovement = increase >= 0;
+    const displayPercentage = isImprovement ? `+${increase}%` : `${increase}%`;
     const { user, signIn } = useAuth();
     const [capturedEmail, setCapturedEmail] = useState<string | null>(null);
     const [password, setPassword] = useState('');
@@ -950,9 +952,15 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = 
                             You unlocked <span className="text-emerald-400">permanent reading mastery.</span>
                         </h2>
                         <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start pt-1">
-                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-extrabold text-base shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                                +{increase}% Speed Increase
+                            <span className={isImprovement 
+                                ? "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-extrabold text-base shadow-[0_0_20px_rgba(16,185,129,0.1)]"
+                                : "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/25 text-rose-400 font-extrabold text-base shadow-[0_0_20px_rgba(244,63,94,0.1)]"
+                            }>
+                                <span className={isImprovement 
+                                    ? "w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" 
+                                    : "w-2.5 h-2.5 rounded-full bg-rose-400 animate-pulse"
+                                } />
+                                {displayPercentage} {isImprovement ? "Speed Increase" : "Speed Decrease"}
                             </span>
                             <span className="text-slate-400 text-sm font-semibold uppercase tracking-wider">
                                 achieved in just 30 minutes
@@ -1025,6 +1033,20 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = 
                             </button>
                         </Link>
                         <p className="text-sm text-slate-500 font-medium mt-5">14-Day Guided Execution Plan. Only {symbol}29.</p>
+                        
+                        <button 
+                            onClick={() => {
+                                if (confirm("Are you sure you want to reset your scores and start the session again?")) {
+                                    localStorage.removeItem('rp_baseline_stats');
+                                    localStorage.removeItem('rp_final_stats');
+                                    localStorage.removeItem('rp_skipped_exercises');
+                                    window.location.href = '/rogue-session/start?restart=true';
+                                }
+                            }}
+                            className="text-slate-500 hover:text-slate-400 underline text-xs font-semibold mt-4 transition-colors"
+                        >
+                            Reset scores and repeat training session
+                        </button>
                     </div>
                 </div>
 
@@ -1046,7 +1068,7 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = 
                         <>
                             <div className="text-center md:text-left shrink-0">
                                 <p className="text-white text-lg md:text-xl font-bold tracking-tight">Not ready for the Bootcamp yet?</p>
-                                <p className="text-slate-400 text-sm mt-1">Save your <span className="text-emerald-400 font-bold">+{increase}% speed record</span> before you leave.</p>
+                                <p className="text-slate-400 text-sm mt-1">Save your <span className={isImprovement ? "text-emerald-400 font-bold" : "text-rose-400 font-bold"}>{displayPercentage} speed record</span> before you leave.</p>
                             </div>
                             
                             <div className="w-full md:w-auto flex-1 flex justify-end">
