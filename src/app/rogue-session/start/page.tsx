@@ -10,6 +10,8 @@ import { Slide, IntroductionToFs, TrianglesExercise, PeripheralVisionSequence, N
 import { supabase } from "@/lib/supabase/client";
 import { useAuth } from "@/lib/auth-context";
 import { usePostHog } from "posthog-js/react";
+import { cn } from "@/lib/utils";
+import { Mascot } from "@/components/Mascot";
 
 import ReadingTestEngine from "@/components/engines/ReadingTestEngine";
 
@@ -56,6 +58,16 @@ export default function RogueSessionPage() {
     const [leadStatus, setLeadStatus] = useState<'idle' | 'loading' | 'error'>('idle');
     const [assessmentMode, setAssessmentMode] = useState(false);
     const [currencyInfo, setCurrencyInfo] = useState({ currency: 'usd', symbol: '$' });
+
+    // Gamification & Commitment states
+    const [showCommitModal, setShowCommitModal] = useState(false);
+    const [commitChecked, setCommitChecked] = useState(false);
+    const [hasCommitted, setHasCommitted] = useState(false);
+
+    const [showMilestone1, setShowMilestone1] = useState(false);
+    const [showMilestone2, setShowMilestone2] = useState(false);
+    const [showMilestone3, setShowMilestone3] = useState(false);
+    const [showMilestone4, setShowMilestone4] = useState(false);
 
     useEffect(() => {
         fetch('/api/currency')
@@ -285,6 +297,38 @@ export default function RogueSessionPage() {
             <ViewTracker path="/rogue-session/start" title="Speed Reading Protocol" category="Course" />
 
             <div className="max-w-3xl w-full flex-1 flex flex-col justify-center">
+                {step < 23 && (
+                    <div className="w-full max-w-3xl mb-12 select-none hidden sm:block">
+                        <div className="flex justify-between items-center relative">
+                            {/* Background Line */}
+                            <div className="absolute left-0 right-0 h-1 bg-slate-800 top-1/2 -translate-y-1/2 -z-10" />
+                            
+                            {SECTIONS.map((sec, idx) => {
+                                const isActive = step >= sec.range[0] && step <= sec.range[1];
+                                const isCompleted = step > sec.range[1];
+                                return (
+                                    <div key={sec.name} className="flex flex-col items-center gap-2">
+                                        <div className={cn(
+                                            "w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all duration-300 border",
+                                            isCompleted ? "bg-emerald-500 border-emerald-400 text-slate-950 shadow-[0_0_15px_rgba(16,185,129,0.3)]" :
+                                            isActive ? "bg-indigo-600 border-indigo-400 text-white shadow-[0_0_15px_rgba(99,102,241,0.5)] scale-110 font-black" :
+                                            "bg-slate-900 border-slate-800 text-slate-500"
+                                        )}>
+                                            {isCompleted ? "✓" : idx + 1}
+                                        </div>
+                                        <span className={cn(
+                                            "text-xs font-bold tracking-wide uppercase transition-colors duration-300",
+                                            isActive ? "text-indigo-400 font-extrabold" : isCompleted ? "text-emerald-400" : "text-slate-600"
+                                        )}>
+                                            {sec.name}
+                                        </span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+
                 <AnimatePresence mode="wait">
 
                     {/* --- BASELINE SECTION --- */}
@@ -293,7 +337,13 @@ export default function RogueSessionPage() {
                             key="lets_do_this" 
                             title={assessmentMode ? "Your ‘Before’ Reading Speed" : "Step 1: The Baseline"} 
                             icon={<Clock className="w-12 h-12 text-indigo-400" />} 
-                            onNext={handleStartBaseline} 
+                            onNext={() => {
+                                if (!hasCommitted) {
+                                    setShowCommitModal(true);
+                                } else {
+                                    handleStartBaseline();
+                                }
+                            }} 
                             customButtonText={assessmentMode ? "Start assessment" : "Start Baseline"}
                         >
                             <div className="space-y-8 max-w-2xl mx-auto">
@@ -326,79 +376,90 @@ export default function RogueSessionPage() {
                     )}
 
                     {step === 2 && baselineStats && (
-                        <Slide 
-                            key="baseline_result" 
-                            title="Baseline Established" 
-                            icon={<CheckCircle className="w-12 h-12 text-emerald-400" />} 
-                            onNext={async () => {
-                                if (!hasCapturedLead) {
-                                    const success = await handleLeadSubmitDirect(leadEmail, baselineStats.wpm, baselineStats.comprehension);
-                                    if (success) nextStep();
-                                } else {
-                                    nextStep();
-                                }
-                            }}
-                            customButtonText={leadStatus === 'loading' ? "Saving..." : (hasCapturedLead ? "Analyze My Reading" : "Save & Unlock Training")}
-                            nextDisabled={leadStatus === 'loading' || (!hasCapturedLead && !leadEmail)}
-                        >
-                            <div className="space-y-8 max-w-xl mx-auto">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
-                                        <p className="text-4xl font-bold text-white font-mono">{baselineStats.wpm}</p>
-                                        <p className="text-sm text-slate-500 uppercase tracking-wider font-bold mt-2">WPM</p>
-                                    </div>
-                                    <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
-                                        <p className="text-4xl font-bold text-emerald-400 font-mono">{baselineStats.comprehension}%</p>
-                                        <p className="text-sm text-slate-500 uppercase tracking-wider font-bold mt-2">Recall</p>
-                                    </div>
-                                </div>
-
-                                {!hasCapturedLead ? (
-                                    <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 text-center relative overflow-hidden mt-6">
-                                        <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 blur-[40px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
-                                        <div className="relative z-10 flex flex-col items-center">
-                                            <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-                                                Save Your Score & Unlock Training
-                                            </h3>
-                                            <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed mb-6">
-                                                Enter your email to save your baseline score of <strong className="text-white font-bold">{baselineStats.wpm} WPM</strong> and instantly unlock the 10-minute visual training exercises.
-                                            </p>
-                                            <form 
-                                                onSubmit={async (e) => {
-                                                    e.preventDefault();
-                                                    if (leadStatus === 'loading' || !leadEmail) return;
-                                                    const success = await handleLeadSubmitDirect(leadEmail, baselineStats.wpm, baselineStats.comprehension);
-                                                    if (success) nextStep();
-                                                }}
-                                                className="w-full space-y-3"
-                                            >
-                                                <input
-                                                    type="email"
-                                                    required
-                                                    value={leadEmail}
-                                                    onChange={(e) => setLeadEmail(e.target.value)}
-                                                    placeholder="Enter your email address..."
-                                                    disabled={leadStatus === 'loading'}
-                                                    className="w-full bg-slate-950 border border-slate-700/50 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-base disabled:opacity-50"
-                                                />
-                                                {leadStatus === 'error' && (
-                                                    <p className="text-red-400 text-sm font-medium mt-1">Something went wrong. Please try again.</p>
-                                                )}
-                                                <div className="flex items-center gap-2 mt-4 text-xs text-slate-400 text-left bg-slate-950/40 p-3 rounded-lg border border-slate-800">
-                                                    <Lock className="w-4 h-4 text-indigo-400 shrink-0" />
-                                                    <p>We respect your privacy. No spam, ever.</p>
-                                                </div>
-                                            </form>
+                        !showMilestone1 ? (
+                            <Slide 
+                                key="baseline_result" 
+                                title="Baseline Established" 
+                                icon={<CheckCircle className="w-12 h-12 text-emerald-400" />} 
+                                onNext={async () => {
+                                    if (!hasCapturedLead) {
+                                        const success = await handleLeadSubmitDirect(leadEmail, baselineStats.wpm, baselineStats.comprehension);
+                                        if (success) setShowMilestone1(true);
+                                    } else {
+                                        setShowMilestone1(true);
+                                    }
+                                }}
+                                customButtonText={leadStatus === 'loading' ? "Saving..." : (hasCapturedLead ? "Analyze My Reading" : "Save & Unlock Training")}
+                                nextDisabled={leadStatus === 'loading' || (!hasCapturedLead && !leadEmail)}
+                            >
+                                <div className="space-y-8 max-w-xl mx-auto">
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
+                                            <p className="text-4xl font-bold text-white font-mono">{baselineStats.wpm}</p>
+                                            <p className="text-sm text-slate-500 uppercase tracking-wider font-bold mt-2">WPM</p>
+                                        </div>
+                                        <div className="bg-slate-900 p-6 rounded-2xl border border-slate-800 text-center">
+                                            <p className="text-4xl font-bold text-emerald-400 font-mono">{baselineStats.comprehension}%</p>
+                                            <p className="text-sm text-slate-500 uppercase tracking-wider font-bold mt-2">Recall</p>
                                         </div>
                                     </div>
-                                ) : (
-                                    <p className="text-lg text-slate-300">
-                                        This is your starting point. Most people read between 150-250 WPM. <br />
-                                        <span className="text-indigo-400 font-bold">Now let's see why you are stuck at this speed.</span>
-                                    </p>
-                                )}
-                            </div>
-                        </Slide>
+
+                                    {!hasCapturedLead ? (
+                                        <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 md:p-8 text-center relative overflow-hidden mt-6">
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/10 blur-[40px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/2" />
+                                            <div className="relative z-10 flex flex-col items-center">
+                                                <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                                                    Save Your Score & Unlock Training
+                                                </h3>
+                                                <p className="text-sm md:text-base text-slate-300 font-light leading-relaxed mb-6">
+                                                    Enter your email to save your baseline score of <strong className="text-white font-bold">{baselineStats.wpm} WPM</strong> and instantly unlock the 10-minute visual training exercises.
+                                                </p>
+                                                <form 
+                                                    onSubmit={async (e) => {
+                                                        e.preventDefault();
+                                                        if (leadStatus === 'loading' || !leadEmail) return;
+                                                        const success = await handleLeadSubmitDirect(leadEmail, baselineStats.wpm, baselineStats.comprehension);
+                                                        if (success) setShowMilestone1(true);
+                                                    }}
+                                                    className="w-full space-y-3"
+                                                >
+                                                    <input
+                                                        type="email"
+                                                        required
+                                                        value={leadEmail}
+                                                        onChange={(e) => setLeadEmail(e.target.value)}
+                                                        placeholder="Enter your email address..."
+                                                        disabled={leadStatus === 'loading'}
+                                                        className="w-full bg-slate-950 border border-slate-700/50 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all text-base disabled:opacity-50"
+                                                    />
+                                                    {leadStatus === 'error' && (
+                                                        <p className="text-red-400 text-sm font-medium mt-1">Something went wrong. Please try again.</p>
+                                                    )}
+                                                    <div className="flex items-center gap-2 mt-4 text-xs text-slate-400 text-left bg-slate-950/40 p-3 rounded-lg border border-slate-800">
+                                                        <Lock className="w-4 h-4 text-indigo-400 shrink-0" />
+                                                        <p>We respect your privacy. No spam, ever.</p>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <p className="text-lg text-slate-300">
+                                            This is your starting point. Most people read between 150-250 WPM. <br />
+                                            <span className="text-indigo-400 font-bold">Now let's see why you are stuck at this speed.</span>
+                                        </p>
+                                    )}
+                                </div>
+                            </Slide>
+                        ) : (
+                            <MilestoneCard 
+                                key="milestone_1"
+                                milestone={1} 
+                                onContinue={() => {
+                                    setShowMilestone1(false);
+                                    nextStep();
+                                }}
+                            />
+                        )
                     )}
 
                     {/* --- THEORY SECTION --- */}
@@ -448,21 +509,32 @@ export default function RogueSessionPage() {
                     )}
 
                     {step === 7 && (
-                        <Slide key="vocalization_stats" title="The Speed Limit of Your Voice" icon={<Volume2 className="w-12 h-12 text-rose-400" />} onNext={nextStep} onBack={prevStep}>
-                            <div className="space-y-4 text-2xl font-light text-center">
-                                <div className="p-5 bg-slate-900 rounded-xl border border-slate-800">
-                                    <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">Speaking Speed</p>
-                                    <p>We can <strong className="font-bold text-rose-400">HEAR</strong> about <strong className="font-bold text-rose-400">150</strong> words per minute.</p>
+                        !showMilestone2 ? (
+                            <Slide key="vocalization_stats" title="The Speed Limit of Your Voice" icon={<Volume2 className="w-12 h-12 text-rose-400" />} onNext={() => setShowMilestone2(true)} onBack={prevStep}>
+                                <div className="space-y-4 text-2xl font-light text-center">
+                                    <div className="p-5 bg-slate-900 rounded-xl border border-slate-800">
+                                        <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">Speaking Speed</p>
+                                        <p>We can <strong className="font-bold text-rose-400">HEAR</strong> about <strong className="font-bold text-rose-400">150</strong> words per minute.</p>
+                                    </div>
+                                    <div className="p-5 bg-slate-900 rounded-xl border border-slate-800">
+                                        <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">Thinking Speed</p>
+                                        <p>We can <strong className="font-bold text-emerald-400">SEE</strong> about <strong className="font-bold text-emerald-400">5000+</strong> words per minute.</p>
+                                    </div>
+                                    <p className="text-xl font-bold text-white max-w-2xl mx-auto leading-relaxed pt-2">
+                                        You actually already do this "Visual Reading" to some extent. <span className="text-indigo-400">Let's prove it.</span>
+                                    </p>
                                 </div>
-                                <div className="p-5 bg-slate-900 rounded-xl border border-slate-800">
-                                    <p className="text-xs uppercase tracking-widest text-slate-500 mb-1">Thinking Speed</p>
-                                    <p>We can <strong className="font-bold text-emerald-400">SEE</strong> about <strong className="font-bold text-emerald-400">5000+</strong> words per minute.</p>
-                                </div>
-                                <p className="text-xl font-bold text-white max-w-2xl mx-auto leading-relaxed pt-2">
-                                    You actually already do this "Visual Reading" to some extent. <span className="text-indigo-400">Let's prove it.</span>
-                                </p>
-                            </div>
-                        </Slide>
+                            </Slide>
+                        ) : (
+                            <MilestoneCard 
+                                key="milestone_2"
+                                milestone={2} 
+                                onContinue={() => {
+                                    setShowMilestone2(false);
+                                    nextStep();
+                                }}
+                            />
+                        )
                     )}
 
                     {step === 8 && (
@@ -579,30 +651,41 @@ export default function RogueSessionPage() {
 
                     {/* --- DESIRE / REALITY SECTION --- */}
                     {step === 18 && (
-                        <Slide key="the_reality" title="From Theory To Reality" icon={<Sparkles className="w-12 h-12 text-yellow-400" />} onNext={nextStep} onBack={prevStep}>
-                            <div className="space-y-8 max-w-2xl mx-auto">
-                                <p className="text-2xl text-white font-heading font-bold leading-tight">
-                                    Imagine reading <span className="text-emerald-400">50-150% faster</span> than you do right now.
-                                </p>
-                                <div className="space-y-4 text-left bg-slate-900/50 p-8 rounded-2xl border border-slate-700">
-                                    <div className="flex items-start gap-4">
-                                        <CheckCircle className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
-                                        <p className="text-slate-300">Finishing books in days, not months.</p>
+                        !showMilestone3 ? (
+                            <Slide key="the_reality" title="From Theory To Reality" icon={<Sparkles className="w-12 h-12 text-yellow-400" />} onNext={() => setShowMilestone3(true)} onBack={prevStep}>
+                                <div className="space-y-8 max-w-2xl mx-auto">
+                                    <p className="text-2xl text-white font-heading font-bold leading-tight">
+                                        Imagine reading <span className="text-emerald-400">50-150% faster</span> than you do right now.
+                                    </p>
+                                    <div className="space-y-4 text-left bg-slate-900/50 p-8 rounded-2xl border border-slate-700">
+                                        <div className="flex items-start gap-4">
+                                            <CheckCircle className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
+                                            <p className="text-slate-300">Finishing books in days, not months.</p>
+                                        </div>
+                                        <div className="flex items-start gap-4">
+                                            <CheckCircle className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
+                                            <p className="text-slate-300">Absorbing information instantly without "hearing" it.</p>
+                                        </div>
+                                        <div className="flex items-start gap-4">
+                                            <CheckCircle className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
+                                            <p className="text-slate-300">Having the confidence that you won't miss anything.</p>
+                                        </div>
                                     </div>
-                                    <div className="flex items-start gap-4">
-                                        <CheckCircle className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
-                                        <p className="text-slate-300">Absorbing information instantly without "hearing" it.</p>
-                                    </div>
-                                    <div className="flex items-start gap-4">
-                                        <CheckCircle className="w-6 h-6 text-emerald-500 flex-shrink-0 mt-1" />
-                                        <p className="text-slate-300">Having the confidence that you won't miss anything.</p>
-                                    </div>
+                                    <p className="text-xl text-slate-200">
+                                        We have developed a program that helps you do exactly that.
+                                    </p>
                                 </div>
-                                <p className="text-xl text-slate-200">
-                                    We have developed a program that helps you do exactly that.
-                                </p>
-                            </div>
-                        </Slide>
+                            </Slide>
+                        ) : (
+                            <MilestoneCard 
+                                key="milestone_3"
+                                milestone={3} 
+                                onContinue={() => {
+                                    setShowMilestone3(false);
+                                    nextStep();
+                                }}
+                            />
+                        )
                     )}
 
 
@@ -628,13 +711,24 @@ export default function RogueSessionPage() {
                     )}
 
                     {step === 20 && (
-                        <RogueSessionEngine onComplete={(skipped) => {
-                            if (skipped) {
-                                setHasSkippedExercises(true);
-                                localStorage.setItem('rp_skipped_exercises', 'true');
-                            }
-                            nextStep();
-                        }} />
+                        !showMilestone4 ? (
+                            <RogueSessionEngine onComplete={(skipped) => {
+                                if (skipped) {
+                                    setHasSkippedExercises(true);
+                                    localStorage.setItem('rp_skipped_exercises', 'true');
+                                }
+                                setShowMilestone4(true);
+                            }} />
+                        ) : (
+                            <MilestoneCard 
+                                key="milestone_4"
+                                milestone={4} 
+                                onContinue={() => {
+                                    setShowMilestone4(false);
+                                    nextStep();
+                                }}
+                            />
+                        )
                     )}
 
                     {/* --- RETEST SECTION --- */}
@@ -664,6 +758,51 @@ export default function RogueSessionPage() {
                     animate={{ width: `${((step + 1) / totalSteps) * 100}%` }}
                 />
             </div>
+
+            {/* Commit Modal Popup */}
+            {showCommitModal && (
+                <div className="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 flex items-center justify-center p-6">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="max-w-md w-full bg-slate-900 border border-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl relative"
+                    >
+                        <div className="flex flex-col items-center text-center space-y-4">
+                            <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+                                <Brain className="w-8 h-8" />
+                            </div>
+                            <h3 className="text-2xl font-bold text-white tracking-tight">The Cognitive Commitment</h3>
+                            <p className="text-slate-300 text-sm leading-relaxed font-light">
+                                There are no shortcuts. This is not a magic pill. It will take about 20 minutes. It will be uncomfortable, like going to the gym for your eye and brain muscles, but it will rewrite your eye habits. Stick with it—the results after these 20 minutes will astound you.
+                            </p>
+                            <div className="w-full pt-4">
+                                <label className="flex items-start gap-3 cursor-pointer text-left">
+                                    <input 
+                                        type="checkbox"
+                                        checked={commitChecked}
+                                        onChange={(e) => setCommitChecked(e.target.checked)}
+                                        className="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-950 text-indigo-600 focus:ring-indigo-500 focus:ring-offset-slate-900"
+                                    />
+                                    <span className="text-xs font-medium text-slate-400 select-none">
+                                        I understand and commit to completing the full 20-minute cognitive protocol without rushing.
+                                    </span>
+                                </label>
+                            </div>
+                            <button
+                                disabled={!commitChecked}
+                                onClick={() => {
+                                    setShowCommitModal(false);
+                                    setHasCommitted(true);
+                                    handleStartBaseline();
+                                }}
+                                className="w-full mt-4 bg-indigo-500 hover:bg-indigo-400 disabled:opacity-50 disabled:cursor-not-allowed text-white py-4 rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/20 active:scale-95"
+                            >
+                                I commit. Let's Begin.
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
         </div>
     );
 }
@@ -888,6 +1027,84 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = 
 
             </div>
 
+        </motion.div>
+    );
+}
+
+// --- Roadmap Sections & Milestone Components ---
+
+const SECTIONS = [
+    { name: "Baseline", range: [0, 2] },
+    { name: "Decondition", range: [3, 7] },
+    { name: "Visual Drills", range: [8, 14] },
+    { name: "Speed Drill", range: [15, 20] },
+    { name: "After Test", range: [21, 23] }
+];
+
+interface MilestoneCardProps {
+    milestone: number;
+    onContinue: () => void;
+}
+
+function MilestoneCard({ milestone, onContinue }: MilestoneCardProps) {
+    const MILESTONES_INFO = [
+        {
+            title: "Baseline Established!",
+            desc: "Now let's break down the bad reading habits you were taught as a child. Get ready to decondition your brain!",
+            badge: "Deconditioning Phase Unlocked",
+            btn: "Decondition My Brain"
+        },
+        {
+            title: "Time for Eye Gym!",
+            desc: "The next exercises will train your eye muscles, expand your peripheral vision, and stop your eyes from jumping backward. It might feel weird—like lifting weights—but stick with it!",
+            badge: "Visual Training Unlocked",
+            btn: "Start Visual Drills"
+        },
+        {
+            title: "Speed Training Unlocked!",
+            desc: "We are about to condition your brain to process visual text at extreme highway speeds. Relax, soften your gaze, and let your brain take photographs of the text.",
+            badge: "Rogue Speed Conditioning Unlocked",
+            btn: "Begin Speed Drill"
+        },
+        {
+            title: "Sprint Complete!",
+            desc: "You've successfully trained your eye tracking muscles. Now let's run the final speed retest and measure your breakthrough!",
+            badge: "Final Retest Unlocked",
+            btn: "Start After Test"
+        }
+    ];
+
+    const info = MILESTONES_INFO[milestone - 1];
+
+    return (
+        <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="max-w-xl w-full mx-auto bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl relative text-center overflow-hidden"
+        >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+            
+            <div className="flex flex-col items-center space-y-6 relative z-10">
+                <Mascot variant="headshot" size={80} className="w-24 h-24 rounded-full border border-indigo-500/30 shadow-lg shadow-indigo-500/20" />
+                
+                <div className="inline-block px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-widest rounded-full">
+                    {info.badge}
+                </div>
+                
+                <h3 className="text-3xl font-bold text-white tracking-tight">{info.title}</h3>
+                
+                <p className="text-slate-300 leading-relaxed font-light text-base max-w-md">
+                    {info.desc}
+                </p>
+                
+                <button
+                    onClick={onContinue}
+                    className="w-full mt-6 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white py-4.5 rounded-full font-black text-lg transition-all shadow-[0_0_20px_rgba(99,102,241,0.25)] hover:scale-102 flex justify-center items-center gap-2"
+                >
+                    {info.btn} <ArrowRight className="w-5 h-5" />
+                </button>
+            </div>
         </motion.div>
     );
 }
