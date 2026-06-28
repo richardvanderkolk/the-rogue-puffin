@@ -27,12 +27,14 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-    const [user, setUser] = useState<User | null>(null);
-    const [loading, setLoading] = useState(true);
+export function AuthProvider({ children, serverUser }: { children: ReactNode; serverUser?: User | null }) {
+    const [user, setUser] = useState<User | null>(serverUser || null);
+    const [loading, setLoading] = useState(!serverUser);
     const router = useRouter();
 
     useEffect(() => {
+        let subscription: any = null;
+
         // Sync with Supabase Auth state dynamically
         const syncSession = async () => {
             try {
@@ -65,7 +67,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
                     if (storedUser) {
                         setUser(JSON.parse(storedUser));
                     } else {
-                        setUser(null);
+                        // Keep serverUser as fallback rather than clearing it if client client auth is blocked
+                        if (!serverUser) {
+                            setUser(null);
+                        }
                     }
                 }
             } catch (e) {
@@ -75,53 +80,75 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             }
         };
 
-        syncSession();
-
-        // Listen for authentication changes (login, logout, token refresh)
-        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+        const initAuth = async () => {
             try {
-                if (session?.user) {
-                    let profile = null;
-                    try {
-                        const { data } = await supabase
-                            .from('profiles')
-                            .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
-                            .eq('id', session.user.id)
-                            .maybeSingle();
-                        profile = data;
-                    } catch (profileErr) {
-                        console.error("Failed to fetch profile in onAuthStateChange:", profileErr);
-                    }
-
-                    setUser({
-                        id: session.user.id,
-                        email: session.user.email || "",
-                        isPro: profile?.has_paid_bootcamp || false,
-                        name: profile?.full_name || session.user.email || "Student",
-                        subscription_status: profile?.subscription_status || undefined,
-                        subscription_tier: profile?.subscription_tier || undefined,
-                        bootcamp_progress_day: profile?.bootcamp_progress_day || undefined,
-                    });
-                } else {
-                    const isDev = process.env.NODE_ENV === 'development';
-                    const storedUser = isDev ? localStorage.getItem("rogue_user") : null;
-                    if (storedUser) {
-                        setUser(JSON.parse(storedUser));
-                    } else {
-                        setUser(null);
-                    }
-                }
-            } catch (e) {
-                console.error("onAuthStateChange callback error:", e);
-            } finally {
+                await syncSession();
+            } catch (err) {
+                console.error("syncSession initialization failed:", err);
                 setLoading(false);
             }
-        });
+
+            try {
+                // Listen for authentication changes (login, logout, token refresh)
+                const res = supabase.auth.onAuthStateChange(async (event, session) => {
+                    try {
+                        if (session?.user) {
+                            let profile = null;
+                            try {
+                                const { data } = await supabase
+                                    .from('profiles')
+                                    .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
+                                    .eq('id', session.user.id)
+                                    .maybeSingle();
+                                profile = data;
+                            } catch (profileErr) {
+                                console.error("Failed to fetch profile in onAuthStateChange:", profileErr);
+                            }
+
+                            setUser({
+                                id: session.user.id,
+                                email: session.user.email || "",
+                                isPro: profile?.has_paid_bootcamp || false,
+                                name: profile?.full_name || session.user.email || "Student",
+                                subscription_status: profile?.subscription_status || undefined,
+                                subscription_tier: profile?.subscription_tier || undefined,
+                                bootcamp_progress_day: profile?.bootcamp_progress_day || undefined,
+                            });
+                        } else {
+                            const isDev = process.env.NODE_ENV === 'development';
+                            const storedUser = isDev ? localStorage.getItem("rogue_user") : null;
+                            if (storedUser) {
+                                setUser(JSON.parse(storedUser));
+                            } else {
+                                if (!serverUser) {
+                                    setUser(null);
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        console.error("onAuthStateChange callback error:", e);
+                    } finally {
+                        setLoading(false);
+                    }
+                });
+
+                if (res && res.data) {
+                    subscription = res.data.subscription;
+                }
+            } catch (listenerErr) {
+                console.error("Failed to register onAuthStateChange listener:", listenerErr);
+                setLoading(false);
+            }
+        };
+
+        initAuth();
 
         return () => {
-            subscription.unsubscribe();
+            if (subscription) {
+                subscription.unsubscribe();
+            }
         };
-    }, []);
+    }, [serverUser]);
 
     const signIn = async (email: string) => {
         // Simulate network delay

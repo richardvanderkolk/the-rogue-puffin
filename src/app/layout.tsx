@@ -45,18 +45,47 @@ import { Header } from "@/components/layout/Header";
 import { Analytics } from "@vercel/analytics/react";
 import PostHogPageView from "@/components/providers/PostHogPageView";
 import { Suspense } from "react";
+import { createClient } from "@/lib/supabase/server";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  let serverUser = null;
+  if (user) {
+    try {
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('full_name, has_paid_bootcamp, subscription_status, subscription_tier, bootcamp_progress_day')
+        .eq('id', user.id)
+        .maybeSingle();
+
+      if (profile) {
+        serverUser = {
+          id: user.id,
+          email: user.email || "",
+          isPro: profile.has_paid_bootcamp || false,
+          name: profile.full_name || user.email || "Student",
+          subscription_status: profile.subscription_status || undefined,
+          subscription_tier: profile.subscription_tier || undefined,
+          bootcamp_progress_day: profile.bootcamp_progress_day || undefined,
+        };
+      }
+    } catch (e) {
+      console.error("Failed to fetch profile in RootLayout:", e);
+    }
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${outfit.variable} ${caveat.variable} font-sans bg-slate-950 text-slate-100 antialiased`}>
         <PostHogProvider>
           <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
-            <AuthProvider>
+            <AuthProvider serverUser={serverUser}>
               <Suspense fallback={null}>
                 <PostHogPageView />
               </Suspense>
