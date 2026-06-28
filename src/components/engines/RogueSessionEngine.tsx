@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, PauseCircle, PlayCircle, Eye, RefreshCw, Zap, CheckCircle, Brain, Target, RotateCcw, Clock } from "lucide-react";
 import { DRILL_TEXT_FULL, WORD_STREAM_DEMO } from "@/lib/drill-content";
+import { Mascot } from "@/components/Mascot";
 
 // --- Types ---
 type DrillPhase =
@@ -504,13 +505,16 @@ export function RogueSessionEngine({ onComplete }: { onComplete: (skipped?: bool
                         {/* Main Content Area */}
                         <div className="flex-1 flex justify-center items-center relative px-4">
                             {paused ? (
-                                <RecallOverlay onResume={() => {
-                                    if (nextPhase) {
-                                        startPhase(nextPhase);
-                                    } else {
-                                        setPaused(false);
-                                    }
-                                }} />
+                                <RecallOverlay 
+                                    phase={phase}
+                                    onResume={() => {
+                                        if (nextPhase) {
+                                            startPhase(nextPhase);
+                                        } else {
+                                            setPaused(false);
+                                        }
+                                    }} 
+                                />
                             ) : (
                                 <PageDisplay
                                     text={textChunks[pageIndex % textChunks.length]}
@@ -631,24 +635,78 @@ export function RogueSessionEngine({ onComplete }: { onComplete: (skipped?: bool
 }
 
 // 3. Recall Overlay
-const RecallOverlay = ({ onResume }: { onResume: () => void }) => {
-    const [timeLeft, setTimeLeft] = useState(10);
-    useEffect(() => {
-        if (timeLeft <= 0) {
-            onResume();
-            return;
-        }
-        const timer = setTimeout(() => setTimeLeft(t => t - 1), 1000);
-        return () => clearTimeout(timer);
-    }, [timeLeft, onResume]);
+const ENCOURAGEMENTS: Record<string, { title: string; text: string; badge: string }> = {
+    drill_cycle_1_a: {
+        title: "First Phase Complete!",
+        text: "You are doing great. Don't worry if you couldn't read every word—that is exactly what deconditions your inner voice. Let's keep moving!",
+        badge: "15% Done"
+    },
+    drill_cycle_1_b: {
+        title: "Page Flash Finished!",
+        text: "Your eye muscles are active and warming up. Keep breathing, soften your gaze, and let the text flow.",
+        badge: "30% Done"
+    },
+    drill_cycle_2: {
+        title: "Highlight Training Complete!",
+        text: "Great tracking! You are training your eyes to scan in logical word chunks rather than letter-by-letter.",
+        badge: "40% Done"
+    },
+    drill_cycle_3: {
+        title: "Halfway There!",
+        text: "You're over the hump. Your brain is building new neural pathways right now. Take a deep breath and keep going!",
+        badge: "55% Done"
+    },
+    drill_cycle_4: {
+        title: "Fast Highlight Finished!",
+        text: "Awesome stamina! We're speeding up your visual intake. Trust your brain—it processes shapes faster than you speak.",
+        badge: "70% Done"
+    },
+    drill_cycle_5: {
+        title: "Upside Down Complete!",
+        text: "That was challenging! Reading upside down forces your visual cortex to focus on character shape-recognition without subvocalizing.",
+        badge: "85% Done"
+    },
+    drill_cycle_6: {
+        title: "Final Push!",
+        text: "Only one short exercise left before the retest! You've worked hard, let's finish strong!",
+        badge: "95% Done"
+    }
+};
+
+const RecallOverlay = ({ phase, onResume }: { phase: DrillPhase; onResume: () => void }) => {
+    const info = ENCOURAGEMENTS[phase] || {
+        title: "Recall Check",
+        text: "Relax your eyes, take a breath, and focus. You're doing great!",
+        badge: "In Progress"
+    };
 
     return (
-        <div className="absolute inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex flex-col items-center justify-center text-center p-8 rounded-xl border border-slate-800">
-            <Brain className="w-16 h-16 text-indigo-400 mb-6 animate-pulse" />
-            <h3 className="text-3xl font-bold text-white mb-4">RECALL CHECK</h3>
-            <p className="text-xl text-slate-300 mb-8">What words did you just see?</p>
-            <div className="text-6xl font-black text-rose-500 font-mono">
-                0:{timeLeft < 10 ? '0' : ''}{timeLeft}
+        <div className="absolute inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex flex-col items-center justify-center text-center p-8 rounded-xl border border-slate-800 max-w-xl mx-auto my-auto h-[60vh] md:h-[50vh] shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none" />
+            
+            <div className="flex flex-col items-center space-y-4 relative z-10 max-w-md">
+                <Mascot variant="headshot" size={80} className="w-20 h-20 rounded-full border border-indigo-500/30 shadow-lg shadow-indigo-500/20" />
+                
+                <div className="inline-block px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-widest rounded-full">
+                    {info.badge}
+                </div>
+                
+                <h3 className="text-2xl font-bold text-white tracking-tight">{info.title}</h3>
+                
+                <p className="text-slate-300 leading-relaxed font-light text-sm">
+                    {info.text}
+                </p>
+                
+                <p className="text-xs text-slate-500 italic mt-2">
+                    Tip: Don't stress about remembering every word. The exercises are training tracking reflexes, not memorization.
+                </p>
+                
+                <button
+                    onClick={onResume}
+                    className="w-full mt-4 bg-indigo-600 hover:bg-indigo-500 text-white py-3 rounded-xl font-bold text-base transition-all flex justify-center items-center gap-2"
+                >
+                    Continue Session <ArrowRight className="w-5 h-5" />
+                </button>
             </div>
         </div>
     );

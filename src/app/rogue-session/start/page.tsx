@@ -68,6 +68,23 @@ export default function RogueSessionPage() {
     const [showMilestone2, setShowMilestone2] = useState(false);
     const [showMilestone3, setShowMilestone3] = useState(false);
     const [showMilestone4, setShowMilestone4] = useState(false);
+    const [showDrillCommitment, setShowDrillCommitment] = useState(false);
+
+    // Scroll to top & reset scale/zoom on step changes
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
+        // Force viewport zoom reset on iOS Safari/iPad
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        if (viewportMeta) {
+            viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1');
+            setTimeout(() => {
+                viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1');
+            }, 150);
+        }
+    }, [step]);
 
     useEffect(() => {
         fetch('/api/currency')
@@ -693,21 +710,55 @@ export default function RogueSessionPage() {
 
                     {/* --- FLASH DRILL SECTION --- */}
                     {step === 19 && (
-                        <Slide key="drill_intro" title="Step 2: The Rogue Session" icon={<Zap className="w-12 h-12 text-yellow-400" />} onNext={nextStep}>
-                            <div className="space-y-6 max-w-2xl mx-auto">
-                                <p className="text-2xl text-white font-bold">We are about to force your brain to process visual information faster.</p>
-                                <div className="bg-slate-900/80 p-6 rounded-xl border border-slate-700 text-left space-y-4">
-                                    <p className="text-slate-300">You will see pages of text flashing on the screen.</p>
-                                    <ul className="space-y-2">
-                                        <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">1</span> <span>1 Page per second</span></li>
-                                        <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">2</span> <span>2 Pages per second (0.5s)</span></li>
-                                        <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">3</span> <span>3 Pages per second (0.3s)</span></li>
-                                    </ul>
+                        !showDrillCommitment ? (
+                            <Slide key="drill_intro" title="Step 2: The Rogue Session" icon={<Zap className="w-12 h-12 text-yellow-400" />} onNext={() => setShowDrillCommitment(true)}>
+                                <div className="space-y-6 max-w-2xl mx-auto">
+                                    <p className="text-2xl text-white font-bold">We are about to force your brain to process visual information faster.</p>
+                                    <div className="bg-slate-900/80 p-6 rounded-xl border border-slate-700 text-left space-y-4">
+                                        <p className="text-slate-300">You will see pages of text flashing on the screen.</p>
+                                        <ul className="space-y-2">
+                                            <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">1</span> <span>1 Page per second</span></li>
+                                            <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">2</span> <span>2 Pages per second (0.5s)</span></li>
+                                            <li className="flex items-center gap-3 text-lg"><span className="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center text-slate-400">3</span> <span>3 Pages per second (0.3s)</span></li>
+                                        </ul>
+                                    </div>
+                                    <p className="text-rose-400 font-bold text-xl uppercase tracking-widest">DO NOT TRY TO READ THEM.</p>
+                                    <p className="text-slate-400">Just soften your gaze and let your brain "photograph" the pages. <br />It will feel too fast. <strong>That is the point.</strong></p>
                                 </div>
-                                <p className="text-rose-400 font-bold text-xl uppercase tracking-widest">DO NOT TRY TO READ THEM.</p>
-                                <p className="text-slate-400">Just soften your gaze and let your brain "photograph" the pages. <br />It will feel too fast. <strong>That is the point.</strong></p>
-                            </div>
-                        </Slide>
+                            </Slide>
+                        ) : (
+                            <motion.div 
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="max-w-xl w-full mx-auto bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl relative text-center overflow-hidden"
+                            >
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+                                
+                                <div className="flex flex-col items-center space-y-6 relative z-10">
+                                    <Mascot variant="standard" size={100} className="w-24 h-24 rounded-full border border-indigo-500/30 shadow-lg shadow-indigo-500/20" />
+                                    
+                                    <div className="inline-block px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-widest rounded-full">
+                                        Drill Commitment
+                                    </div>
+                                    
+                                    <h3 className="text-3xl font-bold text-white tracking-tight">The Mental Marathon</h3>
+                                    
+                                    <p className="text-slate-300 leading-relaxed font-light text-base max-w-md">
+                                        The next 12 minutes will push your visual processing past its comfort limit. You will feel a strong urge to stop because it feels \"too fast to read\". That is completely normal—it's your brain resisting new patterns. Stick with it until the end. The final retest is where you will see your breakthrough.
+                                    </p>
+                                    
+                                    <button
+                                        onClick={() => {
+                                            setShowDrillCommitment(false);
+                                            nextStep();
+                                        }}
+                                        className="w-full mt-6 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white py-4.5 rounded-full font-black text-lg transition-all shadow-[0_0_20px_rgba(99,102,241,0.25)] hover:scale-102 flex justify-center items-center gap-2"
+                                    >
+                                        I'm Ready. Start Drills <ArrowRight className="w-5 h-5" />
+                                    </button>
+                                </div>
+                            </motion.div>
+                        )
                     )}
 
                     {step === 20 && (
@@ -894,11 +945,19 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = 
 
                 {/* Top Section: The Win */}
                 <div className="p-8 md:p-10 border-b border-slate-800/50 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
-                    <div className="text-center md:text-left space-y-2">
+                    <div className="text-center md:text-left space-y-3">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-white">
                             You unlocked <span className="text-emerald-400">permanent reading mastery.</span>
                         </h2>
-                        <p className="text-slate-400 font-medium tracking-wide uppercase text-sm">Your reading speed increased by +{increase}% in just 30 minutes.</p>
+                        <div className="flex flex-col sm:flex-row items-center gap-3 justify-center md:justify-start pt-1">
+                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 font-extrabold text-base shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                                +{increase}% Speed Increase
+                            </span>
+                            <span className="text-slate-400 text-sm font-semibold uppercase tracking-wider">
+                                achieved in just 30 minutes
+                            </span>
+                        </div>
                     </div>
                     
                     <div className="flex items-center gap-4 md:gap-8">
@@ -986,15 +1045,15 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = 
                     ) : (
                         <>
                             <div className="text-center md:text-left shrink-0">
-                                <p className="text-slate-300 text-sm font-medium">Not ready for the Bootcamp yet?</p>
-                                <p className="text-slate-500 text-xs mt-1">Save your <span className="text-emerald-400 font-medium">+{increase}% speed record</span> before you leave.</p>
+                                <p className="text-white text-lg md:text-xl font-bold tracking-tight">Not ready for the Bootcamp yet?</p>
+                                <p className="text-slate-400 text-sm mt-1">Save your <span className="text-emerald-400 font-bold">+{increase}% speed record</span> before you leave.</p>
                             </div>
                             
                             <div className="w-full md:w-auto flex-1 flex justify-end">
                                 {!showPasswordInput ? (
                                     <button 
                                         onClick={() => setShowPasswordInput(true)}
-                                        className="w-full md:w-auto bg-slate-800 hover:bg-slate-700 text-slate-300 text-sm px-6 py-3 rounded-lg font-bold transition-colors border border-slate-700 flex items-center justify-center gap-2"
+                                        className="w-full md:w-auto bg-slate-800 hover:bg-slate-700 text-slate-350 text-base px-6 py-3.5 rounded-lg font-bold transition-colors border border-slate-700 flex items-center justify-center gap-2"
                                     >
                                         Create Free Account <ArrowRight className="w-4 h-4" />
                                     </button>
@@ -1007,14 +1066,14 @@ function ResultsOverview({ baseline, final, isV2, hasSkippedExercises, symbol = 
                                                 placeholder="Choose a password..." 
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
-                                                className="w-full bg-black border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                                                className="w-full bg-black border border-slate-700 rounded-lg px-4 py-3.5 text-base text-white focus:outline-none focus:border-indigo-500 transition-colors"
                                             />
                                             {saveError && <p className="text-red-400 text-xs mt-2 absolute">{saveError}</p>}
                                         </div>
                                         <button 
                                             type="submit"
                                             disabled={isSaving}
-                                            className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm px-6 py-3 rounded-lg font-bold transition-colors flex items-center justify-center"
+                                            className="w-full sm:w-auto bg-indigo-500 hover:bg-indigo-400 disabled:opacity-50 disabled:cursor-not-allowed text-white text-base px-6 py-3.5 rounded-lg font-bold transition-colors flex items-center justify-center"
                                         >
                                             {isSaving ? "Saving..." : "Save Now"}
                                         </button>
