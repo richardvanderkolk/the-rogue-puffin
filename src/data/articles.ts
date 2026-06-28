@@ -573,7 +573,7 @@ export const articles: Article[] = [
             <div class="grid grid-cols-1 gap-6">
                 <a href="/rogue-session/start" class="block p-8 rounded-2xl bg-indigo-900/30 border border-indigo-500/30 hover:border-indigo-500/50 hover:bg-indigo-900/40 transition-all group shadow-lg shadow-indigo-500/10">
                     <p class="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Apply These Concepts</p>
-                    <h4 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">Free Interactive Training to Double Your Reading Speed <span class="text-indigo-500 ml-2">→</span></h4>
+                    <h4 class="text-2xl font-bold text-white mb-2 group-hover:text-indigo-300 transition-colors">Free Interactive Training to Increase Your Reading Speed <span class="text-indigo-500 ml-2">→</span></h4>
                     <p class="text-slate-400 font-light">Experience the exact visual pacing protocol used by top performers. This free 15-minute session forces your brain out of subvocalization and permanently increases your reading speed.</p>
                 </a>
             </div>

@@ -75,7 +75,7 @@ export default function SalesPage() {
                         transition={{ delay: 0.2 }}
                         className="text-xl text-slate-400 max-w-2xl mx-auto"
                     >
-                        You've seen the concepts. Now use our specialized "Pacer Engine" to break your old habits and permanently double your reading speed.
+                        You've seen the concepts. Now use our specialized "Pacer Engine" to break your old habits and permanently increase your reading speed (most people will double their speed).
                     </motion.p>
                 </div>
             </header>

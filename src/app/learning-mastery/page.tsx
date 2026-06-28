@@ -11,7 +11,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "Learning Mastery & Cognitive Performance | The Rogue Puffin",
-    description: "Learn faster, retain more, and stay ahead. Apply verifiable cognitive protocols to finish your workload, read 50+ books a year, and double your learning speed.",
+    description: "Learn faster, retain more, and stay ahead. Apply verifiable cognitive protocols to finish your workload, read 50+ books a year, and increase your learning speed.",
 };
 
 export default function LearningMasteryPage() {
@@ -39,7 +39,7 @@ export default function LearningMasteryPage() {
                                 
                                 <div className="space-y-4 max-w-2xl mx-auto lg:mx-0 pt-2">
                                     <p className="text-2xl md:text-3xl text-indigo-300 font-bold tracking-tight">
-                                        Double your reading and learning speed for free in 30 minutes.
+                                        Increase your reading and learning speed for free in 30 minutes (most people will double their speed).
                                     </p>
                                     <p className="text-lg text-slate-400 font-light leading-relaxed">
                                         Traditional reading speeds limit your learning capacity. By training your eyes to silence your inner speaking voice, you can digest information, study materials, and books much faster than you are used to—without sacrificing comprehension.

@@ -177,7 +177,7 @@ export function ArticleRenderer({ content, isPremium, articleSlug }: ArticleRend
                     <h3 className="text-2xl font-bold text-white mb-6">Your Next Step:</h3>
                     <Link href="/rogue-session/start" className="block p-8 rounded-2xl bg-indigo-900/30 border border-indigo-500/30 hover:border-indigo-500/50 hover:bg-indigo-900/40 transition-all group shadow-lg shadow-indigo-500/10">
                         <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-3">Apply These Concepts</p>
-                        <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">Free Interactive Training to Double Your Reading Speed <span className="text-indigo-500 ml-2">→</span></h4>
+                        <h4 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-indigo-300 transition-colors">Free Interactive Training to Increase Your Reading Speed <span className="text-indigo-500 ml-2">→</span></h4>
                         <p className="text-slate-400 font-light text-lg">Experience the exact visual pacing protocol used by top performers. This free 15-minute session forces your brain out of subvocalization and permanently increases your reading speed.</p>
                     </Link>
                 </div>

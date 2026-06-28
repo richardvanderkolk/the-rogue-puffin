@@ -110,7 +110,7 @@ function TrainingContent() {
                 setWpm(400); // Highlight moves faster
                 break;
             case 4: // Speed Challenge (Video Script)
-                setText("School taught you to read LIKE THIS... But your brain can actually process information MUCH FASTER THAN YOU THINK. The Rogue Puffin helps you double your speed. By training your eyes to scan chunks visually, you unlock your ability to read at the speed of thought, processing text directly without saying it out loud. Keep practicing this daily to wire in your visual reading skills.");
+                setText("School taught you to read LIKE THIS... But your brain can actually process information MUCH FASTER THAN YOU THINK. The Rogue Puffin helps you increase your speed. By training your eyes to scan chunks visually, you unlock your ability to read at the speed of thought, processing text directly without saying it out loud. Keep practicing this daily to wire in your visual reading skills.");
                 setMode("normal");
                 setChunkSize(1);
                 setWpm(200); // Start slow

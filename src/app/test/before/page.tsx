@@ -79,10 +79,10 @@ export default function SpeedTestWizard() {
 
                     <div className="space-y-6 max-w-lg">
                         <h2 className="text-3xl font-bold font-heading text-slate-900">
-                            Now, let's double it.
+                            Now, let's increase it.
                         </h2>
                         <p className="text-lg text-slate-600">
-                            We're excited about seeing your reading speed increase by at least <strong>50-100%</strong> in the next 20 minutes!
+                            We're excited about seeing your reading speed increase (most people will double their speed) in the next 20 minutes!
                         </p>
                         <p className="text-slate-600">
                             Most people read at around 200-250 wpm because of habits like sub-vocalization. You are about to break those habits.
