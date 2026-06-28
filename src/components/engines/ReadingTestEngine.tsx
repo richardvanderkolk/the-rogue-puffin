@@ -26,25 +26,7 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
     const [answers, setAnswers] = useState<number[]>(new Array(questions.length).fill(-1));
     const [wpm, setWpm] = useState(0);
 
-    // Scroll detection
-    const [hasScrolledToBottom, setHasScrolledToBottom] = useState(false);
     const contentRef = useRef<HTMLDivElement>(null);
-
-    const checkScroll = () => {
-        if (!contentRef.current) return;
-        const { scrollTop, scrollHeight, clientHeight } = contentRef.current;
-        // Check if we are within 50px of the bottom or if the content is entirely visible
-        if (Math.ceil(scrollTop + clientHeight) >= scrollHeight - 50 || clientHeight >= scrollHeight) {
-            setHasScrolledToBottom(true);
-        }
-    };
-
-    useEffect(() => {
-        if (status === 'reading') {
-            // slight delay to ensure content has rendered and layout is calculated
-            setTimeout(checkScroll, 100);
-        }
-    }, [status, text]);
 
     useEffect(() => {
         // Calculate word count roughly
@@ -117,7 +99,6 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
                 <div className="space-y-8">
                     <div
                         ref={contentRef}
-                        onScroll={checkScroll}
                         className="prose prose-invert max-w-none text-base md:text-lg leading-relaxed text-slate-300 h-[70vh] md:h-[60vh] overflow-y-auto p-4 bg-slate-950/50 rounded-xl border border-slate-800/50 scrollbar-thin scrollbar-thumb-slate-600 scrollbar-track-slate-900"
                         style={{ scrollbarWidth: 'thin', scrollbarColor: '#475569 #0f172a' }}
                     >
@@ -127,21 +108,9 @@ export default function ReadingTestEngine({ text, questions, onComplete, title =
                     </div>
                     <button
                         onClick={handleFinishReading}
-                        disabled={!hasScrolledToBottom}
-                        className={`w-full py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 ${hasScrolledToBottom
-                            ? "bg-emerald-600 hover:bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]"
-                            : "bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700"
-                            }`}
+                        className="w-full py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white shadow-[0_0_20px_rgba(16,185,129,0.3)]"
                     >
-                        {hasScrolledToBottom ? (
-                            <>
-                                <CheckCircle className="w-5 h-5" /> I'm Done Reading
-                            </>
-                        ) : (
-                            <>
-                                <ArrowDown className="w-5 h-5 animate-bounce" /> Scroll down to finish reading
-                            </>
-                        )}
+                        <CheckCircle className="w-5 h-5" /> I'm Done Reading
                     </button>
                 </div>
             )}
