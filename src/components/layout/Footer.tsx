@@ -29,7 +29,7 @@ export function Footer() {
                     <div className="space-y-4 flex flex-col items-center md:items-start">
                         <h4 className="text-white font-bold tracking-widest text-sm uppercase">Free Resources</h4>
                         <Link href="/blog" className="text-slate-400 hover:text-emerald-300 transition-colors">The Archive (Articles)</Link>
-                        <Link href="/free-test" className="text-slate-400 hover:text-emerald-300 transition-colors">Free Speed Test</Link>
+                        <Link href="/free-test" className="text-slate-400 hover:text-emerald-300 transition-colors">Check Your Speed</Link>
                         <Link href="/rogue-session/start" className="text-slate-400 hover:text-emerald-300 transition-colors">Free Reading Diagnostic</Link>
                     </div>
                     <div className="space-y-4 flex flex-col items-center md:items-start">
