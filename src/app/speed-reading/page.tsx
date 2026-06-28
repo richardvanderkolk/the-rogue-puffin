@@ -7,7 +7,7 @@ import { ViewTracker } from "@/components/ViewTracker";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Increase Your Reading Speed | The Rogue Puffin",
+    title: "Maximize Your Reading Speed | The Rogue Puffin",
     description: "Unlock your biological reading capacity. Stop subvocalizing, eliminate regression, and read at the speed of thought. 100% Free.",
     alternates: {
         canonical: "/speed-reading",
@@ -32,7 +32,7 @@ export default function SpeedReadingLandingPage() {
                         <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col justify-center">
                             <div className="space-y-5">
                                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-bold uppercase tracking-widest mx-auto lg:mx-0 shadow-md">
-                                    <Zap className="w-3.5 h-3.5 text-indigo-400 animate-pulse" /> Increase Your Reading Speed
+                                    <Zap className="w-3.5 h-3.5 text-indigo-400 animate-pulse" /> Maximize Your Reading Speed
                                 </div>
                                 
                                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] mx-auto lg:mx-0">
@@ -45,7 +45,7 @@ export default function SpeedReadingLandingPage() {
                                 </h1>
                                 
                                 <p className="text-lg md:text-xl text-slate-400 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                                    Increase your reading speed in the next 10 minutes (most people will double their speed). Stop cramming, stop re-reading textbooks, and unlock the <strong className="text-white font-semibold">Rogue Puffin</strong> method to process complex information at the speed of sight. 100% Free.
+                                    Maximize your reading speed in the next 10 minutes (most people will double their speed). Stop cramming, stop re-reading textbooks, and unlock the <strong className="text-white font-semibold">Rogue Puffin</strong> method to process complex information at the speed of sight. 100% Free.
                                 </p>
                             </div>
 

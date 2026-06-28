@@ -36,7 +36,7 @@ export function StorySection() {
               </p>
               
               <p>
-                I started teaching these skills as a side business. Over time, I recognized that these foundational learning methods are still not taught in mainstream education. Yet, when I speak to students, the excitement is still the same: they are blown away when they realize they can increase their reading speed (most people double their speed) and recall dense textbooks in minutes.
+                I started teaching these skills as a side business. Over time, I recognized that these foundational learning methods are still not taught in mainstream education. Yet, when I speak to students, the excitement is still the same: they are blown away when they realize they can maximize their reading speed (most people double their speed) and recall dense textbooks in minutes.
               </p>
 
               <p>
@@ -98,7 +98,7 @@ export function StorySection() {
                   href="/rogue-session/start?v2=true&mode=assessment"
                   className="w-full group/btn relative py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white rounded-2xl font-bold text-base transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 shadow-[0_0_30px_rgba(99,102,241,0.2)] hover:shadow-[0_0_40px_rgba(99,102,241,0.4)] border border-indigo-400/20"
                 >
-                  Increase my reading speed for Free
+                  Maximize my reading speed for Free
                 </Link>
               </div>
             </div>

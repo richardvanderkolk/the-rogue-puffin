@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "14-Day Learning Mastery Bootcamp | The Rogue Puffin",
-    description: "A structured, day-by-day guided cognitive protocol to increase your reading speed, eliminate subvocalization, and dramatically improve recall in 14 days.",
+    description: "A structured, day-by-day guided cognitive protocol to maximize your reading speed, eliminate subvocalization, and dramatically improve recall in 14 days.",
     alternates: {
         canonical: "/bootcamp",
     },

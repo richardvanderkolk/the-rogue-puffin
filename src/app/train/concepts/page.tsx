@@ -245,7 +245,7 @@ export default function ConceptWizard() {
                                 Ready To <span className="text-indigo-400">Unlock</span> Your Supercomputer?
                             </h2>
                             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-                                Join thousands of others who have increased their reading speed and comprehension (most people double their speed).
+                                Join thousands of others who have maximized their reading speed and comprehension (most people double their speed).
                             </p>
 
                             <Link href="/rogue-session" className="w-full block">
