@@ -183,7 +183,7 @@ export default function FreeTestPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter your email address"
-                                className="w-full pl-12 pr-4 py-4 bg-slate-900 border border-slate-800 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none text-white placeholder-slate-600"
+                                className="w-full pl-12 pr-4 py-4 bg-slate-900 border border-slate-800 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none text-white placeholder-slate-600 text-base"
                             />
                         </div>
                         <button

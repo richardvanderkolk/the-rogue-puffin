@@ -94,7 +94,7 @@ export default function ForgotPasswordPage() {
                       type="email"
                       autoComplete="email"
                       required
-                      className="block w-full appearance-none rounded-xl border border-slate-700 bg-black px-4 py-3 text-slate-100 placeholder-slate-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 sm:text-sm transition-all"
+                      className="block w-full appearance-none rounded-xl border border-slate-700 bg-black px-4 py-3 text-slate-100 placeholder-slate-500 shadow-sm focus:border-purple-500 focus:outline-none focus:ring-purple-500 text-base transition-all"
                       placeholder="richard@theroguepuffin.com"
                     />
                   </div>
