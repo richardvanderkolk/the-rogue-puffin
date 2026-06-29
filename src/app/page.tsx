@@ -38,6 +38,25 @@ export default async function V2LandingPage() {
                 .eq('id', user.id)
                 .single();
             hasPaid = profile?.has_paid_bootcamp || false;
+            
+            if (profile && !profile.has_paid_bootcamp && user.email) {
+                // Self-healing: Check if a purchase exists for their email
+                const { data: purchase } = await supabase
+                    .from('purchases')
+                    .select('id')
+                    .ilike('email', user.email)
+                    .limit(1)
+                    .maybeSingle();
+
+                if (purchase) {
+                    await supabase
+                        .from('profiles')
+                        .update({ has_paid_bootcamp: true })
+                        .eq('id', user.id);
+                    hasPaid = true;
+                }
+            }
+
             userName = profile?.full_name || user.email?.split('@')[0] || "there";
         } catch (err) {
             console.error("Failed to fetch user profile in landing page:", err);

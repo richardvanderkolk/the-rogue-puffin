@@ -38,19 +38,51 @@ export default async function BootcampDashboard(props: { searchParams: Promise<{
             .select('has_paid_bootcamp, bootcamp_progress_day')
             .eq('id', user.id)
             .single();
-            
+
         const isLocal = process.env.NODE_ENV === 'development';
         const isAdmin = user.email?.toLowerCase()?.includes('richard') || false;
+
+        if (profile && !profile.has_paid_bootcamp && user.email) {
+            // Self-healing: Check if a purchase exists for their email
+            const { data: purchase } = await supabase
+                .from('purchases')
+                .select('id')
+                .ilike('email', user.email)
+                .limit(1)
+                .maybeSingle();
+
+            if (purchase) {
+                // Update profile record in the database
+                await supabase
+                    .from('profiles')
+                    .update({ has_paid_bootcamp: true })
+                    .eq('id', user.id);
+                profile.has_paid_bootcamp = true;
+            }
+        }
 
         if (!profile) {
             // Auto-create missing profile
             try {
+                let hasPaidBootcamp = isAdmin;
+                if (user.email) {
+                    const { data: purchase } = await supabase
+                        .from('purchases')
+                        .select('id')
+                        .ilike('email', user.email)
+                        .limit(1)
+                        .maybeSingle();
+                    if (purchase) {
+                        hasPaidBootcamp = true;
+                    }
+                }
+
                 const { data: newProfile } = await supabase
                     .from('profiles')
                     .insert({
                         id: user.id,
                         email: user.email,
-                        has_paid_bootcamp: isAdmin,
+                        has_paid_bootcamp: hasPaidBootcamp,
                         bootcamp_progress_day: 1
                     })
                     .select('has_paid_bootcamp, bootcamp_progress_day')
