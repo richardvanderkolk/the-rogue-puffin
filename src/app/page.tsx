@@ -8,6 +8,7 @@ import { StorySection } from "@/components/landing/StorySection";
 import { InteractivePacerPreview } from "@/components/landing/InteractivePacerPreview";
 import { ChooseYourPath } from "@/components/landing/ChooseYourPath";
 import { ViewTracker } from "@/components/ViewTracker";
+import { CognitiveOSUpgrade } from "@/components/landing/CognitiveOSUpgrade";
 
 import { Metadata } from "next";
 import { headers } from "next/headers";
@@ -303,6 +304,9 @@ export default async function V2LandingPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Cognitive OS Upgrade Bento Section */}
+            <CognitiveOSUpgrade />
 
             {/* 3. Founder's Story Section */}
             <StorySection />
