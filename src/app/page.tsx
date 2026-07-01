@@ -8,7 +8,7 @@ import { StorySection } from "@/components/landing/StorySection";
 import { InteractivePacerPreview } from "@/components/landing/InteractivePacerPreview";
 import { ChooseYourPath } from "@/components/landing/ChooseYourPath";
 import { ViewTracker } from "@/components/ViewTracker";
-import { CognitiveOSUpgrade } from "@/components/landing/CognitiveOSUpgrade";
+import { UnifiedHeroWidget } from "@/components/landing/UnifiedHeroWidget";
 
 import { Metadata } from "next";
 import { headers } from "next/headers";
@@ -139,128 +139,10 @@ export default async function V2LandingPage() {
                             </div>
                         </div>
 
-                        {/* Right Column (Path Selection Action Card) */}
+                        {/* Right Column (Unified Interactive Cognitive OS Widget) */}
                         <div className="lg:col-span-5 flex flex-col items-center justify-center relative w-full pt-8 lg:pt-0">
                             <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-500/10 to-purple-500/10 rounded-[2.5rem] blur-3xl -z-10 opacity-30 pointer-events-none animate-pulse" />
-                            
-                            <div className="bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col w-full max-w-md mx-auto group">
-                                {/* Decorative top header glow */}
-                                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600" />
-                                
-                                <div className="space-y-6">
-                                    <div className="border-b border-white/5 pb-4">
-                                        <span className="text-xs text-indigo-400 uppercase tracking-widest font-extrabold block">The Roadmap</span>
-                                        <h3 className="text-lg font-bold text-white mt-1">Discover the ultimate in learning mastery in just 15-30 mins a day for 2 weeks:</h3>
-                                    </div>
-                                    
-                                    <ul className="space-y-2 text-sm font-light text-left">
-                                        <li className="flex items-start gap-2.5">
-                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
-                                            <span className="text-slate-300">Doubling your reading speed</span>
-                                        </li>
-                                        <li className="flex items-start gap-2.5">
-                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
-                                            <span className="text-slate-300">Discovering your personal learning style</span>
-                                        </li>
-                                        <li className="flex items-start gap-2.5">
-                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
-                                            <span className="text-slate-300">Memory hacks of the memory champions</span>
-                                        </li>
-                                        <li className="flex items-start gap-2.5">
-                                            <span className="text-indigo-400 font-bold shrink-0 mt-0.5">•</span>
-                                            <span className="text-slate-300">Scientifically proven protocols to turn you into a genius learner!</span>
-                                        </li>
-                                    </ul>
-                                    
-                                    <div className="border-t border-white/5 pt-4 space-y-4">
-                                        {user ? (
-                                            <div className="space-y-5 py-2">
-                                                <div className="bg-slate-950/60 p-4 rounded-xl border border-white/5 space-y-3">
-                                                    <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider block">Logged In Account</span>
-                                                    <div className="text-sm font-semibold text-white truncate">{user.email}</div>
-                                                    <div className="flex items-center gap-2">
-                                                        <span className={`w-2 h-2 rounded-full ${hasPaid ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" : "bg-purple-500 animate-pulse"}`} />
-                                                        <span className="text-xs text-slate-400">
-                                                            Bootcamp Status: <span className="font-bold text-slate-200">{hasPaid ? "Active / Unlocked" : "Free Preview Mode"}</span>
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <div className="space-y-3">
-                                                    {hasPaid ? (
-                                                        <Link 
-                                                            href="/bootcamp" 
-                                                            className="w-full group/btn relative py-3 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-indigo-400/20 shadow-[0_0_20px_rgba(99,102,241,0.15)]"
-                                                        >
-                                                            Resume 14-Day Bootcamp
-                                                            <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                                                        </Link>
-                                                    ) : (
-                                                        <>
-                                                            <Link 
-                                                                href="/bootcamp" 
-                                                                className="w-full group/btn relative py-3 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-indigo-400/20 shadow-[0_0_20px_rgba(99,102,241,0.15)]"
-                                                            >
-                                                                Unlock 14-Day Bootcamp ({symbol}29)
-                                                                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                                                            </Link>
-                                                            <Link 
-                                                                href="/dashboard" 
-                                                                className="w-full group/btn relative py-2.5 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-white/10"
-                                                            >
-                                                                Go to Student Dashboard
-                                                                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                                                            </Link>
-                                                        </>
-                                                    )}
-                                                </div>
-                                            </div>
-                                        ) : (
-                                            <>
-                                                {/* Option 1: Start For Free */}
-                                                <div className="space-y-2">
-                                                    <div className="flex items-center justify-between">
-                                                        <span className="text-xs font-bold text-indigo-300 uppercase tracking-wider">Option 1: Start For Free</span>
-                                                        <span className="text-[10px] bg-indigo-500/15 border border-indigo-500/20 text-indigo-300 px-2 py-0.5 rounded-full font-bold uppercase">No Signup</span>
-                                                    </div>
-                                                    <p className="text-xs text-slate-400 leading-relaxed font-light">
-                                                        Start Day 1 for free by improving your reading speed in 30mins … our way of proving to you that it works.
-                                                    </p>
-                                                    <Link 
-                                                        href="/rogue-session/start?v2=true&mode=assessment" 
-                                                        className="w-full group/btn relative py-3 bg-gradient-to-r from-indigo-500 to-purple-650 hover:from-indigo-450 hover:to-purple-550 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-indigo-400/20 shadow-[0_0_20px_rgba(99,102,241,0.15)]"
-                                                    >
-                                                        Start Free Masterclass
-                                                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                                                    </Link>
-                                                </div>
-
-                                                {/* Option 2: Explore the 14-Day Bootcamp */}
-                                                <div className="space-y-2 pt-2">
-                                                    <div className="flex items-center justify-between">
-                                                        <span className="text-xs font-bold text-purple-300 uppercase tracking-wider">Option 2: 14-Day Bootcamp</span>
-                                                        <span className="text-[10px] bg-purple-500/15 border border-purple-500/20 text-purple-300 px-2 py-0.5 rounded-full font-bold uppercase">{symbol}29</span>
-                                                    </div>
-                                                    <p className="text-xs text-slate-400 leading-relaxed font-light">
-                                                        Check out what the 14 days cover (15-30mins per day).
-                                                    </p>
-                                                    <Link 
-                                                        href="/bootcamp" 
-                                                        className="w-full group/btn relative py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold text-xs transition-all active:scale-[0.98] flex items-center justify-center text-center gap-2 border border-white/10"
-                                                    >
-                                                        Explore 14-Day Bootcamp
-                                                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                                                    </Link>
-                                                </div>
-                                            </>
-                                        )}
-                                    </div>
-
-                                    <div className="text-center pt-2 border-t border-white/5">
-                                        <span className="text-sm font-semibold text-indigo-300 italic block">If you never try, you'll never know.</span>
-                                    </div>
-                                </div>
-                            </div>
+                            <UnifiedHeroWidget user={user} hasPaid={hasPaid} symbol={symbol} />
                         </div>
 
                     </div>
@@ -304,9 +186,6 @@ export default async function V2LandingPage() {
                     </div>
                 </div>
             </section>
-
-            {/* Cognitive OS Upgrade Bento Section */}
-            <CognitiveOSUpgrade />
 
             {/* 3. Founder's Story Section */}
             <StorySection />
